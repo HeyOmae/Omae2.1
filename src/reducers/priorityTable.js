@@ -14,9 +14,6 @@ const initialState = {
 };
 
 const priorityReducer = (state=initialState, action) => {
-	//action.type = 'SET_PRIORITY'
-	//action.priority.rating = 'A'
-	//action.priority.category = 'metatype'
 	const actionsToTake = {
 		SET_PRIORITY: () => {
 			let category = action.priority.category,

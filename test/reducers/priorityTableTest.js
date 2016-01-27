@@ -15,15 +15,16 @@ describe('priorityTable', () => {
 
 	it('should not change the passed state', (done) => {
 
-		const state = Object.freeze({});
-		reducer(state, {type: 'INVALID'});
+		const state = Object.freeze({hello: 'goodbye'});
+		let newState = reducer(state, {type: 'INVALID'});
+		expect(newState.hello).to.equal('goodbye');
 		done();
 	});
 
-	it('should change state.priority.metatype to rating B', () => {
+	it('should make a new state that changes state.priority[category] to a different rating', () => {
 
 		let newState = reducer(state, {type: 'SET_PRIORITY', priority: {rating: 'B', category: 'metatype'}});
 
 		expect(newState.priority.metatype).to.equal('B');
-	})
+	});
 });
