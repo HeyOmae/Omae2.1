@@ -1,7 +1,18 @@
 /* Base Application Styles */
 body {
   color: #fff;
-  background: #222;
+
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#222222+0,7db9e8+32,7db9e8+49,faff00+72,faff00+72,f600ff+73,000032+100 */
+  background: #222222; /* Old browsers */
+  background: -moz-linear-gradient(top, #222222 0%, #7db9e8 32%, #7db9e8 49%, #faff00 72%, #faff00 72%, #f600ff 73%, #000032 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #222222 0%,#7db9e8 32%,#7db9e8 49%,#faff00 72%,#faff00 72%,#f600ff 73%,#000032 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #222222 0%,#7db9e8 32%,#7db9e8 49%,#faff00 72%,#faff00 72%,#f600ff 73%,#000032 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#222222', endColorstr='#000032',GradientType=0 ); /* IE6-9 */
+  background-attachment: fixed;
+}
+
+.index > * {
+  background-color: rgba(200, 200, 200, .75);
 }
 
 .index img {

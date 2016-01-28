@@ -15,14 +15,16 @@ class PriorityTableComponent extends React.Component {
 
 const PriorityLabel = () => {
 	return (
-		<tr>
-			<th>Priority</th>
-			<th>Metatype</th>
-			<th>Attributes</th>
-			<th>Magic/Resonance</th>
-			<th>Skills</th>
-			<th>Resources</th>
-		</tr>
+		<thead className="thead-inverse">
+			<tr>
+				<th>Priority</th>
+				<th>Metatype</th>
+				<th>Attributes</th>
+				<th>Magic/Resonance</th>
+				<th>Skills</th>
+				<th>Resources</th>
+			</tr>
+		</thead>
 	);
 };
 
@@ -124,9 +126,9 @@ const PriorityRow = ({rating}) => {
 
 const PriorityTable = () => {
 	return (
-		<table>
+		<table className="table table-bordered">
+			<PriorityLabel />
 			<tbody>
-				<PriorityLabel />
 				<PriorityRow rating="A"/>
 				<PriorityRow rating="B"/>
 				<PriorityRow rating="C"/>

@@ -101,7 +101,7 @@
 		},
 		"attributes": 20,
 		"magic": {
-			"mage": {
+			"Mage": {
 				"attribute": {
 					"name": "Magic",
 					"points": 4
@@ -116,7 +116,7 @@
 					"points": 7
 				}
 			},
-			"mystic": {
+			"Mystic": {
 				"attribute": {
 					"name": "Magic",
 					"points" : 4
@@ -131,7 +131,7 @@
 					"points": 7
 				}
 			},
-			"technomancer": {
+			"Technomancer": {
 				"attribute": {
 					"name": "Resonance",
 					"points": 4
@@ -146,7 +146,7 @@
 					"points": 2
 				}
 			},
-			"adept": {
+			"Adept": {
 				"attribute": {
 					"name": "Magic",
 					"points": 6
@@ -156,7 +156,7 @@
 					"ammount": 1
 				}
 			},
-			"aspected": {
+			"Aspected": {
 				"attribute": {
 					"name": "Magic",
 					"points": 5
@@ -191,7 +191,7 @@
 		},
 		"attributes": 16,
 		"magic": {
-			"mage": {
+			"Mage": {
 				"attribute": {
 					"name": "Magic",
 					"points": 3
@@ -201,7 +201,7 @@
 					"points": 5
 				}
 			},
-			"mystic": {
+			"Mystic": {
 				"attribute": {
 					"name": "Magic",
 					"points": 3
@@ -211,7 +211,7 @@
 					"points": 5
 				}
 			},
-			"technomancer": {
+			"Technomancer": {
 				"attribute": {
 					"name": "Resonance",
 					"points": 3
@@ -221,7 +221,7 @@
 					"points": 1
 				}
 			},
-			"adept": {
+			"Adept": {
 				"attribute": {
 					"name": "Magic",
 					"points": 4
@@ -231,7 +231,7 @@
 					"ammount": 1
 				}
 			},
-			"aspected": {
+			"Aspected": {
 				"attribute": {
 					"name": "Magic",
 					"points": 3
@@ -260,13 +260,13 @@
 		},
 		"attributes": 14,
 		"magic": {
-			"adept": {
+			"Adept": {
 				"attribute": {
 					"name": "Magic",
 					"points": 2
 				}
 			},
-			"aspected": {
+			"Aspected": {
 				"attribute": {
 					"name": "Magic",
 					"points": 2
