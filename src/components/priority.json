@@ -1,0 +1,300 @@
+{
+	"A": {
+		"metatype": {
+			"human": {
+				"special": 9
+			},
+			"elf": {
+				"special": 8
+			},
+			"dwarf": {
+				"special": 7
+			},
+			"ork": {
+				"special": 7
+			},
+			"troll": {
+				"special": 5
+			},
+			"nartaki": {
+				"special": 8,
+				"karma": 0
+			},
+			"wakyami": {
+				"special": 8,
+				"karma": 12
+			}
+		},
+		
+		"attributes": 24,
+
+		"magic": {
+			"Mage": {
+				"attribute": {
+					"name": "Magic",
+					"points": 6
+				},
+				"skills": {
+					"attribute": "Magic",
+					"rating": 5,
+					"ammount": 2
+				},
+				"spells": {
+					"type": "Spells",
+					"points": 10
+				}
+			},
+			"Mystic": {
+				"attribute": {
+					"name": "Magic",
+					"points": 6
+				},
+				"skills": {
+					"attribute": "Magic",
+					"rating": 5,
+					"ammount": 2
+				},
+				"spells": {
+					"type": "Spells",
+					"points": 10
+				}
+			},
+			"Technomancer": {
+				"attribute": {
+					"name": "Resonance",
+					"points": 6
+				},
+				"skills": {
+					"attribute": "Resonance",
+					"rating": 5,
+					"ammount": 2
+				},
+				"spells": {
+					"type": "Complex Forms",
+					"points": 10
+				}
+			}
+		},
+		"skills": {
+			"skillpoints": 46,
+			"grouppoints": 10
+		},
+		"resources": 450000
+	},
+	"B": {
+		"metatype": {
+			"human": {
+				"special": 7
+			},
+			"elf": {
+				"special": 6
+			},
+			"dwarf": {
+				"special": 4
+			},
+			"ork": {
+				"special": 4
+			},
+			"troll": {
+				"special": 0
+			}
+		},
+		"attributes": 20,
+		"magic": {
+			"mage": {
+				"attribute": {
+					"name": "Magic",
+					"points": 4
+				},
+				"skills": {
+					"attribute": "Magic",
+					"rating": 4,
+					"ammount": 2
+				},
+				"spells": {
+					"type": "Spells",
+					"points": 7
+				}
+			},
+			"mystic": {
+				"attribute": {
+					"name": "Magic",
+					"points" : 4
+				},
+				"skills": {
+					"attribute": "Magic",
+					"rating": 4,
+					"ammount": 2
+				},
+				"spells": {
+					"type": "Spells",
+					"points": 7
+				}
+			},
+			"technomancer": {
+				"attribute": {
+					"name": "Resonance",
+					"points": 4
+				},
+				"skills": {
+					"attribute": "Resonance",
+					"rating": 4,
+					"ammount": 2
+				},
+				"spells": {
+					"type": "Complex Forms",
+					"points": 2
+				}
+			},
+			"adept": {
+				"attribute": {
+					"name": "Magic",
+					"points": 6
+				},
+				"skills": {
+					"rating": 4,
+					"ammount": 1
+				}
+			},
+			"aspected": {
+				"attribute": {
+					"name": "Magic",
+					"points": 5
+				},
+				"skillgroup": {
+					"attribute": "Magic",
+					"rating": 4,
+					"ammount": 1
+				}
+			}
+		},
+		"skills": {
+			"skillpoints": 36,
+			"grouppoints": 5
+		},
+		"resources": 275000
+	},
+	"C": {
+		"metatype": {
+			"human": {
+				"special": 5
+			},
+			"elf": {
+				"special": 3
+			},
+			"dwarf": {
+				"special": 1
+			},
+			"ork": {
+				"special": 0
+			}
+		},
+		"attributes": 16,
+		"magic": {
+			"mage": {
+				"attribute": {
+					"name": "Magic",
+					"points": 3
+				},
+				"spells": {
+					"type": "Spells",
+					"points": 5
+				}
+			},
+			"mystic": {
+				"attribute": {
+					"name": "Magic",
+					"points": 3
+				},
+				"spells": {
+					"type": "Spells",
+					"points": 5
+				}
+			},
+			"technomancer": {
+				"attribute": {
+					"name": "Resonance",
+					"points": 3
+				},
+				"spells": {
+					"type": "Complex Forms",
+					"points": 1
+				}
+			},
+			"adept": {
+				"attribute": {
+					"name": "Magic",
+					"points": 4
+				},
+				"skills": {
+					"rating": 2,
+					"ammount": 1
+				}
+			},
+			"aspected": {
+				"attribute": {
+					"name": "Magic",
+					"points": 3
+				},
+				"skillgroup": {
+					"attribute": "Magic",
+					"rating": 2,
+					"ammount": 1
+				}
+			}
+		},
+		"skills": {
+			"skillpoints": 28,
+			"grouppoints": 2
+		},
+		"resources": 140000
+	},
+	"D": {
+		"metatype": {
+			"human": {
+				"special": 3
+			},
+			"elf": {
+				"special": 0
+			}
+		},
+		"attributes": 14,
+		"magic": {
+			"adept": {
+				"attribute": {
+					"name": "Magic",
+					"points": 2
+				}
+			},
+			"aspected": {
+				"attribute": {
+					"name": "Magic",
+					"points": 2
+				}
+			}
+		},
+		"skills": {
+			"skillpoints": 22,
+			"grouppoints": 0
+		},
+		"resources": 50000
+	},
+	"E": {
+		"metatype": {
+			"human": {
+				"special": 1
+			}
+		},
+		"attributes": 12,
+		"magic": {
+			"mundane": {
+				"nothing": "–"
+			}
+		},
+		"skills": {
+			"skillpoints": 18,
+			"grouppoints": 0
+		},
+		"resources": 6000
+	}
+}

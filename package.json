@@ -67,6 +67,7 @@
   },
   "dependencies": {
     "core-js": "^2.0.0",
+    "json-loader": "^0.5.4",
     "normalize.css": "^3.0.3",
     "react": "^0.14.0",
     "react-dom": "^0.14.0",
