@@ -4,13 +4,11 @@
  * src/container/App.js accordingly.
  */
 const initialState = {
-	priority: {
-		metatype: 'A',
-		attribute: 'B',
-		magres: 'C',
-		skills: 'D',
-		resouces: 'E'
-	}
+	metatype: 'A',
+	attribute: 'B',
+	magres: 'C',
+	skills: 'D',
+	resouces: 'E'
 };
 
 const priorityReducer = (state=initialState, action) => {

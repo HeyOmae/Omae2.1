@@ -5,18 +5,18 @@
  *          you edit them, they are not updated again.
  */
 import React, {
-  Component,
-  PropTypes
+	Component,
+	PropTypes
 } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Main from '../components/Main';
 /* Populated by react-webpack-redux:reducer */
 class App extends Component {
-  render() {
-    const {actions, priorityTable} = this.props;
-    return <Main actions={actions} priorityTable={priorityTable}/>;
-  }
+	render() {
+		const {actions, priorityTable} = this.props;
+		return <Main actions={actions} priorityTable={priorityTable}/>;
+	}
 }
 /* Populated by react-webpack-redux:reducer
  *
@@ -24,18 +24,18 @@ class App extends Component {
  *       adjust it here.
  */
 App.propTypes = {
-  actions: PropTypes.object.isRequired,
-  priorityTable: PropTypes.object.isRequired
+	actions: PropTypes.object.isRequired,
+	priorityTable: PropTypes.object.isRequired
 };
 function mapStateToProps(state) {
-  /* Populated by react-webpack-redux:reducer */
-  const props = { priorityTable: state.priorityTable };
-  return props;
+	/* Populated by react-webpack-redux:reducer */
+	const props = { priorityTable: state.priorityTable };
+	return props;
 }
 function mapDispatchToProps(dispatch) {
-  /* Populated by react-webpack-redux:action */
-  const actions = { priorityTable: require('../actions/priorityTable.js') };
-  const actionMap = { actions: bindActionCreators(actions, dispatch) };
-  return actionMap;
+	/* Populated by react-webpack-redux:action */
+	const actions = { priorityTable: require('../actions/priorityTable.js') };
+	const actionMap = { actions: bindActionCreators(actions, dispatch) };
+	return actionMap;
 }
 export default connect(mapStateToProps, mapDispatchToProps)(App);
