@@ -6,16 +6,19 @@ import React from 'react';
 import PriorityTableComponent from './PriorityTableComponent';
 
 class AppComponent extends React.Component {
-  render() {
-    return (
-      <div className="index container">
-        <h1>Omae v2</h1>
-        <h2>Priority Table</h2>
-        <PriorityTableComponent />
+	render() {
+		return (
+			<div className="index container">
+				<div className="program-title">
+					<h1>Omae v 2</h1>
+					<p>Shadowrun Character Generator</p>
+				</div>
+				<h2>Priority Table</h2>
+				<PriorityTableComponent />
 
-      </div>
-    );
-  }
+			</div>
+		);
+	}
 }
 
 AppComponent.defaultProps = {
