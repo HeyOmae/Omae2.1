@@ -126,16 +126,18 @@ const PriorityRow = ({rating}) => {
 
 const PriorityTable = () => {
 	return (
-		<table className="table table-bordered">
-			<PriorityLabel />
-			<tbody>
-				<PriorityRow rating="A"/>
-				<PriorityRow rating="B"/>
-				<PriorityRow rating="C"/>
-				<PriorityRow rating="D"/>
-				<PriorityRow rating="E"/>
-			</tbody>
-		</table>
+		<div className="table-responsive">
+			<table className="table table-bordered priority-table">
+				<PriorityLabel />
+				<tbody>
+					<PriorityRow rating="A"/>
+					<PriorityRow rating="B"/>
+					<PriorityRow rating="C"/>
+					<PriorityRow rating="D"/>
+					<PriorityRow rating="E"/>
+				</tbody>
+			</table>
+		</div>
 	)
 }
 
