@@ -11,7 +11,7 @@ class AppComponent extends React.Component {
 			<div className="index container">
 				<div className="program-title">
 					<h1>Omae v 2</h1>
-					<p>Shadowrun Character Generator</p>
+					<p>Shadowrun 5<sup>th</sup> Edition Character Generator</p>
 				</div>
 				<h2>Priority Table</h2>
 				<PriorityTableComponent />
