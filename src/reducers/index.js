@@ -8,5 +8,8 @@
  */
 import { combineReducers } from 'redux';
 /* Populated by react-webpack-redux:reducer */
-const reducers = { priorityTable: require('../reducers/priorityTable.js') };
+const reducers = {
+  priorityTable: require('../reducers/priorityTable.js'),
+  selectMetatype: require('../reducers/selectMetatype.js')
+};
 module.exports = combineReducers(reducers);
