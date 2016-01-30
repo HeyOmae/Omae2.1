@@ -12,7 +12,7 @@ class MetatypeSelectorComponent extends React.Component {
 		let buttonElements = [];
 		for(let type in metatypeData) {
 			buttonElements.push(
-				<MetatypeButton type={type} disabled={type in priorityData[rating].metatype}/>
+				<MetatypeButton type={type} option={type in priorityData[rating].metatype}/>
 			);
 		}
 		return (
@@ -26,10 +26,10 @@ class MetatypeSelectorComponent extends React.Component {
 	}
 }
 
-const MetatypeButton = ({type, disabled}) => {
+const MetatypeButton = ({type, option}) => {
 	return(
-		<label className={'btn btn-primary ' + (disabled ? 'disabled' : '')} >
-			<input type="radio" name="metatype-selector" id={'metatype-' + type} autoComplete="off" disabled={disabled ? 'disabled' : 'false'}/> {type}
+		<label className={'btn btn-primary ' + (option ? '' : 'disabled')} >
+			<input type="radio" name="metatype-selector" id={'metatype-' + type} autoComplete="off" /> {type}
 		</label>
 	)
 }
