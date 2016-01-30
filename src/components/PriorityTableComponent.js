@@ -7,9 +7,9 @@ require('styles//PriorityTable.sass');
 
 class PriorityTableComponent extends React.Component {
 	render() {
-		const {priorityTable} = this.props;
+		const {actions, priorityTable} = this.props;
 		return (
-			<PriorityTable className="prioritytable-component" priorityTableData={priorityTable} />
+			<PriorityTable className="prioritytable-component" actions={actions} priorityTableData={priorityTable} />
 		);
 	}
 }
@@ -34,7 +34,7 @@ const PriorityLabel = () => {
 	);
 };
 
-let MetatypeDataCell = ({rating, active}) => {
+let MetatypeDataCell = ({rating, active, changePriority}) => {
 	let data = [];
 
 	for(let race in priorityData[rating].metatype) {
@@ -43,23 +43,40 @@ let MetatypeDataCell = ({rating, active}) => {
 		data.push(<p key={race}>{race} ({special}) {karma ? 'K: ' + karma : ''}</p>);
 	}
 	return (
-		<td className={isActive(active)}>
+		<td
+			className={isActive(active)}
+			onClick={()=> {
+				changePriority({
+					type: 'SET_PRIORITY',
+					category: 'metatype',
+					rating
+				})
+			}}
+		>
 			{data}
 		</td>
-
 	);
 };
 
 
-const AttributeDataCell = ({rating, active}) => {
+const AttributeDataCell = ({rating, active, changePriority}) => {
 	return (
-		<td className={isActive(active)}>
+		<td
+			className={isActive(active)}
+			onClick={()=> {
+				changePriority({
+					type: 'SET_PRIORITY',
+					category: 'attribute',
+					rating
+				})
+			}}
+		>
 			{priorityData[rating].attributes}
 		</td>
 	);
 }
 
-const MagicDataCell = ({rating, active}) => {
+const MagicDataCell = ({rating, active, changePriority}) => {
 	let magicStatBlock = [];
 
 	for(let magicType in priorityData[rating].magic) {
@@ -95,13 +112,22 @@ const MagicDataCell = ({rating, active}) => {
 	}
 
 	return(
-		<td className={isActive(active)}>
+		<td
+			className={isActive(active)}
+			onClick={()=> {
+				changePriority({
+					type: 'SET_PRIORITY',
+					category: 'magres',
+					rating
+				})
+			}}
+		>
 			{magicStatBlock}
 		</td>
 	)
 }
 
-const SkillsDataCell = ({rating, active}) => {
+const SkillsDataCell = ({rating, active, changePriority}) => {
 	let skillsgroupBlock = <span></span>,
 		skillgroups = priorityData[rating].skills.grouppoints;
 
@@ -110,40 +136,101 @@ const SkillsDataCell = ({rating, active}) => {
 	}
 
 	return(
-		<td className={isActive(active)}>
+		<td
+			className={isActive(active)}
+			onClick={()=> {
+				changePriority({
+					type: 'SET_PRIORITY',
+					category: 'skills',
+					rating
+				})
+			}}
+		>
 			{priorityData[rating].skills.skillpoints}{skillsgroupBlock}
 		</td>
 	)
 }
 
-const ResourcesDataCell = ({rating, active}) => {
-	return (<td className={isActive(active)}>{priorityData[rating].resources}&yen;</td>)
+const ResourcesDataCell = ({rating, active, changePriority}) => {
+	return (
+		<td
+			className={isActive(active)}
+			onClick={()=> {
+				changePriority({
+					type: 'SET_PRIORITY',
+					category: 'resources',
+					rating
+				})
+			}}
+		>
+			{priorityData[rating].resources}&yen;
+		</td>)
 }
 
-const PriorityRow = ({rating, priorityTableData}) => {
+const PriorityRow = ({rating, priorityTableData, actions}) => {
 	return (
 		<tr>
 			<th>{rating}</th>
-			<MetatypeDataCell rating={rating} active={priorityTableData.metatype === rating} />
-			<AttributeDataCell rating={rating} active={priorityTableData.attribute === rating} />
-			<MagicDataCell rating={rating} active={priorityTableData.magres === rating} />
-			<SkillsDataCell rating={rating} active={priorityTableData.skills === rating} />
-			<ResourcesDataCell rating={rating} active={priorityTableData.resouces === rating} />
+			<MetatypeDataCell
+				rating={rating}
+				active={priorityTableData.metatype === rating}
+				changePriority={actions}
+			/>
+			<AttributeDataCell
+				rating={rating}
+				active={priorityTableData.attribute === rating}
+				changePriority={actions}
+			/>
+			<MagicDataCell
+				rating={rating}
+				active={priorityTableData.magres === rating}
+				changePriority={actions}
+			/>
+			<SkillsDataCell
+				rating={rating}
+				active={priorityTableData.skills === rating}
+				changePriority={actions}
+			/>
+			<ResourcesDataCell
+				rating={rating}
+				active={priorityTableData.resources === rating}
+				changePriority={actions}
+			/>
 		</tr>
 	)
 }
 
-const PriorityTable = ({priorityTableData}) => {
+const PriorityTable = ({priorityTableData, actions}) => {
 	return (
 		<div className="table-responsive">
 			<table className="table table-bordered priority-table">
 				<PriorityLabel />
 				<tbody>
-					<PriorityRow rating="A" priorityTableData={priorityTableData} />
-					<PriorityRow rating="B" priorityTableData={priorityTableData} />
-					<PriorityRow rating="C" priorityTableData={priorityTableData} />
-					<PriorityRow rating="D" priorityTableData={priorityTableData} />
-					<PriorityRow rating="E" priorityTableData={priorityTableData} />
+					<PriorityRow
+						rating="A"
+						priorityTableData={priorityTableData}
+						actions={actions}
+					/>
+					<PriorityRow
+						rating="B"
+						priorityTableData={priorityTableData}
+						actions={actions}
+					/>
+					<PriorityRow
+						rating="C"
+						priorityTableData={priorityTableData}
+						actions={actions}
+					/>
+					<PriorityRow
+						rating="D"
+						priorityTableData={priorityTableData}
+						actions={actions}
+					/>
+					<PriorityRow
+						rating="E"
+						priorityTableData={priorityTableData}
+						actions={actions}
+					/>
 				</tbody>
 			</table>
 		</div>

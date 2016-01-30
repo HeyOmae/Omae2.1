@@ -8,15 +8,14 @@ const initialState = {
 	attribute: 'B',
 	magres: 'C',
 	skills: 'D',
-	resouces: 'E'
+	resources: 'E'
 };
 
 const priorityReducer = (state=initialState, action) => {
 	const actionsToTake = {
 		SET_PRIORITY: () => {
-			let category = action.priority.category,
-				rating = action.priority.rating;
-			return Object.assign({}, state, state.priority[category] = rating)
+			let {rating, category} = action.parameter;
+			return Object.assign({}, state, state[category] = rating)
 		},
 
 		DEFAULT: () => { return state; }

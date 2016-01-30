@@ -15,7 +15,7 @@ class AppComponent extends React.Component {
 					<p>Shadowrun 5<sup>th</sup> Edition Character Generator</p>
 				</div>
 				<h2>Priority Table</h2>
-				<PriorityTableComponent priorityTable={priorityTable} />
+				<PriorityTableComponent actions={actions.priorityTable} priorityTable={priorityTable} />
 			</div>
 		);
 	}
