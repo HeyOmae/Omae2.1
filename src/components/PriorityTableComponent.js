@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react';
-let priorityData = require('json!./priority.json');
+let priorityData = require('json!./data/priority.json');
 
 require('styles//PriorityTable.sass');
 
@@ -34,7 +34,7 @@ const PriorityLabel = () => {
 	);
 };
 
-let MetatypeDataCell = ({rating, active, changePriority}) => {
+const MetatypeDataCell = ({rating, active, changePriority}) => {
 	let data = [];
 
 	for(let race in priorityData[rating].metatype) {
