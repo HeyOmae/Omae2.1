@@ -7,10 +7,16 @@ require('styles//PriorityTable.sass');
 
 class PriorityTableComponent extends React.Component {
 	render() {
+		const {priorityTable} = this.props;
 		return (
-			<PriorityTable className="prioritytable-component" />
+			<PriorityTable className="prioritytable-component" priorityTableData={priorityTable} />
 		);
 	}
+}
+
+//helper function
+function isActive(active) {
+	return active ? 'table-success' : '';
 }
 
 const PriorityLabel = () => {
@@ -28,35 +34,38 @@ const PriorityLabel = () => {
 	);
 };
 
-const MetatypeDataCell = ({rating}) => {
+let MetatypeDataCell = ({rating, active}) => {
 	let data = [];
+
 	for(let race in priorityData[rating].metatype) {
 		let special = priorityData[rating].metatype[race].special,
 			karma = priorityData[rating].metatype[race].karma;
 		data.push(<p key={race}>{race} ({special}) {karma ? 'K: ' + karma : ''}</p>);
 	}
 	return (
-		<td>
+		<td className={isActive(active)}>
 			{data}
 		</td>
 
 	);
 };
 
-const AttributeDataCell = ({rating}) => {
+
+const AttributeDataCell = ({rating, active}) => {
 	return (
-		<td>
+		<td className={isActive(active)}>
 			{priorityData[rating].attributes}
 		</td>
 	);
 }
 
-const MagicDataCell = ({rating}) => {
+const MagicDataCell = ({rating, active}) => {
 	let magicStatBlock = [];
 
 	for(let magicType in priorityData[rating].magic) {
-		let magicStats = priorityData[rating].magic[magicType],
-			skills = <span />,
+		const magicStats = priorityData[rating].magic[magicType];
+
+		let skills = <span />,
 			spells = <span />,
 			magicDetails = <span />;
 
@@ -86,13 +95,13 @@ const MagicDataCell = ({rating}) => {
 	}
 
 	return(
-		<td>
+		<td className={isActive(active)}>
 			{magicStatBlock}
 		</td>
 	)
 }
 
-const SkillsDataCell = ({rating}) => {
+const SkillsDataCell = ({rating, active}) => {
 	let skillsgroupBlock = <span></span>,
 		skillgroups = priorityData[rating].skills.grouppoints;
 
@@ -101,40 +110,40 @@ const SkillsDataCell = ({rating}) => {
 	}
 
 	return(
-		<td>
+		<td className={isActive(active)}>
 			{priorityData[rating].skills.skillpoints}{skillsgroupBlock}
 		</td>
 	)
 }
 
-const ResourcesDataCell = ({rating}) => {
-	return (<td>{priorityData[rating].resources}&yen;</td>)
+const ResourcesDataCell = ({rating, active}) => {
+	return (<td className={isActive(active)}>{priorityData[rating].resources}&yen;</td>)
 }
 
-const PriorityRow = ({rating}) => {
+const PriorityRow = ({rating, priorityTableData}) => {
 	return (
 		<tr>
 			<th>{rating}</th>
-			<MetatypeDataCell rating={rating} />
-			<AttributeDataCell rating={rating} />
-			<MagicDataCell rating={rating} />
-			<SkillsDataCell rating={rating} />
-			<ResourcesDataCell rating={rating} />
+			<MetatypeDataCell rating={rating} active={priorityTableData.metatype === rating} />
+			<AttributeDataCell rating={rating} active={priorityTableData.attribute === rating} />
+			<MagicDataCell rating={rating} active={priorityTableData.magres === rating} />
+			<SkillsDataCell rating={rating} active={priorityTableData.skills === rating} />
+			<ResourcesDataCell rating={rating} active={priorityTableData.resouces === rating} />
 		</tr>
 	)
 }
 
-const PriorityTable = () => {
+const PriorityTable = ({priorityTableData}) => {
 	return (
 		<div className="table-responsive">
 			<table className="table table-bordered priority-table">
 				<PriorityLabel />
 				<tbody>
-					<PriorityRow rating="A"/>
-					<PriorityRow rating="B"/>
-					<PriorityRow rating="C"/>
-					<PriorityRow rating="D"/>
-					<PriorityRow rating="E"/>
+					<PriorityRow rating="A" priorityTableData={priorityTableData} />
+					<PriorityRow rating="B" priorityTableData={priorityTableData} />
+					<PriorityRow rating="C" priorityTableData={priorityTableData} />
+					<PriorityRow rating="D" priorityTableData={priorityTableData} />
+					<PriorityRow rating="E" priorityTableData={priorityTableData} />
 				</tbody>
 			</table>
 		</div>

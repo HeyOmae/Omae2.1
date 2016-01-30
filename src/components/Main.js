@@ -7,6 +7,7 @@ import PriorityTableComponent from './PriorityTableComponent';
 
 class AppComponent extends React.Component {
 	render() {
+		const {actions, priorityTable} = this.props;
 		return (
 			<div className="index container">
 				<div className="program-title">
@@ -14,8 +15,7 @@ class AppComponent extends React.Component {
 					<p>Shadowrun 5<sup>th</sup> Edition Character Generator</p>
 				</div>
 				<h2>Priority Table</h2>
-				<PriorityTableComponent />
-
+				<PriorityTableComponent priorityTable={priorityTable} />
 			</div>
 		);
 	}
