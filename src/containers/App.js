@@ -26,7 +26,7 @@ class App extends Component {
 App.propTypes = {
   actions: PropTypes.object.isRequired,
   priorityTable: PropTypes.object.isRequired,
-  selectMetatype: PropTypes.object.isRequired
+  selectMetatype: PropTypes.string.isRequired
 };
 function mapStateToProps(state) {
   /* Populated by react-webpack-redux:reducer */
@@ -38,7 +38,10 @@ function mapStateToProps(state) {
 }
 function mapDispatchToProps(dispatch) {
   /* Populated by react-webpack-redux:action */
-  const actions = { priorityTable: require('../actions/priorityTable.js') };
+  const actions = {
+    priorityTable: require('../actions/priorityTable.js'),
+    selectMetatype: require('../actions/selectMetatype.js')
+  };
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;
 }

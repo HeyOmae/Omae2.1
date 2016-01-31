@@ -8,7 +8,7 @@ import MetatypeSelector from './MetatypeSelectorComponent';
 
 class AppComponent extends React.Component {
 	render() {
-		const {actions, priorityTable} = this.props;
+		const {actions, priorityTable, selectMetatype} = this.props;
 		return (
 			<div className="index container">
 				<div className="program-title">
@@ -17,7 +17,7 @@ class AppComponent extends React.Component {
 				</div>
 				<h2>Priority Table</h2>
 				<PriorityTableComponent actions={actions.priorityTable} priorityTable={priorityTable} />
-				<MetatypeSelector rating={priorityTable.metatype}/>
+				<MetatypeSelector rating={priorityTable.metatype} metatype={selectMetatype} action={actions.selectMetatype}/>
 			</div>
 		);
 	}
