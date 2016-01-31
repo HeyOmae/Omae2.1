@@ -16,7 +16,10 @@ const initialState = {
 
 const attributesReducer = (state=initialState, action) => {
 	if(action.parameter) {
-		var {attribute, min, max} = action.parameter;
+		var {attribute, min, max, maxCap} = action.parameter;
+		if(maxCap) {
+			--max;
+		}
 	}
 
 	const actionsToTake = {
