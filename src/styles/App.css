@@ -53,3 +53,20 @@ h1, h2, h3, h4 {
 .program-title p {
 	text-align: center;
 }
+
+
+
+td, th {
+	text-align: center;
+}
+
+strong {
+	color: yellow;
+}
+
+.table-success {
+	color: magenta;
+}
+.table-success strong {
+		color: darkgreen;
+}

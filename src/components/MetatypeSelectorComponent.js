@@ -8,14 +8,14 @@ require('styles//MetatypeSelector.sass');
 
 class MetatypeSelectorComponent extends React.Component {
 	render() {
-		const {rating, metatype, action} = this.props;
+		const {priorityRating, metatype, action} = this.props;
 		let buttonElements = [];
 
 		for(let typeName in metatypeData) {
 			buttonElements.push(
 				<MetatypeButton
 					typeName={typeName}
-					anOption={typeName in priorityData[rating].metatype}
+					anOption={typeName in priorityData[priorityRating].metatype}
 					checked={metatype === typeName}
 					key={typeName}
 					selectMetatypeAction = {action}
@@ -37,8 +37,8 @@ const MetatypeButton = ({typeName, anOption, checked, selectMetatypeAction}) => 
 	return(
 		<label className={'btn'
 			+ (!anOption && checked ? ' btn-danger' : ' btn-primary')
-			+ (anOption ? ' ' : ' disabled')
-			+ (checked ? ' active' : ' ')
+			+ (anOption ? '' : ' disabled')
+			+ (checked ? ' active' : '')
 		}>
 			<input
 				type="radio"

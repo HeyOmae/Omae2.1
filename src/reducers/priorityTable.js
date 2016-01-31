@@ -17,7 +17,6 @@ const priorityReducer = (state=initialState, action) => {
 			let {rating, category} = action.parameter;
 			return Object.assign({}, state, {[category]: rating});
 		},
-
 		DEFAULT: () => { return state; }
 	};
 	return (actionsToTake[action.type] || actionsToTake.DEFAULT)();

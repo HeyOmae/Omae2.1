@@ -5,6 +5,7 @@ require('styles/App.css');
 import React from 'react';
 import PriorityTableComponent from './PriorityTableComponent';
 import MetatypeSelector from './MetatypeSelectorComponent';
+import AttributesComponent from './AttributesComponent';
 
 class AppComponent extends React.Component {
 	render() {
@@ -17,7 +18,8 @@ class AppComponent extends React.Component {
 				</div>
 				<h2>Priority Table</h2>
 				<PriorityTableComponent actions={actions.priorityTable} priorityTable={priorityTable} />
-				<MetatypeSelector rating={priorityTable.metatype} metatype={selectMetatype} action={actions.selectMetatype}/>
+				<MetatypeSelector priorityRating={priorityTable.metatype} metatype={selectMetatype} action={actions.selectMetatype}/>
+				<AttributesComponent priorityRating={priorityTable.attributes} metatype={selectMetatype} />
 			</div>
 		);
 	}

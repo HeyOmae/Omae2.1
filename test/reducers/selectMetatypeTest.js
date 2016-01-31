@@ -14,7 +14,7 @@ describe('selectMetatype', () => {
 	});
 
 	it('should make a new state that changes metatype', () => {
-		let newState = reducer(state, {type: 'SET_METATYPE', parameter: {selected: 'troll'} });
+		let newState = reducer(state, {type: 'SELECT_METATYPE', parameter: 'troll' });
 
 		expect(newState).to.equal('troll');
 	});
