@@ -14,8 +14,14 @@ import Main from '../components/Main';
 /* Populated by react-webpack-redux:reducer */
 class App extends Component {
   render() {
-    const {actions, priorityTable, selectMetatype} = this.props;
-    return <Main actions={actions} priorityTable={priorityTable} selectMetatype={selectMetatype}/>;
+    const {actions, priorityTable, selectMetatype, attributes} = this.props;
+    return (
+      <Main
+        actions={actions}
+        priorityTable={priorityTable}
+        selectMetatype={selectMetatype}
+        attributes={attributes}/>
+    );
   }
 }
 /* Populated by react-webpack-redux:reducer
@@ -26,13 +32,15 @@ class App extends Component {
 App.propTypes = {
   actions: PropTypes.object.isRequired,
   priorityTable: PropTypes.object.isRequired,
-  selectMetatype: PropTypes.string.isRequired
+  selectMetatype: PropTypes.string.isRequired,
+  attributes: PropTypes.object.isRequired
 };
 function mapStateToProps(state) {
   /* Populated by react-webpack-redux:reducer */
   const props = {
     priorityTable: state.priorityTable,
-    selectMetatype: state.selectMetatype
+    selectMetatype: state.selectMetatype,
+    attributes: state.attributes
   };
   return props;
 }

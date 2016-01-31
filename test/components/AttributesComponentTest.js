@@ -9,14 +9,14 @@ import createComponent from 'helpers/shallowRenderHelper';
 
 import AttributesComponent from 'components//AttributesComponent.js';
 
-describe('AttributesComponent', () => {
-  let component;
+// describe('AttributesComponent', () => {
+//   let component;
 
-  beforeEach(() => {
-    component = createComponent(AttributesComponent);
-  });
+//   beforeEach(() => {
+//     component = createComponent(AttributesComponent);
+//   });
 
-  it('should have its component name as default className', () => {
-    expect(component.props.className).to.equal('attributes-component');
-  });
-});
+//   it('should have its component name as default className', () => {
+//     expect(component.props.className).to.equal('attributes-component');
+//   });
+// });
