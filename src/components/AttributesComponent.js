@@ -32,41 +32,25 @@ class AttributesComponent extends React.Component {
 					maxPoints = maxAtt - baseAtt;
 
 				attributeElements.incrementButtons.push(
-					<td key={'incBtn-'+att}>
-						<button
-							className={'btn ' + activeButton(attributes[att], maxPoints) }
-							onClick={() => {
-									if(pointsLeft > 0){
-										actions.incrementAttribute({
-											attribute: att,
-											max: maxPoints
-										});
-									}
-								}}
-						>
-							+
-						</button>
-					</td>
+					<IncrementButton
+						attributes={attributes}
+						attName={att}
+						maxPoints={maxPoints}
+						pointsLeft={pointsLeft}
+						incrementAttribute={actions.incrementAttribute}
+					/>
 				);
 				attributeElements.displayAttribute.push(
-					<td key={'display-'+att}>
+					<td key={'display-'+att} className={attributes[att] > maxAtt ? 'table-danger' : ''}>
 						{baseAtt + attributes[att]}/{maxAtt}
 					</td>
 				);
 				attributeElements.decrementButtons.push(
-					<td key={'decBtn-'+att}>
-						<button
-							className="btn btn-success"
-							onClick={() => {
-									actions.decrementAttribute({
-										attribute: att,
-										max: maxPoints
-									});
-								}}
-						>
-							-
-						</button>
-					</td>
+					<DecrementButton
+						attName={att}
+						decrementAttribute={actions.decrementAttribute}
+						maxPoints={maxPoints}
+					/>
 				);
 			} else {
 				//special stats go here later
@@ -115,8 +99,42 @@ class AttributesComponent extends React.Component {
 	}
 }
 
-const IncrementButton = () => {
-	
+const IncrementButton = ({attributes, attName, maxPoints, pointsLeft, incrementAttribute}) => {
+	return (
+		<td key={'incBtn-'+attName}>
+			<button
+				className={'btn ' + activeButton(attributes[attName], maxPoints) }
+				onClick={() => {
+						if(pointsLeft > 0){
+							incrementAttribute({
+								attribute: attName,
+								max: maxPoints
+							});
+						}
+					}}
+			>
+				+
+			</button>
+		</td>
+	)
+}
+
+const DecrementButton = ({attName, decrementAttribute, maxPoints}) => {
+	return(
+		<td key={'decBtn-'+attName}>
+			<button
+				className="btn btn-success"
+				onClick={() => {
+						decrementAttribute({
+							attribute: attName,
+							max: maxPoints
+						});
+					}}
+			>
+				-
+			</button>
+		</td>
+	)
 }
 
 AttributesComponent.displayName = 'AttributesComponent';
