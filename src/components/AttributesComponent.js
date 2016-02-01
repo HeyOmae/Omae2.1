@@ -115,6 +115,10 @@ class AttributesComponent extends React.Component {
 	}
 }
 
+const IncrementButton = () => {
+	
+}
+
 AttributesComponent.displayName = 'AttributesComponent';
 
 // Uncomment properties you need
