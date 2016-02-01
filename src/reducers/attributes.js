@@ -4,19 +4,19 @@
  * src/container/App.js accordingly.
  */
 const initialState = {
-	bod: 1,
-	agi: 1,
-	rea: 1,
-	str: 1,
-	wil: 1,
-	log: 1,
-	int: 1,
-	cha: 1
+	bod: 0,
+	agi: 0,
+	rea: 0,
+	str: 0,
+	wil: 0,
+	log: 0,
+	int: 0,
+	cha: 0
 };
 
 const attributesReducer = (state=initialState, action) => {
 	if(action.parameter) {
-		var {attribute, min, max, maxCap} = action.parameter;
+		var {attribute, max, maxCap} = action.parameter;
 		if(maxCap) {
 			--max;
 		}
@@ -25,9 +25,7 @@ const attributesReducer = (state=initialState, action) => {
 	const actionsToTake = {
 		INCREMENT_ATTRIBUTE: () => {
 			var newState;
-			if(state[attribute] < min) {
-				newState = Object.assign({}, state, {[attribute]: min})
-			} else if (state[attribute] + 1 > max) {
+			if (state[attribute] + 1 > max) {
 				return state;
 			} else {
 				newState = Object.assign({}, state, {[attribute]: state[attribute] + 1})
@@ -36,10 +34,8 @@ const attributesReducer = (state=initialState, action) => {
 		},
 		DECREMENT_ATTRIBUTE: () => {
 			var newState;
-			if(state[attribute] - 1 < min) {
+			if(state[attribute] - 1 < 0) {
 				return state;
-			} else if (state[attribute] > max) {
-				newState = Object.assign({}, state, {[attribute]: max})
 			} else {
 				newState = Object.assign({}, state, {[attribute]: state[attribute] - 1})
 			}

@@ -54,6 +54,7 @@ class AttributesComponent extends React.Component {
 									<td>
 										<button className="btn btn-success">+</button>
 									</td>
+									<td></td>
 								</tr>
 								<tr>
 									<td>
@@ -80,6 +81,9 @@ class AttributesComponent extends React.Component {
 									<td>
 										{metatypeData[metatype].min.cha}/{metatypeData[metatype].max.cha}
 									</td>
+									<td>
+										{priorityData[priorityRating].attributes}
+									</td>
 								</tr>
 								<tr>
 									<td>
@@ -106,6 +110,7 @@ class AttributesComponent extends React.Component {
 									<td>
 										<button className="btn btn-success">-</button>
 									</td>
+									<td></td>
 								</tr>
 							</tbody>
 						</table>

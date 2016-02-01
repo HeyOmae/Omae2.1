@@ -19,7 +19,7 @@ class AppComponent extends React.Component {
 				<h2>Priority Table</h2>
 				<PriorityTableComponent actions={actions.priorityTable} priorityTable={priorityTable} />
 				<MetatypeSelector priorityRating={priorityTable.metatype} metatype={selectMetatype} action={actions.selectMetatype}/>
-				<AttributesComponent priorityRating={priorityTable.attributes} metatype={selectMetatype} />
+				<AttributesComponent priorityRating={priorityTable.attribute} metatype={selectMetatype} />
 			</div>
 		);
 	}
