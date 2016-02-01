@@ -6,6 +6,14 @@ let metatypeData = require('json!./data/metatype.json'),
 
 require('styles//Attributes.sass');
 
+function activeButton(currentAtt, maxAtt) {
+	if(currentAtt > maxAtt) {
+		return 'disabled btn-danger';
+	} else {
+		return 'btn-success';
+	}
+}
+
 class AttributesComponent extends React.Component {
 	render() {
 		const {priorityRating, metatype, attributes, actions} = this.props;
@@ -26,7 +34,7 @@ class AttributesComponent extends React.Component {
 				attributeElements.incrementButtons.push(
 					<td key={'incBtn-'+att}>
 						<button
-							className="btn btn-success"
+							className={'btn ' + activeButton(attributes[att], maxPoints) }
 							onClick={() => {
 									if(pointsLeft > 0){
 										actions.incrementAttribute({
