@@ -48,7 +48,9 @@ function mapDispatchToProps(dispatch) {
   /* Populated by react-webpack-redux:action */
   const actions = {
     priorityTable: require('../actions/priorityTable.js'),
-    selectMetatype: require('../actions/selectMetatype.js')
+    selectMetatype: require('../actions/selectMetatype.js'),
+    incrementAttribute: require('../actions/attributes/incrementAttribute.js'),
+    decrementAttribute: require('../actions/attributes/decrementAttribute.js')
   };
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;

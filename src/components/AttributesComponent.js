@@ -8,7 +8,62 @@ require('styles//Attributes.sass');
 
 class AttributesComponent extends React.Component {
 	render() {
-		const {priorityRating, metatype} = this.props;
+		const {priorityRating, metatype, attributes, actions} = this.props;
+		var attributeElements = {
+			incrementButtons: [],
+			displayAttribute: [],
+			decrementButtons: []
+		};
+		const attList = ['bod', 'agi', 'rea', 'str', 'wil', 'log', 'int', 'cha'];
+		for(let att in metatypeData[metatype].min) {
+			if(attList.indexOf(att) > -1) {
+				let baseAtt = metatypeData[metatype].min[att],
+					maxAtt = metatypeData[metatype].max[att],
+					maxPoints = maxAtt - baseAtt;
+
+				attributeElements.incrementButtons.push(
+					<td>
+						<button
+							key={'incBtn'+att}
+							className="btn btn-success"
+							onClick={() => {
+									actions.incrementAttribute({
+										attribute: att,
+										max: maxPoints,
+										maxCap: false
+									});
+								}}
+						>
+							+
+						</button>
+					</td>
+				);
+				attributeElements.displayAttribute.push(
+					<td>
+						{baseAtt + attributes[att]} / {maxAtt}
+					</td>
+				);
+				attributeElements.decrementButtons.push(
+					<td>
+						<button
+							key={'decBtn'+att}
+							className="btn btn-success"
+							onClick={() => {
+									actions.decrementAttribute({
+										attribute: att,
+										max: maxPoints,
+										maxCap: false
+									});
+								}}
+						>
+							-
+						</button>
+					</td>
+				);
+			} else {
+				//special stats go here later
+			}
+		}
 		return (
 			<div className="attributes-component ">
 				<div className="row">
@@ -30,87 +85,16 @@ class AttributesComponent extends React.Component {
 							</thead>
 							<tbody>
 								<tr>
-									<td>
-										<button className="btn btn-success">+</button>
-									</td>
-									<td>
-										<button className="btn btn-success">+</button>
-									</td>
-									<td>
-										<button className="btn btn-success">+</button>
-									</td>
-									<td>
-										<button className="btn btn-success">+</button>
-									</td>
-									<td>
-										<button className="btn btn-success">+</button>
-									</td>
-									<td>
-										<button className="btn btn-success">+</button>
-									</td>
-									<td>
-										<button className="btn btn-success">+</button>
-									</td>
-									<td>
-										<button className="btn btn-success">+</button>
-									</td>
-									<td></td>
+									{attributeElements.incrementButtons}
 								</tr>
 								<tr>
-									<td>
-										{metatypeData[metatype].min.bod}/{metatypeData[metatype].max.bod}
-									</td>
-									<td>
-										{metatypeData[metatype].min.agi}/{metatypeData[metatype].max.agi}
-									</td>
-									<td>
-										{metatypeData[metatype].min.rea}/{metatypeData[metatype].max.rea}
-									</td>
-									<td>
-										{metatypeData[metatype].min.str}/{metatypeData[metatype].max.str}
-									</td>
-									<td>
-										{metatypeData[metatype].min.wil}/{metatypeData[metatype].max.wil}
-									</td>
-									<td>
-										{metatypeData[metatype].min.log}/{metatypeData[metatype].max.log}
-									</td>
-									<td>
-										{metatypeData[metatype].min.int}/{metatypeData[metatype].max.int}
-									</td>
-									<td>
-										{metatypeData[metatype].min.cha}/{metatypeData[metatype].max.cha}
-									</td>
+									{attributeElements.displayAttribute}
 									<td>
 										{priorityData[priorityRating].attributes}
 									</td>
 								</tr>
 								<tr>
-									<td>
-										<button className="btn btn-success">-</button>
-									</td>
-									<td>
-										<button className="btn btn-success">-</button>
-									</td>
-									<td>
-										<button className="btn btn-success">-</button>
-									</td>
-									<td>
-										<button className="btn btn-success">-</button>
-									</td>
-									<td>
-										<button className="btn btn-success">-</button>
-									</td>
-									<td>
-										<button className="btn btn-success">-</button>
-									</td>
-									<td>
-										<button className="btn btn-success">-</button>
-									</td>
-									<td>
-										<button className="btn btn-success">-</button>
-									</td>
-									<td></td>
+									{attributeElements.decrementButtons}
 								</tr>
 							</tbody>
 						</table>
