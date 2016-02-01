@@ -13,7 +13,9 @@ class AttributesComponent extends React.Component {
 			incrementButtons: [],
 			displayAttribute: [],
 			decrementButtons: []
-		};
+		},
+			pointsLeft = priorityData[priorityRating].attributes - attributes.spent;
+
 		const attList = ['bod', 'agi', 'rea', 'str', 'wil', 'log', 'int', 'cha'];
 		for(let att in metatypeData[metatype].min) {
 			if(attList.indexOf(att) > -1) {
@@ -22,16 +24,17 @@ class AttributesComponent extends React.Component {
 					maxPoints = maxAtt - baseAtt;
 
 				attributeElements.incrementButtons.push(
-					<td>
+					<td key={'incBtn-'+att}>
 						<button
-							key={'incBtn'+att}
 							className="btn btn-success"
 							onClick={() => {
-									actions.incrementAttribute({
-										attribute: att,
-										max: maxPoints,
-										maxCap: false
-									});
+									if(pointsLeft > 0){
+										actions.incrementAttribute({
+											attribute: att,
+											max: maxPoints,
+											maxCap: false
+										});
+									}
 								}}
 						>
 							+
@@ -39,14 +42,13 @@ class AttributesComponent extends React.Component {
 					</td>
 				);
 				attributeElements.displayAttribute.push(
-					<td>
-						{baseAtt + attributes[att]} / {maxAtt}
+					<td key={'display-'+att}>
+						{baseAtt + attributes[att]}/{maxAtt}
 					</td>
 				);
 				attributeElements.decrementButtons.push(
-					<td>
+					<td key={'decBtn-'+att}>
 						<button
-							key={'decBtn'+att}
 							className="btn btn-success"
 							onClick={() => {
 									actions.decrementAttribute({
@@ -67,37 +69,39 @@ class AttributesComponent extends React.Component {
 		return (
 			<div className="attributes-component ">
 				<div className="row">
-					<div className="col-xs-12 col-md-9 table-responsive">
-						<h2>Attributes</h2>
-						<table className="table">
-							<thead>
-								<tr>
-									<th>Bod</th>
-									<th>Agi</th>
-									<th>Rea</th>
-									<th>Str</th>
-									<th>Wil</th>
-									<th>Log</th>
-									<th>Int</th>
-									<th>Cha</th>
-									<th>Points</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									{attributeElements.incrementButtons}
-								</tr>
-								<tr>
-									{attributeElements.displayAttribute}
-									<td>
-										{priorityData[priorityRating].attributes}
-									</td>
-								</tr>
-								<tr>
-									{attributeElements.decrementButtons}
-								</tr>
-							</tbody>
-						</table>
+					<div className="col-md-12 col-lg-9">
+						<div className="table-responsive">
+							<h2>Attributes</h2>
+							<table className="table">
+								<thead>
+									<tr>
+										<th>Bod</th>
+										<th>Agi</th>
+										<th>Rea</th>
+										<th>Str</th>
+										<th>Wil</th>
+										<th>Log</th>
+										<th>Int</th>
+										<th>Cha</th>
+										<th>Points</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										{attributeElements.incrementButtons}
+									</tr>
+									<tr>
+										{attributeElements.displayAttribute}
+										<td>
+											{pointsLeft}
+										</td>
+									</tr>
+									<tr>
+										{attributeElements.decrementButtons}
+									</tr>
+								</tbody>
+							</table>
+						</div>
 					</div>
 				</div>
 			</div>

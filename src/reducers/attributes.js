@@ -11,7 +11,8 @@ const initialState = {
 	wil: 0,
 	log: 0,
 	int: 0,
-	cha: 0
+	cha: 0,
+	spent: 0
 };
 
 const attributesReducer = (state=initialState, action) => {
@@ -28,7 +29,14 @@ const attributesReducer = (state=initialState, action) => {
 			if (state[attribute] + 1 > max) {
 				return state;
 			} else {
-				newState = Object.assign({}, state, {[attribute]: state[attribute] + 1})
+				newState = Object.assign(
+					{},
+					state,
+					{
+						[attribute]: state[attribute] + 1,
+						spent: state.spent + 1
+					}
+				)
 			}
 			return newState;
 		},
@@ -37,7 +45,14 @@ const attributesReducer = (state=initialState, action) => {
 			if(state[attribute] - 1 < 0) {
 				return state;
 			} else {
-				newState = Object.assign({}, state, {[attribute]: state[attribute] - 1})
+				newState = Object.assign(
+					{},
+					state,
+					{
+						[attribute]: state[attribute] - 1,
+						spent:  state.spent - 1
+					}
+				)
 			}
 			return newState;
 		},
