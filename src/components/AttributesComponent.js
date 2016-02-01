@@ -31,8 +31,7 @@ class AttributesComponent extends React.Component {
 									if(pointsLeft > 0){
 										actions.incrementAttribute({
 											attribute: att,
-											max: maxPoints,
-											maxCap: false
+											max: maxPoints
 										});
 									}
 								}}
@@ -53,8 +52,7 @@ class AttributesComponent extends React.Component {
 							onClick={() => {
 									actions.decrementAttribute({
 										attribute: att,
-										max: maxPoints,
-										maxCap: false
+										max: maxPoints
 									});
 								}}
 						>
