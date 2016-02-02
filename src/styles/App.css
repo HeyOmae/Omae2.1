@@ -70,3 +70,20 @@ strong {
 .table-success strong {
 		color: darkgreen;
 }
+
+/***** Modal Style *****/
+.modal {
+	display: block;
+	overflow-x: hidden;
+	overflow-y: auto;
+	background: rgba(0,0,0,.5);
+}
+
+.modal-content {
+	background: #222;
+	color: #ccc;
+}
+
+.modal.hide {
+	display: none;
+}

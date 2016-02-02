@@ -6,7 +6,6 @@ import React from 'react';
 
 class AppComponent extends React.Component {
 	render() {
-		const {actions, priorityTable, selectMetatype, attributes} = this.props;
 		return (
 			<div className="index">
 				<div className="program-title">
