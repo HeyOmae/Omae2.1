@@ -80,7 +80,7 @@ class AttributesComponent extends React.Component {
 									<tr>
 										{attributeElements.incrementButtons}
 									</tr>
-									<tr>
+									<tr className={pointsLeft < 0 ? 'table-danger':''}>
 										{attributeElements.displayAttribute}
 										<td>
 											{pointsLeft}
