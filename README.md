@@ -25,5 +25,8 @@ Install Yeoman and the React-Webpack-Redux generator. You can skip this if you d
 ```
 	npm install -g yo generator-react-webpack-redux
 ```
+###Help for pushing release to live
+
+* http://stackoverflow.com/questions/7011113/git-push-a-sub-directory-into-another-main-repo
 
 //TODO: Write more stuff here

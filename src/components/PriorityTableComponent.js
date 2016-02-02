@@ -203,6 +203,7 @@ const PriorityRow = ({rating, priorityTableData, actions}) => {
 const PriorityTable = ({priorityTableData, actions}) => {
 	return (
 		<div className="table-responsive">
+			<h2>Priority Table</h2>
 			<table className="table table-bordered priority-table">
 				<PriorityLabel />
 				<tbody>

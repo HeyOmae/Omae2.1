@@ -59,7 +59,7 @@ class AttributesComponent extends React.Component {
 		return (
 			<div className="attributes-component ">
 				<div className="row">
-					<div className="col-md-12 col-lg-9">
+					<div className="col-lg-12 col-xl-9">
 						<div className="table-responsive">
 							<h2>Attributes</h2>
 							<table className="table">
@@ -79,6 +79,7 @@ class AttributesComponent extends React.Component {
 								<tbody>
 									<tr>
 										{attributeElements.incrementButtons}
+										<td></td>
 									</tr>
 									<tr className={pointsLeft < 0 ? 'table-danger':''}>
 										{attributeElements.displayAttribute}
@@ -88,6 +89,7 @@ class AttributesComponent extends React.Component {
 									</tr>
 									<tr>
 										{attributeElements.decrementButtons}
+										<td></td>
 									</tr>
 								</tbody>
 							</table>
