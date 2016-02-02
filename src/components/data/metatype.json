@@ -162,5 +162,624 @@
 			"book": "SR",
 			"page": "66"
 		}
+	},
+
+
+	"gnome": {
+		"min": {
+			"bod": 1,
+			"agi": 2,
+			"rea": 1,
+			"str": 1,
+			"wil": 1,
+			"log": 2,
+			"int": 2,
+			"cha": 1,
+			"edg": 1
+		},
+		"max": {
+			"bod": 4,
+			"agi": 7,
+			"rea": 6,
+			"str": 4,
+			"wil": 7,
+			"log": 7,
+			"int": 6,
+			"cha": 6,
+			"edg": 6
+		},
+		"racial": {
+		},
+		"reference": {
+			"book": "RF",
+			"page": "104"
+		}
+	},
+
+	"hanuman": {
+		"min": {
+			"bod": 1,
+			"agi": 2,
+			"rea": 1,
+			"str": 2,
+			"wil": 1,
+			"log": 1,
+			"int": 2,
+			"cha": 1,
+			"edg": 1
+		},
+		"max": {
+			"bod": 6,
+			"agi": 7,
+			"rea": 6,
+			"str": 7,
+			"wil": 6,
+			"log": 5,
+			"int": 7,
+			"cha": 5,
+			"edg": 6
+		},
+		"racial": {
+		},
+		"reference": {
+			"book": "RF",
+			"page": "104"
+		}
+	},
+
+	"koborokuru": {
+		"min": {
+			"bod": 2,
+			"agi": 1,
+			"rea": 1,
+			"str": 2,
+			"wil": 2,
+			"log": 1,
+			"int": 1,
+			"cha": 1,
+			"edg": 1
+		},
+		"max": {
+			"bod": 7,
+			"agi": 6,
+			"rea": 6,
+			"str": 7,
+			"wil": 7,
+			"log": 6,
+			"int": 6,
+			"cha": 6,
+			"edg": 6
+		},
+		"racial": {
+		},
+		"reference": {
+			"book": "RF",
+			"page": "104"
+		}
+	},
+
+	"menehune": {
+		"min": {
+			"bod": 2,
+			"agi": 2,
+			"rea": 1,
+			"str": 2,
+			"wil": 1,
+			"log": 1,
+			"int": 1,
+			"cha": 1,
+			"edg": 1
+		},
+		"max": {
+			"bod": 7,
+			"agi": 7,
+			"rea": 5,
+			"str": 7,
+			"wil": 6,
+			"log": 6,
+			"int": 6,
+			"cha": 6,
+			"edg": 6
+		},
+		"racial": {
+		},
+		"reference": {
+			"book": "RF",
+			"page": "104"
+		}
+	},
+
+	"nocturna": {
+		"min": {
+			"bod": 1,
+			"agi": 3,
+			"rea": 1,
+			"str": 1,
+			"wil": 1,
+			"log": 1,
+			"int": 1,
+			"cha": 2,
+			"edg": 1
+		},
+		"max": {
+			"bod": 5,
+			"agi": 8,
+			"rea": 6,
+			"str": 6,
+			"wil": 6,
+			"log": 6,
+			"int": 6,
+			"cha": 7,
+			"edg": 6
+		},
+		"racial": {
+		},
+		"reference": {
+			"book": "RF",
+			"page": "104"
+		}
+	},
+
+	"wakyambi": {
+		"min": {
+			"bod": 1,
+			"agi": 2,
+			"rea": 1,
+			"str": 1,
+			"wil": 1,
+			"log": 1,
+			"int": 2,
+			"cha": 1,
+			"edg": 2
+		},
+		"max": {
+			"bod": 6,
+			"agi": 7,
+			"rea": 6,
+			"str": 6,
+			"wil": 6,
+			"log": 5,
+			"int": 7,
+			"cha": 6,
+			"edg": 7
+		},
+		"racial": {
+		},
+		"reference": {
+			"book": "RF",
+			"page": "104"
+		}
+	},
+
+	"xapiri thepe": {
+		"min": {
+			"bod": 1,
+			"agi": 2,
+			"rea": 1,
+			"str": 1,
+			"wil": 1,
+			"log": 1,
+			"int": 1,
+			"cha": 2,
+			"edg": 1
+		},
+		"max": {
+			"bod": 6,
+			"agi": 7,
+			"rea": 6,
+			"str": 6,
+			"wil": 6,
+			"log": 5,
+			"int": 6,
+			"cha": 7,
+			"edg": 6
+		},
+		"racial": {
+		},
+		"reference": {
+			"book": "RF",
+			"page": "104"
+		}
+	},
+
+	"nartaki": {
+		"min": {
+			"bod": 1,
+			"agi": 1,
+			"rea": 1,
+			"str": 1,
+			"wil": 1,
+			"log": 1,
+			"int": 1,
+			"cha": 1,
+			"edg": 1
+		},
+		"max": {
+			"bod": 6,
+			"agi": 6,
+			"rea": 6,
+			"str": 6,
+			"wil": 6,
+			"log": 6,
+			"int": 6,
+			"cha": 6,
+			"edg": 6
+		},
+		"racial": {
+		},
+		"reference": {
+			"book": "RF",
+			"page": "104"
+		}
+	},
+
+	"hobgoblin": {
+		"min": {
+			"bod": 1,
+			"agi": 1,
+			"rea": 1,
+			"str": 2,
+			"wil": 1,
+			"log": 1,
+			"int": 1,
+			"cha": 2,
+			"edg": 1
+		},
+		"max": {
+			"bod": 6,
+			"agi": 6,
+			"rea": 6,
+			"str": 7,
+			"wil": 6,
+			"log": 5,
+			"int": 6,
+			"cha": 7,
+			"edg": 6
+		},
+		"racial": {
+		},
+		"reference": {
+			"book": "RF",
+			"page": "104"
+		}
+	},
+
+	"ogre": {
+		"min": {
+			"bod": 4,
+			"agi": 1,
+			"rea": 1,
+			"str": 3,
+			"wil": 2,
+			"log": 1,
+			"int": 1,
+			"cha": 1,
+			"edg": 1
+		},
+		"max": {
+			"bod": 9,
+			"agi": 6,
+			"rea": 5,
+			"str": 8,
+			"wil": 7,
+			"log": 5,
+			"int": 6,
+			"cha": 4,
+			"edg": 6
+		},
+		"racial": {
+		},
+		"reference": {
+			"book": "RF",
+			"page": "104"
+		}
+	},
+
+	"oni": {
+		"min": {
+			"bod": 3,
+			"agi": 2,
+			"rea": 1,
+			"str": 2,
+			"wil": 1,
+			"log": 1,
+			"int": 1,
+			"cha": 2,
+			"edg": 1
+		},
+		"max": {
+			"bod": 8,
+			"agi": 7,
+			"rea": 6,
+			"str": 7,
+			"wil": 6,
+			"log": 5,
+			"int": 6,
+			"cha": 7,
+			"edg": 6
+		},
+		"racial": {
+		},
+		"reference": {
+			"book": "RF",
+			"page": "104"
+		}
+	},
+
+	"satyr": {
+		"min": {
+			"bod": 2,
+			"agi": 1,
+			"rea": 2,
+			"str": 2,
+			"wil": 1,
+			"log": 1,
+			"int": 1,
+			"cha": 1,
+			"edg": 1
+		},
+		"max": {
+			"bod": 7,
+			"agi": 6,
+			"rea": 7,
+			"str": 7,
+			"wil": 6,
+			"log": 6,
+			"int": 6,
+			"cha": 5,
+			"edg": 6
+		}k
+		"racial": {
+		},
+		"reference": {
+			"book": "RF",
+			"page": "104"
+		}
+	},
+
+	"cyclopean": {
+		"min": {
+			"bod": 5,
+			"agi": 1,
+			"rea": 1,
+			"str": 6,
+			"wil": 1,
+			"log": 1,
+			"int": 1,
+			"cha": 1,
+			"edg": 1
+		},
+		"max": {
+			"bod": 10,
+			"agi": 5,
+			"rea": 6,
+			"str": 11,
+			"wil": 6,
+			"log": 4,
+			"int": 5,
+			"cha": 4,
+			"edg": 6
+		},
+		"racial": {
+		},
+		"reference": {
+			"book": "RF",
+			"page": "104"
+		}
+	},
+
+	"fomorian": {
+		"min": {
+			"bod": 4,
+			"agi": 1,
+			"rea": 1,
+			"str": 5,
+			"wil": 1,
+			"log": 1,
+			"int": 1,
+			"cha": 1,
+			"edg": 1
+		},
+		"max": {
+			"bod": 9,
+			"agi": 5,
+			"rea": 6,
+			"str": 10,
+			"wil": 5,
+			"log": 4,
+			"int": 4,
+			"cha": 5,
+			"edg": 6
+		},
+		"racial": {
+		},
+		"reference": {
+			"book": "RF",
+			"page": "104"
+		}
+	},
+
+	"giant": {
+		"min": {
+			"bod": 5,
+			"agi": 1,
+			"rea": 1,
+			"str": 5,
+			"wil": 1,
+			"log": 1,
+			"int": 1,
+			"cha": 1,
+			"edg": 1
+		},
+		"max": {
+			"bod": 10,
+			"agi": 5,
+			"rea": 5,
+			"str": 10,
+			"wil": 6,
+			"log": 5,
+			"int": 5,
+			"cha": 5,
+			"edg": 6
+		},
+		"racial": {
+		},
+		"reference": {
+			"book": "RF",
+			"page": "104"
+		}
+	},
+
+	"minotaur": {
+		"min": {
+			"bod": 6,
+			"agi": 1,
+			"rea": 1,
+			"str": 5,
+			"wil": 1,
+			"log": 1,
+			"int": 1,
+			"cha": 1,
+			"edg": 1
+		},
+		"max": {
+			"bod": 11,
+			"agi": 5,
+			"rea": 6,
+			"str": 10,
+			"wil": 6,
+			"log": 5,
+			"int": 6,
+			"cha": 4,
+			"edg": 6
+		},
+		"racial": {
+		},
+		"reference": {
+			"book": "RF",
+			"page": "104"
+		}
+	},
+
+	"centaur": {
+		"min": {
+			"bod": 3,
+			"agi": 1,
+			"rea": 1,
+			"str": 4,
+			"wil": 1,
+			"log": 1,
+			"int": 1,
+			"cha": 1,
+			"edg": 1
+		},
+		"max": {
+			"bod": 8,
+			"agi": 6,
+			"rea": 6,
+			"str": 8,
+			"wil": 6,
+			"log": 6,
+			"int": 5,
+			"cha": 5,
+			"edg": 5
+		},
+		"racial": {
+		},
+		"reference": {
+			"book": "RF",
+			"page": "104"
+		}
+
+	"naga": {
+		"min": {
+			"bod": 3,
+			"agi": 1,
+			"rea": 2,
+			"str": 4,
+			"wil": 2,
+			"log": 1,
+			"int": 1,
+			"cha": 2,
+			"edg": 1
+		},
+		"max": {
+			"bod": 8,
+			"agi": 4,
+			"rea": 7,
+			"str": 9,
+			"wil": 7,
+			"log": 6,
+			"int": 6,
+			"cha": 7,
+			"edg": 5
+		},
+		"racial": {
+		},
+		"reference": {
+			"book": "RF",
+			"page": "104"
+		}
+
+	"pixie": {
+		"min": {
+			"bod": 1,
+			"agi": 3,
+			"rea": 3,
+			"str": 1,
+			"wil": 3,
+			"log": 2,
+			"int": 2,
+			"cha": 3,
+			"edg": 1
+		},
+		"max": {
+			"bod": 2,
+			"agi": 8,
+			"rea": 8,
+			"str": 2,
+			"wil": 8,
+			"log": 7,
+			"int": 7,
+			"cha": 8,
+			"edg": 7
+		},
+		"racial": {
+		},
+		"reference": {
+			"book": "RF",
+			"page": "104"
+		}
+
+	"sasquatch": {
+		"min": {
+			"bod": 6,
+			"agi": 1,
+			"rea": 1,
+			"str": 5,
+			"wil": 1,
+			"log": 1,
+			"int": 1,
+			"cha": 1,
+			"edg": 1
+		},
+		"max": {
+			"bod": 11,
+			"agi": 6,
+			"rea": 6,
+			"str": 10,
+			"wil": 6,
+			"log": 6,
+			"int": 6,
+			"cha": 6,
+			"edg": 6
+		},
+		"racial": {
+		},
+		"reference": {
+			"book": "RF",
+			"page": "104"
+		}
 	}
+
 }
