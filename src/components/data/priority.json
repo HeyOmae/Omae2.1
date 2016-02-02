@@ -24,119 +24,119 @@
 				"special": 8,
 				"karma": 12
 			},
-      "dryad": {
+			"dryad": {
 				"special": 8
-      },
-      "nocturna": {
+			},
+			"nocturna": {
 				"special": 8,
 				"karma": 12
-      },
-      "xapiri thepe": {
+			},
+			"xapiri thepe": {
 				"special": 8
-      },
-      "gnome": {
+			},
+			"gnome": {
 				"special": 7,
 				"karma": 7
-      },
-      "hanuman": {
+			},
+			"hanuman": {
 				"special": 7,
 				"karma": 5
-      },
-      "koborokuru": {
+			},
+			"koborokuru": {
 				"special": 7
-      },
-      "menehune": {
+			},
+			"menehune": {
 				"special": 7,
 				"karma": 2
-      },
-      "hobgoblin": {
+			},
+			"hobgoblin": {
 				"special": 7,
 				"karma": 5
-      },
-      "ogre": {
+			},
+			"ogre": {
 				"special": 7,
 				"karma": 8
-      },
-      "oni": {
+			},
+			"oni": {
 				"special": 7,
 				"karma": 4
-      },
-      "satyr": {
+			},
+			"satyr": {
 				"special": 7,
 				"karma": 10
-      },
-      "cyclopean": {
+			},
+			"cyclopean": {
 				"special": 5,
 				"karma": 2
-      },
-      "fomorian": {
+			},
+			"fomorian": {
 				"special": 5,
 				"karma": 12
-      },
-      "giant": {
+			},
+			"giant": {
 				"special": 5,
 				"karma": 2
-      },
-      "minotaur": {
+			},
+			"minotaur": {
 				"special": 5,
 				"karma": 2
-      },
-      "centaur": {
+			},
+			"centaur": {
 				"special": 6,
 				"karma": 25
-      },
-      "naga": {
+			},
+			"naga": {
 				"special": 4,
 				"karma": 25
-      },
-      "pixie": {
+			},
+			"pixie": {
 				"special": 6,
 				"karma": 15
-      },
-      "sasquatch": {
+			},
+			"sasquatch": {
 				"special": 5,
 				"karma": 20
-      },
-      "shapeshifter: bovine": {
+			},
+			"shapeshifter: bovine": {
 				"special": 8,
 				"karma": 5
-      },
-      "shapeshifter: vulpine": {
+			},
+			"shapeshifter: vulpine": {
 				"special": 5,
 				"karma": 8
-      },
-      "shapeshifter: canine": {
+			},
+			"shapeshifter: canine": {
 				"special": 7,
 				"karma": 10
-      },
-      "shapeshifter: falconine": {
+			},
+			"shapeshifter: falconine": {
 				"special": 7,
 				"karma": 10
-      },
-      "shapeshifter: lupine": {
+			},
+			"shapeshifter: lupine": {
 				"special": 6,
 				"karma": 15
-      },
-      "shapeshifter: equine": {
+			},
+			"shapeshifter: equine": {
 				"special": 6,
 				"karma": 15
-      },
-      "shapeshifter: ursine": {
+			},
+			"shapeshifter: ursine": {
 				"special": 4,
 				"karma": 20
-      },
-      "shapeshifter: leonine": {
+			},
+			"shapeshifter: leonine": {
 				"special": 4,
 				"karma": 20
-      },
-      "shapeshifter: pantherine": {
+			},
+			"shapeshifter: pantherine": {
 				"special": 4,
 				"karma": 25
-      },
-      "shapeshifter: tigrine": {
+			},
+			"shapeshifter: tigrine": {
 				"special": 4,
 				"karma": 25
-      }
+			}
 		},
 		
 		"attributes": 24,
@@ -210,126 +210,126 @@
 			},
 			"troll": {
 				"special": 0
-			}
+			},
 			"nartaki": {
 				"special": 6
 			},
-      "dryad": {
+			"dryad": {
 				"special": 6
-      },
-      "nocturna": {
+			},
+			"nocturna": {
 				"special": 6
-      }
+			},
 			"wakyambi": {
 				"special": 6,
 				"karma": 12
 			},
-      "xapiri thepe": {
+			"xapiri thepe": {
 				"special": 6
-      },
-      "gnome": {
+			},
+			"gnome": {
 				"special": 4,
 				"karma": 7
-      },
-      "hanuman": {
+			},
+			"hanuman": {
 				"special": 4,
 				"karma": 5
-      },
-      "koborokuru": {
+			},
+			"koborokuru": {
 				"special": 4
-      },
-      "menehune": {
+			},
+			"menehune": {
 				"special": 4,
 				"karma": 2
-      },
-      "hobgoblin": {
+			},
+			"hobgoblin": {
 				"special": 4,
 				"karma": 5
-      },
-      "ogre": {
+			},
+			"ogre": {
 				"special": 4,
 				"karma": 8
-      },
-      "oni": {
+			},
+			"oni": {
 				"special": 4,
 				"karma": 4
-      },
-      "satyr": {
+			},
+			"satyr": {
 				"special": 4,
 				"karma": 10
-      },
-      "cyclopean": {
+			},
+			"cyclopean": {
 				"special": 0,
 				"karma": 2
-      },
-      "fomorian": {
+			},
+			"fomorian": {
 				"special": 0,
 				"karma": 12
-      },
-      "giant": {
+			},
+			"giant": {
 				"special": 0,
 				"karma": 2
-      },
-      "minotaur": {
+			},
+			"minotaur": {
 				"special": 0,
 				"karma": 2
-      },
-      "centaur": {
+			},
+			"centaur": {
 				"special": 3,
 				"karma": 25
-      },
-      "naga": {
+			},
+			"naga": {
 				"special": 2,
 				"karma": 25
-      },
-      "pixie": {
+			},
+			"pixie": {
 				"special": 3,
 				"karma": 15
-      },
-      "sasquatch": {
+			},
+			"sasquatch": {
 				"special": 2,
 				"karma": 20
-      },
-      "shapeshifter: bovine": {
+			},
+			"shapeshifter: bovine": {
 				"special": 6,
 				"karma": 5
-      },
-      "shapeshifter: vulpine": {
+			},
+			"shapeshifter: vulpine": {
 				"special": 6,
 				"karma": 8
-      },
-      "shapeshifter: canine": {
+			},
+			"shapeshifter: canine": {
 				"special": 5,
 				"karma": 10
-      },
-      "shapeshifter: falconine": {
+			},
+			"shapeshifter: falconine": {
 				"special": 5,
 				"karma": 10
-      },
-      "shapeshifter: lupine": {
+			},
+			"shapeshifter: lupine": {
 				"special": 4,
 				"karma": 15
-      },
-      "shapeshifter: equine": {
+			},
+			"shapeshifter: equine": {
 				"special": 4,
 				"karma": 15
-      },
-      "shapeshifter: ursine": {
+			},
+			"shapeshifter: ursine": {
 				"special": 2,
 				"karma": 20
-      },
-      "shapeshifter: leonine": {
+			},
+			"shapeshifter: leonine": {
 				"special": 2,
 				"karma": 20
-      },
-      "shapeshifter: pantherine": {
+			},
+			"shapeshifter: pantherine": {
 				"special": 2,
 				"karma": 25
-      },
-      "shapeshifter: tigrine": {
+			},
+			"shapeshifter: tigrine": {
 				"special": 2,
 				"karma": 25
-      }
+			}
 		},
 		"attributes": 20,
 		"magic": {
@@ -419,110 +419,110 @@
 			},
 			"ork": {
 				"special": 0
-			}
+			},
 			"nartaki": {
 				"special": 4
 			},
-      "dryad": {
+			"dryad": {
 				"special": 3
-      },
-      "nocturna": {
+			},
+			"nocturna": {
 				"special": 3
-      }
+			},
 			"wakyambi": {
 				"special": 3,
 				"karma": 12
 			},
-      "xapiri thepe": {
+			"xapiri thepe": {
 				"special": 3
-      },
-      "gnome": {
+			},
+			"gnome": {
 				"special": 1,
 				"karma": 7
-      },
-      "hanuman": {
+			},
+			"hanuman": {
 				"special": 1,
 				"karma": 5
-      },
-      "koborokuru": {
+			},
+			"koborokuru": {
 				"special": 1
-      },
-      "menehune": {
+			},
+			"menehune": {
 				"special": 1,
 				"karma": 2
-      },
-      "hobgoblin": {
+			},
+			"hobgoblin": {
 				"special": 0,
 				"karma": -5
-      },
-      "ogre": {
+			},
+			"ogre": {
 				"special": 0,
 				"karma": 8
-      },
-      "oni": {
+			},
+			"oni": {
 				"special": 0,
 				"karma": -4
-      },
-      "satyr": {
+			},
+			"satyr": {
 				"special": 0,
 				"karma": 10
-      },
-      "centaur": {
+			},
+			"centaur": {
 				"special": 0,
 				"karma": 25
-      },
-      "naga": {
+			},
+			"naga": {
 				"special": 0,
 				"karma": 25
-      },
-      "pixie": {
+			},
+			"pixie": {
 				"special": 0,
 				"karma": 15
-      },
-      "sasquatch": {
+			},
+			"sasquatch": {
 				"special": 0,
 				"karma": 20
-      },
-      "shapeshifter: bovine": {
+			},
+			"shapeshifter: bovine": {
 				"special": 4,
 				"karma": 5
-      },
-      "shapeshifter: vulpine": {
+			},
+			"shapeshifter: vulpine": {
 				"special": 4,
 				"karma": 8
-      },
-      "shapeshifter: canine": {
+			},
+			"shapeshifter: canine": {
 				"special": 3,
 				"karma": 10
-      },
-      "shapeshifter: falconine": {
+			},
+			"shapeshifter: falconine": {
 				"special": 3,
 				"karma": 10
-      },
-      "shapeshifter: lupine": {
+			},
+			"shapeshifter: lupine": {
 				"special": 2,
 				"karma": 15
-      },
-      "shapeshifter: equine": {
+			},
+			"shapeshifter: equine": {
 				"special": 2,
 				"karma": 15
-      },
-      "shapeshifter: ursine": {
+			},
+			"shapeshifter: ursine": {
 				"special": 0,
 				"karma": 20
-      },
-      "shapeshifter: leonine": {
+			},
+			"shapeshifter: leonine": {
 				"special": 0,
 				"karma": 20
-      },
-      "shapeshifter: pantherine": {
+			},
+			"shapeshifter: pantherine": {
 				"special": 0,
 				"karma": 25
-      },
-      "shapeshifter: tigrine": {
+			},
+			"shapeshifter: tigrine": {
 				"special": 0,
 				"karma": 25
-      }
+			}
 		},
 		"attributes": 16,
 		"magic": {
@@ -591,23 +591,23 @@
 			},
 			"elf": {
 				"special": 0
-			}
+			},
 			"nartaki": {
 				"special": 2
 			},
-      "dryad": {
+			"dryad": {
 				"special": 0
-      },
-      "nocturna": {
+			},
+			"nocturna": {
 				"special": 0
-      }
+			},
 			"wakyambi": {
 				"special": 0,
 				"karma": 12
 			},
-      "xapiri thepe": {
+			"xapiri thepe": {
 				"special": 0
-      }
+			}
 		},
 		"attributes": 14,
 		"magic": {
@@ -634,7 +634,7 @@
 		"metatype": {
 			"human": {
 				"special": 1
-			}
+			},
 			"nartaki": {
 				"special": 1
 			},
