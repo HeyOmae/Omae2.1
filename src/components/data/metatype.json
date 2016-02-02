@@ -25,7 +25,7 @@
 		"racial": {
 			"vision": "Thermographic",
 			"toxic resistance": 2,
-			"lifestyle": 20
+			"lifestyle": "20%"
 		},
 		"reference": {
 			"book": "SR",
@@ -153,10 +153,10 @@
 			"edg": 6
 		},
 		"racial": {
-			"vision": "Therographic",
+			"vision": "Thermographic",
 			"reach": 1,
 			"armor": 1,
-			"lifestyle": 100
+			"lifestyle": "100%"
 		},
 		"reference": {
 			"book": "SR",
