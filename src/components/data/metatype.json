@@ -528,7 +528,7 @@
 			"int": 6,
 			"cha": 5,
 			"edg": 6
-		}k
+		},
 		"racial": {
 		},
 		"reference": {
@@ -690,6 +690,7 @@
 			"book": "RF",
 			"page": "104"
 		}
+	},
 
 	"naga": {
 		"min": {
@@ -720,6 +721,7 @@
 			"book": "RF",
 			"page": "104"
 		}
+	},
 
 	"pixie": {
 		"min": {
@@ -750,6 +752,7 @@
 			"book": "RF",
 			"page": "104"
 		}
+	},
 
 	"sasquatch": {
 		"min": {
