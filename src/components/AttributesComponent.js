@@ -30,15 +30,18 @@ class AttributesComponent extends React.Component {
 				decBtn: []
 			}
 		},
-			pointsLeft = priorityData[priorityRating].attributes - attributes.spent;
+			attibutePointsLeft = priorityData[priorityRating].attributes - attributes.baseSpent,
+			specialPointsLeft = priorityData[priorityRating].metatype[metatype].special - attributes.specialSpent;
+
+			console.log(specialPointsLeft, priorityRating, metatype);
 
 		const attList = ['bod', 'agi', 'rea', 'str', 'wil', 'log', 'int', 'cha'];
 		for(let att in metatypeData[metatype].min) {
-			let baseAtt = metatypeData[metatype].min[att] || 0,
-				maxAtt = metatypeData[metatype].max[att] || 6,
+			let baseAtt = metatypeData[metatype].min[att],
+				maxAtt = metatypeData[metatype].max[att],
 				maxPoints = maxAtt - baseAtt;
 
-			function addingElements(attType) {
+			function addingElements(attType, pointsLeft) {
 				attributeElements[attType].incBtn.push(
 					<IncrementButton
 						attributes={attributes}
@@ -47,6 +50,7 @@ class AttributesComponent extends React.Component {
 						pointsLeft={pointsLeft}
 						incrementAttribute={actions.incrementAttribute}
 						key={'incBtn-'+att}
+						attType={attType + 'Spent'}
 					/>
 				);
 				attributeElements[attType].display.push(
@@ -60,15 +64,16 @@ class AttributesComponent extends React.Component {
 						decrementAttribute={actions.decrementAttribute}
 						maxPoints={maxPoints}
 						key={'decBtn-'+att}
+						attType={attType + 'Spent'}
 					/>
 				)
 			}
 
 			if(attList.indexOf(att) > -1) {
-				addingElements('base');
+				addingElements('base', attibutePointsLeft);
 			} else {
 				//special stats go here later
-				addingElements('special');
+				addingElements('special', specialPointsLeft);
 			}
 		}
 		return (
@@ -96,10 +101,10 @@ class AttributesComponent extends React.Component {
 										{attributeElements.base.incBtn}
 										<td></td>
 									</tr>
-									<tr className={pointsLeft < 0 ? 'table-danger':''}>
+									<tr className={attibutePointsLeft < 0 ? 'table-danger':''}>
 										{attributeElements.base.display}
 										<td>
-											{pointsLeft}
+											{attibutePointsLeft}
 										</td>
 									</tr>
 									<tr>
@@ -110,14 +115,16 @@ class AttributesComponent extends React.Component {
 							</table>
 						</div>
 					</div>
-					<SpecialComponent />
+					<SpecialComponent
+						elements={attributeElements.special}
+						pointsLeft={specialPointsLeft}/>
 				</div>
 			</div>
 		);
 	}
 }
 
-const IncrementButton = ({attributes, attName, maxPoints, pointsLeft, incrementAttribute, key}) => {
+const IncrementButton = ({attributes, attName, maxPoints, pointsLeft, incrementAttribute, key, attType}) => {
 	return (
 		<td key={key}>
 			<button
@@ -126,7 +133,8 @@ const IncrementButton = ({attributes, attName, maxPoints, pointsLeft, incrementA
 						if(pointsLeft > 0){
 							incrementAttribute({
 								attribute: attName,
-								max: maxPoints
+								max: maxPoints,
+								spend: attType
 							});
 						}
 					}}
@@ -137,7 +145,7 @@ const IncrementButton = ({attributes, attName, maxPoints, pointsLeft, incrementA
 	)
 }
 
-const DecrementButton = ({attName, decrementAttribute, maxPoints, key}) => {
+const DecrementButton = ({attName, decrementAttribute, maxPoints, key, attType}) => {
 	return(
 		<td key={key}>
 			<button
@@ -145,7 +153,8 @@ const DecrementButton = ({attName, decrementAttribute, maxPoints, key}) => {
 				onClick={() => {
 						decrementAttribute({
 							attribute: attName,
-							max: maxPoints
+							max: maxPoints,
+							spend: attType
 						});
 					}}
 			>

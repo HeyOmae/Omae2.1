@@ -6,7 +6,7 @@ require('styles//Special.sass');
 
 class SpecialComponent extends React.Component {
 	render() {
-		const {priorityRating, metatype, attributes, actions} = this.props;
+		const {elements, pointsLeft} = this.props;
 		return (
 			<div className="special-component col-lg-12 col-xl-3">
 				<h2>Special</h2>
@@ -20,6 +20,17 @@ class SpecialComponent extends React.Component {
 					</thead>
 					<tbody>
 						<tr>
+							{elements.incBtn}
+							<td></td>
+						</tr>
+						<tr className={pointsLeft < 0 ? 'table-danger':''}>
+							{elements.display}
+							<td>
+								{pointsLeft}
+							</td>
+						</tr>
+						<tr>
+							{elements.decBtn}
 							<td></td>
 						</tr>
 					</tbody>

@@ -14,14 +14,15 @@ const initialState = {
 	cha: 0,
 	edg: 0,
 	special: 0,
-	spent: 0
+	baseSpent: 0,
+	specialSpent: 0
 };
 
 var maxCap = false;
 
 const attributesReducer = (state=initialState, action) => {
 	if(action.parameter) {
-		var {attribute, max} = action.parameter;
+		var {attribute, max, spend} = action.parameter;
 		if(maxCap) {
 			--max;
 		}
@@ -39,7 +40,7 @@ const attributesReducer = (state=initialState, action) => {
 					state,
 					{
 						[attribute]: nextIncrement,
-						spent: state.spent + 1
+						[spend]: state[spend] + 1
 					}
 				)
 				if(nextIncrement === max) {
@@ -62,7 +63,7 @@ const attributesReducer = (state=initialState, action) => {
 					state,
 					{
 						[attribute]: nextDecrement,
-						spent:  state.spent - 1
+						[spend]: state[spend] - 1
 					}
 				)
 			}
