@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react';
+import SpecialComponent from './SpecialComponent';
 let metatypeData = require('json!./data/metatype.json'),
 	priorityData = require('json!./data/priority.json');
 
@@ -38,6 +39,7 @@ class AttributesComponent extends React.Component {
 						maxPoints={maxPoints}
 						pointsLeft={pointsLeft}
 						incrementAttribute={actions.incrementAttribute}
+						key={'incBtn-'+att}
 					/>
 				);
 				attributeElements.displayAttribute.push(
@@ -50,6 +52,7 @@ class AttributesComponent extends React.Component {
 						attName={att}
 						decrementAttribute={actions.decrementAttribute}
 						maxPoints={maxPoints}
+						key={'decBtn-'+att}
 					/>
 				);
 			} else {
@@ -95,15 +98,16 @@ class AttributesComponent extends React.Component {
 							</table>
 						</div>
 					</div>
+					<SpecialComponent />
 				</div>
 			</div>
 		);
 	}
 }
 
-const IncrementButton = ({attributes, attName, maxPoints, pointsLeft, incrementAttribute}) => {
+const IncrementButton = ({attributes, attName, maxPoints, pointsLeft, incrementAttribute, key}) => {
 	return (
-		<td key={'incBtn-'+attName}>
+		<td key={key}>
 			<button
 				className={'btn ' + activeButton(attributes[attName], maxPoints) }
 				onClick={() => {
@@ -121,9 +125,9 @@ const IncrementButton = ({attributes, attName, maxPoints, pointsLeft, incrementA
 	)
 }
 
-const DecrementButton = ({attName, decrementAttribute, maxPoints}) => {
+const DecrementButton = ({attName, decrementAttribute, maxPoints, key}) => {
 	return(
-		<td key={'decBtn-'+attName}>
+		<td key={key}>
 			<button
 				className="btn btn-success"
 				onClick={() => {

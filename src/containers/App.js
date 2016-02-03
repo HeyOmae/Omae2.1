@@ -50,6 +50,7 @@ class App extends Component {
 								decrementAttribute: actions.decrementAttribute
 							}}
 							attributes={attributes} />
+
 					</div>
 					
 				</div>

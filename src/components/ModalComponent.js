@@ -18,7 +18,7 @@ class ModalComponent extends React.Component {
 					type="button"
 					className="btn btn-info"
 					onClick={()=> {
-						toggleModal();
+						//toggleModal();
 					}}
 				>
 					{modalName}
