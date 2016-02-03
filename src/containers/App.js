@@ -43,6 +43,7 @@ class App extends Component {
 							action={actions.selectMetatype}/>
 
 						<AttributesComponent
+							metatypeRating={priorityTable.metatype}
 							priorityRating={priorityTable.attribute}
 							metatype={selectMetatype}
 							actions={{

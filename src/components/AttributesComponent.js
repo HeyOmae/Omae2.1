@@ -17,7 +17,7 @@ function activeButton(currentAtt, maxAtt) {
 
 class AttributesComponent extends React.Component {
 	render() {
-		const {priorityRating, metatype, attributes, actions} = this.props;
+		const {priorityRating, metatype, attributes, actions, metatypeRating} = this.props;
 		var attributeElements = {
 			base: {
 				incBtn: [],
@@ -31,9 +31,7 @@ class AttributesComponent extends React.Component {
 			}
 		},
 			attibutePointsLeft = priorityData[priorityRating].attributes - attributes.baseSpent,
-			specialPointsLeft = priorityData[priorityRating].metatype[metatype].special - attributes.specialSpent;
-
-			console.log(specialPointsLeft, priorityRating, metatype);
+			specialPointsLeft = priorityData[metatypeRating].metatype[metatype].special - attributes.specialSpent;
 
 		const attList = ['bod', 'agi', 'rea', 'str', 'wil', 'log', 'int', 'cha'];
 		for(let att in metatypeData[metatype].min) {

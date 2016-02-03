@@ -13,6 +13,7 @@ const initialState = {
 	int: 0,
 	cha: 0,
 	edg: 0,
+	ess: 6,
 	special: 0,
 	baseSpent: 0,
 	specialSpent: 0
