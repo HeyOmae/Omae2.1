@@ -12,6 +12,8 @@ const initialState = {
 	log: 0,
 	int: 0,
 	cha: 0,
+	edg: 0,
+	special: 0,
 	spent: 0
 };
 

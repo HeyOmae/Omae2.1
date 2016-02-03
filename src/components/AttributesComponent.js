@@ -19,20 +19,27 @@ class AttributesComponent extends React.Component {
 	render() {
 		const {priorityRating, metatype, attributes, actions} = this.props;
 		var attributeElements = {
-			incrementButtons: [],
-			displayAttribute: [],
-			decrementButtons: []
+			base: {
+				incBtn: [],
+				display: [],
+				decBtn: []
+			},
+			special: {
+				incBtn: [],
+				display: [],
+				decBtn: []
+			}
 		},
 			pointsLeft = priorityData[priorityRating].attributes - attributes.spent;
 
 		const attList = ['bod', 'agi', 'rea', 'str', 'wil', 'log', 'int', 'cha'];
 		for(let att in metatypeData[metatype].min) {
-			if(attList.indexOf(att) > -1) {
-				let baseAtt = metatypeData[metatype].min[att],
-					maxAtt = metatypeData[metatype].max[att],
-					maxPoints = maxAtt - baseAtt;
+			let baseAtt = metatypeData[metatype].min[att] || 0,
+				maxAtt = metatypeData[metatype].max[att] || 6,
+				maxPoints = maxAtt - baseAtt;
 
-				attributeElements.incrementButtons.push(
+			function addingElements(attType) {
+				attributeElements[attType].incBtn.push(
 					<IncrementButton
 						attributes={attributes}
 						attName={att}
@@ -42,21 +49,26 @@ class AttributesComponent extends React.Component {
 						key={'incBtn-'+att}
 					/>
 				);
-				attributeElements.displayAttribute.push(
+				attributeElements[attType].display.push(
 					<td key={'display-'+att} className={attributes[att] > maxAtt ? 'table-danger' : ''}>
 						{baseAtt + attributes[att]}/{maxAtt}
 					</td>
 				);
-				attributeElements.decrementButtons.push(
+				attributeElements[attType].decBtn.push(
 					<DecrementButton
 						attName={att}
 						decrementAttribute={actions.decrementAttribute}
 						maxPoints={maxPoints}
 						key={'decBtn-'+att}
 					/>
-				);
+				)
+			}
+
+			if(attList.indexOf(att) > -1) {
+				addingElements('base');
 			} else {
 				//special stats go here later
+				addingElements('special');
 			}
 		}
 		return (
@@ -81,17 +93,17 @@ class AttributesComponent extends React.Component {
 								</thead>
 								<tbody>
 									<tr>
-										{attributeElements.incrementButtons}
+										{attributeElements.base.incBtn}
 										<td></td>
 									</tr>
 									<tr className={pointsLeft < 0 ? 'table-danger':''}>
-										{attributeElements.displayAttribute}
+										{attributeElements.base.display}
 										<td>
 											{pointsLeft}
 										</td>
 									</tr>
 									<tr>
-										{attributeElements.decrementButtons}
+										{attributeElements.base.decBtn}
 										<td></td>
 									</tr>
 								</tbody>
