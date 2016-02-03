@@ -20,9 +20,122 @@
 				"special": 8,
 				"karma": 0
 			},
-			"wakyami": {
+			"wakyambi": {
 				"special": 8,
 				"karma": 12
+			},
+			"dryad": {
+				"special": 8
+			},
+			"nocturna": {
+				"special": 8,
+				"karma": 12
+			},
+			"xapiri thepe": {
+				"special": 8
+			},
+			"gnome": {
+				"special": 7,
+				"karma": 7
+			},
+			"hanuman": {
+				"special": 7,
+				"karma": 5
+			},
+			"koborokuru": {
+				"special": 7
+			},
+			"menehune": {
+				"special": 7,
+				"karma": 2
+			},
+			"hobgoblin": {
+				"special": 7,
+				"karma": 5
+			},
+			"ogre": {
+				"special": 7,
+				"karma": 8
+			},
+			"oni": {
+				"special": 7,
+				"karma": 4
+			},
+			"satyr": {
+				"special": 7,
+				"karma": 10
+			},
+			"cyclopean": {
+				"special": 5,
+				"karma": 2
+			},
+			"fomorian": {
+				"special": 5,
+				"karma": 12
+			},
+			"giant": {
+				"special": 5,
+				"karma": 2
+			},
+			"minotaur": {
+				"special": 5,
+				"karma": 2
+			},
+			"centaur": {
+				"special": 6,
+				"karma": 25
+			},
+			"naga": {
+				"special": 4,
+				"karma": 25
+			},
+			"pixie": {
+				"special": 6,
+				"karma": 15
+			},
+			"sasquatch": {
+				"special": 5,
+				"karma": 20
+			},
+			"shapeshifter: bovine": {
+				"special": 8,
+				"karma": 5
+			},
+			"shapeshifter: vulpine": {
+				"special": 5,
+				"karma": 8
+			},
+			"shapeshifter: canine": {
+				"special": 7,
+				"karma": 10
+			},
+			"shapeshifter: falconine": {
+				"special": 7,
+				"karma": 10
+			},
+			"shapeshifter: lupine": {
+				"special": 6,
+				"karma": 15
+			},
+			"shapeshifter: equine": {
+				"special": 6,
+				"karma": 15
+			},
+			"shapeshifter: ursine": {
+				"special": 4,
+				"karma": 20
+			},
+			"shapeshifter: leonine": {
+				"special": 4,
+				"karma": 20
+			},
+			"shapeshifter: pantherine": {
+				"special": 4,
+				"karma": 25
+			},
+			"shapeshifter: tigrine": {
+				"special": 4,
+				"karma": 25
 			}
 		},
 		
@@ -97,6 +210,125 @@
 			},
 			"troll": {
 				"special": 0
+			},
+			"nartaki": {
+				"special": 6
+			},
+			"dryad": {
+				"special": 6
+			},
+			"nocturna": {
+				"special": 6
+			},
+			"wakyambi": {
+				"special": 6,
+				"karma": 12
+			},
+			"xapiri thepe": {
+				"special": 6
+			},
+			"gnome": {
+				"special": 4,
+				"karma": 7
+			},
+			"hanuman": {
+				"special": 4,
+				"karma": 5
+			},
+			"koborokuru": {
+				"special": 4
+			},
+			"menehune": {
+				"special": 4,
+				"karma": 2
+			},
+			"hobgoblin": {
+				"special": 4,
+				"karma": 5
+			},
+			"ogre": {
+				"special": 4,
+				"karma": 8
+			},
+			"oni": {
+				"special": 4,
+				"karma": 4
+			},
+			"satyr": {
+				"special": 4,
+				"karma": 10
+			},
+			"cyclopean": {
+				"special": 0,
+				"karma": 2
+			},
+			"fomorian": {
+				"special": 0,
+				"karma": 12
+			},
+			"giant": {
+				"special": 0,
+				"karma": 2
+			},
+			"minotaur": {
+				"special": 0,
+				"karma": 2
+			},
+			"centaur": {
+				"special": 3,
+				"karma": 25
+			},
+			"naga": {
+				"special": 2,
+				"karma": 25
+			},
+			"pixie": {
+				"special": 3,
+				"karma": 15
+			},
+			"sasquatch": {
+				"special": 2,
+				"karma": 20
+			},
+			"shapeshifter: bovine": {
+				"special": 6,
+				"karma": 5
+			},
+			"shapeshifter: vulpine": {
+				"special": 6,
+				"karma": 8
+			},
+			"shapeshifter: canine": {
+				"special": 5,
+				"karma": 10
+			},
+			"shapeshifter: falconine": {
+				"special": 5,
+				"karma": 10
+			},
+			"shapeshifter: lupine": {
+				"special": 4,
+				"karma": 15
+			},
+			"shapeshifter: equine": {
+				"special": 4,
+				"karma": 15
+			},
+			"shapeshifter: ursine": {
+				"special": 2,
+				"karma": 20
+			},
+			"shapeshifter: leonine": {
+				"special": 2,
+				"karma": 20
+			},
+			"shapeshifter: pantherine": {
+				"special": 2,
+				"karma": 25
+			},
+			"shapeshifter: tigrine": {
+				"special": 2,
+				"karma": 25
 			}
 		},
 		"attributes": 20,
@@ -187,6 +419,109 @@
 			},
 			"ork": {
 				"special": 0
+			},
+			"nartaki": {
+				"special": 4
+			},
+			"dryad": {
+				"special": 3
+			},
+			"nocturna": {
+				"special": 3
+			},
+			"wakyambi": {
+				"special": 3,
+				"karma": 12
+			},
+			"xapiri thepe": {
+				"special": 3
+			},
+			"gnome": {
+				"special": 1,
+				"karma": 7
+			},
+			"hanuman": {
+				"special": 1,
+				"karma": 5
+			},
+			"koborokuru": {
+				"special": 1
+			},
+			"menehune": {
+				"special": 1,
+				"karma": 2
+			},
+			"hobgoblin": {
+				"special": 0,
+				"karma": -5
+			},
+			"ogre": {
+				"special": 0,
+				"karma": 8
+			},
+			"oni": {
+				"special": 0,
+				"karma": -4
+			},
+			"satyr": {
+				"special": 0,
+				"karma": 10
+			},
+			"centaur": {
+				"special": 0,
+				"karma": 25
+			},
+			"naga": {
+				"special": 0,
+				"karma": 25
+			},
+			"pixie": {
+				"special": 0,
+				"karma": 15
+			},
+			"sasquatch": {
+				"special": 0,
+				"karma": 20
+			},
+			"shapeshifter: bovine": {
+				"special": 4,
+				"karma": 5
+			},
+			"shapeshifter: vulpine": {
+				"special": 4,
+				"karma": 8
+			},
+			"shapeshifter: canine": {
+				"special": 3,
+				"karma": 10
+			},
+			"shapeshifter: falconine": {
+				"special": 3,
+				"karma": 10
+			},
+			"shapeshifter: lupine": {
+				"special": 2,
+				"karma": 15
+			},
+			"shapeshifter: equine": {
+				"special": 2,
+				"karma": 15
+			},
+			"shapeshifter: ursine": {
+				"special": 0,
+				"karma": 20
+			},
+			"shapeshifter: leonine": {
+				"special": 0,
+				"karma": 20
+			},
+			"shapeshifter: pantherine": {
+				"special": 0,
+				"karma": 25
+			},
+			"shapeshifter: tigrine": {
+				"special": 0,
+				"karma": 25
 			}
 		},
 		"attributes": 16,
@@ -256,6 +591,22 @@
 			},
 			"elf": {
 				"special": 0
+			},
+			"nartaki": {
+				"special": 2
+			},
+			"dryad": {
+				"special": 0
+			},
+			"nocturna": {
+				"special": 0
+			},
+			"wakyambi": {
+				"special": 0,
+				"karma": 12
+			},
+			"xapiri thepe": {
+				"special": 0
 			}
 		},
 		"attributes": 14,
@@ -282,6 +633,9 @@
 	"E": {
 		"metatype": {
 			"human": {
+				"special": 1
+			},
+			"nartaki": {
 				"special": 1
 			}
 		},

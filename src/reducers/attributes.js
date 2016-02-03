@@ -4,19 +4,22 @@
  * src/container/App.js accordingly.
  */
 const initialState = {
-	bod: 1,
-	agi: 1,
-	rea: 1,
-	str: 1,
-	wil: 1,
-	log: 1,
-	int: 1,
-	cha: 1
+	bod: 0,
+	agi: 0,
+	rea: 0,
+	str: 0,
+	wil: 0,
+	log: 0,
+	int: 0,
+	cha: 0,
+	spent: 0
 };
+
+var maxCap = false;
 
 const attributesReducer = (state=initialState, action) => {
 	if(action.parameter) {
-		var {attribute, min, max, maxCap} = action.parameter;
+		var {attribute, max} = action.parameter;
 		if(maxCap) {
 			--max;
 		}
@@ -24,24 +27,42 @@ const attributesReducer = (state=initialState, action) => {
 
 	const actionsToTake = {
 		INCREMENT_ATTRIBUTE: () => {
-			var newState;
-			if(state[attribute] < min) {
-				newState = Object.assign({}, state, {[attribute]: min})
-			} else if (state[attribute] + 1 > max) {
+			var newState,
+				nextIncrement = state[attribute] + 1;
+			if (nextIncrement > max) {
 				return state;
 			} else {
-				newState = Object.assign({}, state, {[attribute]: state[attribute] + 1})
+				newState = Object.assign(
+					{},
+					state,
+					{
+						[attribute]: nextIncrement,
+						spent: state.spent + 1
+					}
+				)
+				if(nextIncrement === max) {
+					maxCap = true;
+				}
 			}
 			return newState;
 		},
 		DECREMENT_ATTRIBUTE: () => {
-			var newState;
-			if(state[attribute] - 1 < min) {
+			var newState,
+				nextDecrement = state[attribute] - 1;
+			if(nextDecrement < 0) {
 				return state;
-			} else if (state[attribute] > max) {
-				newState = Object.assign({}, state, {[attribute]: max})
 			} else {
-				newState = Object.assign({}, state, {[attribute]: state[attribute] - 1})
+				if(state[attribute] === max + 1) {
+					maxCap = false;
+				}
+				newState = Object.assign(
+					{},
+					state,
+					{
+						[attribute]: nextDecrement,
+						spent:  state.spent - 1
+					}
+				)
 			}
 			return newState;
 		},

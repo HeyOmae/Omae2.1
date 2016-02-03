@@ -14,10 +14,7 @@ Omae is a character generator for Shadowrun 5th Edition.
 ##Getting Started
 
 1. Install NodeJS from nodejs.org. I'm currently using Node 5.5.0, but in theory a few older versions should still work too.
-2. Clone the repo (you may need to install git if you're running Windows, https://git-scm.com/download/win)
-```
-	git clone git@github.com:dethstrobe/Omae2.1.git
-```
+2. Clone the repo (you may need to install git if you're running Windows, https://git-scm.com/download/win) ```git clone git@github.com:HeyOmae/Omae2.1.git```
 3. Navigate to the directory you cloned the repo to. This is usually done with the command ```CD /path/to/directory/```
 4. Install dependencies with ```npm install```
 5. Run dev server with ```npm start``` Which should open a browser and run the app
@@ -28,5 +25,8 @@ Install Yeoman and the React-Webpack-Redux generator. You can skip this if you d
 ```
 	npm install -g yo generator-react-webpack-redux
 ```
+###Help for pushing release to live
+
+* http://stackoverflow.com/questions/7011113/git-push-a-sub-directory-into-another-main-repo
 
 //TODO: Write more stuff here
