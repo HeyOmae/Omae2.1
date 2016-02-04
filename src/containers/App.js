@@ -14,6 +14,7 @@ import Main from '../components/Main';
 import PriorityTableComponent from '../components/PriorityTableComponent';
 import MetatypeSelector from '../components/MetatypeSelectorComponent';
 import AttributesComponent from '../components/AttributesComponent';
+import MagicSelectionComponent from '../components/magic/MagicSelectionComponent';
 
 /* Populated by react-webpack-redux:reducer */
 class App extends Component {
@@ -52,6 +53,7 @@ class App extends Component {
 							}}
 							attributes={attributes} />
 
+						<MagicSelectionComponent />
 					</div>
 					
 				</div>
