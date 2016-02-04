@@ -14,7 +14,6 @@ class SpecialComponent extends React.Component {
 					<thead>
 						<tr>
 							<th>Edg</th>
-							<th>Mag</th>
 							<th>Points</th>
 						</tr>
 					</thead>
