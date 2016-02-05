@@ -9,16 +9,17 @@ let priorityData = require('json!../data/priority.json');
 class MagicSelectionComponent extends React.Component {
 	render() {
 		const awakenTypes = ['Mage', 'Mystic', 'Technomancer','Adept', 'Aspected', 'mundane'],
-			{magicPriority} = this.props;
+			{magicPriority, magictype, action} = this.props;
 		let awakenButtons = []
 
 		awakenTypes.forEach((typeName) => {
+			let selectedMagictype = magictype === typeName;
 			awakenButtons.push(
 				<AwakenButton
 					typeName={typeName}
 					anOption={typeName in priorityData[magicPriority].magic}
-					checked={true}
-					selectMagicTypeAction={console.log}
+					checked={selectedMagictype}
+					selectMagicTypeAction={action}
 					key={'awaken-selection-' + typeName}
 				/>
 			);
