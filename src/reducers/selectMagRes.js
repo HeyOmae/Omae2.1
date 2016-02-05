@@ -3,22 +3,17 @@
  * If you change the type from object to something else, do not forget to update
  * src/container/App.js accordingly.
  */
-const initialState = {};
+const initialState = 'Mage';
 
-module.exports = function(state = initialState, action) {
-  /* Keep the reducer clean - do not mutate the original state. */
-  //let nextState = Object.assign({}, state);
+const metatypeReducer = (state=initialState, action) => {
+	const actionsToTake = {
+		SELECT_MAGICTYPE: () => {
+			return action.parameter;
+		},
 
-  switch(action.type) {
-    /*
-    case 'YOUR_ACTION': {
-      // Modify next state depending on the action and return it
-      return nextState;
-    } break;
-    */
-    default: {
-      /* Return original state if no actions were consumed. */
-      return state;
-    }
-  }
-}
+		DEFAULT: () => { return state; }
+	};
+	return (actionsToTake[action.type] || actionsToTake.DEFAULT)();
+};
+
+module.exports = metatypeReducer;

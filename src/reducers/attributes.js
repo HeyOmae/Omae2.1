@@ -42,9 +42,6 @@ const attributesReducer = (state=initialState, action) => {
 						[spend]: state[spend] + 1
 					}
 				)
-				if(nextIncrement === max) {
-					maxCap = true;
-				}
 			}
 			return newState;
 		},
@@ -54,9 +51,6 @@ const attributesReducer = (state=initialState, action) => {
 			if(nextDecrement < 0) {
 				return state;
 			} else {
-				if(state[attribute] === max + 1) {
-					maxCap = false;
-				}
 				newState = Object.assign(
 					{},
 					state,

@@ -13,11 +13,11 @@ describe('attributes', () => {
 		log: 6,
 		int: 1,
 		cha: 5,
-		edg: 0,
+		edg: 1,
 		ess: 6,
 		special: 0,
 		baseSpent: 1,
-		specialSpent: 0
+		specialSpent: 1
 	};
 
 	it('should not change the passed state', (done) => {
@@ -51,8 +51,8 @@ describe('attributes', () => {
 		it('should increase specialSpent when increasing special attibutes, like edge', () => {
 			const newState = reducer(state, {type: 'INCREMENT_ATTRIBUTE', parameter: {attribute: 'edg', max: 5, maxCap: false, spend: 'specialSpent'}});
 
-			expect(newState.edg).to.equal(1);
-			expect(newState.specialSpent).to.equal(1);
+			expect(newState.edg).to.equal(2);
+			expect(newState.specialSpent).to.equal(2);
 		})
 	});
 
@@ -68,6 +68,13 @@ describe('attributes', () => {
 			const newState = reducer(state, {type: 'DECREMENT_ATTRIBUTE', parameter: {attribute: 'str', max: 8, maxCap: false, spend: 'baseSpent'}});
 
 			expect(newState).to.equal(state);
+		})
+
+		it('should decrease specialSpent when decreasing special attibutes, like edge', () => {
+			const newState = reducer(state, {type: 'DECREMENT_ATTRIBUTE', parameter: {attribute: 'edg', max: 5, maxCap: false, spend: 'specialSpent'}});
+
+			expect(newState.edg).to.equal(0);
+			expect(newState.specialSpent).to.equal(0);
 		})
 	});
 
