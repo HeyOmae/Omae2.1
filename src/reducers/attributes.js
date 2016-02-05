@@ -19,11 +19,9 @@ const initialState = {
 	specialSpent: 0
 };
 
-var maxCap = false;
-
 const attributesReducer = (state=initialState, action) => {
 	if(action.parameter) {
-		var {attribute, max, spend} = action.parameter;
+		var {attribute, max, spend, maxCap} = action.parameter;
 		if(maxCap) {
 			--max;
 		}

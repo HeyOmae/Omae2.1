@@ -5,18 +5,18 @@
 
 // Uncomment the following lines to use the react test utilities
 // import TestUtils from 'react-addons-test-utils';
-import createComponent from 'helpers/shallowRenderHelper';
+// import createComponent from 'helpers/shallowRenderHelper';
 
-import ModalComponent from 'components//ModalComponent.js';
+// import ModalComponent from 'components//ModalComponent.js';
 
-describe('ModalComponent', () => {
-  let component;
+// describe('ModalComponent', () => {
+//   let component;
 
-  beforeEach(() => {
-    component = createComponent(ModalComponent);
-  });
+//   beforeEach(() => {
+//     component = createComponent(ModalComponent);
+//   });
 
-  it('should have its component name as default className', () => {
-    expect(component.props.className).to.equal('modal-component');
-  });
-});
+//   it('should have its component name as default className', () => {
+//     expect(component.props.className).to.equal('modal-component');
+//   });
+// });
