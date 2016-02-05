@@ -53,7 +53,8 @@ class App extends Component {
 							}}
 							attributes={attributes} />
 
-						<MagicSelectionComponent />
+						<MagicSelectionComponent
+							magicPriority={priorityTable.magres}/>
 					</div>
 					
 				</div>
