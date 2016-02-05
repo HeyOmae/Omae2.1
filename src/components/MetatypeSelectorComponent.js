@@ -11,11 +11,9 @@ class MetatypeSelectorComponent extends React.Component {
 		const {priorityRating, metatype, action} = this.props;
 		let buttonElements = [],
 			racialDetails = [],
-			currentMetaData;
+			currentMetaData = metatypeData[metatype];
 
 		for(let typeName in metatypeData) {
-			currentMetaData = metatypeData[typeName];
-
 			let selectedMetatype = metatype === typeName;
 			buttonElements.push(
 				<MetatypeButton
@@ -52,7 +50,7 @@ class MetatypeSelectorComponent extends React.Component {
 					</div>
 					<div className='col-xs-6'>
 						<h3>Reference</h3>
-						<strong>{metatypeData[metatype].reference.book}</strong> p{metatypeData[metatype].reference.page}
+						<strong>{currentMetaData.reference.book}</strong> p{currentMetaData.reference.page}
 					</div>
 				</div>
 			</div>
