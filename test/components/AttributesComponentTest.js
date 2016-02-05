@@ -5,9 +5,9 @@
 
 // Uncomment the following lines to use the react test utilities
 // import TestUtils from 'react-addons-test-utils';
-import createComponent from 'helpers/shallowRenderHelper';
+// import createComponent from 'helpers/shallowRenderHelper';
 
-import AttributesComponent from 'components//AttributesComponent.js';
+// import AttributesComponent from 'components//AttributesComponent.js';
 
 // describe('AttributesComponent', () => {
 //   let component;

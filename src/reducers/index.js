@@ -11,6 +11,7 @@ import { combineReducers } from 'redux';
 const reducers = {
   priorityTable: require('../reducers/priorityTable.js'),
   selectMetatype: require('../reducers/selectMetatype.js'),
-  attributes: require('../reducers/attributes.js')
+  attributes: require('../reducers/attributes.js'),
+  selectMagRes: require('../reducers/selectMagRes.js')
 };
 module.exports = combineReducers(reducers);

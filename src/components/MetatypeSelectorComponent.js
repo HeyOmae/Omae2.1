@@ -52,7 +52,7 @@ class MetatypeSelectorComponent extends React.Component {
 					</div>
 					<div className='col-xs-6'>
 						<h3>Reference</h3>
-						<strong>{currentMetaData.reference.book}</strong> p{currentMetaData.reference.page}
+						<strong>{metatypeData[metatype].reference.book}</strong> p{metatypeData[metatype].reference.page}
 					</div>
 				</div>
 			</div>
