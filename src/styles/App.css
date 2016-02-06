@@ -54,7 +54,7 @@ h1, h2, h3, h4 {
 	text-align: center;
 }
 
-
+/******* Table Style ******/
 
 td, th {
 	text-align: center;
@@ -86,4 +86,11 @@ strong {
 
 .modal.hide {
 	display: none;
+}
+
+/****** input Style ********/
+input[type="radio"] {
+	position: absolute;
+	clip: rect(0,0,0,0);
+	pointer-events: none;
 }

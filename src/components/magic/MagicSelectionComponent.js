@@ -47,7 +47,9 @@ const AwakenButton = ({typeName, anOption, checked, selectMagicTypeAction}) => {
 				autoComplete="off"
 				checked={checked}
 				onChange={()=>{
-					selectMagicTypeAction(typeName);
+					if(anOption){
+						selectMagicTypeAction(typeName);
+					}
 				}}
 			/>
 				{typeName}
