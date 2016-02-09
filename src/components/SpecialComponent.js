@@ -6,7 +6,7 @@ require('styles//Special.sass');
 
 class SpecialComponent extends React.Component {
 	render() {
-		const {elements, pointsLeft} = this.props;
+		const {elements, pointsLeft, magicName} = this.props;
 		return (
 			<div className="special-component col-lg-12 col-xl-3">
 				<h2>Special</h2>
@@ -14,6 +14,10 @@ class SpecialComponent extends React.Component {
 					<thead>
 						<tr>
 							<th>Edg</th>
+							{magicName ? //this is probably an antipattern and will need to be refactored
+								<th>{magicName === 'Magic' ? 'Mag' : 'Res'}</th>
+								: <span />
+							}
 							<th>Points</th>
 						</tr>
 					</thead>

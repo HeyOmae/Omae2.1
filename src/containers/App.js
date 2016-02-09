@@ -43,6 +43,8 @@ class App extends Component {
 						<AttributesComponent
 							metatypeRating={priorityTable.metatype}
 							priorityRating={priorityTable.attribute}
+							magicPriority={priorityTable.magres}
+							magictype={selectMagRes}
 							metatype={selectMetatype}
 							actions={{
 								incrementAttribute: actions.incrementAttribute,
@@ -58,7 +60,7 @@ class App extends Component {
 					
 				</div>
 			</div>
-    );
+	);
   }
 }
 /* Populated by react-webpack-redux:reducer
@@ -76,21 +78,21 @@ App.propTypes = {
 function mapStateToProps(state) {
   /* Populated by react-webpack-redux:reducer */
   const props = {
-    priorityTable: state.priorityTable,
-    selectMetatype: state.selectMetatype,
-    attributes: state.attributes,
-    selectMagRes: state.selectMagRes
+	priorityTable: state.priorityTable,
+	selectMetatype: state.selectMetatype,
+	attributes: state.attributes,
+	selectMagRes: state.selectMagRes
   };
   return props;
 }
 function mapDispatchToProps(dispatch) {
   /* Populated by react-webpack-redux:action */
   const actions = {
-    priorityTable: require('../actions/priorityTable.js'),
-    selectMetatype: require('../actions/selectMetatype.js'),
-    incrementAttribute: require('../actions/attributes/incrementAttribute.js'),
-    decrementAttribute: require('../actions/attributes/decrementAttribute.js'),
-    selectMagictype: require('../actions/selectMagictype.js')
+	priorityTable: require('../actions/priorityTable.js'),
+	selectMetatype: require('../actions/selectMetatype.js'),
+	incrementAttribute: require('../actions/attributes/incrementAttribute.js'),
+	decrementAttribute: require('../actions/attributes/decrementAttribute.js'),
+	selectMagictype: require('../actions/selectMagictype.js')
   };
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;

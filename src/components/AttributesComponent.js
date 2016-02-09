@@ -17,7 +17,7 @@ function activeButton(currentAtt, maxAtt) {
 
 class AttributesComponent extends React.Component {
 	render() {
-		const {priorityRating, metatype, attributes, actions, metatypeRating} = this.props;
+		const {priorityRating, metatype, attributes, actions, metatypeRating, magicPriority, magictype} = this.props;
 		var attributeElements = {
 			base: {
 				incBtn: [],
@@ -72,6 +72,14 @@ class AttributesComponent extends React.Component {
 			} else {
 				//special stats go here later
 				addingElements('special', specialPointsLeft);
+
+				if(magictype in priorityData[magicPriority].magic) {
+					att='special';
+					baseAtt = priorityData[magicPriority].magic[magictype].attribute.points;//find magic rating
+					maxAtt = Math.floor(attributes.ess); //set max to essense rounded down
+					maxPoints = maxAtt - baseAtt;
+					addingElements('special', specialPointsLeft);
+				}
 			}
 		}
 		return (
@@ -115,7 +123,8 @@ class AttributesComponent extends React.Component {
 					</div>
 					<SpecialComponent
 						elements={attributeElements.special}
-						pointsLeft={specialPointsLeft}/>
+						pointsLeft={specialPointsLeft}
+						magicName={priorityData[magicPriority].magic[magictype].attribute.name}/>
 				</div>
 			</div>
 		);
