@@ -14,10 +14,7 @@ class SpecialComponent extends React.Component {
 					<thead>
 						<tr>
 							<th>Edg</th>
-							{magicName ? //this is probably an antipattern and will need to be refactored
-								<th>{magicName === 'Magic' ? 'Mag' : 'Res'}</th>
-								: <span />
-							}
+							{ magicName ? <th>{magicName === 'Magic' ? 'Mag' : 'Res'}</th> : null }
 							<th>Points</th>
 						</tr>
 					</thead>

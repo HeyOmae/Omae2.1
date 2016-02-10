@@ -73,12 +73,13 @@ class AttributesComponent extends React.Component {
 				//special stats go here later
 				addingElements('special', specialPointsLeft);
 
-				if(magictype in priorityData[magicPriority].magic) {
+				if(magictype in priorityData[magicPriority].magic && magictype !== 'mundane') {
 					att='special';
 					baseAtt = priorityData[magicPriority].magic[magictype].attribute.points;//find magic rating
 					maxAtt = Math.floor(attributes.ess); //set max to essense rounded down
 					maxPoints = maxAtt - baseAtt;
 					addingElements('special', specialPointsLeft);
+					var magicName = priorityData[magicPriority].magic[magictype].attribute.name;
 				}
 			}
 		}
@@ -124,7 +125,7 @@ class AttributesComponent extends React.Component {
 					<SpecialComponent
 						elements={attributeElements.special}
 						pointsLeft={specialPointsLeft}
-						magicName={priorityData[magicPriority].magic[magictype].attribute.name}/>
+						magicName={magicName}/>
 				</div>
 			</div>
 		);
