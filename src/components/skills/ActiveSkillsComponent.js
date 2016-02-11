@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react';
+let skillsData = require('json!../data/skills.json');
 
 require('styles/skills/ActiveSkills.sass');
 
@@ -12,18 +13,22 @@ class ActiveSkillsComponent extends React.Component {
 
 				<div className="row">
 					<div className="col-xs-12">
-						<table className='table'>
-							<thead>
-								<tr>
-									<th>Raise</th>
-									<th>Rating</th>
-									<th>Lower</th>
-									<th>Skill Name</th>
-									<th>Modifiers</th>
-									<th>Dice Pool</th>
-								</tr>
-							</thead>
-						</table>
+						<div className="table-responsive">
+							<table className='table'>
+								<thead>
+									<tr>
+										<th>Raise</th>
+										<th>Rating</th>
+										<th>Lower</th>
+										<th>Skill Name</th>
+										<th>Spec</th>
+										<th>Mods</th>
+										<th>Dice Pool</th>
+										<th>Ref</th>
+									</tr>
+								</thead>
+							</table>
+						</div>
 					</div>
 				</div>
 			</div>

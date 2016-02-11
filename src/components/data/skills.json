@@ -1,0 +1,751 @@
+{
+    "groups": {
+        "acting": {
+            "name": "Acting",
+            "skillsingroup": [
+                "con",
+                "impersonation",
+                "performance"
+            ]
+        },
+        "athletics": {
+            "name": "Athletics",
+            "skillsingroup": [
+                "gymnastics",
+                "running",
+                "swimming"
+            ]
+        },
+        "biotech": {
+            "name": "Biotech",
+            "skillsingroup": [
+                "cybertechnology",
+                "firstaid",
+                "medicine",
+                "biotechnology"
+            ]
+        },
+        "closecombat": {
+            "name": "Close Combat",
+            "skillsingroup": [
+                "blades",
+                "clubs",
+                "unarmedcombat"
+            ]
+        },
+        "conjuring": {
+            "name": "Conjuring",
+            "skillsingroup": [
+                "banishing",
+                "binding",
+                "summoning"
+            ],
+            "catalog": "magic"
+        },
+        "cracking": {
+            "name": "Cracking",
+            "skillsingroup": [
+                "cybercombat",
+                "electronicwarfare",
+                "hacking"
+            ]
+        },
+        "electronics": {
+            "name": "Electronics",
+            "skillsingroup": [
+                "computer",
+                "hardware",
+                "software"
+            ]
+        },
+        "enchanting": {
+            "name": "Enchanting",
+            "skillsingroup": [
+                "alchemy",
+                "artificing",
+                "disenchanting"
+            ],
+            "catalog": "magic"
+        },
+        "firearms": {
+            "name": "Firearms",
+            "skillsingroup": [
+                "automatics",
+                "longarms",
+                "pistols"
+            ]
+        },
+        "influence": {
+            "name": "Influence",
+            "skillsingroup": [
+                "etiquette",
+                "leadership",
+                "negotiation"
+            ]
+        },
+        "engineering": {
+            "name": "Engineering",
+            "skillsingroup": [
+                "aeronauticsmechanics",
+                "automotivemechanic",
+                "industrialmechanics",
+                "nauticalmechanics"
+            ]
+        },
+        "outdoors": {
+            "name": "Outdoors",
+            "skillsingroup": [
+                "navigation",
+                "survival",
+                "tracking"
+            ]
+        },
+        "sorcery": {
+            "name": "Sorcery",
+            "skillsingroup": [
+                "counterspelling",
+                "ritualspellcasting",
+                "spellcasting"
+            ],
+            "catalog": "magic"
+        },
+        "stealth": {
+            "name": "Stealth",
+            "skillsingroup": [
+                "disguise",
+                "palming",
+                "sneaking"
+            ]
+        },
+        "tasking": {
+            "name": "Tasking",
+            "skillsingroup": [
+                "compiling",
+                "decompiling",
+                "registering"
+            ],
+            "catalog": "resonance"
+        }
+    },
+    
+    "active": {
+        "agi": {
+            "archery": {
+                "name": "Archery",
+                "catalog": "agility",
+                "stat": "agi",
+                "defaultable": true,
+                "reference": {
+                    "book": "SR",
+                    "page": "130"
+                },
+                "specializations": [
+                    "Bow",
+                    "Crossbow",
+                    "Non-Standard Ammunition",
+                    "Slingshot"
+                ]
+            },
+            "automatics": {
+                "name": "Automatics",
+                "catalog": "agility",
+                "stat": "agi",
+                "defaultable": true,
+                "reference": {
+                    "book": "SR",
+                    "page": "130"
+                },
+                "specializations": [
+                    "Assault Rifles",
+                    "Cyber-Implant",
+                    "Machine Pistols",
+                    "Submachine Guns"
+                ]
+            },
+            "blades": {
+                "name": "Blades",
+                "catalog": "agility",
+                "stat": "agi",
+                "defaultable": true,
+                "reference": {
+                    "book": "SR",
+                    "page": "130"
+                },
+                "specializations": [
+                    "Axes",
+                    "Knives",
+                    "Swords",
+                    "Parrying"
+                ]
+            },
+            "clubs": {
+                "name": "Clubs",
+                "catalog": "agility",
+                "stat": "agi",
+                "defaultable": true,
+                "reference": {
+                    "book": "SR",
+                    "page": "131"
+                },
+                "specializations": [
+                    "Batons",
+                    "Hammers",
+                    "Saps",
+                    "Staves",
+                    "Parrying"
+                ]
+            },
+            "heavyweapons": {
+                "name": "Heavy Weapons",
+                "catalog": "agility",
+                "stat": "agi",
+                "defaultable": true,
+                "reference": {
+                    "book": "SR",
+                    "page": "132"
+                },
+                "specializations": [
+                    "Assault Cannons",
+                    "Grenade Launchers",
+                    "Guided Missiles",
+                    "Machine Guns",
+                    "Rocket Launchers"
+                ]
+            },
+            "longarms": {
+                "name": "Long Arms",
+                "catalog": "agility",
+                "stat": "agi",
+                "defaultable": true,
+                "reference": {
+                    "book": "SR",
+                    "page": "132"
+                },
+                "specializations": [
+                    "Extended-Range Shots",
+                    "Long-Range Shots",
+                    "Shotguns",
+                    "Sniper",
+                    "Rifles"
+                ]
+            },
+            "pistols": {
+                "name": "Pistols",
+                "catalog": "agility",
+                "stat": "agi",
+                "defaultable": true,
+                "reference": {
+                    "book": "SR",
+                    "page": "132"
+                },
+                "specializations": [
+                    "Holdouts",
+                    "Revolvers",
+                    "Semi-Automatics",
+                    "Tasers"
+                ]
+            },
+            "throwingweapons": {
+                "name": "Throwing Weapons",
+                "catalog": "agility",
+                "stat": "agi",
+                "defaultable": true,
+                "reference": {
+                    "book": "SR",
+                    "page": "132"
+                },
+                "specializations": [
+                    "Aerodynamic",
+                    "Blades",
+                    "Non-aerodynamic"
+                ]
+            },
+            "unarmedcombat": {
+                "name": "Unarmed Combat",
+                "catalog": "agility",
+                "stat": "agi",
+                "defaultable": true,
+                "reference": {
+                    "book": "SR",
+                    "page": "132"
+                },
+                "specializations": [
+                    "Blocking",
+                    "Cyber Implants",
+                    "Subduing",
+                    "Combat",
+                    "Martial Art"
+                ]
+            },
+            "gunnery": {
+                "name": "Gunnery",
+                "catalog": "agility",
+                "stat": "agi",
+                "defaultable": true,
+                "reference": {
+                    "book": "SR",
+                    "page": "146"
+                },
+                "specializations": [
+                    "Artillery",
+                    "Ballistic",
+                    "Energy",
+                    "Guided Missile",
+                    "Rocket"
+                ]
+            },
+            "gymnastics": {
+                "name": "Gymnastics",
+                "catalog": "agility",
+                "stat": "agi",
+                "defaultable": true,
+                "reference": {
+                    "book": "SR",
+                    "page": "133"
+                },
+                "specializations": [
+                    "Balance",
+                    "Climbing",
+                    "Dance",
+                    "Leaping",
+                    "Parkour",
+                    "Rolling"
+                ]
+            },
+            "escapeartist": {
+                "name": "Escape Artist",
+                "catalog": "agility",
+                "stat": "agi",
+                "defaultable": true,
+                "reference": {
+                    "book": "SR",
+                    "page": "133"
+                },
+                "specializations": [
+                    "Cuffs",
+                    "Ropes",
+                    "Zip Ties",
+                    "Contortionism"
+                ]
+            },
+            "locksmith": {
+                "name": "Locksmith",
+                "catalog": "agility",
+                "stat": "agi",
+                "defaultable": true,
+                "reference": {
+                    "book": "SR",
+                    "page": "145"
+                },
+                "specializations": [
+                    "Comination",
+                    "Keypad",
+                    "Maglock",
+                    "Tumbler",
+                    "Voice Recognition"
+                ]
+            },
+            "palming": {
+                "name": "Palming",
+                "catalog": "agility",
+                "stat": "agi",
+                "defaultable": true,
+                "reference": {
+                    "book": "SR",
+                    "page": "133"
+                },
+                "specializations": [
+                    "Legerdemain",
+                    "Pickpocket",
+                    "Pilfering"
+                ]
+            },
+            "sneaking": {
+                "name": "Sneaking",
+                "catalog": "agility",
+                "stat": "agi",
+                "defaultable": true,
+                "reference": {
+                    "book": "SR",
+                    "page": "133"
+                },
+                "specializations": [
+                    "Jungle",
+                    "Urban",
+                    "Desert"
+                ]
+            }
+        },
+        "bod": {
+            "diving": {
+                "name": "Diving",
+                "catalog": "body",
+                "stat": "bod",
+                "defaultable": true
+            },
+            "freefall": {
+                "name": "Free-Fall",
+                "catalog": "body",
+                "stat": "bod",
+                "defaultable": true
+            }
+        },
+        "rea": {
+            "pilotaerospace": {
+                "name": "Pilot Aerospace",
+                "catalog": "reaction",
+                "stat": "rea",
+                "defaultable": false
+            },
+            "pilotaircraft": {
+                "name": "Pilot Aircraft",
+                "catalog": "reaction",
+                "stat": "rea",
+                "defaultable": false
+            },
+            "pilotwalker": {
+                "name": "Pilot Walker",
+                "catalog": "reaction",
+                "stat": "rea",
+                "defaultable": false
+            },
+            "pilotexoticvehicle": {
+                "name": "Pilot Exotic Vehicle",
+                "catalog": "reaction",
+                "stat": "rea",
+                "defaultable": false
+            },
+            "pilotgroundcraft": {
+                "name": "Pilot Ground Craft",
+                "catalog": "reaction",
+                "stat": "rea",
+                "defaultable": true
+            },
+            "pilotwatercraft": {
+                "name": "Pilot Water Craft",
+                "catalog": "reaction",
+                "stat": "rea",
+                "defaultable": true
+            }
+        },
+        "str": {
+            "running": {
+                "name": "Running",
+                "catalog": "strength",
+                "stat": "str",
+                "defaultable": true
+            },
+            "swimming": {
+                "name": "Swimming",
+                "catalog": "strength",
+                "stat": "str",
+                "defaultable": true
+            }
+        },
+        "cha": {
+            "con": {
+                "name": "Con",
+                "catalog": "charisma",
+                "stat": "cha",
+                "defaultable": true
+            },
+            "etiquette": {
+                "name": "Etiquette",
+                "catalog": "charisma",
+                "stat": "cha",
+                "defaultable": true
+            },
+            "instruction": {
+                "name": "Instruction",
+                "catalog": "charisma",
+                "stat": "cha",
+                "defaultable": true
+            },
+            "intimidation": {
+                "name": "Intimidation",
+                "catalog": "charisma",
+                "stat": "cha",
+                "defaultable": true
+            },
+            "leadership": {
+                "name": "Leadership",
+                "catalog": "charisma",
+                "stat": "cha",
+                "defaultable": true
+            },
+            "negotiation": {
+                "name": "Negotiation",
+                "catalog": "charisma",
+                "stat": "cha",
+                "defaultable": true
+            },
+            "performance": {
+                "name": "Performance",
+                "catalog": "charisma",
+                "stat": "cha",
+                "defaultable": true
+            },
+            "impersonation": {
+                "name": "Impersonation",
+                "catalog": "charisma",
+                "stat": "cha",
+                "defaultable": true
+            },
+            "animalhandling": {
+                "name": "Animal Handling",
+                "catalog": "charisma",
+                "stat": "cha",
+                "defaultable": true
+            }
+        },
+        "int": {
+            "artisan": {
+                "name": "Artisan",
+                "catalog": "intuition",
+                "stat": "int",
+                "defaultable": true
+            },
+            "assensing": {
+                "name": "Assensing",
+                "catalog": "intuition",
+                "stat": "int",
+                "defaultable": false
+            },
+            "disguise": {
+                "name": "Disguise",
+                "catalog": "intuition",
+                "stat": "int",
+                "defaultable": true
+            },
+            "navigation": {
+                "name": "Navigation",
+                "catalog": "intuition",
+                "stat": "int",
+                "defaultable": true
+            },
+            "perception": {
+                "name": "Perception",
+                "catalog": "intuition",
+                "stat": "int",
+                "defaultable": true
+            },
+            "tracking": {
+                "name": "Tracking",
+                "catalog": "intuition",
+                "stat": "int",
+                "defaultable": true
+            }
+        },
+
+        "log": {
+            "aeronauticsmechanics": {
+                "name": "Aeronautics Mechanics",
+                "catalog": "logic",
+                "stat": "log",
+                "defaultable": false
+            },
+            "arcane": {
+                "name": "Arcane",
+                "catalog": "logic",
+                "stat": "log",
+                "defaultable": false
+            },
+            "armorer": {
+                "name": "Armorer",
+                "catalog": "logic",
+                "stat": "log",
+                "defaultable": true
+            },
+            "automotivemechanic": {
+                "name": "Automotive Mechanic",
+                "catalog": "logic",
+                "stat": "log",
+                "defaultable": false
+            },
+            "biotechnology": {
+                "name": "Biotechnology",
+                "catalog": "logic",
+                "stat": "log",
+                "defaultable": false
+            },
+            "chemistry": {
+                "name": "Chemistry",
+                "catalog": "logic",
+                "stat": "log",
+                "defaultable": false
+            },
+            "computer": {
+                "name": "Computer",
+                "catalog": "logic",
+                "stat": "log",
+                "defaultable": true
+            },
+            "cybertechnology": {
+                "name": "Cybertechnology",
+                "catalog": "logic",
+                "stat": "log",
+                "defaultable": false
+            },
+            "cybercombat": {
+                "name": "Cybercombat",
+                "catalog": "logic",
+                "stat": "log",
+                "defaultable": true
+            },
+            "demolitions": {
+                "name": "Demolitions",
+                "catalog": "logic",
+                "stat": "log",
+                "defaultable": true
+            },
+            "electronicwarfare": {
+                "name": "Electronic Warfare",
+                "catalog": "logic",
+                "stat": "log",
+                "defaultable": false
+            },
+            "firstaid": {
+                "name": "First Aid",
+                "catalog": "logic",
+                "stat": "log",
+                "defaultable": true
+            },
+            "industrialmechanics": {
+                "name": "Industrial Mechanics",
+                "catalog": "logic",
+                "stat": "log",
+                "defaultable": false
+            },
+            "hacking": {
+                "name": "Hacking",
+                "catalog": "logic",
+                "stat": "log",
+                "defaultable": true
+            },
+            "hardware": {
+                "name": "Hardware",
+                "catalog": "logic",
+                "stat": "log",
+                "defaultable": false
+            },
+            "medicine": {
+                "name": "Medicine",
+                "catalog": "logic",
+                "stat": "log",
+                "defaultable": false
+            },
+            "nauticalmechanics": {
+                "name": "Nautical Mechanics",
+                "catalog": "logic",
+                "stat": "log",
+                "defaultable": false
+            },
+            "software": {
+                "name": "Software",
+                "catalog": "logic",
+                "stat": "log",
+                "defaultable": false
+            },
+            "forgery": {
+                "name": "Forgery",
+                "catalog": "logic",
+                "stat": "log",
+                "defaultable": true
+            }
+        },
+        
+        "wil": {
+            "astralcombat": {
+                "name": "Astral Combat",
+                "catalog": "will",
+                "stat": "wil",
+                "defaultable": false
+            },
+            "survival": {
+                "name": "Survival",
+                "catalog": "will",
+                "stat": "wil",
+                "defaultable": true
+            }
+        },
+
+        "mag": {
+            "alchemy": {
+                "name": "Alchemy",
+                "catalog": "magic",
+                "stat": "mag",
+                "defaultable": true
+            },
+            "artificing": {
+                "name": "Artificing",
+                "catalog": "magic",
+                "stat": "mag",
+                "defaultable": false
+            },
+            "banishing": {
+                "name": "Banishing",
+                "catalog": "magic",
+                "stat": "mag",
+                "defaultable": false
+            },
+            "binding": {
+                "name": "Binding",
+                "catalog": "magic",
+                "stat": "mag",
+                "defaultable": false
+            },
+            "counterspelling": {
+                "name": "Counterspelling",
+                "catalog": "magic",
+                "stat": "mag",
+                "defaultable": false
+            },
+            "ritualspellcasting": {
+                "name": "Ritual Spellcasting",
+                "catalog": "magic",
+                "stat": "mag",
+                "defaultable": false
+            },
+            "spellcasting": {
+                "name": "Spellcasting",
+                "catalog": "magic",
+                "stat": "mag",
+                "defaultable": false
+            },
+            "summoning": {
+                "name": "Summoning",
+                "catalog": "magic",
+                "stat": "mag",
+                "defaultable": false
+            },
+            "disenchanting": {
+                "name": "Disenchanting",
+                "catalog": "magic",
+                "stat": "mag",
+                "defaultable": false
+            }
+        },
+        
+        "res": {
+            "compiling": {
+                "name": "Compiling",
+                "catalog": "resonance",
+                "stat": "res",
+                "defaultable": false
+            },
+            "decompiling": {
+                "name": "Decompiling",
+                "catalog": "resonance",
+                "stat": "res",
+                "defaultable": false
+            },
+            "registering": {
+                "name": "Registering",
+                "catalog": "resonance",
+                "stat": "res",
+                "defaultable": false
+            }
+        }
+
+    }
+}
