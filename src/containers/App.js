@@ -15,6 +15,7 @@ import PriorityTableComponent from '../components/PriorityTableComponent';
 import MetatypeSelector from '../components/MetatypeSelectorComponent';
 import AttributesComponent from '../components/AttributesComponent';
 import MagicSelectionComponent from '../components/magic/MagicSelectionComponent';
+import ActiveSkillsComponent from '../components/skills/ActiveSkillsComponent';
 /* Populated by react-webpack-redux:reducer */
 class App extends Component {
 	render() {
@@ -56,6 +57,9 @@ class App extends Component {
 							magicPriority={priorityTable.magres}
 							magictype={selectMagRes}
 							action={actions.selectMagictype} />
+
+						<h2>Skills</h2>
+						<ActiveSkillsComponent />
 					</div>
 					
 				</div>
