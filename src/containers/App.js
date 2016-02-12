@@ -18,17 +18,17 @@ import MagicSelectionComponent from '../components/magic/MagicSelectionComponent
 import ActiveSkillsComponent from '../components/skills/ActiveSkillsComponent';
 /* Populated by react-webpack-redux:reducer */
 class App extends Component {
-	render() {
-		const {actions, priorityTable, selectMetatype, attributes, selectMagRes} = this.props;
-		return (
-			<div className='container' selectMagRes={selectMagRes}>
+  render() {
+    const {actions, priorityTable, selectMetatype, attributes, selectMagRes, settingSkills} = this.props;
+    return (
+      <div className='container' selectMagRes={selectMagRes} settingSkills={settingSkills}>
 				<div className='row'>
 					<div className='col-md-12'>
 						<Main
-							actions={actions}
-							priorityTable={priorityTable}
-							selectMetatype={selectMetatype}
-							attributes={attributes}/>
+              actions={actions}
+              priorityTable={priorityTable}
+              selectMetatype={selectMetatype}
+              attributes={attributes}/>
 
 						<PriorityTableComponent actions={actions.priorityTable} priorityTable={priorityTable}/>
 					</div>
@@ -36,35 +36,29 @@ class App extends Component {
 
 				<div className='row'>
 					<div className='col-md-12 col-lg-9'>
-						<MetatypeSelector
-							priorityRating={priorityTable.metatype}
-							metatype={selectMetatype}
-							action={actions.selectMetatype}/>
+						<MetatypeSelector priorityRating={priorityTable.metatype} metatype={selectMetatype} action={actions.selectMetatype}/>
 
 						<AttributesComponent
-							metatypeRating={priorityTable.metatype}
-							priorityRating={priorityTable.attribute}
-							magicPriority={priorityTable.magres}
-							magictype={selectMagRes}
-							metatype={selectMetatype}
-							actions={{
-								incrementAttribute: actions.incrementAttribute,
-								decrementAttribute: actions.decrementAttribute
-							}}
-							attributes={attributes}/>
+              metatypeRating={priorityTable.metatype}
+              priorityRating={priorityTable.attribute}
+              magicPriority={priorityTable.magres}
+              magictype={selectMagRes}
+              metatype={selectMetatype}
+              actions={{
+                incrementAttribute: actions.incrementAttribute,
+                decrementAttribute: actions.decrementAttribute
+              }}
+              attributes={attributes}/>
 
-						<MagicSelectionComponent
-							magicPriority={priorityTable.magres}
-							magictype={selectMagRes}
-							action={actions.selectMagictype} />
+						<MagicSelectionComponent magicPriority={priorityTable.magres} magictype={selectMagRes} action={actions.selectMagictype}/>
 
 						<h2>Skills</h2>
-						<ActiveSkillsComponent />
+						<ActiveSkillsComponent/>
 					</div>
 					
 				</div>
 			</div>
-	);
+    );
   }
 }
 /* Populated by react-webpack-redux:reducer
@@ -77,26 +71,28 @@ App.propTypes = {
   priorityTable: PropTypes.object.isRequired,
   selectMetatype: PropTypes.string.isRequired,
   attributes: PropTypes.object.isRequired,
-  selectMagRes: PropTypes.string.isRequired
+  selectMagRes: PropTypes.string.isRequired,
+  settingSkills: PropTypes.object.isRequired
 };
 function mapStateToProps(state) {
   /* Populated by react-webpack-redux:reducer */
   const props = {
-	priorityTable: state.priorityTable,
-	selectMetatype: state.selectMetatype,
-	attributes: state.attributes,
-	selectMagRes: state.selectMagRes
+    priorityTable: state.priorityTable,
+    selectMetatype: state.selectMetatype,
+    attributes: state.attributes,
+    selectMagRes: state.selectMagRes,
+    settingSkills: state.settingSkills
   };
   return props;
 }
 function mapDispatchToProps(dispatch) {
   /* Populated by react-webpack-redux:action */
   const actions = {
-	priorityTable: require('../actions/priorityTable.js'),
-	selectMetatype: require('../actions/selectMetatype.js'),
-	incrementAttribute: require('../actions/attributes/incrementAttribute.js'),
-	decrementAttribute: require('../actions/attributes/decrementAttribute.js'),
-	selectMagictype: require('../actions/selectMagictype.js')
+    priorityTable: require('../actions/priorityTable.js'),
+    selectMetatype: require('../actions/selectMetatype.js'),
+    incrementAttribute: require('../actions/attributes/incrementAttribute.js'),
+    decrementAttribute: require('../actions/attributes/decrementAttribute.js'),
+    selectMagictype: require('../actions/selectMagictype.js')
   };
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;

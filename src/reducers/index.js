@@ -12,6 +12,7 @@ const reducers = {
   priorityTable: require('../reducers/priorityTable.js'),
   selectMetatype: require('../reducers/selectMetatype.js'),
   attributes: require('../reducers/attributes.js'),
-  selectMagRes: require('../reducers/selectMagRes.js')
+  selectMagRes: require('../reducers/selectMagRes.js'),
+  settingSkills: require('../reducers/settingSkills.js')
 };
 module.exports = combineReducers(reducers);
