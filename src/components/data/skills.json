@@ -136,8 +136,10 @@
                 "stat": "agi",
                 "defaultable": true,
                 "reference": {
-                    "book": "SR",
-                    "page": "130"
+                    "SR": {
+                        "Name": "Shadowrun 5th",
+                        "page": "130"
+                    }
                 },
                 "specializations": [
                     "Bow",
@@ -152,8 +154,10 @@
                 "stat": "agi",
                 "defaultable": true,
                 "reference": {
-                    "book": "SR",
-                    "page": "130"
+                    "SR": {
+                        "Name": "Shadowrun 5th",
+                        "page": "130"
+                    }
                 },
                 "specializations": [
                     "Assault Rifles",
@@ -168,8 +172,10 @@
                 "stat": "agi",
                 "defaultable": true,
                 "reference": {
-                    "book": "SR",
-                    "page": "130"
+                    "SR": {
+                        "Name": "Shadowrun 5th",
+                        "page": "130"
+                    }
                 },
                 "specializations": [
                     "Axes",
@@ -184,8 +190,10 @@
                 "stat": "agi",
                 "defaultable": true,
                 "reference": {
-                    "book": "SR",
-                    "page": "131"
+                    "SR": {
+                        "Name": "Shadowrun 5th",
+                        "page": "131"
+                    }
                 },
                 "specializations": [
                     "Batons",
@@ -201,8 +209,10 @@
                 "stat": "agi",
                 "defaultable": true,
                 "reference": {
-                    "book": "SR",
-                    "page": "132"
+                    "SR": {
+                        "Name": "Shadowrun 5th",
+                        "page": "132"
+                    }
                 },
                 "specializations": [
                     "Assault Cannons",
@@ -218,8 +228,10 @@
                 "stat": "agi",
                 "defaultable": true,
                 "reference": {
-                    "book": "SR",
-                    "page": "132"
+                    "SR": {
+                        "Name": "Shadowrun 5th",
+                        "page": "132"
+                    }
                 },
                 "specializations": [
                     "Extended-Range Shots",
@@ -235,8 +247,10 @@
                 "stat": "agi",
                 "defaultable": true,
                 "reference": {
-                    "book": "SR",
-                    "page": "132"
+                    "SR": {
+                        "Name": "Shadowrun 5th",
+                        "page": "132"
+                    }
                 },
                 "specializations": [
                     "Holdouts",
@@ -251,8 +265,10 @@
                 "stat": "agi",
                 "defaultable": true,
                 "reference": {
-                    "book": "SR",
-                    "page": "132"
+                    "SR": {
+                        "Name": "Shadowrun 5th",
+                        "page": "132"
+                    }
                 },
                 "specializations": [
                     "Aerodynamic",
@@ -266,8 +282,10 @@
                 "stat": "agi",
                 "defaultable": true,
                 "reference": {
-                    "book": "SR",
-                    "page": "132"
+                    "SR": {
+                        "Name": "Shadowrun 5th",
+                        "page": "132"
+                    }
                 },
                 "specializations": [
                     "Blocking",
@@ -283,8 +301,10 @@
                 "stat": "agi",
                 "defaultable": true,
                 "reference": {
-                    "book": "SR",
-                    "page": "146"
+                    "SR": {
+                        "Name": "Shadowrun 5th",
+                        "page": "146"
+                    }
                 },
                 "specializations": [
                     "Artillery",
@@ -300,8 +320,10 @@
                 "stat": "agi",
                 "defaultable": true,
                 "reference": {
-                    "book": "SR",
-                    "page": "133"
+                    "SR": {
+                        "Name": "Shadowrun 5th",
+                        "page": "133"
+                    }
                 },
                 "specializations": [
                     "Balance",
@@ -318,8 +340,10 @@
                 "stat": "agi",
                 "defaultable": true,
                 "reference": {
-                    "book": "SR",
-                    "page": "133"
+                    "SR": {
+                        "Name": "Shadowrun 5th",
+                        "page": "133"
+                    }
                 },
                 "specializations": [
                     "Cuffs",
@@ -334,8 +358,10 @@
                 "stat": "agi",
                 "defaultable": true,
                 "reference": {
-                    "book": "SR",
-                    "page": "145"
+                    "SR": {
+                        "Name": "Shadowrun 5th",
+                        "page": "145"
+                    }
                 },
                 "specializations": [
                     "Comination",
@@ -351,8 +377,10 @@
                 "stat": "agi",
                 "defaultable": true,
                 "reference": {
-                    "book": "SR",
-                    "page": "133"
+                    "SR": {
+                        "Name": "Shadowrun 5th",
+                        "page": "133"
+                    }
                 },
                 "specializations": [
                     "Legerdemain",
@@ -366,8 +394,10 @@
                 "stat": "agi",
                 "defaultable": true,
                 "reference": {
-                    "book": "SR",
-                    "page": "133"
+                    "SR": {
+                        "Name": "Shadowrun 5th",
+                        "page": "133"
+                    }
                 },
                 "specializations": [
                     "Jungle",
