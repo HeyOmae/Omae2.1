@@ -25,8 +25,8 @@ const ActiveSkill = ({attribute, skillList}) => {
 	let skillTableData = [];
 	for(let skillName in skillList) {
 		let skillData = skillList[skillName],
-		specilizationOptions = skillData.specializations.map((spec) => {
-			return <option key={spec} value={spec}>spec</option>
+		specilizationOptions = skillData.specializations.map((spec, i) => {
+			return <option key={spec+i} value={spec}>{spec}</option>
 		});
 
 		skillTableData.push(
@@ -47,7 +47,8 @@ const ActiveSkill = ({attribute, skillList}) => {
 					{skillData.reference.book} p{skillData.reference.page}
 				</td>
 				<td>
-					<select>
+					<select className="form-control">
+						<option value="">–</option>
 						{specilizationOptions}
 					</select>
 				</td>
