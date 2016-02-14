@@ -10,10 +10,7 @@ const initialState = {
 
 const attributesReducer = (state=initialState, action) => {
 	if(action.parameter) {
-		var {attribute, max, spend, maxCap} = action.parameter;
-		if(maxCap) {
-			--max;
-		}
+		var {skill, max} = action.parameter;
 	}
 
 	const actionsToTake = {
@@ -28,7 +25,7 @@ const attributesReducer = (state=initialState, action) => {
 					state,
 					{
 						[attribute]: nextIncrement,
-						[spend]: state[spend] + 1
+						skillPointsSpent: state.skillPointsSpent + 1
 					}
 				)
 			}
