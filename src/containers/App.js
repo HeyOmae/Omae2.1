@@ -25,10 +25,10 @@ class App extends Component {
 				<div className='row'>
 					<div className='col-md-12'>
 						<Main
-              actions={actions}
-              priorityTable={priorityTable}
-              selectMetatype={selectMetatype}
-              attributes={attributes}/>
+			              actions={actions}
+			              priorityTable={priorityTable}
+			              selectMetatype={selectMetatype}
+			              attributes={attributes}/>
 
 						<PriorityTableComponent actions={actions.priorityTable} priorityTable={priorityTable}/>
 					</div>
@@ -39,16 +39,16 @@ class App extends Component {
 						<MetatypeSelector priorityRating={priorityTable.metatype} metatype={selectMetatype} action={actions.selectMetatype}/>
 
 						<AttributesComponent
-              metatypeRating={priorityTable.metatype}
-              priorityRating={priorityTable.attribute}
-              magicPriority={priorityTable.magres}
-              magictype={selectMagRes}
-              metatype={selectMetatype}
-              actions={{
-                incrementAttribute: actions.incrementAttribute,
-                decrementAttribute: actions.decrementAttribute
-              }}
-              attributes={attributes}/>
+			              metatypeRating={priorityTable.metatype}
+			              priorityRating={priorityTable.attribute}
+			              magicPriority={priorityTable.magres}
+			              magictype={selectMagRes}
+			              metatype={selectMetatype}
+			              actions={{
+			                incrementAttribute: actions.incrementAttribute,
+			                decrementAttribute: actions.decrementAttribute
+			              }}
+			              attributes={attributes}/>
 
 						<MagicSelectionComponent magicPriority={priorityTable.magres} magictype={selectMagRes} action={actions.selectMagictype}/>
 
