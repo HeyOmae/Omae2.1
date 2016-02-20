@@ -17,36 +17,68 @@ const attributesReducer = (state=initialState, action) => {
 
 	const actionsToTake = {
 		INCREMENT_SKILL: () => {
-			var newState,
-				nextIncrement = state[category][name] + 1;
-			if (nextIncrement > max) {
-				return state;
+			var newState;
+			if(state[category][name]){
+				let nextIncrement = state[category][name].rating + 1;
+				if (nextIncrement > max) {
+					return state;
+				} else {
+					newState = Object.assign(
+						{},
+						state,
+						{
+							[category]: Object.assign({}, state[category], {[name]: {rating: nextIncrement}}), // this is ugly, think about making it less ugly
+							skillPointsSpent: state.skillPointsSpent + 1
+						}
+					)
+				}
 			} else {
 				newState = Object.assign(
 					{},
 					state,
 					{
-						[category]: Object.assign({}, state[category], {[name]: nextIncrement}), // this is ugly, think about making it less ugly
+						[category]: Object.assign(
+							{},
+							state[category],
+							{[name]: {rating: 1}}
+						),
 						skillPointsSpent: state.skillPointsSpent + 1
 					}
 				)
 			}
+
 			return newState;
 		},
 		DECREMENT_SKILL: () => {
-			var newState,
-				nextDecrement = state[category][name] - 1;
-			if(nextDecrement < 0) {
+			var newState;
+			if(!state[category][name]) {
 				return state;
-			} else {
+			} else if(state[category][name].rating === 1) {
 				newState = Object.assign(
 					{},
 					state,
 					{
-						[category]: Object.assign({}, state[category], {[name]: nextDecrement}),
+						skillPointsSpent: state.skillPointsSpent - 1
+					}
+				);
+
+				delete newState[category][name];
+			} else if(state[category][name].rating > 1) {
+				let nextDecrement = state[category][name].rating - 1;
+				newState = Object.assign(
+					{},
+					state,
+					{
+						[category]: Object.assign(
+							{},
+							state[category],
+							{[name]: {rating: nextDecrement}}
+						),
 						skillPointsSpent: state.skillPointsSpent - 1
 					}
 				)
+			} else {
+				return state;
 			}
 			return newState;
 		},
