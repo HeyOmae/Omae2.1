@@ -25,10 +25,10 @@ class App extends Component {
 				<div className='row'>
 					<div className='col-md-12'>
 						<Main
-			              actions={actions}
-			              priorityTable={priorityTable}
-			              selectMetatype={selectMetatype}
-			              attributes={attributes}/>
+              actions={actions}
+              priorityTable={priorityTable}
+              selectMetatype={selectMetatype}
+              attributes={attributes}/>
 
 						<PriorityTableComponent actions={actions.priorityTable} priorityTable={priorityTable}/>
 					</div>
@@ -39,21 +39,23 @@ class App extends Component {
 						<MetatypeSelector priorityRating={priorityTable.metatype} metatype={selectMetatype} action={actions.selectMetatype}/>
 
 						<AttributesComponent
-			              metatypeRating={priorityTable.metatype}
-			              priorityRating={priorityTable.attribute}
-			              magicPriority={priorityTable.magres}
-			              magictype={selectMagRes}
-			              metatype={selectMetatype}
-			              actions={{
-			                incrementAttribute: actions.incrementAttribute,
-			                decrementAttribute: actions.decrementAttribute
-			              }}
-			              attributes={attributes}/>
+              metatypeRating={priorityTable.metatype}
+              priorityRating={priorityTable.attribute}
+              magicPriority={priorityTable.magres}
+              magictype={selectMagRes}
+              metatype={selectMetatype}
+              actions={{
+                incrementAttribute: actions.incrementAttribute,
+                decrementAttribute: actions.decrementAttribute
+              }}
+              attributes={attributes}/>
 
 						<MagicSelectionComponent magicPriority={priorityTable.magres} magictype={selectMagRes} action={actions.selectMagictype}/>
 
 						<h2>Skills</h2>
-						<ActiveSkillsComponent/>
+						<ActiveSkillsComponent
+              actions={actions}
+              skills={settingSkills}/>
 					</div>
 					
 				</div>
@@ -92,7 +94,9 @@ function mapDispatchToProps(dispatch) {
     selectMetatype: require('../actions/selectMetatype.js'),
     incrementAttribute: require('../actions/attributes/incrementAttribute.js'),
     decrementAttribute: require('../actions/attributes/decrementAttribute.js'),
-    selectMagictype: require('../actions/selectMagictype.js')
+    selectMagictype: require('../actions/selectMagictype.js'),
+    incrementSkill: require('../actions/skills/incrementSkill.js'),
+    decrementSkill: require('../actions/skills/decrementSkill.js')
   };
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;

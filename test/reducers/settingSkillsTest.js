@@ -21,45 +21,51 @@ describe('settingSkills', () => {
 		done();
 	});
 
-	it('should add a rating 1 skill to state if not defined', () => {
-		let newState = reducer(state, {type: 'INCREMENT_SKILL', parameter: {name: 'pistol', category: 'active', max: 6 }});
+	describe('INCREMENT_SKILL', () => {
+		it('should add a rating 1 skill to state if not defined', () => {
+			let newState = reducer(state, {type: 'INCREMENT_SKILL', parameter: {name: 'pistol', category: 'active', max: 6 }});
 
-		expect(newState.active.pistol.rating).to.equal(1);
-		expect(newState.skillPointsSpent).to.equal(4);
+			expect(newState.active.pistol.rating).to.equal(1);
+			expect(newState.skillPointsSpent).to.equal(4);
+		});
+
+		it('should increment a skill that\'s already defined in the state', () => {
+			let newState = reducer(state, {type: 'INCREMENT_SKILL', parameter: {name: 'longarms', category: 'active', max: 6 }});
+
+			expect(newState.active.longarms.rating).to.equal(2);
+			expect(newState.skillPointsSpent).to.equal(4);
+		});
+
+		it('should return state if increment a skill higher then the max', () => {
+			let newState = reducer(state, {type: 'INCREMENT_SKILL', parameter: {name: 'con', category: 'active', max: 6 }});
+
+			expect(newState).to.equal(state);
+			expect(newState.skillPointsSpent).to.equal(3);
+		});
 	});
 
-	it('should increment a skill that\'s already defined in the state', () => {
-		let newState = reducer(state, {type: 'INCREMENT_SKILL', parameter: {name: 'longarms', category: 'active', max: 6 }});
+	describe('DECREMENT_SKILL', () => {
+		it('should decrement a skill that\'s already defined in the state', () => {
+			let newState = reducer(state, {type: 'DECREMENT_SKILL', parameter: {name: 'palming', category: 'active', max: 6 }});
 
-		expect(newState.active.longarms.rating).to.equal(2);
-		expect(newState.skillPointsSpent).to.equal(4);
+			expect(newState.active.palming.rating).to.equal(1);
+			expect(newState.skillPointsSpent).to.equal(2);
+		});
+
+		it('should delete a skill that\'s decremented to 0 in the state', () => {
+			let newState = reducer(state, {type: 'DECREMENT_SKILL', parameter: {name: 'longarms', category: 'active', max: 6 }});
+
+			expect(newState.active.longarms).to.be.undefined;
+			expect(newState.skillPointsSpent).to.equal(2);
+		});
+
+		it('should return state if attempting to decrement a skill that is not defined', () => {
+			let newState = reducer(state, {type: 'DECREMENT_SKILL', parameter: {name: 'pistol', category: 'active', max: 6 }});
+
+			expect(newState).to.equal(state);
+			expect(newState.skillPointsSpent).to.equal(3);
+		});
 	});
 
-	it('should not increment a skill higher then the max', () => {
-		let newState = reducer(state, {type: 'INCREMENT_SKILL', parameter: {name: 'con', category: 'active', max: 6 }});
-
-		expect(newState.active.con.rating).to.equal(6);
-		expect(newState.skillPointsSpent).to.equal(3);
-	});
-
-	it('should decrement a skill that\'s already defined in the state', () => {
-		let newState = reducer(state, {type: 'DECREMENT_SKILL', parameter: {name: 'palming', category: 'active', max: 6 }});
-
-		expect(newState.active.palming.rating).to.equal(1);
-		expect(newState.skillPointsSpent).to.equal(2);
-	});
-
-	it('should delete a skill that\'s decremented to 0 in the state', () => {
-		let newState = reducer(state, {type: 'DECREMENT_SKILL', parameter: {name: 'longarms', category: 'active', max: 6 }});
-
-		expect(newState.active.longarms).to.be.undefined;
-		expect(newState.skillPointsSpent).to.equal(2);
-	});
-
-	it('should return state if attempting to decrement a skill that is not defined', () => {
-		let newState = reducer(state, {type: 'DECREMENT_SKILL', parameter: {name: 'pistol', category: 'active', max: 6 }});
-
-		expect(newState).to.equal(state);
-		expect(newState.skillPointsSpent).to.equal(3);
-	});
+	
 });

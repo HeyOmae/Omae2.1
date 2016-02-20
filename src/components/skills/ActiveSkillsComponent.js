@@ -7,13 +7,19 @@ require('styles/skills/ActiveSkills.sass');
 
 class ActiveSkillsComponent extends React.Component {
 	render() {
+		const {actions, skills} = this.props;
 		return (
 			<div className="activeskills-component">
 				<h3>Active Skills</h3>
 
 				<div className="row">
 					<div className="col-xs-12">
-						<ActiveSkill attribute={'agi'} skillList={skillsData.active['agi']}/>
+						<ActiveSkill
+							attribute={'agi'}
+							skillList={skillsData.active['agi']}
+							actions={actions}
+							skills={skills.active}
+							skillPoints={skills.skillPointsSpent}/>
 					</div>
 				</div>
 			</div>
@@ -21,7 +27,7 @@ class ActiveSkillsComponent extends React.Component {
 	}
 }
 
-const ActiveSkill = ({attribute, skillList}) => {
+const ActiveSkill = ({attribute, skillList, actions, skills, skillPoints}) => {
 	let skillTableData = [];
 	for(let skillName in skillList) {
 		let skillData = skillList[skillName],
@@ -30,21 +36,41 @@ const ActiveSkill = ({attribute, skillList}) => {
 		}),
 		references = [];
 		for(let book in skillData.reference) {
-			references.push(<span key={skillName + book}className="reference">
+			references.push(<span key={skillName + book} className="reference">
 					{book} p{skillData.reference[book].page}
 				</span>);
 		}
 
+		function incrementSkill() {
+			actions.incrementSkill({name: this, category: 'active', max: 6});
+		}
+
+		function decrementSkill() {
+			actions.decrementSkill({name: this, category: 'active', max: 6});
+		}
+
+		let rating = skills[skillData.name] ? skills[skillData.name].rating : 0;
+
 		skillTableData.push(
 			<tr key={skillData.name}>
 				<td>
-					<button className="btn btn-success">+</button>
+					<button
+						className="btn btn-success"
+						onClick={incrementSkill.bind(skillData.name)}
+					>
+						+
+					</button>
 				</td>
 				<td>
-					0
+					{rating}
 				</td>
 				<td>
-					<button className="btn btn-warning">-</button>
+					<button
+						className="btn btn-warning"
+						onClick={decrementSkill.bind(skillData.name)}
+					>
+						-
+					</button>
 				</td>
 				<td>
 					<strong>{skillData.name}</strong>
@@ -77,6 +103,7 @@ const ActiveSkill = ({attribute, skillList}) => {
 						<th>Spec</th>
 						<th>Mods</th>
 						<th>Dice Pool</th>
+						<td>{skillPoints}</td>
 					</tr>
 				</thead>
 				<tbody>
