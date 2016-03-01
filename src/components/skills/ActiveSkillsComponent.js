@@ -12,6 +12,7 @@ class ActiveSkillsComponent extends React.Component {
 
 		for(let skillKey in skillsData.active) {
 			let skillinCategory = skillsData.active[skillKey];
+
 			listOfSkills.push(
 				<ActiveSkill
 					key={'skill-'+skillKey}
@@ -19,7 +20,8 @@ class ActiveSkillsComponent extends React.Component {
 					skillList={skillinCategory}
 					actions={actions}
 					skills={skills.active}
-					skillPoints={skills.skillPointsSpent}/>
+					skillPoints={skills.skillPointsSpent}
+					showSkill={skills.showSkill === skillKey}/>
 			);
 		}
 		return (
@@ -36,7 +38,7 @@ class ActiveSkillsComponent extends React.Component {
 	}
 }
 
-const ActiveSkill = ({attribute, skillList, actions, skills, skillPoints}) => {
+const ActiveSkill = ({attribute, skillList, actions, skills, skillPoints, showSkill}) => {
 	let skillTableData = [];
 	for(let skillName in skillList) {
 		let skillData = skillList[skillName],
@@ -98,27 +100,30 @@ const ActiveSkill = ({attribute, skillList, actions, skills, skillPoints}) => {
 			</tr>
 		);
 	}
+
 	return (
 		<div className="table-responsive">
-			<h4>{attribute}</h4>
-			<table className='table'>
-				<thead>
-					<tr>
-						<th>Raise</th>
-						<th>Rating</th>
-						<th>Lower</th>
-						<th>Skill Name</th>
-						<th>Ref</th>
-						<th>Spec</th>
-						<th>Mods</th>
-						<th>Dice Pool</th>
-						<td>{skillPoints}</td>
-					</tr>
-				</thead>
-				<tbody>
-					{skillTableData}
-				</tbody>
-			</table>
+			<h4><button className="btn btn-info" onClick={()=> actions.showSkill({ skillToShow: attribute })}>{attribute}</button></h4>
+			<div className={showSkill ? 'collapse in' : 'collapse'}>
+				<table className="table">
+					<thead>
+						<tr>
+							<th>Raise</th>
+							<th>Rating</th>
+							<th>Lower</th>
+							<th>Skill Name</th>
+							<th>Ref</th>
+							<th>Spec</th>
+							<th>Mods</th>
+							<th>Dice Pool</th>
+							<td>{skillPoints}</td>
+						</tr>
+					</thead>
+					<tbody>
+						{skillTableData}
+					</tbody>
+				</table>
+			</div>
 		</div>
 	);
 }

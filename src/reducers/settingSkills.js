@@ -7,12 +7,13 @@ const initialState = {
 	active: {},
 	knowledge: {},
 	skillPointsSpent: 0,
-	GroupPointSpent: 0
+	GroupPointSpent: 0,
+	showSkill: ''
 };
 
 const attributesReducer = (state=initialState, action) => {
 	if(action.parameter) {
-		var {name, category, max} = action.parameter;
+		var {name, category, max, skillToShow} = action.parameter;
 	}
 
 	const actionsToTake = {
@@ -49,6 +50,7 @@ const attributesReducer = (state=initialState, action) => {
 
 			return newState;
 		},
+
 		DECREMENT_SKILL: () => {
 			var newState;
 			if(!state[category][name]) {
@@ -82,8 +84,22 @@ const attributesReducer = (state=initialState, action) => {
 			}
 			return newState;
 		},
+
+		SHOW_SKILL: () => {
+			skillToShow = state.showSkill === skillToShow ? '' : skillToShow;
+			let newState = Object.assign(
+				{},
+				state,
+				{
+					showSkill: skillToShow
+				}
+			);
+			return newState;
+		},
+
 		DEFAULT: () => { return state; }
 	};
+
 	return (actionsToTake[action.type] || actionsToTake.DEFAULT)();
 };
 

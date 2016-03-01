@@ -12,7 +12,8 @@ describe('settingSkills', () => {
 			con: {rating: 6}
 		},
 		skillPointsSpent: 3,
-		GroupPointSpent: 0
+		GroupPointSpent: 0,
+		showSkill: ''
 	};
 
 	it('should not change the passed state', (done) => {
@@ -67,5 +68,30 @@ describe('settingSkills', () => {
 		});
 	});
 
-	
+	describe('SHOW_SKILL', () => {
+		it('should set showSkill to Agility', () => {
+			let newState = reducer(state, {type: 'SHOW_SKILL', parameter: {skillToShow: 'Agility' }});
+
+			expect(newState.showSkill).to.equal('Agility');
+		});
+
+		it('should set showSkill to an empty string if the same attribute is selected', ()=>{
+			const skillShowState = {
+				showSkill: 'Agility'
+			};
+
+			let newState = reducer(skillShowState, {type: 'SHOW_SKILL', parameter: {skillToShow: 'Agility' }});
+			expect(newState.showSkill).to.equal('');
+		});
+
+		it('should change the current skill to a new skill', ()=>{
+			const skillShowState = {
+				showSkill: 'Agility'
+			};
+
+			let newState = reducer(skillShowState, {type: 'SHOW_SKILL', parameter: {skillToShow: 'Body' }});
+			expect(newState.showSkill).to.equal('Body');
+		})
+	});
+
 });

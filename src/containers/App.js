@@ -53,9 +53,7 @@ class App extends Component {
 						<MagicSelectionComponent magicPriority={priorityTable.magres} magictype={selectMagRes} action={actions.selectMagictype}/>
 
 						<h2>Skills</h2>
-						<ActiveSkillsComponent
-              actions={actions}
-              skills={settingSkills}/>
+						<ActiveSkillsComponent actions={actions} skills={settingSkills}/>
 					</div>
 					
 				</div>
@@ -96,7 +94,8 @@ function mapDispatchToProps(dispatch) {
     decrementAttribute: require('../actions/attributes/decrementAttribute.js'),
     selectMagictype: require('../actions/selectMagictype.js'),
     incrementSkill: require('../actions/skills/incrementSkill.js'),
-    decrementSkill: require('../actions/skills/decrementSkill.js')
+    decrementSkill: require('../actions/skills/decrementSkill.js'),
+    showSkill: require('../actions/showSkill.js')
   };
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;
