@@ -27,7 +27,9 @@ class MagicSelectionComponent extends React.Component {
 		return (
 			<div className="magicselection-component">
 				<h2>Magic/Resonance</h2>
-				{awakenButtons}
+				<div className="btn-group">
+					{awakenButtons}
+				</div>
 			</div>
 		);
 	}
