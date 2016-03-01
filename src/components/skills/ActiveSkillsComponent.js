@@ -8,18 +8,27 @@ require('styles/skills/ActiveSkills.sass');
 class ActiveSkillsComponent extends React.Component {
 	render() {
 		const {actions, skills} = this.props;
+		var listOfSkills = [];
+
+		for(let skillKey in skillsData.active) {
+			let skillinCategory = skillsData.active[skillKey];
+			listOfSkills.push(
+				<ActiveSkill
+					key={'skill-'+skillKey}
+					attribute={skillKey}
+					skillList={skillinCategory}
+					actions={actions}
+					skills={skills.active}
+					skillPoints={skills.skillPointsSpent}/>
+			);
+		}
 		return (
 			<div className="activeskills-component">
 				<h3>Active Skills</h3>
 
 				<div className="row">
 					<div className="col-xs-12">
-						<ActiveSkill
-							attribute={'agi'}
-							skillList={skillsData.active['agi']}
-							actions={actions}
-							skills={skills.active}
-							skillPoints={skills.skillPointsSpent}/>
+						{listOfSkills}
 					</div>
 				</div>
 			</div>

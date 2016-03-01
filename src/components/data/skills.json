@@ -1,781 +1,1502 @@
 {
-    "groups": {
-        "acting": {
-            "name": "Acting",
-            "skillsingroup": [
-                "con",
-                "impersonation",
-                "performance"
-            ]
-        },
-        "athletics": {
-            "name": "Athletics",
-            "skillsingroup": [
-                "gymnastics",
-                "running",
-                "swimming"
-            ]
-        },
-        "biotech": {
-            "name": "Biotech",
-            "skillsingroup": [
-                "cybertechnology",
-                "firstaid",
-                "medicine",
-                "biotechnology"
-            ]
-        },
-        "closecombat": {
-            "name": "Close Combat",
-            "skillsingroup": [
-                "blades",
-                "clubs",
-                "unarmedcombat"
-            ]
-        },
-        "conjuring": {
-            "name": "Conjuring",
-            "skillsingroup": [
-                "banishing",
-                "binding",
-                "summoning"
-            ],
-            "catalog": "magic"
-        },
-        "cracking": {
-            "name": "Cracking",
-            "skillsingroup": [
-                "cybercombat",
-                "electronicwarfare",
-                "hacking"
-            ]
-        },
-        "electronics": {
-            "name": "Electronics",
-            "skillsingroup": [
-                "computer",
-                "hardware",
-                "software"
-            ]
-        },
-        "enchanting": {
-            "name": "Enchanting",
-            "skillsingroup": [
-                "alchemy",
-                "artificing",
-                "disenchanting"
-            ],
-            "catalog": "magic"
-        },
-        "firearms": {
-            "name": "Firearms",
-            "skillsingroup": [
-                "automatics",
-                "longarms",
-                "pistols"
-            ]
-        },
-        "influence": {
-            "name": "Influence",
-            "skillsingroup": [
-                "etiquette",
-                "leadership",
-                "negotiation"
-            ]
-        },
-        "engineering": {
-            "name": "Engineering",
-            "skillsingroup": [
-                "aeronauticsmechanics",
-                "automotivemechanic",
-                "industrialmechanics",
-                "nauticalmechanics"
-            ]
-        },
-        "outdoors": {
-            "name": "Outdoors",
-            "skillsingroup": [
-                "navigation",
-                "survival",
-                "tracking"
-            ]
-        },
-        "sorcery": {
-            "name": "Sorcery",
-            "skillsingroup": [
-                "counterspelling",
-                "ritualspellcasting",
-                "spellcasting"
-            ],
-            "catalog": "magic"
-        },
-        "stealth": {
-            "name": "Stealth",
-            "skillsingroup": [
-                "disguise",
-                "palming",
-                "sneaking"
-            ]
-        },
-        "tasking": {
-            "name": "Tasking",
-            "skillsingroup": [
-                "compiling",
-                "decompiling",
-                "registering"
-            ],
-            "catalog": "resonance"
-        }
-    },
-    
-    "active": {
-        "agi": {
-            "archery": {
-                "name": "Archery",
-                "catalog": "agility",
-                "stat": "agi",
-                "defaultable": true,
-                "reference": {
-                    "SR": {
-                        "Name": "Shadowrun 5th",
-                        "page": "130"
-                    }
-                },
-                "specializations": [
-                    "Bow",
-                    "Crossbow",
-                    "Non-Standard Ammunition",
-                    "Slingshot"
-                ]
-            },
-            "automatics": {
-                "name": "Automatics",
-                "catalog": "agility",
-                "stat": "agi",
-                "defaultable": true,
-                "reference": {
-                    "SR": {
-                        "Name": "Shadowrun 5th",
-                        "page": "130"
-                    }
-                },
-                "specializations": [
-                    "Assault Rifles",
-                    "Cyber-Implant",
-                    "Machine Pistols",
-                    "Submachine Guns"
-                ]
-            },
-            "blades": {
-                "name": "Blades",
-                "catalog": "agility",
-                "stat": "agi",
-                "defaultable": true,
-                "reference": {
-                    "SR": {
-                        "Name": "Shadowrun 5th",
-                        "page": "130"
-                    }
-                },
-                "specializations": [
-                    "Axes",
-                    "Knives",
-                    "Swords",
-                    "Parrying"
-                ]
-            },
-            "clubs": {
-                "name": "Clubs",
-                "catalog": "agility",
-                "stat": "agi",
-                "defaultable": true,
-                "reference": {
-                    "SR": {
-                        "Name": "Shadowrun 5th",
-                        "page": "131"
-                    }
-                },
-                "specializations": [
-                    "Batons",
-                    "Hammers",
-                    "Saps",
-                    "Staves",
-                    "Parrying"
-                ]
-            },
-            "heavyweapons": {
-                "name": "Heavy Weapons",
-                "catalog": "agility",
-                "stat": "agi",
-                "defaultable": true,
-                "reference": {
-                    "SR": {
-                        "Name": "Shadowrun 5th",
-                        "page": "132"
-                    }
-                },
-                "specializations": [
-                    "Assault Cannons",
-                    "Grenade Launchers",
-                    "Guided Missiles",
-                    "Machine Guns",
-                    "Rocket Launchers"
-                ]
-            },
-            "longarms": {
-                "name": "Long Arms",
-                "catalog": "agility",
-                "stat": "agi",
-                "defaultable": true,
-                "reference": {
-                    "SR": {
-                        "Name": "Shadowrun 5th",
-                        "page": "132"
-                    }
-                },
-                "specializations": [
-                    "Extended-Range Shots",
-                    "Long-Range Shots",
-                    "Shotguns",
-                    "Sniper",
-                    "Rifles"
-                ]
-            },
-            "pistols": {
-                "name": "Pistols",
-                "catalog": "agility",
-                "stat": "agi",
-                "defaultable": true,
-                "reference": {
-                    "SR": {
-                        "Name": "Shadowrun 5th",
-                        "page": "132"
-                    }
-                },
-                "specializations": [
-                    "Holdouts",
-                    "Revolvers",
-                    "Semi-Automatics",
-                    "Tasers"
-                ]
-            },
-            "throwingweapons": {
-                "name": "Throwing Weapons",
-                "catalog": "agility",
-                "stat": "agi",
-                "defaultable": true,
-                "reference": {
-                    "SR": {
-                        "Name": "Shadowrun 5th",
-                        "page": "132"
-                    }
-                },
-                "specializations": [
-                    "Aerodynamic",
-                    "Blades",
-                    "Non-aerodynamic"
-                ]
-            },
-            "unarmedcombat": {
-                "name": "Unarmed Combat",
-                "catalog": "agility",
-                "stat": "agi",
-                "defaultable": true,
-                "reference": {
-                    "SR": {
-                        "Name": "Shadowrun 5th",
-                        "page": "132"
-                    }
-                },
-                "specializations": [
-                    "Blocking",
-                    "Cyber Implants",
-                    "Subduing",
-                    "Combat",
-                    "Martial Art"
-                ]
-            },
-            "gunnery": {
-                "name": "Gunnery",
-                "catalog": "agility",
-                "stat": "agi",
-                "defaultable": true,
-                "reference": {
-                    "SR": {
-                        "Name": "Shadowrun 5th",
-                        "page": "146"
-                    }
-                },
-                "specializations": [
-                    "Artillery",
-                    "Ballistic",
-                    "Energy",
-                    "Guided Missile",
-                    "Rocket"
-                ]
-            },
-            "gymnastics": {
-                "name": "Gymnastics",
-                "catalog": "agility",
-                "stat": "agi",
-                "defaultable": true,
-                "reference": {
-                    "SR": {
-                        "Name": "Shadowrun 5th",
-                        "page": "133"
-                    }
-                },
-                "specializations": [
-                    "Balance",
-                    "Climbing",
-                    "Dance",
-                    "Leaping",
-                    "Parkour",
-                    "Rolling"
-                ]
-            },
-            "escapeartist": {
-                "name": "Escape Artist",
-                "catalog": "agility",
-                "stat": "agi",
-                "defaultable": true,
-                "reference": {
-                    "SR": {
-                        "Name": "Shadowrun 5th",
-                        "page": "133"
-                    }
-                },
-                "specializations": [
-                    "Cuffs",
-                    "Ropes",
-                    "Zip Ties",
-                    "Contortionism"
-                ]
-            },
-            "locksmith": {
-                "name": "Locksmith",
-                "catalog": "agility",
-                "stat": "agi",
-                "defaultable": true,
-                "reference": {
-                    "SR": {
-                        "Name": "Shadowrun 5th",
-                        "page": "145"
-                    }
-                },
-                "specializations": [
-                    "Comination",
-                    "Keypad",
-                    "Maglock",
-                    "Tumbler",
-                    "Voice Recognition"
-                ]
-            },
-            "palming": {
-                "name": "Palming",
-                "catalog": "agility",
-                "stat": "agi",
-                "defaultable": true,
-                "reference": {
-                    "SR": {
-                        "Name": "Shadowrun 5th",
-                        "page": "133"
-                    }
-                },
-                "specializations": [
-                    "Legerdemain",
-                    "Pickpocket",
-                    "Pilfering"
-                ]
-            },
-            "sneaking": {
-                "name": "Sneaking",
-                "catalog": "agility",
-                "stat": "agi",
-                "defaultable": true,
-                "reference": {
-                    "SR": {
-                        "Name": "Shadowrun 5th",
-                        "page": "133"
-                    }
-                },
-                "specializations": [
-                    "Jungle",
-                    "Urban",
-                    "Desert"
-                ]
-            }
-        },
-        "bod": {
-            "diving": {
-                "name": "Diving",
-                "catalog": "body",
-                "stat": "bod",
-                "defaultable": true
-            },
-            "freefall": {
-                "name": "Free-Fall",
-                "catalog": "body",
-                "stat": "bod",
-                "defaultable": true
-            }
-        },
-        "rea": {
-            "pilotaerospace": {
-                "name": "Pilot Aerospace",
-                "catalog": "reaction",
-                "stat": "rea",
-                "defaultable": false
-            },
-            "pilotaircraft": {
-                "name": "Pilot Aircraft",
-                "catalog": "reaction",
-                "stat": "rea",
-                "defaultable": false
-            },
-            "pilotwalker": {
-                "name": "Pilot Walker",
-                "catalog": "reaction",
-                "stat": "rea",
-                "defaultable": false
-            },
-            "pilotexoticvehicle": {
-                "name": "Pilot Exotic Vehicle",
-                "catalog": "reaction",
-                "stat": "rea",
-                "defaultable": false
-            },
-            "pilotgroundcraft": {
-                "name": "Pilot Ground Craft",
-                "catalog": "reaction",
-                "stat": "rea",
-                "defaultable": true
-            },
-            "pilotwatercraft": {
-                "name": "Pilot Water Craft",
-                "catalog": "reaction",
-                "stat": "rea",
-                "defaultable": true
-            }
-        },
-        "str": {
-            "running": {
-                "name": "Running",
-                "catalog": "strength",
-                "stat": "str",
-                "defaultable": true
-            },
-            "swimming": {
-                "name": "Swimming",
-                "catalog": "strength",
-                "stat": "str",
-                "defaultable": true
-            }
-        },
-        "cha": {
-            "con": {
-                "name": "Con",
-                "catalog": "charisma",
-                "stat": "cha",
-                "defaultable": true
-            },
-            "etiquette": {
-                "name": "Etiquette",
-                "catalog": "charisma",
-                "stat": "cha",
-                "defaultable": true
-            },
-            "instruction": {
-                "name": "Instruction",
-                "catalog": "charisma",
-                "stat": "cha",
-                "defaultable": true
-            },
-            "intimidation": {
-                "name": "Intimidation",
-                "catalog": "charisma",
-                "stat": "cha",
-                "defaultable": true
-            },
-            "leadership": {
-                "name": "Leadership",
-                "catalog": "charisma",
-                "stat": "cha",
-                "defaultable": true
-            },
-            "negotiation": {
-                "name": "Negotiation",
-                "catalog": "charisma",
-                "stat": "cha",
-                "defaultable": true
-            },
-            "performance": {
-                "name": "Performance",
-                "catalog": "charisma",
-                "stat": "cha",
-                "defaultable": true
-            },
-            "impersonation": {
-                "name": "Impersonation",
-                "catalog": "charisma",
-                "stat": "cha",
-                "defaultable": true
-            },
-            "animalhandling": {
-                "name": "Animal Handling",
-                "catalog": "charisma",
-                "stat": "cha",
-                "defaultable": true
-            }
-        },
-        "int": {
-            "artisan": {
-                "name": "Artisan",
-                "catalog": "intuition",
-                "stat": "int",
-                "defaultable": true
-            },
-            "assensing": {
-                "name": "Assensing",
-                "catalog": "intuition",
-                "stat": "int",
-                "defaultable": false
-            },
-            "disguise": {
-                "name": "Disguise",
-                "catalog": "intuition",
-                "stat": "int",
-                "defaultable": true
-            },
-            "navigation": {
-                "name": "Navigation",
-                "catalog": "intuition",
-                "stat": "int",
-                "defaultable": true
-            },
-            "perception": {
-                "name": "Perception",
-                "catalog": "intuition",
-                "stat": "int",
-                "defaultable": true
-            },
-            "tracking": {
-                "name": "Tracking",
-                "catalog": "intuition",
-                "stat": "int",
-                "defaultable": true
-            }
-        },
+	"groups": {
+		"acting": {
+			"name": "Acting",
+			"skillsingroup": [
+				"con",
+				"impersonation",
+				"performance"
+			]
+		},
+		"athletics": {
+			"name": "Athletics",
+			"skillsingroup": [
+				"gymnastics",
+				"running",
+				"swimming"
+			]
+		},
+		"biotech": {
+			"name": "Biotech",
+			"skillsingroup": [
+				"cybertechnology",
+				"firstaid",
+				"medicine",
+				"biotechnology"
+			]
+		},
+		"closecombat": {
+			"name": "Close Combat",
+			"skillsingroup": [
+				"blades",
+				"clubs",
+				"unarmedcombat"
+			]
+		},
+		"conjuring": {
+			"name": "Conjuring",
+			"skillsingroup": [
+				"banishing",
+				"binding",
+				"summoning"
+			],
+			"catalog": "magic"
+		},
+		"cracking": {
+			"name": "Cracking",
+			"skillsingroup": [
+				"cybercombat",
+				"electronicwarfare",
+				"hacking"
+			]
+		},
+		"electronics": {
+			"name": "Electronics",
+			"skillsingroup": [
+				"computer",
+				"hardware",
+				"software"
+			]
+		},
+		"enchanting": {
+			"name": "Enchanting",
+			"skillsingroup": [
+				"alchemy",
+				"artificing",
+				"disenchanting"
+			],
+			"catalog": "magic"
+		},
+		"firearms": {
+			"name": "Firearms",
+			"skillsingroup": [
+				"automatics",
+				"longarms",
+				"pistols"
+			]
+		},
+		"influence": {
+			"name": "Influence",
+			"skillsingroup": [
+				"etiquette",
+				"leadership",
+				"negotiation"
+			]
+		},
+		"engineering": {
+			"name": "Engineering",
+			"skillsingroup": [
+				"aeronauticsmechanics",
+				"automotivemechanic",
+				"industrialmechanics",
+				"nauticalmechanics"
+			]
+		},
+		"outdoors": {
+			"name": "Outdoors",
+			"skillsingroup": [
+				"navigation",
+				"survival",
+				"tracking"
+			]
+		},
+		"sorcery": {
+			"name": "Sorcery",
+			"skillsingroup": [
+				"counterspelling",
+				"ritualspellcasting",
+				"spellcasting"
+			],
+			"catalog": "magic"
+		},
+		"stealth": {
+			"name": "Stealth",
+			"skillsingroup": [
+				"disguise",
+				"palming",
+				"sneaking"
+			]
+		},
+		"tasking": {
+			"name": "Tasking",
+			"skillsingroup": [
+				"compiling",
+				"decompiling",
+				"registering"
+			],
+			"catalog": "resonance"
+		}
+	},
+	
+	"active": {
 
-        "log": {
-            "aeronauticsmechanics": {
-                "name": "Aeronautics Mechanics",
-                "catalog": "logic",
-                "stat": "log",
-                "defaultable": false
-            },
-            "arcane": {
-                "name": "Arcane",
-                "catalog": "logic",
-                "stat": "log",
-                "defaultable": false
-            },
-            "armorer": {
-                "name": "Armorer",
-                "catalog": "logic",
-                "stat": "log",
-                "defaultable": true
-            },
-            "automotivemechanic": {
-                "name": "Automotive Mechanic",
-                "catalog": "logic",
-                "stat": "log",
-                "defaultable": false
-            },
-            "biotechnology": {
-                "name": "Biotechnology",
-                "catalog": "logic",
-                "stat": "log",
-                "defaultable": false
-            },
-            "chemistry": {
-                "name": "Chemistry",
-                "catalog": "logic",
-                "stat": "log",
-                "defaultable": false
-            },
-            "computer": {
-                "name": "Computer",
-                "catalog": "logic",
-                "stat": "log",
-                "defaultable": true
-            },
-            "cybertechnology": {
-                "name": "Cybertechnology",
-                "catalog": "logic",
-                "stat": "log",
-                "defaultable": false
-            },
-            "cybercombat": {
-                "name": "Cybercombat",
-                "catalog": "logic",
-                "stat": "log",
-                "defaultable": true
-            },
-            "demolitions": {
-                "name": "Demolitions",
-                "catalog": "logic",
-                "stat": "log",
-                "defaultable": true
-            },
-            "electronicwarfare": {
-                "name": "Electronic Warfare",
-                "catalog": "logic",
-                "stat": "log",
-                "defaultable": false
-            },
-            "firstaid": {
-                "name": "First Aid",
-                "catalog": "logic",
-                "stat": "log",
-                "defaultable": true
-            },
-            "industrialmechanics": {
-                "name": "Industrial Mechanics",
-                "catalog": "logic",
-                "stat": "log",
-                "defaultable": false
-            },
-            "hacking": {
-                "name": "Hacking",
-                "catalog": "logic",
-                "stat": "log",
-                "defaultable": true
-            },
-            "hardware": {
-                "name": "Hardware",
-                "catalog": "logic",
-                "stat": "log",
-                "defaultable": false
-            },
-            "medicine": {
-                "name": "Medicine",
-                "catalog": "logic",
-                "stat": "log",
-                "defaultable": false
-            },
-            "nauticalmechanics": {
-                "name": "Nautical Mechanics",
-                "catalog": "logic",
-                "stat": "log",
-                "defaultable": false
-            },
-            "software": {
-                "name": "Software",
-                "catalog": "logic",
-                "stat": "log",
-                "defaultable": false
-            },
-            "forgery": {
-                "name": "Forgery",
-                "catalog": "logic",
-                "stat": "log",
-                "defaultable": true
-            }
-        },
-        
-        "wil": {
-            "astralcombat": {
-                "name": "Astral Combat",
-                "catalog": "will",
-                "stat": "wil",
-                "defaultable": false
-            },
-            "survival": {
-                "name": "Survival",
-                "catalog": "will",
-                "stat": "wil",
-                "defaultable": true
-            }
-        },
+		"Agility": {
+			"archery": {
+				"name": "Archery",
+				"catalog": "agility",
+				"stat": "agi",
+				"defaultable": true,
+				"reference": {
+					"SR": {
+						"Name": "Shadowrun 5th",
+						"page": "130"
+					}
+				},
+				"specializations": [
+					"Bow",
+					"Crossbow",
+					"Non-Standard Ammunition",
+					"Slingshot"
+				]
+			},
+			"automatics": {
+				"name": "Automatics",
+				"catalog": "agility",
+				"stat": "agi",
+				"defaultable": true,
+				"reference": {
+					"SR": {
+						"Name": "Shadowrun 5th",
+						"page": "130"
+					}
+				},
+				"specializations": [
+					"Assault Rifles",
+					"Cyber-Implant",
+					"Machine Pistols",
+					"Submachine Guns"
+				]
+			},
+			"blades": {
+				"name": "Blades",
+				"catalog": "agility",
+				"stat": "agi",
+				"defaultable": true,
+				"reference": {
+					"SR": {
+						"Name": "Shadowrun 5th",
+						"page": "130"
+					}
+				},
+				"specializations": [
+					"Axes",
+					"Knives",
+					"Swords",
+					"Parrying"
+				]
+			},
+			"clubs": {
+				"name": "Clubs",
+				"catalog": "agility",
+				"stat": "agi",
+				"defaultable": true,
+				"reference": {
+					"SR": {
+						"Name": "Shadowrun 5th",
+						"page": "131"
+					}
+				},
+				"specializations": [
+					"Batons",
+					"Hammers",
+					"Saps",
+					"Staves",
+					"Parrying"
+				]
+			},
+			"heavyweapons": {
+				"name": "Heavy Weapons",
+				"catalog": "agility",
+				"stat": "agi",
+				"defaultable": true,
+				"reference": {
+					"SR": {
+						"Name": "Shadowrun 5th",
+						"page": "132"
+					}
+				},
+				"specializations": [
+					"Assault Cannons",
+					"Grenade Launchers",
+					"Guided Missiles",
+					"Machine Guns",
+					"Rocket Launchers"
+				]
+			},
+			"longarms": {
+				"name": "Long Arms",
+				"catalog": "agility",
+				"stat": "agi",
+				"defaultable": true,
+				"reference": {
+					"SR": {
+						"Name": "Shadowrun 5th",
+						"page": "132"
+					}
+				},
+				"specializations": [
+					"Extended-Range Shots",
+					"Long-Range Shots",
+					"Shotguns",
+					"Sniper",
+					"Rifles"
+				]
+			},
+			"pistols": {
+				"name": "Pistols",
+				"catalog": "agility",
+				"stat": "agi",
+				"defaultable": true,
+				"reference": {
+					"SR": {
+						"Name": "Shadowrun 5th",
+						"page": "132"
+					}
+				},
+				"specializations": [
+					"Holdouts",
+					"Revolvers",
+					"Semi-Automatics",
+					"Tasers"
+				]
+			},
+			"throwingweapons": {
+				"name": "Throwing Weapons",
+				"catalog": "agility",
+				"stat": "agi",
+				"defaultable": true,
+				"reference": {
+					"SR": {
+						"Name": "Shadowrun 5th",
+						"page": "132"
+					}
+				},
+				"specializations": [
+					"Aerodynamic",
+					"Blades",
+					"Non-aerodynamic"
+				]
+			},
+			"unarmedcombat": {
+				"name": "Unarmed Combat",
+				"catalog": "agility",
+				"stat": "agi",
+				"defaultable": true,
+				"reference": {
+					"SR": {
+						"Name": "Shadowrun 5th",
+						"page": "132"
+					}
+				},
+				"specializations": [
+					"Blocking",
+					"Cyber Implants",
+					"Subduing",
+					"Combat",
+					"Martial Art"
+				]
+			},
+			"gunnery": {
+				"name": "Gunnery",
+				"catalog": "agility",
+				"stat": "agi",
+				"defaultable": true,
+				"reference": {
+					"SR": {
+						"Name": "Shadowrun 5th",
+						"page": "146"
+					}
+				},
+				"specializations": [
+					"Artillery",
+					"Ballistic",
+					"Energy",
+					"Guided Missile",
+					"Rocket"
+				]
+			},
+			"gymnastics": {
+				"name": "Gymnastics",
+				"catalog": "agility",
+				"stat": "agi",
+				"defaultable": true,
+				"reference": {
+					"SR": {
+						"Name": "Shadowrun 5th",
+						"page": "133"
+					}
+				},
+				"specializations": [
+					"Balance",
+					"Climbing",
+					"Dance",
+					"Leaping",
+					"Parkour",
+					"Rolling"
+				]
+			},
+			"escapeartist": {
+				"name": "Escape Artist",
+				"catalog": "agility",
+				"stat": "agi",
+				"defaultable": true,
+				"reference": {
+					"SR": {
+						"Name": "Shadowrun 5th",
+						"page": "133"
+					}
+				},
+				"specializations": [
+					"Cuffs",
+					"Ropes",
+					"Zip Ties",
+					"Contortionism"
+				]
+			},
+			"locksmith": {
+				"name": "Locksmith",
+				"catalog": "agility",
+				"stat": "agi",
+				"defaultable": true,
+				"reference": {
+					"SR": {
+						"Name": "Shadowrun 5th",
+						"page": "145"
+					}
+				},
+				"specializations": [
+					"Comination",
+					"Keypad",
+					"Maglock",
+					"Tumbler",
+					"Voice Recognition"
+				]
+			},
+			"palming": {
+				"name": "Palming",
+				"catalog": "agility",
+				"stat": "agi",
+				"defaultable": true,
+				"reference": {
+					"SR": {
+						"Name": "Shadowrun 5th",
+						"page": "133"
+					}
+				},
+				"specializations": [
+					"Legerdemain",
+					"Pickpocket",
+					"Pilfering"
+				]
+			},
+			"sneaking": {
+				"name": "Sneaking",
+				"catalog": "agility",
+				"stat": "agi",
+				"defaultable": true,
+				"reference": {
+					"SR": {
+						"Name": "Shadowrun 5th",
+						"page": "133"
+					}
+				},
+				"specializations": [
+					"Jungle",
+					"Urban",
+					"Desert"
+				]
+			}
+		},
+		"Body": {
+			"diving": {
+				"name": "Diving",
+				"category": "body",
+				"stat": "bod",
+				"defaultable": true,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "133"
+					}
+				},
+				"specializations": [
+					"Arctic",
+					"Cave",
+					"Commercial",
+					"Controlled Hyperventilation",
+					"Liquid Breathing Apparatus",
+					"Military",
+					"Mixed Gas",
+					"Oxygen Extraction",
+					"SCUBA",
+					"[Other Breathing Apparatus]",
+					"[Other Condition]"
+				]
+			},
+			"free-fall": {
+				"name": "Free-Fall",
+				"category": "body",
+				"stat": "bod",
+				"defaultable": true,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "133"
+					}
+				},
+				"specializations": [
+					"BASE Jumping",
+					"Break-Fall",
+					"Bungee",
+					"HALO",
+					"Low Altitude",
+					"Parachute",
+					"Static Line",
+					"Wingsuit",
+					"Zipline"
+				]
+			}
+		},
+		"Reaction": {
+			"pilot aerospace": {
+				"name": "Pilot Aerospace",
+				"category": "reaction",
+				"stat": "rea",
+				"defaultable": false,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "146"
+					}
+				},
+				"specializations": [
+					"Deep Space",
+					"Launch Craft",
+					"Remote Operation",
+					"Semiballistic",
+					"Suborbital"
+				]
+			},
+			"pilot aircraft": {
+				"name": "Pilot Aircraft",
+				"category": "reaction",
+				"stat": "rea",
+				"defaultable": false,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "147"
+					}
+				},
+				"specializations": [
+					"Fixed-Wing",
+					"Lighter-Than-Air",
+					"Remote Operation",
+					"Rotary Wing",
+					"Tilt Wing",
+					"Vectored Thrust"
+				]
+			},
+			"pilot ground craft": {
+				"name": "Pilot Ground Craft",
+				"category": "reaction",
+				"stat": "rea",
+				"defaultable": true,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "147"
+					}
+				},
+				"specializations": [
+					"Bike",
+					"Hovercraft",
+					"Remote Operation",
+					"Tracked",
+					"Wheeled"
+				]
+			},
+			"pilot walker": {
+				"name": "Pilot Walker",
+				"category": "reaction",
+				"stat": "rea",
+				"defaultable": false,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "147"
+					}
+				},
+				"specializations": [
+					"Biped",
+					"Multiped",
+					"Quadruped",
+					"Remote Operation"
+				]
+			},
+			"pilot watercraft": {
+				"name": "Pilot Watercraft",
+				"category": "reaction",
+				"stat": "rea",
+				"defaultable": true,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "147"
+					}
+				},
+				"specializations": [
+					"Hydrofoil",
+					"Motorboat",
+					"Remote Operation",
+					"Sail",
+					"Ship",
+					"Submarine"
+				]
+			}
+		},
+		"Strength": {
+			"running": {
+				"name": "Running",
+				"category": "strength",
+				"stat": "str",
+				"defaultable": true,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "133"
+					}
+				},
+				"specializations": [
+					"Desert",
+					"Distance",
+					"Sprinting",
+					"Urban",
+					"Wilderness",
+					"[Terrain]"
+				]
+			},
+			"swimming": {
+				"name": "Swimming",
+				"category": "strength",
+				"stat": "str",
+				"defaultable": true,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "134"
+					}
+				},
+				"specializations": [
+					"Dash",
+					"Long Distance"
+				]
+			}
+		},
 
-        "mag": {
-            "alchemy": {
-                "name": "Alchemy",
-                "catalog": "magic",
-                "stat": "mag",
-                "defaultable": true
-            },
-            "artificing": {
-                "name": "Artificing",
-                "catalog": "magic",
-                "stat": "mag",
-                "defaultable": false
-            },
-            "banishing": {
-                "name": "Banishing",
-                "catalog": "magic",
-                "stat": "mag",
-                "defaultable": false
-            },
-            "binding": {
-                "name": "Binding",
-                "catalog": "magic",
-                "stat": "mag",
-                "defaultable": false
-            },
-            "counterspelling": {
-                "name": "Counterspelling",
-                "catalog": "magic",
-                "stat": "mag",
-                "defaultable": false
-            },
-            "ritualspellcasting": {
-                "name": "Ritual Spellcasting",
-                "catalog": "magic",
-                "stat": "mag",
-                "defaultable": false
-            },
-            "spellcasting": {
-                "name": "Spellcasting",
-                "catalog": "magic",
-                "stat": "mag",
-                "defaultable": false
-            },
-            "summoning": {
-                "name": "Summoning",
-                "catalog": "magic",
-                "stat": "mag",
-                "defaultable": false
-            },
-            "disenchanting": {
-                "name": "Disenchanting",
-                "catalog": "magic",
-                "stat": "mag",
-                "defaultable": false
-            }
-        },
-        
-        "res": {
-            "compiling": {
-                "name": "Compiling",
-                "catalog": "resonance",
-                "stat": "res",
-                "defaultable": false
-            },
-            "decompiling": {
-                "name": "Decompiling",
-                "catalog": "resonance",
-                "stat": "res",
-                "defaultable": false
-            },
-            "registering": {
-                "name": "Registering",
-                "catalog": "resonance",
-                "stat": "res",
-                "defaultable": false
-            }
-        }
+		"Charisma": {
+			"animal handling": {
+				"name": "Animal Handling",
+				"category": "charisma",
+				"stat": "cha",
+				"defaultable": true,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "143"
+					}
+				},
+				"specializations": [
+					"Herding",
+					"Riding",
+					"Training",
+					"[Animal Type]"
+				]
+			},
+			"con": {
+				"name": "Con",
+				"category": "charisma",
+				"stat": "cha",
+				"defaultable": true,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "138"
+					}
+				},
+				"specializations": [
+					"Fast Talk",
+					"Seduction"
+				]
+			},
+			"etiquette": {
+				"name": "Etiquette",
+				"category": "charisma",
+				"stat": "cha",
+				"defaultable": true,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "138"
+					}
+				},
+				"specializations": [
+					"Corporate",
+					"High Society",
+					"Media",
+					"Mercenary",
+					"Street",
+					"Yakuza"
+				]
+			},
+			"impersonation": {
+				"name": "Impersonation",
+				"category": "charisma",
+				"stat": "cha",
+				"defaultable": true,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "138"
+					}
+				},
+				"specializations": [
+					"Dwarf",
+					"Elf",
+					"Human",
+					"Ork",
+					"Troll"
+				]
+			},
+			"instruction": {
+				"name": "Instruction",
+				"category": "charisma",
+				"stat": "cha",
+				"defaultable": true,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "138"
+					}
+				},
+				"specializations": [
+					"[Active or Knowledge Skill Category]"
+				]
+			},
+			"intimidation": {
+				"name": "Intimidation",
+				"category": "charisma",
+				"stat": "cha",
+				"defaultable": true,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "139"
+					}
+				},
+				"specializations": [
+					"Interrogation",
+					"Mental",
+					"Physical",
+					"Torture"
+				]
+			},
+			"leadership": {
+				"name": "Leadership",
+				"category": "charisma",
+				"stat": "cha",
+				"defaultable": true,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "139"
+					}
+				},
+				"specializations": [
+					"Command",
+					"Direct",
+					"Inspire",
+					"Rally"
+				]
+			},
+			"negotiation": {
+				"name": "Negotiation",
+				"category": "charisma",
+				"stat": "cha",
+				"defaultable": true,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "139"
+					}
+				},
+				"specializations": [
+					"Bargaining",
+					"Contracts",
+					"Diplomacy"
+				]
+			},
+			"performance": {
+				"name": "Performance",
+				"category": "charisma",
+				"stat": "cha",
+				"defaultable": true,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "139"
+					}
+				},
+				"specializations": [
+					"Acting",
+					"Comedy",
+					"Presentation",
+					"[Musical Instrument]"
+				]
+			}
+		},
+		"Intuition": {
+			"artisan": {
+				"name": "Artisan",
+				"category": "intuition",
+				"stat": "int",
+				"defaultable": false,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "143"
+					}
+				},
+				"specializations": [
+					"Carpentry",
+					"Cooking",
+					"Drawing",
+					"Sculpting",
+					"[Discipline]"
+				]
+			},
+			"assensing": {
+				"name": "Assensing",
+				"category": "intuition",
+				"stat": "int",
+				"defaultable": false,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "142"
+					}
+				},
+				"specializations": [
+					"Aura Reading",
+					"Astral Signatures",
+					"[Aura Type]"
+				]
+			},
+			"disguise": {
+				"name": "Disguise",
+				"category": "intuition",
+				"stat": "int",
+				"defaultable": true,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "133"
+					}
+				},
+				"specializations": [
+					"Camouflage",
+					"Cosmetic",
+					"Theatrical",
+					"Trideo & Video"
+				]
+			},
+			"navigation": {
+				"name": "Navigation",
+				"category": "intuition",
+				"stat": "int",
+				"defaultable": true,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "145"
+					}
+				},
+				"specializations": [
+					"Augmented Reality Markers",
+					"Celestial",
+					"Compass",
+					"Maps",
+					"GPS"
+				]
+			},
+			"perception": {
+				"name": "Perception",
+				"category": "intuition",
+				"stat": "int",
+				"defaultable": true,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "133"
+					}
+				},
+				"specializations": [
+					"Hearing",
+					"Scent",
+					"Searching",
+					"Taste",
+					"Touch",
+					"Visual"
+				]
+			},
+			"tracking": {
+				"name": "Tracking",
+				"category": "intuition",
+				"stat": "int",
+				"defaultable": true,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "134"
+					}
+				},
+				"specializations": [
+					"Desert",
+					"Forest",
+					"Jungle",
+					"Mountain",
+					"Polar",
+					"Urban",
+					"[Terrain]"
+				]
+			}
+		},
+		"Logic": {
+			"aeronautics mechanic": {
+				"name": "Aeronautics Mechanic",
+				"category": "logic",
+				"stat": "log",
+				"defaultable": false,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "143"
+					}
+				},
+				"specializations": [
+					"Aerospace",
+					"Fixed Wing",
+					"LTA (blimp)",
+					"Rotary Wing",
+					"Tilt Wing",
+					"Vector Thrust"
+				]
+			},
+			"arcana": {
+				"name": "Arcana",
+				"category": "logic",
+				"stat": "log",
+				"defaultable": false,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "142"
+					}
+				},
+				"specializations": [
+					"Spell Design",
+					"Focus Design",
+					"Spirit Formula"
+				]
+			},
+			"armorer": {
+				"name": "Armorer",
+				"category": "logic",
+				"stat": "log",
+				"defaultable": true,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "143"
+					}
+				},
+				"specializations": [
+					"Armor",
+					"Artillery",
+					"Explosives",
+					"Firearms",
+					"Melee Weapons",
+					"Heavy Weapons",
+					"Weapon Accessories"
+				]
+			},
+			"automotive mechanic": {
+				"name": "Automotive Mechanic",
+				"category": "logic",
+				"stat": "log",
+				"defaultable": false,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "143"
+					}
+				},
+				"specializations": [
+					"Hover",
+					"Tracked",
+					"Walker",
+					"Wheeled"
+				]
+			},
+			"biotechnology": {
+				"name": "Biotechnology",
+				"category": "logic",
+				"stat": "log",
+				"defaultable": false,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "144"
+					}
+				},
+				"specializations": [
+					"Bioinformatics",
+					"Bioware",
+					"Cloning",
+					"Gene Therapy",
+					"Vat Maintenance"
+				]
+			},
+			"chemistry": {
+				"name": "Chemistry",
+				"category": "logic",
+				"stat": "log",
+				"defaultable": false,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "144"
+					}
+				},
+				"specializations": [
+					"Analytical",
+					"Biochemistry",
+					"Inorganic",
+					"Organic",
+					"Physical"
+				]
+			},
+			"computer": {
+				"name": "Computer",
+				"category": "logic",
+				"stat": "log",
+				"defaultable": true,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "144"
+					}
+				},
+				"specializations": [
+					"Edit File",
+					"Matrix Perception",
+					"Matrix Search",
+					"[Action]"
+				]
+			},
+			"cybercombat": {
+				"name": "Cybercombat",
+				"category": "logic",
+				"stat": "log",
+				"defaultable": true,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "144"
+					}
+				},
+				"specializations": [
+					"Devices",
+					"Grids",
+					"IC",
+					"Personas",
+					"Sprites",
+					"[Target Type]"
+				]
+			},
+			"cybertechnology": {
+				"name": "Cybertechnology",
+				"category": "logic",
+				"stat": "log",
+				"defaultable": false,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "144"
+					}
+				},
+				"specializations": [
+					"Bodyware",
+					"Cyberlimbs",
+					"Headware",
+					"Repair"
+				]
+			},
+			"demolitions": {
+				"name": "Demolitions",
+				"category": "logic",
+				"stat": "log",
+				"defaultable": true,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "144"
+					}
+				},
+				"specializations": [
+					"Commercial Explosives",
+					"Defusing",
+					"Improvised Explosives",
+					"Plastic Explosives"
+				]
+			},
+			"electronic warfare": {
+				"name": "Electronic Warfare",
+				"category": "logic",
+				"stat": "log",
+				"defaultable": false,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "144"
+					}
+				},
+				"specializations": [
+					"Communications",
+					"Encryption",
+					"Jamming",
+					"Sensor Operations"
+				]
+			},
+			"first aid": {
+				"name": "First Aid",
+				"category": "logic",
+				"stat": "log",
+				"defaultable": true,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "144"
+					}
+				},
+				"specializations": [
+					"Broken Bones",
+					"Burns",
+					"Gunshot Wounds",
+					"Resuscitation",
+					"[Type of Treatment]"
+				]
+			},
+			"forgery": {
+				"name": "Forgery",
+				"category": "logic",
+				"stat": "log",
+				"defaultable": true,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "144"
+					}
+				},
+				"specializations": [
+					"Counterfeiting",
+					"Credstick Forgery",
+					"False ID",
+					"Image Doctoring",
+					"Paper Forgery"
+				]
+			},
+			"hacking": {
+				"name": "Hacking",
+				"category": "logic",
+				"stat": "log",
+				"defaultable": true,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "145"
+					}
+				},
+				"specializations": [
+					"Devices",
+					"Files",
+					"Hosts",
+					"Personas"
+				]
+			},
+			"hardware": {
+				"name": "Hardware",
+				"category": "logic",
+				"stat": "log",
+				"defaultable": false,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "145"
+					}
+				},
+				"specializations": [
+					"Commlinks",
+					"Cyberdecks",
+					"Smartguns",
+					"[Hardware Type]"
+				]
+			},
+			"industrial mechanic": {
+				"name": "Industrial Mechanic",
+				"category": "logic",
+				"stat": "log",
+				"defaultable": false,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "145"
+					}
+				},
+				"specializations": [
+					"Electrical Power Systems",
+					"Hydraulics",
+					"HVAC",
+					"Industrial Robotics",
+					"Structural",
+					"Welding"
+				]
+			},
+			"medicine": {
+				"name": "Medicine",
+				"category": "logic",
+				"stat": "log",
+				"defaultable": false,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "145"
+					}
+				},
+				"specializations": [
+					"Cosmetic Surgery",
+					"Extended Care",
+					"Implant Surgery",
+					"Magical Health",
+					"Organ Culture",
+					"Trauma Surgery"
+				]
+			},
+			"nautical mechanic": {
+				"name": "Nautical Mechanic",
+				"category": "logic",
+				"stat": "log",
+				"defaultable": false,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "145"
+					}
+				},
+				"specializations": [
+					"Motorboat",
+					"Sailboat",
+					"Ship",
+					"Submarine"
+				]
+			},
+			"software": {
+				"name": "Software",
+				"category": "logic",
+				"stat": "log",
+				"defaultable": false,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "145"
+					}
+				},
+				"specializations": [
+					"Data Bombs",
+					"[Complex Form]"
+				]
+			}
+		},
+		"Will": {
+			"astral combat": {
+				"name": "Astral Combat",
+				"category": "willpower",
+				"stat": "wil",
+				"defaultable": false,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "142"
+					}
+				},
+				"specializations": [
+					"Magicians",
+					"Mana Barriers",
+					"Spirits",
+					"[Weapon Focus Type]",
+					"[Other Opponent Type]"
+				]
+			},
+			"survival": {
+				"name": "Survival",
+				"category": "willpower",
+				"stat": "wil",
+				"defaultable": true,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "133"
+					}
+				},
+				"specializations": [
+					"Desert",
+					"Forest",
+					"Jungle",
+					"Mountain",
+					"Polar",
+					"Urban",
+					"[Terrain]"
+				]
+			}
+		},
 
-    }
+		"Magic": {
+			"alchemy": {
+				"name": "Alchemy",
+				"category": "magic",
+				"stat": "mag",
+				"defaultable": false,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "142"
+					}
+				},
+				"specializations": [
+					"Combat",
+					"Command",
+					"Contact",
+					"Detection",
+					"Health",
+					"Illusion",
+					"Manipulation",
+					"Time",
+					"[Trigger]"
+				]
+			},
+			"artificing": {
+				"name": "Artificing",
+				"category": "magic",
+				"stat": "mag",
+				"defaultable": false,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "142"
+					}
+				},
+				"specializations": [
+					"Focus Analysis",
+					"[Focus Type]"
+				]
+			},
+			"banishing": {
+				"name": "Banishing",
+				"category": "magic",
+				"stat": "mag",
+				"defaultable": false,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "142"
+					}
+				},
+				"specializations": [
+					"Spirits of Air",
+					"Spirits of Beasts",
+					"Spirits of Earth",
+					"Spirits of Fire",
+					"Spirits of Man",
+					"Spirits of Water",
+					"Guardian Spirit",
+					"Guidance Spirit",
+					"Plant Spirit",
+					"Task Spirit"
+				]
+			},
+			"binding": {
+				"name": "Binding",
+				"category": "magic",
+				"stat": "mag",
+				"defaultable": false,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "142"
+					}
+				},
+				"specializations": [
+					"Spirits of Air",
+					"Spirits of Beasts",
+					"Spirits of Earth",
+					"Spirits of Fire",
+					"Spirits of Man",
+					"Spirits of Water",
+					"Guardian Spirit",
+					"Guidance Spirit",
+					"Plant Spirit",
+					"Task Spirit"
+				]
+			},
+			"counterspelling": {
+				"name": "Counterspelling",
+				"category": "magic",
+				"stat": "mag",
+				"defaultable": false,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "142"
+					}
+				},
+				"specializations": [
+					"Combat",
+					"Detection",
+					"Health",
+					"Illusion",
+					"Manipulation"
+				]
+			},
+			"disenchanting": {
+				"name": "Disenchanting",
+				"category": "magic",
+				"stat": "mag",
+				"defaultable": false,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "142"
+					}
+				},
+				"specializations": [
+					"[Type]"
+				]
+			},
+			"ritual spellcasting": {
+				"name": "Ritual Spellcasting",
+				"category": "magic",
+				"stat": "mag",
+				"defaultable": false,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "142"
+					}
+				},
+				"specializations": [
+					"[Keyword]"
+				]
+			},
+			"spellcasting": {
+				"name": "Spellcasting",
+				"category": "magic",
+				"stat": "mag",
+				"defaultable": false,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "143"
+					}
+				},
+				"specializations": [
+					"Combat",
+					"Detection",
+					"Health",
+					"Illusion",
+					"Manipulation"
+				]
+			},
+			"summoning": {
+				"name": "Summoning",
+				"category": "magic",
+				"stat": "mag",
+				"defaultable": false,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "143"
+					}
+				},
+				"specializations": [
+					"Spirits of Air",
+					"Spirits of Beasts",
+					"Spirits of Earth",
+					"Spirits of Fire",
+					"Spirits of Man",
+					"Spirits of Water",
+					"Guardian Spirit",
+					"Guidance Spirit",
+					"Plant Spirit",
+					"Task Spirit"
+				]
+			}
+		},
+		"Resonance": {
+			"compiling": {
+				"name": "Compiling",
+				"category": "resonance",
+				"stat": "res",
+				"defaultable": false,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "143"
+					}
+				},
+				"specializations": [
+					"[Sprite Type]"
+				]
+			},
+			"decompiling": {
+				"name": "Decompiling",
+				"category": "resonance",
+				"stat": "res",
+				"defaultable": false,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "143"
+					}
+				},
+				"specializations": [
+					"[Sprite Type]"
+				]
+			},
+			"registering": {
+				"name": "Registering",
+				"category": "resonance",
+				"stat": "res",
+				"defaultable": false,
+				"reference": {
+					"SR5": {
+						"Name": "Shadowrun 5th",
+						"page": "143"
+					}
+				},
+				"specializations": [
+					"[Sprite Type]"
+				]
+			}
+		}
+	}
 }
