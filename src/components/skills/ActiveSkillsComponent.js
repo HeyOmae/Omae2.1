@@ -1,27 +1,48 @@
 'use strict';
 
 import React from 'react';
-let skillsData = require('json!../data/skills.json');
+let skillsData = require('json!../data/skills.json'),
+	metatypeData = require('json!../data/metatype.json');
 
 require('styles/skills/ActiveSkills.sass');
 
 class ActiveSkillsComponent extends React.Component {
 	render() {
-		const {actions, skills} = this.props;
+		const {actions, skills, attributes, metatype} = this.props,
+			attAbriviation = {
+				Agility: 'agi',
+				Body: 'bod',
+				Reaction: 'rea',
+				Strength: 'str',
+				Charisma: 'cha',
+				Intuition: 'int',
+				Logic: 'log',
+				Will: 'wil',
+				Magic: 'mag',
+				Resonance: 'res'
+			};
+
 		var listOfSkills = [];
 
 		for(let skillKey in skillsData.active) {
 			let skillinCategory = skillsData.active[skillKey];
 
+			const attributeAbriv = attAbriviation[skillKey],
+				baseAttribute = metatypeData[metatype].min[attributeAbriv],
+				attributePool = baseAttribute + attributes[attributeAbriv];
+
+
 			listOfSkills.push(
 				<ActiveSkill
 					key={'skill-'+skillKey}
-					attribute={skillKey}
+					skillAtt={skillKey}
 					skillList={skillinCategory}
 					actions={actions}
 					skills={skills.active}
 					skillPoints={skills.skillPointsSpent}
-					showSkill={skills.showSkill === skillKey}/>
+					showSkill={skills.showSkill === skillKey}
+					attributePool={attributePool}
+					/>
 			);
 		}
 		return (
@@ -38,7 +59,9 @@ class ActiveSkillsComponent extends React.Component {
 	}
 }
 
-const ActiveSkill = ({attribute, skillList, actions, skills, skillPoints, showSkill}) => {
+const ActiveSkill = ({skillAtt, skillList, actions, skills, skillPoints, showSkill, attributePool}) => {
+
+
 	let skillTableData = [];
 	for(let skillName in skillList) {
 		let skillData = skillList[skillName],
@@ -96,14 +119,14 @@ const ActiveSkill = ({attribute, skillList, actions, skills, skillPoints, showSk
 					</select>
 				</td>
 				<td>0</td>
-				<td>0</td>
+				<td>{attributePool + rating}</td>
 			</tr>
 		);
 	}
 
 	return (
 		<div className="table-responsive">
-			<h4><button className="btn btn-info" onClick={()=> actions.showSkill({ skillToShow: attribute })}>{attribute}</button></h4>
+			<h4><button className="btn btn-info" onClick={()=> actions.showSkill({ skillToShow: skillAtt })}>{skillAtt}</button></h4>
 			<div className={showSkill ? 'collapse in' : 'collapse'}>
 				<table className="table">
 					<thead>
