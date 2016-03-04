@@ -16,6 +16,7 @@ import MetatypeSelector from '../components/MetatypeSelectorComponent';
 import AttributesComponent from '../components/AttributesComponent';
 import MagicSelectionComponent from '../components/magic/MagicSelectionComponent';
 import ActiveSkillsComponent from '../components/skills/ActiveSkillsComponent';
+import SummaryComponent from '../components/SummaryComponent';
 /* Populated by react-webpack-redux:reducer */
 class App extends Component {
 	render() {
@@ -62,7 +63,11 @@ class App extends Component {
 							attributes={attributes}
 							metatype={selectMetatype}/>
 					</div>
-					
+					<div className='col-md-12 col-lg-3'>
+						<SummaryComponent
+							priority={priorityTable}
+							/>
+					</div>
 				</div>
 			</div>
 		);
