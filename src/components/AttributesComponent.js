@@ -19,17 +19,17 @@ class AttributesComponent extends React.Component {
 	render() {
 		const {priorityRating, metatype, attributes, actions, metatypeRating, magicPriority, magictype} = this.props;
 		var attributeElements = {
-			base: {
-				incBtn: [],
-				display: [],
-				decBtn: []
+				base: {
+					incBtn: [],
+					display: [],
+					decBtn: []
+				},
+				special: {
+					incBtn: [],
+					display: [],
+					decBtn: []
+				}
 			},
-			special: {
-				incBtn: [],
-				display: [],
-				decBtn: []
-			}
-		},
 			attibutePointsLeft = priorityData[priorityRating].attributes - attributes.baseSpent,
 			specialPointsLeft = priorityData[metatypeRating].metatype[metatype].special - attributes.specialSpent;
 

@@ -22,7 +22,12 @@ class App extends Component {
 	render() {
 		const {actions, priorityTable, selectMetatype, attributes, selectMagRes, settingSkills} = this.props;
 		return (
-			<div className='container' selectMagRes={selectMagRes} settingSkills={settingSkills}>
+			<div
+				className='container'
+				selectMagRes={selectMagRes}
+				settingSkills={settingSkills}
+				onScroll={(e) => {console.log(e);}}
+			>
 				<div className='row'>
 					<div className='col-md-12'>
 						<Main
@@ -66,6 +71,9 @@ class App extends Component {
 					<div className='col-md-12 col-lg-3'>
 						<SummaryComponent
 							priority={priorityTable}
+							metatype={selectMetatype}
+							attributes={attributes}
+							magres={selectMagRes}
 							/>
 					</div>
 				</div>
