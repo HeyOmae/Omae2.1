@@ -19,6 +19,19 @@ import ActiveSkillsComponent from '../components/skills/ActiveSkillsComponent';
 import SummaryComponent from '../components/SummaryComponent';
 /* Populated by react-webpack-redux:reducer */
 class App extends Component {
+	handleScroll(e) {
+		console.log(e.srcElement.body.scrollTop);
+	}
+
+	componentDidMount() {
+		console.log('component mounts');
+		window.addEventListener('scroll', this.handleScroll);
+
+	}
+	componentWillUnmount() {
+		console.log('component unmounted');
+		window.removeEventListener('scroll', this.handleScroll);
+	}
 	render() {
 		const {actions, priorityTable, selectMetatype, attributes, selectMagRes, settingSkills} = this.props;
 		return (
@@ -26,7 +39,6 @@ class App extends Component {
 				className='container'
 				selectMagRes={selectMagRes}
 				settingSkills={settingSkills}
-				onScroll={(e) => {console.log(e);}}
 			>
 				<div className='row'>
 					<div className='col-md-12'>

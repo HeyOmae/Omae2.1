@@ -47,7 +47,7 @@ const SummaryComponent = ({priority, metatype, attributes, magres}) => {
 				<div className="col-xs-12">{metatype}</div>
 			</div>
 
-			<div>
+			<div className="table-responsive">
 				<h2>Attributes</h2>
 				<table className="table">
 					<thead>
