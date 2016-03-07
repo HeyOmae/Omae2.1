@@ -13,6 +13,7 @@ const reducers = {
   selectMetatype: require('../reducers/selectMetatype.js'),
   attributes: require('../reducers/attributes.js'),
   selectMagRes: require('../reducers/selectMagRes.js'),
-  settingSkills: require('../reducers/settingSkills.js')
+  settingSkills: require('../reducers/settingSkills.js'),
+  appControl: require('../reducers/appControl.js')
 };
 module.exports = combineReducers(reducers);
