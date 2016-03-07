@@ -6,7 +6,7 @@ let metatypeData = require('json!./data/metatype.json'),
 
 require('styles//Summary.sass');
 
-const SummaryComponent = ({priority, metatype, attributes, magres}) => {
+const SummaryComponent = ({priority, metatype, attributes, magres, fixed}) => {
 	let priorityHead = [],
 		priorityData = [],
 		attributesHead = [],
@@ -23,7 +23,7 @@ const SummaryComponent = ({priority, metatype, attributes, magres}) => {
 	}
 
 	return (
-		<div className="summary-component">
+		<div className={'summary-component ' + (fixed ? 'fixed':'')}>
 			<h1>Summary Character</h1>
 
 			<div className="table-responsive">

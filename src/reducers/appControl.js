@@ -9,6 +9,9 @@ const initialState = {
 
 
 const attributesReducer = (state=initialState, action) => {
+	if(action.parameter) {
+		var {summaryFix} = action.parameter;
+	}
 
 	const actionsToTake = {
 		FIX_SUMMARY: () => {
@@ -16,7 +19,7 @@ const attributesReducer = (state=initialState, action) => {
 					{},
 					state,
 					{
-						summaryFix: true
+						summaryFix: summaryFix
 					}
 				)
 			return newState;
