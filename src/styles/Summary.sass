@@ -1,8 +1,19 @@
-.summary-component
-	border: 1px dashed #f00
-	height: 100%
-	overflow-y: scroll
+@media screen and (min-width: 1200px)
+	.summary-component
+		height: 100%
+		overflow-y: scroll
 
-.fixed
-	position: fixed
-	top: 0
+	.fixed
+		position: fixed
+		top: 0
+		width: 255px
+
+@media screen and (min-width: 920px) and (max-width: 1200px)
+	.summary-component
+		height: 100%
+		overflow-y: scroll
+
+	.fixed
+		position: fixed
+		top: 0
+		width: 205px

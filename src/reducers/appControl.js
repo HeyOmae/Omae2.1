@@ -15,14 +15,19 @@ const attributesReducer = (state=initialState, action) => {
 
 	const actionsToTake = {
 		FIX_SUMMARY: () => {
-			var newState = Object.assign(
-					{},
-					state,
-					{
-						summaryFix: summaryFix
-					}
-				)
-			return newState;
+			if(summaryFix === state.summaryFix){
+				return state;
+			} else {
+				var newState = Object.assign(
+						{},
+						state,
+						{
+							summaryFix: summaryFix
+						}
+					)
+				return newState;
+			}
+			
 		},
 		DEFAULT: () => { return state; }
 	};

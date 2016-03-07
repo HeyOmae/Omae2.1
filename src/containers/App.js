@@ -21,11 +21,14 @@ import SummaryComponent from '../components/SummaryComponent';
 class App extends Component {
 	handleScroll() {
 		const {actions} = this;
-		let summary = document.getElementById('summary').getBoundingClientRect();
-		if (summary.top < 0) {
+		let summary = document.getElementById('summary'),
+			sumLoc = summary.getBoundingClientRect();
+		if (sumLoc.top < 0) {
 			actions.fixSummary({summaryFix: true});
+			// summary.children[0].classList.add('fixed'); // Native implimitation back up
 		} else {
 			actions.fixSummary({summaryFix: false});
+			// summary.children[0].classList.remove('fixed'); // Native implimitation back up
 		}
 	}
 	componentDidMount() {
