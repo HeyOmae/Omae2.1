@@ -87,6 +87,7 @@ class App extends Component {
 							metatype={selectMetatype}
 							attributes={attributes}
 							magres={selectMagRes}
+							skills={settingSkills}
 							fixed={appControl.summaryFix}/>
 					</div>
 				</div>

@@ -1,16 +1,21 @@
 'use strict';
 
 import React from 'react';
-let metatypeData = require('json!./data/metatype.json'),
-	priorityData = require('json!./data/priority.json');
+const metatypeData = require('json!./data/metatype.json'),
+	priorityTableData = require('json!./data/priority.json');
 
 require('styles//Summary.sass');
 
-const SummaryComponent = ({priority, metatype, attributes, magres, fixed}) => {
+const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed}) => {
 	let priorityHead = [],
 		priorityData = [],
 		attributesHead = [],
-		attributesData = [];
+		attributesData = [],
+		skillData = [],
+		points = {
+			skills: priorityTableData[priority.skills].skills.skillpoints - skills.skillPointsSpent,
+			skillGroups: (priorityTableData[priority.skills].skills.skillgroups || 0) - skills.GroupPointSpent
+		};
 	for(let pariorityCategory in priority) {
 		priorityHead.push(<th key={'summary-priority-head-' + pariorityCategory}>{pariorityCategory}</th>);
 		priorityData.push(<td key={'summary-priority-data-' + pariorityCategory}>{priority[pariorityCategory]}</td>)
@@ -20,6 +25,17 @@ const SummaryComponent = ({priority, metatype, attributes, magres, fixed}) => {
 		let baseAtt = metatypeData[metatype].min[att];
 		attributesHead.push(<th key={'summary-attribute-head-' + att}>{att}</th>);
 		attributesData.push(<td key={'summary-attribute-data-' + att}>{baseAtt + attributes[att]}</td>);
+	}
+
+	console.log(priorityTableData[priority.skills].skills.skillpoints);
+
+	for(let skillName in skills.active) {
+		skillData.push(
+			<tr key={'skill-'+skillName}>
+				<td>{skillName}</td>
+				<td>{skills.active[skillName].rating}</td>
+			</tr>
+		);
 	}
 
 	return (
@@ -59,6 +75,42 @@ const SummaryComponent = ({priority, metatype, attributes, magres, fixed}) => {
 						<tr>
 							{attributesData}
 						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<div>
+				<h2>Magic/Resonacne</h2>
+				{magres}
+			</div>
+
+			<div>
+				<h2>Skills</h2>
+				<table className="table">
+					<thead>
+						<tr>
+							<th>SP</th>
+							<th>SGP</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><strong>{points.skills}</strong></td>
+							<td><strong>{points.skillGroups}</strong></td>
+						</tr>
+					</tbody>
+				</table>
+				<h3>Active Skills</h3>
+				<table className="table">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Rating</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						{skillData}
 					</tbody>
 				</table>
 			</div>
