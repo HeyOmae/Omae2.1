@@ -14,7 +14,7 @@ const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed
 		skillData = [],
 		points = {
 			skills: priorityTableData[priority.skills].skills.skillpoints - skills.skillPointsSpent,
-			skillGroups: (priorityTableData[priority.skills].skills.skillgroups || 0) - skills.GroupPointSpent
+			skillGroups: (priorityTableData[priority.skills].skills.grouppoints || 0) - skills.GroupPointSpent
 		};
 	for(let pariorityCategory in priority) {
 		priorityHead.push(<th key={'summary-priority-head-' + pariorityCategory}>{pariorityCategory}</th>);
@@ -26,8 +26,6 @@ const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed
 		attributesHead.push(<th key={'summary-attribute-head-' + att}>{att}</th>);
 		attributesData.push(<td key={'summary-attribute-data-' + att}>{baseAtt + attributes[att]}</td>);
 	}
-
-	console.log(priorityTableData[priority.skills].skills.skillpoints);
 
 	for(let skillName in skills.active) {
 		skillData.push(

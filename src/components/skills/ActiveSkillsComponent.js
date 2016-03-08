@@ -139,7 +139,6 @@ const ActiveSkill = ({skillAtt, skillList, actions, skills, skillPoints, showSki
 							<th>Spec</th>
 							<th>Mods</th>
 							<th>Dice Pool</th>
-							<td>{skillPoints}</td>
 						</tr>
 					</thead>
 					<tbody>
