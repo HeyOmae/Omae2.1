@@ -75,12 +75,13 @@ const ActiveSkill = ({skillAtt, skillList, actions, skills, skillPoints, showSki
 				</span>);
 		}
 
-		function incrementSkill() {
-			actions.incrementSkill({name: this, category: 'active', max: 6});
+		function incrementSkill(name, att) {
+			console.log(att);
+			actions.incrementSkill({name: name, category: 'active', max: 6, attribute: att});
 		}
 
-		function decrementSkill() {
-			actions.decrementSkill({name: this, category: 'active', max: 6});
+		function decrementSkill(name, att) {
+			actions.decrementSkill({name: name, category: 'active', max: 6, attribute: att});
 		}
 
 		let rating = skills[skillData.name] ? skills[skillData.name].rating : 0;
@@ -90,7 +91,7 @@ const ActiveSkill = ({skillAtt, skillList, actions, skills, skillPoints, showSki
 				<td>
 					<button
 						className="btn btn-success"
-						onClick={incrementSkill.bind(skillData.name)}
+						onClick={incrementSkill.bind(this, skillData.name, skillData.stat)}
 					>
 						+
 					</button>
@@ -101,7 +102,7 @@ const ActiveSkill = ({skillAtt, skillList, actions, skills, skillPoints, showSki
 				<td>
 					<button
 						className="btn btn-warning"
-						onClick={decrementSkill.bind(skillData.name)}
+						onClick={decrementSkill.bind(this, skillData.name, skillData.stat)}
 					>
 						-
 					</button>

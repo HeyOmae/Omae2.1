@@ -27,6 +27,8 @@ const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed
 		attributesData.push(<td key={'summary-attribute-data-' + att}>{baseAtt + attributes[att]}</td>);
 	}
 
+	console.log(skills.active);
+
 	for(let skillName in skills.active) {
 		skillData.push(
 			<tr key={'skill-'+skillName}>

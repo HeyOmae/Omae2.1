@@ -13,7 +13,7 @@ const initialState = {
 
 const attributesReducer = (state=initialState, action) => {
 	if(action.parameter) {
-		var {name, category, max, skillToShow} = action.parameter;
+		var {name, category, max, skillToShow, attribute} = action.parameter;
 	}
 
 	const actionsToTake = {
@@ -28,7 +28,14 @@ const attributesReducer = (state=initialState, action) => {
 						{},
 						state,
 						{
-							[category]: Object.assign({}, state[category], {[name]: {rating: nextIncrement}}), // this is ugly, think about making it less ugly
+							[category]: Object.assign(
+								{}, state[category],
+								{
+									[name]: {
+										rating: nextIncrement,
+										attribute: attribute
+									}
+								}), // this is ugly, think about making it less ugly
 							skillPointsSpent: state.skillPointsSpent + 1
 						}
 					)
@@ -41,7 +48,10 @@ const attributesReducer = (state=initialState, action) => {
 						[category]: Object.assign(
 							{},
 							state[category],
-							{[name]: {rating: 1}}
+							{[name]: {
+								rating: 1,
+								attribute: attribute
+							}}
 						),
 						skillPointsSpent: state.skillPointsSpent + 1
 					}
@@ -74,7 +84,10 @@ const attributesReducer = (state=initialState, action) => {
 						[category]: Object.assign(
 							{},
 							state[category],
-							{[name]: {rating: nextDecrement}}
+							{[name]: {
+								rating: nextDecrement,
+								attribute: attribute
+							}}
 						),
 						skillPointsSpent: state.skillPointsSpent - 1
 					}
