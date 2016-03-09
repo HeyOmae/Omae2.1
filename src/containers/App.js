@@ -77,6 +77,7 @@ class App extends Component {
 						<h2>Skills</h2>
 						<ActiveSkillsComponent
 							actions={actions}
+							priority={priorityTable}
 							skills={settingSkills}
 							attributes={attributes}
 							metatype={selectMetatype}/>

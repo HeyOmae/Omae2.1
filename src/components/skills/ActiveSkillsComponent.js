@@ -2,13 +2,14 @@
 
 import React from 'react';
 let skillsData = require('json!../data/skills.json'),
-	metatypeData = require('json!../data/metatype.json');
+	metatypeData = require('json!../data/metatype.json'),
+	priorityTableData = require('json!../data/priority.json');
 
 require('styles/skills/ActiveSkills.sass');
 
 class ActiveSkillsComponent extends React.Component {
 	render() {
-		const {actions, skills, attributes, metatype} = this.props,
+		const {actions, priority, skills, attributes, metatype} = this.props,
 			attAbriviation = {
 				Agility: 'agi',
 				Body: 'bod',
@@ -21,6 +22,8 @@ class ActiveSkillsComponent extends React.Component {
 				Magic: 'mag',
 				Resonance: 'res'
 			};
+
+		let skillPointsLeft = priorityTableData[priority.skills].skills.skillpoints - skills.skillPointsSpent;
 
 		var listOfSkills = [];
 
@@ -39,7 +42,7 @@ class ActiveSkillsComponent extends React.Component {
 					skillList={skillinCategory}
 					actions={actions}
 					skills={skills.active}
-					skillPoints={skills.skillPointsSpent}
+					skillPointsLeft={skillPointsLeft}
 					showSkill={skills.showSkill === skillKey}
 					attributePool={attributePool}
 					/>
@@ -59,7 +62,7 @@ class ActiveSkillsComponent extends React.Component {
 	}
 }
 
-const ActiveSkill = ({skillAtt, skillList, actions, skills, skillPoints, showSkill, attributePool}) => {
+const ActiveSkill = ({skillAtt, skillList, actions, skills, skillPointsLeft, showSkill, attributePool}) => {
 
 
 	let skillTableData = [];
@@ -76,8 +79,9 @@ const ActiveSkill = ({skillAtt, skillList, actions, skills, skillPoints, showSki
 		}
 
 		function incrementSkill(name, att) {
-			console.log(att);
-			actions.incrementSkill({name: name, category: 'active', max: 6, attribute: att});
+			if(skillPointsLeft > 0){
+				actions.incrementSkill({name: name, category: 'active', max: 6, attribute: att});
+			}
 		}
 
 		function decrementSkill(name, att) {
