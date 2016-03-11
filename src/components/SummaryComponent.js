@@ -16,6 +16,9 @@ const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed
 		points = {
 			skills: priorityTableData[priority.skills].skills.skillpoints - skills.skillPointsSpent,
 			skillGroups: (priorityTableData[priority.skills].skills.grouppoints || 0) - skills.GroupPointSpent
+		},
+		calculatedStats = {
+			attibutes: {}
 		};
 	for(let pariorityCategory in priority) {
 		priorityHead.push(<th key={'summary-priority-head-' + pariorityCategory}>{pariorityCategory}</th>);
@@ -24,8 +27,16 @@ const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed
 
 	for(let att in metatypeData[metatype].min) {
 		let baseAtt = metatypeData[metatype].min[att];
+		calculatedStats.attibutes[att] = baseAtt + attributes[att];
 		attributesHead.push(<th key={'summary-attribute-head-' + att}>{att}</th>);
-		attributesData.push(<td key={'summary-attribute-data-' + att}>{baseAtt + attributes[att]}</td>);
+		attributesData.push(<td key={'summary-attribute-data-' + att}>{calculatedStats.attibutes[att]}</td>);
+	}
+
+	if(magres !== 'mundane') {
+		let baseMagic = priorityTableData[priority.magres].magic[magres].attribute.points;
+		calculatedStats.attibutes.mag = baseMagic + (attributes.special || 0);
+		attributesHead.push(<th key={'summary-attribute-head-mag'}>mag</th>);
+		attributesData.push(<td key={'summary-attribute-data-mag'}>{calculatedStats.attibutes.mag}</td>);
 	}
 
 	for(let skillName in skills.active) {
@@ -116,7 +127,12 @@ const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed
 
 			<div>
 				<h2>Export</h2>
-				<RedditExport />
+				<RedditExport
+					priority={priority}
+					metatype={metatype}
+					attributes={calculatedStats.attibutes}
+					magres={magres}
+					skills={skills}/>
 			</div>
 		</div>
 	);
