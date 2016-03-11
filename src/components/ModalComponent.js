@@ -12,6 +12,12 @@ class ModalComponent extends React.Component {
 			document.getElementById(modalID).classList.toggle('hide');
 		}
 
+		function closeModal(e) {
+			if(e.target.className.search(/modal-close/) > 0){
+					toggleModal();
+			}
+		}
+
 		return (
 			<div className="modal-component">
 				<button
@@ -27,8 +33,10 @@ class ModalComponent extends React.Component {
 				<div
 					id={modalID}
 					className='modal fade in hide'
-					onClick={()=> {
-						toggleModal();
+					onClick={(e)=> {
+						if(e.target.id === modalID){
+							toggleModal();
+						}
 					}}
 				>
 					<div className="modal-dialog">
@@ -36,9 +44,10 @@ class ModalComponent extends React.Component {
 							<div className="modal-header">
 								<button
 									type="button"
-									className="close"
+									className="close modal-close"
+									onClick={ closeModal }
 								>
-									<span>&times;</span>
+									&times;
 								</button>
 								<h4 className="modal-title">{modalName}</h4>
 							</div>
@@ -48,7 +57,8 @@ class ModalComponent extends React.Component {
 							<div className="modal-footer">
 								<button
 									type="button"
-									className="btn btn-secondary">
+									className="btn btn-secondary modal-close"
+									onClick={ closeModal }>
 									Close
 								</button>
 							</div>

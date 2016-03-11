@@ -132,9 +132,9 @@ class AttributesComponent extends React.Component {
 	}
 }
 
-const IncrementButton = ({attributes, attName, maxPoints, pointsLeft, incrementAttribute, key, attType}) => {
+const IncrementButton = ({attributes, attName, maxPoints, pointsLeft, incrementAttribute, attType}) => {
 	return (
-		<td key={key}>
+		<td>
 			<button
 				className={'btn ' + activeButton(attributes[attName], maxPoints) }
 				onClick={() => {
@@ -153,9 +153,9 @@ const IncrementButton = ({attributes, attName, maxPoints, pointsLeft, incrementA
 	)
 }
 
-const DecrementButton = ({attName, decrementAttribute, maxPoints, key, attType}) => {
+const DecrementButton = ({attName, decrementAttribute, maxPoints, attType}) => {
 	return(
-		<td key={key}>
+		<td>
 			<button
 				className="btn btn-success"
 				onClick={() => {

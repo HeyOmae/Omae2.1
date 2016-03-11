@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react';
+import RedditExport from './export/RedditComponent'
 const metatypeData = require('json!./data/metatype.json'),
 	priorityTableData = require('json!./data/priority.json');
 
@@ -111,6 +112,11 @@ const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed
 						{skillData}
 					</tbody>
 				</table>
+			</div>
+
+			<div>
+				<h2>Export</h2>
+				<RedditExport />
 			</div>
 		</div>
 	);
