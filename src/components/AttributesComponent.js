@@ -7,14 +7,6 @@ let metatypeData = require('json!./data/metatype.json'),
 
 require('styles//Attributes.sass');
 
-function activeButton(currentAtt, maxAtt) {
-	if(currentAtt > maxAtt) {
-		return 'disabled btn-danger';
-	} else {
-		return 'btn-success';
-	}
-}
-
 class AttributesComponent extends React.Component {
 	render() {
 		const {priorityRating, metatype, attributes, actions, metatypeRating, magicPriority, magictype} = this.props;
@@ -34,6 +26,22 @@ class AttributesComponent extends React.Component {
 			specialPointsLeft = priorityData[metatypeRating].metatype[metatype].special - attributes.specialSpent;
 
 		const attList = ['bod', 'agi', 'rea', 'str', 'wil', 'log', 'int', 'cha'];
+
+		let oneBaseAttAtMax = false;
+
+		attList.find((att) => {
+			let baseAtt = metatypeData[metatype].min[att],
+				currentAtt = baseAtt + attributes[att];
+
+			if (currentAtt < metatypeData[metatype].max[att]) {
+				return false;
+			} else {
+				oneBaseAttAtMax = true;
+				return true;
+			}
+
+		});
+
 		for(let att in metatypeData[metatype].min) {
 			let baseAtt = metatypeData[metatype].min[att],
 				maxAtt = metatypeData[metatype].max[att],
@@ -44,7 +52,7 @@ class AttributesComponent extends React.Component {
 					<IncrementButton
 						attributes={attributes}
 						attName={att}
-						maxPoints={maxPoints}
+						maxPoints={oneBaseAttAtMax ? maxPoints - 1 : maxPoints}
 						pointsLeft={pointsLeft}
 						incrementAttribute={actions.incrementAttribute}
 						key={'incBtn-'+att}
@@ -75,7 +83,7 @@ class AttributesComponent extends React.Component {
 
 				if(magictype in priorityData[magicPriority].magic && magictype !== 'mundane') {
 					att='special';
-					baseAtt = priorityData[magicPriority].magic[magictype].attribute.points;//find magic rating
+					baseAtt = priorityData[magicPriority].magic[magictype].attribute.points; //find magic rating
 					maxAtt = Math.floor(attributes.ess); //set max to essense rounded down
 					maxPoints = maxAtt - baseAtt;
 					addingElements('special', specialPointsLeft);
@@ -129,6 +137,14 @@ class AttributesComponent extends React.Component {
 				</div>
 			</div>
 		);
+	}
+}
+
+function activeButton(currentAtt, maxAtt) {
+	if(currentAtt > maxAtt) {
+		return 'disabled btn-danger';
+	} else {
+		return 'btn-success';
 	}
 }
 
