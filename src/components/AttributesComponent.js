@@ -52,7 +52,7 @@ class AttributesComponent extends React.Component {
 					<IncrementButton
 						attributes={attributes}
 						attName={att}
-						maxPoints={oneBaseAttAtMax ? maxPoints - 1 : maxPoints}
+						maxPoints={oneBaseAttAtMax && attType==='base' ? maxPoints - 1 : maxPoints}
 						pointsLeft={pointsLeft}
 						incrementAttribute={actions.incrementAttribute}
 						key={'incBtn-'+att}
