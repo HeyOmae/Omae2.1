@@ -27,7 +27,7 @@ const SkillgroupsComponent = ({skillgroups, pointsLeft}) => {
 						<th>Raise</th>
 						<th>Rating</th>
 						<th>Lower</th>
-						<th>Skill Group Name</th>
+						<th>Skill Group</th>
 						<th>Skills</th>
 					</tr>
 				</thead>

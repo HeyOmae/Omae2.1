@@ -15,9 +15,7 @@ const attributesReducer = (state=initialState, action) => {
 
 	const actionsToTake = {
 		FIX_SUMMARY: () => {
-			if(summaryFix === state.summaryFix){
-				return state;
-			} else {
+			if(summaryFix !== state.summaryFix){
 				var newState = Object.assign(
 						{},
 						state,
@@ -26,6 +24,8 @@ const attributesReducer = (state=initialState, action) => {
 						}
 					)
 				return newState;
+			} else {
+				return state;
 			}
 			
 		},

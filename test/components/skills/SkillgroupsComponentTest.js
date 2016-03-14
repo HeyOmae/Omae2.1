@@ -1,22 +1,22 @@
-/*eslint-env node, mocha */
-/*global expect */
-/*eslint no-console: 0*/
-'use strict';
+// /*eslint-env node, mocha */
+// /*global expect */
+// /*eslint no-console: 0*/
+// 'use strict';
 
-// Uncomment the following lines to use the react test utilities
-// import TestUtils from 'react-addons-test-utils';
-import createComponent from 'helpers/shallowRenderHelper';
+// // Uncomment the following lines to use the react test utilities
+// // import TestUtils from 'react-addons-test-utils';
+// import createComponent from 'helpers/shallowRenderHelper';
 
-import SkillgroupsComponent from 'components/skills/SkillgroupsComponent.js';
+// import SkillgroupsComponent from 'components/skills/SkillgroupsComponent.js';
 
-describe('SkillgroupsComponent', () => {
-  let component;
+// describe('SkillgroupsComponent', () => {
+//   let component;
 
-  beforeEach(() => {
-    component = createComponent(SkillgroupsComponent);
-  });
+//   beforeEach(() => {
+//     component = createComponent(SkillgroupsComponent);
+//   });
 
-  it('should have its component name as default className', () => {
-    expect(component.props.className).to.equal('skillgroups-component');
-  });
-});
+//   it('should have its component name as default className', () => {
+//     expect(component.props.className).to.equal('skillgroups-component');
+//   });
+// });
