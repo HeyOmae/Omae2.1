@@ -7,7 +7,7 @@ const initialState = {
 	active: {},
 	knowledge: {},
 	skillPointsSpent: 0,
-	GroupPointSpent: 0,
+	groupPointSpent: 0,
 	showSkill: ''
 };
 

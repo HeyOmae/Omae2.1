@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react';
+import Skillgroup from './SkillgroupsComponent'
 let skillsData = require('json!../data/skills.json'),
 	metatypeData = require('json!../data/metatype.json'),
 	priorityTableData = require('json!../data/priority.json');
@@ -23,7 +24,8 @@ class ActiveSkillsComponent extends React.Component {
 				Resonance: 'res'
 			};
 
-		let skillPointsLeft = priorityTableData[priority.skills].skills.skillpoints - skills.skillPointsSpent;
+		let skillPointsLeft = priorityTableData[priority.skills].skills.skillpoints - skills.skillPointsSpent,
+			groupPointsLeft = priorityTableData[priority.skills].skills.grouppoints - skills.groupPointSpent;
 
 		var listOfSkills = [];
 
@@ -48,10 +50,15 @@ class ActiveSkillsComponent extends React.Component {
 					/>
 			);
 		}
+
 		return (
 			<div className="activeskills-component">
-				<h3>Active Skills</h3>
+				<h3>Skill Groups</h3>
+				<Skillgroup
+					skillgroups={skillsData.groups}
+					pointsLeft = {groupPointsLeft}/>
 
+				<h3>Active Skills</h3>
 				<div className="row">
 					<div className="col-xs-12">
 						{listOfSkills}
@@ -63,8 +70,6 @@ class ActiveSkillsComponent extends React.Component {
 }
 
 const ActiveSkill = ({skillAtt, skillList, actions, skills, skillPointsLeft, showSkill, attributePool}) => {
-
-
 	let skillTableData = [];
 	for(let skillName in skillList) {
 		let skillData = skillList[skillName],
