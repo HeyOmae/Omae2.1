@@ -11,7 +11,7 @@ const initialState = {
 	showSkill: ''
 };
 
-const attributesReducer = (state=initialState, action) => {
+const skillReducer = (state=initialState, action) => {
 	if(action.parameter) {
 		var {name, category, max, skillToShow, attribute} = action.parameter;
 	}
@@ -70,6 +70,10 @@ const attributesReducer = (state=initialState, action) => {
 					{},
 					state,
 					{
+						[category] : Object.assign(
+							{},
+							state[category]
+						),
 						skillPointsSpent: state.skillPointsSpent - 1
 					}
 				);
@@ -116,4 +120,4 @@ const attributesReducer = (state=initialState, action) => {
 	return (actionsToTake[action.type] || actionsToTake.DEFAULT)();
 };
 
-module.exports = attributesReducer;
+module.exports = skillReducer;

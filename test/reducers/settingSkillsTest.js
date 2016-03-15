@@ -5,7 +5,7 @@ var reducer = require('../../src/reducers/settingSkills');
 
 describe('settingSkills', () => {
 
-	const state = {
+	let state = {
 		active: {
 			longarms: {rating: 1, attribute: 'agi'},
 			palming: {rating: 2, attribute: 'agi'},
@@ -60,6 +60,7 @@ describe('settingSkills', () => {
 
 			expect(newState.active.longarms).to.be.undefined;
 			expect(newState.skillPointsSpent).to.equal(2);
+			expect(state.active.longarms.rating).to.equal(1);
 		});
 
 		it('should return state if attempting to decrement a skill that is not defined', () => {
