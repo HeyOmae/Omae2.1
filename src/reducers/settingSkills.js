@@ -20,7 +20,7 @@ const skillReducer = (state=initialState, action) => {
 		INCREMENT_SKILL: () => {
 			var newState,
 				skill = state[category][name];
-			if(skill && skill.rating){
+			if(skill){
 				let nextIncrement = skill.rating + 1;
 				if (nextIncrement > max - (skill.min || 0)) {
 					return state;
@@ -63,10 +63,11 @@ const skillReducer = (state=initialState, action) => {
 		},
 
 		DECREMENT_SKILL: () => {
-			var newState;
+			var newState,
+				skill = state[category][name];
 			if(!state[category][name]) {
 				return state;
-			} else if(state[category][name].rating === 1) {
+			} else if(skill.rating === 1 && !skill.min) {
 				newState = Object.assign(
 					{},
 					state,
@@ -80,8 +81,8 @@ const skillReducer = (state=initialState, action) => {
 				);
 
 				delete newState[category][name];
-			} else if(state[category][name].rating > 1) {
-				let nextDecrement = state[category][name].rating - 1;
+			} else if(skill.rating > 0) {
+				let nextDecrement = skill.rating - 1;
 				newState = Object.assign(
 					{},
 					state,
@@ -89,11 +90,13 @@ const skillReducer = (state=initialState, action) => {
 						[category]: Object.assign(
 							{},
 							state[category],
-							{[name]: {
-								rating: nextDecrement,
-								attribute: attribute
-							}}
-						),
+							{[name]: Object.assign(
+								{},
+								skill,
+								{
+									rating: nextDecrement
+								})
+						}),
 						skillPointsSpent: state.skillPointsSpent - 1
 					}
 				)

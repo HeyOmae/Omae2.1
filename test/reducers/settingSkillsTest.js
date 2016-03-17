@@ -10,7 +10,8 @@ describe('settingSkills', () => {
 			longarms: {rating: 1, attribute: 'agi'},
 			palming: {rating: 2, attribute: 'agi'},
 			con: {rating: 6, attribute: 'cha'},
-			gymastics: {rating: 4, attribute: 'agi', min: 2}
+			gymastics: {rating: 0, attribute: 'agi', min: 6},
+			running: {rating: 1, attribute: 'str', min: 1}
 		},
 		groups: {
 			acting: {rating: 1}
@@ -80,6 +81,14 @@ describe('settingSkills', () => {
 			expect(newState).to.equal(state);
 			expect(newState.skillPointsSpent).to.equal(3);
 		});
+
+		it('should not delete a skill that is reduced to rating 0 with a min value', () => {
+			let newState = reducer(state, {type: 'DECREMENT_SKILL', parameter: {name: 'running', category: 'active', max: 6, attribute: 'str'}});
+
+			expect(newState.active.running.rating).to.equal(0);
+			expect(newState.active.running.min).to.equal(1);
+			expect(newState.skillPointsSpent).to.equal(2);
+		})
 	});
 
 	describe('SHOW_SKILL', () => {
@@ -105,11 +114,17 @@ describe('settingSkills', () => {
 
 			let newState = reducer(skillShowState, {type: 'SHOW_SKILL', parameter: {skillToShow: 'Body' }});
 			expect(newState.showSkill).to.equal('Body');
-		})
+		});
 	});
 
 	describe('INCREMENT_SKILLGROUP', () => {
+		it('should create skills with min value of 1 if skills are not created yet', () => {
+			
+		});
 
+		it('should increment min value of all skills', () => {
+
+		});
 	})
 
 });
