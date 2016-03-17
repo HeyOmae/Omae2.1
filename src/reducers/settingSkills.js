@@ -18,10 +18,11 @@ const skillReducer = (state=initialState, action) => {
 
 	const actionsToTake = {
 		INCREMENT_SKILL: () => {
-			var newState;
-			if(state[category][name]){
-				let nextIncrement = state[category][name].rating + 1;
-				if (nextIncrement > max) {
+			var newState,
+				skill = state[category][name];
+			if(skill && skill.rating){
+				let nextIncrement = skill.rating + 1;
+				if (nextIncrement > max - (skill.min || 0)) {
 					return state;
 				} else {
 					newState = Object.assign(
@@ -35,7 +36,7 @@ const skillReducer = (state=initialState, action) => {
 										rating: nextIncrement,
 										attribute: attribute
 									}
-								}), // this is ugly, think about making it less ugly
+								}),
 							skillPointsSpent: state.skillPointsSpent + 1
 						}
 					)

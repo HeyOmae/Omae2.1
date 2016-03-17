@@ -9,7 +9,11 @@ describe('settingSkills', () => {
 		active: {
 			longarms: {rating: 1, attribute: 'agi'},
 			palming: {rating: 2, attribute: 'agi'},
-			con: {rating: 6, attribute: 'cha'}
+			con: {rating: 6, attribute: 'cha'},
+			gymastics: {rating: 4, attribute: 'agi', min: 2}
+		},
+		groups: {
+			acting: {rating: 1}
 		},
 		skillPointsSpent: 3,
 		GroupPointSpent: 0,
@@ -41,6 +45,13 @@ describe('settingSkills', () => {
 
 		it('should return state if increment a skill higher then the max', () => {
 			let newState = reducer(state, {type: 'INCREMENT_SKILL', parameter: {name: 'con', category: 'active', max: 6, attribute: 'cha' }});
+
+			expect(newState).to.equal(state);
+			expect(newState.skillPointsSpent).to.equal(3);
+		});
+
+		it('should return state if incrementing a skill higher then the max with a higher min', () => {
+			let newState = reducer(state, {type: 'INCREMENT_SKILL', parameter: {name: 'gymastics', category: 'active', max: 6, attribute: 'agi' }});
 
 			expect(newState).to.equal(state);
 			expect(newState.skillPointsSpent).to.equal(3);
@@ -96,5 +107,9 @@ describe('settingSkills', () => {
 			expect(newState.showSkill).to.equal('Body');
 		})
 	});
+
+	describe('INCREMENT_SKILLGROUP', () => {
+
+	})
 
 });
