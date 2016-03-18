@@ -17,7 +17,7 @@ describe('settingSkills', () => {
 			acting: {rating: 1}
 		},
 		skillPointsSpent: 3,
-		GroupPointSpent: 0,
+		groupPointSpent: 0,
 		showSkill: ''
 	};
 
@@ -119,7 +119,13 @@ describe('settingSkills', () => {
 
 	describe('INCREMENT_SKILLGROUP', () => {
 		it('should create skills with min value of 1 if skills are not created yet', () => {
-			
+			let newState = reducer(state, {type: 'INCREMENT_SKILLGROUP', parameter: {name: 'closecombat', category: 'group', skillsInGroup: ['blades', 'clubs', 'unarmedcombat']}});
+
+			expect(newState.group.closecombat.rating).to.equal(1);
+			expect(newState.active.blades.min).to.equal(1);
+			expect(newState.active.clubs.min).to.equal(1);
+			expect(newState.active.unarmedcombat.min).to.equal(1);
+			expect(newState.groupPointSpent).to.equal(1);
 		});
 
 		it('should increment min value of all skills', () => {
