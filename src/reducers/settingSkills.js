@@ -35,13 +35,11 @@ const skillReducer = (state=initialState, action) => {
 		)
 	}
 
-	function generateSkillObject(skill, rating) {
+	function generateSkillObject(skill, updatedSkilInfo) {
 		return Object.assign(
 			{},
 			skill,
-			{
-				rating: rating
-			});
+			updatedSkilInfo);
 	}
 
 	const actionsToTake = {
@@ -57,7 +55,7 @@ const skillReducer = (state=initialState, action) => {
 				} else {
 
 					newState = changeSkill(
-						generateSkillObject(skill, nextIncrement),
+						generateSkillObject(skill, {rating: nextIncrement}),
 						'skillPointsSpent',
 						state.skillPointsSpent + 1
 					);
@@ -103,7 +101,7 @@ const skillReducer = (state=initialState, action) => {
 				let nextDecrement = skill.rating - 1;
 
 				newState = changeSkill(
-					generateSkillObject(skill, nextDecrement),
+					generateSkillObject(skill, {rating: nextDecrement}),
 					'skillPointsSpent',
 					state.skillPointsSpent - 1
 				);
@@ -141,7 +139,11 @@ const skillReducer = (state=initialState, action) => {
 					1);
 
 				for(let skillName in skillsInGroup) {
-					let skillAttibute = skillsInGroup[skillName];
+					let skillAttibute = skillsInGroup[skillName],
+						skill = state.active[skillName],
+						skillInfo = skill?
+							generateSkillObject(skill, {min: skill.min?skill.min+1:1}):
+							{min: 1,attribute: skillAttibute};
 
 					newState = Object.assign(
 						{},
@@ -150,10 +152,7 @@ const skillReducer = (state=initialState, action) => {
 							{},
 							newState.active,
 							{
-								[skillName]: {
-									min: 1,
-									attribute: skillAttibute
-								}
+								[skillName]: skillInfo
 							}
 					)});
 				}
