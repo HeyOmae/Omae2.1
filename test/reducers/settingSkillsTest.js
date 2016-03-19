@@ -9,15 +9,17 @@ describe('settingSkills', () => {
 		active: {
 			longarms: {rating: 1, attribute: 'agi'},
 			palming: {rating: 2, attribute: 'agi'},
-			con: {rating: 6, attribute: 'cha'},
-			gymastics: {rating: 0, attribute: 'agi', min: 6},
-			running: {rating: 1, attribute: 'str', min: 1}
+			con: {rating: 6, attribute: 'cha', groupRating: 1},
+			impersonation: {rating: 0, attribute: 'cha', groupRating: 1},
+			performance: {rating: 0, attribute: 'cha', groupRating: 1},
+			gymastics: {rating: 0, attribute: 'agi', groupRating: 6},
+			running: {rating: 1, attribute: 'str', groupRating: 1}
 		},
 		groups: {
 			acting: {rating: 1}
 		},
 		skillPointsSpent: 3,
-		groupPointSpent: 0,
+		groupPointSpent: 1,
 		showSkill: ''
 	};
 
@@ -51,7 +53,7 @@ describe('settingSkills', () => {
 			expect(newState.skillPointsSpent).to.equal(3);
 		});
 
-		it('should return state if incrementing a skill higher then the max with a higher min', () => {
+		it('should return state if incrementing a skill higher then the max with a higher groupRating', () => {
 			let newState = reducer(state, {type: 'INCREMENT_SKILL', parameter: {name: 'gymastics', category: 'active', max: 6, attribute: 'agi' }});
 
 			expect(newState).to.equal(state);
@@ -82,11 +84,11 @@ describe('settingSkills', () => {
 			expect(newState.skillPointsSpent).to.equal(3);
 		});
 
-		it('should not delete a skill that is reduced to rating 0 with a min value', () => {
+		it('should not delete a skill that is reduced to rating 0 with a groupRating value', () => {
 			let newState = reducer(state, {type: 'DECREMENT_SKILL', parameter: {name: 'running', category: 'active', max: 6, attribute: 'str'}});
 
 			expect(newState.active.running.rating).to.equal(0);
-			expect(newState.active.running.min).to.equal(1);
+			expect(newState.active.running.groupRating).to.equal(1);
 			expect(newState.skillPointsSpent).to.equal(2);
 		})
 	});
@@ -118,26 +120,37 @@ describe('settingSkills', () => {
 	});
 
 	describe('INCREMENT_SKILLGROUP', () => {
-		it('should create skills with min value of 1 if skills are not created yet', () => {
+		it('should create skills with groupRating value of 1 if skills are not created yet', () => {
 			let newState = reducer(state, {type: 'INCREMENT_SKILLGROUP', parameter: {name: 'closecombat', category: 'group', skillsInGroup: {blades: 'agi', clubs: 'agi', unarmedcombat: 'agi'}}});
 
 			expect(newState.group.closecombat.rating).to.equal(1);
-			expect(newState.active.blades.min).to.equal(1);
-			expect(newState.active.clubs.min).to.equal(1);
-			expect(newState.active.unarmedcombat.min).to.equal(1);
+			expect(newState.active.blades.groupRating).to.equal(1);
+			expect(newState.active.clubs.groupRating).to.equal(1);
+			expect(newState.active.unarmedcombat.groupRating).to.equal(1);
 			expect(newState.groupPointSpent).to.equal(1);
 		});
 
-		it('should add min value of a skill that already has skill points spent on it', () => {
+		it('should add groupRating value of a skill that already has skill points spent on it', () => {
 			let newState = reducer(state, {type: 'INCREMENT_SKILLGROUP', parameter: {name: 'firearms', category: 'group', skillsInGroup: {automatics: 'agi', longarms: 'agi', pistols: 'agi'}}});
 
 			expect(newState.group.firearms.rating).to.equal(1);
-			expect(newState.active.automatics.min).to.equal(1);
-			expect(newState.active.longarms.min).to.equal(1);
+			expect(newState.active.automatics.groupRating).to.equal(1);
+			expect(newState.active.longarms.groupRating).to.equal(1);
 			expect(newState.active.longarms.rating).to.equal(1);
-			expect(newState.active.pistols.min).to.equal(1);
+			expect(newState.active.pistols.groupRating).to.equal(1);
 			expect(newState.groupPointSpent).to.equal(1);
 		});
+
+		it('should incrememt the groupRating of all skills in the skill group', ()=> {
+			let newState = reducer(state, {type: 'INCREMENT_SKILLGROUP', parameter: {name: 'acting', category: 'group', skillsInGroup: {con: 'cha', impersonation: 'cha', performance: 'cha'}}});
+
+			expect(newState.group.acting.rating).to.equal(2);
+			expect(newState.active.con.groupRating).to.equal(2);
+			expect(newState.active.con.rating).to.equal(6);
+			expect(newState.active.impersonation.groupRating).to.equal(2);
+			expect(newState.active.performance.groupRating).to.equal(2);
+			expect(newState.groupPointSpent).to.equal(2);
+		})
 	})
 
 });

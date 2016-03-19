@@ -3,7 +3,6 @@
  * If you change the type from object to something else, do not forget to update
  * src/container/App.js accordingly.
  */
-let skillsData = 'json!../components/data/skills.json';
 
 const initialState = {
 	active: {},
@@ -48,7 +47,7 @@ const skillReducer = (state=initialState, action) => {
 				skill = state[category][name];
 			if(skill){
 				let nextIncrement = skill.rating + 1;
-				if (nextIncrement > max - (skill.min || 0)) {
+				if (nextIncrement > max - (skill.groupRating || 0)) {
 
 					return state;
 
@@ -81,7 +80,7 @@ const skillReducer = (state=initialState, action) => {
 
 				return state;
 
-			} else if(skill.rating === 1 && !skill.min) {
+			} else if(skill.rating === 1 && !skill.groupRating) {
 
 				newState = Object.assign(
 					{},
@@ -129,7 +128,10 @@ const skillReducer = (state=initialState, action) => {
 				skillgroup = state.groups[name];
 
 			if(skillgroup){
-				console.log('increment skill group');
+				newState = changeSkill(
+					{rating: skillgroup.rating + 1},
+					'groupPointSpent',
+					state.groupPointSpent + 1);
 			} else {
 				newState = changeSkill(
 					{
@@ -137,25 +139,25 @@ const skillReducer = (state=initialState, action) => {
 					},
 					'groupPointSpent',
 					1);
+			}
 
-				for(let skillName in skillsInGroup) {
-					let skillAttibute = skillsInGroup[skillName],
-						skill = state.active[skillName],
-						skillInfo = skill?
-							generateSkillObject(skill, {min: skill.min?skill.min+1:1}):
-							{min: 1,attribute: skillAttibute};
+			for(let skillName in skillsInGroup) {
+				let skillAttibute = skillsInGroup[skillName],
+					skill = state.active[skillName],
+					skillInfo = skill?
+						generateSkillObject(skill, {groupRating: skill.groupRating?skill.groupRating+1:1}):
+						{groupRating: 1,attribute: skillAttibute};
 
-					newState = Object.assign(
+				newState = Object.assign(
+					{},
+					newState,
+					{active: Object.assign(
 						{},
-						newState,
-						{active: Object.assign(
-							{},
-							newState.active,
-							{
-								[skillName]: skillInfo
-							}
-					)});
-				}
+						newState.active,
+						{
+							[skillName]: skillInfo
+						}
+				)});
 			}
 
 			return newState;
