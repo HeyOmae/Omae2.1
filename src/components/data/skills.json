@@ -2,128 +2,128 @@
 	"groups": {
 		"acting": {
 			"name": "Acting",
-			"skillsingroup": [
-				"con",
-				"impersonation",
-				"performance"
-			]
+			"skillsingroup": {
+				"con": "cha",
+				"impersonation": "cha",
+				"performance": "cha"
+			}
 		},
 		"athletics": {
 			"name": "Athletics",
-			"skillsingroup": [
-				"gymnastics",
-				"running",
-				"swimming"
-			]
+			"skillsingroup": {
+				"gymnastics": "agi",
+				"running": "str",
+				"swimming": "str"
+			}
 		},
 		"biotech": {
 			"name": "Biotech",
-			"skillsingroup": [
-				"cybertechnology",
-				"firstaid",
-				"medicine",
-				"biotechnology"
-			]
+			"skillsingroup": {
+				"cybertechnology": "log",
+				"firstaid": "log",
+				"medicine": "log",
+				"biotechnology": "log"
+			}
 		},
 		"closecombat": {
 			"name": "Close Combat",
-			"skillsingroup": [
-				"blades",
-				"clubs",
-				"unarmedcombat"
-			]
+			"skillsingroup": {
+				"blades": "agi",
+				"clubs": "agi",
+				"unarmedcombat": "agi"
+			}
 		},
 		"conjuring": {
 			"name": "Conjuring",
-			"skillsingroup": [
-				"banishing",
-				"binding",
-				"summoning"
-			],
+			"skillsingroup": {
+				"banishing": "mag",
+				"binding": "mag",
+				"summoning": "mag"
+			},
 			"catalog": "magic"
 		},
 		"cracking": {
 			"name": "Cracking",
-			"skillsingroup": [
-				"cybercombat",
-				"electronicwarfare",
-				"hacking"
-			]
+			"skillsingroup": {
+				"cybercombat": "log",
+				"electronicwarfare": "log",
+				"hacking": "log"
+			}
 		},
 		"electronics": {
 			"name": "Electronics",
-			"skillsingroup": [
-				"computer",
-				"hardware",
-				"software"
-			]
+			"skillsingroup": {
+				"computer": "log",
+				"hardware": "log",
+				"software": "log"
+			}
 		},
 		"enchanting": {
 			"name": "Enchanting",
-			"skillsingroup": [
-				"alchemy",
-				"artificing",
-				"disenchanting"
-			],
+			"skillsingroup": {
+				"alchemy": "mag",
+				"artificing": "mag",
+				"disenchanting": "mag"
+			},
 			"catalog": "magic"
 		},
 		"firearms": {
 			"name": "Firearms",
-			"skillsingroup": [
-				"automatics",
-				"longarms",
-				"pistols"
-			]
+			"skillsingroup": {
+				"automatics": "agi",
+				"longarms": "agi",
+				"pistols": "agi"
+			}
 		},
 		"influence": {
 			"name": "Influence",
-			"skillsingroup": [
-				"etiquette",
-				"leadership",
-				"negotiation"
-			]
+			"skillsingroup": {
+				"etiquette": "cha",
+				"leadership": "cha",
+				"negotiation": "cha"
+			}
 		},
 		"engineering": {
 			"name": "Engineering",
-			"skillsingroup": [
-				"aeronauticsmechanics",
-				"automotivemechanic",
-				"industrialmechanics",
-				"nauticalmechanics"
-			]
+			"skillsingroup": {
+				"aeronauticsmechanics": "log",
+				"automotivemechanic": "log",
+				"industrialmechanics": "log",
+				"nauticalmechanics": "log"
+			}
 		},
 		"outdoors": {
 			"name": "Outdoors",
-			"skillsingroup": [
-				"navigation",
-				"survival",
-				"tracking"
-			]
+			"skillsingroup": {
+				"navigation": "int",
+				"survival": "wil",
+				"tracking": "int"
+			}
 		},
 		"sorcery": {
 			"name": "Sorcery",
-			"skillsingroup": [
-				"counterspelling",
-				"ritualspellcasting",
-				"spellcasting"
-			],
+			"skillsingroup": {
+				"counterspelling": "mag",
+				"ritualspellcasting": "mag",
+				"spellcasting": "mag"
+			},
 			"catalog": "magic"
 		},
 		"stealth": {
 			"name": "Stealth",
-			"skillsingroup": [
-				"disguise",
-				"palming",
-				"sneaking"
-			]
+			"skillsingroup": {
+				"disguise": "int",
+				"palming": "agi",
+				"sneaking": "agi"
+			}
 		},
 		"tasking": {
 			"name": "Tasking",
-			"skillsingroup": [
-				"compiling",
-				"decompiling",
-				"registering"
-			],
+			"skillsingroup": {
+				"compiling": "res",
+				"decompiling": "res",
+				"registering": "res"
+			},
 			"catalog": "resonance"
 		}
 	},
@@ -872,7 +872,7 @@
 			}
 		},
 		"Logic": {
-			"aeronautics mechanic": {
+			"aeronauticsmechanic": {
 				"name": "Aeronautics Mechanic",
 				"category": "logic",
 				"stat": "log",
@@ -930,7 +930,7 @@
 					"Weapon Accessories"
 				]
 			},
-			"automotive mechanic": {
+			"automotivemechanic": {
 				"name": "Automotive Mechanic",
 				"category": "logic",
 				"stat": "log",
@@ -1078,7 +1078,7 @@
 					"Sensor Operations"
 				]
 			},
-			"first aid": {
+			"firstaid": {
 				"name": "First Aid",
 				"category": "logic",
 				"stat": "log",
@@ -1152,7 +1152,7 @@
 					"[Hardware Type]"
 				]
 			},
-			"industrial mechanic": {
+			"industrialmechanic": {
 				"name": "Industrial Mechanic",
 				"category": "logic",
 				"stat": "log",
@@ -1192,7 +1192,7 @@
 					"Trauma Surgery"
 				]
 			},
-			"nautical mechanic": {
+			"nauticalmechanic": {
 				"name": "Nautical Mechanic",
 				"category": "logic",
 				"stat": "log",

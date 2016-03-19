@@ -3,6 +3,8 @@
  * If you change the type from object to something else, do not forget to update
  * src/container/App.js accordingly.
  */
+let skillsData = 'json!../components/data/skills.json';
+
 const initialState = {
 	active: {},
 	knowledge: {},
@@ -17,7 +19,7 @@ const skillReducer = (state=initialState, action) => {
 		var {name, category, max, skillToShow, attribute, skillsInGroup} = action.parameter;
 	}
 
-	function changeSkill(skillData, typeSpend, spentPoints) {
+	function changeSkill(skillInfo, typeSpend, spentPoints) {
 		return Object.assign(
 			{},
 			state,
@@ -26,7 +28,7 @@ const skillReducer = (state=initialState, action) => {
 					{},
 					state[category],
 					{
-						[name]: skillData
+						[name]: skillInfo
 					}),
 				[typeSpend]: spentPoints
 			}
@@ -138,7 +140,9 @@ const skillReducer = (state=initialState, action) => {
 					'groupPointSpent',
 					1);
 
-				skillsInGroup.forEach(skillName => {
+				for(let skillName in skillsInGroup) {
+					let skillAttibute = skillsInGroup[skillName];
+
 					newState = Object.assign(
 						{},
 						newState,
@@ -148,11 +152,11 @@ const skillReducer = (state=initialState, action) => {
 							{
 								[skillName]: {
 									min: 1,
-									attribute: 'agi'
+									attribute: skillAttibute
 								}
 							}
 					)});
-				});
+				}
 			}
 
 			return newState;

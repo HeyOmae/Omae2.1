@@ -15,7 +15,7 @@ const SkillgroupsComponent = ({skillgroups, pointsLeft}) => {
 				<td>0</td>
 				<td>-</td>
 				<td><strong>{group.name}</strong></td>
-				<td>{group.skillsingroup.join(', ')}</td>
+				<td>{Object.keys(group.skillsingroup).join(', ')}</td>
 			</tr>
 		);
 	}

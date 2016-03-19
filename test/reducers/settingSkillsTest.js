@@ -119,7 +119,7 @@ describe('settingSkills', () => {
 
 	describe('INCREMENT_SKILLGROUP', () => {
 		it('should create skills with min value of 1 if skills are not created yet', () => {
-			let newState = reducer(state, {type: 'INCREMENT_SKILLGROUP', parameter: {name: 'closecombat', category: 'group', skillsInGroup: ['blades', 'clubs', 'unarmedcombat']}});
+			let newState = reducer(state, {type: 'INCREMENT_SKILLGROUP', parameter: {name: 'closecombat', category: 'group', skillsInGroup: {blades: 'agi', clubs: 'agi', unarmedcombat: 'agi'}}});
 
 			expect(newState.group.closecombat.rating).to.equal(1);
 			expect(newState.active.blades.min).to.equal(1);
@@ -129,7 +129,7 @@ describe('settingSkills', () => {
 		});
 
 		it('should add min value of a skill that already has skill points spent on it', () => {
-			let newState = reducer(state, {type: 'INCREMENT_SKILLGROUP', parameter: {name: 'firearms', category: 'group', skillsInGroup: ['automatics', 'longarms', 'pistols']}});
+			let newState = reducer(state, {type: 'INCREMENT_SKILLGROUP', parameter: {name: 'firearms', category: 'group', skillsInGroup: {automatics: 'agi', longarms: 'agi', pistols: 'agi'}}});
 
 			expect(newState.group.firearms.rating).to.equal(1);
 			expect(newState.active.automatics.min).to.equal(1);
