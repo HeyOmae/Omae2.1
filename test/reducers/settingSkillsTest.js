@@ -128,8 +128,15 @@ describe('settingSkills', () => {
 			expect(newState.groupPointSpent).to.equal(1);
 		});
 
-		it('should increment min value of all skills', () => {
+		it('should add min value of a skill that already has skill points spent on it', () => {
+			let newState = reducer(state, {type: 'INCREMENT_SKILLGROUP', parameter: {name: 'firearms', category: 'group', skillsInGroup: ['automatics', 'longarms', 'pistols']}});
 
+			expect(newState.group.firearms.rating).to.equal(1);
+			expect(newState.active.automatics.min).to.equal(1);
+			expect(newState.active.longarms.min).to.equal(1);
+			expect(newState.active.longarms.rating).to.equal(1);
+			expect(newState.active.pistols.min).to.equal(1);
+			expect(newState.groupPointSpent).to.equal(1);
 		});
 	})
 
