@@ -1060,7 +1060,7 @@
 					"Plastic Explosives"
 				]
 			},
-			"electronic warfare": {
+			"electronicwarfare": {
 				"name": "Electronic Warfare",
 				"category": "logic",
 				"stat": "log",
@@ -1228,7 +1228,7 @@
 			}
 		},
 		"Will": {
-			"astral combat": {
+			"astralcombat": {
 				"name": "Astral Combat",
 				"category": "willpower",
 				"stat": "wil",
@@ -1392,7 +1392,7 @@
 					"[Type]"
 				]
 			},
-			"ritual spellcasting": {
+			"ritualspellcasting": {
 				"name": "Ritual Spellcasting",
 				"category": "magic",
 				"stat": "mag",
