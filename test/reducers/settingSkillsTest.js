@@ -69,19 +69,12 @@ describe('settingSkills', () => {
 			expect(newState.skillPointsSpent).to.equal(2);
 		});
 
-		it('should delete a skill that\'s decremented to 0 in the state', () => {
+		it('should delete a skill that\'s decremented to 0 in the state without a groupRating value', () => {
 			let newState = reducer(state, {type: 'DECREMENT_SKILL', parameter: {name: 'longarms', category: 'active', max: 6, attribute: 'agi' }});
 
 			expect(newState.active.longarms).to.be.undefined;
 			expect(newState.skillPointsSpent).to.equal(2);
 			expect(state.active.longarms.rating).to.equal(1);
-		});
-
-		it('should return state if attempting to decrement a skill that is not defined', () => {
-			let newState = reducer(state, {type: 'DECREMENT_SKILL', parameter: {name: 'pistol', category: 'active', max: 6, attribute: 'agi' }});
-
-			expect(newState).to.equal(state);
-			expect(newState.skillPointsSpent).to.equal(3);
 		});
 
 		it('should not delete a skill that is reduced to rating 0 with a groupRating value', () => {
@@ -90,7 +83,14 @@ describe('settingSkills', () => {
 			expect(newState.active.running.rating).to.equal(0);
 			expect(newState.active.running.groupRating).to.equal(1);
 			expect(newState.skillPointsSpent).to.equal(2);
-		})
+		});
+
+		it('should return state if attempting to decrement a skill that is not defined', () => {
+			let newState = reducer(state, {type: 'DECREMENT_SKILL', parameter: {name: 'pistol', category: 'active', max: 6, attribute: 'agi' }});
+
+			expect(newState).to.equal(state);
+			expect(newState.skillPointsSpent).to.equal(3);
+		});
 	});
 
 	describe('SHOW_SKILL', () => {
@@ -150,7 +150,42 @@ describe('settingSkills', () => {
 			expect(newState.active.impersonation.groupRating).to.equal(2);
 			expect(newState.active.performance.groupRating).to.equal(2);
 			expect(newState.groupPointSpent).to.equal(2);
-		})
-	})
+		});
+	});
+
+	describe('DECREMENT_SKILLGROUP', () => {
+
+		it('should delete skills with rating 0 and the groupRating at 0', ()=> {
+			let newState = reducer(state, {type: 'DECREMENT_SKILLGROUP', parameter: {name: 'acting', category: 'group', skillsInGroup: {con: 'cha', impersonation: 'cha', performance: 'cha'}}});
+
+			expect(newState.group.acting).to.equal(undefined);
+			expect(newState.active.con.groupRating).to.equal(undefined);
+			expect(newState.active.con.rating).to.equal(6);
+			expect(newState.active.impersonation).to.equal(undefined);
+			expect(newState.active.performance).to.equal(undefined);
+			expect(newState.groupPointSpent).to.equal(0);
+		});
+
+		// it('should create skills with groupRating value of 1 if skills are not created yet', () => {
+		// 	let newState = reducer(state, {type: 'DECREMENT_SKILLGROUP', parameter: {name: 'closecombat', category: 'group', skillsInGroup: {blades: 'agi', clubs: 'agi', unarmedcombat: 'agi'}}});
+
+		// 	expect(newState.group.closecombat.rating).to.equal(1);
+		// 	expect(newState.active.blades.groupRating).to.equal(1);
+		// 	expect(newState.active.clubs.groupRating).to.equal(1);
+		// 	expect(newState.active.unarmedcombat.groupRating).to.equal(1);
+		// 	expect(newState.groupPointSpent).to.equal(1);
+		// });
+
+		// it('should add groupRating value of a skill that already has skill points spent on it', () => {
+		// 	let newState = reducer(state, {type: 'DECREMENT_SKILLGROUP', parameter: {name: 'firearms', category: 'group', skillsInGroup: {automatics: 'agi', longarms: 'agi', pistols: 'agi'}}});
+
+		// 	expect(newState.group.firearms.rating).to.equal(1);
+		// 	expect(newState.active.automatics.groupRating).to.equal(1);
+		// 	expect(newState.active.longarms.groupRating).to.equal(1);
+		// 	expect(newState.active.longarms.rating).to.equal(1);
+		// 	expect(newState.active.pistols.groupRating).to.equal(1);
+		// 	expect(newState.groupPointSpent).to.equal(1);
+		// });
+	});
 
 });

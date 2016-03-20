@@ -18,7 +18,7 @@ const skillReducer = (state=initialState, action) => {
 		var {name, category, max, skillToShow, attribute, skillsInGroup} = action.parameter;
 	}
 
-	function changeSkill(skillInfo, typeSpend, spentPoints) {
+	function changeSkill(skillInfoUpdated, typeSpend, spentPoints) {
 		return Object.assign(
 			{},
 			state,
@@ -26,9 +26,7 @@ const skillReducer = (state=initialState, action) => {
 				[category]: Object.assign(
 					{},
 					state[category],
-					{
-						[name]: skillInfo
-					}),
+					skillInfoUpdated),
 				[typeSpend]: spentPoints
 			}
 		)
@@ -54,7 +52,7 @@ const skillReducer = (state=initialState, action) => {
 				} else {
 
 					newState = changeSkill(
-						generateSkillObject(skill, {rating: nextIncrement}),
+						{[name]: generateSkillObject(skill, {rating: nextIncrement})},
 						'skillPointsSpent',
 						state.skillPointsSpent + 1
 					);
@@ -62,10 +60,10 @@ const skillReducer = (state=initialState, action) => {
 				}
 			} else {
 				newState = changeSkill(
-					{
+					{[name]: {
 						rating: 1,
 						attribute: attribute
-					},
+					}},
 					'skillPointsSpent',
 					state.skillPointsSpent + 1
 				);
@@ -76,22 +74,16 @@ const skillReducer = (state=initialState, action) => {
 		DECREMENT_SKILL: () => {
 			var newState,
 				skill = state[category][name];
-			if(!state[category][name]) {
+			if(!skill) {
 
 				return state;
 
 			} else if(skill.rating === 1 && !skill.groupRating) {
 
-				newState = Object.assign(
+				newState = changeSkill(
 					{},
-					state,
-					{
-						[category] : Object.assign(
-							{},
-							state[category]
-						),
-						skillPointsSpent: state.skillPointsSpent - 1
-					}
+					'skillPointsSpent',
+					state.skillPointsSpent - 1
 				);
 
 				delete newState[category][name];
@@ -100,7 +92,7 @@ const skillReducer = (state=initialState, action) => {
 				let nextDecrement = skill.rating - 1;
 
 				newState = changeSkill(
-					generateSkillObject(skill, {rating: nextDecrement}),
+					{[name]: generateSkillObject(skill, {rating: nextDecrement})},
 					'skillPointsSpent',
 					state.skillPointsSpent - 1
 				);
@@ -129,14 +121,14 @@ const skillReducer = (state=initialState, action) => {
 
 			if(skillgroup){
 				newState = changeSkill(
-					{rating: skillgroup.rating + 1},
+					{[name]: {rating: skillgroup.rating + 1}},
 					'groupPointSpent',
 					state.groupPointSpent + 1);
 			} else {
 				newState = changeSkill(
-					{
+					{[name]: {
 						rating: 1
-					},
+					}},
 					'groupPointSpent',
 					1);
 			}
@@ -159,6 +151,61 @@ const skillReducer = (state=initialState, action) => {
 						}
 				)});
 			}
+
+			return newState;
+		},
+
+		DECREMENT_SKILLGROUP: () => {
+			var newState,
+				skillgroup = state.groups[name];
+
+			if(!skillgroup) {
+				return state;
+			} else if(skillgroup.rating === 1) {
+				newState = changeSkill(
+					{},
+					'groupPointSpent',
+					state.groupPointSpent - 1
+				);
+
+				delete newState.group[name];
+			} else if (skillgroup.rating > 0) {
+				let nextDecrement = skillgroup.rating - 1;
+				newState = changeSkill(
+					{[name]: generateSkillObject(skillgroup, {rating: nextDecrement})},
+					'groupPointSpent',
+					state.groupPointSpent - 1
+				);
+			}
+
+			for(let skillName in skillsInGroup) {
+				let skill = state.active[skillName];
+
+				newState = Object.assign(
+					{},
+					newState,
+					{active: Object.assign(
+						{},
+						newState.active,
+						{[skillName]:
+							Object.assign(
+								{},
+								newState.active[skillName],
+								{groupRating: skill.groupRating - 1}
+							)
+						}
+					)}
+				)
+
+				let newSkill = newState.active[skillName];
+
+				if(!newSkill.groupRating && !newSkill.rating) {
+					delete newState.active[skillName];
+				} else if (!newSkill.groupRating && newSkill.rating > 0) {
+					delete newState.active[skillName].groupRating;
+				}
+			}
+
 
 			return newState;
 		},
