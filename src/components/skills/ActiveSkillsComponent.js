@@ -58,6 +58,7 @@ class ActiveSkillsComponent extends React.Component {
 					<Skillgroup
 						skillgroups={skills.groups}
 						skillgroupsData={skillsData.groups}
+						actions={actions}
 						pointsLeft = {groupPointsLeft}/>
 				</div>
 

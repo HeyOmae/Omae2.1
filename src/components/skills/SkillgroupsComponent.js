@@ -4,7 +4,7 @@ import React from 'react';
 
 require('styles/skills/Skillgroups.sass');
 
-const SkillgroupsComponent = ({skillgroups, skillgroupsData, pointsLeft}) => {
+const SkillgroupsComponent = ({skillgroups, skillgroupsData, actions, pointsLeft}) => {
 	let listOfGroups = [];
 	for (let groupName in skillgroupsData) {
 		let group = skillgroupsData[groupName];
@@ -12,7 +12,10 @@ const SkillgroupsComponent = ({skillgroups, skillgroupsData, pointsLeft}) => {
 		listOfGroups.push(
 			<tr key={'skillgroup-'+groupName}>
 				<td>
-					<ChangeSkillButton/>
+					<ChangeSkillButton
+						action={actions.incrementSkillgroup}
+						groupName={groupName}
+						skillsInGroup={group.skillsingroup}/>
 				</td>
 				<td>{skillgroups[groupName] && skillgroups[groupName].rating||0}</td>
 				<td>-</td>
@@ -42,11 +45,15 @@ const SkillgroupsComponent = ({skillgroups, skillgroupsData, pointsLeft}) => {
 	);
 };
 
-const ChangeSkillButton = ({}) => {
+const ChangeSkillButton = ({action, groupName, skillsInGroup}) => {
+	function changeSkillGroup() {
+		action({name: groupName, category: 'groups', max: 6, skillsInGroup: skillsInGroup});
+	}
 
 	return(
 		<button
 			className="btn btn-success"
+			onClick={changeSkillGroup}
 			>
 			+
 		</button>
