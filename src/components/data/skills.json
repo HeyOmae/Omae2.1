@@ -3,126 +3,126 @@
 		"acting": {
 			"name": "Acting",
 			"skillsingroup": {
-				"con": "cha",
-				"impersonation": "cha",
-				"performance": "cha"
+				"Con": "cha",
+				"Impersonation": "cha",
+				"Performance": "cha"
 			}
 		},
 		"athletics": {
 			"name": "Athletics",
 			"skillsingroup": {
-				"gymnastics": "agi",
-				"running": "str",
-				"swimming": "str"
+				"Gymnastics": "agi",
+				"Running": "str",
+				"Swimming": "str"
 			}
 		},
 		"biotech": {
 			"name": "Biotech",
 			"skillsingroup": {
-				"cybertechnology": "log",
-				"firstaid": "log",
-				"medicine": "log",
-				"biotechnology": "log"
+				"Cybertechnology": "log",
+				"Firstaid": "log",
+				"Medicine": "log",
+				"Biotechnology": "log"
 			}
 		},
 		"closecombat": {
 			"name": "Close Combat",
 			"skillsingroup": {
-				"blades": "agi",
-				"clubs": "agi",
-				"unarmedcombat": "agi"
+				"Blades": "agi",
+				"Clubs": "agi",
+				"Unarmed Combat": "agi"
 			}
 		},
 		"conjuring": {
 			"name": "Conjuring",
 			"skillsingroup": {
-				"banishing": "mag",
-				"binding": "mag",
-				"summoning": "mag"
+				"Banishing": "mag",
+				"Binding": "mag",
+				"Summoning": "mag"
 			},
 			"catalog": "magic"
 		},
 		"cracking": {
 			"name": "Cracking",
 			"skillsingroup": {
-				"cybercombat": "log",
-				"electronicwarfare": "log",
-				"hacking": "log"
+				"Cybercombat": "log",
+				"Electronic Warfare": "log",
+				"Hacking": "log"
 			}
 		},
 		"electronics": {
 			"name": "Electronics",
 			"skillsingroup": {
-				"computer": "log",
-				"hardware": "log",
-				"software": "log"
+				"Computer": "log",
+				"Hardware": "log",
+				"Software": "log"
 			}
 		},
 		"enchanting": {
 			"name": "Enchanting",
 			"skillsingroup": {
-				"alchemy": "mag",
-				"artificing": "mag",
-				"disenchanting": "mag"
+				"Alchemy": "mag",
+				"Artificing": "mag",
+				"Disenchanting": "mag"
 			},
 			"catalog": "magic"
 		},
 		"firearms": {
 			"name": "Firearms",
 			"skillsingroup": {
-				"automatics": "agi",
-				"longarms": "agi",
-				"pistols": "agi"
+				"Automatics": "agi",
+				"Longarms": "agi",
+				"Pistols": "agi"
 			}
 		},
 		"influence": {
 			"name": "Influence",
 			"skillsingroup": {
-				"etiquette": "cha",
-				"leadership": "cha",
-				"negotiation": "cha"
+				"Etiquette": "cha",
+				"Leadership": "cha",
+				"Negotiation": "cha"
 			}
 		},
 		"engineering": {
 			"name": "Engineering",
 			"skillsingroup": {
-				"aeronauticsmechanics": "log",
-				"automotivemechanic": "log",
-				"industrialmechanics": "log",
-				"nauticalmechanics": "log"
+				"Aeronautics Mechanics": "log",
+				"Automotive Mechanic": "log",
+				"Industrial Mechanics": "log",
+				"Nautical Mechanics": "log"
 			}
 		},
 		"outdoors": {
 			"name": "Outdoors",
 			"skillsingroup": {
-				"navigation": "int",
-				"survival": "wil",
-				"tracking": "int"
+				"Navigation": "int",
+				"Survival": "wil",
+				"Tracking": "int"
 			}
 		},
 		"sorcery": {
 			"name": "Sorcery",
 			"skillsingroup": {
-				"counterspelling": "mag",
-				"ritualspellcasting": "mag",
-				"spellcasting": "mag"
+				"Counterspelling": "mag",
+				"Ritualspellcasting": "mag",
+				"Spellcasting": "mag"
 			},
 			"catalog": "magic"
 		},
 		"stealth": {
 			"name": "Stealth",
 			"skillsingroup": {
-				"disguise": "int",
-				"palming": "agi",
-				"sneaking": "agi"
+				"Disguise": "int",
+				"Palming": "agi",
+				"Sneaking": "agi"
 			}
 		},
 		"tasking": {
 			"name": "Tasking",
 			"skillsingroup": {
-				"compiling": "res",
-				"decompiling": "res",
-				"registering": "res"
+				"Compiling": "res",
+				"Decompiling": "res",
+				"Registering": "res"
 			},
 			"catalog": "resonance"
 		}

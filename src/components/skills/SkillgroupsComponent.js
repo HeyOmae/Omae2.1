@@ -15,10 +15,23 @@ const SkillgroupsComponent = ({skillgroups, skillgroupsData, actions, pointsLeft
 					<ChangeSkillButton
 						action={actions.incrementSkillgroup}
 						groupName={groupName}
-						skillsInGroup={group.skillsingroup}/>
+						skillsInGroup={group.skillsingroup}
+						condition={skillgroups[groupName]?skillgroups[groupName].rating < 6 && pointsLeft > 0: true}
+						btnType="btn-success">
+						+
+					</ChangeSkillButton>
 				</td>
 				<td>{skillgroups[groupName] && skillgroups[groupName].rating||0}</td>
-				<td>-</td>
+				<td>
+					<ChangeSkillButton
+						action={actions.decrementSkillgroup}
+						groupName={groupName}
+						skillsInGroup={group.skillsingroup}
+						condition={skillgroups[groupName] && skillgroups[groupName].rating > 0}
+						btnType="btn-warning">
+						-
+					</ChangeSkillButton>
+				</td>
 				<td><strong>{group.name}</strong></td>
 				<td>{Object.keys(group.skillsingroup).join(', ')}</td>
 			</tr>
@@ -45,17 +58,19 @@ const SkillgroupsComponent = ({skillgroups, skillgroupsData, actions, pointsLeft
 	);
 };
 
-const ChangeSkillButton = ({action, groupName, skillsInGroup}) => {
+const ChangeSkillButton = ({action, groupName, skillsInGroup, condition, btnType, children}) => {
 	function changeSkillGroup() {
-		action({name: groupName, category: 'groups', max: 6, skillsInGroup: skillsInGroup});
+		if(condition) {
+			action({name: groupName, category: 'groups', max: 6, skillsInGroup: skillsInGroup});
+		}
 	}
 
 	return(
 		<button
-			className="btn btn-success"
+			className={'btn ' + btnType}
 			onClick={changeSkillGroup}
 			>
-			+
+			{children}
 		</button>
 	);
 };

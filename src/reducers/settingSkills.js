@@ -130,7 +130,7 @@ const skillReducer = (state=initialState, action) => {
 						rating: 1
 					}},
 					'groupPointSpent',
-					1);
+					state.groupPointSpent + 1);
 			}
 
 			var newGroupRating = newState.groups[name].rating;

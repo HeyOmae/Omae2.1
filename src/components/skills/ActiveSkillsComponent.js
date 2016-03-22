@@ -75,6 +75,7 @@ class ActiveSkillsComponent extends React.Component {
 
 const ActiveSkill = ({skillAtt, skillList, actions, skills, skillPointsLeft, showSkill, attributePool}) => {
 	let skillTableData = [];
+
 	for(let skillName in skillList) {
 		let skillData = skillList[skillName],
 		specilizationOptions = skillData.specializations.map((spec, i) => {
@@ -87,8 +88,8 @@ const ActiveSkill = ({skillAtt, skillList, actions, skills, skillPointsLeft, sho
 				</span>);
 		}
 
-		function incrementSkill(name, att) {
-			if(skillPointsLeft > 0){
+		function incrementSkill(name, att, rating) {
+			if(skillPointsLeft > 0 && rating < 6){
 				actions.incrementSkill({name: name, category: 'active', max: 6, attribute: att});
 			}
 		}
@@ -97,14 +98,16 @@ const ActiveSkill = ({skillAtt, skillList, actions, skills, skillPointsLeft, sho
 			actions.decrementSkill({name: name, category: 'active', max: 6, attribute: att});
 		}
 
-		let rating = skills[skillData.name] ? skills[skillData.name].rating : 0;
+		let skillRating = skills[skillData.name] && skills[skillData.name].rating ? skills[skillData.name].rating : 0,
+			groupRating = skills[skillData.name] && skills[skillData.name].groupRating ? skills[skillData.name].groupRating : 0,
+			rating = skillRating + groupRating;
 
 		skillTableData.push(
 			<tr key={skillData.name}>
 				<td>
 					<button
 						className="btn btn-success"
-						onClick={incrementSkill.bind(this, skillData.name, skillData.stat)}
+						onClick={incrementSkill.bind(this, skillData.name, skillData.stat, rating)}
 					>
 						+
 					</button>
