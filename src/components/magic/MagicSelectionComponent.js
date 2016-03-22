@@ -10,7 +10,7 @@ class MagicSelectionComponent extends React.Component {
 	render() {
 		const awakenTypes = ['Mage', 'Mystic', 'Technomancer','Adept', 'Aspected', 'mundane'],
 			{magicPriority, magictype, action} = this.props;
-		let awakenButtons = []
+		let awakenButtons = [];
 
 		awakenTypes.forEach((typeName) => {
 			let selectedMagictype = magictype === typeName;
@@ -56,8 +56,8 @@ const AwakenButton = ({typeName, anOption, checked, selectMagicTypeAction}) => {
 			/>
 				{typeName}
 		</label>
-	)
-}
+	);
+};
 
 MagicSelectionComponent.displayName = 'MagicMagicSelectionComponent';
 

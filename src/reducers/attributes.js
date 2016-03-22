@@ -41,7 +41,7 @@ const attributesReducer = (state=initialState, action) => {
 						[attribute]: nextIncrement,
 						[spend]: state[spend] + 1
 					}
-				)
+				);
 			}
 			return newState;
 		},
@@ -58,7 +58,7 @@ const attributesReducer = (state=initialState, action) => {
 						[attribute]: nextDecrement,
 						[spend]: state[spend] - 1
 					}
-				)
+				);
 			}
 			return newState;
 		},

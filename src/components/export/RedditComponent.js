@@ -67,7 +67,7 @@ ${activeSkills}
 			className="form-control export-modal"
 			value={formate}
 			readOnly/>
-	)
+	);
 	return (
 		<div className="reddit-component">
 			<Modal
@@ -75,6 +75,6 @@ ${activeSkills}
 				modalContent={exportField}/>
 		</div>
 	);
-}
+};
 
 export default RedditComponent;

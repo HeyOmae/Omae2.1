@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react';
-import Skillgroup from './SkillgroupsComponent'
+import Skillgroup from './SkillgroupsComponent';
 let skillsData = require('json!../data/skills.json'),
 	metatypeData = require('json!../data/metatype.json'),
 	priorityTableData = require('json!../data/priority.json');
@@ -77,7 +77,7 @@ const ActiveSkill = ({skillAtt, skillList, actions, skills, skillPointsLeft, sho
 	for(let skillName in skillList) {
 		let skillData = skillList[skillName],
 		specilizationOptions = skillData.specializations.map((spec, i) => {
-			return <option key={spec+i} value={spec}>{spec}</option>
+			return <option key={spec+i} value={spec}>{spec}</option>;
 		}),
 		references = [];
 		for(let book in skillData.reference) {
@@ -161,7 +161,7 @@ const ActiveSkill = ({skillAtt, skillList, actions, skills, skillPointsLeft, sho
 			</div>
 		</div>
 	);
-}
+};
 
 ActiveSkillsComponent.displayName = 'SkillsActiveSkillsComponent';
 

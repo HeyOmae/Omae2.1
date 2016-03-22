@@ -22,7 +22,7 @@ const attributesReducer = (state=initialState, action) => {
 						{
 							summaryFix: summaryFix
 						}
-					)
+					);
 				return newState;
 			} else {
 				return state;

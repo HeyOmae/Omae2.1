@@ -29,7 +29,7 @@ const skillReducer = (state=initialState, action) => {
 					skillInfoUpdated),
 				[typeSpend]: spentPoints
 			}
-		)
+		);
 	}
 
 	function generateSkillObject(skill, updatedSkilInfo) {
@@ -195,7 +195,7 @@ const skillReducer = (state=initialState, action) => {
 							)
 						}
 					)}
-				)
+				);
 
 				let newSkill = newState.active[skillName];
 

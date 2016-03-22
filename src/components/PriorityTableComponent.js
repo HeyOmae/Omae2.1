@@ -60,7 +60,7 @@ const MetatypeDataCell = ({rating, active, changePriority}) => {
 					type: 'SET_PRIORITY',
 					category: 'metatype',
 					rating
-				})
+				});
 			}}
 		>
 			{displayMetatypes}
@@ -79,13 +79,13 @@ const AttributeDataCell = ({rating, active, changePriority}) => {
 					type: 'SET_PRIORITY',
 					category: 'attribute',
 					rating
-				})
+				});
 			}}
 		>
 			{priorityData[rating].attributes}
 		</td>
 	);
-}
+};
 
 const MagicDataCell = ({rating, active, changePriority}) => {
 	let magicStatBlock = [];
@@ -98,16 +98,16 @@ const MagicDataCell = ({rating, active, changePriority}) => {
 			magicDetails = <span />;
 
 		if (magicType === 'mundane') {
-			magicDetails = <span>Jack and Squat at the Rating of zilch.</span>
+			magicDetails = <span>Jack and Squat at the Rating of zilch.</span>;
 		} else {
 			if(magicStats.skills) {
-				skills = <span>, {magicStats.skills.ammount} Rating {magicStats.skills.rating} {magicStats.skills.attribute} skills</span>
+				skills = <span>, {magicStats.skills.ammount} Rating {magicStats.skills.rating} {magicStats.skills.attribute} skills</span>;
 			} else if (magicStats.skillsgroup) {
-				skills = <span>, {magicStats.skillsgroup.ammount} Rating {magicStats.skillsgroup.rating} {magicStats.skills.attribute} skillgroup</span>
+				skills = <span>, {magicStats.skillsgroup.ammount} Rating {magicStats.skillsgroup.rating} {magicStats.skills.attribute} skillgroup</span>;
 			}
 
 			if(magicStats.spells) {
-				spells = <span>, {magicStats.spells.points} {magicStats.spells.type}</span>
+				spells = <span>, {magicStats.spells.points} {magicStats.spells.type}</span>;
 			}
 
 			magicDetails = <span>{magicStats.attribute.name} {magicStats.attribute.points}{skills}{spells}</span>;
@@ -119,7 +119,7 @@ const MagicDataCell = ({rating, active, changePriority}) => {
 				<strong>{magicType}: </strong>
 				{magicDetails}
 			</p>
-		)
+		);
 	}
 
 	return(
@@ -130,20 +130,20 @@ const MagicDataCell = ({rating, active, changePriority}) => {
 					type: 'SET_PRIORITY',
 					category: 'magres',
 					rating
-				})
+				});
 			}}
 		>
 			{magicStatBlock}
 		</td>
-	)
-}
+	);
+};
 
 const SkillsDataCell = ({rating, active, changePriority}) => {
 	let skillsgroupBlock = <span></span>,
 		skillgroups = priorityData[rating].skills.grouppoints;
 
 	if(skillgroups) {
-		skillsgroupBlock = <span>/{skillgroups}</span>
+		skillsgroupBlock = <span>/{skillgroups}</span>;
 	}
 
 	return(
@@ -154,13 +154,13 @@ const SkillsDataCell = ({rating, active, changePriority}) => {
 					type: 'SET_PRIORITY',
 					category: 'skills',
 					rating
-				})
+				});
 			}}
 		>
 			{priorityData[rating].skills.skillpoints}{skillsgroupBlock}
 		</td>
-	)
-}
+	);
+};
 
 const ResourcesDataCell = ({rating, active, changePriority}) => {
 	return (
@@ -171,12 +171,12 @@ const ResourcesDataCell = ({rating, active, changePriority}) => {
 					type: 'SET_PRIORITY',
 					category: 'resources',
 					rating
-				})
+				});
 			}}
 		>
 			{priorityData[rating].resources}&yen;
-		</td>)
-}
+		</td>);
+};
 
 const PriorityRow = ({rating, priorityTableData, actions}) => {
 	return (
@@ -208,8 +208,8 @@ const PriorityRow = ({rating, priorityTableData, actions}) => {
 				changePriority={actions}
 			/>
 		</tr>
-	)
-}
+	);
+};
 
 const PriorityTable = ({priorityTableData, actions}) => {
 	return (
@@ -246,8 +246,8 @@ const PriorityTable = ({priorityTableData, actions}) => {
 				</tbody>
 			</table>
 		</div>
-	)
-}
+	);
+};
 
 PriorityTableComponent.displayName = 'PriorityTableComponent';
 

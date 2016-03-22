@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react';
-import RedditExport from './export/RedditComponent'
+import RedditExport from './export/RedditComponent';
 const metatypeData = require('json!./data/metatype.json'),
 	priorityTableData = require('json!./data/priority.json');
 
@@ -22,7 +22,7 @@ const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed
 		};
 	for(let pariorityCategory in priority) {
 		priorityHead.push(<th key={'summary-priority-head-' + pariorityCategory}>{pariorityCategory}</th>);
-		priorityData.push(<td key={'summary-priority-data-' + pariorityCategory}>{priority[pariorityCategory]}</td>)
+		priorityData.push(<td key={'summary-priority-data-' + pariorityCategory}>{priority[pariorityCategory]}</td>);
 	}
 
 	for(let att in metatypeData[metatype].min) {
@@ -136,6 +136,6 @@ const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed
 			</div>
 		</div>
 	);
-}
+};
 
 export default SummaryComponent;

@@ -33,7 +33,7 @@ class MetatypeSelectorComponent extends React.Component {
 							<strong>{trait}: </strong>
 							{racials[trait]}
 						</p>
-					)
+					);
 				}
 			}
 		}
@@ -79,8 +79,8 @@ const MetatypeButton = ({typeName, anOption, checked, selectMetatypeAction}) => 
 			/>
 				{typeName}
 		</label>
-	)
-}
+	);
+};
 
 MetatypeSelectorComponent.displayName = 'MetatypeSelectorComponent';
 

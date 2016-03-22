@@ -72,7 +72,7 @@ class AttributesComponent extends React.Component {
 						key={'decBtn-'+att}
 						attType={attType + 'Spent'}
 					/>
-				)
+				);
 			}
 
 			if(attList.indexOf(att) > -1) {
@@ -166,8 +166,8 @@ const IncrementButton = ({attributes, attName, maxPoints, pointsLeft, incrementA
 				+
 			</button>
 		</td>
-	)
-}
+	);
+};
 
 const DecrementButton = ({attName, decrementAttribute, maxPoints, attType}) => {
 	return(
@@ -185,8 +185,8 @@ const DecrementButton = ({attName, decrementAttribute, maxPoints, attType}) => {
 				-
 			</button>
 		</td>
-	)
-}
+	);
+};
 
 AttributesComponent.displayName = 'AttributesComponent';
 

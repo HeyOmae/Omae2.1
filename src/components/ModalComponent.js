@@ -7,7 +7,7 @@ require('styles//Modal.sass');
 class ModalComponent extends React.Component {
 	render() {
 		const {modalName, modalContent} = this.props;
-		let modalID = modalName.replace(/\s/g, '')
+		let modalID = modalName.replace(/\s/g, '');
 		function toggleModal() {
 			document.getElementById(modalID).classList.toggle('hide');
 		}

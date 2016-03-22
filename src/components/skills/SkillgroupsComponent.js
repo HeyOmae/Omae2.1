@@ -12,9 +12,7 @@ const SkillgroupsComponent = ({skillgroups, skillgroupsData, pointsLeft}) => {
 		listOfGroups.push(
 			<tr key={'skillgroup-'+groupName}>
 				<td>
-					<changeSkillButton>
-					+
-					</changeSkillButton>
+					<ChangeSkillButton/>
 				</td>
 				<td>{skillgroups[groupName] && skillgroups[groupName].rating||0}</td>
 				<td>-</td>
@@ -44,7 +42,7 @@ const SkillgroupsComponent = ({skillgroups, skillgroupsData, pointsLeft}) => {
 	);
 };
 
-const changeSkillButton = ({}) => {
+const ChangeSkillButton = ({}) => {
 
 	return(
 		<button
