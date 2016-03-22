@@ -44,7 +44,7 @@ const skillReducer = (state=initialState, action) => {
 			var newState,
 				skill = state[category][name];
 			if(skill){
-				let nextIncrement = skill.rating + 1;
+				let nextIncrement = skill.rating + 1||1;
 				if (nextIncrement > max - (skill.groupRating || 0)) {
 
 					return state;
