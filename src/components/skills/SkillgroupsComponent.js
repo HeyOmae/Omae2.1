@@ -7,7 +7,8 @@ require('styles/skills/Skillgroups.sass');
 const SkillgroupsComponent = ({skillgroups, skillgroupsData, actions, pointsLeft}) => {
 	let listOfGroups = [];
 	for (let groupName in skillgroupsData) {
-		let group = skillgroupsData[groupName];
+		let group = skillgroupsData[groupName],
+			enoughPoints = pointsLeft > 0;
 
 		listOfGroups.push(
 			<tr key={'skillgroup-'+groupName}>
@@ -16,7 +17,7 @@ const SkillgroupsComponent = ({skillgroups, skillgroupsData, actions, pointsLeft
 						action={actions.incrementSkillgroup}
 						groupName={groupName}
 						skillsInGroup={group.skillsingroup}
-						condition={skillgroups[groupName]?skillgroups[groupName].rating < 6 && pointsLeft > 0: true}
+						condition={skillgroups[groupName]?skillgroups[groupName].rating < 6 && enoughPoints: enoughPoints}
 						btnType="btn-success">
 						+
 					</ChangeSkillButton>

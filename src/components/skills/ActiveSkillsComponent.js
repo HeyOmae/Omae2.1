@@ -103,7 +103,7 @@ const ActiveSkill = ({skillAtt, skillList, actions, skills, skillPointsLeft, sho
 			rating = skillRating + groupRating;
 
 		skillTableData.push(
-			<tr key={skillData.name}>
+			<tr key={skillData.name} className={rating>6?'table-danger':''}>
 				<td>
 					<button
 						className="btn btn-success"
