@@ -4,15 +4,19 @@ import React from 'react';
 
 require('styles/skills/Skillgroups.sass');
 
-const SkillgroupsComponent = ({skillgroups, pointsLeft}) => {
+const SkillgroupsComponent = ({skillgroups, skillgroupsData, pointsLeft}) => {
 	let listOfGroups = [];
-	for (let groupName in skillgroups) {
-		let group = skillgroups[groupName];
+	for (let groupName in skillgroupsData) {
+		let group = skillgroupsData[groupName];
 
 		listOfGroups.push(
-			<tr>
-				<td>+</td>
-				<td>0</td>
+			<tr key={'skillgroup-'+groupName}>
+				<td>
+					<changeSkillButton>
+					+
+					</changeSkillButton>
+				</td>
+				<td>{skillgroups[groupName] && skillgroups[groupName].rating||0}</td>
 				<td>-</td>
 				<td><strong>{group.name}</strong></td>
 				<td>{Object.keys(group.skillsingroup).join(', ')}</td>
@@ -29,6 +33,7 @@ const SkillgroupsComponent = ({skillgroups, pointsLeft}) => {
 						<th>Lower</th>
 						<th>Skill Group</th>
 						<th>Skills</th>
+						<th>{pointsLeft}</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -37,6 +42,19 @@ const SkillgroupsComponent = ({skillgroups, pointsLeft}) => {
 			</table>
 		</div>
 	);
-}
+};
+
+const changeSkillButton = ({}) => {
+
+	return(
+		<button
+			className="btn btn-success"
+			>
+			+
+		</button>
+	);
+};
+
+SkillgroupsComponent.displayName = 'SkillgroupsComponent';
 
 export default SkillgroupsComponent;

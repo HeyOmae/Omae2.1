@@ -174,29 +174,18 @@ describe('settingSkills', () => {
 		});
 
 		it('decrement all skill\'s groupRating and the skill group\' rating', () => {
+			let newState = reducer(state, {type: 'DECREMENT_SKILLGROUP', parameter: {name: 'cracking', category: 'groups', skillsInGroup: {cybercombat: 'log', electronicwarfare: 'log', hacking: 'log'}}});
 
+			expect(newState.groups.cracking.rating).to.equal(2);
+			expect(newState.active.cybercombat.groupRating).to.equal(2);
+			expect(newState.active.cybercombat.rating).to.equal(1);
+			expect(newState.active.electronicwarfare.groupRating).to.equal(2);
+			expect(newState.active.hacking.groupRating).to.equal(2);
+			expect(newState.groupPointSpent).to.equal(0);
+
+			//check to see if state is not mutated
+			expect(state.active.cybercombat.groupRating).to.equal(3);
 		});
-
-		// it('should create skills with groupRating value of 1 if skills are not created yet', () => {
-		// 	let newState = reducer(state, {type: 'DECREMENT_SKILLGROUP', parameter: {name: 'closecombat', category: 'group', skillsInGroup: {blades: 'agi', clubs: 'agi', unarmedcombat: 'agi'}}});
-
-		// 	expect(newState.group.closecombat.rating).to.equal(1);
-		// 	expect(newState.active.blades.groupRating).to.equal(1);
-		// 	expect(newState.active.clubs.groupRating).to.equal(1);
-		// 	expect(newState.active.unarmedcombat.groupRating).to.equal(1);
-		// 	expect(newState.groupPointSpent).to.equal(1);
-		// });
-
-		// it('should add groupRating value of a skill that already has skill points spent on it', () => {
-		// 	let newState = reducer(state, {type: 'DECREMENT_SKILLGROUP', parameter: {name: 'firearms', category: 'group', skillsInGroup: {automatics: 'agi', longarms: 'agi', pistols: 'agi'}}});
-
-		// 	expect(newState.group.firearms.rating).to.equal(1);
-		// 	expect(newState.active.automatics.groupRating).to.equal(1);
-		// 	expect(newState.active.longarms.groupRating).to.equal(1);
-		// 	expect(newState.active.longarms.rating).to.equal(1);
-		// 	expect(newState.active.pistols.groupRating).to.equal(1);
-		// 	expect(newState.groupPointSpent).to.equal(1);
-		// });
 	});
 
 });

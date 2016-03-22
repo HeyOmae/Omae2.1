@@ -5,8 +5,8 @@
  *          you edit them, they are not updated again.
  */
 import React, {
-	Component,
-	PropTypes
+  Component,
+  PropTypes
 } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -19,38 +19,35 @@ import ActiveSkillsComponent from '../components/skills/ActiveSkillsComponent';
 import SummaryComponent from '../components/SummaryComponent';
 /* Populated by react-webpack-redux:reducer */
 class App extends Component {
-	handleScroll() {
-		const {actions} = this;
-		let summary = document.getElementById('summary'),
-			sumLoc = summary.getBoundingClientRect();
-		if (sumLoc.top < 0) {
-			actions.fixSummary({summaryFix: true});
-			// summary.children[0].classList.add('fixed'); // Native implimitation back up
-		} else {
-			actions.fixSummary({summaryFix: false});
-			// summary.children[0].classList.remove('fixed'); // Native implimitation back up
-		}
-	}
-	componentDidMount() {
-		window.addEventListener('scroll', this.handleScroll.bind(this.props));
-	}
-	componentWillUnmount() {
-		window.removeEventListener('scroll', this.handleScroll);
-	}
-	render() {
-		const {actions, priorityTable, selectMetatype, attributes, selectMagRes, settingSkills, appControl} = this.props;
-		return (
-			<div className='container'
-				selectMagRes={selectMagRes}
-				settingSkills={settingSkills}
-				appControl={appControl}>
+  handleScroll() {
+    const {actions} = this;
+    let summary = document.getElementById('summary'), sumLoc = summary.getBoundingClientRect();
+    if (sumLoc.top < 0) {
+      actions.fixSummary({ summaryFix: true });  // summary.children[0].classList.add('fixed'); // Native implimitation back up
+    } else {
+      actions.fixSummary({ summaryFix: false });  // summary.children[0].classList.remove('fixed'); // Native implimitation back up
+    }
+  }
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll.bind(this.props));
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+  render() {
+    const {actions, priorityTable, selectMetatype, attributes, selectMagRes, settingSkills, appControl} = this.props;
+    return (
+      <div className='container'
+        selectMagRes={selectMagRes}
+        settingSkills={settingSkills}
+        appControl={appControl}>
 				<div className='row'>
 					<div className='col-md-12'>
 						<Main
-							actions={actions}
-							priorityTable={priorityTable}
-							selectMetatype={selectMetatype}
-							attributes={attributes}/>
+              actions={actions}
+              priorityTable={priorityTable}
+              selectMetatype={selectMetatype}
+              attributes={attributes}/>
 
 						<PriorityTableComponent actions={actions.priorityTable} priorityTable={priorityTable}/>
 					</div>
@@ -61,40 +58,40 @@ class App extends Component {
 						<MetatypeSelector priorityRating={priorityTable.metatype} metatype={selectMetatype} action={actions.selectMetatype}/>
 
 						<AttributesComponent
-							metatypeRating={priorityTable.metatype}
-							priorityRating={priorityTable.attribute}
-							magicPriority={priorityTable.magres}
-							magictype={selectMagRes}
-							metatype={selectMetatype}
-							actions={{
-								incrementAttribute: actions.incrementAttribute,
-								decrementAttribute: actions.decrementAttribute
-							}}
-							attributes={attributes}/>
+              metatypeRating={priorityTable.metatype}
+              priorityRating={priorityTable.attribute}
+              magicPriority={priorityTable.magres}
+              magictype={selectMagRes}
+              metatype={selectMetatype}
+              actions={{
+                incrementAttribute: actions.incrementAttribute,
+                decrementAttribute: actions.decrementAttribute
+              }}
+              attributes={attributes}/>
 
 						<MagicSelectionComponent magicPriority={priorityTable.magres} magictype={selectMagRes} action={actions.selectMagictype}/>
 
 						<h2>Skills</h2>
 						<ActiveSkillsComponent
-							actions={actions}
-							priority={priorityTable}
-							skills={settingSkills}
-							attributes={attributes}
-							metatype={selectMetatype}/>
+              actions={actions}
+              priority={priorityTable}
+              skills={settingSkills}
+              attributes={attributes}
+              metatype={selectMetatype}/>
 					</div>
 					<div id='summary' className='col-md-12 col-lg-3'>
 						<SummaryComponent
-							priority={priorityTable}
-							metatype={selectMetatype}
-							attributes={attributes}
-							magres={selectMagRes}
-							skills={settingSkills}
-							fixed={appControl.summaryFix}/>
+              priority={priorityTable}
+              metatype={selectMetatype}
+              attributes={attributes}
+              magres={selectMagRes}
+              skills={settingSkills}
+              fixed={appControl.summaryFix}/>
 					</div>
 				</div>
 			</div>
-		);
-	}
+    );
+  }
 }
 /* Populated by react-webpack-redux:reducer
  *
@@ -102,40 +99,42 @@ class App extends Component {
  *       adjust it here.
  */
 App.propTypes = {
-	actions: PropTypes.object.isRequired,
-	priorityTable: PropTypes.object.isRequired,
-	selectMetatype: PropTypes.string.isRequired,
-	attributes: PropTypes.object.isRequired,
-	selectMagRes: PropTypes.string.isRequired,
-	settingSkills: PropTypes.object.isRequired,
-	appControl: PropTypes.object.isRequired
+  actions: PropTypes.object.isRequired,
+  priorityTable: PropTypes.object.isRequired,
+  selectMetatype: PropTypes.string.isRequired,
+  attributes: PropTypes.object.isRequired,
+  selectMagRes: PropTypes.string.isRequired,
+  settingSkills: PropTypes.object.isRequired,
+  appControl: PropTypes.object.isRequired
 };
 function mapStateToProps(state) {
-	/* Populated by react-webpack-redux:reducer */
-	const props = {
-		priorityTable: state.priorityTable,
-		selectMetatype: state.selectMetatype,
-		attributes: state.attributes,
-		selectMagRes: state.selectMagRes,
-		settingSkills: state.settingSkills,
-		appControl: state.appControl
-	};
-	return props;
+  /* Populated by react-webpack-redux:reducer */
+  const props = {
+    priorityTable: state.priorityTable,
+    selectMetatype: state.selectMetatype,
+    attributes: state.attributes,
+    selectMagRes: state.selectMagRes,
+    settingSkills: state.settingSkills,
+    appControl: state.appControl
+  };
+  return props;
 }
 function mapDispatchToProps(dispatch) {
-	/* Populated by react-webpack-redux:action */
-	const actions = {
-		priorityTable: require('../actions/priorityTable.js'),
-		selectMetatype: require('../actions/selectMetatype.js'),
-		incrementAttribute: require('../actions/attributes/incrementAttribute.js'),
-		decrementAttribute: require('../actions/attributes/decrementAttribute.js'),
-		selectMagictype: require('../actions/selectMagictype.js'),
-		incrementSkill: require('../actions/skills/incrementSkill.js'),
-		decrementSkill: require('../actions/skills/decrementSkill.js'),
-		showSkill: require('../actions/showSkill.js'),
-		fixSummary: require('../actions/app/fixSummary.js')
-	};
-	const actionMap = { actions: bindActionCreators(actions, dispatch) };
-	return actionMap;
+  /* Populated by react-webpack-redux:action */
+  const actions = {
+    priorityTable: require('../actions/priorityTable.js'),
+    selectMetatype: require('../actions/selectMetatype.js'),
+    incrementAttribute: require('../actions/attributes/incrementAttribute.js'),
+    decrementAttribute: require('../actions/attributes/decrementAttribute.js'),
+    selectMagictype: require('../actions/selectMagictype.js'),
+    incrementSkill: require('../actions/skills/incrementSkill.js'),
+    decrementSkill: require('../actions/skills/decrementSkill.js'),
+    showSkill: require('../actions/showSkill.js'),
+    fixSummary: require('../actions/app/fixSummary.js'),
+    incrementSkillgroup: require('../actions/skills/incrementSkillgroup.js'),
+    decrementSkillgroup: require('../actions/skills/decrementSkillgroup.js')
+  };
+  const actionMap = { actions: bindActionCreators(actions, dispatch) };
+  return actionMap;
 }
 export default connect(mapStateToProps, mapDispatchToProps)(App);
