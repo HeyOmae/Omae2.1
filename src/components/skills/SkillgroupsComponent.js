@@ -4,7 +4,7 @@ import React from 'react';
 
 require('styles/skills/Skillgroups.sass');
 
-const SkillgroupsComponent = ({skillgroups, skillgroupsData, actions, pointsLeft}) => {
+const SkillgroupsComponent = ({skillgroups, skillgroupsData, actions, pointsLeft, displaySkillgroups}) => {
 	let listOfGroups = [];
 	for (let groupName in skillgroupsData) {
 		let group = skillgroupsData[groupName],
@@ -40,7 +40,8 @@ const SkillgroupsComponent = ({skillgroups, skillgroupsData, actions, pointsLeft
 	}
 	return (
 		<div className="skillgroups-component col-xs-12 table-responsive">
-			<table className="table">
+			<h4><button className="btn btn-info" onClick={()=> actions.showSkill({ skillToShow: 'Skillgroup' })}>Skill Groups</button></h4>
+			<table className={'table ' + (displaySkillgroups ? 'collapse in' : 'collapse')}>
 				<thead>
 					<tr>
 						<th>Raise</th>
@@ -48,7 +49,6 @@ const SkillgroupsComponent = ({skillgroups, skillgroupsData, actions, pointsLeft
 						<th>Lower</th>
 						<th>Skill Group</th>
 						<th>Skills</th>
-						<th>{pointsLeft}</th>
 					</tr>
 				</thead>
 				<tbody>

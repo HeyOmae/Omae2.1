@@ -104,7 +104,7 @@
 			"name": "Sorcery",
 			"skillsingroup": {
 				"Counterspelling": "mag",
-				"Ritualspellcasting": "mag",
+				"Ritual Spellcasting": "mag",
 				"Spellcasting": "mag"
 			},
 			"catalog": "magic"

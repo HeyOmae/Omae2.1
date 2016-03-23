@@ -59,7 +59,8 @@ class ActiveSkillsComponent extends React.Component {
 						skillgroups={skills.groups}
 						skillgroupsData={skillsData.groups}
 						actions={actions}
-						pointsLeft = {groupPointsLeft}/>
+						pointsLeft = {groupPointsLeft}
+						displaySkillgroups = {skills.showSkill === 'Skillgroup'}/>
 				</div>
 
 				<h3>Active Skills</h3>
