@@ -18,7 +18,7 @@ const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed
 			skillGroups: (priorityTableData[priority.skills].skills.grouppoints || 0) - skills.groupPointSpent
 		},
 		calculatedStats = {
-			attibutes: {}
+			attributes: {}
 		};
 	for(let pariorityCategory in priority) {
 		priorityHead.push(<th key={'summary-priority-head-' + pariorityCategory}>{pariorityCategory}</th>);
@@ -27,23 +27,25 @@ const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed
 
 	for(let att in metatypeData[metatype].min) {
 		let baseAtt = metatypeData[metatype].min[att];
-		calculatedStats.attibutes[att] = baseAtt + attributes[att];
+		calculatedStats.attributes[att] = baseAtt + attributes[att];
 		attributesHead.push(<th key={'summary-attribute-head-' + att}>{att}</th>);
-		attributesData.push(<td key={'summary-attribute-data-' + att}>{calculatedStats.attibutes[att]}</td>);
+		attributesData.push(<td key={'summary-attribute-data-' + att}>{calculatedStats.attributes[att]}</td>);
 	}
 
 	if(magres !== 'mundane') {
 		let baseMagic = priorityTableData[priority.magres].magic[magres].attribute.points;
-		calculatedStats.attibutes.mag = baseMagic + (attributes.special || 0);
+		calculatedStats.attributes.mag = baseMagic + (attributes.special || 0);
 		attributesHead.push(<th key={'summary-attribute-head-mag'}>mag</th>);
-		attributesData.push(<td key={'summary-attribute-data-mag'}>{calculatedStats.attibutes.mag}</td>);
+		attributesData.push(<td key={'summary-attribute-data-mag'}>{calculatedStats.attributes.mag}</td>);
 	}
 
 	for(let skillName in skills.active) {
+		let att = calculatedStats.attributes[skills.active[skillName].attribute];
+
 		skillData.push(
 			<tr key={'skill-'+skillName}>
 				<td>{skillName}</td>
-				<td>{skills.active[skillName].rating}</td>
+				<td>{(skills.active[skillName].rating||0)+(skills.active[skillName].groupRating||0)+att}</td>
 			</tr>
 		);
 	}
@@ -115,7 +117,7 @@ const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed
 					<thead>
 						<tr>
 							<th>Name</th>
-							<th>Rating</th>
+							<th>DicePool</th>
 						</tr>
 					</thead>
 
@@ -130,7 +132,7 @@ const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed
 				<RedditExport
 					priority={priority}
 					metatype={metatype}
-					attributes={calculatedStats.attibutes}
+					attributes={calculatedStats.attributes}
 					magres={magres}
 					skills={skills}/>
 			</div>
