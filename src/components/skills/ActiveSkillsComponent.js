@@ -131,7 +131,10 @@ const ActiveSkill = ({skillAtt, skillList, actions, skills, skillPointsLeft, sho
 					{references}
 				</td>
 				<td>
-					<select className="form-control">
+					<input type="text" className="form-control" placeholder="Custom Spec" />
+					<select
+						className="form-control"
+						onChange={(e) => {console.log(e.target.value);}}>
 						<option value="">–</option>
 						{specilizationOptions}
 					</select>
