@@ -15,7 +15,7 @@ const initialState = {
 
 const skillReducer = (state=initialState, action) => {
 	if(action.parameter) {
-		var {name, category, max, skillToShow, attribute, skillsInGroup} = action.parameter;
+		var {name, category, max, skillToShow, attribute, skillsInGroup, spec} = action.parameter;
 	}
 
 	function changeSkill(skillInfoUpdated, typeSpend, spentPoints) {
@@ -210,7 +210,34 @@ const skillReducer = (state=initialState, action) => {
 		},
 
 		SET_SPEC: () => {
-			return state;
+			let newState,
+				skill = state[category][name];
+
+			if(!spec || !skill) {
+				return state;
+			} else if (spec === '–') {
+				let newSkill = generateSkillObject(skill, {spec: spec});
+
+				newState = changeSkill(
+					{[name]: newSkill},
+					'skillPointsSpent',
+					state.skillPointsSpent - 1
+					);
+
+				delete newState[category][name].spec;
+
+			} else if (typeof spec === 'string') {
+				let newSkill = generateSkillObject(skill, {spec: spec}),
+					skillPointChange = skill.spec ? state.skillPointsSpent : state.skillPointsSpent + 1;
+
+				newState = changeSkill(
+					{[name]: newSkill},
+					'skillPointsSpent',
+					skillPointChange
+					);
+			}
+
+			return newState;
 		},
 
 		DEFAULT: () => { return state; }

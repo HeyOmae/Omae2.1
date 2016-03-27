@@ -8,7 +8,7 @@ describe('settingSkills', () => {
 	let state = {
 		active: {
 			longarms: {rating: 1, attribute: 'agi'},
-			palming: {rating: 2, attribute: 'agi'},
+			palming: {rating: 2, attribute: 'agi', spec: 'Pickpocketing'},
 			con: {rating: 6, attribute: 'cha', groupRating: 1},
 			impersonation: {rating: 0, attribute: 'cha', groupRating: 1},
 			performance: {rating: 0, attribute: 'cha', groupRating: 1},
@@ -131,7 +131,7 @@ describe('settingSkills', () => {
 			expect(newState.active.blades.groupRating).to.equal(1);
 			expect(newState.active.clubs.groupRating).to.equal(1);
 			expect(newState.active.unarmedcombat.groupRating).to.equal(1);
-			expect(newState.groupPointSpent).to.equal(1);
+			expect(newState.groupPointSpent).to.equal(2);
 		});
 
 		it('should add groupRating value of a skill that already has skill points spent on it', () => {
@@ -142,7 +142,7 @@ describe('settingSkills', () => {
 			expect(newState.active.longarms.groupRating).to.equal(1);
 			expect(newState.active.longarms.rating).to.equal(1);
 			expect(newState.active.pistols.groupRating).to.equal(1);
-			expect(newState.groupPointSpent).to.equal(1);
+			expect(newState.groupPointSpent).to.equal(2);
 		});
 
 		it('should incrememt the groupRating of all skills in the skill group', ()=> {
@@ -193,7 +193,38 @@ describe('settingSkills', () => {
 			let newState = reducer(state, {type: 'SET_SPEC', parameter: {name: 'longarms', category: 'active', spec: 'Rifles'}});
 
 			expect(newState.active.longarms.spec).to.equal('Rifles');
-			expect(newState.active.longarms.spec).to.equal(undefined);
+			expect(state.active.longarms.spec).to.equal(undefined);
+			expect(newState.skillPointsSpent).to.equal(4);
+		});
+
+		it('should change a spec of a skill that already has a spec', () => {
+			let newState = reducer(state, {type: 'SET_SPEC', parameter: {name: 'palming', category: 'active', spec: 'Pilfering'}});
+
+			expect(newState.active.palming.spec).to.equal('Pilfering');
+			expect(state.active.palming.spec).to.equal('Pickpocketing');
+			expect(newState.skillPointsSpent).to.equal(3);
+		});
+
+		it('should delete the spec if set to "–"', () => {
+			let newState = reducer(state, {type: 'SET_SPEC', parameter: {name: 'palming', category: 'active', spec: '–'}});
+
+			expect(newState.active.palming.spec).to.equal(undefined);
+			expect(state.active.palming.spec).to.equal('Pickpocketing');
+			expect(newState.skillPointsSpent).to.equal(2);
+		});
+
+		it('should return state if spec is falsy', () => {
+			let newState = reducer(state, {type: 'SET_SPEC', parameter: {name: 'palming', category: 'active', spec: ''}});
+
+			expect(newState).to.eql(state);
+			expect(newState.skillPointsSpent).to.equal(3);
+		});
+
+		it('should return state if skill is falsy', () => {
+			let newState = reducer(state, {type: 'SET_SPEC', parameter: {name: 'navigation', category: 'active', spec: 'GPS'}});
+
+			expect(newState).to.eql(state);
+			expect(newState.skillPointsSpent).to.equal(3);
 		});
 
 	});
