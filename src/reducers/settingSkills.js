@@ -215,7 +215,7 @@ const skillReducer = (state=initialState, action) => {
 
 			if(!skill) {
 				return state;
-			} else if (spec === '–') {
+			} else if (spec === '–' || spec === '') {
 				let newSkill = generateSkillObject(skill, {spec: spec});
 
 				newState = changeSkill(
