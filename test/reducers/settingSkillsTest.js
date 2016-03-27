@@ -188,4 +188,14 @@ describe('settingSkills', () => {
 		});
 	});
 
+	describe('SET_SPEC', () => {
+		it('should add a spec to a skill that does not have a spec', () => {
+			let newState = reducer(state, {type: 'SET_SPEC', parameter: {name: 'longarms', category: 'active', spec: 'Rifles'}});
+
+			expect(newState.active.longarms.spec).to.equal('Rifles');
+			expect(newState.active.longarms.spec).to.equal(undefined);
+		});
+
+	});
+
 });
