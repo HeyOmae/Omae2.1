@@ -77,7 +77,8 @@ class App extends Component {
               priority={priorityTable}
               skills={settingSkills}
               attributes={attributes}
-              metatype={selectMetatype}/>
+              metatype={selectMetatype}
+              magictype={selectMagRes}/>
 					</div>
 					<div id='summary' className='col-md-12 col-lg-3'>
 						<SummaryComponent

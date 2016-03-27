@@ -10,7 +10,7 @@ require('styles/skills/ActiveSkills.sass');
 
 class ActiveSkillsComponent extends React.Component {
 	render() {
-		const {actions, priority, skills, attributes, metatype} = this.props,
+		const {actions, priority, skills, attributes, metatype, magictype} = this.props,
 			attAbriviation = {
 				Agility: 'agi',
 				Body: 'bod',
@@ -20,12 +20,28 @@ class ActiveSkillsComponent extends React.Component {
 				Intuition: 'int',
 				Logic: 'log',
 				Will: 'wil',
-				Magic: 'mag',
-				Resonance: 'res'
-			};
+				Magic: 'special',
+				Resonance: 'special'
+			},
+			awakened = [
+				'Mage',
+				'Mystic',
+				'Adept',
+				'Aspected'
+			],
+			skillPointsLeft = priorityTableData[priority.skills].skills.skillpoints - skills.skillPointsSpent,
+			groupPointsLeft = priorityTableData[priority.skills].skills.grouppoints - skills.groupPointSpent,
+			baseMagicAttribute = priorityTableData[priority.magres].magic[magictype].attribute && priorityTableData[priority.magres].magic[magictype].attribute.points || 0;
 
-		let skillPointsLeft = priorityTableData[priority.skills].skills.skillpoints - skills.skillPointsSpent,
-			groupPointsLeft = priorityTableData[priority.skills].skills.grouppoints - skills.groupPointSpent;
+		function allowedSkill() {
+			if(awakened.indexOf(magictype) > -1) {
+				return 'Magic';
+			} else if (magictype === 'Technomancer') {
+				return 'Resonance';
+			} else {
+				return false;
+			}
+		}
 
 		var listOfSkills = [];
 
@@ -33,7 +49,7 @@ class ActiveSkillsComponent extends React.Component {
 			let skillinCategory = skillsData.active[skillKey];
 
 			const attributeAbriv = attAbriviation[skillKey],
-				baseAttribute = metatypeData[metatype].min[attributeAbriv],
+				baseAttribute = metatypeData[metatype].min[attributeAbriv] || baseMagicAttribute,
 				attributePool = baseAttribute + attributes[attributeAbriv];
 
 
@@ -47,6 +63,7 @@ class ActiveSkillsComponent extends React.Component {
 					skillPointsLeft={skillPointsLeft}
 					showSkill={skills.showSkill === skillKey}
 					attributePool={attributePool}
+					restrictedSkills={attributeAbriv === 'special' ? skillKey!==allowedSkill() : false}
 					/>
 			);
 		}
@@ -74,7 +91,7 @@ class ActiveSkillsComponent extends React.Component {
 	}
 }
 
-const ActiveSkill = ({skillAtt, skillList, actions, skills, skillPointsLeft, showSkill, attributePool}) => {
+const ActiveSkill = ({skillAtt, skillList, actions, skills, skillPointsLeft, showSkill, attributePool, restrictedSkills}) => {
 	let skillTableData = [];
 
 	for(let skillName in skillList) {
@@ -113,7 +130,7 @@ const ActiveSkill = ({skillAtt, skillList, actions, skills, skillPointsLeft, sho
 			dicePool = attributePool + rating;
 
 		skillTableData.push(
-			<tr key={skillData.name} className={rating>6?'table-danger':''}>
+			<tr key={skillData.name} className={rating > 6 || restrictedSkills?'table-danger ':''}>
 				<td>
 					<button
 						className="btn btn-success"
@@ -162,7 +179,7 @@ const ActiveSkill = ({skillAtt, skillList, actions, skills, skillPointsLeft, sho
 
 	return (
 		<div className="table-responsive">
-			<h4><button className="btn btn-info" onClick={()=> actions.showSkill({ skillToShow: skillAtt })}>{skillAtt}</button></h4>
+			<h4><button className={'btn ' + (restrictedSkills ? 'btn-danger':'btn-info')} onClick={()=> actions.showSkill({ skillToShow: skillAtt })}>{skillAtt}</button></h4>
 			<div className={showSkill ? 'collapse in' : 'collapse'}>
 				<table className="table">
 					<thead>
