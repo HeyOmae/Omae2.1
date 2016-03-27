@@ -213,7 +213,7 @@ const skillReducer = (state=initialState, action) => {
 			let newState,
 				skill = state[category][name];
 
-			if(!spec || !skill) {
+			if(!skill) {
 				return state;
 			} else if (spec === '–') {
 				let newSkill = generateSkillObject(skill, {spec: spec});
@@ -235,6 +235,8 @@ const skillReducer = (state=initialState, action) => {
 					'skillPointsSpent',
 					skillPointChange
 					);
+			} else {
+				return state;
 			}
 
 			return newState;

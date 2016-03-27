@@ -99,9 +99,18 @@ const ActiveSkill = ({skillAtt, skillList, actions, skills, skillPointsLeft, sho
 			actions.decrementSkill({name: name, category: 'active', max: 6, attribute: att});
 		}
 
-		let skillRating = skills[skillData.name] && skills[skillData.name].rating ? skills[skillData.name].rating : 0,
+		function changeSpec(changeEvent) {
+			if(skillPointsLeft > 0){
+				let newSpec = changeEvent.target.value;
+				actions.setSpec({name: skillData.name, category: 'active', spec: newSpec});
+			}
+		}
+
+		const skillRating = skills[skillData.name] && skills[skillData.name].rating ? skills[skillData.name].rating : 0,
 			groupRating = skills[skillData.name] && skills[skillData.name].groupRating ? skills[skillData.name].groupRating : 0,
-			rating = skillRating + groupRating;
+			rating = skillRating + groupRating,
+			currentSpec = skills[skillData.name] && skills[skillData.name].spec || '',
+			dicePool = attributePool + rating;
 
 		skillTableData.push(
 			<tr key={skillData.name} className={rating>6?'table-danger':''}>
@@ -131,16 +140,22 @@ const ActiveSkill = ({skillAtt, skillList, actions, skills, skillPointsLeft, sho
 					{references}
 				</td>
 				<td>
-					<input type="text" className="form-control" placeholder="Custom Spec" />
+					<input
+						type="text"
+						className="form-control"
+						placeholder="Custom Spec"
+						onChange={changeSpec}
+						value={currentSpec}/>
 					<select
 						className="form-control"
-						onChange={(e) => {console.log(e.target.value);}}>
+						onChange={changeSpec}
+						value={currentSpec}>
 						<option value="">–</option>
 						{specilizationOptions}
 					</select>
 				</td>
-				<td>0</td>
-				<td>{attributePool + rating}</td>
+				<td>{currentSpec ? 2 : 0}</td>
+				<td>{dicePool}{currentSpec ? `(${dicePool+2})` : null}</td>
 			</tr>
 		);
 	}

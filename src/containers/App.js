@@ -132,7 +132,8 @@ function mapDispatchToProps(dispatch) {
     showSkill: require('../actions/showSkill.js'),
     fixSummary: require('../actions/app/fixSummary.js'),
     incrementSkillgroup: require('../actions/skills/incrementSkillgroup.js'),
-    decrementSkillgroup: require('../actions/skills/decrementSkillgroup.js')
+    decrementSkillgroup: require('../actions/skills/decrementSkillgroup.js'),
+    setSpec: require('../actions/skills/setSpec.js')
   };
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;
