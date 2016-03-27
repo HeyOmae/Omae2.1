@@ -211,7 +211,7 @@ const skillReducer = (state=initialState, action) => {
 
 		SET_SPEC: () => {
 			return state;
-		}
+		},
 
 		DEFAULT: () => { return state; }
 	};
