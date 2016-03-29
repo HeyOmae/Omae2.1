@@ -123,6 +123,15 @@ describe('settingSkills', () => {
 		});
 	});
 
+	describe('SET_MAGIC_SKILLS', ()=> {
+		it('should create a skill with magicPoints', () => {
+			let newState = reducer(state, {type: 'SET_MAGIC_SKILLS', parameter: {name: 'spellcasting', category: 'active', rating: 4, attribute: 'mag'}});
+
+			expect(newState.active.spellcasting.magicSkillRating).to.equal(4);
+			expect(state.active.spellcasting).to.equal(undefined);
+		});
+	});
+
 	describe('INCREMENT_SKILLGROUP', () => {
 		it('should create skills with groupRating value of 1 if skills are not created yet', () => {
 			let newState = reducer(state, {type: 'INCREMENT_SKILLGROUP', parameter: {name: 'closecombat', category: 'groups', skillsInGroup: {blades: 'agi', clubs: 'agi', unarmedcombat: 'agi'}}});
@@ -213,8 +222,8 @@ describe('settingSkills', () => {
 			expect(newState.skillPointsSpent).to.equal(2);
 		});
 
-		it('should return state if spec is falsy', () => {
-			let newState = reducer(state, {type: 'SET_SPEC', parameter: {name: 'palming', category: 'active', spec: ''}});
+		it('should return state if spec is undefined', () => {
+			let newState = reducer(state, {type: 'SET_SPEC', parameter: {name: 'palming', category: 'active', spec: undefined}});
 
 			expect(newState).to.eql(state);
 			expect(newState.skillPointsSpent).to.equal(3);
