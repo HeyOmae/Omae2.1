@@ -17,13 +17,14 @@ describe('settingSkills', () => {
 			cybercombat: {rating: 1, attribute: 'log', groupRating: 3},
 			electronicwarfare: {rating: 1, attribute: 'log', groupRating: 3},
 			hacking: {rating: 1, attribute: 'log', groupRating: 3},
-			summoning: {magicSkillRating: 4, attribute: 'mag'}
+			summoning: {magicSkillRating: 4, attribute: 'mag'},
+			binding: {rating: 1, magicSkillRating: 4, attribute: 'mag'}
 		},
 		groups: {
 			acting: {rating: 1},
 			cracking: {rating: 3}
 		},
-		magicSkills: ['summoning'],
+		magicSkills: ['summoning', 'binding'],
 		skillPointsSpent: 3,
 		groupPointSpent: 1,
 		showSkill: ''
@@ -127,7 +128,10 @@ describe('settingSkills', () => {
 
 	describe('SET_MAGIC_SKILLS', ()=> {
 		it('should create a skill with magicPoints', () => {
-			let newState = reducer(state, {type: 'SET_MAGIC_SKILLS', parameter: {magicSkills: [{name: 'spellcasting', category: 'active', rating: 4, attribute: 'mag'}, {name: 'summoning', category: 'active', rating: 4, attribute: 'mag'}]}});
+			let newState = reducer(state, {type: 'SET_MAGIC_SKILLS', parameter: {magicSkills: [
+				{name: 'spellcasting', category: 'active', rating: 4, attribute: 'mag'},
+				{name: 'summoning', category: 'active', rating: 4, attribute: 'mag'}
+				]}});
 
 			expect(newState.active.spellcasting.magicSkillRating).to.equal(4);
 			expect(newState.active.spellcasting.attribute).to.equal('mag');
@@ -135,7 +139,10 @@ describe('settingSkills', () => {
 		});
 
 		it('should delete a skill with no rating or skill group rating', () => {
-			let newState = reducer(state, {type: 'SET_MAGIC_SKILLS', parameter: {name: 'summoning', category: 'active', rating: 4, attribute: 'mag'}});
+			let newState = reducer(state, {type: 'SET_MAGIC_SKILLS', parameter: {magicSkills: [
+				{name: 'spellcasting', category: 'active', rating: 4, attribute: 'mag'},
+				{name: 'summoning', category: 'active', rating: 4, attribute: 'mag'}
+				]}});
 
 			expect(newState.active.spellcasting.magicSkillRating).to.equal(4);
 			expect(newState.active.spellcasting.attribute).to.equal('mag');
