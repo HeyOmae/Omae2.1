@@ -140,13 +140,24 @@ describe('settingSkills', () => {
 
 		it('should delete a skill with no rating or skill group rating', () => {
 			let newState = reducer(state, {type: 'SET_MAGIC_SKILLS', parameter: {magicSkills: [
-				{name: 'spellcasting', category: 'active', rating: 4, attribute: 'mag'},
-				{name: 'summoning', category: 'active', rating: 4, attribute: 'mag'}
+				{name: 'binding', category: 'active', rating: 4, attribute: 'mag'},
+				{name: 'counterspelling', category: 'active', rating: 4, attribute: 'mag'}
 				]}});
 
-			expect(newState.active.spellcasting.magicSkillRating).to.equal(4);
-			expect(newState.active.spellcasting.attribute).to.equal('mag');
-			expect(state.active.spellcasting).to.equal(undefined);
+			expect(newState.active.summoning).to.equal(undefined);
+			expect(state.active.counterspelling.magicSkillRating).to.equal(4);
+			expect(state.active.binding.magicSkillRating).to.equal(4);
+		});
+
+		it('should remove the magicSkillRating of a skill if no longer selected and not delete it', () => {
+			let newState = reducer(state, {type: 'SET_MAGIC_SKILLS', parameter: {magicSkills: [
+				{name: 'summoning', category: 'active', rating: 4, attribute: 'mag'},
+				{name: 'counterspelling', category: 'active', rating: 4, attribute: 'mag'}
+				]}});
+
+			expect(newState.active.binding.rating).to.equal(1);
+			expect(state.active.binding.magicSkillRating).to.equal(undefined);
+			expect(state.active.counterspelling.magicSkillRating).to.equal(4);
 		});
 	});
 
