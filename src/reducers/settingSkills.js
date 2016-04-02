@@ -8,6 +8,7 @@ const initialState = {
 	active: {},
 	knowledge: {},
 	groups: {},
+	magicSkills: [],
 	skillPointsSpent: 0,
 	groupPointSpent: 0,
 	showSkill: ''
@@ -240,6 +241,10 @@ const skillReducer = (state=initialState, action) => {
 			}
 
 			return newState;
+		},
+
+		SET_MAGIC_SKILLS: () => {
+			let newState;
 		},
 
 		DEFAULT: () => { return state; }
