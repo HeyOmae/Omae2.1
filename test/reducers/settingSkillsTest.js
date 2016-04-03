@@ -129,13 +129,15 @@ describe('settingSkills', () => {
 	describe('SET_MAGIC_SKILLS', ()=> {
 		it('should create a skill with magicPoints', () => {
 			let newState = reducer(state, {type: 'SET_MAGIC_SKILLS', parameter: {magicSkills: [
-				{name: 'spellcasting', category: 'active', rating: 4, attribute: 'mag'},
-				{name: 'summoning', category: 'active', rating: 4, attribute: 'mag'}
+				{name: 'summoning', category: 'active', rating: 4, attribute: 'mag'},
+				{name: 'spellcasting', category: 'active', rating: 4, attribute: 'mag'}
 				]}});
 
 			expect(newState.active.spellcasting.magicSkillRating).to.equal(4);
 			expect(newState.active.spellcasting.attribute).to.equal('mag');
 			expect(state.active.spellcasting).to.equal(undefined);
+			expect(state.magicSkills[1]).to.equal('binding');
+			expect(newState.magicSkills[1]).to.equal('spellcasting');
 		});
 
 		it('should delete a skill with no rating or skill group rating', () => {
@@ -158,6 +160,10 @@ describe('settingSkills', () => {
 			expect(newState.active.binding.rating).to.equal(1);
 			expect(state.active.binding.magicSkillRating).to.equal(undefined);
 			expect(state.active.counterspelling.magicSkillRating).to.equal(4);
+		});
+
+		it('should delete the magic skills if none are selected', ()=> {
+			//TODO: write this test
 		});
 	});
 

@@ -19,14 +19,14 @@ const skillReducer = (state=initialState, action) => {
 		var {name, category, max, skillToShow, attribute, skillsInGroup, spec, magicSkills} = action.parameter;
 	}
 
-	function changeSkill(skillInfoUpdated, typeSpend, spentPoints, copyState = state) {
+	function changeSkill(skillInfoUpdated, typeSpend, spentPoints, copyState = state, skillCategory = category) {
 		return Object.assign(
 			{},
 			copyState,
 			{
-				[category]: Object.assign(
+				[skillCategory]: Object.assign(
 					{},
-					copyState[category],
+					copyState[skillCategory],
 					skillInfoUpdated),
 				[typeSpend]: spentPoints
 			}
@@ -246,17 +246,37 @@ const skillReducer = (state=initialState, action) => {
 		SET_MAGIC_SKILLS: () => {
 			let newState = state;
 
-			magicSkills.forEach((skill, index)=>{
-				if(state.magicSkills[index] !== magicSkills.name) {
-					newState = Object.assign(
-						{},
+			magicSkills.forEach((magSkill, index)=>{
+				if(state.magicSkills[index] !== magSkill.name) {
+					const skill = newState.active[magSkill.name],
+						newSkill = skill ? generateSkillObject(skill, {magicSkillRating: magSkill.rating}) : {[magSkill.name]: {attribute: magSkill.attribute, magicSkillRating: magSkill.rating}},
+						oldSkillName = Object.keys(state.active)[index];
+
+					newState = changeSkill(
+						newSkill,
+						'magicSkills',
+						newState.magicSkills.slice(),
 						newState,
-						{
-							magicSkills: newState.magicSkills.slice()
-						}
+						'active'
 					);
 
-					newState.magicSkills[index] = magicSkills.name;
+					if(newState.active[oldSkillName] && Object.keys(newState.active[oldSkillName]).length > 3) {
+						newState.active[oldSkillName] = Object.assign(
+							{},
+							newState.active[oldSkillName]
+						);
+
+						delete newState.active[oldSkillName].magicSkillRating;
+					} else if (newState.active[oldSkillName] && Object.keys(newState.active[oldSkillName]).length > 3) {
+						newState.active[oldSkillName] = Object.assign(
+							{},
+							newState.active[oldSkillName]
+						);
+
+						delete newState.active[oldSkillName];
+					}
+
+					newState.magicSkills[index] = magSkill.name;
 				}
 			});
 
