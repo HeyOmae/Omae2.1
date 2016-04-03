@@ -16,17 +16,17 @@ const initialState = {
 
 const skillReducer = (state=initialState, action) => {
 	if(action.parameter) {
-		var {name, category, max, skillToShow, attribute, skillsInGroup, spec} = action.parameter;
+		var {name, category, max, skillToShow, attribute, skillsInGroup, spec, magicSkills} = action.parameter;
 	}
 
-	function changeSkill(skillInfoUpdated, typeSpend, spentPoints) {
+	function changeSkill(skillInfoUpdated, typeSpend, spentPoints, copyState = state) {
 		return Object.assign(
 			{},
-			state,
+			copyState,
 			{
 				[category]: Object.assign(
 					{},
-					state[category],
+					copyState[category],
 					skillInfoUpdated),
 				[typeSpend]: spentPoints
 			}
@@ -244,7 +244,23 @@ const skillReducer = (state=initialState, action) => {
 		},
 
 		SET_MAGIC_SKILLS: () => {
-			let newState;
+			let newState = state;
+
+			magicSkills.forEach((skill, index)=>{
+				if(state.magicSkills[index] !== magicSkills.name) {
+					newState = Object.assign(
+						{},
+						newState,
+						{
+							magicSkills: newState.magicSkills.slice()
+						}
+					);
+
+					newState.magicSkills[index] = magicSkills.name;
+				}
+			});
+
+			return newState;
 		},
 
 		DEFAULT: () => { return state; }
