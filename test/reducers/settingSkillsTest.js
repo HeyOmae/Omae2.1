@@ -135,9 +135,10 @@ describe('settingSkills', () => {
 
 			expect(newState.active.spellcasting.magicSkillRating).to.equal(4);
 			expect(newState.active.spellcasting.attribute).to.equal('mag');
+			expect(newState.magicSkills).to.eql(['summoning', 'spellcasting']);
+
 			expect(state.active.spellcasting).to.equal(undefined);
-			expect(state.magicSkills[1]).to.equal('binding');
-			expect(newState.magicSkills[1]).to.equal('spellcasting');
+			expect(state.magicSkills).to.eql(['summoning', 'binding']);
 		});
 
 		it('should delete a skill with no rating or skill group rating', () => {
@@ -147,9 +148,12 @@ describe('settingSkills', () => {
 				]}});
 
 			expect(newState.active.summoning).to.equal(undefined);
-			expect(state.active.summoning.magicSkillRating).to.equal(4);
 			expect(newState.active.counterspelling.magicSkillRating).to.equal(4);
 			expect(newState.active.binding.magicSkillRating).to.equal(4);
+			expect(newState.magicSkills).to.eql(['counterspelling', 'binding']);
+
+			expect(state.active.summoning.magicSkillRating).to.equal(4);
+			expect(state.magicSkills).to.eql(['summoning', 'binding']);
 		});
 
 		it('should remove the magicSkillRating of a skill if no longer selected and not delete it', () => {
@@ -159,12 +163,33 @@ describe('settingSkills', () => {
 				]}});
 
 			expect(newState.active.binding.rating).to.equal(1);
-			expect(state.active.binding.magicSkillRating).to.equal(undefined);
-			expect(state.active.counterspelling.magicSkillRating).to.equal(4);
+			expect(newState.active.binding.magicSkillRating).to.equal(undefined);
+			expect(newState.active.counterspelling.magicSkillRating).to.equal(4);
+			expect(newState.magicSkills).to.eql(['summoning', 'counterspelling']);
+
+			expect(state.active.binding.rating).to.equal(1);
+			expect(state.active.binding.magicSkillRating).to.equal(4);
+			expect(state.active.counterspelling).to.equal(undefined);
+			expect(state.magicSkills).to.eql(['summoning', 'binding']);
 		});
 
-		it('should delete the magic skills if none are selected', ()=> {
-			//TODO: write this test
+		it('should delete the magicSkillRating or the skill if none are selected', ()=> {
+			
+			let newState = reducer(state, {type: 'SET_MAGIC_SKILLS', parameter: {magicSkills: [
+				null,
+				{name: '', category: 'active', rating: 4, attribute: 'mag'}
+				]}});
+
+			expect(newState.active.binding.magicSkillRating).to.equal(undefined);
+			expect(newState.active.binding.rating).to.equal(1);
+			expect(newState.active.summoning).to.equal(undefined);
+			expect(newState.magicSkills).to.eql(['', '']);
+
+			expect(state.active.binding.rating).to.equal(1);
+			expect(state.active.binding.magicSkillRating).to.equal(4);
+			expect(state.active.summoning.rating).to.equal(1);
+			expect(state.active.summoning.magicSkillRating).to.equal(4);
+			expect(state.magicSkills).to.eql(['summoning', 'binding']);
 		});
 	});
 

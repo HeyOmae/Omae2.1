@@ -246,11 +246,35 @@ const skillReducer = (state=initialState, action) => {
 		SET_MAGIC_SKILLS: () => {
 			let newState = state;
 
+		function removeMagicSkillRatingFromSkill(oldSkillName) {
+			if(newState.active[oldSkillName] && Object.keys(newState.active[oldSkillName]).length >= 3) {
+				newState.active[oldSkillName] = Object.assign(
+					{},
+					newState.active[oldSkillName]
+				);
+
+				delete newState.active[oldSkillName].magicSkillRating;
+
+			} else if (newState.active[oldSkillName] && Object.keys(newState.active[oldSkillName]).length >= 2) {
+
+				newState.active = Object.assign(
+					{},
+					newState.active
+				);
+
+				delete newState.active[oldSkillName];
+			}
+		}
+
 			magicSkills.forEach((magSkill, index)=>{
-				if(state.magicSkills[index] !== magSkill.name) {
+				const oldSkillName = state.magicSkills[index];
+
+				if(!magSkill || !magSkill.name) {
+					removeMagicSkillRatingFromSkill(oldSkillName);
+					newState.magicSkills[index] = '';
+				} else if(state.magicSkills[index] !== magSkill.name) {
 					const skill = newState.active[magSkill.name],
-						newSkill = skill ? generateSkillObject(skill, {magicSkillRating: magSkill.rating}) : {[magSkill.name]: {attribute: magSkill.attribute, magicSkillRating: magSkill.rating}},
-						oldSkillName = state.magicSkills[index];
+						newSkill = skill ? generateSkillObject(skill, {magicSkillRating: magSkill.rating}) : {[magSkill.name]: {attribute: magSkill.attribute, magicSkillRating: magSkill.rating}};
 
 					newState = changeSkill(
 						newSkill,
@@ -260,26 +284,11 @@ const skillReducer = (state=initialState, action) => {
 						'active'
 					);
 
-					if(newState.active[oldSkillName] && Object.keys(newState.active[oldSkillName]).length >= 3) {
-						newState.active[oldSkillName] = Object.assign(
-							{},
-							newState.active[oldSkillName]
-						);
+					removeMagicSkillRatingFromSkill(oldSkillName);
 
-						delete newState.active[oldSkillName].magicSkillRating;
-
-					} else if (newState.active[oldSkillName] && Object.keys(newState.active[oldSkillName]).length >= 2) {
-
-						newState.active = Object.assign(
-							{},
-							newState.active
-						);
-
-						delete newState.active[oldSkillName];
-					}
-
-					newState.magicSkills[index] = magSkill.name;
+					newState.magicSkills[index] = magSkill.name||'';
 				}
+
 			});
 
 			return newState;
