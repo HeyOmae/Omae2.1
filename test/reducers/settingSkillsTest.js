@@ -176,8 +176,8 @@ describe('settingSkills', () => {
 		it('should delete the magicSkillRating or the skill if none are selected', ()=> {
 			
 			let newState = reducer(state, {type: 'SET_MAGIC_SKILLS', parameter: {magicSkills: [
-				null,
-				{name: '', category: 'active', rating: 4, attribute: 'mag'}
+				{name: ''},
+				{name: '', category: 'active', rating: 0, attribute: ''}
 				]}});
 
 			expect(newState.active.binding.magicSkillRating).to.equal(undefined);
@@ -187,7 +187,6 @@ describe('settingSkills', () => {
 
 			expect(state.active.binding.rating).to.equal(1);
 			expect(state.active.binding.magicSkillRating).to.equal(4);
-			expect(state.active.summoning.rating).to.equal(1);
 			expect(state.active.summoning.magicSkillRating).to.equal(4);
 			expect(state.magicSkills).to.eql(['summoning', 'binding']);
 		});
