@@ -250,7 +250,7 @@ const skillReducer = (state=initialState, action) => {
 				if(state.magicSkills[index] !== magSkill.name) {
 					const skill = newState.active[magSkill.name],
 						newSkill = skill ? generateSkillObject(skill, {magicSkillRating: magSkill.rating}) : {[magSkill.name]: {attribute: magSkill.attribute, magicSkillRating: magSkill.rating}},
-						oldSkillName = Object.keys(state.active)[index];
+						oldSkillName = state.magicSkills[index];
 
 					newState = changeSkill(
 						newSkill,
@@ -260,17 +260,19 @@ const skillReducer = (state=initialState, action) => {
 						'active'
 					);
 
-					if(newState.active[oldSkillName] && Object.keys(newState.active[oldSkillName]).length > 3) {
+					if(newState.active[oldSkillName] && Object.keys(newState.active[oldSkillName]).length >= 3) {
 						newState.active[oldSkillName] = Object.assign(
 							{},
 							newState.active[oldSkillName]
 						);
 
 						delete newState.active[oldSkillName].magicSkillRating;
-					} else if (newState.active[oldSkillName] && Object.keys(newState.active[oldSkillName]).length > 3) {
-						newState.active[oldSkillName] = Object.assign(
+
+					} else if (newState.active[oldSkillName] && Object.keys(newState.active[oldSkillName]).length >= 2) {
+
+						newState.active = Object.assign(
 							{},
-							newState.active[oldSkillName]
+							newState.active
 						);
 
 						delete newState.active[oldSkillName];
