@@ -31,7 +31,8 @@ class ActiveSkillsComponent extends React.Component {
 			],
 			skillPointsLeft = priorityTableData[priority.skills].skills.skillpoints - skills.skillPointsSpent,
 			groupPointsLeft = priorityTableData[priority.skills].skills.grouppoints - skills.groupPointSpent,
-			baseMagicAttribute = priorityTableData[priority.magres].magic[magictype].attribute && priorityTableData[priority.magres].magic[magictype].attribute.points || 0;
+			baseMagicAttribute = priorityTableData[priority.magres].magic[magictype].attribute && priorityTableData[priority.magres].magic[magictype].attribute.points || 0,
+			priorityDataFreeSkills = priorityTableData[priority.magres].magic[magictype].skills;
 
 		function allowedSkill() {
 			if(awakened.indexOf(magictype) > -1) {
@@ -68,11 +69,31 @@ class ActiveSkillsComponent extends React.Component {
 			);
 		}
 
-		let magicSkills = (
-			<div>
-				<h3>Free Skills</h3>
-			</div>
-		);
+		if(priorityDataFreeSkills) {
+			const freeAttribute = priorityDataFreeSkills.attribute,
+				freeSkills = skillsData.active[freeAttribute];
+
+			let freeSkillList = [];
+
+			for(let freeSkill in freeSkills) {
+				freeSkillList.push(
+					<option>{freeSkill}</option>
+					);
+			}
+
+			var magicSkills = (
+				<div>
+					<h3>Free Skills</h3>
+					<select className="form-control">
+						{freeSkillList}
+					</select>
+					<select className="form-control">
+						{freeSkillList}
+					</select>
+				</div>
+			);
+		}
+
 
 		return (
 			<div className="activeskills-component">
