@@ -10,8 +10,17 @@ const RedditComponent = ({priority, metatype, attributes, magres, skills}) => {
 
 	for(let name in skills.active) {
 		let skill = skills.active[name],
-			rating = (skill.rating||0) + (skill.groupRating||0),
-			dp = attributes[skill.attribute] + rating;
+			rating = 0,
+			dp = attributes[skill.attribute];
+
+		for(let prop in skill) {
+			let currRating = skill[prop];
+
+			if(typeof currRating === 'number') {
+				rating = currRating;
+				dp += currRating;
+			}
+		}
 
 		activeSkills += `${name} | ${rating} | ${attributes[skill.attribute]} | ${skill.spec || '–'} | ${dp} ${skill.spec?`(${dp+2})`:''}
 `;

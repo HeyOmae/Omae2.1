@@ -51,6 +51,7 @@ const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed
 				currDP += currRating;
 			}
 		}
+
 		skillData.push(
 			<tr key={'skill-'+skillName}>
 				<td>{skillName}</td>

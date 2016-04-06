@@ -85,8 +85,9 @@ class ActiveSkillsComponent extends React.Component {
 			let changeFreeSkill = (e) => {
 
 				function genFreeSkillObj(skillName) {
-					return {name: skillName, category: 'active', rating: priorityDataFreeSkills.rating, attribute: attAbriviation[freeAttribute]};
+					return {name: skillName, category: 'active', rating: priorityDataFreeSkills.rating, attribute: 'mag'};
 				}
+
 				let updatedIndex = e.target.id,
 					freeSkillsArr = skills.magicSkills.map((skillName)=>{
 						return genFreeSkillObj(skillName);
