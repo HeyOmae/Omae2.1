@@ -176,7 +176,7 @@ describe('settingSkills', () => {
 		it('should delete the magicSkillRating or the skill if none are selected', ()=> {
 			
 			let newState = reducer(state, {type: 'SET_MAGIC_SKILLS', parameter: {magicSkills: [
-				{name: ''},
+				null,
 				{name: '', category: 'active', rating: 0, attribute: ''}
 				]}});
 

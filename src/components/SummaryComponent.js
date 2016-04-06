@@ -42,8 +42,15 @@ const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed
 	for(let skillName in skills.active) {
 		let currSkill = skills.active[skillName],
 			att = calculatedStats.attributes[currSkill.attribute],
-			currDP = (currSkill.rating||0)+(currSkill.groupRating||0)+att;
+			currDP = att;
 
+		for(let prop in currSkill) {
+			let currRating = currSkill[prop];
+
+			if(typeof currRating === 'number') {
+				currDP += currRating;
+			}
+		}
 		skillData.push(
 			<tr key={'skill-'+skillName}>
 				<td>{skillName}</td>

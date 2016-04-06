@@ -68,8 +68,15 @@ class ActiveSkillsComponent extends React.Component {
 			);
 		}
 
+		let magicSkills = (
+			<div>
+				<h3>Free Skills</h3>
+			</div>
+		);
+
 		return (
 			<div className="activeskills-component">
+				{magicSkills}
 				<h3>Skill Groups</h3>
 				<div className="row">
 					<Skillgroup
@@ -123,11 +130,20 @@ const ActiveSkill = ({skillAtt, skillList, actions, skills, skillPointsLeft, sho
 			}
 		}
 
-		const skillRating = skills[skillData.name] && skills[skillData.name].rating ? skills[skillData.name].rating : 0,
-			groupRating = skills[skillData.name] && skills[skillData.name].groupRating ? skills[skillData.name].groupRating : 0,
-			rating = skillRating + groupRating,
-			currentSpec = skills[skillData.name] && skills[skillData.name].spec || '',
-			dicePool = attributePool + rating;
+		const currSkill = skills[skillData.name],
+			currentSpec = skills[skillData.name] && skills[skillData.name].spec || '';
+			
+		let rating = 0,
+			dicePool = attributePool;
+
+		for(let prop in currSkill) {
+			let currRating = currSkill[prop];
+
+			if(typeof currRating === 'number') {
+				rating += currRating;
+				dicePool += currRating;
+			}
+		}
 
 		skillTableData.push(
 			<tr key={skillData.name} className={rating > 6 || restrictedSkills?'table-danger ':''}>
