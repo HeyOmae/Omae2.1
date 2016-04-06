@@ -79,7 +79,7 @@ const skillReducer = (state=initialState, action) => {
 
 				return state;
 
-			} else if(skill.rating === 1 && !skill.groupRating) {
+			} else if(skill.rating === 1 && Object.keys(skill).length <= 2) {
 
 				newState = changeSkill(
 					{},
