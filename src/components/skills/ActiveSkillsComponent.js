@@ -84,12 +84,22 @@ class ActiveSkillsComponent extends React.Component {
 			var magicSkills = (
 				<div>
 					<h3>Free Skills</h3>
-					<select className="form-control">
-						{freeSkillList}
-					</select>
-					<select className="form-control">
-						{freeSkillList}
-					</select>
+					<div className="row form-group">
+						<div className="col-sm-6">
+							<h4>Skill 1</h4>
+							<select className="form-control">
+								<option value=""></option>
+								{freeSkillList}
+							</select>
+						</div>
+						<div className="col-sm-6">
+							<h4>Skill 2</h4>
+							<select className="form-control">
+								<option value=""></option>
+								{freeSkillList}
+							</select>
+						</div>
+					</div>
 				</div>
 			);
 		}
