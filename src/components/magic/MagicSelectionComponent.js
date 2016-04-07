@@ -9,7 +9,7 @@ let priorityData = require('json!../data/priority.json');
 class MagicSelectionComponent extends React.Component {
 	render() {
 		const awakenTypes = ['Mage', 'Mystic', 'Technomancer','Adept', 'Aspected', 'mundane'],
-			{magicPriority, magictype, action} = this.props;
+			{magicPriority, magictype, actions} = this.props;
 		let awakenButtons = [];
 
 		awakenTypes.forEach((typeName) => {
@@ -19,7 +19,8 @@ class MagicSelectionComponent extends React.Component {
 					typeName={typeName}
 					anOption={typeName in priorityData[magicPriority].magic}
 					checked={selectedMagictype}
-					selectMagicTypeAction={action}
+					selectMagicTypeAction={actions.selectMagictype}
+					resetFreeMagicSkills={actions.setMagicSkills}
 					key={'awaken-selection-' + typeName}
 				/>
 			);
@@ -35,7 +36,7 @@ class MagicSelectionComponent extends React.Component {
 	}
 }
 
-const AwakenButton = ({typeName, anOption, checked, selectMagicTypeAction}) => {
+const AwakenButton = ({typeName, anOption, checked, selectMagicTypeAction, resetFreeMagicSkills}) => {
 	return (
 		<label className={`btn
 			${(!anOption && checked ? 'btn-danger' : 'btn-primary')}
@@ -51,6 +52,7 @@ const AwakenButton = ({typeName, anOption, checked, selectMagicTypeAction}) => {
 				onChange={()=>{
 					if(anOption){
 						selectMagicTypeAction(typeName);
+						resetFreeMagicSkills({magicSkills: [null, null]});
 					}
 				}}
 			/>

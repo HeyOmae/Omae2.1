@@ -69,75 +69,14 @@ class ActiveSkillsComponent extends React.Component {
 			);
 		}
 
-		if(priorityDataFreeSkills) {
-			const freeAttribute = priorityDataFreeSkills.attribute,
-				freeSkills = skillsData.active[freeAttribute];
-
-			let freeSkillList = [];
-
-			for(let freeSkillName in freeSkills) {
-				let freeSkill = freeSkills[freeSkillName].name;
-				freeSkillList.push(
-					<option key={'free-skill--'+freeSkill}>{freeSkill}</option>
-					);
-			}
-
-			let changeFreeSkill = (e) => {
-
-				function genFreeSkillObj(skillName) {
-					return {name: skillName, category: 'active', rating: priorityDataFreeSkills.rating, attribute: 'mag'};
-				}
-
-				let updatedIndex = e.target.id,
-					freeSkillsArr = skills.magicSkills.map((skillName)=>{
-						return genFreeSkillObj(skillName);
-					});
-
-				freeSkillsArr[updatedIndex] = genFreeSkillObj(e.target.value);
-
-				actions.setMagicSkills({
-					magicSkills: freeSkillsArr});
-			};
-
-			var magicSkills = (
-				<div>
-					<h3>Free Skills</h3>
-					<div className="row form-group">
-						<div className="col-sm-6">
-							<h4>Skill 1</h4>
-							<select
-								id="0"
-								className="form-control"
-								onChange={changeFreeSkill}
-								value={skills.magicSkills[0]}>
-
-								<option value=""></option>
-								{freeSkillList}
-
-							</select>
-						</div>
-						<div className="col-sm-6">
-							<h4>Skill 2</h4>
-							<select
-								id="1"
-								className="form-control"
-								onChange={changeFreeSkill}
-								value={skills.magicSkills[1]}>
-
-								<option value=""></option>
-								{freeSkillList}
-
-							</select>
-						</div>
-					</div>
-				</div>
-			);
-		}
-
-
 		return (
 			<div className="activeskills-component">
-				{magicSkills}
+				{priorityDataFreeSkills?<h3>Free Skills</h3>:null}
+				<FreeSkills
+					priorityDataFreeSkills={priorityDataFreeSkills}
+					magicSkills={skills.magicSkills}
+					setMagicSkills={actions.setMagicSkills}
+					/>
 				<h3>Skill Groups</h3>
 				<div className="row">
 					<Skillgroup
@@ -158,6 +97,91 @@ class ActiveSkillsComponent extends React.Component {
 		);
 	}
 }
+
+const FreeSkills = ({priorityDataFreeSkills, magicSkills, setMagicSkills}) => {
+	if(priorityDataFreeSkills) {
+		const freeAttribute = priorityDataFreeSkills.attribute,
+			freeSkills = skillsData.active[freeAttribute];
+
+		var freeSkillList = [];
+
+		if(freeAttribute){
+			for(let freeSkillName in freeSkills) {
+				let freeSkill = freeSkills[freeSkillName].name;
+				freeSkillList.push(
+					<option key={'free-skill--'+freeSkill}>{freeSkill}</option>
+					);
+			}
+		} else {
+			let listOfActiveSkills = [];
+			var activeSkillAttribute = {};
+			for(let activeSkillCat in skillsData.active) {
+				let objectOfActiveSkills = skillsData.active[activeSkillCat];
+
+				for(let actSkillName in objectOfActiveSkills) {
+					let activeSkill=objectOfActiveSkills[actSkillName];
+					listOfActiveSkills.push(activeSkill.name);
+					activeSkillAttribute[activeSkill.name] = activeSkill.stat;
+				}
+			}
+			listOfActiveSkills.forEach((activeSkillName)=>{
+				freeSkillList.push(
+					<option key={'free-skill--'+activeSkillName}>{activeSkillName}</option>
+					);
+			});
+		}
+
+		var changeFreeSkill = (e) => {
+
+			function genFreeSkillObj(skillName) {
+				return {name: skillName, category: 'active', rating: priorityDataFreeSkills.rating, attribute: activeSkillAttribute ? activeSkillAttribute[skillName] : 'mag'};
+			}
+
+			let updatedIndex = e.target.id,
+				freeSkillsArr = magicSkills.map((skillName)=>{
+					return genFreeSkillObj(skillName);
+				});
+
+			freeSkillsArr[updatedIndex] = genFreeSkillObj(e.target.value);
+
+			setMagicSkills({
+				magicSkills: freeSkillsArr});
+		};
+
+		return (
+			<div className="row form-group">
+				<div className="col-sm-6">
+					<h4>Skill 1</h4>
+					<select
+						id="0"
+						className="form-control"
+						onChange={changeFreeSkill}
+						value={magicSkills[0]}>
+
+						<option value=""></option>
+						{freeSkillList}
+
+					</select>
+				</div>
+				<div className="col-sm-6">
+					<h4>Skill 2</h4>
+					<select
+						id="1"
+						className="form-control"
+						onChange={changeFreeSkill}
+						value={magicSkills[1]}>
+
+						<option value=""></option>
+						{freeSkillList}
+
+					</select>
+				</div>
+			</div>);
+
+	} else {
+		return null;
+	}
+};
 
 const ActiveSkill = ({skillAtt, skillList, actions, skills, skillPointsLeft, showSkill, attributePool, restrictedSkills}) => {
 	let skillTableData = [];
