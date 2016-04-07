@@ -1,6 +1,7 @@
 #Omae v2
 
 Omae is a character generator for Shadowrun 5th Edition.
+[Live demo can be found here](heyomae.github.io).
 
 ##Technologies
 
