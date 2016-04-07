@@ -53,7 +53,7 @@ Karma | Total Karma
 
 Bod | Agi | Rea | Str | Wil | Log | Int | Cha | Edg | Mag
 ---|---|---|---|---|---|---|---|---|---
-${attributes.bod} | ${attributes.agi} | ${attributes.rea} | ${attributes.str} | ${attributes.wil} | ${attributes.log} | ${attributes.int} | ${attributes.cha} | ${attributes.edg} | ${attributes.mag}
+${attributes.bod} | ${attributes.agi} | ${attributes.rea} | ${attributes.str} | ${attributes.wil} | ${attributes.log} | ${attributes.int} | ${attributes.cha} | ${attributes.edg} | ${attributes.mag||'–'}
 
 ###Limits
 
