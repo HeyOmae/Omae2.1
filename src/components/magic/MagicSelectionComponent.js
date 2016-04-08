@@ -1,9 +1,10 @@
 'use strict';
 
 import React from 'react';
+import Modal from '../ModalComponent';
 
 require('styles//magic/MagicSelection.sass');
-let priorityData = require('json!../data/priority.json');
+const priorityData = require('json!../data/priority.json');
 
 
 class MagicSelectionComponent extends React.Component {
@@ -31,6 +32,10 @@ class MagicSelectionComponent extends React.Component {
 				<div className="btn-group">
 					{awakenButtons}
 				</div>
+				<h3>Buy Spells</h3>
+				<Modal
+					modalName="Spells List"
+					modalContent={<ol><li>Magic Spell here</li></ol>}/>
 			</div>
 		);
 	}

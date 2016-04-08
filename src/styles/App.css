@@ -45,6 +45,10 @@ h1, h2, h3, h4 {
 	margin-bottom: 0;
 }
 
+h2 {
+	text-decoration: underline;
+}
+
 .program-title h1 {
 	font-size: 4rem;
 }
