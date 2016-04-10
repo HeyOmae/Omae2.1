@@ -32,14 +32,22 @@ class MagicSelectionComponent extends React.Component {
 				<div className="btn-group">
 					{awakenButtons}
 				</div>
-				<h3>Buy Spells</h3>
+				<h3>Spells</h3>
 				<Modal
 					modalName="Spells List"
-					modalContent={<ol><li>Magic Spell here</li></ol>}/>
+					modalContent={<SpellsSelection/>}/>
 			</div>
 		);
 	}
 }
+
+const SpellsSelection = () => {
+	return (
+		<ol>
+			<li>Magic Spell here</li>
+		</ol>
+	);
+};
 
 const AwakenButton = ({typeName, anOption, checked, selectMagicTypeAction, resetFreeMagicSkills}) => {
 	return (

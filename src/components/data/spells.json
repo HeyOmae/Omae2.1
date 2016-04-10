@@ -1,0 +1,102 @@
+{
+	"Combat": {
+		"Acid Stream": {
+			"name": "Acid Stream",
+			"direct": false,
+			"element": "Acid",
+			"type": "P",
+			"range": "LOS",
+			"damage": "P",
+			"duraction": "I",
+			"drain": -3,
+			"ref": {
+				"SR5": {
+					"book": "Shadowrun 5th",
+					"page": "p283"
+				}
+			}
+		},
+		"Toxic Wave": {
+			"name": "Toxic Wave",
+			"direct": false,
+			"element": "Acid",
+			"type": "P",
+			"range": "LOS(A)",
+			"damage": "P",
+			"duraction": "I",
+			"drain": -1,
+			"ref": {
+				"SR5": {
+					"book": "Shadowrun 5th",
+					"page": "p283"
+				}
+			}
+		},
+		"Punch": {
+			"name": "Punch",
+			"direct": false,
+			"type": "P",
+			"range": "T",
+			"damage": "S",
+			"duraction": "I",
+			"drain": -6,
+			"ref": {
+				"SR5": {
+					"book": "Shadowrun 5th",
+					"page": "p283"
+				}
+			}
+		},
+		"Clout": {
+			"name": "Clout",
+			"direct": false,
+			"type": "P",
+			"range": "LOS",
+			"damage": "S",
+			"duraction": "I",
+			"drain": -3,
+			"ref": {
+				"SR5": {
+					"book": "Shadowrun 5th",
+					"page": "p284"
+				}
+			}
+		},
+		"Blast": {
+			"name": "Blast",
+			"direct": false,
+			"type": "P",
+			"range": "LOS(A)",
+			"damage": "S",
+			"duraction": "I",
+			"drain": 0,
+			"ref": {
+				"SR5": {
+					"book": "Shadowrun 5th",
+					"page": "p284"
+				}
+			}
+		},
+		"Death Touch": {
+			"name": "Death Touch",
+			"direct": true,
+			"type": "M",
+			"range": "T",
+			"damage": "P",
+			"duraction": "I",
+			"drain": "-6",
+			"ref": {
+				"SR5": {
+					"book": "Shadowrun 5th",
+					"page": "p284"
+				}
+			}
+		}
+	},
+	"Detection": {
+		"Analyze Device": {
+			"name": "Analyze Device",
+			""
+		}
+	}
+}
