@@ -96,7 +96,18 @@
 	"Detection": {
 		"Analyze Device": {
 			"name": "Analyze Device",
-			""
+			"active": true,
+			"area": "directional",
+			"type": "P",
+			"duraction": "S",
+			"range": "T",
+			"drain": -3,
+			"ref": {
+				"SR5": {
+					"book": "Shadowrun 5th",
+					"page": "p285"
+				}
+			}
 		}
 	}
 }
