@@ -108,6 +108,23 @@
 					"page": "p285"
 				}
 			}
+		},
+		"Detect [Life Form]": {
+			"name": "Detect ",
+			"active": true,
+			"type": "M",
+			"area": "Area",
+			"extended": true,
+			"duraction": "S",
+			"range": "T",
+			"drain": -2,
+			"ref": {
+				"SR5": {
+					"book": "Shadowrun 5th",
+					"page": "p287"
+				}
+			}
 		}
-	}
+	},
+	
 }
