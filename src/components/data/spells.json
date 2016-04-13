@@ -1,7 +1,7 @@
 {
 	"Combat": {
 		"Acid Stream": {
-			"name": "Acid Stream",
+			"Name": "Acid Stream",
 			"direct": false,
 			"element": "Acid",
 			"type": "P",
@@ -17,7 +17,7 @@
 			}
 		},
 		"Toxic Wave": {
-			"name": "Toxic Wave",
+			"Name": "Toxic Wave",
 			"direct": false,
 			"element": "Acid",
 			"type": "P",
@@ -33,7 +33,7 @@
 			}
 		},
 		"Punch": {
-			"name": "Punch",
+			"Name": "Punch",
 			"direct": false,
 			"type": "P",
 			"range": "T",
@@ -48,7 +48,7 @@
 			}
 		},
 		"Clout": {
-			"name": "Clout",
+			"Name": "Clout",
 			"direct": false,
 			"type": "P",
 			"range": "LOS",
@@ -63,7 +63,7 @@
 			}
 		},
 		"Blast": {
-			"name": "Blast",
+			"Name": "Blast",
 			"direct": false,
 			"type": "P",
 			"range": "LOS(A)",
@@ -78,13 +78,13 @@
 			}
 		},
 		"Death Touch": {
-			"name": "Death Touch",
+			"Name": "Death Touch",
 			"direct": true,
 			"type": "M",
 			"range": "T",
 			"damage": "P",
 			"duraction": "I",
-			"drain": "-6",
+			"drain": -6,
 			"ref": {
 				"SR5": {
 					"book": "Shadowrun 5th",
@@ -95,9 +95,8 @@
 	},
 	"Detection": {
 		"Analyze Device": {
-			"name": "Analyze Device",
-			"active": true,
-			"area": "directional",
+			"Name": "Analyze Device",
+			"details": "Active, Directional",
 			"type": "P",
 			"duraction": "S",
 			"range": "T",
@@ -110,11 +109,17 @@
 			}
 		},
 		"Detect [Life Form]": {
-			"name": "Detect ",
-			"active": true,
+			"Name": "Detect [Life Form]",
+			"options": [
+				"Orks",
+				"Elves",
+				"Dwarves",
+				"Humans",
+				"Trolls",
+				"Dragons"
+			],
+			"details": "Active, Area",
 			"type": "M",
-			"area": "Area",
-			"extended": true,
 			"duraction": "S",
 			"range": "T",
 			"drain": -2,
@@ -124,7 +129,29 @@
 					"page": "p287"
 				}
 			}
+		},
+		"Detect [Life Form] Extended": {
+			"Name": "Detect [Life Form] Extended",
+			"options": [
+				"Orks",
+				"Elves",
+				"Dwarves",
+				"Humans",
+				"Trolls",
+				"Dragons"
+			],
+			"details": "Active, Area Extended",
+			"type": "M",
+			"duraction": "S",
+			"range": "T",
+			"drain": 0,
+			"ref": {
+				"SR5": {
+					"book": "Shadowrun 5th",
+					"page": "p287"
+				}
+			}
 		}
 	},
-	
+
 }
