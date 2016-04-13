@@ -2,14 +2,14 @@
 	"Combat": {
 		"Acid Stream": {
 			"Name": "Acid Stream",
-			"direct": false,
+			"Category": "In Direct",
 			"element": "Acid",
-			"type": "P",
-			"range": "LOS",
-			"damage": "P",
-			"duraction": "I",
-			"drain": -3,
-			"ref": {
+			"Type": "P",
+			"Range": "LOS",
+			"Damage": "P",
+			"Duraction": "I",
+			"Drain": -3,
+			"Ref": {
 				"SR5": {
 					"book": "Shadowrun 5th",
 					"page": "p283"
@@ -18,14 +18,14 @@
 		},
 		"Toxic Wave": {
 			"Name": "Toxic Wave",
-			"direct": false,
+			"Category": "In Direct",
 			"element": "Acid",
-			"type": "P",
-			"range": "LOS(A)",
-			"damage": "P",
-			"duraction": "I",
-			"drain": -1,
-			"ref": {
+			"Type": "P",
+			"Range": "LOS(A)",
+			"Damage": "P",
+			"Duraction": "I",
+			"Drain": -1,
+			"Ref": {
 				"SR5": {
 					"book": "Shadowrun 5th",
 					"page": "p283"
@@ -34,13 +34,13 @@
 		},
 		"Punch": {
 			"Name": "Punch",
-			"direct": false,
-			"type": "P",
-			"range": "T",
-			"damage": "S",
-			"duraction": "I",
-			"drain": -6,
-			"ref": {
+			"Category": "In Direct",
+			"Type": "P",
+			"Range": "T",
+			"Damage": "S",
+			"Duraction": "I",
+			"Drain": -6,
+			"Ref": {
 				"SR5": {
 					"book": "Shadowrun 5th",
 					"page": "p283"
@@ -49,13 +49,13 @@
 		},
 		"Clout": {
 			"Name": "Clout",
-			"direct": false,
-			"type": "P",
-			"range": "LOS",
-			"damage": "S",
-			"duraction": "I",
-			"drain": -3,
-			"ref": {
+			"Category": "In Direct",
+			"Type": "P",
+			"Range": "LOS",
+			"Damage": "S",
+			"Duraction": "I",
+			"Drain": -3,
+			"Ref": {
 				"SR5": {
 					"book": "Shadowrun 5th",
 					"page": "p284"
@@ -64,13 +64,13 @@
 		},
 		"Blast": {
 			"Name": "Blast",
-			"direct": false,
-			"type": "P",
-			"range": "LOS(A)",
-			"damage": "S",
-			"duraction": "I",
-			"drain": 0,
-			"ref": {
+			"Category": "In Direct",
+			"Type": "P",
+			"Range": "LOS(A)",
+			"Damage": "S",
+			"Duraction": "I",
+			"Drain": 0,
+			"Ref": {
 				"SR5": {
 					"book": "Shadowrun 5th",
 					"page": "p284"
@@ -79,13 +79,13 @@
 		},
 		"Death Touch": {
 			"Name": "Death Touch",
-			"direct": true,
-			"type": "M",
-			"range": "T",
-			"damage": "P",
-			"duraction": "I",
-			"drain": -6,
-			"ref": {
+			"Category": "Direct",
+			"Type": "M",
+			"Range": "T",
+			"Damage": "P",
+			"Duraction": "I",
+			"Drain": -6,
+			"Ref": {
 				"SR5": {
 					"book": "Shadowrun 5th",
 					"page": "p284"
@@ -97,11 +97,11 @@
 		"Analyze Device": {
 			"Name": "Analyze Device",
 			"details": "Active, Directional",
-			"type": "P",
-			"duraction": "S",
-			"range": "T",
-			"drain": -3,
-			"ref": {
+			"Type": "P",
+			"Duraction": "S",
+			"Range": "T",
+			"Drain": -3,
+			"Ref": {
 				"SR5": {
 					"book": "Shadowrun 5th",
 					"page": "p285"
@@ -119,11 +119,11 @@
 				"Dragons"
 			],
 			"details": "Active, Area",
-			"type": "M",
-			"duraction": "S",
-			"range": "T",
-			"drain": -2,
-			"ref": {
+			"Type": "M",
+			"Duraction": "S",
+			"Range": "T",
+			"Drain": -2,
+			"Ref": {
 				"SR5": {
 					"book": "Shadowrun 5th",
 					"page": "p287"
@@ -141,11 +141,11 @@
 				"Dragons"
 			],
 			"details": "Active, Area Extended",
-			"type": "M",
-			"duraction": "S",
-			"range": "T",
-			"drain": 0,
-			"ref": {
+			"Type": "M",
+			"Duraction": "S",
+			"Range": "T",
+			"Drain": 0,
+			"Ref": {
 				"SR5": {
 					"book": "Shadowrun 5th",
 					"page": "p287"
