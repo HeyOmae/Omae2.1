@@ -2,12 +2,12 @@
 	"Combat": {
 		"Acid Stream": {
 			"Name": "Acid Stream",
-			"Category": "In Direct",
-			"element": "Acid",
+			"Category": "Indirect",
+			"Element": "Acid",
 			"Type": "P",
 			"Range": "LOS",
 			"Damage": "P",
-			"Duraction": "I",
+			"Duration": "I",
 			"Drain": -3,
 			"Ref": {
 				"SR5": {
@@ -18,12 +18,12 @@
 		},
 		"Toxic Wave": {
 			"Name": "Toxic Wave",
-			"Category": "In Direct",
-			"element": "Acid",
+			"Category": "Indirect",
+			"Element": "Acid",
 			"Type": "P",
 			"Range": "LOS(A)",
 			"Damage": "P",
-			"Duraction": "I",
+			"Duration": "I",
 			"Drain": -1,
 			"Ref": {
 				"SR5": {
@@ -34,11 +34,12 @@
 		},
 		"Punch": {
 			"Name": "Punch",
-			"Category": "In Direct",
+			"Category": "Indirect",
+			"Element": "",
 			"Type": "P",
 			"Range": "T",
 			"Damage": "S",
-			"Duraction": "I",
+			"Duration": "I",
 			"Drain": -6,
 			"Ref": {
 				"SR5": {
@@ -49,11 +50,12 @@
 		},
 		"Clout": {
 			"Name": "Clout",
-			"Category": "In Direct",
+			"Category": "Indirect",
+			"Element": "",
 			"Type": "P",
 			"Range": "LOS",
 			"Damage": "S",
-			"Duraction": "I",
+			"Duration": "I",
 			"Drain": -3,
 			"Ref": {
 				"SR5": {
@@ -64,11 +66,12 @@
 		},
 		"Blast": {
 			"Name": "Blast",
-			"Category": "In Direct",
+			"Category": "Indirect",
+			"Element": "",
 			"Type": "P",
 			"Range": "LOS(A)",
 			"Damage": "S",
-			"Duraction": "I",
+			"Duration": "I",
 			"Drain": 0,
 			"Ref": {
 				"SR5": {
@@ -80,10 +83,11 @@
 		"Death Touch": {
 			"Name": "Death Touch",
 			"Category": "Direct",
+			"Element": "",
 			"Type": "M",
 			"Range": "T",
 			"Damage": "P",
-			"Duraction": "I",
+			"Duration": "I",
 			"Drain": -6,
 			"Ref": {
 				"SR5": {
@@ -98,7 +102,7 @@
 			"Name": "Analyze Device",
 			"Details": "Active, Directional",
 			"Type": "P",
-			"Duraction": "S",
+			"Duration": "S",
 			"Range": "T",
 			"Drain": -3,
 			"Ref": {
@@ -121,7 +125,7 @@
 			"Details": "Active, Area",
 			"Type": "M",
 			"Range": "T",
-			"Duraction": "S",
+			"Duration": "S",
 			"Drain": -2,
 			"Ref": {
 				"SR5": {
@@ -143,7 +147,7 @@
 			"Details": "Active, Area Extended",
 			"Type": "M",
 			"Range": "T",
-			"Duraction": "S",
+			"Duration": "S",
 			"Drain": 0,
 			"Ref": {
 				"SR5": {
@@ -159,7 +163,7 @@
 			"Details": "",
 			"Type": "M",
 			"Range": "T",
-			"Duraction": "P",
+			"Duration": "P",
 			"Drain": -3,
 			"Ref": {
 				"SR5": {
@@ -173,7 +177,7 @@
 			"Details": "Essense",
 			"Type": "M",
 			"Range": "T",
-			"Duraction": "P",
+			"Duration": "P",
 			"Drain": -4,
 			"Ref": {
 				"SR5": {
@@ -189,7 +193,7 @@
 			"Details": "Realistic, Single-Sense",
 			"Type": "M",
 			"Range": "LOS",
-			"Duraction": "S",
+			"Duration": "S",
 			"Drain": -4,
 			"Ref": {
 				"SR5": {
@@ -205,7 +209,7 @@
 			"Details": "Physical",
 			"Type": "P",
 			"Range": "LOS",
-			"Duraction": "S",
+			"Duration": "S",
 			"Drain": -1,
 			"Ref": {
 				"SR5": {
