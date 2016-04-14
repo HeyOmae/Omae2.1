@@ -96,7 +96,7 @@
 	"Detection": {
 		"Analyze Device": {
 			"Name": "Analyze Device",
-			"details": "Active, Directional",
+			"Details": "Active, Directional",
 			"Type": "P",
 			"Duraction": "S",
 			"Range": "T",
@@ -110,7 +110,7 @@
 		},
 		"Detect [Life Form]": {
 			"Name": "Detect [Life Form]",
-			"options": [
+			"Options": [
 				"Orks",
 				"Elves",
 				"Dwarves",
@@ -118,10 +118,10 @@
 				"Trolls",
 				"Dragons"
 			],
-			"details": "Active, Area",
+			"Details": "Active, Area",
 			"Type": "M",
-			"Duraction": "S",
 			"Range": "T",
+			"Duraction": "S",
 			"Drain": -2,
 			"Ref": {
 				"SR5": {
@@ -132,7 +132,7 @@
 		},
 		"Detect [Life Form] Extended": {
 			"Name": "Detect [Life Form] Extended",
-			"options": [
+			"Options": [
 				"Orks",
 				"Elves",
 				"Dwarves",
@@ -140,10 +140,10 @@
 				"Trolls",
 				"Dragons"
 			],
-			"details": "Active, Area Extended",
+			"Details": "Active, Area Extended",
 			"Type": "M",
-			"Duraction": "S",
 			"Range": "T",
+			"Duraction": "S",
 			"Drain": 0,
 			"Ref": {
 				"SR5": {
@@ -153,5 +153,66 @@
 			}
 		}
 	},
-
+	"Health": {
+		"Antidote": {
+			"Name": "Antidote",
+			"Details": "",
+			"Type": "M",
+			"Range": "T",
+			"Duraction": "P",
+			"Drain": -3,
+			"Ref": {
+				"SR5": {
+					"book": "Shadowrun 5th",
+					"page": "p288"
+				}
+			}
+		},
+		"Cure Disease": {
+			"Name": "Cure Disease",
+			"Details": "Essense",
+			"Type": "M",
+			"Range": "T",
+			"Duraction": "P",
+			"Drain": -4,
+			"Ref": {
+				"SR5": {
+					"book": "Shadowrun 5th",
+					"page": "p288"
+				}
+			}
+		}
+	},
+	"Illusion": {
+		"Agony": {
+			"Name": "Agony",
+			"Details": "Realistic, Single-Sense",
+			"Type": "M",
+			"Range": "LOS",
+			"Duraction": "S",
+			"Drain": -4,
+			"Ref": {
+				"SR5": {
+					"book": "Shadowrun 5th",
+					"page": "p290"
+				}
+			}
+		}
+	},
+	"Manipulation": {
+		"Animate": {
+			"Name": "Animate",
+			"Details": "Physical",
+			"Type": "P",
+			"Range": "LOS",
+			"Duraction": "S",
+			"Drain": -1,
+			"Ref": {
+				"SR5": {
+					"book": "Shadowrun 5th",
+					"page": "p292"
+				}
+			}
+		}
+	}
 }
