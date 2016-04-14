@@ -224,7 +224,7 @@
 				]
 			},
 			"longarms": {
-				"name": "Long Arms",
+				"name": "Longarms",
 				"catalog": "agility",
 				"stat": "agi",
 				"defaultable": true,
