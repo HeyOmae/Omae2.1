@@ -5,6 +5,7 @@ import Modal from '../ModalComponent';
 
 require('styles//magic/MagicSelection.sass');
 const priorityData = require('json!../data/priority.json');
+const spellData = require('json!../data/spells.json');
 
 
 class MagicSelectionComponent extends React.Component {
@@ -42,6 +43,7 @@ class MagicSelectionComponent extends React.Component {
 }
 
 const SpellsSelection = () => {
+	
 	return (
 		<ol>
 			<li>Magic Spell here</li>
