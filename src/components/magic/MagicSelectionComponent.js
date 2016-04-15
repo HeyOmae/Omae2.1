@@ -12,7 +12,17 @@ class MagicSelectionComponent extends React.Component {
 	render() {
 		const awakenTypes = ['Mage', 'Mystic', 'Technomancer','Adept', 'Aspected', 'mundane'],
 			{magicPriority, magictype, actions} = this.props;
-		let awakenButtons = [];
+		let awakenButtons = [],
+			spells = {
+				Combat: [],
+				Detection: [],
+				Health: [],
+				Illusion: [],
+				Manipulation: [],
+				Rituals: [],
+				Enchantments: []
+			},
+			spellModals = [];
 
 		awakenTypes.forEach((typeName) => {
 			let selectedMagictype = magictype === typeName;
@@ -27,6 +37,33 @@ class MagicSelectionComponent extends React.Component {
 				/>
 			);
 		});
+
+		spellData.forEach((spell)=>{
+			spells[spell.category].push(
+				<tr key={spell.name.replace(/\s/g, '-')}>
+					<td><button className="btn btn-success">+</button></td>
+					<td>{spell.name}</td>
+					<td>{spell.descriptor}</td>
+					<td>{spell.type}</td>
+					<td>{spell.range}</td>
+					{spell.damage ? <td>{spell.damage}</td> : null}
+					<td>{spell.duraction}</td>
+					<td>{spell.dv}</td>
+					<td>{spell.source + ' p' + spell.page}</td>
+				</tr>
+			);
+		});
+
+		for(let spellCat in spells) {
+			spellModals.push(
+				<Modal
+					key={'spells-' + spellCat}
+					modalName={spellCat}
+					modalContent={<SpellsSelection
+						spellRow={spells[spellCat]}/>}/>
+			);
+		}
+
 		return (
 			<div className="magicselection-component">
 				<h2>Magic/Resonance</h2>
@@ -34,22 +71,17 @@ class MagicSelectionComponent extends React.Component {
 					{awakenButtons}
 				</div>
 				<h3>Spells</h3>
-				<Modal
-					modalName="Spells List"
-					modalContent={<SpellsSelection/>}/>
+				{spellModals}
 			</div>
 		);
 	}
 }
 
-const SpellsSelection = () => {
-
+const SpellsSelection = ({spellRow}) => {
 	return (
 		<table className="table">
 			<tbody>
-				<tr>
-					<td>Testing</td>
-				</tr>
+				{spellRow}
 			</tbody>
 		</table>
 	);
