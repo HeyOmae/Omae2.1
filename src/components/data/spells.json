@@ -1,222 +1,3945 @@
-{
-	"Combat": {
-		"Acid Stream": {
-			"Name": "Acid Stream",
-			"Category": "Indirect",
-			"Element": "Acid",
-			"Type": "P",
-			"Range": "LOS",
-			"Damage": "P",
-			"Duration": "I",
-			"Drain": -3,
-			"Ref": {
-				"SR5": {
-					"book": "Shadowrun 5th",
-					"page": "p283"
-				}
-			}
-		},
-		"Toxic Wave": {
-			"Name": "Toxic Wave",
-			"Category": "Indirect",
-			"Element": "Acid",
-			"Type": "P",
-			"Range": "LOS(A)",
-			"Damage": "P",
-			"Duration": "I",
-			"Drain": -1,
-			"Ref": {
-				"SR5": {
-					"book": "Shadowrun 5th",
-					"page": "p283"
-				}
-			}
-		},
-		"Punch": {
-			"Name": "Punch",
-			"Category": "Indirect",
-			"Element": "",
-			"Type": "P",
-			"Range": "T",
-			"Damage": "S",
-			"Duration": "I",
-			"Drain": -6,
-			"Ref": {
-				"SR5": {
-					"book": "Shadowrun 5th",
-					"page": "p283"
-				}
-			}
-		},
-		"Clout": {
-			"Name": "Clout",
-			"Category": "Indirect",
-			"Element": "",
-			"Type": "P",
-			"Range": "LOS",
-			"Damage": "S",
-			"Duration": "I",
-			"Drain": -3,
-			"Ref": {
-				"SR5": {
-					"book": "Shadowrun 5th",
-					"page": "p284"
-				}
-			}
-		},
-		"Blast": {
-			"Name": "Blast",
-			"Category": "Indirect",
-			"Element": "",
-			"Type": "P",
-			"Range": "LOS(A)",
-			"Damage": "S",
-			"Duration": "I",
-			"Drain": 0,
-			"Ref": {
-				"SR5": {
-					"book": "Shadowrun 5th",
-					"page": "p284"
-				}
-			}
-		},
-		"Death Touch": {
-			"Name": "Death Touch",
-			"Category": "Direct",
-			"Element": "",
-			"Type": "M",
-			"Range": "T",
-			"Damage": "P",
-			"Duration": "I",
-			"Drain": -6,
-			"Ref": {
-				"SR5": {
-					"book": "Shadowrun 5th",
-					"page": "p284"
-				}
-			}
+[{
+	"id": "c78d91cc-fa02-48c3-a243-28823a2038ef",
+	"name": "Acid Stream",
+	"descriptor": "Indirect, Elemental",
+	"category": "Combat",
+	"type": "P",
+	"range": "LOS",
+	"damage": "P",
+	"duration": "I",
+	"dv": "F-3",
+	"source": "SR5",
+	"page": "283"
+}, {
+	"id": "87cb3685-22e8-46fa-890f-f3cfef10a71f",
+	"name": "Toxic Wave",
+	"descriptor": "Indirect, Elemental, Area",
+	"category": "Combat",
+	"type": "P",
+	"range": "LOS (A)",
+	"damage": "P",
+	"duration": "I",
+	"dv": "F-1",
+	"source": "SR5",
+	"page": "283"
+}, {
+	"id": "10dd2924-36c6-42a3-8715-694c29c1fd48",
+	"name": "Punch",
+	"descriptor": "Indirect",
+	"category": "Combat",
+	"type": "P",
+	"range": "T",
+	"damage": "S",
+	"duration": "I",
+	"dv": "F-6",
+	"source": "SR5",
+	"page": "283"
+}, {
+	"id": "241b9811-e7d8-41d5-b4cc-444e599599fc",
+	"name": "Clout",
+	"descriptor": "Indirect",
+	"category": "Combat",
+	"type": "P",
+	"range": "LOS",
+	"damage": "S",
+	"duration": "I",
+	"dv": "F-3",
+	"source": "SR5",
+	"page": "284"
+}, {
+	"id": "187b1ffe-470c-4672-ba9d-376ee1856a1c",
+	"name": "Blast",
+	"descriptor": "Indirect, Area",
+	"category": "Combat",
+	"type": "P",
+	"range": "LOS (A)",
+	"damage": "S",
+	"duration": "I",
+	"dv": "F",
+	"source": "SR5",
+	"page": "284"
+}, {
+	"id": "9baed162-5e84-4f19-9b94-d543a560c067",
+	"name": "Death Touch",
+	"descriptor": "Direct, Touch",
+	"category": "Combat",
+	"type": "M",
+	"range": "T",
+	"damage": "P",
+	"duration": "I",
+	"dv": "F-6",
+	"source": "SR5",
+	"page": "284"
+}, {
+	"id": "85c12bae-3954-483c-a211-d8ee43a1c65e",
+	"name": "Manabolt",
+	"descriptor": "Direct",
+	"category": "Combat",
+	"type": "M",
+	"range": "LOS",
+	"damage": "P",
+	"duration": "I",
+	"dv": "F-3",
+	"source": "SR5",
+	"page": "284"
+}, {
+	"id": "d866f612-7160-41d2-8ce9-b64262327559",
+	"name": "Manaball",
+	"descriptor": "Direct",
+	"category": "Combat",
+	"type": "M",
+	"range": "LOS (A)",
+	"damage": "P",
+	"duration": "I",
+	"dv": "F",
+	"source": "SR5",
+	"page": "284"
+}, {
+	"id": "02de7f2a-3c8e-48a5-b7d1-0bf9854271aa",
+	"name": "Flamethrower",
+	"descriptor": "Indirect",
+	"category": "Combat",
+	"type": "P",
+	"range": "LOS",
+	"damage": "P",
+	"duration": "I",
+	"dv": "F-3",
+	"source": "SR5",
+	"page": "284"
+}, {
+	"id": "9ce1e699-3c30-4184-858b-d5539935ef96",
+	"name": "Fireball",
+	"descriptor": "Indirect, Elemental, Area",
+	"category": "Combat",
+	"type": "P",
+	"range": "LOS (A)",
+	"damage": "P",
+	"duration": "I",
+	"dv": "F-1",
+	"source": "SR5",
+	"page": "284"
+}, {
+	"id": "b39ec682-8409-4546-be00-7615583e6541",
+	"name": "Lightning Bolt",
+	"descriptor": "Indirect, Elemental",
+	"category": "Combat",
+	"type": "P",
+	"range": "LOS",
+	"damage": "P",
+	"duration": "I",
+	"dv": "F-3",
+	"source": "SR5",
+	"page": "284"
+}, {
+	"id": "9b5c1538-d66b-4b71-9953-78817aaef6e4",
+	"name": "Ball Lightning",
+	"descriptor": "Indirect, Elemental, Area",
+	"category": "Combat",
+	"type": "P",
+	"range": "LOS (A)",
+	"damage": "P",
+	"duration": "I",
+	"dv": "F-1",
+	"source": "SR5",
+	"page": "284"
+}, {
+	"id": "92467147-ce2c-480e-b4e0-f4a269c2ad86",
+	"name": "Shatter",
+	"descriptor": "Direct, Touch",
+	"category": "Combat",
+	"type": "P",
+	"range": "T",
+	"damage": "P",
+	"duration": "I",
+	"dv": "F-6",
+	"source": "SR5",
+	"page": "284"
+}, {
+	"id": "a7f17805-3e3e-4a12-8580-b9de0d7499ef",
+	"name": "Powerbolt",
+	"descriptor": "Direct",
+	"category": "Combat",
+	"type": "P",
+	"range": "LOS",
+	"damage": "P",
+	"duration": "I",
+	"dv": "F-3",
+	"source": "SR5",
+	"page": "284"
+}, {
+	"id": "1e25e684-9eec-4d1a-acac-488c8c00c24f",
+	"name": "Powerball",
+	"descriptor": "Direct, Area",
+	"category": "Combat",
+	"type": "P",
+	"range": "LOS (A)",
+	"damage": "P",
+	"duration": "I",
+	"dv": "F",
+	"source": "SR5",
+	"page": "284"
+}, {
+	"id": "6cbe13c4-ef28-43b7-9715-bccb7c153999",
+	"name": "Knockout",
+	"descriptor": "Direct",
+	"category": "Combat",
+	"type": "M",
+	"range": "T",
+	"damage": "S",
+	"duration": "I",
+	"dv": "F-6",
+	"source": "SR5",
+	"page": "284"
+}, {
+	"id": "47423962-6b73-4cc3-ad4e-e8d037cf9507",
+	"name": "Stunbolt",
+	"descriptor": "Direct",
+	"category": "Combat",
+	"type": "M",
+	"range": "LOS",
+	"damage": "S",
+	"duration": "I",
+	"dv": "F-3",
+	"source": "SR5",
+	"page": "284"
+}, {
+	"id": "e9f1e14b-1f59-46d6-9e9f-e808d7316d76",
+	"name": "Stunball",
+	"descriptor": "Direct, Area",
+	"category": "Combat",
+	"type": "M",
+	"range": "LOS (A)",
+	"damage": "S",
+	"duration": "I",
+	"dv": "F",
+	"source": "SR5",
+	"page": "284"
+}, {
+	"id": "e81dda32-1c97-482b-a6a5-ddd12eded03a",
+	"name": "Analyze Device",
+	"descriptor": "Active, Directional",
+	"category": "Detection",
+	"type": "P",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-3",
+	"source": "SR5",
+	"page": "285"
+}, {
+	"id": "4828522d-848c-4ebe-850e-fa3f3babf241",
+	"name": "Analyze Magic",
+	"descriptor": "Active, Directional",
+	"category": "Detection",
+	"type": "P",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-3",
+	"source": "SR5",
+	"page": "285"
+}, {
+	"id": "933a534c-ad50-4c87-be65-2230d56f5fcd",
+	"name": "Analyze Truth",
+	"descriptor": "Active, Directional",
+	"category": "Detection",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-2",
+	"source": "SR5",
+	"page": "286"
+}, {
+	"id": "fb44d690-17c0-4d22-819e-8b7b463b2599",
+	"name": "Clairaudience",
+	"descriptor": "Passive, Directional",
+	"category": "Detection",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-3",
+	"source": "SR5",
+	"page": "286"
+}, {
+	"id": "d82c56f8-9231-48a9-9dea-dea6c513caad",
+	"name": "Clairvoyance",
+	"descriptor": "Passive, Directional",
+	"category": "Detection",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-3",
+	"source": "SR5",
+	"page": "286"
+}, {
+	"id": "a6bd05ed-b72f-4886-bb8b-6aba947e8cf5",
+	"name": "Combat Sense",
+	"descriptor": "Passive, Psychic",
+	"category": "Detection",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F",
+	"source": "SR5",
+	"page": "286"
+}, {
+	"id": "e343f716-a5b6-46a7-8bff-60b6c175db60",
+	"name": "Detect Enemies",
+	"descriptor": "Active, Area",
+	"category": "Detection",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-2",
+	"source": "SR5",
+	"page": "286"
+}, {
+	"id": "fff36d4c-1462-4795-80ec-fe58132e027e",
+	"name": "Detect Enemies, Extended",
+	"descriptor": "Active, Extended Area",
+	"category": "Detection",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F",
+	"source": "SR5",
+	"page": "286"
+}, {
+	"id": "410dd014-d849-42d7-834b-76912579ee72",
+	"name": "Detect Individual",
+	"descriptor": "Active, Area",
+	"category": "Detection",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-3",
+	"source": "SR5",
+	"page": "286"
+}, {
+	"id": "7231e696-8839-4ec8-b12e-213b79bb643d",
+	"name": "Detect Life",
+	"descriptor": "Active, Area",
+	"category": "Detection",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-3",
+	"source": "SR5",
+	"page": "286"
+}, {
+	"id": "9bcd193f-b149-4c04-bb0e-8b2d66dae241",
+	"name": "Detect Life, Extended",
+	"descriptor": "Active, Extended Area",
+	"category": "Detection",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-1",
+	"source": "SR5",
+	"page": "286"
+}, {
+	"id": "f43c484c-a98a-4831-8ead-adb4216a7c30",
+	"name": "Detect [Life Form]",
+	"descriptor": "Active, Area",
+	"category": "Detection",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-2",
+	"bonus": {
+
+	},
+	"source": "SR5",
+	"page": "287"
+}, {
+	"id": "88c5059f-8f53-4910-9873-b5a5f87850e3",
+	"name": "Detect [Life Form], Extended",
+	"descriptor": "Active, Area",
+	"category": "Detection",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F",
+	"bonus": {
+
+	},
+	"source": "SR5",
+	"page": "287"
+}, {
+	"id": "9d2a045b-11b6-4385-a851-30b8ba9c2e7f",
+	"name": "Detect Magic",
+	"descriptor": "Active, Area",
+	"category": "Detection",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-2",
+	"source": "SR5",
+	"page": "287"
+}, {
+	"id": "96fdf1da-d4e7-460c-a172-3f7a7b56ac67",
+	"name": "Detect Magic, Extended",
+	"descriptor": "Active, Extended Area",
+	"category": "Detection",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F",
+	"source": "SR5",
+	"page": "287"
+}, {
+	"id": "5574e0a7-d089-4c6d-a033-a157fbe681c0",
+	"name": "Detect [Object]",
+	"descriptor": "Active, Area",
+	"category": "Detection",
+	"type": "P",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-2",
+	"bonus": {
+
+	},
+	"source": "SR5",
+	"page": "287"
+}, {
+	"id": "7c4a2ba3-3ee3-4f34-bb16-17645ef90932",
+	"name": "Mindlink",
+	"descriptor": "Active, Psychic",
+	"category": "Detection",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-1",
+	"source": "SR5",
+	"page": "287"
+}, {
+	"id": "fc5bf8bd-1c7e-4093-bd86-4d9943aafbd4",
+	"name": "Mind Probe",
+	"descriptor": "Active, Directional",
+	"category": "Detection",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F",
+	"source": "SR5",
+	"page": "287"
+}, {
+	"id": "92fe97e1-2f16-4398-b12b-b29bfa23c75d",
+	"name": "Antidote",
+	"category": "Health",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "P",
+	"dv": "F-3",
+	"source": "SR5",
+	"page": "288"
+}, {
+	"id": "a5096a06-4dee-40f6-879b-b88616cdb728",
+	"name": "Awaken",
+	"category": "Health",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "(F/2)-4",
+	"source": "SG",
+	"page": "109"
+}, {
+	"id": "13999091-25c8-4b72-add4-bff3b97eb0a6",
+	"name": "Cure Disease",
+	"descriptor": "Essence",
+	"category": "Health",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "P",
+	"dv": "F-4",
+	"source": "SR5",
+	"page": "288"
+}, {
+	"id": "31e68920-f354-4d38-b008-87f843957bba",
+	"name": "Decrease [Attribute]",
+	"descriptor": "Essence",
+	"category": "Health",
+	"type": "P",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-2",
+	"bonus": {
+		"selectattribute": {
+			"excludeattribute": [
+				"INI",
+				"MAG",
+				"RES",
+				"EDG"
+			]
 		}
 	},
-	"Detection": {
-		"Analyze Device": {
-			"Name": "Analyze Device",
-			"Details": "Active, Directional",
-			"Type": "P",
-			"Duration": "S",
-			"Range": "T",
-			"Drain": -3,
-			"Ref": {
-				"SR5": {
-					"book": "Shadowrun 5th",
-					"page": "p285"
-				}
-			}
-		},
-		"Detect [Life Form]": {
-			"Name": "Detect [Life Form]",
-			"Options": [
-				"Orks",
-				"Elves",
-				"Dwarves",
-				"Humans",
-				"Trolls",
-				"Dragons"
-			],
-			"Details": "Active, Area",
-			"Type": "M",
-			"Range": "T",
-			"Duration": "S",
-			"Drain": -2,
-			"Ref": {
-				"SR5": {
-					"book": "Shadowrun 5th",
-					"page": "p287"
-				}
-			}
-		},
-		"Detect [Life Form] Extended": {
-			"Name": "Detect [Life Form] Extended",
-			"Options": [
-				"Orks",
-				"Elves",
-				"Dwarves",
-				"Humans",
-				"Trolls",
-				"Dragons"
-			],
-			"Details": "Active, Area Extended",
-			"Type": "M",
-			"Range": "T",
-			"Duration": "S",
-			"Drain": 0,
-			"Ref": {
-				"SR5": {
-					"book": "Shadowrun 5th",
-					"page": "p287"
-				}
-			}
+	"source": "SR5",
+	"page": "288"
+}, {
+	"id": "3d019dea-b5ae-4f9c-ab14-eb8a329ed9ba",
+	"name": "Detox",
+	"category": "Health",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "P",
+	"dv": "F-6",
+	"source": "SR5",
+	"page": "288"
+}, {
+	"id": "c09e8bb5-4bed-44f9-a41c-bed6a4deb871",
+	"name": "Heal",
+	"descriptor": "Essence",
+	"category": "Health",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "P",
+	"dv": "F-4",
+	"source": "SR5",
+	"page": "288"
+}, {
+	"id": "c72c3fe1-61b1-4a5d-8c15-2bca2c6c904d",
+	"name": "Increase [Attribute]",
+	"descriptor": "Essence",
+	"category": "Health",
+	"type": "P",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-3",
+	"bonus": {
+		"selectattribute": {
+			"excludeattribute": [
+				"INI",
+				"MAG",
+				"RES",
+				"EDG"
+			]
 		}
 	},
-	"Health": {
-		"Antidote": {
-			"Name": "Antidote",
-			"Details": "",
-			"Type": "M",
-			"Range": "T",
-			"Duration": "P",
-			"Drain": -3,
-			"Ref": {
-				"SR5": {
-					"book": "Shadowrun 5th",
-					"page": "p288"
-				}
-			}
-		},
-		"Cure Disease": {
-			"Name": "Cure Disease",
-			"Details": "Essense",
-			"Type": "M",
-			"Range": "T",
-			"Duration": "P",
-			"Drain": -4,
-			"Ref": {
-				"SR5": {
-					"book": "Shadowrun 5th",
-					"page": "p288"
-				}
-			}
+	"source": "SR5",
+	"page": "288"
+}, {
+	"id": "37b3d6ac-624a-42d4-bd6e-a12142dc5725",
+	"name": "Increase Reflexes",
+	"descriptor": "Essence",
+	"category": "Health",
+	"type": "P",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F",
+	"source": "SR5",
+	"page": "288"
+}, {
+	"id": "5ac26e0f-3c01-43a7-a6d4-46f9193851ea",
+	"name": "Oxygenate",
+	"category": "Health",
+	"type": "P",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-5",
+	"source": "SR5",
+	"page": "288"
+}, {
+	"id": "0d0e3e2d-5223-4258-b885-12848833eb08",
+	"name": "Prophylaxis",
+	"category": "Health",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-4",
+	"source": "SR5",
+	"page": "289"
+}, {
+	"id": "0556d652-82ef-43be-a800-0d9335dbae4c",
+	"name": "Resist Pain",
+	"category": "Health",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "P",
+	"dv": "-4",
+	"source": "SR5",
+	"page": "289"
+}, {
+	"id": "6f9b1dd2-b0e7-4e3f-a140-72c987b77705",
+	"name": "Stabilize",
+	"category": "Health",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "P",
+	"dv": "F-4",
+	"source": "SR5",
+	"page": "289"
+}, {
+	"id": "46b12a6a-9d9d-4176-bfd6-80e8e21cb0e4",
+	"name": "Agony",
+	"descriptor": "Realistic, Single-Sense",
+	"category": "Illusion",
+	"type": "M",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-4",
+	"source": "SR5",
+	"page": "290"
+}, {
+	"id": "b11af57e-bacc-4f13-8d75-d1201ec6f4f5",
+	"name": "Mass Agony",
+	"descriptor": "Realistic, Single-Sense",
+	"category": "Illusion",
+	"type": "M",
+	"range": "LOS (A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-2",
+	"source": "SR5",
+	"page": "290"
+}, {
+	"id": "5ab4bf6b-9c90-4fbb-9005-b9545a51bec1",
+	"name": "Bugs",
+	"descriptor": "Realistic, Multi-Sense",
+	"category": "Illusion",
+	"type": "M",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-3",
+	"source": "SR5",
+	"page": "290"
+}, {
+	"id": "d6725f7f-8084-4f36-8b46-e37e1c329af6",
+	"name": "Swarm",
+	"descriptor": "Realistic, Multi-Sense, Area",
+	"category": "Illusion",
+	"type": "M",
+	"range": "LOS (A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-1",
+	"source": "SR5",
+	"page": "290"
+}, {
+	"id": "4268d83b-c208-4aa3-8924-5620516f8434",
+	"name": "Chaos",
+	"descriptor": "Realistic, Multi-Sense",
+	"category": "Illusion",
+	"type": "P",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-2",
+	"source": "SR5",
+	"page": "290"
+}, {
+	"id": "075f38b3-8d65-44c0-8492-4d4e992e6b80",
+	"name": "Chaotic World",
+	"descriptor": "Realistic, Multi-Sense, Area",
+	"category": "Illusion",
+	"type": "P",
+	"range": "LOS (A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F",
+	"source": "SR5",
+	"page": "290"
+}, {
+	"id": "5636bbee-fadd-4f5c-bf77-c15b05e8d265",
+	"name": "Confusion",
+	"descriptor": "Realistic, Multi-Sense",
+	"category": "Illusion",
+	"type": "M",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-3",
+	"source": "SR5",
+	"page": "290"
+}, {
+	"id": "1041d1cb-bbc2-4718-ae56-3d8c4276b77b",
+	"name": "Mass Confusion",
+	"descriptor": "Realistic, Multi-Sense, Area",
+	"category": "Illusion",
+	"type": "M",
+	"range": "LOS (A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-1",
+	"source": "SR5",
+	"page": "290"
+}, {
+	"id": "d4e9d465-160f-4148-a755-27b50616f240",
+	"name": "Entertainment",
+	"descriptor": "Obvious, Multi-Sense, Area",
+	"category": "Illusion",
+	"type": "M",
+	"range": "LOS (A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-3",
+	"source": "SR5",
+	"page": "290"
+}, {
+	"id": "56be1e57-eca7-4253-970a-b561e23b1e8d",
+	"name": "Trid Entertainment",
+	"descriptor": "Obvious, Multi-Sense, Area",
+	"category": "Illusion",
+	"type": "P",
+	"range": "LOS (A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-2",
+	"source": "SR5",
+	"page": "290"
+}, {
+	"id": "1d9430e9-3ae9-4c0a-ba60-ee92c245ee08",
+	"name": "Improved Invisibility",
+	"descriptor": "Realistic, Single-Sense",
+	"category": "Illusion",
+	"type": "P",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-1",
+	"source": "SR5",
+	"page": "291"
+}, {
+	"id": "4b929a2d-908e-40ab-babc-e262b7f69a28",
+	"name": "Invisibility",
+	"descriptor": "Realistic, Single-Sense",
+	"category": "Illusion",
+	"type": "M",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-2",
+	"source": "SR5",
+	"page": "291"
+}, {
+	"id": "435ba03c-2b21-4bcb-858a-cc175f7b41d7",
+	"name": "Mask",
+	"descriptor": "Realistic, Multi-Sense",
+	"category": "Illusion",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-2",
+	"source": "SR5",
+	"page": "291"
+}, {
+	"id": "af339680-1d73-44b8-a2aa-7d9b7630a647",
+	"name": "Physical Mask",
+	"descriptor": "Realistic, Multi-Sense",
+	"category": "Illusion",
+	"type": "P",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-1",
+	"source": "SR5",
+	"page": "291"
+}, {
+	"id": "52acdeb6-3ec4-417c-a768-e6a445117f69",
+	"name": "Phantasm",
+	"descriptor": "Realistic, Multi-Sense, Area",
+	"category": "Illusion",
+	"type": "M",
+	"range": "LOS (A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-1",
+	"source": "SR5",
+	"page": "291"
+}, {
+	"id": "444adc27-26c7-4ff1-894f-a55fea22e24a",
+	"name": "Trid Phantasm",
+	"descriptor": "Realistic, Multi-Sense, Area",
+	"category": "Illusion",
+	"type": "P",
+	"range": "LOS (A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F",
+	"source": "SR5",
+	"page": "291"
+}, {
+	"id": "4ba6626f-4109-4451-ab0a-e659752ab15e",
+	"name": "Hush",
+	"descriptor": "Realistic, Single-Sense, Area",
+	"category": "Illusion",
+	"type": "M",
+	"range": "LOS (A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-2",
+	"source": "SR5",
+	"page": "291"
+}, {
+	"id": "c307d243-669b-47d0-9642-aee7f9207e63",
+	"name": "Silence",
+	"descriptor": "Realistic, Single-Sense, Area",
+	"category": "Illusion",
+	"type": "P",
+	"range": "LOS (A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-1",
+	"source": "SR5",
+	"page": "291"
+}, {
+	"id": "370e0dfb-550e-4330-92eb-9ef3b8a044b5",
+	"name": "Stealth",
+	"descriptor": "Realistic, Single-Sense",
+	"category": "Illusion",
+	"type": "P",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-2",
+	"source": "SR5",
+	"page": "292"
+}, {
+	"id": "b447e60d-88b6-48e4-a595-6dae86581867",
+	"name": "Animate",
+	"descriptor": "Physical",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-1",
+	"source": "SR5",
+	"page": "292"
+}, {
+	"id": "13577f45-cb22-4285-bbf4-06072286dfbb",
+	"name": "Mass Animate",
+	"descriptor": "Physical",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "LOS (A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F+1",
+	"source": "SR5",
+	"page": "292"
+}, {
+	"id": "794f21eb-dc8d-45e8-b9b0-b85b810437f3",
+	"name": "Armor",
+	"descriptor": "Physical",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-2",
+	"source": "SR5",
+	"page": "292"
+}, {
+	"id": "32a6a213-8c89-4efe-b56d-042814a13b9f",
+	"name": "Control Actions",
+	"descriptor": "Mental",
+	"category": "Manipulation",
+	"type": "M",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-1",
+	"source": "SR5",
+	"page": "292"
+}, {
+	"id": "0404dc24-1305-4891-899f-d45ddff2811c",
+	"name": "Mob Control",
+	"descriptor": "Mental",
+	"category": "Manipulation",
+	"type": "M",
+	"range": "LOS (A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F+1",
+	"source": "SR5",
+	"page": "292"
+}, {
+	"id": "d97d3ece-e21b-42c7-bfeb-4ca3834587c0",
+	"name": "Control Thoughts",
+	"descriptor": "Mental",
+	"category": "Manipulation",
+	"type": "M",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-1",
+	"source": "SR5",
+	"page": "293"
+}, {
+	"id": "64904294-a652-4361-8809-ce37a8d79f8f",
+	"name": "Mob Mind",
+	"descriptor": "Mental",
+	"category": "Manipulation",
+	"type": "M",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F+1",
+	"source": "SR5",
+	"page": "293"
+}, {
+	"id": "52bd988c-88a5-4f07-8f02-f8a5f202ef8d",
+	"name": "Fling",
+	"descriptor": "Physical, Damaging",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "I",
+	"dv": "F-2",
+	"source": "SR5",
+	"page": "293"
+}, {
+	"id": "ee7c25c2-77af-4c08-827c-9e0f39af9bd4",
+	"name": "Ice Sheet",
+	"descriptor": "Environmental, Area",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "LOS (A)",
+	"damage": "0",
+	"duration": "I",
+	"dv": "F",
+	"source": "SR5",
+	"page": "293"
+}, {
+	"id": "459e6c2d-d0b7-4c0e-a85a-dc5d8e794930",
+	"name": "Ignite",
+	"descriptor": "Physical",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "P",
+	"dv": "F-1",
+	"source": "SR5",
+	"page": "293"
+}, {
+	"id": "600a7cce-effd-4bd3-8d20-0f840cd1bf22",
+	"name": "Influence",
+	"descriptor": "Mental",
+	"category": "Manipulation",
+	"type": "M",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "P",
+	"dv": "F-1",
+	"source": "SR5",
+	"page": "293"
+}, {
+	"id": "8be2c62c-b2c9-435e-8721-dfad01f5161a",
+	"name": "Levitate",
+	"descriptor": "Physical",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-2",
+	"source": "SR5",
+	"page": "293"
+}, {
+	"id": "70db860e-f66f-411d-bab4-d1dccbc0ce9f",
+	"name": "Light",
+	"descriptor": "Environmental, Area",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "LOS (A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-4",
+	"source": "SR5",
+	"page": "293"
+}, {
+	"id": "036b3b19-caa7-4da1-b2de-f887ac3a6d20",
+	"name": "Magic Fingers",
+	"descriptor": "Physical",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-2",
+	"source": "SR5",
+	"page": "294"
+}, {
+	"id": "b1d545b6-2498-4682-8058-a3f7783c1c84",
+	"name": "Mana Barrier",
+	"descriptor": "Environmental, Area",
+	"category": "Manipulation",
+	"type": "M",
+	"range": "LOS (A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-2",
+	"source": "SR5",
+	"page": "294"
+}, {
+	"id": "1e1e488d-d727-43f8-900d-5c171c320d1d",
+	"name": "Physical Barrier",
+	"descriptor": "Environmental, Area",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "LOS (A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-1",
+	"source": "SR5",
+	"page": "294"
+}, {
+	"id": "d7d6bbf6-6855-47ce-9865-5a01db507d71",
+	"name": "Poltergeist",
+	"descriptor": "Environmental, Area",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "LOS (A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-2",
+	"source": "SR5",
+	"page": "294"
+}, {
+	"id": "6aa76b6a-0096-4e09-a672-d8de84885017",
+	"name": "Shadow",
+	"descriptor": "Environmental, Area",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "LOS (A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-3",
+	"source": "SR5",
+	"page": "294"
+}, {
+	"id": "0d15391d-b247-439c-aac6-c671c4f60204",
+	"name": "Curse",
+	"descriptor": "Material Link, Spell",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"source": "SR5",
+	"page": "297"
+}, {
+	"id": "716ce109-40df-46f2-b445-692f96e62537",
+	"name": "Prodigal Spell",
+	"descriptor": "Spell, Spotter",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"source": "SR5",
+	"page": "297"
+}, {
+	"id": "b561907f-9b1b-4153-b314-155acc8139d2",
+	"name": "Remote Sensing",
+	"descriptor": "Spell, Spotter",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"source": "SR5",
+	"page": "297"
+}, {
+	"id": "3cea53a2-7628-4009-9bc4-af2f141fc28d",
+	"name": "Ward",
+	"descriptor": "Anchored",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"source": "SR5",
+	"page": "297"
+}, {
+	"id": "6f1689d0-1902-4155-b6e8-4451c88348b2",
+	"name": "Circle of Protection",
+	"descriptor": "Anchored",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"source": "SR5",
+	"page": "298"
+}, {
+	"id": "b7e36c07-0ac9-4a13-97b2-932cacc050e9",
+	"name": "Circle of Healing",
+	"descriptor": "Anchored, Spell",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"source": "SR5",
+	"page": "298"
+}, {
+	"id": "27747429-0230-4c46-a7ce-bbee8d7d8c83",
+	"name": "Renascence",
+	"descriptor": "Anchored, Spell",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"source": "SR5",
+	"page": "298"
+}, {
+	"id": "1149e55c-e902-407c-9f40-9c0713447c50",
+	"name": "Watcher",
+	"descriptor": "Minion",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"source": "SR5",
+	"page": "298"
+}, {
+	"id": "f99ab85f-2cc7-4c09-8ea4-581f75e40487",
+	"name": "Homunculus",
+	"descriptor": "Minion",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"source": "SR5",
+	"page": "298"
+}, {
+	"id": "45d775c9-d12f-4416-a45a-88922ec3c2fd",
+	"name": "Corrode [Object]",
+	"descriptor": "Indirect, Touch, Elemental",
+	"category": "Combat",
+	"type": "P",
+	"range": "T",
+	"damage": "P",
+	"duration": "I",
+	"dv": "F-5",
+	"bonus": {
+
+	},
+	"source": "SG",
+	"page": "102"
+}, {
+	"id": "7a2101ff-6606-4b3e-b1c1-2f7ea74679dd",
+	"name": "Melt [Object]",
+	"descriptor": "Indirect, Elemental",
+	"category": "Combat",
+	"type": "P",
+	"range": "LOS",
+	"damage": "P",
+	"duration": "I",
+	"dv": "F-3",
+	"bonus": {
+
+	},
+	"source": "SG",
+	"page": "102"
+}, {
+	"id": "6b12c245-ab52-49df-93fe-670841cb9e3d",
+	"name": "Sludge [Object]",
+	"descriptor": "Indirect, Area, Elemental",
+	"category": "Combat",
+	"type": "P",
+	"range": "LOS(A)",
+	"damage": "P",
+	"duration": "I",
+	"dv": "F-1",
+	"bonus": {
+
+	},
+	"source": "SG",
+	"page": "102"
+}, {
+	"id": "5c9218f6-bdb4-46a5-89ce-00b4adfe0429",
+	"name": "Disrupt [Object]",
+	"descriptor": "Direct",
+	"category": "Combat",
+	"type": "M",
+	"range": "LOS",
+	"damage": "Special",
+	"duration": "I",
+	"dv": "F-2",
+	"bonus": {
+
+	},
+	"source": "SG",
+	"page": "102"
+}, {
+	"id": "a6f43dcf-c0cc-4da9-af25-1516f2564200",
+	"name": "Destroy [Free Spirit]",
+	"descriptor": "Direct",
+	"category": "Combat",
+	"type": "M",
+	"range": "LOS",
+	"damage": "P",
+	"duration": "I",
+	"dv": "F-3",
+	"bonus": {
+
+	},
+	"source": "SG",
+	"page": "103"
+}, {
+	"id": "51f04999-1173-43da-94b6-af3749cb3156",
+	"name": "Destroy [Vehicle]",
+	"descriptor": "Direct",
+	"category": "Combat",
+	"type": "P",
+	"range": "LOS",
+	"damage": "P",
+	"duration": "I",
+	"dv": "F-3",
+	"bonus": {
+
+	},
+	"source": "SG",
+	"page": "103"
+}, {
+	"id": "d3bf1bfc-e104-4b22-a1fe-0aae0ef0b35b",
+	"name": "Firewater",
+	"descriptor": "Indirect, Elemental",
+	"category": "Combat",
+	"type": "P",
+	"range": "LOS",
+	"damage": "P",
+	"duration": "I",
+	"dv": "F-2",
+	"source": "SG",
+	"page": "103"
+}, {
+	"id": "577871f2-f294-4db9-94f0-5790d0576a4b",
+	"name": "Napalm",
+	"descriptor": "Indirect, Area, Elemental",
+	"category": "Combat",
+	"type": "P",
+	"range": "LOS(A)",
+	"damage": "P",
+	"duration": "I",
+	"dv": "F",
+	"source": "SG",
+	"page": "103"
+}, {
+	"id": "ea47eaaf-80e4-4c89-a108-6d2fb3e376dd",
+	"name": "Insecticide [Insect Spirit]",
+	"descriptor": "Direct, Area",
+	"category": "Combat",
+	"type": "M",
+	"range": "LOS(A)",
+	"damage": "P",
+	"duration": "I",
+	"dv": "F+1",
+	"bonus": {
+
+	},
+	"source": "SG",
+	"page": "103"
+}, {
+	"id": "bba17f26-7b83-4904-a5fa-a21ef7cacaa7",
+	"name": "Ice Spear",
+	"descriptor": "Indirect, Elemental",
+	"category": "Combat",
+	"type": "P",
+	"range": "LOS",
+	"damage": "P",
+	"duration": "I",
+	"dv": "F-3",
+	"source": "SG",
+	"page": "103"
+}, {
+	"id": "2c2ad94e-3dd5-40e3-a4e0-74668dae1b48",
+	"name": "Ice Storm",
+	"descriptor": "Indirect, Area, Elemental",
+	"category": "Combat",
+	"type": "P",
+	"range": "LOS(A)",
+	"damage": "P",
+	"duration": "I",
+	"dv": "F+1",
+	"source": "SG",
+	"page": "103"
+}, {
+	"id": "894e4bea-883e-421b-8a6f-6ca61274cca3",
+	"name": "One Less [Metatype/Species]",
+	"descriptor": "Direct, Touch",
+	"category": "Combat",
+	"type": "M",
+	"range": "T",
+	"damage": "P",
+	"duration": "I",
+	"dv": "F-6",
+	"bonus": {
+
+	},
+	"source": "SG",
+	"page": "104"
+}, {
+	"id": "50f1bfce-a64d-4fac-b25d-d870e7ff312f",
+	"name": "Slay [Metatype/Species]",
+	"descriptor": "Direct",
+	"category": "Combat",
+	"type": "M",
+	"range": "LOS",
+	"damage": "P",
+	"duration": "I",
+	"dv": "F-4",
+	"bonus": {
+
+	},
+	"source": "SG",
+	"page": "104"
+}, {
+	"id": "06d5a10b-b353-44bc-936a-4d6c08ebeaf8",
+	"name": "Slaughter [Metatype/Species]",
+	"descriptor": "Direct, Area",
+	"category": "Combat",
+	"type": "M",
+	"range": "LOS(A)",
+	"damage": "P",
+	"duration": "I",
+	"dv": "F-2",
+	"bonus": {
+
+	},
+	"source": "SG",
+	"page": "104"
+}, {
+	"id": "f883ce3d-a3a9-4021-b4f3-7812d6a5f7f1",
+	"name": "Ram [Object]",
+	"descriptor": "Direct, Touch",
+	"category": "Combat",
+	"type": "P",
+	"range": "T",
+	"damage": "P",
+	"duration": "I",
+	"dv": "F-5",
+	"bonus": {
+
+	},
+	"source": "SG",
+	"page": "104"
+}, {
+	"id": "f7494736-bf1f-4d2f-a137-6f43a0248d36",
+	"name": "Wreck [Object]",
+	"descriptor": "Direct",
+	"category": "Combat",
+	"type": "P",
+	"range": "LOS",
+	"damage": "P",
+	"duration": "I",
+	"dv": "F-3",
+	"bonus": {
+
+	},
+	"source": "SG",
+	"page": "105"
+}, {
+	"id": "da0462d4-f068-449d-a3c3-4678dc0adade",
+	"name": "Demolish [Object]",
+	"descriptor": "Direct, Area",
+	"category": "Combat",
+	"type": "P",
+	"range": "LOS(A)",
+	"damage": "P",
+	"duration": "I",
+	"dv": "F-1",
+	"bonus": {
+
+	},
+	"source": "SG",
+	"page": "105"
+}, {
+	"id": "f20e3789-0333-4243-b31c-0dc07f1d8736",
+	"name": "Radiation Beam",
+	"descriptor": "Indirect, Elemental",
+	"category": "Combat",
+	"type": "P",
+	"range": "LOS",
+	"damage": "P",
+	"duration": "I",
+	"dv": "F-3",
+	"source": "SG",
+	"page": "105"
+}, {
+	"id": "793736ac-c4a4-408c-824e-6cc5689622a3",
+	"name": "Radiation Burst",
+	"descriptor": "Indirect, Area, Elemental",
+	"category": "Combat",
+	"type": "P",
+	"range": "LOS(A)",
+	"damage": "P",
+	"duration": "I",
+	"dv": "F-1",
+	"source": "SG",
+	"page": "105"
+}, {
+	"id": "e0b3608a-cf54-4a1d-a99a-a4cd513c5e8a",
+	"name": "Pollutant Stream",
+	"descriptor": "Indirect, Area, Elemental",
+	"category": "Combat",
+	"type": "P",
+	"range": "LOS",
+	"damage": "P",
+	"duration": "I",
+	"dv": "F-3",
+	"source": "SG",
+	"page": "106"
+}, {
+	"id": "7a6579fa-4eda-47e4-96d2-59f4e1f9f567",
+	"name": "Pollutant Wave",
+	"descriptor": "Indirect, Area, Elemental",
+	"category": "Combat",
+	"type": "P",
+	"range": "LOS(A)",
+	"damage": "P",
+	"duration": "I",
+	"dv": "F-1",
+	"source": "SG",
+	"page": "106"
+}, {
+	"id": "0c0c34cb-5df3-4928-8e81-b794ee2fb47c",
+	"name": "Shattershield",
+	"descriptor": "Direct, Touch",
+	"category": "Combat",
+	"type": "M",
+	"range": "T",
+	"damage": "P",
+	"duration": "I",
+	"dv": "F-3",
+	"source": "SG",
+	"page": "106"
+}, {
+	"id": "87c6046a-1f20-4b64-9e89-aec583254a3e",
+	"name": "Astral Message",
+	"descriptor": "Passive, Directional",
+	"category": "Detection",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-3",
+	"source": "SG",
+	"page": "106"
+}, {
+	"id": "c68f9aeb-e7b2-4b2a-9ce4-1ee306412ef7",
+	"name": "Astral Clairvoyance",
+	"descriptor": "Passive, Directional",
+	"category": "Detection",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-3",
+	"source": "SG",
+	"page": "106"
+}, {
+	"id": "3e350a47-4b06-48b1-94ef-fe00c3b86757",
+	"name": "Borrow Sense",
+	"descriptor": "Active, Directional",
+	"category": "Detection",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-3",
+	"source": "SG",
+	"page": "106"
+}, {
+	"id": "2e4c9b88-2203-4ab9-842b-e3c373db6982",
+	"name": "Animal Sense",
+	"descriptor": "Active, Directional",
+	"category": "Detection",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-5",
+	"source": "SG",
+	"page": "106"
+}, {
+	"id": "2f4d4afa-f94a-4659-be2a-9ffbd3589e44",
+	"name": "Eyes of the Pack",
+	"descriptor": "Active, Directional",
+	"category": "Detection",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-1",
+	"source": "SG",
+	"page": "106"
+}, {
+	"id": "d6157db4-8957-4160-ab47-3ded6c4be07c",
+	"name": "Catalog",
+	"descriptor": "Active, Area",
+	"category": "Detection",
+	"type": "P",
+	"range": "T(A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-3",
+	"source": "SG",
+	"page": "107"
+}, {
+	"id": "fdbb2c8e-453b-46cf-8dcd-522c6d3aa3e0",
+	"name": "Diagnose",
+	"descriptor": "Active, Directional",
+	"category": "Detection",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "I",
+	"dv": "F-3",
+	"source": "SG",
+	"page": "107"
+}, {
+	"id": "0b2bd31a-09b2-40b8-a4ab-7c776ef33268",
+	"name": "Dragon Astral Signature",
+	"descriptor": "Active, Psychic, Area",
+	"category": "Detection",
+	"type": "M",
+	"range": "LOS(A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F+5",
+	"source": "SG",
+	"page": "107"
+}, {
+	"id": "96859e68-4051-4805-8de6-4f15ea4dee66",
+	"name": "Enhance Aim",
+	"descriptor": "Passive, Directional",
+	"category": "Detection",
+	"type": "P",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-1",
+	"source": "SG",
+	"page": "107"
+}, {
+	"id": "ba3a8f58-8eeb-49de-97ac-b68ec67b85f5",
+	"name": "Hawkeye",
+	"descriptor": "Passive, Directional",
+	"category": "Detection",
+	"type": "P",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-1",
+	"source": "SG",
+	"page": "107"
+}, {
+	"id": "35d509e2-f0c7-432f-919a-34e526079097",
+	"name": "Mana Window",
+	"descriptor": "Active, Directional",
+	"category": "Detection",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-3",
+	"source": "SG",
+	"page": "107"
+}, {
+	"id": "237ee405-062f-4e11-96a8-78336e1d6a0a",
+	"name": "Astral Window",
+	"descriptor": "Active, Directional",
+	"category": "Detection",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-3",
+	"source": "SG",
+	"page": "107"
+}, {
+	"id": "1a3b7121-ab36-4796-9ac8-2bae53491c5e",
+	"name": "Mindnet",
+	"descriptor": "Active, Psychic, Area",
+	"category": "Detection",
+	"type": "M",
+	"range": "T(A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F",
+	"source": "SG",
+	"page": "108"
+}, {
+	"id": "4af09e0f-93a5-43f5-badb-9f070d574417",
+	"name": "Mindnet Extended",
+	"descriptor": "Active, Psychic, Extended Area",
+	"category": "Detection",
+	"type": "M",
+	"range": "T(A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F+1",
+	"source": "SG",
+	"page": "108"
+}, {
+	"id": "06a54506-0b09-4e5a-91f3-e29b20c8c224",
+	"name": "Night Vision",
+	"descriptor": "Passive, Directional",
+	"category": "Detection",
+	"type": "P",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-3",
+	"source": "SG",
+	"page": "108"
+}, {
+	"id": "b2851e5f-76b8-42a7-8e74-11c0b4b7b67f",
+	"name": "[Sense] Cryptesthesia",
+	"descriptor": "Passive, Directional",
+	"category": "Detection",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-3",
+	"bonus": {
+
+	},
+	"source": "SG",
+	"page": "108"
+}, {
+	"id": "31a6e1bf-403d-47e4-a6dc-fe113fd875f1",
+	"name": "Spatial Sense",
+	"descriptor": "Passive, Area",
+	"category": "Detection",
+	"type": "P",
+	"range": "T(A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-3",
+	"source": "SG",
+	"page": "108"
+}, {
+	"id": "5b72a202-0dcc-44e8-b7ae-f508b7f5319f",
+	"name": "Spatial Sense, Extended",
+	"descriptor": "Passive, Extended Area",
+	"category": "Detection",
+	"type": "P",
+	"range": "T(A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-1",
+	"source": "SG",
+	"page": "108"
+}, {
+	"id": "ab70d6c1-60e8-4475-87ee-16790cb9ff68",
+	"name": "Thought Recognition",
+	"descriptor": "Active, Psychic, Directional",
+	"category": "Detection",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F",
+	"source": "SG",
+	"page": "108"
+}, {
+	"id": "575e98fc-a165-403c-aef0-4877fb75845a",
+	"name": "Area Thought Recognition",
+	"descriptor": "Active, Psychic, Area",
+	"category": "Detection",
+	"type": "M",
+	"range": "LOS(A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F+2",
+	"source": "SG",
+	"page": "108"
+}, {
+	"id": "aaebe992-95e0-4607-a3b4-256455e67791",
+	"name": "Translate",
+	"descriptor": "Active, Psychic, Directional",
+	"category": "Detection",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-4",
+	"source": "SG",
+	"page": "109"
+}, {
+	"id": "f7ad9877-1f67-40a0-9813-ba53db664833",
+	"name": "Ambidexterity",
+	"descriptor": "Essence",
+	"category": "Health",
+	"type": "P",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-3",
+	"source": "SG",
+	"page": "109"
+}, {
+	"id": "ff90355c-5eba-4a35-8bf9-66afff9075ad",
+	"name": "Alleviate Addiction",
+	"descriptor": "Essence",
+	"category": "Health",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-6",
+	"source": "SG",
+	"page": "109"
+}, {
+	"id": "fd407eeb-103e-4bef-a719-1098d8387536",
+	"name": "Alleviate [Allergy]",
+	"descriptor": "Essence",
+	"category": "Health",
+	"type": "P",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-6",
+	"bonus": {
+
+	},
+	"source": "SG",
+	"page": "109"
+}, {
+	"id": "e0ea86bc-06df-4edc-bee1-03b6a2733675",
+	"name": "Crank",
+	"descriptor": "Essence",
+	"category": "Health",
+	"type": "P",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-3",
+	"source": "SG",
+	"page": "109"
+}, {
+	"id": "3c2d97b8-4761-4e5a-ba61-ff4b7a403ead",
+	"name": "Decrease Reflexes",
+	"descriptor": "Negative",
+	"category": "Health",
+	"type": "P",
+	"range": "T",
+	"damage": "0",
+	"duration": "P",
+	"dv": "F-2",
+	"source": "SG",
+	"page": "110"
+}, {
+	"id": "a547f08e-0822-4a1c-968a-a2d6c249572c",
+	"name": "Enabler",
+	"descriptor": "Negative",
+	"category": "Health",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-3",
+	"source": "SG",
+	"page": "110"
+}, {
+	"id": "8c6ce834-d47a-40a6-9e4c-57a1030ce57e",
+	"name": "Fast",
+	"descriptor": "Essence",
+	"category": "Health",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-3",
+	"source": "SG",
+	"page": "110"
+}, {
+	"id": "b1347682-58ad-4684-a93a-3f7703f1b4bf",
+	"name": "Forced Defense",
+	"descriptor": "Essence",
+	"category": "Health",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "I",
+	"dv": "F-1",
+	"source": "SG",
+	"page": "110"
+}, {
+	"id": "80704822-953b-45c5-aa8e-77ca26e6cef7",
+	"name": "Increase Inherent Limits",
+	"descriptor": "Essence",
+	"category": "Health",
+	"type": "P",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-1",
+	"source": "SG",
+	"page": "110"
+}, {
+	"id": "4fbbaf9c-15fb-46ec-b899-5fc48829e52a",
+	"name": "Decrease Inherent Limits",
+	"descriptor": "Negative",
+	"category": "Health",
+	"type": "P",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-1",
+	"source": "SG",
+	"page": "110"
+}, {
+	"id": "f7fb9b03-d7ee-4695-8e38-443a7d2b13e4",
+	"name": "Camouflage",
+	"descriptor": "Realistic, Single-Sense",
+	"category": "Illusion",
+	"type": "M",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-2",
+	"source": "SG",
+	"page": "111"
+}, {
+	"id": "03bcc045-08db-4967-80e3-09640859aa69",
+	"name": "Physical Camouflage",
+	"descriptor": "Realistic, Single-Sense",
+	"category": "Illusion",
+	"type": "P",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F",
+	"source": "SG",
+	"page": "111"
+}, {
+	"id": "55c77b11-0647-4ece-9164-27caeadcf764",
+	"name": "Decoy",
+	"descriptor": "Realistic, Multi-Sense",
+	"category": "Illusion",
+	"type": "P",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-3",
+	"source": "SG",
+	"page": "111"
+}, {
+	"id": "4c01416b-ff1c-4e55-a2eb-b8048b8709e4",
+	"name": "Chaff",
+	"descriptor": "Realistic, Multi-Sense, Area",
+	"category": "Illusion",
+	"type": "P",
+	"range": "LOS(A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-1",
+	"source": "SG",
+	"page": "111"
+}, {
+	"id": "b3179247-4b02-47ea-abb0-0934b673cff2",
+	"name": "Double Image",
+	"descriptor": "Realistic, Multi-Sense",
+	"category": "Illusion",
+	"type": "P",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-1",
+	"source": "SG",
+	"page": "111"
+}, {
+	"id": "8d724d8c-e6a0-41d7-8799-4fbb02de62a0",
+	"name": "Dream",
+	"descriptor": "Realistic, Multi-Sense",
+	"category": "Illusion",
+	"type": "M",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-3",
+	"source": "SG",
+	"page": "111"
+}, {
+	"id": "86dfd77f-afcb-4533-951c-7b2ea8d462c5",
+	"name": "Euphoria",
+	"descriptor": "Realistic, Single-Sense",
+	"category": "Illusion",
+	"type": "M",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-3",
+	"source": "SG",
+	"page": "111"
+}, {
+	"id": "883457da-6b0f-49d8-b40e-fcdf7486737e",
+	"name": "Opium Den",
+	"descriptor": "Realistic, Single-Sense, Area",
+	"category": "Illusion",
+	"type": "M",
+	"range": "LOS(A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-1",
+	"source": "SG",
+	"page": "111"
+}, {
+	"id": "e02e6362-5b3c-410c-818b-890c8d008321",
+	"name": "Foreboding",
+	"descriptor": "Realistic, Multi-Sense, Area",
+	"category": "Illusion",
+	"type": "M",
+	"range": "LOS(A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-3",
+	"source": "SG",
+	"page": "112"
+}, {
+	"id": "b60ef1c2-565a-4b96-9ca2-270905d977ea",
+	"name": "Hot Potato",
+	"descriptor": "Realistic, Multi-Sense, Area",
+	"category": "Illusion",
+	"type": "M",
+	"range": "LOS(A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-3",
+	"source": "SG",
+	"page": "112"
+}, {
+	"id": "945fc713-6e3d-4b1e-b1aa-a1dbd2a9d429",
+	"name": "[Sense] Removal",
+	"descriptor": "Realistic, Single-Sense",
+	"category": "Illusion",
+	"type": "P",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-3",
+	"bonus": {
+
+	},
+	"source": "SG",
+	"page": "112"
+}, {
+	"id": "4dad17ac-f04c-49ce-a719-e475620028d3",
+	"name": "Mass [Sense] Removal",
+	"descriptor": "Realistic, Single-Sense, Area",
+	"category": "Illusion",
+	"type": "P",
+	"range": "LOS(A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-1",
+	"bonus": {
+
+	},
+	"source": "SG",
+	"page": "112"
+}, {
+	"id": "0a2e9859-b489-43f7-8e8a-d29cb4c8b682",
+	"name": "Stink",
+	"descriptor": "Realistic, Single-Sense",
+	"category": "Illusion",
+	"type": "M",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-3",
+	"source": "SG",
+	"page": "113"
+}, {
+	"id": "ecd4d99e-7e5c-43be-bfb7-7af989879236",
+	"name": "Stench",
+	"descriptor": "Realistic, Single-Sense, Area",
+	"category": "Illusion",
+	"type": "M",
+	"range": "LOS(A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-1",
+	"source": "SG",
+	"page": "113"
+}, {
+	"id": "466e45ee-755d-4fd6-ba23-298afa5849ef",
+	"name": "Sound Barrier",
+	"descriptor": "Realistic, Single-Sense, Area",
+	"category": "Illusion",
+	"type": "P",
+	"range": "LOS(A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-3",
+	"source": "SG",
+	"page": "113"
+}, {
+	"id": "0e6abd64-04bf-44ca-9358-4f12c9673209",
+	"name": "Switch Vehicle Signature",
+	"descriptor": "Realistic, Multi-Sense",
+	"category": "Illusion",
+	"type": "P",
+	"range": "T",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "F+1",
+	"source": "SG",
+	"page": "113"
+}, {
+	"id": "7eec4aa0-806c-4b4d-b809-5c37c4c06ae5",
+	"name": "Vehicle Mask",
+	"descriptor": "Realistic, Multi-Sense",
+	"category": "Illusion",
+	"type": "P",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-3",
+	"source": "SG",
+	"page": "113"
+}, {
+	"id": "f7984928-b770-4c96-8454-e8708b820dd0",
+	"name": "Bind",
+	"descriptor": "Physical",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-2",
+	"source": "SG",
+	"page": "113"
+}, {
+	"id": "e59a2be4-41b5-4b3e-aa5b-c4881a021cae",
+	"name": "Net Bind",
+	"descriptor": "Physical, Area",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "LOS(A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-1",
+	"source": "SG",
+	"page": "113"
+}, {
+	"id": "30292b3d-d81d-433f-a211-af1939e158db",
+	"name": "Mana Bind",
+	"descriptor": "Mana",
+	"category": "Manipulation",
+	"type": "M",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-2",
+	"source": "SG",
+	"page": "114"
+}, {
+	"id": "37e33acf-31ab-429e-b470-d4a4c2e27559",
+	"name": "Mana Net",
+	"descriptor": "Mana, Area",
+	"category": "Manipulation",
+	"type": "M",
+	"range": "LOS(A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-1",
+	"source": "SG",
+	"page": "114"
+}, {
+	"id": "75411316-c3b0-43cb-bbb8-24bde461ea58",
+	"name": "Bug Zapper",
+	"descriptor": "Environmental, Area",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "LOS(A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F+1",
+	"source": "SG",
+	"page": "114"
+}, {
+	"id": "f075819d-4924-4140-a5b4-fe8fdc069485",
+	"name": "Calm Animal",
+	"descriptor": "Mental",
+	"category": "Manipulation",
+	"type": "M",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-3",
+	"source": "SG",
+	"page": "114"
+}, {
+	"id": "b0a9f3b0-d153-4ff3-9193-666f89aaf0c3",
+	"name": "Calm Pack",
+	"descriptor": "Mental, Area",
+	"category": "Manipulation",
+	"type": "M",
+	"range": "LOS(A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-1",
+	"source": "SG",
+	"page": "114"
+}, {
+	"id": "faf0247b-bd15-4287-aa08-99f704de2abb",
+	"name": "Catfall",
+	"descriptor": "Physical",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-3",
+	"source": "SG",
+	"page": "114"
+}, {
+	"id": "05088798-a160-4080-90bb-fed9880435ba",
+	"name": "Clean [Element]",
+	"descriptor": "Environmental, Area",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "LOS(A)",
+	"damage": "0",
+	"duration": "P",
+	"dv": "F-3",
+	"bonus": {
+
+	},
+	"source": "SG",
+	"page": "114"
+}, {
+	"id": "b0d02e0b-6c8f-4fef-8ca3-fe8f509218f0",
+	"name": "Compel Truth",
+	"descriptor": "Mental",
+	"category": "Manipulation",
+	"type": "M",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "F-1",
+	"source": "SG",
+	"page": "114"
+}, {
+	"id": "e0578a09-8fba-424f-9288-b5e1ef810c2c",
+	"name": "Control Animal",
+	"descriptor": "Mental",
+	"category": "Manipulation",
+	"type": "M",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-3",
+	"source": "SG",
+	"page": "115"
+}, {
+	"id": "7d37e3fa-d16b-4d4f-8285-629f511df0e6",
+	"name": "Control Pack",
+	"descriptor": "Mental, Area",
+	"category": "Manipulation",
+	"type": "M",
+	"range": "LOS(A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-1",
+	"source": "SG",
+	"page": "115"
+}, {
+	"id": "1b311db9-d5cc-4b4c-857a-3208caa1bf0a",
+	"name": "Deflection",
+	"descriptor": "Physical",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-1",
+	"source": "SG",
+	"page": "115"
+}, {
+	"id": "90b5f888-bc04-45c2-9b5e-11d95b787c6e",
+	"name": "[Element] Aura",
+	"descriptor": "Environmental",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F+1",
+	"bonus": {
+
+	},
+	"source": "SG",
+	"page": "115"
+}, {
+	"id": "ac8c938d-3aa1-4911-a812-c770e858de92",
+	"name": "[Element] Wall",
+	"descriptor": "Environmental, Area",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "LOS(A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F+2",
+	"bonus": {
+
+	},
+	"source": "SG",
+	"page": "115"
+}, {
+	"id": "0a52251a-8b85-4814-8645-b929182274db",
+	"name": "Fashion",
+	"descriptor": "Environmental, Area",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "T(A)",
+	"damage": "0",
+	"duration": "P",
+	"dv": "F-1",
+	"source": "SG",
+	"page": "115"
+}, {
+	"id": "33d35d53-5f71-435d-9bbd-913a5ffc35e1",
+	"name": "Fix",
+	"descriptor": "Physical",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "T",
+	"damage": "0",
+	"duration": "P",
+	"dv": "F",
+	"source": "SG",
+	"page": "116"
+}, {
+	"id": "d9b045d9-1320-4ae9-98d4-c67b1d681719",
+	"name": "Gecko Crawl",
+	"descriptor": "Physical",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-3",
+	"source": "SG",
+	"page": "116"
+}, {
+	"id": "9b996aac-6bc6-4781-9a57-61ce33a4cd20",
+	"name": "Glue",
+	"descriptor": "Physical",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "P",
+	"dv": "F-3",
+	"source": "SG",
+	"page": "116"
+}, {
+	"id": "0f725e2e-2389-4aa4-99f9-da26275080bf",
+	"name": "Glue Strip",
+	"descriptor": "Physical, Area",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "LOS(A)",
+	"damage": "0",
+	"duration": "P",
+	"dv": "F-1",
+	"source": "SG",
+	"page": "116"
+}, {
+	"id": "785b5b5e-500f-40a2-9b25-b90f3dde7c26",
+	"name": "Increase Noise",
+	"descriptor": "Physical",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "LOS(A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-3",
+	"source": "SG",
+	"page": "116"
+}, {
+	"id": "243c19b9-3555-4257-bca0-a7e7f0fff6bf",
+	"name": "Decrease Noise",
+	"descriptor": "Physical",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "LOS(A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-1",
+	"source": "SG",
+	"page": "116"
+}, {
+	"id": "93237162-228a-4073-b798-f1b0605388a9",
+	"name": "Increase Gear Limits",
+	"descriptor": "Physical",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-1",
+	"source": "SG",
+	"page": "116"
+}, {
+	"id": "35ba4222-4e7b-4862-a767-42c5d3dfe2cb",
+	"name": "Decrease Gear Limits",
+	"descriptor": "Physical",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-1",
+	"source": "SG",
+	"page": "116"
+}, {
+	"id": "3f40c2bb-e66f-44dc-b801-d459a8d3a2b4",
+	"name": "Interference",
+	"descriptor": "Environmental, Area",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "LOS(A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-1",
+	"source": "SG",
+	"page": "117"
+}, {
+	"id": "403e9895-9772-4d2d-9cec-aee93a65794f",
+	"name": "Lock",
+	"descriptor": "Physical",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-1",
+	"source": "SG",
+	"page": "117"
+}, {
+	"id": "37ac2ee9-24ed-4d06-8c99-6295e5438ecb",
+	"name": "Mana Static",
+	"descriptor": "Environmental, Area",
+	"category": "Manipulation",
+	"type": "M",
+	"range": "LOS(A)",
+	"damage": "0",
+	"duration": "P",
+	"dv": "F-1",
+	"source": "SG",
+	"page": "117"
+}, {
+	"id": "7152a1f0-6b8f-4ca8-8885-2f5eb5853d73",
+	"name": "Makeover",
+	"descriptor": "Physical",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "T",
+	"damage": "0",
+	"duration": "P",
+	"dv": "F-3",
+	"source": "SG",
+	"page": "117"
+}, {
+	"id": "091a0669-f0d2-4633-8cfa-06c25986da7c",
+	"name": "Mist",
+	"descriptor": "Environmental, Area",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "LOS(A)",
+	"damage": "0",
+	"duration": "I",
+	"dv": "F-3",
+	"source": "SG",
+	"page": "117"
+}, {
+	"id": "ccc4fc17-0c10-4ac5-8a60-d31b0f330b8b",
+	"name": "Offensive Mana Barrier",
+	"descriptor": "Environmental, Area",
+	"category": "Manipulation",
+	"type": "M",
+	"range": "LOS(A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F+3",
+	"source": "SG",
+	"page": "117"
+}, {
+	"id": "bed82cc3-80f9-48e5-b7a3-63e176eb6a71",
+	"name": "Preserve",
+	"descriptor": "Physical, Area",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "T",
+	"damage": "0",
+	"duration": "I",
+	"dv": "F-3",
+	"source": "SG",
+	"page": "117"
+}, {
+	"id": "e748de46-a314-4fc5-a7b1-4cdb16c59637",
+	"name": "Protect Vehicle",
+	"descriptor": "Physical, Area",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-1",
+	"source": "SG",
+	"page": "117"
+}, {
+	"id": "02b38262-db06-4698-b4b2-7a9e7f2452a9",
+	"name": "Pulse",
+	"descriptor": "Environmental, Area",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "LOS(A)",
+	"damage": "0",
+	"duration": "I",
+	"dv": "F+3",
+	"source": "SG",
+	"page": "118"
+}, {
+	"id": "e520af8e-e06d-494e-ab4c-f89e9f9df192",
+	"name": "Reinforce",
+	"descriptor": "Physical",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-1",
+	"source": "SG",
+	"page": "118"
+}, {
+	"id": "603e63a2-1caa-4860-9344-88cbb2df10a2",
+	"name": "Slow Vehicle",
+	"descriptor": "Physical",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F+1",
+	"source": "SG",
+	"page": "118"
+}, {
+	"id": "54e25153-07a4-4f52-8cb6-de8e00e4ac91",
+	"name": "Shape [Material]",
+	"descriptor": "Environmental, Area",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "LOS(A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-2",
+	"bonus": {
+
+	},
+	"source": "SG",
+	"page": "118"
+}, {
+	"id": "d4bac5a3-8793-43be-a831-da7e299acd3c",
+	"name": "Shapechange",
+	"descriptor": "Physical",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-3",
+	"source": "SG",
+	"page": "118"
+}, {
+	"id": "03b3daef-040d-4377-baf6-9b1919f48050",
+	"name": "[Critter] Form",
+	"descriptor": "Physical",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-4",
+	"bonus": {
+
+	},
+	"source": "SG",
+	"page": "118"
+}, {
+	"id": "8e341753-a4e1-41af-ba05-66daa90194a6",
+	"name": "Spirit Barrier",
+	"descriptor": "Environmental, Area",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "LOS(A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-1",
+	"source": "SG",
+	"page": "119"
+}, {
+	"id": "5b3c8f11-37a8-4090-a332-969d6ea1adb6",
+	"name": "Spirit Zapper",
+	"descriptor": "Environmental, Area",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "LOS(A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F+1",
+	"source": "SG",
+	"page": "119"
+}, {
+	"id": "f1ed2b18-e50c-4c00-8fb5-ebf9bff9828a",
+	"name": "Sterilize",
+	"descriptor": "Physical, Area",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "LOS(A)",
+	"damage": "0",
+	"duration": "I",
+	"dv": "F-3",
+	"source": "SG",
+	"page": "119"
+}, {
+	"id": "621b881e-5486-4dcb-a26e-2ad66bba09e8",
+	"name": "Turn To Goo",
+	"descriptor": "Physical",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F+3",
+	"source": "SG",
+	"page": "119"
+}, {
+	"id": "ae2bddcc-9899-4549-b0ff-1dc7c1bb291a",
+	"name": "Aspect Mana Line",
+	"descriptor": "Mana",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"required": {
+		"allof": {
+			"art": "Geomancy"
 		}
 	},
-	"Illusion": {
-		"Agony": {
-			"Name": "Agony",
-			"Details": "Realistic, Single-Sense",
-			"Type": "M",
-			"Range": "LOS",
-			"Duration": "S",
-			"Drain": -4,
-			"Ref": {
-				"SR5": {
-					"book": "Shadowrun 5th",
-					"page": "p290"
-				}
-			}
+	"source": "SG",
+	"page": "122"
+}, {
+	"id": "1dfd942b-ce62-44bd-a74c-8d8254e6d24b",
+	"name": "Alarm Ward",
+	"descriptor": "Anchored",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"source": "SG",
+	"page": "122"
+}, {
+	"id": "cbab5603-5140-40ec-85a2-4c0706ad440b",
+	"name": "Ally Conjuration",
+	"descriptor": "Minion",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"required": {
+		"allof": {
+			"art": "Invocation"
 		}
 	},
-	"Manipulation": {
-		"Animate": {
-			"Name": "Animate",
-			"Details": "Physical",
-			"Type": "P",
-			"Range": "LOS",
-			"Duration": "S",
-			"Drain": -1,
-			"Ref": {
-				"SR5": {
-					"book": "Shadowrun 5th",
-					"page": "p292"
-				}
-			}
+	"source": "SG",
+	"page": "122"
+}, {
+	"id": "89e47041-6072-42f5-b693-d1b91cadca6e",
+	"name": "Astral Doppelganger",
+	"descriptor": "Spotter, Material Link",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"source": "SG",
+	"page": "122"
+}, {
+	"id": "317d1173-5c00-4eac-89ff-282b3123cfbb",
+	"name": "Atonement",
+	"descriptor": "Contractual",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"source": "SG",
+	"page": "123"
+}, {
+	"id": "1e518a3c-fdf9-40c7-af85-0d71a22402e2",
+	"name": "Attune Animal",
+	"descriptor": "Adept",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"bonus": {
+
+	},
+	"source": "SG",
+	"page": "123"
+}, {
+	"id": "a31197f4-c687-485b-a924-e88f2c76df76",
+	"name": "Attune Item",
+	"descriptor": "Adept",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"bonus": {
+
+	},
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"source": "SG",
+	"page": "124"
+}, {
+	"id": "b0bde155-75b7-4200-8656-8414e4ba746a",
+	"name": "Augury and Sortilege",
+	"descriptor": "Material Link",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"required": {
+		"allof": {
+			"art": "Divination"
 		}
-	}
-}
+	},
+	"source": "SG",
+	"page": "124"
+}, {
+	"id": "5e770b01-842f-45a2-adb3-3923a37a8ea3",
+	"name": "Blood Bond",
+	"descriptor": "Material Link",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"source": "SG",
+	"page": "125"
+}, {
+	"id": "a6ca2396-f78f-45c1-9293-72bc41bb860b",
+	"name": "Blood Rite",
+	"descriptor": "Blood, Organic Link",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"source": "SG",
+	"page": "125"
+}, {
+	"id": "66714935-5b3c-417d-b953-159fe5a2031c",
+	"name": "Blood Sight",
+	"descriptor": "Organic Link",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"required": {
+		"allof": {
+			"art": "Necromancy"
+		}
+	},
+	"source": "SG",
+	"page": "125"
+}, {
+	"id": "99c41c3c-5895-4a61-bb6c-184475ee7def",
+	"name": "Calling [Spirit Type]",
+	"descriptor": "Contractual",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"source": "SG",
+	"page": "126"
+}, {
+	"id": "42726082-1595-4de2-81b1-0930ae954718",
+	"name": "Charged Ward",
+	"descriptor": "Anchored",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"required": {
+		"allof": {
+			"art": "Apotropaic Magic"
+		}
+	},
+	"source": "SG",
+	"page": "127"
+}, {
+	"id": "0d1969eb-cbb1-4044-8c13-161f4b1d4cb8",
+	"name": "Circle of Cleansing",
+	"descriptor": "Anchored, Mana",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"required": {
+		"allof": {
+			"art": "Cleansing"
+		}
+	},
+	"source": "SG",
+	"page": "127"
+}, {
+	"id": "779f8d7e-57a7-49aa-957e-8f31da31feac",
+	"name": "Create Ally Spirit",
+	"descriptor": "Minion",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"source": "SG",
+	"page": "127"
+}, {
+	"id": "d0a24ff2-ca52-4d76-856a-60c30bf0ecf0",
+	"name": "Death Mark",
+	"descriptor": "Organic Link, Spotter",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"required": {
+		"allof": {
+			"art": "Necromancy"
+		}
+	},
+	"source": "SG",
+	"page": "127"
+}, {
+	"id": "444208d1-5cc0-4cb7-981e-52df0c8252a1",
+	"name": "Dispersion Circle",
+	"descriptor": "Anchored",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"required": {
+		"allof": {
+			"art": "Advanced Alchemy"
+		}
+	},
+	"source": "SG",
+	"page": "127"
+}, {
+	"id": "7d1bdbfd-47cb-4992-b83b-4dc815337d5d",
+	"name": "Door Wards",
+	"descriptor": "Anchored",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"required": {
+		"allof": {
+			"art": "Apotropaic Magic"
+		}
+	},
+	"source": "SG",
+	"page": "127"
+}, {
+	"id": "47bc1866-ad35-4c9a-8b3d-52502122a33e",
+	"name": "Empower",
+	"descriptor": "Adept",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"source": "SG",
+	"page": "128"
+}, {
+	"id": "884b16b4-dc92-4a32-8dde-197b37819b24",
+	"name": "Grave Binding",
+	"descriptor": "Anchored, Organic Link",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"required": {
+		"allof": {
+			"art": "Necromancy"
+		}
+	},
+	"source": "SG",
+	"page": "129"
+}, {
+	"id": "548aea9d-a0c6-4e94-b59b-b49fa7e51ab7",
+	"name": "Group Bond",
+	"descriptor": "Contractual",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"source": "SG",
+	"page": "129"
+}, {
+	"id": "0f5308ee-75fc-4f46-ad85-c28d2bd0e3bc",
+	"name": "Imbue Item",
+	"descriptor": "",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"required": {
+		"anyof": {
+			"art": "Advanced Rituals",
+			"quality": [
+				"Adept",
+				"Mystic Adept"
+			]
+		}
+	},
+	"source": "SG",
+	"page": "133"
+}, {
+	"id": "ff8bc6fc-7361-47e9-a5a0-081927ec9166",
+	"name": "Kything",
+	"descriptor": "Anchored",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"required": {
+		"allof": {
+			"art": "Sensing"
+		}
+	},
+	"source": "SG",
+	"page": "133"
+}, {
+	"id": "705766cb-ba49-494e-a679-653ff18ef57b",
+	"name": "Far Sensing",
+	"descriptor": "Spotter",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"required": {
+		"allof": {
+			"art": "Sensing"
+		}
+	},
+	"source": "SG",
+	"page": "133"
+}, {
+	"id": "8bd8ac0b-be01-4207-b601-77570305ea10",
+	"name": "Leeching",
+	"descriptor": "Mana",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"source": "SG",
+	"page": "133"
+}, {
+	"id": "32bfb856-4df9-438a-9122-85f5ec8a647c",
+	"name": "Ley Sight",
+	"descriptor": "Mana",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"required": {
+		"allof": {
+			"art": "Geomancy"
+		}
+	},
+	"source": "SG",
+	"page": "134"
+}, {
+	"id": "3917e09a-8e02-4f98-a4d1-7e00e01f3487",
+	"name": "Light of Dharma",
+	"descriptor": "Anchored",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"required": {
+		"allof": {
+			"art": "Centering"
+		}
+	},
+	"source": "SG",
+	"page": "134"
+}, {
+	"id": "6b2838f7-8ecb-455a-a2cc-ae1484e48a9a",
+	"name": "Living Vessel Preparation",
+	"descriptor": "Organic Link",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"required": {
+		"allof": {
+			"art": "Channeling"
+		}
+	},
+	"source": "SG",
+	"page": "135"
+}, {
+	"id": "c7db0147-a077-423a-b617-a5cc8c0d4982",
+	"name": "Inanimate Vessel Preparation",
+	"descriptor": "Organic Link",
+	"category": "Enchantments",
+	"type": "P",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"required": {
+		"allof": {
+			"art": "Channeling"
+		}
+	},
+	"source": "SG",
+	"page": "214"
+}, {
+	"id": "9b61d871-f156-44fc-a703-e19e99933747",
+	"name": "Manifest Sha",
+	"descriptor": "Anchored, Mana",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"required": {
+		"allof": {
+			"art": "Geomancy"
+		}
+	},
+	"source": "SG",
+	"page": "135"
+}, {
+	"id": "ab135fb5-251e-47ec-a93d-5d22f134f867",
+	"name": "Masking Ward",
+	"descriptor": "Anchored",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"required": {
+		"allof": {
+			"art": "Masking"
+		}
+	},
+	"source": "SG",
+	"page": "135"
+}, {
+	"id": "cde04a23-e0cc-4aed-98e9-0d744757610e",
+	"name": "Obfuscating Ward",
+	"descriptor": "Anchored",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"required": {
+		"allof": {
+			"art": "Masking"
+		}
+	},
+	"source": "SG",
+	"page": "135"
+}, {
+	"id": "10efca5d-c1df-4770-b296-471132b80b98",
+	"name": "Polarized Ward",
+	"descriptor": "Anchored",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"source": "SG",
+	"page": "136"
+}, {
+	"id": "e45f4b5d-8969-4e03-ae55-583beee464fc",
+	"name": "Recharge Reagents",
+	"descriptor": "Geomancy",
+	"category": "Enchantments",
+	"type": "P",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"required": {
+		"allof": {
+			"art": "Geomancy"
+		}
+	},
+	"source": "SG",
+	"page": "136"
+}, {
+	"id": "a81eedee-cf7b-4582-991b-24d597138aee",
+	"name": "Shofar",
+	"descriptor": "",
+	"category": "Enchantments",
+	"type": "P",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"required": {
+		"allof": {
+			"art": "Exorcism"
+		}
+	},
+	"source": "SG",
+	"page": "216"
+}, {
+	"id": "e85244ab-038d-4168-b028-3f409d9d9974",
+	"name": "Ritual of Change",
+	"descriptor": "Minion",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"source": "SG",
+	"page": "136"
+}, {
+	"id": "e7e508e7-832f-4a61-8f0e-1aced19cfb09",
+	"name": "Smudging",
+	"descriptor": "Mana, Material Link",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"required": {
+		"allof": {
+			"art": "Cleansing"
+		}
+	},
+	"source": "SG",
+	"page": "136"
+}, {
+	"id": "70b6b4f8-8caf-4100-bb0a-bbb0f40faa84",
+	"name": "Spirit Pact",
+	"descriptor": "Contractual",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"source": "SG",
+	"page": "136"
+}, {
+	"id": "838a29e8-d154-41a1-a589-2e338d312a1b",
+	"name": "Summon Great Form Spirit",
+	"descriptor": "Minion",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"required": {
+		"allof": {
+			"art": "Invocation"
+		}
+	},
+	"source": "SG",
+	"page": "136"
+}, {
+	"id": "8ff1dcfc-a725-4698-83f2-7f1fb0f43f4f",
+	"name": "Trap Ward",
+	"descriptor": "Anchored",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"required": {
+		"allof": {
+			"art": "Quickening"
+		}
+	},
+	"source": "SG",
+	"page": "137"
+}, {
+	"id": "b87ad05f-05fb-461d-a19b-0f1775c480d7",
+	"name": "Whisper of Bones",
+	"descriptor": "Organic Link",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"source": "SG",
+	"page": "137"
+}, {
+	"id": "3fc55119-a6c3-4b0c-91eb-de107fbdea98",
+	"name": "Death Replay",
+	"descriptor": "Active, Directional",
+	"category": "Detection",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-3",
+	"source": "BB",
+	"page": "21"
+}, {
+	"id": "1cbb5f25-7ce7-4347-bea6-764da9ee6e18",
+	"name": "Incision",
+	"descriptor": "Physical",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-2",
+	"source": "BB",
+	"page": "21"
+}, {
+	"id": "2c7be069-208e-41e4-b3cf-97c9fc480fbc",
+	"name": "Hemorrhage",
+	"descriptor": "",
+	"category": "Rituals",
+	"type": "P",
+	"range": "Special",
+	"damage": "0",
+	"duration": "I",
+	"dv": "Special",
+	"source": "SG",
+	"page": "91"
+}, {
+	"id": "eab0bcfd-9bf5-4482-9cca-2bdecb7f7b59",
+	"name": "Hand of Glory",
+	"descriptor": "",
+	"category": "Enchantments",
+	"type": "P",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"required": {
+		"allof": {
+			"art": "Necromancy"
+		}
+	},
+	"source": "SG",
+	"page": "213"
+}, {
+	"id": "9028a07e-c600-4d18-a911-a0307fc0fe96",
+	"name": "Mortis Optigram",
+	"descriptor": "",
+	"category": "Enchantments",
+	"type": "P",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"required": {
+		"allof": {
+			"art": "Necromancy"
+		}
+	},
+	"source": "SG",
+	"page": "214"
+}, {
+	"id": "cd9b8ee6-5116-48aa-9e32-b5b11fc99c3f",
+	"name": "Symbolic Link",
+	"descriptor": "",
+	"category": "Enchantments",
+	"type": "P",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"required": {
+		"allof": {
+			"art": "Psychometry"
+		}
+	},
+	"source": "SG",
+	"page": "216"
+}, {
+	"id": "68a3c211-ee25-42c3-9c24-8f824956acec",
+	"name": "Mystic Restraints",
+	"descriptor": "",
+	"category": "Enchantments",
+	"type": "P",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"required": {
+		"allof": {
+			"art": "Psychometry"
+		}
+	},
+	"source": "SG",
+	"page": "214"
+}, {
+	"id": "096db26e-5fbe-461c-afb4-d6b631658aa6",
+	"name": "Paper Lotus",
+	"descriptor": "",
+	"category": "Enchantments",
+	"type": "P",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"required": {
+		"allof": {
+			"art": "Masking"
+		}
+	},
+	"source": "SG",
+	"page": "215"
+}, {
+	"id": "aaa5044f-ccba-404f-b207-68bdb218d960",
+	"name": "Govi",
+	"descriptor": "",
+	"category": "Enchantments",
+	"type": "P",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"required": {
+		"allof": {
+			"art": "Invocation"
+		}
+	},
+	"source": "SG",
+	"page": "212"
+}, {
+	"id": "30fb4769-568f-49d8-833a-868e34e34809",
+	"name": "Astral Powder",
+	"descriptor": "",
+	"category": "Enchantments",
+	"type": "P",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"required": {
+		"allof": {
+			"art": "Sensing"
+		}
+	},
+	"source": "SG",
+	"page": "212"
+}, {
+	"id": "b683e8f4-ca91-4c64-932d-757754069a1f",
+	"name": "Convince",
+	"descriptor": "",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-2",
+	"source": "SS",
+	"page": "189"
+}, {
+	"id": "ad128cba-aa39-4433-ab1e-9259e19778f6",
+	"name": "Hibernate",
+	"descriptor": "",
+	"category": "Manipulation",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "P",
+	"dv": "F-2",
+	"source": "SS",
+	"page": "190"
+}, {
+	"id": "d3431ff8-e33f-4cd4-a185-4817b5cce2f8",
+	"name": "Intoxication",
+	"descriptor": "",
+	"category": "Manipulation",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "P",
+	"dv": "F-3",
+	"source": "SS",
+	"page": "190"
+}, {
+	"id": "e55eccaa-107d-4cee-b0fb-d10abb2d1f35",
+	"name": "Nutrition",
+	"descriptor": "",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "T",
+	"damage": "0",
+	"duration": "P",
+	"dv": "F-3",
+	"source": "SS",
+	"page": "190"
+}, {
+	"name": "Chill",
+	"descriptor": "Direct",
+	"category": "Combat",
+	"type": "P",
+	"range": "LOS",
+	"damage": "S",
+	"duration": "I",
+	"dv": "F-1",
+	"source": "SSP",
+	"page": "16"
+}, {
+	"name": "Frigid",
+	"descriptor": "Direct",
+	"category": "Combat",
+	"type": "P",
+	"range": "LOS(A)",
+	"damage": "S",
+	"duration": "I",
+	"dv": "F+1",
+	"source": "SSP",
+	"page": "16"
+}, {
+	"name": "Flame Burst",
+	"descriptor": "Direct, Elemental",
+	"category": "Combat",
+	"type": "P",
+	"range": "S(A)",
+	"damage": "P",
+	"duration": "S",
+	"dv": "F+1",
+	"source": "SSP",
+	"page": "16"
+}, {
+	"name": "Magebolt",
+	"descriptor": "Direct",
+	"category": "Combat",
+	"type": "P",
+	"range": "LOS",
+	"damage": "P",
+	"duration": "I",
+	"dv": "F-4",
+	"source": "SSP",
+	"page": "17"
+}, {
+	"name": "[Element] Grenade",
+	"descriptor": "Indirect, Elemental",
+	"category": "Combat",
+	"type": "P",
+	"range": "T",
+	"damage": "P",
+	"duration": "I",
+	"dv": "F-1",
+	"bonus": {
+
+	},
+	"source": "SSP",
+	"page": "17"
+}, {
+	"name": "Sunbeam",
+	"descriptor": "Indirect",
+	"category": "Combat",
+	"type": "P",
+	"range": "LOS",
+	"damage": "P",
+	"duration": "I",
+	"dv": "F-1",
+	"source": "SSP",
+	"page": "17"
+}, {
+	"name": "Passenger",
+	"descriptor": "Passive, Psychic",
+	"category": "Detection",
+	"type": "M",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F",
+	"source": "SSP",
+	"page": "18"
+}, {
+	"name": "Recorded Room",
+	"descriptor": "Passive, Area",
+	"category": "Detection",
+	"type": "P",
+	"range": "LOS(A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F",
+	"source": "SSP",
+	"page": "18"
+}, {
+	"name": "Secret Handshake",
+	"descriptor": "Active, Area",
+	"category": "Detection",
+	"type": "P",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-4",
+	"source": "SSP",
+	"page": "18"
+}, {
+	"name": "Broadcast",
+	"descriptor": "Active, Area",
+	"category": "Detection",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F+1",
+	"source": "SSP",
+	"page": "18"
+}, {
+	"name": "Sending",
+	"descriptor": "Active, Extended Area",
+	"category": "Detection",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F+2",
+	"source": "SSP",
+	"page": "18"
+}, {
+	"name": "[Sense] Link",
+	"descriptor": "Passive, Psychic",
+	"category": "Detection",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-2",
+	"bonus": {
+
+	},
+	"source": "SSP",
+	"page": "18"
+}, {
+	"name": "Convert Blood to Ichor",
+	"descriptor": "Essence, Negative",
+	"category": "Health",
+	"type": "P",
+	"range": "T",
+	"damage": "0",
+	"duration": "I",
+	"dv": "F",
+	"source": "SSP",
+	"page": "18"
+}, {
+	"name": "Decontamination",
+	"descriptor": "Essence",
+	"category": "Health",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "P",
+	"dv": "F-4",
+	"source": "SSP",
+	"page": "18"
+}, {
+	"name": "Dehydrate",
+	"descriptor": "Essence",
+	"category": "Health",
+	"type": "P",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-4",
+	"source": "SSP",
+	"page": "18"
+}, {
+	"name": "Ghoulish Strength",
+	"descriptor": "Essence",
+	"category": "Health",
+	"type": "P",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-4",
+	"source": "SSP",
+	"page": "19"
+}, {
+	"name": "Healthy Glow",
+	"descriptor": "Essence",
+	"category": "Health",
+	"type": "P",
+	"range": "T",
+	"damage": "0",
+	"duration": "P",
+	"dv": "F-2",
+	"source": "SSP",
+	"page": "19"
+}, {
+	"name": "Hydrate",
+	"descriptor": "Essence",
+	"category": "Health",
+	"type": "P",
+	"range": "T",
+	"damage": "0",
+	"duration": "P",
+	"dv": "F-4",
+	"source": "SSP",
+	"page": "19"
+}, {
+	"name": "Inflict Disease",
+	"descriptor": "Negative, Essence",
+	"category": "Health",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "P",
+	"dv": "F-3",
+	"source": "SSP",
+	"page": "19"
+}, {
+	"name": "Nauseate",
+	"descriptor": "Negative",
+	"category": "Health",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "I",
+	"dv": "F-2",
+	"source": "SSP",
+	"page": "19"
+}, {
+	"name": "Alleviate Nausea",
+	"descriptor": "Essence",
+	"category": "Health",
+	"type": "M",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-4",
+	"source": "SSP",
+	"page": "19"
+}, {
+	"name": "Personal Warmth",
+	"descriptor": "Essence",
+	"category": "Health",
+	"type": "M",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-4",
+	"source": "SSP",
+	"page": "19"
+}, {
+	"name": "Rot",
+	"descriptor": "Essence, Negative",
+	"category": "Health",
+	"type": "P",
+	"range": "T",
+	"damage": "0",
+	"duration": "I",
+	"dv": "F",
+	"source": "SSP",
+	"page": "20"
+}, {
+	"name": "Vampiric Speed",
+	"descriptor": "Essence",
+	"category": "Health",
+	"type": "P",
+	"range": "S(A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-2",
+	"source": "SSP",
+	"page": "20"
+}, {
+	"name": "False Impression",
+	"category": "Illusion",
+	"type": "M",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-4",
+	"source": "SSP",
+	"page": "20"
+}, {
+	"name": "Manascape",
+	"category": "Illusion",
+	"type": "M",
+	"range": "LOS(A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-2",
+	"source": "SSP",
+	"page": "20"
+}, {
+	"name": "Vampiric Stealth",
+	"category": "Illusion",
+	"type": "M",
+	"range": "S",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-3",
+	"source": "SSP",
+	"page": "20"
+}, {
+	"name": "Air Filter",
+	"descriptor": "Physical",
+	"category": "Manipulation",
+	"type": "M",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-6",
+	"source": "SSP",
+	"page": "20"
+}, {
+	"name": "Alter Memory",
+	"descriptor": "Mental",
+	"category": "Manipulation",
+	"type": "M",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "P",
+	"dv": "F+1",
+	"source": "SSP",
+	"page": "20"
+}, {
+	"name": "Alter Temperature",
+	"descriptor": "Physical",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "LOS(A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-3",
+	"source": "SSP",
+	"page": "20"
+}, {
+	"name": "Astral Armor",
+	"descriptor": "Mental",
+	"category": "Manipulation",
+	"type": "M",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-2",
+	"source": "SSP",
+	"page": "21"
+}, {
+	"name": "Control Emotions",
+	"descriptor": "Mental",
+	"category": "Manipulation",
+	"type": "M",
+	"range": "LOS(A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F11",
+	"source": "SSP",
+	"page": "21"
+}, {
+	"name": "Mob Mood",
+	"descriptor": "Mental",
+	"category": "Manipulation",
+	"type": "M",
+	"range": "LOS(A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F+1",
+	"source": "SSP",
+	"page": "21"
+}, {
+	"name": "Evaporate",
+	"descriptor": "Physical",
+	"category": "Manipulation",
+	"type": "M",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-4",
+	"source": "SSP",
+	"page": "21"
+}, {
+	"name": "Looking Glass",
+	"descriptor": "Physical",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "T",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-3",
+	"source": "SSP",
+	"page": "21"
+}, {
+	"name": "Insulate",
+	"descriptor": "Physical, Environmental",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "LOS(A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-2",
+	"source": "SSP",
+	"page": "21"
+}, {
+	"name": "Napalm Wall",
+	"descriptor": "Physical, Environmental",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "LOS(A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F",
+	"source": "SSP",
+	"page": "21"
+}, {
+	"name": "Petrify",
+	"descriptor": "Physical",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-2",
+	"source": "SSP",
+	"page": "21"
+}, {
+	"name": "Pulse",
+	"descriptor": "Physical, Environmental",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "LOS(A)",
+	"damage": "0",
+	"duration": "I",
+	"dv": "F-4",
+	"source": "SSP",
+	"page": "21"
+}, {
+	"name": "Radiation Shield",
+	"descriptor": "Physical",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "LOS",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-4",
+	"source": "SSP",
+	"page": "21"
+}, {
+	"name": "Radiation Barrier",
+	"descriptor": "Physical",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "LOS(A)",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-2",
+	"source": "SSP",
+	"page": "21"
+}, {
+	"name": "Decrystalize",
+	"descriptor": "Material Link, Spotter",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"source": "SSP",
+	"page": "22"
+}, {
+	"name": "Mana Flow",
+	"descriptor": "Anchor",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"source": "SSP",
+	"page": "22"
+}, {
+	"name": "Mana Ebb",
+	"descriptor": "Anchored",
+	"category": "Rituals",
+	"type": "M",
+	"range": "Special",
+	"damage": "0",
+	"duration": "Special",
+	"dv": "Special",
+	"source": "SSP",
+	"page": "22"
+}, {
+	"name": "Catch",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "LOS",
+	"damage": "P",
+	"duration": "1",
+	"dv": "F-2",
+	"source": "HT",
+	"page": "191",
+	"id": "38c206bb-9ab5-48ad-b736-0a8a464f1f1e"
+}, {
+	"name": "Snakeblood",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "Touch",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-2",
+	"source": "HT",
+	"page": "192",
+	"id": "bc591aab-8409-4359-9124-c93f4bc968f0"
+}, {
+	"name": "Conceal Scent",
+	"descriptor": "Object",
+	"category": "Manipulation",
+	"type": "P",
+	"range": "Touch",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F-3",
+	"source": "HT",
+	"page": "191",
+	"id": "3ca36ddc-1e69-48b4-884b-b37ad86b6412"
+}, {
+	"name": "Recharge Potency",
+	"category": "Manipulation",
+	"type": "M",
+	"range": "Touch",
+	"damage": "0",
+	"duration": "S",
+	"dv": "F+1",
+	"source": "HT",
+	"page": "192",
+	"id": "69d35098-2786-4b84-9825-3706430cc82b"
+}, {
+	"name": "Manablade",
+	"category": "Combat",
+	"type": "M",
+	"range": "Special",
+	"damage": "P",
+	"duration": "S",
+	"dv": "F-2",
+	"source": "HT",
+	"page": "192",
+	"id": "70f31768-c19b-4bef-8b71-d992d956d06a"
+}, {
+	"name": "Powerblade",
+	"category": "Combat",
+	"type": "M",
+	"range": "Special",
+	"damage": "P",
+	"duration": "S",
+	"dv": "F-2",
+	"source": "HT",
+	"page": "192",
+	"id": "bc8e70a9-2af6-4728-836d-daf19d5c61d4"
+}]

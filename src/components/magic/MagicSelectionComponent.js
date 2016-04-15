@@ -43,11 +43,15 @@ class MagicSelectionComponent extends React.Component {
 }
 
 const SpellsSelection = () => {
-	
+
 	return (
-		<ol>
-			<li>Magic Spell here</li>
-		</ol>
+		<table className="table">
+			<tbody>
+				<tr>
+					<td>Testing</td>
+				</tr>
+			</tbody>
+		</table>
 	);
 };
 
