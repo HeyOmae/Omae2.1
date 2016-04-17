@@ -92,6 +92,11 @@ strong {
 	display: none;
 }
 
+.modal-component {
+	float: left;
+	margin: .25em;
+}
+
 /****** input Style ********/
 input[type="radio"] {
 	position: absolute;

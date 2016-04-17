@@ -71,7 +71,9 @@ class MagicSelectionComponent extends React.Component {
 					{awakenButtons}
 				</div>
 				<h3>Spells</h3>
-				{spellModals}
+				<div className="btn-group">
+					{spellModals}
+				</div>
 			</div>
 		);
 	}
