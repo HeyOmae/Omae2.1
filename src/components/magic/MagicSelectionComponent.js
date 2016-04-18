@@ -22,7 +22,8 @@ class MagicSelectionComponent extends React.Component {
 				Rituals: [],
 				Enchantments: []
 			},
-			spellModals = [];
+			spellModals = [],
+			spellID = 0;
 
 		awakenTypes.forEach((typeName) => {
 			let selectedMagictype = magictype === typeName;
@@ -40,13 +41,13 @@ class MagicSelectionComponent extends React.Component {
 
 		spellData.forEach((spell)=>{
 			spells[spell.category].push(
-				<tr key={spell.name.replace(/\s/g, '-')}>
+				<tr key={'spell-'+ (spellID++)}>
 					<td><button className="btn btn-success">+</button></td>
 					<td>{spell.name}</td>
 					<td>{spell.descriptor}</td>
 					<td>{spell.type}</td>
 					<td>{spell.range}</td>
-					{spell.damage ? <td>{spell.damage}</td> : null}
+					{spell.damage === '0' ? null: <td>{spell.damage}</td>}
 					<td>{spell.duraction}</td>
 					<td>{spell.dv}</td>
 					<td>{spell.source + ' p' + spell.page}</td>
@@ -81,11 +82,13 @@ class MagicSelectionComponent extends React.Component {
 
 const SpellsSelection = ({spellRow}) => {
 	return (
+		<div className="table-responsive">
 		<table className="table">
 			<tbody>
 				{spellRow}
 			</tbody>
 		</table>
+		</div>
 	);
 };
 

@@ -458,7 +458,7 @@
 	"range": "T",
 	"damage": "0",
 	"duration": "S",
-	"dv": "(F/2)-4",
+	"dv": "F-3",
 	"source": "SG",
 	"page": "109"
 }, {
