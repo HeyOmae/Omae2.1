@@ -13,15 +13,7 @@ class MagicSelectionComponent extends React.Component {
 		const awakenTypes = ['Mage', 'Mystic', 'Technomancer','Adept', 'Aspected', 'mundane'],
 			{magicPriority, magictype, actions} = this.props;
 		let awakenButtons = [],
-			spells = {
-				Combat: [],
-				Detection: [],
-				Health: [],
-				Illusion: [],
-				Manipulation: [],
-				Rituals: [],
-				Enchantments: []
-			},
+			spells = {},
 			spellModals = [],
 			spellID = 0;
 
@@ -40,6 +32,23 @@ class MagicSelectionComponent extends React.Component {
 		});
 
 		spellData.forEach((spell)=>{
+			if(!spells[spell.category]) {
+				spells[spell.category] = [];
+				spells[spell.category].push(
+					<tr key={spell.category + '-label'}>
+						<th>Learn</th>
+						<th>Spell</th>
+						<th>Descriptor</th>
+						<th>Type</th>
+						<th>Range</th>
+						{spell.damage === '0' ? null: <th>Damage</th>}
+						<th>Duration</th>
+						<th>Drain</th>
+						<th>Ref</th>
+					</tr>
+				);
+			}
+
 			spells[spell.category].push(
 				<tr key={'spell-'+ (spellID++)}>
 					<td><button className="btn btn-success">+</button></td>
@@ -48,7 +57,7 @@ class MagicSelectionComponent extends React.Component {
 					<td>{spell.type}</td>
 					<td>{spell.range}</td>
 					{spell.damage === '0' ? null: <td>{spell.damage}</td>}
-					<td>{spell.duraction}</td>
+					<td>{spell.duration}</td>
 					<td>{spell.dv}</td>
 					<td>{spell.source + ' p' + spell.page}</td>
 				</tr>
