@@ -50,9 +50,10 @@ class MagicSelectionComponent extends React.Component {
 			}
 
 			spells[spell.category].push(
+			//\[[\w]*\] // possible regex to replace
 				<tr key={'spell-'+ (spellID++)}>
 					<td><button className="btn btn-success">+</button></td>
-					<td>{spell.name}</td>
+					<td>{spell.name.replace(/\[[\s\S]*\]/g, (x, y, z, q) => {console.log(x, y, z, q); })}</td>
 					<td>{spell.descriptor}</td>
 					<td>{spell.type}</td>
 					<td>{spell.range}</td>
