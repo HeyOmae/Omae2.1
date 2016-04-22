@@ -49,18 +49,21 @@ class MagicSelectionComponent extends React.Component {
 				);
 			}
 
-			let spellPlaceholderInput = '',
-				spellName = spell.name.replace(/\[[\s\S]*\]/g, (placeholder) => {
-					spellPlaceholderInput = placeholder;
+			let spellNameStart = null,
+				spellNameEnd = '',
+				spellPlaceholderInput = '',
+				spellName = spell.name.replace(/\[[\s\S]*\]/g, (match, offset, string) => {
+					spellPlaceholderInput = match;
+					spellNameStart = offset === 0 ? '' : string.slice(0, offset);
+					spellNameEnd = string.slice(string.indexOf(']') + 1);
 					return '';
 				});
 
 			spells[spell.category].push(
-			//\[[\w]*\] // possible regex to replace
 				<tr key={'spell-'+ (spellID++)}>
 					<td><button className="btn btn-success">+</button></td>
 					<td>
-						{spellName}
+						{spellNameStart === null ? spellName:spellNameStart}
 						{spellPlaceholderInput?
 							<input
 								className="form-control spell-option"
@@ -68,6 +71,7 @@ class MagicSelectionComponent extends React.Component {
 								placeholder={spellPlaceholderInput}/>
 							:null
 						}
+						{spellNameEnd||null}
 						</td>
 					<td>{spell.descriptor}</td>
 					<td>{spell.type}</td>
