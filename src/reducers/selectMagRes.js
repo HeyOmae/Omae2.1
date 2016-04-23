@@ -5,7 +5,7 @@
  */
 const initialState = 'Mage';
 
-const metatypeReducer = (state=initialState, action) => {
+const magicReducer = (state=initialState, action) => {
 	const actionsToTake = {
 		SELECT_MAGICTYPE: () => {
 			return action.parameter;
@@ -16,4 +16,4 @@ const metatypeReducer = (state=initialState, action) => {
 	return (actionsToTake[action.type] || actionsToTake.DEFAULT)();
 };
 
-module.exports = metatypeReducer;
+module.exports = magicReducer;
