@@ -61,13 +61,14 @@ class MagicSelectionComponent extends React.Component {
 
 			spells[spell.category].push(
 				<tr key={'spell-'+ (spellID++)}>
-					<td><button className="btn btn-success">+</button></td>
+					<td><button className="btn btn-success" onClick={()=>{console.log(this.refs['spellOption'+spell.name].value);}}>+</button></td>
 					<td>
 						{spellNameStart === null ? spellName:spellNameStart}
 						{spellPlaceholderInput?
 							<input
 								className="form-control spell-option"
 								type="text"
+								ref={'spellOption'+spell.name}
 								placeholder={spellPlaceholderInput}/>
 							:null
 						}
