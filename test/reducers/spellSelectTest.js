@@ -34,4 +34,9 @@ describe('spellSelect', () => {
 		newState = reducer(state, {type: 'ADD_SPELL', parameter: {newSpell}});
 		expect(newState.spells[state.spells.length - 1]).to.eql(newSpell);
 	});
+
+	it('should remove spells from the state.spells', () => {
+		const newState = reducer(state, {type: 'REMOVE_SPELL', parameter: {spellIndex: 0}});
+		expect(newState.spells.length).to.equal(state.spells.length - 1);
+	});
 });
