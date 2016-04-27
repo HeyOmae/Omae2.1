@@ -5,7 +5,21 @@ var reducer = require('../../src/reducers/spellSelect');
 
 describe('spellSelect', () => {
 	let state = {
-		spells: [],
+		spells: [
+			{
+				id: '87cb3685-22e8-46fa-890f-f3cfef10a71f',
+				name: 'Toxic Wave',
+				descriptor: 'Indirect, Elemental, Area',
+				category: 'Combat',
+				type: 'P',
+				range: 'LOS (A)',
+				damage: 'P',
+				duration: 'I',
+				dv: 'F-1',
+				source: 'SR5',
+				page: '283'
+			}
+		],
 		powers: []
 	};
 
@@ -32,7 +46,8 @@ describe('spellSelect', () => {
 			page: '283'
 		},
 		newState = reducer(state, {type: 'ADD_SPELL', parameter: {newSpell}});
-		expect(newState.spells[state.spells.length - 1]).to.eql(newSpell);
+
+		expect(newState.spells[newState.spells.length - 1]).to.eql(newSpell);
 	});
 
 	it('should remove spells from the state.spells', () => {

@@ -10,12 +10,21 @@ const initialState = {
 
 const spellReducer = (state=initialState, action) => {
 	const actionsToTake = {
-		SELECT_SPELL: () => {
+		ADD_SPELL: () => {
 			return Object.assign(
 				{},
 				state,
-				{}
+				{
+					spells: [
+						...state.spells,
+						action.parameter.newSpell
+					]
+				}
 			);
+		},
+
+		REMOVE_SPELL: ()=>{
+
 		},
 
 		DEFAULT: () => { return state; }
