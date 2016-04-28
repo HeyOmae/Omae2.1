@@ -24,7 +24,16 @@ const spellReducer = (state=initialState, action) => {
 		},
 
 		REMOVE_SPELL: ()=>{
-
+			return Object.assign(
+				{},
+				state,
+				{
+					spells: [
+						...state.spells.slice(0, action.parameter.spellIndex),
+						...state.spells.slice(action.parameter.spellIndex + 1)
+					]
+				}
+			);
 		},
 
 		DEFAULT: () => { return state; }
