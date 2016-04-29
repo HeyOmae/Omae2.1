@@ -138,7 +138,9 @@ function mapDispatchToProps(dispatch) {
     incrementSkillgroup: require('../actions/skills/incrementSkillgroup.js'),
     decrementSkillgroup: require('../actions/skills/decrementSkillgroup.js'),
     setSpec: require('../actions/skills/setSpec.js'),
-    setMagicSkills: require('../actions/skills/setMagicSkills.js')
+    setMagicSkills: require('../actions/skills/setMagicSkills.js'),
+    addSpell: require('../actions/magic/addSpell.js'),
+    removeSpell: require('../actions/magic/removeSpell.js')
   };
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;
