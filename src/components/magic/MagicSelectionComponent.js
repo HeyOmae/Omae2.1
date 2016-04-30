@@ -57,11 +57,18 @@ class MagicSelectionComponent extends React.Component {
 					spellNameStart = offset === 0 ? '' : string.slice(0, offset);
 					spellNameEnd = string.slice(string.indexOf(']') + 1);
 					return '';
-				});
+				}),
+				spellNameOptions = this.refs['spellOption'+spell.name].value,
+				addSpell = () => {
+					if(spellNameOptions) {
+						spell.name = spellNameStart + spellNameOptions + spellNameEnd;
+					}
+					actions.addSpell({newSpell: spell});
+				};
 
 			spells[spell.category].push(
 				<tr key={'spell-'+ (spellID++)}>
-					<td><button className="btn btn-success" onClick={()=>{console.log(this.refs['spellOption'+spell.name].value);}}>+</button></td>
+					<td><button className="btn btn-success" onClick={addSpell}>+</button></td>
 					<td>
 						{spellNameStart === null ? spellName:spellNameStart}
 						{spellPlaceholderInput?
@@ -104,6 +111,20 @@ class MagicSelectionComponent extends React.Component {
 				<h3>Spells</h3>
 				<div className="btn-group">
 					{spellModals}
+				</div>
+				<div>
+					<table>
+						<thead>
+							<tr>
+								<th>Name</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
 			</div>
 		);
