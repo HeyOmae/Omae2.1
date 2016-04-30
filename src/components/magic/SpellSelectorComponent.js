@@ -8,10 +8,12 @@ require('styles/magic/SpellSelector.sass');
 
 class SpellSelectorComponent extends React.Component {
 	render() {
-		const {addSpell, removeSpell} = this.props;
+		const {addSpell, removeSpell, selectedSpells} = this.props;
 		let spells = {},
 			addSpellModals = [],
 			spellID = 0;
+
+		console.log(selectedSpells);
 
 		//generated spell details to populate addSpellModals
 		spellData.forEach((spell)=>{
@@ -48,17 +50,20 @@ class SpellSelectorComponent extends React.Component {
 					spellNameEnd = string.slice(string.indexOf(']') + 1);
 					return '';
 				}),
-				spellNameOptions = this.refs['spellOption'+spell.name] || {value: ''},
-				addSpell = () => {
-					if(spellNameOptions) {
-						spell.name = spellNameStart + spellNameOptions.value + spellNameEnd;
-					}
-					addSpell({newSpell: spell});
+				spellNameOptions = this.refs['spellOption'+spell.name],
+				addSpellClick = () => {
+					let newName = spellNameOptions ? ((spellNameStart?spellNameStart:'') + spellNameOptions.value + spellNameEnd) : spell.name,
+						spellToAdd = Object.assign(
+							{},
+							spell,
+							{name: newName}
+						);
+					addSpell({newSpell: spellToAdd});
 				};
 
 			spells[spell.category].push(
 				<tr key={'spell-'+ (spellID++)}>
-					<td><button className="btn btn-success" onClick={addSpell}>+</button></td>
+					<td><button className="btn btn-success" onClick={addSpellClick}>+</button></td>
 					<td>
 						{spellNameStart === null ? spellName:spellNameStart}
 						{spellPlaceholderInput?
@@ -87,8 +92,11 @@ class SpellSelectorComponent extends React.Component {
 				<Modal
 					key={'spells-' + spellCat}
 					modalName={spellCat}
-					modalContent={<SpellsSelection
-						spellRow={spells[spellCat]}/>}/>
+					modalContent={
+						<SpellsSelection
+						spellRow={spells[spellCat]}/>
+					}
+				/>
 			);
 		}
 

@@ -37,11 +37,7 @@ class App extends Component {
   render() {
     const {actions, priorityTable, selectMetatype, attributes, selectMagRes, settingSkills, appControl, spellSelect} = this.props;
     return (
-      <div className='container'
-        selectMagRes={selectMagRes}
-        settingSkills={settingSkills}
-        appControl={appControl}
-        spellSelect={spellSelect}>
+      <div className='container'>
 				<div className='row'>
 					<div className='col-md-12'>
 						<Main
@@ -70,7 +66,11 @@ class App extends Component {
               }}
               attributes={attributes}/>
 
-						<MagicSelectionComponent magicPriority={priorityTable.magres} magictype={selectMagRes} actions={actions}/>
+						<MagicSelectionComponent
+              magicPriority={priorityTable.magres}
+              magictype={selectMagRes}
+              selectedSpellsPowers={spellSelect}
+              actions={actions} />
 
 						<h2>Skills</h2>
 						<ActiveSkillsComponent

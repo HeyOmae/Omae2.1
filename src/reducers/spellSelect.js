@@ -4,8 +4,8 @@
  * src/container/App.js accordingly.
  */
 const initialState = {
-	spells: {},
-	powers: {}
+	spells: [],
+	powers: []
 };
 
 const spellReducer = (state=initialState, action) => {
