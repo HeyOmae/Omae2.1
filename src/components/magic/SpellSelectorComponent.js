@@ -81,32 +81,44 @@ class SpellSelectorComponent extends React.Component {
 	render() {
 		const {addSpell, removeSpell, selectedSpells} = this.props;
 		let spells = {},
-			addSpellModals = [],
-			spellID = 0;
+			addSpellModals = [];
 
 		console.log(selectedSpells);
 
+		function generateSpellDetailTable(arrayOfSpells, generateBtnFn) {
+			let spellTables = {},
+				spellID = 0;
+
+			arrayOfSpells.forEach((spell)=>{
+				spellTables = createSpellCategoryLabel(spellTables, spell);
+
+				let spellName = createSpellNameWithOptions(spell.name),
+					addSpellButton = (<td>{generateBtnFn(spell, spellName)}</td>);
+
+				//need to make a Extended class component to make this work
+				spells = createSpellTable(spellTables, spellName, spell, addSpellButton, spellID++);
+			});
+
+			return spellTables;
+		}
+
+		let generateAddSpellButton = (spell, spellName) => {
+			let addSpellClick = () => {
+				let spellNameOptions = this.refs['spellOption'+spell.name] ? this.refs['spellOption'+spell.name].value : '',
+					newName = spellName.start + spellNameOptions + spellName.end,
+					spellToAdd = Object.assign(
+						{},
+						spell,
+						{name: newName}
+					);
+				addSpell({newSpell: spellToAdd});
+			};
+			
+			return (<button className="btn btn-success" onClick={addSpellClick}>+</button>);
+		};
+
 		//generated spell details to populate addSpellModals
-		spellData.forEach((spell)=>{
-			spells = createSpellCategoryLabel(spells, spell);
-
-			let spellName = createSpellNameWithOptions(spell.name),
-				//put this click function into a closure function tomorrow.
-				addSpellClick = () => {
-					let spellNameOptions = this.refs['spellOption'+spell.name] ? this.refs['spellOption'+spell.name].value : '',
-						newName = spellName.start + spellNameOptions + spellName.end,
-						spellToAdd = Object.assign(
-							{},
-							spell,
-							{name: newName}
-						);
-					addSpell({newSpell: spellToAdd});
-				},
-				addSpellButton = <td><button className="btn btn-success" onClick={addSpellClick}>+</button></td>;
-
-			//need to make a Extended class component to make this work
-			spells = createSpellTable(spells, spellName, spell, addSpellButton, spellID++);
-		});
+		spells = generateSpellDetailTable(spellData, generateAddSpellButton);
 
 		for(let spellCat in spells) {
 			addSpellModals.push(
