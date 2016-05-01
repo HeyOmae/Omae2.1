@@ -38,21 +38,32 @@ class SpellSelectorComponent extends React.Component {
 
 				return SpellsObj;
 			}
-			
+
 			spells = createSpellCategoryLabel(spells, spell);
 
-			let spellNameStart = null,
-				spellNameEnd = '',
-				spellPlaceholderInput = '',
-				spellName = spell.name.replace(/\[[\s\S]*\]/g, (match, offset, string) => {
-					spellPlaceholderInput = match;
-					spellNameStart = offset === 0 ? '' : string.slice(0, offset);
-					spellNameEnd = string.slice(string.indexOf(']') + 1);
+			function createSpellNameWithOptions(spellName) {
+				let partsOfName = {
+					start: '',
+					end: '',
+					placeholderText: ''
+				},
+				nameWithNoOptions = spellName.replace(/\[[\s\S]*\]/g, (match, offset, string) => {
+					partsOfName.placeholderText = match;
+					partsOfName.start = offset === 0 ? '' : string.slice(0, offset);
+					partsOfName.end = string.slice(string.indexOf(']') + 1);
 					return '';
-				}),
-				spellNameOptions = this.refs['spellOption'+spell.name],
+				});
+				if (!partsOfName.start) {
+					partsOfName.start = nameWithNoOptions;
+				}
+
+				return partsOfName;
+			}
+
+			let spellName = createSpellNameWithOptions(spell.name),
+				spellNameOptions = this.refs['spellOption'+spell.name] ? this.refs['spellOption'+spell.name].value : '',
 				addSpellClick = () => {
-					let newName = spellNameOptions ? ((spellNameStart?spellNameStart:'') + spellNameOptions.value + spellNameEnd) : spell.name,
+					let newName = spellName.start + spellNameOptions + spellName.end,
 						spellToAdd = Object.assign(
 							{},
 							spell,
@@ -61,20 +72,21 @@ class SpellSelectorComponent extends React.Component {
 					addSpell({newSpell: spellToAdd});
 				};
 
+			//need to make a Extended class component to make this work
 			spells[spell.category].push(
 				<tr key={'spell-'+ (spellID++)}>
 					<td><button className="btn btn-success" onClick={addSpellClick}>+</button></td>
 					<td>
-						{spellNameStart === null ? spellName:spellNameStart}
-						{spellPlaceholderInput?
+						{spellName.start}
+						{spellName.placeholderText ?
 							<input
 								className="form-control spell-option"
 								type="text"
 								ref={'spellOption'+spell.name}
-								placeholder={spellPlaceholderInput}/>
+								placeholder={spellName.placeholderText}/>
 							:null
 						}
-						{spellNameEnd||null}
+						{spellName.end||null}
 						</td>
 					<td>{spell.descriptor}</td>
 					<td>{spell.type}</td>
@@ -105,24 +117,31 @@ class SpellSelectorComponent extends React.Component {
 				<div className="btn-group">
 					{addSpellModals}
 				</div>
-				<div>
-					<table>
-						<thead>
-							<tr>
-								<th>Name</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td></td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
+				
 			</div>
 		);
 	}
 }
+
+const spellSelectedDisplay = ({selectedSpells}) => {
+	selectedSpells;
+	return (
+		<div className="table-responsive">
+			<table className="table">
+				<thead>
+					<tr>
+						<th>Name</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	);
+};
 
 const SpellsSelection = ({spellRow}) => {
 	return (
