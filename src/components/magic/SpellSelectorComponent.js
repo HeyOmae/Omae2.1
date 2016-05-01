@@ -48,7 +48,7 @@ function createSpellNameWithOptions(spellName) {
 	return partsOfName;
 }
 
-function createSpellTable(spellArray, spellName, spellDetails, button, spellID) {
+function createSpellIndividualRow(spellArray, spellName, spellDetails, button, spellID) {
 	spellArray[spellDetails.category].push(
 		<tr key={'spell-'+ (spellID)}>
 			{button}
@@ -77,18 +77,18 @@ function createSpellTable(spellArray, spellName, spellDetails, button, spellID) 
 	return spellArray;
 }
 
-function generateSpellDetailTable(arrayOfSpells, generateBtnFn) {
+function generateSpellDetailTablesRows(arrayOfSpells, generateBtnFn) {
 	let spellTables = {},
 		spellID = 0;
 
-	arrayOfSpells.forEach((spell)=>{
+	arrayOfSpells.forEach((spell, spellIndex)=>{
 		spellTables = createSpellCategoryLabel(spellTables, spell);
 
 		let spellName = createSpellNameWithOptions(spell.name),
-			addSpellButton = (<td>{generateBtnFn(spell, spellName)}</td>);
+			addSpellButton = (<td>{generateBtnFn(spell, spellName, spellIndex)}</td>);
 
 		//need to make a Extended class component to make this work
-		spellTables = createSpellTable(spellTables, spellName, spell, addSpellButton, spellID++);
+		spellTables = createSpellIndividualRow(spellTables, spellName, spell, addSpellButton, spellID++);
 	});
 
 	return spellTables;
@@ -97,12 +97,9 @@ function generateSpellDetailTable(arrayOfSpells, generateBtnFn) {
 class SpellSelectorComponent extends React.Component {
 	render() {
 		const {addSpell, removeSpell, selectedSpells} = this.props;
-		let spells = {},
-			addSpellModals = [];
-
-		console.log(selectedSpells);
-
-		let generateAddSpellButton = (spell, spellName) => {
+		let spellsToSeletTables = {},
+			addSpellModals = [],
+			generateAddSpellButton = (spell, spellName) => {
 			let addSpellClick = () => {
 				let spellNameOptions = this.refs['spellOption'+spell.name] ? this.refs['spellOption'+spell.name].value : '',
 					newName = spellName.start + spellNameOptions + spellName.end,
@@ -118,60 +115,71 @@ class SpellSelectorComponent extends React.Component {
 		};
 
 		//generated spell details to populate addSpellModals
-		spells = generateSpellDetailTable(spellData, generateAddSpellButton);
+		spellsToSeletTables = generateSpellDetailTablesRows(spellData, generateAddSpellButton);
 
-		for(let spellCat in spells) {
+		for(let spellCat in spellsToSeletTables) {
 			addSpellModals.push(
 				<Modal
 					key={'spells-' + spellCat}
 					modalName={spellCat}
 					modalContent={
-						<SpellsSelection
-						spellRow={spells[spellCat]}/>
+						<SpellsTables
+							spellRow={spellsToSeletTables[spellCat]}/>
 					}
 				/>
 			);
 		}
 
 		return (
-			<div className="spell-selector">
-				<div className="btn-group">
-					{addSpellModals}
+			<div className="spells">
+				<div className="spell-selector">
+					<div className="btn-group">
+						{addSpellModals}
+					</div>
 				</div>
-				
+				<SpellSelectedDisplay
+						selectedSpells={selectedSpells}/>
 			</div>
 		);
 	}
 }
 
-const spellSelectedDisplay = ({selectedSpells}) => {
-	selectedSpells;
+const SpellSelectedDisplay = ({selectedSpells}) => {
+	let spellTableData = {},
+		spellDisplayTables = [],
+		generateRemoveSpellButton = (spell, spellName, index) => {
+			let removeSpellClick = () => {
+				console.log(index);
+			};
+			return (<button className="btn btn-warning" onClick={removeSpellClick}>-</button>);
+		};
+
+	spellTableData = generateSpellDetailTablesRows(selectedSpells, generateRemoveSpellButton);
+
+	for(let spellCat in spellTableData) {
+		spellDisplayTables.push(
+			<div key={'selected-'+ spellCat} className={'selected-spell-in-' + spellCat}>
+				<h4>{spellCat}</h4>
+				<SpellsTables
+					spellRow = {spellTableData[spellCat]}/>
+			</div>
+		);
+	}
 	return (
-		<div className="table-responsive">
-			<table className="table">
-				<thead>
-					<tr>
-						<th>Name</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td></td>
-					</tr>
-				</tbody>
-			</table>
+		<div className="selected-spells">
+			{spellDisplayTables}
 		</div>
 	);
 };
 
-const SpellsSelection = ({spellRow}) => {
+const SpellsTables = ({spellRow}) => {
 	return (
 		<div className="table-responsive">
-		<table className="table">
-			<tbody>
-				{spellRow}
-			</tbody>
-		</table>
+			<table className="table">
+				<tbody>
+					{spellRow}
+				</tbody>
+			</table>
 		</div>
 	);
 };
