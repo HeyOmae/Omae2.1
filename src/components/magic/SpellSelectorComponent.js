@@ -138,18 +138,19 @@ class SpellSelectorComponent extends React.Component {
 					</div>
 				</div>
 				<SpellSelectedDisplay
-						selectedSpells={selectedSpells}/>
+						selectedSpells={selectedSpells}
+						removeSpell={removeSpell}/>
 			</div>
 		);
 	}
 }
 
-const SpellSelectedDisplay = ({selectedSpells}) => {
+const SpellSelectedDisplay = ({selectedSpells, removeSpell}) => {
 	let spellTableData = {},
 		spellDisplayTables = [],
 		generateRemoveSpellButton = (spell, spellName, index) => {
 			let removeSpellClick = () => {
-				console.log(index);
+				removeSpell({spellIndex: index});
 			};
 			return (<button className="btn btn-warning" onClick={removeSpellClick}>-</button>);
 		};
