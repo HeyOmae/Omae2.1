@@ -77,6 +77,23 @@ function createSpellTable(spellArray, spellName, spellDetails, button, spellID) 
 	return spellArray;
 }
 
+function generateSpellDetailTable(arrayOfSpells, generateBtnFn) {
+	let spellTables = {},
+		spellID = 0;
+
+	arrayOfSpells.forEach((spell)=>{
+		spellTables = createSpellCategoryLabel(spellTables, spell);
+
+		let spellName = createSpellNameWithOptions(spell.name),
+			addSpellButton = (<td>{generateBtnFn(spell, spellName)}</td>);
+
+		//need to make a Extended class component to make this work
+		spellTables = createSpellTable(spellTables, spellName, spell, addSpellButton, spellID++);
+	});
+
+	return spellTables;
+}
+
 class SpellSelectorComponent extends React.Component {
 	render() {
 		const {addSpell, removeSpell, selectedSpells} = this.props;
@@ -84,23 +101,6 @@ class SpellSelectorComponent extends React.Component {
 			addSpellModals = [];
 
 		console.log(selectedSpells);
-
-		function generateSpellDetailTable(arrayOfSpells, generateBtnFn) {
-			let spellTables = {},
-				spellID = 0;
-
-			arrayOfSpells.forEach((spell)=>{
-				spellTables = createSpellCategoryLabel(spellTables, spell);
-
-				let spellName = createSpellNameWithOptions(spell.name),
-					addSpellButton = (<td>{generateBtnFn(spell, spellName)}</td>);
-
-				//need to make a Extended class component to make this work
-				spells = createSpellTable(spellTables, spellName, spell, addSpellButton, spellID++);
-			});
-
-			return spellTables;
-		}
 
 		let generateAddSpellButton = (spell, spellName) => {
 			let addSpellClick = () => {
