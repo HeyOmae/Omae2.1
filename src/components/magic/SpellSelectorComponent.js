@@ -96,19 +96,21 @@ function generateSpellDetailTablesRows(arrayOfSpells, generateBtnFn) {
 
 class SpellSelectorComponent extends React.Component {
 	render() {
-		const {addSpell, removeSpell, selectedSpells} = this.props;
+		const {addSpell, removeSpell, selectedSpells, spellMax} = this.props;
 		let spellsToSeletTables = {},
 			addSpellModals = [],
 			generateAddSpellButton = (spell, spellName) => {
 			let addSpellClick = () => {
-				let spellNameOptions = this.refs['spellOption'+spell.name] ? this.refs['spellOption'+spell.name].value : '',
-					newName = spellName.start + spellNameOptions + spellName.end,
-					spellToAdd = Object.assign(
-						{},
-						spell,
-						{name: newName}
-					);
-				addSpell({newSpell: spellToAdd});
+				if(spellMax > selectedSpells.length) {
+					let spellNameOptions = this.refs['spellOption'+spell.name] ? this.refs['spellOption'+spell.name].value : '',
+						newName = spellName.start + spellNameOptions + spellName.end,
+						spellToAdd = Object.assign(
+							{},
+							spell,
+							{name: newName}
+						);
+					addSpell({newSpell: spellToAdd});
+				}
 			};
 			
 			return (<button className="btn btn-success" onClick={addSpellClick}>+</button>);
@@ -166,6 +168,7 @@ const SpellSelectedDisplay = ({selectedSpells, removeSpell}) => {
 			</div>
 		);
 	}
+
 	return (
 		<div className="selected-spells">
 			{spellDisplayTables}

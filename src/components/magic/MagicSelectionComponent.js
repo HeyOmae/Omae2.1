@@ -11,7 +11,9 @@ const priorityData = require('json!../data/priority.json');
 class MagicSelectionComponent extends React.Component {
 	render() {
 		const awakenTypes = ['Mage', 'Mystic', 'Technomancer','Adept', 'Aspected', 'mundane'],
-			{magicPriority, magictype, selectedSpellsPowers, actions} = this.props;
+			{magicPriority, magictype, selectedSpellsPowers, actions} = this.props,
+			magicPriorityStats = priorityData[magicPriority].magic,
+			spellMax = magicPriorityStats[magictype].spells && magicPriorityStats[magictype].spells.points;
 		let awakenButtons = [];
 
 		awakenTypes.forEach((typeName) => {
@@ -19,7 +21,7 @@ class MagicSelectionComponent extends React.Component {
 			awakenButtons.push(
 				<AwakenButton
 					typeName={typeName}
-					anOption={typeName in priorityData[magicPriority].magic}
+					anOption={typeName in magicPriorityStats}
 					checked={selectedMagictype}
 					selectMagicTypeAction={actions.selectMagictype}
 					resetFreeMagicSkills={actions.setMagicSkills}
@@ -39,6 +41,7 @@ class MagicSelectionComponent extends React.Component {
 					addSpell = {actions.addSpell}
 					removeSpell = {actions.removeSpell}
 					selectedSpells = {selectedSpellsPowers.spells}
+					spellMax={spellMax}
 					/>
 			</div>
 		);
