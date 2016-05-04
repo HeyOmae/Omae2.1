@@ -7,7 +7,7 @@ const metatypeData = require('json!./data/metatype.json'),
 
 require('styles//Summary.sass');
 
-const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed}) => {
+const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed, spellsAndPowers}) => {
 	let priorityHead = [],
 		priorityData = [],
 		attributesHead = [],
@@ -19,7 +19,10 @@ const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed
 		},
 		calculatedStats = {
 			attributes: {}
-		};
+		},
+		displaySpellsPowers = [
+			<tr><th>Name</th><th>Ref</th></tr>
+		];
 	for(let pariorityCategory in priority) {
 		priorityHead.push(<th key={'summary-priority-head-' + pariorityCategory}>{pariorityCategory}</th>);
 		priorityData.push(<td key={'summary-priority-data-' + pariorityCategory}>{priority[pariorityCategory]}</td>);
@@ -37,6 +40,13 @@ const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed
 		calculatedStats.attributes.mag = baseMagic + (attributes.special || 0);
 		attributesHead.push(<th key={'summary-attribute-head-mag'}>mag</th>);
 		attributesData.push(<td key={'summary-attribute-data-mag'}>{calculatedStats.attributes.mag}</td>);
+		for(let magicCat in spellsAndPowers) {
+			spellsAndPowers[magicCat].forEach((spell, index)=>{
+				displaySpellsPowers.push(
+					<tr key={magicCat + spell.name + index}><td>{spell.name}</td><td>{spell.source} {spell.page}p</td></tr>
+				);
+			});
+		}
 	}
 
 	for(let skillName in skills.active) {
@@ -104,6 +114,19 @@ const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed
 			<div>
 				<h2>Magic/Resonacne</h2>
 				{magres}
+				{displaySpellsPowers.length > 1 ?
+					<div className="table-responsive">
+						<h3>Spells/Powers</h3>
+						<table className="table">
+							<tbody>
+								{displaySpellsPowers}
+							</tbody>
+						</table>
+					</div>
+				:
+					null
+				}
+				
 			</div>
 
 			<div>
