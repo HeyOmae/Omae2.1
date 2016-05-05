@@ -5,8 +5,9 @@ import Modal from '../ModalComponent';
 
 require('styles/export/Reddit.sass');
 
-const RedditComponent = ({priority, metatype, attributes, magres, skills}) => {
-	let activeSkills = '';
+const RedditComponent = ({priority, metatype, attributes, magres, skills, spellsAndPowers}) => {
+	let activeSkills = '',
+		learnedSpells = '';
 
 	for(let name in skills.active) {
 		let skill = skills.active[name],
@@ -24,6 +25,15 @@ const RedditComponent = ({priority, metatype, attributes, magres, skills}) => {
 
 		activeSkills += `${name} | ${rating} | ${attributes[skill.attribute]} | ${skill.spec || '–'} | ${dp} ${skill.spec?`(${dp+2})`:''}
 `;
+	}
+
+	for(let magicCat in spellsAndPowers) {
+		let magicPower = spellsAndPowers[magicCat];
+
+		magicPower.forEach((spell) => {
+			learnedSpells += `${spell.name} | ${spell.descriptor} | ${spell.category} | ${spell.type} | ${spell.duration} | ${spell.damage} | ${spell.dv} | ${spell.source} ${spell.page}
+`;
+		});
 	}
 
 	const formate = `
@@ -64,6 +74,12 @@ ${Math.ceil((attributes.str*2 + attributes.bod + attributes.rea)/3)} | ${Math.ce
 ##Magic/Resonance
 
 **Type:** ${magres}
+
+###Spells
+
+Name | Descriptor | Category | Type | Duration | Damage | Drain | Ref
+---|---|---|---|---|---|---|---
+${learnedSpells}
 
 ##Skills
 
