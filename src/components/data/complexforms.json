@@ -1,0 +1,159 @@
+[{
+	"id": "373638b9-4334-4645-99f5-c3673e4f809b",
+	"name": "Cleaner",
+	"target": "Persona",
+	"duration": "P",
+	"fv": "L+1",
+	"source": "SR5",
+	"page": "252"
+}, {
+	"id": "33e75cd6-cad7-43dd-87ac-9838c83eccb5",
+	"name": "Diffusion of [Matrix Attribute]",
+	"target": "Device",
+	"duration": "S",
+	"fv": "L+1",
+	"bonus": {
+
+	},
+	"source": "SR5",
+	"page": "252"
+}, {
+	"id": "6b4ed8d5-75c8-4415-9578-15afa4ac8494",
+	"name": "Editor",
+	"target": "File",
+	"duration": "P",
+	"fv": "L+2",
+	"source": "SR5",
+	"page": "252"
+}, {
+	"id": "2abb9759-30b1-490f-9b42-0d6b7d282526",
+	"name": "Infusion of [Matrix Attribute]",
+	"target": "Device",
+	"duration": "S",
+	"fv": "L+1",
+	"bonus": {
+
+	},
+	"source": "SR5",
+	"page": "252"
+}, {
+	"id": "dbb1d719-c829-4c45-9a53-9ff538865c14",
+	"name": "Static Veil",
+	"target": "Persona",
+	"duration": "S",
+	"fv": "L-1",
+	"source": "SR5",
+	"page": "252"
+}, {
+	"id": "d8b11a80-eb95-409e-a53b-18c48e09342e",
+	"name": "Pulse Storm",
+	"target": "Persona",
+	"duration": "I",
+	"fv": "L+0",
+	"source": "SR5",
+	"page": "252"
+}, {
+	"id": "f53a57c9-5073-4af3-aff9-45e3e449ac59",
+	"name": "Puppeteer",
+	"target": "Device",
+	"duration": "I",
+	"fv": "L+4",
+	"source": "SR5",
+	"page": "252"
+}, {
+	"id": "cfebf27d-707e-4ea2-a376-394738a11b3c",
+	"name": "Resonance Channel",
+	"target": "Device",
+	"duration": "S",
+	"fv": "L-1",
+	"source": "SR5",
+	"page": "252"
+}, {
+	"id": "704abd70-c0e6-4f06-b186-53a7cb856584",
+	"name": "Resonance Spike",
+	"target": "Device",
+	"duration": "I",
+	"fv": "L+0",
+	"source": "SR5",
+	"page": "253"
+}, {
+	"id": "42cc98b0-2b3f-42a0-bbe7-fb7d2633d11a",
+	"name": "Resonance Veil",
+	"target": "Device",
+	"duration": "S",
+	"fv": "L-1",
+	"source": "SR5",
+	"page": "253"
+}, {
+	"id": "f64ccd1d-634f-4cf3-a020-ab03247abf25",
+	"name": "Static Bomb",
+	"target": "Self",
+	"duration": "I",
+	"fv": "L+2",
+	"source": "SR5",
+	"page": "253"
+}, {
+	"id": "7cd49196-0912-43c5-b1a1-c9da96432340",
+	"name": "Stitches",
+	"target": "Sprite",
+	"duration": "P",
+	"fv": "L-2",
+	"source": "SR5",
+	"page": "253"
+}, {
+	"id": "73ed88a2-7a5d-4b1c-bc2e-f92b80f6c593",
+	"name": "Transcendent Grid",
+	"target": "Self",
+	"duration": "I",
+	"fv": "L-3",
+	"source": "SR5",
+	"page": "253"
+}, {
+	"id": "f9dc77ad-bc06-4a1b-a967-0e78efe136e4",
+	"name": "Tattletale",
+	"target": "Persona",
+	"duration": "P",
+	"fv": "L-2",
+	"source": "SR5",
+	"page": "253"
+}, {
+	"id": "57566f59-ddbf-42bb-929a-2966ce2fde46",
+	"name": "Derezz",
+	"target": "Persona",
+	"duration": "I",
+	"fv": "L+2",
+	"source": "DT",
+	"page": "58"
+}, {
+	"id": "2badbff2-02e1-4218-97f0-f53f71f22cc4",
+	"name": "FAQ",
+	"target": "Device",
+	"duration": "P",
+	"fv": "L",
+	"source": "DT",
+	"page": "58"
+}, {
+	"id": "5e5c8711-70a9-4068-b084-2ae23fce8fa7",
+	"name": "IC Tray",
+	"target": "Host",
+	"duration": "I",
+	"fv": "L-2",
+	"source": "DT",
+	"page": "58"
+}, {
+	"id": "9a2bcb96-36fe-4f43-bbfe-f2040a8ee491",
+	"name": "Redundancy",
+	"target": "Device",
+	"duration": "S",
+	"fv": "L",
+	"source": "DT",
+	"page": "58"
+}, {
+	"id": "bfa66f3e-4d04-43a4-972a-4e0b430284ca",
+	"name": "Misread Marks",
+	"target": "IC",
+	"duration": "P",
+	"fv": "L+2",
+	"source": "DT",
+	"page": "58"
+}]
