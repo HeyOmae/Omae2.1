@@ -3,6 +3,7 @@
 import React from 'react';
 import Modal from '../ModalComponent';
 const spellData = require('json!../data/spells.json');
+const complexFormData = require('json!../data/complexforms.json');
 
 require('styles/magic/SpellSelector.sass');
 
