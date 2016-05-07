@@ -35,15 +35,17 @@ const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed
 		attributesData.push(<td key={'summary-attribute-data-' + att}>{calculatedStats.attributes[att]}</td>);
 	}
 
-	if(magres !== 'mundane') {
-		let baseMagic = priorityTableData[priority.magres].magic[magres].attribute.points;
+	const magicPriorityData = priorityTableData[priority.magres].magic[magres];
+
+	if(magicPriorityData && magres !== 'mundane') {
+		let baseMagic = magicPriorityData.attribute.points;
 		calculatedStats.attributes.mag = baseMagic + (attributes.special || 0);
 		attributesHead.push(<th key={'summary-attribute-head-mag'}>mag</th>);
 		attributesData.push(<td key={'summary-attribute-data-mag'}>{calculatedStats.attributes.mag}</td>);
 		for(let magicCat in spellsAndPowers) {
 			spellsAndPowers[magicCat].forEach((spell, index)=>{
 				displaySpellsPowers.push(
-					<tr key={magicCat + spell.name + index}><td>{spell.name}</td><td>{spell.source} {spell.page}p</td></tr>
+					<tr key={'summary-' + magicCat + spell.name + index}><td>{spell.name}</td><td>{spell.source} {spell.page}p</td></tr>
 				);
 			});
 		}

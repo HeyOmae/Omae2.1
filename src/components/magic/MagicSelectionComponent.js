@@ -13,8 +13,42 @@ class MagicSelectionComponent extends React.Component {
 		const awakenTypes = ['Mage', 'Mystic', 'Technomancer','Adept', 'Aspected', 'mundane'],
 			{magicPriority, magictype, selectedSpellsPowers, actions} = this.props,
 			magicPriorityStats = priorityData[magicPriority].magic,
-			spellMax = magicPriorityStats[magictype].spells && magicPriorityStats[magictype].spells.points;
+			spellMax = magicPriorityStats[magictype] && magicPriorityStats[magictype].spells && magicPriorityStats[magictype].spells.points,
+			toggleAbilities = {
+				Mage: () => {
+					let mageAbilities = toggleAbilities.default();
+					mageAbilities.spells = true;
+					return mageAbilities;
+				},
+				Mystic: () => {
+					let mysticAbilities = toggleAbilities.default();
+					mysticAbilities.spells = true;
+					mysticAbilities.powers = true;
+					return mysticAbilities;
+				},
+				Technomancer: () => {
+					let technoAbilities = toggleAbilities.default();
+					technoAbilities.complexForms = true;
+					return technoAbilities;
+				},
+				Adept: () => {
+					let adeptAbilities = toggleAbilities.default();
+					adeptAbilities.powers = true;
+					return adeptAbilities;
+				},
+				Aspected: () => { return toggleAbilities.Mage(); },
+				default: () => {
+					return {
+						spells: false,
+						powers: false,
+						complexForms: false
+					};
+				}
+			},
+			displayAbilities = (toggleAbilities[magictype] || toggleAbilities['default'])();
 		let awakenButtons = [];
+
+		console.log(displayAbilities);
 
 		awakenTypes.forEach((typeName) => {
 			let selectedMagictype = magictype === typeName;
@@ -36,13 +70,20 @@ class MagicSelectionComponent extends React.Component {
 				<div className="btn-group">
 					{awakenButtons}
 				</div>
-				<h3>Spells</h3>
-				<SpellSelector
-					addSpell = {actions.addSpell}
-					removeSpell = {actions.removeSpell}
-					selectedSpells = {selectedSpellsPowers.spells}
-					spellMax={spellMax}
-					/>
+				{
+					displayAbilities.spells ?
+					<div>
+						<h3>Spells</h3>
+						<SpellSelector
+							addSpell = {actions.addSpell}
+							removeSpell = {actions.removeSpell}
+							selectedSpells = {selectedSpellsPowers.spells}
+							spellMax={spellMax}
+							/>
+					</div>
+					:
+					null
+				}
 			</div>
 		);
 	}

@@ -31,8 +31,15 @@ class ActiveSkillsComponent extends React.Component {
 			],
 			skillPointsLeft = priorityTableData[priority.skills].skills.skillpoints - skills.skillPointsSpent,
 			groupPointsLeft = priorityTableData[priority.skills].skills.grouppoints - skills.groupPointSpent,
-			baseMagicAttribute = priorityTableData[priority.magres].magic[magictype].attribute && priorityTableData[priority.magres].magic[magictype].attribute.points || 0,
-			priorityDataFreeSkills = priorityTableData[priority.magres].magic[magictype].skills;
+			priorityMagicData = priorityTableData[priority.magres].magic[magictype];
+
+			let baseMagicAttribute = 0,
+				priorityDataFreeSkills = null;
+
+			if (priorityMagicData) {
+				baseMagicAttribute = priorityMagicData.attribute && priorityMagicData.attribute.points || 0;
+				priorityDataFreeSkills = priorityMagicData.skills;
+			}
 
 		function allowedSkill() {
 			if(awakened.indexOf(magictype) > -1) {
@@ -44,7 +51,7 @@ class ActiveSkillsComponent extends React.Component {
 			}
 		}
 
-		var listOfSkills = [];
+		let listOfSkills = [];
 
 		for(let skillKey in skillsData.active) {
 			let skillinCategory = skillsData.active[skillKey];
