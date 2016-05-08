@@ -5,7 +5,8 @@
  */
 const initialState = {
 	spells: [],
-	powers: []
+	powers: [],
+	complexForms: []
 };
 
 const spellReducer = (state=initialState, action) => {

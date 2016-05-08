@@ -82,6 +82,8 @@ function generateSpellDetailTablesRows(arrayOfSpells, generateBtnFn) {
 	let spellTables = {},
 		spellID = 0;
 
+		console.log(arrayOfSpells);
+
 	arrayOfSpells.forEach((spell, spellIndex)=>{
 		spellTables = createSpellCategoryLabel(spellTables, spell);
 
@@ -97,7 +99,16 @@ function generateSpellDetailTablesRows(arrayOfSpells, generateBtnFn) {
 
 class SpellSelectorComponent extends React.Component {
 	render() {
-		const {addSpell, removeSpell, selectedSpells, spellMax} = this.props;
+		const {abilities, addSpell, removeSpell, selectedSpells, spellMax} = this.props,
+		activeAbility = {
+			spells: () => {
+				return spellData;
+			},
+			complexForms: () => {
+				return complexFormData;
+			}
+		},
+		abilityData = activeAbility[abilities]();
 		let spellsToSeletTables = {},
 			addSpellModals = [],
 			generateAddSpellButton = (spell, spellName) => {
@@ -118,7 +129,7 @@ class SpellSelectorComponent extends React.Component {
 		};
 
 		//generated spell details to populate addSpellModals
-		spellsToSeletTables = generateSpellDetailTablesRows(spellData, generateAddSpellButton);
+		spellsToSeletTables = generateSpellDetailTablesRows(abilityData, generateAddSpellButton);
 
 		for(let spellCat in spellsToSeletTables) {
 			addSpellModals.push(
