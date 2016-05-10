@@ -8,7 +8,7 @@ const complexFormData = require('json!../data/complexforms.json');
 require('styles/magic/SpellSelector.sass');
 
 //helper functions
-function createSpellCategoryLabel (SpellsObj, {category, damage}) {
+function createSpellCategoryLabel (SpellsObj, {category='Complex Form', damage}) {
 	if(!SpellsObj[category]) {
 		SpellsObj[category] = [];
 		const spellLabel = category + '-label';
@@ -50,6 +50,9 @@ function createSpellNameWithOptions(spellName) {
 }
 
 function createSpellIndividualRow(spellArray, spellName, spellDetails, button, spellID) {
+	if(!spellDetails.category) {
+		spellDetails.category = 'Complex Form';
+	}
 	spellArray[spellDetails.category].push(
 		<tr key={'spell-'+ (spellID)}>
 			{button}
@@ -70,7 +73,7 @@ function createSpellIndividualRow(spellArray, spellName, spellDetails, button, s
 			<td>{spellDetails.range}</td>
 			{spellDetails.damage === '0' ? null: <td>{spellDetails.damage}</td>}
 			<td>{spellDetails.duration}</td>
-			<td>{spellDetails.dv}</td>
+			<td>{spellDetails.dv || spellDetails.fv}</td>
 			<td>{spellDetails.source + ' p' + spellDetails.page}</td>
 		</tr>
 	);
