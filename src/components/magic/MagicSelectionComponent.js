@@ -43,7 +43,12 @@ const MagicSelectionComponent = ({magicPriority, magictype, selectedSpellsPowers
 			}
 		},
 		displayAbilities = (toggleAbilities[magictype] || toggleAbilities['default'])();
-	let awakenButtons = [];
+	let awakenButtons = [],
+		spellMax = 0;
+
+	if(magicPriorityStats[magictype] && magicPriorityStats[magictype].spells) {
+		spellMax = magicPriorityStats[magictype].spells.points;
+	}
 
 	awakenTypes.forEach((typeName) => {
 		let selectedMagictype = magictype === typeName;
@@ -74,7 +79,7 @@ const MagicSelectionComponent = ({magicPriority, magictype, selectedSpellsPowers
 						addSpell = {actions.addSpell}
 						removeSpell = {actions.removeSpell}
 						selectedSpells = {selectedSpellsPowers.spells}
-						spellMax={magicPriorityStats[magictype].spells.points}
+						spellMax={spellMax}
 						/>
 				</div>
 				:
@@ -89,7 +94,7 @@ const MagicSelectionComponent = ({magicPriority, magictype, selectedSpellsPowers
 						addSpell = {actions.addComplexForm}
 						removeSpell = {actions.removeComplexForm}
 						selectedSpells = {selectedSpellsPowers.complexForms}
-						spellMax={magicPriorityStats[magictype].spells.points}
+						spellMax={spellMax}
 						/>
 				</div>
 				:
