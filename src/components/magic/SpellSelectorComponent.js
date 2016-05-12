@@ -12,19 +12,32 @@ function createSpellCategoryLabel (SpellsObj, {category='Complex Form', damage})
 	if(!SpellsObj[category]) {
 		SpellsObj[category] = [];
 		const spellLabel = category + '-label';
-		SpellsObj[category].push(
-			<tr key={spellLabel} className={spellLabel}>
-				<th>Learn</th>
-				<th>Spell</th>
-				<th>Descriptor</th>
-				<th>Type</th>
-				<th>Range</th>
-				{damage === '0' ? null: <th>Damage</th>}
-				<th>Duration</th>
-				<th>Drain</th>
-				<th>Ref</th>
-			</tr>
-		);
+		if(category === 'Complex Form'){
+			SpellsObj[category].push(
+				<tr key={spellLabel} className={spellLabel}>
+					<th>Learn</th>
+					<th>Complex Form</th>
+					<th>Target</th>
+					<th>Duration</th>
+					<th>Fade</th>
+					<th>Ref</th>
+				</tr>
+			);
+		} else {
+			SpellsObj[category].push(
+				<tr key={spellLabel} className={spellLabel}>
+					<th>Learn</th>
+					<th>Spell</th>
+					<th>Descriptor</th>
+					<th>Type</th>
+					<th>Range</th>
+					{damage === '0' ? null: <th>Damage</th>}
+					<th>Duration</th>
+					<th>Drain</th>
+					<th>Ref</th>
+				</tr>
+			);
+		}
 	}
 
 	return SpellsObj;
@@ -52,31 +65,55 @@ function createSpellNameWithOptions(spellName) {
 function createSpellIndividualRow(spellArray, spellName, spellDetails, button, spellID) {
 	if(!spellDetails.category) {
 		spellDetails.category = 'Complex Form';
+
+		spellArray[spellDetails.category].push(
+			<tr key={'complexform-'+ (spellID)}>
+				{button}
+				<td>
+					{spellName.start}
+					{spellName.placeholderText ?
+						<input
+							className="form-control spell-option"
+							type="text"
+							ref={'spellOption'+spellDetails.name}
+							placeholder={spellName.placeholderText}/>
+						:null
+					}
+					{spellName.end||null}
+					</td>
+				<td>{spellDetails.target}</td>
+				<td>{spellDetails.duration}</td>
+				<td>{spellDetails.fv}</td>
+				<td>{spellDetails.source + ' p' + spellDetails.page}</td>
+			</tr>
+		);
+	} else {
+		spellArray[spellDetails.category].push(
+			<tr key={'spell-'+ (spellID)}>
+				{button}
+				<td>
+					{spellName.start}
+					{spellName.placeholderText ?
+						<input
+							className="form-control spell-option"
+							type="text"
+							ref={'spellOption'+spellDetails.name}
+							placeholder={spellName.placeholderText}/>
+						:null
+					}
+					{spellName.end||null}
+					</td>
+				<td>{spellDetails.descriptor}</td>
+				<td>{spellDetails.type}</td>
+				<td>{spellDetails.range}</td>
+				{spellDetails.damage === '0' ? null: <td>{spellDetails.damage}</td>}
+				<td>{spellDetails.duration}</td>
+				<td>{spellDetails.dv}</td>
+				<td>{spellDetails.source + ' p' + spellDetails.page}</td>
+			</tr>
+		);
 	}
-	spellArray[spellDetails.category].push(
-		<tr key={'spell-'+ (spellID)}>
-			{button}
-			<td>
-				{spellName.start}
-				{spellName.placeholderText ?
-					<input
-						className="form-control spell-option"
-						type="text"
-						ref={'spellOption'+spellDetails.name}
-						placeholder={spellName.placeholderText}/>
-					:null
-				}
-				{spellName.end||null}
-				</td>
-			<td>{spellDetails.descriptor}</td>
-			<td>{spellDetails.type}</td>
-			<td>{spellDetails.range}</td>
-			{spellDetails.damage === '0' ? null: <td>{spellDetails.damage}</td>}
-			<td>{spellDetails.duration}</td>
-			<td>{spellDetails.dv || spellDetails.fv}</td>
-			<td>{spellDetails.source + ' p' + spellDetails.page}</td>
-		</tr>
-	);
+	
 
 	return spellArray;
 }
@@ -84,8 +121,6 @@ function createSpellIndividualRow(spellArray, spellName, spellDetails, button, s
 function generateSpellDetailTablesRows(arrayOfSpells, generateBtnFn) {
 	let spellTables = {},
 		spellID = 0;
-
-		console.log(arrayOfSpells);
 
 	arrayOfSpells.forEach((spell, spellIndex)=>{
 		spellTables = createSpellCategoryLabel(spellTables, spell);
