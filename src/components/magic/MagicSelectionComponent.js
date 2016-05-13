@@ -25,7 +25,7 @@ const MagicSelectionComponent = ({magicPriority, magictype, selectedSpellsPowers
 			},
 			Technomancer: () => {
 				let technoAbilities = toggleAbilities.default();
-				technoAbilities.complexForms = true;
+				technoAbilities.complexforms = true;
 				return technoAbilities;
 			},
 			Adept: () => {
@@ -38,7 +38,7 @@ const MagicSelectionComponent = ({magicPriority, magictype, selectedSpellsPowers
 				return {
 					spells: false,
 					powers: false,
-					complexForms: false
+					complexforms: false
 				};
 			}
 		},
@@ -86,14 +86,14 @@ const MagicSelectionComponent = ({magicPriority, magictype, selectedSpellsPowers
 				null
 			}
 			{
-				displayAbilities.complexForms ?
+				displayAbilities.complexforms ?
 				<div>
 					<h3>Complex Forms</h3>
 					<SpellSelector
-						abilities="complexForms"
-						addSpell = {actions.addComplexForm}
-						removeSpell = {actions.removeComplexForm}
-						selectedSpells = {selectedSpellsPowers.complexForms}
+						abilities="complexforms"
+						addSpell = {actions.addComplexform}
+						removeSpell = {actions.removeComplexform}
+						selectedSpells = {selectedSpellsPowers.complexforms}
 						spellMax={spellMax}
 						/>
 				</div>

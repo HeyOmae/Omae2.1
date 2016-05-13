@@ -3,7 +3,7 @@
 import React from 'react';
 import Modal from '../ModalComponent';
 const spellData = require('json!../data/spells.json');
-const complexFormData = require('json!../data/complexforms.json');
+const complexformData = require('json!../data/complexforms.json');
 
 require('styles/magic/SpellSelector.sass');
 
@@ -142,8 +142,8 @@ class SpellSelectorComponent extends React.Component {
 			spells: () => {
 				return spellData;
 			},
-			complexForms: () => {
-				return complexFormData;
+			complexforms: () => {
+				return complexformData;
 			}
 		},
 		abilityData = activeAbility[abilities]();

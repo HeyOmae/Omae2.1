@@ -6,20 +6,31 @@
 const initialState = {
 	spells: [],
 	powers: [],
-	complexForms: []
+	complexforms: []
 };
 
 const spellReducer = (state=initialState, action) => {
+	function addingSpellToList (listOfSpells, newSpell) {
+		return [
+				...listOfSpells,
+				newSpell
+			];
+	}
+
+	function removeSpellFromList (listOfSpells, indexToDelete) {
+		return [
+				...listOfSpells.slice(0, indexToDelete),
+				...listOfSpells.slice(indexToDelete + 1)
+			];
+	}
+
 	const actionsToTake = {
 		ADD_SPELL: () => {
 			return Object.assign(
 				{},
 				state,
 				{
-					spells: [
-						...state.spells,
-						action.parameter.newSpell
-					]
+					spells: addingSpellToList(state.spells, action.parameter.newSpell)
 				}
 			);
 		},
@@ -29,10 +40,27 @@ const spellReducer = (state=initialState, action) => {
 				{},
 				state,
 				{
-					spells: [
-						...state.spells.slice(0, action.parameter.spellIndex),
-						...state.spells.slice(action.parameter.spellIndex + 1)
-					]
+					spells: removeSpellFromList(state.spells, action.parameter.spellIndex)
+				}
+			);
+		},
+
+		ADD_COMPLEXFORM: () => {
+			return Object.assign(
+				{},
+				state,
+				{
+					complexforms: addingSpellToList(state.complexforms, action.parameter.newSpell)
+				}
+			);
+		},
+
+		REMOVE_COMPLEXFORM: () => {
+			return Object.assign(
+				{},
+				state,
+				{
+					complexforms: removeSpellFromList(state.complexforms, action.parameter.spellIndex)
 				}
 			);
 		},
