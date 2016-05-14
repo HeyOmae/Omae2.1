@@ -20,15 +20,14 @@ const initialState = {
 };
 
 const attributesReducer = (state=initialState, action) => {
-	if(action.parameter) {
-		var {attribute, max, spend, maxCap} = action.parameter;
-		if(maxCap) {
-			--max;
-		}
-	}
 
 	const actionsToTake = {
 		INCREMENT_ATTRIBUTE: () => {
+			var {attribute, max, spend, maxCap} = action.parameter;
+			if(maxCap) {
+				--max;
+			}
+
 			var newState,
 				nextIncrement = state[attribute] + 1;
 			if (nextIncrement > max) {
@@ -46,7 +45,8 @@ const attributesReducer = (state=initialState, action) => {
 			return newState;
 		},
 		DECREMENT_ATTRIBUTE: () => {
-			var newState,
+			var {attribute, spend} = action.parameter,
+				newState,
 				nextDecrement = state[attribute] - 1;
 			if(nextDecrement < 0) {
 				return state;

@@ -9,12 +9,10 @@ const initialState = {
 
 
 const attributesReducer = (state=initialState, action) => {
-	if(action.parameter) {
-		var {summaryFix} = action.parameter;
-	}
 
 	const actionsToTake = {
 		FIX_SUMMARY: () => {
+			let {summaryFix} = action.parameter;
 			if(summaryFix !== state.summaryFix){
 				var newState = Object.assign(
 						{},
