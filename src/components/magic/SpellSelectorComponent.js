@@ -63,7 +63,8 @@ function createSpellNameWithOptions(spellName) {
 }
 
 function createSpellIndividualRow(spellArray, spellName, spellDetails, button, spellID) {
-	if(!spellDetails.category) {
+	//TODO: refactor this to not be complete bulldrek
+	if(!spellDetails.category || spellDetails.category==='Complex Form') {
 		spellDetails.category = 'Complex Form';
 
 		spellArray[spellDetails.category].push(
