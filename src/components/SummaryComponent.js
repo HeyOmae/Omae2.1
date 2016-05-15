@@ -21,7 +21,7 @@ const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed
 			attributes: {}
 		},
 		displaySpellsPowers = [
-			<tr><th>Name</th><th>Ref</th></tr>
+			<tr key='summary-spell-header'><th>Name</th><th>Ref</th></tr>
 		];
 	for(let pariorityCategory in priority) {
 		priorityHead.push(<th key={'summary-priority-head-' + pariorityCategory}>{pariorityCategory}</th>);
@@ -45,7 +45,7 @@ const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed
 		for(let magicCat in spellsAndPowers) {
 			spellsAndPowers[magicCat].forEach((spell, index)=>{
 				displaySpellsPowers.push(
-					<tr key={'summary-' + magicCat + spell.name + index}><td>{spell.name}</td><td>{spell.source} {spell.page}p</td></tr>
+					<tr key={'summary-' + (magicCat||'complex-form') + spell.name + index}><td>{spell.name}</td><td>{spell.source} {spell.page}p</td></tr>
 				);
 			});
 		}

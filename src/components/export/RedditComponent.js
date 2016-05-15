@@ -27,12 +27,50 @@ const RedditComponent = ({priority, metatype, attributes, magres, skills, spells
 `;
 	}
 
-	for(let magicCat in spellsAndPowers) {
-		let magicPower = spellsAndPowers[magicCat];
+	function generateSpellHeader(spell) {
+		let header = '',
+			tableBreak = '';
+		for(let detailName in spell) {
+			if(detailName === 'id') {
 
-		magicPower.forEach((spell) => {
-			learnedSpells += `${spell.name} | ${spell.descriptor} | ${spell.category} | ${spell.type} | ${spell.duration} | ${spell.damage} | ${spell.dv} | ${spell.source} ${spell.page}
-`;
+			} else if (!header) {
+				header += `\n${detailName}`;
+				tableBreak += `\n---`;
+			} else {
+				header += ' | ' + detailName;
+				tableBreak += '|---';
+			}
+		}
+
+		return header + tableBreak + '\n';
+	}
+
+	for(let magicCat in spellsAndPowers) {
+		let magicAbility = spellsAndPowers[magicCat],
+			header = '';
+
+		magicAbility.forEach((spell) => {
+			if (!header) {
+				header = generateSpellHeader(spell);
+				learnedSpells += header;
+			}
+
+			const spellDetails = Object.keys(spell);
+
+			for(let i = 0, len = spellDetails.length - 1; i <= len; ++i) {
+				const detailName = spellDetails[i];
+				if (detailName !== 'id') {
+					const detail = spell[detailName];
+					if(i !== len) {
+						learnedSpells += detail + ' | ';
+					} else {
+						learnedSpells += `${detail}\n`;
+					}
+					
+				} else {
+					continue;
+				}
+			}
 		});
 	}
 
@@ -77,8 +115,6 @@ ${Math.ceil((attributes.str*2 + attributes.bod + attributes.rea)/3)} | ${Math.ce
 
 ###Spells
 
-Name | Descriptor | Category | Type | Duration | Damage | Drain | Ref
----|---|---|---|---|---|---|---
 ${learnedSpells}
 
 ##Skills
