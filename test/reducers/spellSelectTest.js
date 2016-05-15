@@ -112,4 +112,25 @@ describe('spellSelect', () => {
 		expect(newState.complexforms[1]).to.not.eql(state.complexforms[1]);
 		expect(newState.complexforms.length).to.equal(state.complexforms.length - 1);
 	});
+
+	it('should reset spells when RESET_ABILITY is called with "spells"', ()=>{
+		const newState = reducer(state, {type: 'RESET_ABILITY', parameter: {ability: 'spells'}});
+
+		expect(newState.spells).to.eql([]);
+		expect(state.spells.length).to.equal(1);
+	});
+
+	it('should reset comeplxforms when RESET_ABILITY is called with "complexforms"', ()=>{
+		const newState = reducer(state, {type: 'RESET_ABILITY', parameter: {ability: 'complexforms'}});
+
+		expect(newState.complexforms).to.eql([]);
+		expect(state.complexforms.length).to.equal(3);
+	});
+
+	it('should return state when RESET_ABILITY is but the ability is empty', ()=>{
+		state.spells = [];
+		const newState = reducer(state, {type: 'RESET_ABILITY', parameter: {ability: 'spells'}});
+
+		expect(newState).to.equal(state);
+	});
 });

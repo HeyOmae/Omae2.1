@@ -66,13 +66,18 @@ const spellReducer = (state=initialState, action) => {
 		},
 
 		RESET_ABILITY: () => {
-			return Object.assign(
-				{},
-				state,
-				{
-					[action.parameter.ability]: []
-				}
-			);
+			const {ability} = action.parameter;
+			if(state[ability].length > 0){
+				return Object.assign(
+					{},
+					state,
+					{
+						[ability]: []
+					}
+				);
+			} else {
+				return state;
+			}
 		},
 
 		DEFAULT: () => { return state; }

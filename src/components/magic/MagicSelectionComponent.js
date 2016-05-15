@@ -50,6 +50,30 @@ const MagicSelectionComponent = ({magicPriority, magictype, selectedSpellsPowers
 		spellMax = magicPriorityStats[magictype].spells.points;
 	}
 
+	function changeMagicType(magictype) {
+		actions.selectMagictype(magictype);
+		const reset = {
+			Mage: () => {
+				actions.resetAbility({ability: 'complexforms'});
+				actions.resetAbility({ability: 'powers'});
+			},
+			Mystic: () => {
+				actions.resetAbility({ability: 'complexforms'});
+			},
+			Technomancer: () => {
+				actions.resetAbility({ability: 'powers'});
+				actions.resetAbility({ability: 'spells'});
+			},
+			Aspected: () => { return reset.Mage(); },
+			default: () => {
+				actions.resetAbility({ability: 'powers'});
+				actions.resetAbility({ability: 'spells'});
+				actions.resetAbility({ability: 'complexforms'});
+			}
+		};
+		(reset[magictype] || reset.default)();
+	}
+
 	awakenTypes.forEach((typeName) => {
 		let selectedMagictype = magictype === typeName;
 		awakenButtons.push(
@@ -57,7 +81,7 @@ const MagicSelectionComponent = ({magicPriority, magictype, selectedSpellsPowers
 				typeName={typeName}
 				anOption={typeName in magicPriorityStats}
 				checked={selectedMagictype}
-				selectMagicTypeAction={actions.selectMagictype}
+				selectMagicTypeAction={changeMagicType}
 				resetFreeMagicSkills={actions.setMagicSkills}
 				key={'awaken-selection-' + typeName}
 			/>
