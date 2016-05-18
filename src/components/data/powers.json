@@ -1,0 +1,1115 @@
+[{
+	"id": "8caaadf4-75b4-4535-928a-5648d395c13a",
+	"name": "Adrenaline Boost",
+	"points": ".25",
+	"adeptway": "0",
+	"levels": "yes",
+	"limit": "1",
+	"source": "SR5",
+	"page": "309"
+}, {
+	"id": "39224ecf-f3d0-40b6-95a6-2f047f95d736",
+	"name": "Astral Perception",
+	"points": "1",
+	"adeptway": ".5",
+	"levels": "no",
+	"limit": "1",
+	"source": "SR5",
+	"page": "309"
+}, {
+	"id": "ddcca815-d6fe-41ed-b174-2e7255320f17",
+	"name": "Attribute Boost",
+	"points": ".25",
+	"adeptway": "0",
+	"levels": "yes",
+	"limit": "1",
+	"bonus": {
+		"selectattribute": {
+			"attribute": [
+				"AGI",
+				"BOD",
+				"REA",
+				"STR"
+			]
+		}
+	},
+	"source": "SR5",
+	"page": "309"
+}, {
+	"id": "76337564-7688-497f-84f9-302c6ece10fe",
+	"name": "Combat Sense",
+	"points": ".5",
+	"adeptway": ".25",
+	"levels": "yes",
+	"limit": "1",
+	"source": "SR5",
+	"page": "309"
+}, {
+	"id": "dbf16604-164c-485c-96c8-fe3136cd5caa",
+	"name": "Critical Strike",
+	"points": ".5",
+	"adeptway": ".25",
+	"levels": "no",
+	"limit": "no",
+	"bonus": {
+		"weaponcategorydv": {
+			"selectskill": {
+				"-skillcategory": "Combat Active"
+			},
+			"bonus": "1"
+		}
+	},
+	"source": "SR5",
+	"page": "309"
+}, {
+	"id": "980d6575-c28f-4076-9b36-881cea018335",
+	"name": "Danger Sense",
+	"points": ".25",
+	"adeptway": "0",
+	"levels": "yes",
+	"limit": "1",
+	"source": "SR5",
+	"page": "309"
+}, {
+	"id": "974d2aba-1772-474b-aaff-c84a12766e5f",
+	"name": "Enhanced Perception",
+	"points": ".5",
+	"adeptway": ".25",
+	"levels": "yes",
+	"limit": "1",
+	"bonus": {
+		"specificskill": [{
+			"name": "Perception",
+			"bonus": "Rating"
+		}, {
+			"name": "Assensing",
+			"bonus": "Rating"
+		}]
+	},
+	"source": "SR5",
+	"page": "309"
+}, {
+	"id": "e009da31-0301-4604-b13f-49b071aa25a1",
+	"name": "Enhanced Accuracy (skill)",
+	"points": ".25",
+	"adeptway": "0",
+	"levels": "no",
+	"limit": "100",
+	"bonus": {
+		"selectskill": {
+			"-skillcategory": "Combat Active",
+			"val": "0",
+			"applytoaccuracy": "yes"
+		}
+	},
+	"source": "SR5",
+	"page": "309"
+}, {
+	"id": "75821fb7-a180-4012-aa16-daa92ac3bb63",
+	"name": "Improved Ability (skill)",
+	"points": ".5",
+	"adeptway": ".25",
+	"levels": "yes",
+	"limit": "100",
+	"bonus": {
+		"selectskill": {
+			"val": "Rating",
+			"applytorating": "yes"
+		}
+	},
+	"source": "SR5",
+	"page": "309"
+}, {
+	"id": "901d2af5-246a-447a-a8e2-b2e8c10593df",
+	"name": "Improved Physical Attribute",
+	"points": "1",
+	"adeptway": ".5",
+	"levels": "yes",
+	"limit": "12",
+	"bonus": {
+		"selectattribute": {
+			"attribute": [
+				"BOD",
+				"AGI",
+				"REA",
+				"STR"
+			],
+			"val": "Rating",
+			"affectbase": "yes"
+		}
+	},
+	"source": "SR5",
+	"page": "309"
+}, {
+	"id": "1fde7231-e5cc-4fa3-a1fe-b80b00212417",
+	"name": "Improved Potential (Social)",
+	"points": ".5",
+	"adeptway": ".25",
+	"levels": "no",
+	"limit": "1",
+	"bonus": {
+		"limitmodifier": {
+			"limit": "Social",
+			"value": "1"
+		}
+	},
+	"source": "SR5",
+	"page": "309"
+}, {
+	"id": "2a7abc86-aa01-4127-b4b1-f73b49a2b5db",
+	"name": "Improved Potential (Mental)",
+	"points": ".5",
+	"adeptway": ".25",
+	"levels": "no",
+	"limit": "1",
+	"bonus": {
+		"limitmodifier": {
+			"limit": "Mental",
+			"value": "1"
+		}
+	},
+	"source": "SR5",
+	"page": "309"
+}, {
+	"id": "d9b811f4-aa64-46fb-b67d-2995134eda4e",
+	"name": "Improved Potential (Physical)",
+	"points": ".5",
+	"adeptway": ".25",
+	"levels": "no",
+	"limit": "1",
+	"bonus": {
+		"limitmodifier": {
+			"limit": "Physical",
+			"value": "1"
+		}
+	},
+	"source": "SR5",
+	"page": "309"
+}, {
+	"id": "96d01fd7-abe8-495c-960e-a250d8e2dec0",
+	"name": "Improved Reflexes 1",
+	"points": "1.5",
+	"adeptway": ".75",
+	"levels": "no",
+	"limit": "1",
+	"doublecost": "no",
+	"bonus": {
+		"initiativepass": {
+			"-precedence": "1",
+			"#text": "1"
+		},
+		"specificattribute": {
+			"name": "REA",
+			"val": "1"
+		}
+	},
+	"source": "SR5",
+	"page": "310"
+}, {
+	"id": "60eb2147-c131-4f2f-a3cf-d210453533ef",
+	"name": "Improved Reflexes 2",
+	"points": "2.5",
+	"adeptway": ".75",
+	"levels": "no",
+	"limit": "1",
+	"doublecost": "no",
+	"bonus": {
+		"initiativepass": {
+			"-precedence": "1",
+			"#text": "2"
+		},
+		"specificattribute": {
+			"name": "REA",
+			"val": "2"
+		}
+	},
+	"source": "SR5",
+	"page": "310"
+}, {
+	"id": "669f249e-49fe-4870-89ba-475cfb027dfc",
+	"name": "Improved Reflexes 3",
+	"points": "3.5",
+	"adeptway": ".75",
+	"levels": "no",
+	"limit": "1",
+	"doublecost": "no",
+	"bonus": {
+		"initiativepass": {
+			"-precedence": "1",
+			"#text": "3"
+		},
+		"specificattribute": {
+			"name": "REA",
+			"val": "3"
+		}
+	},
+	"source": "SR5",
+	"page": "310"
+}, {
+	"id": "1376c13b-9a01-4873-b935-5b7d91e03785",
+	"name": "Improved Sense",
+	"points": ".25",
+	"adeptway": "0",
+	"levels": "no",
+	"limit": "100",
+	"bonus": {
+
+	},
+	"source": "SR5",
+	"page": "310"
+}, {
+	"id": "23636777-44df-44f1-8742-db29dc3c4fdf",
+	"name": "Killing Hands",
+	"points": ".5",
+	"adeptway": ".25",
+	"levels": "no",
+	"limit": "1",
+	"bonus": {
+
+	},
+	"source": "SR5",
+	"page": "310"
+}, {
+	"id": "f1e8a618-ba12-4972-91f0-974500387893",
+	"name": "Kinesics",
+	"points": ".25",
+	"adeptway": "0",
+	"levels": "yes",
+	"limit": "1",
+	"source": "SR5",
+	"page": "310"
+}, {
+	"id": "ce7df757-792e-4fac-a86e-6b587586deb2",
+	"name": "Light Body",
+	"points": ".25",
+	"adeptway": "0",
+	"levels": "yes",
+	"limit": "1",
+	"source": "SR5",
+	"page": "310"
+}, {
+	"id": "c152dcba-8bb7-4a2a-86bb-6f854ea53b55",
+	"name": "Missile Parry",
+	"points": ".25",
+	"adeptway": "0",
+	"levels": "yes",
+	"limit": "1",
+	"source": "SR5",
+	"page": "310"
+}, {
+	"id": "da5f9389-a5fd-48ed-8825-8852ff5c56a8",
+	"name": "Mystic Armor",
+	"points": ".5",
+	"adeptway": ".25",
+	"levels": "yes",
+	"limit": "1",
+	"bonus": {
+		"armor": "Rating"
+	},
+	"source": "SR5",
+	"page": "310"
+}, {
+	"id": "98b59b41-6a91-4abc-a6d2-e8debaa3b5aa",
+	"name": "Natural Immunity",
+	"points": ".25",
+	"adeptway": "0",
+	"levels": "yes",
+	"limit": "1",
+	"source": "SR5",
+	"page": "311"
+}, {
+	"id": "545a4bec-c144-42a1-b553-6d6c0c91f07f",
+	"name": "Pain Resistance",
+	"points": ".5",
+	"adeptway": ".25",
+	"levels": "yes",
+	"limit": "1",
+	"bonus": {
+		"conditionmonitor": {
+			"thresholdoffset": "Rating"
+		}
+	},
+	"source": "SR5",
+	"page": "311"
+}, {
+	"id": "4676b6f7-120d-4344-81ac-5922445a521b",
+	"name": "Rapid Healing",
+	"points": ".5",
+	"adeptway": ".25",
+	"levels": "yes",
+	"limit": "1",
+	"source": "SR5",
+	"page": "311"
+}, {
+	"id": "82d8c376-7509-468a-be17-8c9cba4c86c4",
+	"name": "Spell Resistance",
+	"points": ".5",
+	"adeptway": ".25",
+	"levels": "yes",
+	"limit": "1",
+	"source": "SR5",
+	"page": "311"
+}, {
+	"id": "3f3fcdbc-c046-4a95-bd46-511a76d75b56",
+	"name": "Traceless Walk",
+	"points": "1",
+	"adeptway": ".5",
+	"levels": "no",
+	"limit": "1",
+	"source": "SR5",
+	"page": "311"
+}, {
+	"id": "71692391-e01f-4902-98f0-abbbf5431680",
+	"name": "Voice Control",
+	"points": ".5",
+	"adeptway": ".25",
+	"levels": "yes",
+	"limit": "20",
+	"bonus": {
+		"sociallimit": "Rating"
+	},
+	"source": "SR5",
+	"page": "311"
+}, {
+	"id": "bfd1e09c-5765-423b-b079-f5d8e794485a",
+	"name": "Wall Running",
+	"points": ".5",
+	"adeptway": ".25",
+	"levels": "no",
+	"limit": "1",
+	"source": "SR5",
+	"page": "311"
+}, {
+	"id": "0099ad65-bcc1-47a5-a241-02f621e7c33a",
+	"name": "Analytics",
+	"points": ".5",
+	"adeptway": ".25",
+	"levels": "yes",
+	"limit": "1",
+	"source": "SG",
+	"page": "169"
+}, {
+	"id": "870edcf8-cb19-4e15-948c-1b3bf80ac651",
+	"name": "Animal Empathy",
+	"points": ".25",
+	"adeptway": "0",
+	"levels": "yes",
+	"bonus": {
+		"specificskill": {
+			"name": "Animal Handling",
+			"bonus": "Rating"
+		}
+	},
+	"limit": "1",
+	"source": "SG",
+	"page": "169"
+}, {
+	"id": "80577dac-7697-4da9-87fd-d4442dc34560",
+	"name": "Berserk",
+	"points": "1",
+	"adeptway": ".5",
+	"levels": "no",
+	"limit": "1",
+	"source": "SG",
+	"page": "169"
+}, {
+	"id": "59455eae-beb5-45fc-b19d-dc3aff65335d",
+	"name": "Berserker's Rage",
+	"points": "1",
+	"adeptway": ".5",
+	"levels": "no",
+	"required": {
+		"oneof": {
+			"power": "Berserk"
+		}
+	},
+	"limit": "1",
+	"source": "SG",
+	"page": "169"
+}, {
+	"id": "f3df89bb-71f6-41d8-a86d-4bde1ab74352",
+	"name": "Blind Fighting",
+	"points": ".5",
+	"adeptway": ".25",
+	"levels": "no",
+	"limit": "1",
+	"source": "SG",
+	"page": "169"
+}, {
+	"id": "42baa818-50ca-4c6b-b316-780a51df9c97",
+	"name": "Cloak",
+	"points": ".25",
+	"adeptway": "0",
+	"levels": "yes",
+	"limit": "1",
+	"source": "SG",
+	"page": "169"
+}, {
+	"id": "deec22db-cf2c-47b6-ac34-95a13bcd0bf8",
+	"name": "Cool Resolve",
+	"points": "1",
+	"adeptway": ".5",
+	"levels": "yes",
+	"limit": "1",
+	"bonus": {
+		"specificskill": [{
+			"name": "Con",
+			"bonus": "Rating"
+		}, {
+			"name": "Etiquette",
+			"bonus": "Rating"
+		}, {
+			"name": "Impersonation",
+			"bonus": "Rating"
+		}, {
+			"name": "Instruction",
+			"bonus": "Rating"
+		}, {
+			"name": "Intimidation",
+			"bonus": "Rating"
+		}, {
+			"name": "Leadership",
+			"bonus": "Rating"
+		}, {
+			"name": "Negotiation",
+			"bonus": "Rating"
+		}, {
+			"name": "Performance",
+			"bonus": "Rating"
+		}]
+	},
+	"source": "SG",
+	"page": "169"
+}, {
+	"id": "5f1ebcd8-9571-4716-b7fd-ec674306b833",
+	"name": "Authoritative Tone",
+	"points": ".50",
+	"adeptway": "0.25",
+	"levels": "yes",
+	"maxlevel": "3",
+	"limit": "1",
+	"source": "SG",
+	"page": "170"
+}, {
+	"id": "6770cfab-8c1a-4c6d-add7-f7d96220e9b0",
+	"name": "Counterstrike",
+	"points": "1",
+	"adeptway": ".5",
+	"levels": "yes",
+	"limit": "1",
+	"source": "SG",
+	"page": "170"
+}, {
+	"id": "1eb8d3fa-2a67-4b71-a9de-dfbf5236eeda",
+	"name": "Elemental Body",
+	"points": "1",
+	"adeptway": ".5",
+	"levels": "no",
+	"limit": "100",
+	"bonus": {
+
+	},
+	"source": "SG",
+	"page": "170"
+}, {
+	"id": "3d27c3bb-9cca-45c2-b8b1-6225a236069b",
+	"name": "Elemental Strike",
+	"points": ".5",
+	"adeptway": ".25",
+	"levels": "no",
+	"limit": "100",
+	"bonus": {
+
+	},
+	"source": "SG",
+	"page": "170"
+}, {
+	"id": "eb323003-4112-42ad-955a-00211e43e6d1",
+	"name": "Elemental Weapon",
+	"points": ".5",
+	"adeptway": ".25",
+	"levels": "no",
+	"limit": "100",
+	"bonus": {
+
+	},
+	"source": "SG",
+	"page": "170"
+}, {
+	"id": "6680b68d-77df-4fe4-a722-30464dd3c646",
+	"name": "Empathic Healing",
+	"points": ".5",
+	"adeptway": ".25",
+	"levels": "no",
+	"limit": "1",
+	"source": "SG",
+	"page": "171"
+}, {
+	"id": "fbd06bae-b3ba-4514-8d90-870eff1c336b",
+	"name": "Facial Sculpt",
+	"points": ".25",
+	"adeptway": "0",
+	"levels": "yes",
+	"bonus": {
+		"specificskill": {
+			"name": "Disguise",
+			"bonus": "Rating"
+		}
+	},
+	"limit": "1",
+	"source": "SG",
+	"page": "171"
+}, {
+	"id": "438fb5de-9c09-4421-a6a8-c3d68ba8aada",
+	"name": "Flexibility",
+	"points": ".25",
+	"adeptway": "0",
+	"levels": "yes",
+	"maxlevel": "3",
+	"limit": "1",
+	"source": "SG",
+	"page": "171"
+}, {
+	"id": "88bf5626-6cf8-4dcc-bfc0-8abc889cdf4e",
+	"name": "Freefall",
+	"points": ".25",
+	"adeptway": "0",
+	"levels": "yes",
+	"limit": "1",
+	"source": "SG",
+	"page": "171"
+}, {
+	"id": "c59c1bb0-9b3e-41be-9079-8982b451fe45",
+	"name": "Hang Time",
+	"points": ".25",
+	"adeptway": "0",
+	"levels": "yes",
+	"bonus": {
+		"specificskill": {
+			"name": "Climbing",
+			"bonus": "Rating"
+		}
+	},
+	"limit": "1",
+	"source": "SG",
+	"page": "171"
+}, {
+	"id": "da59618c-059d-4cc5-adb5-c61e6049378c",
+	"name": "Inertia Strike",
+	"points": ".5",
+	"adeptway": ".25",
+	"levels": "no",
+	"limit": "1",
+	"source": "SG",
+	"page": "172"
+}, {
+	"id": "e1e242c3-cb63-476f-9868-90c311b36383",
+	"name": "Kinesics Mastery",
+	"points": ".5",
+	"adeptway": ".25",
+	"levels": "no",
+	"required": {
+		"oneof": {
+			"power": "Kinesics"
+		}
+	},
+	"limit": "1",
+	"source": "SG",
+	"page": "172"
+}, {
+	"id": "44f0bbba-184a-4e76-93de-19862ac6607b",
+	"name": "Linguistics",
+	"points": ".25",
+	"adeptway": "0",
+	"levels": "no",
+	"limit": "1",
+	"bonus": {
+
+	},
+	"source": "SG",
+	"page": "172"
+}, {
+	"id": "d20f0441-a290-4732-829f-3138d446aad4",
+	"name": "Magic Sense",
+	"points": ".5",
+	"adeptway": ".25",
+	"levels": "no",
+	"limit": "1",
+	"source": "SG",
+	"page": "172"
+}, {
+	"id": "2149818a-22b0-4267-83d6-7b3c27d4ee69",
+	"name": "Melanin Control",
+	"points": ".5",
+	"adeptway": ".25",
+	"levels": "no",
+	"limit": "1",
+	"source": "SG",
+	"page": "172"
+}, {
+	"id": "ecd611b4-dda6-4683-b7a9-850a469a3274",
+	"name": "Metabolic Control",
+	"points": ".5",
+	"adeptway": ".25",
+	"levels": "no",
+	"limit": "1",
+	"source": "SG",
+	"page": "172"
+}, {
+	"id": "1221e699-e61b-4aed-adbb-a8eec02a65e2",
+	"name": "Missile Mastery",
+	"points": "1",
+	"adeptway": ".5",
+	"levels": "no",
+	"limit": "1",
+	"bonus": {
+		"throwstr": "1",
+		"specificskill": {
+			"name": "Throwing Weapons",
+			"bonus": "1"
+		}
+	},
+	"source": "SG",
+	"page": "172"
+}, {
+	"id": "930ace31-a2a2-4616-8dfb-1074e4be76c9",
+	"name": "Motion Sense",
+	"points": ".5",
+	"adeptway": ".25",
+	"levels": "no",
+	"limit": "1",
+	"source": "SG",
+	"page": "172"
+}, {
+	"id": "d1279546-69a6-4c35-9b3d-0211138050e8",
+	"name": "Nerve Strike",
+	"points": "1",
+	"adeptway": ".5",
+	"levels": "no",
+	"limit": "1",
+	"source": "SG",
+	"page": "173"
+}, {
+	"id": "1ec402f1-6139-4f94-8e86-92aa463bf536",
+	"name": "Nimble Fingers",
+	"points": ".25",
+	"adeptway": "0",
+	"levels": "no",
+	"bonus": {
+		"specificskill": {
+			"name": "Palming",
+			"bonus": "1"
+		}
+	},
+	"limit": "1",
+	"source": "SG",
+	"page": "173"
+}, {
+	"id": "adda6c9c-703b-4361-a4dd-d7ebfd3c138d",
+	"name": "Pain Relief",
+	"points": "1",
+	"adeptway": ".5",
+	"levels": "no",
+	"limit": "1",
+	"source": "SG",
+	"page": "173"
+}, {
+	"id": "70311f5c-a019-47b9-be21-e9a8d270e32e",
+	"name": "Penetrating Strike",
+	"points": ".25",
+	"adeptway": "0",
+	"levels": "yes",
+	"bonus": {
+		"unarmedap": "-Rating"
+	},
+	"maxlevel": "4",
+	"limit": "1",
+	"source": "SG",
+	"page": "173"
+}, {
+	"id": "941225f2-148b-484e-a2b2-0a32cc7debe1",
+	"name": "Plague Cloud",
+	"points": ".5",
+	"adeptway": ".25",
+	"levels": "no",
+	"limit": "1",
+	"source": "SG",
+	"page": "173"
+}, {
+	"id": "832a418d-4d55-433c-8230-4b04f05ba6d9",
+	"name": "Rapid Draw",
+	"points": ".5",
+	"adeptway": ".25",
+	"levels": "no",
+	"limit": "1",
+	"source": "SG",
+	"page": "173"
+}, {
+	"id": "11f3fa59-e06d-4816-87a9-b74664d1ae9a",
+	"name": "Riposte",
+	"points": ".5",
+	"adeptway": ".25",
+	"levels": "yes",
+	"limit": "1",
+	"source": "SG",
+	"page": "174"
+}, {
+	"id": "c0d647dd-4f66-42a6-9040-202b1bba4b71",
+	"name": "Skate",
+	"points": "1",
+	"adeptway": ".5",
+	"levels": "no",
+	"limit": "1",
+	"source": "SG",
+	"page": "174"
+}, {
+	"id": "1dc0b5c6-94a8-4598-a017-f6399d9175da",
+	"name": "Smashing Blow",
+	"points": "1",
+	"adeptway": ".5",
+	"levels": "no",
+	"limit": "1",
+	"source": "SG",
+	"page": "174"
+}, {
+	"id": "24bc482d-9ce3-4d0a-bd43-31311b6716d6",
+	"name": "Spirit Claw",
+	"points": ".25",
+	"adeptway": "0",
+	"levels": "no",
+	"limit": "1",
+	"source": "SG",
+	"page": "174"
+}, {
+	"id": "6145977c-5825-4358-b0db-1d189cd9d402",
+	"name": "Spirit Ram",
+	"points": ".5",
+	"adeptway": ".25",
+	"levels": "no",
+	"limit": "1",
+	"source": "SG",
+	"page": "174"
+}, {
+	"id": "02eb1616-9361-47a8-acc8-030566d9a0ea",
+	"name": "Stillness",
+	"points": ".25",
+	"adeptway": "0",
+	"levels": "yes",
+	"maxlevel": "3",
+	"limit": "1",
+	"source": "SG",
+	"page": "174"
+}, {
+	"id": "772e0298-8abf-42b7-9734-359cadcb8d1e",
+	"name": "Sustenance",
+	"points": ".25",
+	"adeptway": "0",
+	"levels": "no",
+	"limit": "1",
+	"source": "SG",
+	"page": "174"
+}, {
+	"id": "bf425bd4-f112-4218-b729-2e8bb32f3b2b",
+	"name": "Temperature Tolerance",
+	"points": ".25",
+	"adeptway": "0",
+	"levels": "yes",
+	"limit": "1",
+	"source": "SG",
+	"page": "175"
+}, {
+	"id": "61406917-9d88-440f-a756-16bdf6ffb37e",
+	"name": "Three-Dimensional Memory",
+	"points": ".5",
+	"adeptway": ".25",
+	"levels": "no",
+	"limit": "1",
+	"source": "SG",
+	"page": "175"
+}, {
+	"id": "6ed1a784-1097-4db8-b179-e4198493c2f0",
+	"name": "Toxic Strike",
+	"points": ".5",
+	"adeptway": ".25",
+	"levels": "no",
+	"limit": "100",
+	"source": "SG",
+	"page": "176"
+}, {
+	"id": "0f0a55a8-5c39-4568-a15d-219b3664b10f",
+	"name": "Feign Illness",
+	"points": ".5",
+	"adeptway": ".25",
+	"levels": "no",
+	"limit": "1",
+	"source": "BB",
+	"page": "22"
+}, {
+	"id": "ca35c065-86ab-4aa8-a52f-ae37cc69648c",
+	"name": "Feign Death",
+	"points": "1",
+	"adeptway": ".5",
+	"levels": "no",
+	"limit": "1",
+	"source": "BB",
+	"page": "22"
+}, {
+	"id": "d890df94-b4f0-4b56-8289-7e1cfac2a95d",
+	"name": "Transmit Damage",
+	"points": "1",
+	"adeptway": ".5",
+	"levels": "yes",
+	"limit": "1",
+	"source": "BB",
+	"page": "22"
+}, {
+	"id": "b6982580-fb86-4ac8-9312-98459ecbe811",
+	"name": "Light Touch",
+	"points": ".25",
+	"adeptway": "0",
+	"levels": "yes",
+	"limit": "100",
+	"source": "SS",
+	"page": "191"
+}, {
+	"id": "60ac2e3a-d24a-459c-b8a4-cf648f0de447",
+	"name": "Mimic",
+	"points": ".25",
+	"adeptway": "0",
+	"levels": "yes",
+	"limit": "6",
+	"source": "SS",
+	"page": "191"
+}, {
+	"id": "60ac2e3a-d24a-459c-b8a4-cf648f0de447",
+	"name": "Commanding Voice",
+	"points": "1",
+	"adeptway": "0.5",
+	"levels": "no",
+	"limit": "1",
+	"source": "SS",
+	"page": "191"
+}, {
+	"id": "ee72398d-9daf-493f-b79b-5dab81e84013",
+	"name": "Living Focus",
+	"points": "1",
+	"adeptway": ".5",
+	"levels": "no",
+	"limit": "1",
+	"source": "SG",
+	"page": "1"
+}, {
+	"id": "830de0b7-8d83-467b-91e4-ce10081838b0",
+	"name": "Keratin Control",
+	"points": ".5",
+	"adeptway": ".25",
+	"levels": "no",
+	"limit": "1",
+	"source": "SG",
+	"page": "1"
+}, {
+	"name": "Demara",
+	"points": ".5",
+	"adeptway": "0.25",
+	"levels": "no",
+	"limit": "1",
+	"source": "SSP",
+	"page": "23"
+}, {
+	"name": "Eidetic Sense Memory",
+	"points": ".5",
+	"adeptway": "0.25",
+	"levels": "no",
+	"limit": "1",
+	"source": "SSP",
+	"page": "23"
+}, {
+	"name": "Enthralling Performance",
+	"points": ".5",
+	"adeptway": "0.25",
+	"levels": "no",
+	"limit": "100",
+	"source": "SSP",
+	"page": "23"
+}, {
+	"name": "Heightened Concern",
+	"points": ".5",
+	"adeptway": "0.25",
+	"levels": "no",
+	"limit": "1",
+	"source": "SSP",
+	"page": "23"
+}, {
+	"name": "Indomitable Will",
+	"points": ".25",
+	"adeptway": "0",
+	"levels": "yes",
+	"limit": "1",
+	"source": "SSP",
+	"page": "23"
+}, {
+	"name": "Iron Gut",
+	"points": ".25",
+	"adeptway": "0",
+	"levels": "yes",
+	"limit": "1",
+	"source": "SSP",
+	"page": "23"
+}, {
+	"name": "Iron Lungs",
+	"points": ".25",
+	"adeptway": "0",
+	"levels": "yes",
+	"limit": "1",
+	"source": "SSP",
+	"page": "23"
+}, {
+	"name": "Iron Will",
+	"points": ".5",
+	"adeptway": "0.25",
+	"levels": "yes",
+	"limit": "1",
+	"source": "SSP",
+	"page": "23"
+}, {
+	"name": "Keratin Control",
+	"points": ".5",
+	"adeptway": "0.25",
+	"levels": "no",
+	"limit": "1",
+	"source": "SSP",
+	"page": "24"
+}, {
+	"name": "Living Focus",
+	"points": "1",
+	"adeptway": "0.5",
+	"levels": "no",
+	"limit": "1",
+	"source": "SSP",
+	"page": "24"
+}, {
+	"name": "Maintain Warmth",
+	"points": ".25",
+	"adeptway": "0",
+	"levels": "no",
+	"limit": "1",
+	"source": "SSP",
+	"page": "24"
+}, {
+	"name": "Memory Displacement",
+	"points": ".25",
+	"adeptway": "0",
+	"levels": "no",
+	"limit": "1",
+	"source": "SSP",
+	"page": "24"
+}, {
+	"name": "Piercing Senses",
+	"points": ".25",
+	"adeptway": "0",
+	"levels": "yes",
+	"limit": "1",
+	"source": "SSP",
+	"page": "24"
+}, {
+	"name": "Power Swimming",
+	"points": "1",
+	"adeptway": "0.5",
+	"levels": "no",
+	"limit": "1",
+	"source": "SSP",
+	"page": "24"
+}, {
+	"name": "Rooting",
+	"points": ".25",
+	"adeptway": "0",
+	"levels": "yes",
+	"limit": "1",
+	"source": "SSP",
+	"page": "24"
+}, {
+	"name": "Supernatural Toughness",
+	"points": "1",
+	"adeptway": "0.5",
+	"levels": "yes",
+	"limit": "1",
+	"bonus": {
+		"conditionmonitor": {
+			"physical": "Rating",
+			"stun": "Rating"
+		}
+	},
+	"source": "SSP",
+	"page": "24"
+}, {
+	"name": "Adept Spell",
+	"points": "1",
+	"adeptway": "0.5",
+	"levels": "no",
+	"limit": "1",
+	"bonus": {
+
+	},
+	"source": "HT",
+	"page": "190",
+	"id": "87f0f97d-cbcf-4427-9259-baf376c9f55a"
+}, {
+	"name": "Adept Accident",
+	"points": ".5",
+	"adeptway": ".25",
+	"levels": "no",
+	"limit": "1",
+	"source": "HT",
+	"page": "190",
+	"id": "9646a0b8-ab39-4499-85cf-1ffd9983d0a5"
+}, {
+	"name": "Focused Archery",
+	"points": ".25",
+	"adeptway": "0",
+	"levels": "yes",
+	"limit": "3",
+	"source": "HT",
+	"page": "190",
+	"id": "c2ea9046-647d-4104-871a-24b3ee1fecfa"
+}, {
+	"name": "Kiai",
+	"points": ".25",
+	"adeptway": "0",
+	"levels": "yes",
+	"limit": "6",
+	"source": "HT",
+	"page": "190",
+	"id": "857fcf19-78ce-427a-a1e8-077e52aab759"
+}, {
+	"name": "Master Archer",
+	"points": "1",
+	"adeptway": "0.5",
+	"levels": "no",
+	"limit": "1",
+	"source": "HT",
+	"page": "191",
+	"id": "3c0862c4-1070-44dd-8866-0ba89276246b"
+}, {
+	"name": "Precision Throwing",
+	"points": ".25",
+	"adeptway": "0",
+	"levels": "yes",
+	"limit": "3",
+	"source": "HT",
+	"page": "190",
+	"id": "18da4f2f-f813-4d17-8b7b-29b2751e9cfa"
+}, {
+	"name": "Body Sculpt",
+	"points": "1",
+	"adeptway": "0.5",
+	"levels": "no",
+	"limit": "1",
+	"required": {
+		"oneof": {
+			"power": "Facial Sculpt"
+		}
+	},
+	"source": "BLB",
+	"page": "160",
+	"id": "1dcfcd05-b290-4373-a5dc-60da89c11bf1"
+}]
