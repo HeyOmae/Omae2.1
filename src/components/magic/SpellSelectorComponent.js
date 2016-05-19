@@ -4,11 +4,13 @@ import React from 'react';
 import Modal from '../ModalComponent';
 const spellData = require('json!../data/spells.json');
 const complexformData = require('json!../data/complexforms.json');
+const powerData = require('json!../data/powers.json');
 
 require('styles/magic/SpellSelector.sass');
 
 //helper functions
 function createSpellCategoryLabel (SpellsObj, {category='Complex Form', damage}) {
+	console.log(powerData);
 	if(!SpellsObj[category]) {
 		SpellsObj[category] = [];
 		const spellLabel = category + '-label';
