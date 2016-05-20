@@ -10,7 +10,6 @@ require('styles/magic/SpellSelector.sass');
 
 //helper functions
 function createSpellCategoryLabel (SpellsObj, {category='Complex Form', damage}) {
-	console.log(powerData);
 	if(!SpellsObj[category]) {
 		SpellsObj[category] = [];
 		const spellLabel = category + '-label';
@@ -147,6 +146,9 @@ class SpellSelectorComponent extends React.Component {
 			},
 			complexforms: () => {
 				return complexformData;
+			},
+			powers: () => {
+				return powerData;
 			}
 		},
 		abilityData = activeAbility[abilities]();

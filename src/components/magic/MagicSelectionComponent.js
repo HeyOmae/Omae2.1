@@ -110,6 +110,21 @@ const MagicSelectionComponent = ({magicPriority, magictype, selectedSpellsPowers
 				null
 			}
 			{
+				displayAbilities.powers ?
+				<div>
+					<h3>Adept Powers</h3>
+					<SpellSelector
+						abilities="powers"
+						addSpell = {actions.addPower}
+						removeSpell = {actions.removePower}
+						selectedSpells = {selectedSpellsPowers.powers}
+						spellMax={spellMax}
+						/>
+				</div>
+				:
+				null
+			}
+			{
 				displayAbilities.complexforms ?
 				<div>
 					<h3>Complex Forms</h3>
