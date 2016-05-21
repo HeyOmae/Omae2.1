@@ -9,7 +9,7 @@ const powerData = require('json!../data/powers.json');
 require('styles/magic/SpellSelector.sass');
 
 //helper functions
-function createSpellCategoryLabel (SpellsObj, {category='Complex Form', damage}) {
+function createSpellCategoryLabel (SpellsObj, {category, damage}) {
 	if(!SpellsObj[category]) {
 		SpellsObj[category] = [];
 		const spellLabel = category + '-label';
@@ -65,7 +65,7 @@ function createSpellNameWithOptions(spellName) {
 
 function createSpellIndividualRow(spellArray, spellName, spellDetails, button, spellID) {
 	//TODO: refactor this to not be complete bulldrek
-	if(!spellDetails.category || spellDetails.category==='Complex Form') {
+	if(spellDetails.category==='Complex Form') {
 		spellDetails.category = 'Complex Form';
 
 		spellArray[spellDetails.category].push(
@@ -120,11 +120,14 @@ function createSpellIndividualRow(spellArray, spellName, spellDetails, button, s
 	return spellArray;
 }
 
-function generateSpellDetailTablesRows(arrayOfSpells, generateBtnFn) {
+function generateSpellDetailTablesRows(arrayOfSpells, generateBtnFn, abilityType) {
 	let spellTables = {},
 		spellID = 0;
 
 	arrayOfSpells.forEach((spell, spellIndex)=>{
+		if(!spell.category) {
+			spell.category = abilityType;
+		}
 		spellTables = createSpellCategoryLabel(spellTables, spell);
 
 		let spellName = createSpellNameWithOptions(spell.name),
@@ -141,13 +144,13 @@ class SpellSelectorComponent extends React.Component {
 	render() {
 		const {abilities, addSpell, removeSpell, selectedSpells, spellMax} = this.props,
 		activeAbility = {
-			spells: () => {
+			Spells: () => {
 				return spellData;
 			},
-			complexforms: () => {
+			'Complex Forms': () => {
 				return complexformData;
 			},
-			powers: () => {
+			Powers: () => {
 				return powerData;
 			}
 		},
@@ -172,7 +175,7 @@ class SpellSelectorComponent extends React.Component {
 		};
 
 		//generated spell details to populate addSpellModals
-		spellsToSeletTables = generateSpellDetailTablesRows(abilityData, generateAddSpellButton);
+		spellsToSeletTables = generateSpellDetailTablesRows(abilityData, generateAddSpellButton, abilities);
 
 		for(let spellCat in spellsToSeletTables) {
 			addSpellModals.push(

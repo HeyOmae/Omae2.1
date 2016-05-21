@@ -99,7 +99,7 @@ const MagicSelectionComponent = ({magicPriority, magictype, selectedSpellsPowers
 				<div>
 					<h3>Spells</h3>
 					<SpellSelector
-						abilities="spells"
+						abilities="Spells"
 						addSpell = {actions.addSpell}
 						removeSpell = {actions.removeSpell}
 						selectedSpells = {selectedSpellsPowers.spells}
@@ -114,7 +114,7 @@ const MagicSelectionComponent = ({magicPriority, magictype, selectedSpellsPowers
 				<div>
 					<h3>Adept Powers</h3>
 					<SpellSelector
-						abilities="powers"
+						abilities="Powers"
 						addSpell = {actions.addPower}
 						removeSpell = {actions.removePower}
 						selectedSpells = {selectedSpellsPowers.powers}
@@ -129,7 +129,7 @@ const MagicSelectionComponent = ({magicPriority, magictype, selectedSpellsPowers
 				<div>
 					<h3>Complex Forms</h3>
 					<SpellSelector
-						abilities="complexforms"
+						abilities="Complex Forms"
 						addSpell = {actions.addComplexform}
 						removeSpell = {actions.removeComplexform}
 						selectedSpells = {selectedSpellsPowers.complexforms}
