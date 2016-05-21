@@ -12,33 +12,50 @@ require('styles/magic/SpellSelector.sass');
 function createSpellCategoryLabel (SpellsObj, {category, damage}) {
 	if(!SpellsObj[category]) {
 		SpellsObj[category] = [];
-		const spellLabel = category + '-label';
-		if(category === 'Complex Form'){
-			SpellsObj[category].push(
-				<tr key={spellLabel} className={spellLabel}>
-					<th>Learn</th>
-					<th>Complex Form</th>
-					<th>Target</th>
-					<th>Duration</th>
-					<th>Fade</th>
-					<th>Ref</th>
-				</tr>
-			);
-		} else {
-			SpellsObj[category].push(
-				<tr key={spellLabel} className={spellLabel}>
-					<th>Learn</th>
-					<th>Spell</th>
-					<th>Descriptor</th>
-					<th>Type</th>
-					<th>Range</th>
-					{damage === '0' ? null: <th>Damage</th>}
-					<th>Duration</th>
-					<th>Drain</th>
-					<th>Ref</th>
-				</tr>
-			);
-		}
+		const spellLabel = category + '-label',
+			buildHeader = {
+				'Complex Form': () => {
+					SpellsObj[category].push(
+						<tr key={spellLabel} className={spellLabel}>
+							<th>Learn</th>
+							<th>Complex Form</th>
+							<th>Target</th>
+							<th>Duration</th>
+							<th>Fade</th>
+							<th>Ref</th>
+						</tr>
+					);
+				},
+				Powers: () => {
+					SpellsObj[category].push(
+						<tr key={spellLabel} className={spellLabel}>
+							<th>Learn</th>
+							<th>Rating</th>
+							<th>Power</th>
+							<th>Cost</th>
+							<th>Bonus</th>
+							<th>Ref</th>
+						</tr>
+					);
+				},
+				default: () => {
+					SpellsObj[category].push(
+						<tr key={spellLabel} className={spellLabel}>
+							<th>Learn</th>
+							<th>Spell</th>
+							<th>Descriptor</th>
+							<th>Type</th>
+							<th>Range</th>
+							{damage === '0' ? null: <th>Damage</th>}
+							<th>Duration</th>
+							<th>Drain</th>
+							<th>Ref</th>
+						</tr>
+					);
+				}
+			};
+		
+		(buildHeader[category] || buildHeader.default)();
 	}
 
 	return SpellsObj;
@@ -65,57 +82,74 @@ function createSpellNameWithOptions(spellName) {
 
 function createSpellIndividualRow(spellArray, spellName, spellDetails, button, spellID) {
 	//TODO: refactor this to not be complete bulldrek
-	if(spellDetails.category==='Complex Form') {
-		spellDetails.category = 'Complex Form';
 
-		spellArray[spellDetails.category].push(
-			<tr key={'complexform-'+ (spellID)}>
-				{button}
-				<td>
-					{spellName.start}
-					{spellName.placeholderText ?
-						<input
-							className="form-control spell-option"
-							type="text"
-							ref={'spellOption'+spellDetails.name}
-							placeholder={spellName.placeholderText}/>
-						:null
-					}
-					{spellName.end||null}
-					</td>
-				<td>{spellDetails.target}</td>
-				<td>{spellDetails.duration}</td>
-				<td>{spellDetails.fv}</td>
-				<td>{spellDetails.source + ' p' + spellDetails.page}</td>
-			</tr>
-		);
-	} else {
-		spellArray[spellDetails.category].push(
-			<tr key={'spell-'+ (spellID)}>
-				{button}
-				<td>
-					{spellName.start}
-					{spellName.placeholderText ?
-						<input
-							className="form-control spell-option"
-							type="text"
-							ref={'spellOption'+spellDetails.name}
-							placeholder={spellName.placeholderText}/>
-						:null
-					}
-					{spellName.end||null}
-					</td>
-				<td>{spellDetails.descriptor}</td>
-				<td>{spellDetails.type}</td>
-				<td>{spellDetails.range}</td>
-				{spellDetails.damage === '0' ? null: <td>{spellDetails.damage}</td>}
-				<td>{spellDetails.duration}</td>
-				<td>{spellDetails.dv}</td>
-				<td>{spellDetails.source + ' p' + spellDetails.page}</td>
-			</tr>
-		);
-	}
-	
+	const buildRow = {
+		'Complex Form': () => {
+			spellArray[spellDetails.category].push(
+				<tr key={'complexform-'+ (spellID)}>
+					{button}
+					<td>
+						{spellName.start}
+						{spellName.placeholderText ?
+							<input
+								className="form-control spell-option"
+								type="text"
+								ref={'spellOption'+spellDetails.name}
+								placeholder={spellName.placeholderText}/>
+							:null
+						}
+						{spellName.end||null}
+						</td>
+					<td>{spellDetails.target}</td>
+					<td>{spellDetails.duration}</td>
+					<td>{spellDetails.fv}</td>
+					<td>{spellDetails.source + ' p' + spellDetails.page}</td>
+				</tr>
+			);
+		},
+
+		Powers: () => {
+			spellArray[spellDetails.category].push(
+				<tr key={'complexform-'+ (spellID)}>
+					{button}
+					<td>{spellDetails.levels === 'yes'? 1 : 'N/A'}</td>
+					<td>{spellName.start}</td>
+					<td>{spellDetails.points}</td>
+					<td>{spellDetails.bonus?'A thing':'N/A'}</td>
+					<td>{spellDetails.source + ' p' + spellDetails.page}</td>
+				</tr>
+			);
+		},
+
+		default: () => {
+			spellArray[spellDetails.category].push(
+				<tr key={'spell-'+ (spellID)}>
+					{button}
+					<td>
+						{spellName.start}
+						{spellName.placeholderText ?
+							<input
+								className="form-control spell-option"
+								type="text"
+								ref={'spellOption'+spellDetails.name}
+								placeholder={spellName.placeholderText}/>
+							:null
+						}
+						{spellName.end||null}
+						</td>
+					<td>{spellDetails.descriptor}</td>
+					<td>{spellDetails.type}</td>
+					<td>{spellDetails.range}</td>
+					{spellDetails.damage === '0' ? null: <td>{spellDetails.damage}</td>}
+					<td>{spellDetails.duration}</td>
+					<td>{spellDetails.dv}</td>
+					<td>{spellDetails.source + ' p' + spellDetails.page}</td>
+				</tr>
+			);
+		}
+	};
+
+	(buildRow[spellDetails.category]||buildRow.default)();
 
 	return spellArray;
 }
