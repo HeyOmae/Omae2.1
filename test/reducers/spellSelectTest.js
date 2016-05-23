@@ -20,7 +20,38 @@ describe('spellSelect', () => {
 				page: '283'
 			}
 		],
-		powers: [],
+		powers: [
+			{
+				'id': '39224ecf-f3d0-40b6-95a6-2f047f95d736',
+				'name': 'Astral Perception',
+				'points': '1',
+				'adeptway': '.5',
+				'levels': 'no',
+				'limit': '1',
+				'source': 'SR5',
+				'page': '309'
+			},
+			{
+				'id': 'ddcca815-d6fe-41ed-b174-2e7255320f17',
+				'name': 'Attribute Boost',
+				'points': '.25',
+				'adeptway': '0',
+				'levels': 'yes',
+				'limit': '1',
+				'bonus': {
+					'selectattribute': {
+						'attribute': [
+							'AGI',
+							'BOD',
+							'REA',
+							'STR'
+						]
+					}
+				},
+				'source': 'SR5',
+				'page': '309'
+			}
+		],
 		complexforms: [
 			{
 				id: '33e75cd6-cad7-43dd-87ac-9838c83eccb5',
@@ -113,24 +144,51 @@ describe('spellSelect', () => {
 		expect(newState.complexforms.length).to.equal(state.complexforms.length - 1);
 	});
 
-	it('should reset spells when RESET_ABILITY is called with "spells"', ()=>{
-		const newState = reducer(state, {type: 'RESET_ABILITY', parameter: {ability: 'spells'}});
+	it('should add a power to the state.powers', () => {
+		const newSpell = {
+			id: '8caaadf4-75b4-4535-928a-5648d395c13a',
+			name: 'Adrenaline Boost',
+			points: '.25',
+			adeptway: '0',
+			levels: 'yes',
+			limit: '1',
+			source: 'SR5',
+			page: '309'
+		},
+		newState = reducer(state, {type: 'ADD_POWER', parameter: {newSpell}});
 
-		expect(newState.spells).to.eql([]);
-		expect(state.spells.length).to.equal(1);
+		expect(newState.powers[newState.powers.length - 1]).to.eql(newSpell);
+		expect(newState.powers.length).to.eql(state.powers.length + 1);
 	});
 
-	it('should reset comeplxforms when RESET_ABILITY is called with "complexforms"', ()=>{
-		const newState = reducer(state, {type: 'RESET_ABILITY', parameter: {ability: 'complexforms'}});
+	it('should remove power from the state.powers', () => {
+		const newState = reducer(state, {type: 'REMOVE_POWER', parameter: {spellIndex: 1}});
 
-		expect(newState.complexforms).to.eql([]);
-		expect(state.complexforms.length).to.equal(3);
+		expect(newState.powers[1]).to.not.eql(state.powers[1]);
+		expect(newState.powers.length).to.equal(state.powers.length - 1);
 	});
 
-	it('should return state when RESET_ABILITY is but the ability is empty', ()=>{
-		state.spells = [];
-		const newState = reducer(state, {type: 'RESET_ABILITY', parameter: {ability: 'spells'}});
+	describe('RESET_ABILITY', () => {
+		it('should reset spells when called with spells', ()=>{
+			const newState = reducer(state, {type: 'RESET_ABILITY', parameter: {ability: 'spells'}});
 
-		expect(newState).to.equal(state);
+			expect(newState.spells).to.eql([]);
+			expect(state.spells.length).to.equal(1);
+		});
+
+		it('should reset comeplxforms when called with complexforms', ()=>{
+			const newState = reducer(state, {type: 'RESET_ABILITY', parameter: {ability: 'complexforms'}});
+
+			expect(newState.complexforms).to.eql([]);
+			expect(state.complexforms.length).to.equal(3);
+		});
+
+		it('should return state when the ability is empty', ()=>{
+			state.spells = [];
+			const newState = reducer(state, {type: 'RESET_ABILITY', parameter: {ability: 'spells'}});
+
+			expect(newState).to.equal(state);
+		});
 	});
+
 });

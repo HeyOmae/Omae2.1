@@ -65,6 +65,26 @@ const spellReducer = (state=initialState, action) => {
 			);
 		},
 
+		ADD_POWER: () => {
+			return Object.assign(
+				{},
+				state,
+				{
+					powers: removeSpellFromList(state.powers, action.parameter.spellIndex)
+				}
+			);
+		},
+
+		REMOVE_COMPLEXFORM: () => {
+			return Object.assign(
+				{},
+				state,
+				{
+					powers: removeSpellFromList(state.powers, action.parameter.spellIndex)
+				}
+			);
+		},
+
 		RESET_ABILITY: () => {
 			const {ability} = action.parameter;
 			if(state[ability].length > 0){
