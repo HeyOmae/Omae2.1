@@ -22,25 +22,25 @@ describe('spellSelect', () => {
 		],
 		powers: [
 			{
-				'id': '39224ecf-f3d0-40b6-95a6-2f047f95d736',
-				'name': 'Astral Perception',
-				'points': '1',
-				'adeptway': '.5',
-				'levels': 'no',
-				'limit': '1',
-				'source': 'SR5',
-				'page': '309'
+				id: '39224ecf-f3d0-40b6-95a6-2f047f95d736',
+				name: 'Astral Perception',
+				points: '1',
+				adeptway: '.5',
+				levels: 'no',
+				limit: '1',
+				source: 'SR5',
+				page: '309'
 			},
 			{
-				'id': 'ddcca815-d6fe-41ed-b174-2e7255320f17',
-				'name': 'Attribute Boost',
-				'points': '.25',
-				'adeptway': '0',
-				'levels': 'yes',
-				'limit': '1',
-				'bonus': {
-					'selectattribute': {
-						'attribute': [
+				id: 'ddcca815-d6fe-41ed-b174-2e7255320f17',
+				name: 'Attribute Boost',
+				points: '.25',
+				adeptway: '0',
+				levels: 'yes',
+				limit: '1',
+				bonus: {
+					selectattribute: {
+						attribute: [
 							'AGI',
 							'BOD',
 							'REA',
@@ -48,8 +48,8 @@ describe('spellSelect', () => {
 						]
 					}
 				},
-				'source': 'SR5',
-				'page': '309'
+				source: 'SR5',
+				page: '309'
 			}
 		],
 		complexforms: [
@@ -134,7 +134,7 @@ describe('spellSelect', () => {
 		newState = reducer(state, {type: 'ADD_COMPLEXFORM', parameter: {newSpell}});
 
 		expect(newState.complexforms[newState.complexforms.length - 1]).to.eql(newSpell);
-		expect(newState.complexforms.length).to.eql(state.complexforms.length + 1);
+		expect(newState.complexforms.length).to.equal(state.complexforms.length + 1);
 	});
 
 	it('should remove complexform from the state.complexforms', () => {
@@ -158,7 +158,7 @@ describe('spellSelect', () => {
 		newState = reducer(state, {type: 'ADD_POWER', parameter: {newSpell}});
 
 		expect(newState.powers[newState.powers.length - 1]).to.eql(newSpell);
-		expect(newState.powers.length).to.eql(state.powers.length + 1);
+		expect(newState.powers.length).to.equal(state.powers.length + 1);
 	});
 
 	it('should remove power from the state.powers', () => {

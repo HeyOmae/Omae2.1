@@ -70,12 +70,12 @@ const spellReducer = (state=initialState, action) => {
 				{},
 				state,
 				{
-					powers: removeSpellFromList(state.powers, action.parameter.spellIndex)
+					powers: addingSpellToList(state.powers, action.parameter.newSpell)
 				}
 			);
 		},
 
-		REMOVE_COMPLEXFORM: () => {
+		REMOVE_POWER: () => {
 			return Object.assign(
 				{},
 				state,
