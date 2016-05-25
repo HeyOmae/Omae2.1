@@ -14,7 +14,7 @@ function createSpellCategoryLabel (SpellsObj, {category, damage}) {
 		SpellsObj[category] = [];
 		const spellLabel = category + '-label',
 			buildHeader = {
-				'Complex Form': () => {
+				'Complex Forms': () => {
 					SpellsObj[category].push(
 						<tr key={spellLabel} className={spellLabel}>
 							<th>Learn</th>
@@ -84,7 +84,7 @@ function createSpellIndividualRow(spellArray, spellName, spellDetails, button, s
 	//TODO: refactor this to not be complete bulldrek
 
 	const buildRow = {
-		'Complex Form': () => {
+		'Complex Forms': () => {
 			spellArray[spellDetails.category].push(
 				<tr key={'complexform-'+ (spellID)}>
 					{button}
