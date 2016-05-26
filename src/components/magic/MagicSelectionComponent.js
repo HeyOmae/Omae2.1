@@ -118,7 +118,7 @@ const MagicSelectionComponent = ({magicPriority, magictype, selectedSpellsPowers
 						addSpell = {actions.addPower}
 						removeSpell = {actions.removePower}
 						selectedSpells = {selectedSpellsPowers.powers}
-						spellMax={spellMax}
+						spellMax={6}
 						/>
 				</div>
 				:
