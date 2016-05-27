@@ -80,6 +80,12 @@ function createSpellNameWithOptions(spellName) {
 	return partsOfName;
 }
 
+function powerBonus(boni, powerName) {
+	console.log(boni, powerName);
+
+	return 'A Thing';
+}
+
 function createSpellIndividualRow(spellArray, spellName, spellDetails, button, spellID) {
 	//TODO: refactor this to not be complete bulldrek
 
@@ -115,7 +121,7 @@ function createSpellIndividualRow(spellArray, spellName, spellDetails, button, s
 					<td>{spellDetails.levels === 'yes'? 1 : 'N/A'}</td>
 					<td>{spellName.start}</td>
 					<td>{spellDetails.points}</td>
-					<td>{spellDetails.bonus?'A thing':'N/A'}</td>
+					<td>{spellDetails.bonus?powerBonus(spellDetails.bonus, spellName.start):'N/A'}</td>
 					<td>{spellDetails.source + ' p' + spellDetails.page}</td>
 				</tr>
 			);
