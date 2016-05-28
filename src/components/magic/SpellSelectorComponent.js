@@ -81,7 +81,7 @@ function createSpellNameWithOptions(spellName) {
 }
 
 function powerBonus(boni, powerName) {
-	console.log(boni, powerName);
+	console.log(powerName, Object.keys(boni));
 
 	return 'A Thing';
 }
