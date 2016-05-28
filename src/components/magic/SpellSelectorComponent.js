@@ -81,7 +81,18 @@ function createSpellNameWithOptions(spellName) {
 }
 
 function powerBonus(boni, powerName) {
-	console.log(powerName, Object.keys(boni));
+	const powerBonus = {
+		selectattribute: (attributes) => {
+			console.log(powerName, attributes);
+		},
+		default: (thing) => {
+			console.log(powerName, thing);
+		}
+	};
+
+	for(let effect in boni) {
+		(powerBonus[effect]||powerBonus.default)(boni[effect]);
+	}
 
 	return 'A Thing';
 }
