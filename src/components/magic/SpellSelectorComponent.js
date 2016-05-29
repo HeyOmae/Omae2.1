@@ -83,18 +83,25 @@ function createSpellNameWithOptions(spellName) {
 function powerBonus(boni, powerName) {
 	const powerBonus = {
 		selectattribute: (attributes) => {
-			console.log(powerName, attributes);
+			let options = [];
+			attributes.attribute.forEach((attName) => {
+				let loweCase = attName.toLowerCase();
+				options.push(<option key={powerName+'-'+attName} value={loweCase}>{loweCase}</option>);
+			});
+			console.log(powerName, attributes, options);
+
+			return (<select className='form-control'>{options}</select>);
 		},
 		default: (thing) => {
 			console.log(powerName, thing);
+
+			return 'placeholder here';
 		}
 	};
 
 	for(let effect in boni) {
-		(powerBonus[effect]||powerBonus.default)(boni[effect]);
+		return (powerBonus[effect]||powerBonus.default)(boni[effect]);
 	}
-
-	return 'A Thing';
 }
 
 function createSpellIndividualRow(spellArray, spellName, spellDetails, button, spellID) {
