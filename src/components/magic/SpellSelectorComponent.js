@@ -86,11 +86,10 @@ function powerBonus(boni, powerName) {
 			let options = [];
 			attributes.attribute.forEach((attName) => {
 				let loweCase = attName.toLowerCase();
-				options.push(<option key={powerName+'-'+attName} value={loweCase}>{loweCase}</option>);
+				options.push(<option key={powerName+'-'+attName}> ({loweCase}) </option>);
 			});
-			console.log(powerName, attributes, options);
 
-			return (<select className='form-control'>{options}</select>);
+			return (<select className='form-control' ref={'spellOption'+powerName}>{options}</select>);
 		},
 		default: (thing) => {
 			console.log(powerName, thing);
@@ -139,7 +138,7 @@ function createSpellIndividualRow(spellArray, spellName, spellDetails, button, s
 					<td>{spellDetails.levels === 'yes'? 1 : 'N/A'}</td>
 					<td>{spellName.start}</td>
 					<td>{spellDetails.points}</td>
-					<td>{spellDetails.bonus?powerBonus(spellDetails.bonus, spellName.start):'N/A'}</td>
+					<td>{spellDetails.bonus?powerBonus(spellDetails.bonus, spellDetails.name):'N/A'}</td>
 					<td>{spellDetails.source + ' p' + spellDetails.page}</td>
 				</tr>
 			);
