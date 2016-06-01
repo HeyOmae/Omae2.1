@@ -92,9 +92,9 @@ function powerBonus(boni, powerName) {
 			return (<select className='form-control' ref={'spellOption'+powerName}>{options}</select>);
 		},
 		default: (thing) => {
-			console.log(powerName, thing);
+			// console.log(powerName, thing);
 
-			return 'placeholder here';
+			return Object.keys(thing).join(', ');
 		}
 	};
 
@@ -222,8 +222,14 @@ class SpellSelectorComponent extends React.Component {
 						spellToAdd = Object.assign(
 							{},
 							spell,
-							{name: newName}
+							{
+								name: newName
+							}
 						);
+						if (spellToAdd.bonus) {
+							spellToAdd.bonus = spellNameOptions.replace(/[()]/g, '');
+							console.log(spellToAdd.bonus);
+						}
 					addSpell({newSpell: spellToAdd});
 				}
 			};
