@@ -1,8 +1,8 @@
 'use strict';
 
 import React from 'react';
-// import Modal from '../ModalComponent';
 import SpellSelector from './SpellSelectorComponent';
+import PowerSelector from './PowerSelectorComponent';
 
 require('styles//magic/MagicSelection.sass');
 const priorityData = require('json!../data/priority.json');
@@ -113,7 +113,7 @@ const MagicSelectionComponent = ({magicPriority, magictype, selectedSpellsPowers
 				displayAbilities.powers ?
 				<div>
 					<h3>Adept Powers</h3>
-					<SpellSelector
+					<PowerSelector
 						abilities="Powers"
 						addSpell = {actions.addPower}
 						removeSpell = {actions.removePower}
