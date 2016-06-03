@@ -7,14 +7,14 @@ const powerData = require('json!../data/powers.json');
 require('styles/magic/SpellSelector.sass');
 
 //helper functions
-function createSpellCategoryLabel (SpellsObj, {category}) {
-	if(!SpellsObj[category]) {
-		SpellsObj[category] = [];
-		const spellLabel = category + '-label',
+function createPowerCategoryLabel (PowersObj, {category}) {
+	if(!PowersObj[category]) {
+		PowersObj[category] = [];
+		const powerLabel = category + '-label',
 			buildHeader = {
 				Powers: () => {
-					SpellsObj[category].push(
-						<tr key={spellLabel} className={spellLabel}>
+					PowersObj[category].push(
+						<tr key={powerLabel} className={powerLabel}>
 							<th>Learn</th>
 							<th>Rating</th>
 							<th>Power</th>
@@ -29,16 +29,16 @@ function createSpellCategoryLabel (SpellsObj, {category}) {
 		(buildHeader[category])();
 	}
 
-	return SpellsObj;
+	return PowersObj;
 }
 
-function createSpellNameWithOptions(spellName) {
+function createPowerNameWithOptions(powerName) {
 	let partsOfName = {
 		start: '',
 		end: '',
 		placeholderText: ''
 	},
-	nameWithNoOptions = spellName.replace(/\[[\s\S]*\]/g, (match, offset, string) => {
+	nameWithNoOptions = powerName.replace(/\[[\s\S]*\]/g, (match, offset, string) => {
 		partsOfName.placeholderText = match;
 		partsOfName.start = offset === 0 ? '' : string.slice(0, offset);
 		partsOfName.end = string.slice(string.indexOf(']') + 1);
@@ -60,7 +60,7 @@ function powerBonus(boni, powerName) {
 				options.push(<option key={powerName+'-'+attName}> ({loweCase}) </option>);
 			});
 
-			return (<select className='form-control' ref={'spellOption'+powerName}>{options}</select>);
+			return (<select className='form-control' ref={'powerOption'+powerName}>{options}</select>);
 		},
 		default: (thing) => {
 			// console.log(powerName, thing);
@@ -74,152 +74,146 @@ function powerBonus(boni, powerName) {
 	}
 }
 
-function createSpellIndividualRow(spellArray, spellName, spellDetails, button, spellID) {
+function createPowerIndividualRow(powerArray, powerName, powerDetails, button, powerID) {
 	//TODO: refactor this to not be complete bulldrek
 
 	const buildRow = {
 		Powers: () => {
-			spellArray[spellDetails.category].push(
-				<tr key={'complexform-'+ (spellID)}>
+			powerArray[powerDetails.category].push(
+				<tr key={'complexform-'+ (powerID)}>
 					{button}
-					<td>{spellDetails.levels === 'yes'? 1 : 'N/A'}</td>
-					<td>{spellName.start}</td>
-					<td>{spellDetails.points}</td>
-					<td>{spellDetails.bonus?powerBonus(spellDetails.bonus, spellDetails.name):'N/A'}</td>
-					<td>{spellDetails.source + ' p' + spellDetails.page}</td>
+					<td>{powerDetails.levels === 'yes'? 1 : 'N/A'}</td>
+					<td>{powerName.start}</td>
+					<td>{powerDetails.points}</td>
+					<td>{powerDetails.bonus?powerBonus(powerDetails.bonus, powerDetails.name):'N/A'}</td>
+					<td>{powerDetails.source + ' p' + powerDetails.page}</td>
 				</tr>
 			);
 		}
 	};
 
-	(buildRow[spellDetails.category])();
+	(buildRow[powerDetails.category])();
 
-	return spellArray;
+	return powerArray;
 }
 
-function generateSpellDetailTablesRows(arrayOfSpells, generateBtnFn, abilityType) {
-	let spellTables = {},
-		spellID = 0;
+function generatePowerDetailTablesRows(arrayOfPowers, generateBtnFn, abilityType) {
+	let powerTables = {},
+		powerID = 0;
 
-	arrayOfSpells.forEach((spell, spellIndex)=>{
-		if(!spell.category) {
-			spell.category = abilityType;
+	arrayOfPowers.forEach((power, powerIndex)=>{
+		if(!power.category) {
+			power.category = abilityType;
 		}
-		spellTables = createSpellCategoryLabel(spellTables, spell);
+		powerTables = createPowerCategoryLabel(powerTables, power);
 
-		let spellName = createSpellNameWithOptions(spell.name),
-			addSpellButton = (<td>{generateBtnFn(spell, spellName, spellIndex)}</td>);
+		let powerName = createPowerNameWithOptions(power.name),
+			addPowerButton = (<td>{generateBtnFn(power, powerName, powerIndex)}</td>);
 
 		//need to make a Extended class component to make this work
-		spellTables = createSpellIndividualRow(spellTables, spellName, spell, addSpellButton, spellID++);
+		powerTables = createPowerIndividualRow(powerTables, powerName, power, addPowerButton, powerID++);
 	});
 
-	return spellTables;
+	return powerTables;
 }
 
-class SpellSelectorComponent extends React.Component {
+class PowerSelectorComponent extends React.Component {
 	render() {
-		const {abilities, addSpell, removeSpell, selectedSpells, spellMax} = this.props,
-		activeAbility = {
-			Powers: () => {
-				return powerData;
-			}
-		},
-		abilityData = activeAbility[abilities]();
-		let spellsToSeletTables = {},
-			addSpellModals = [],
-			generateAddSpellButton = (spell, spellName) => {
-			let addSpellClick = () => {
-				if(spellMax > selectedSpells.length) {
-					let spellNameOptions = this.refs['spellOption'+spell.name] ? this.refs['spellOption'+spell.name].value : '',
-						newName = spellName.start + spellNameOptions + spellName.end,
-						spellToAdd = Object.assign(
+		const {abilities, addPower, removePower, selectedPowers, powerMax} = this.props;
+		let powersToSeletTables = {},
+			addPowerModals = [],
+			generateAddPowerButton = (power, powerName) => {
+			let addPowerClick = () => {
+				if(powerMax > selectedPowers.length) {
+					let powerNameOptions = this.refs['powerOption'+power.name] ? this.refs['powerOption'+power.name].value : '',
+						newName = powerName.start + powerNameOptions + powerName.end,
+						powerToAdd = Object.assign(
 							{},
-							spell,
+							power,
 							{
 								name: newName
 							}
 						);
-						if (spellToAdd.bonus) {
-							spellToAdd.bonus = spellNameOptions.replace(/[()]/g, '');
+						if (powerToAdd.bonus) {
+							powerToAdd.bonus = powerNameOptions.replace(/[()]/g, '');
 						}
-					addSpell({newSpell: spellToAdd});
+					addPower({newPower: powerToAdd});
 				}
 			};
 			
-			return (<button className="btn btn-success" onClick={addSpellClick}>+</button>);
+			return (<button className="btn btn-success" onClick={addPowerClick}>+</button>);
 		};
 
-		//generated spell details to populate addSpellModals
-		spellsToSeletTables = generateSpellDetailTablesRows(abilityData, generateAddSpellButton, abilities);
+		//generated power details to populate addPowerModals
+		powersToSeletTables = generatePowerDetailTablesRows(powerData, generateAddPowerButton, abilities);
 
-		for(let spellCat in spellsToSeletTables) {
-			addSpellModals.push(
+		for(let powerCat in powersToSeletTables) {
+			addPowerModals.push(
 				<Modal
-					key={'spells-' + spellCat}
-					modalName={spellCat}
+					key={'powers-' + powerCat}
+					modalName={powerCat}
 					modalContent={
-						<SpellsTables
-							spellRow={spellsToSeletTables[spellCat]}/>
+						<PowersTables
+							powerRow={powersToSeletTables[powerCat]}/>
 					}
 				/>
 			);
 		}
 
 		return (
-			<div className="spells">
-				<div className="spell-selector">
+			<div className="powers">
+				<div className="power-selector">
 					<div className="btn-group">
-						{addSpellModals}
+						{addPowerModals}
 					</div>
 				</div>
-				<SpellSelectedDisplay
-						selectedSpells={selectedSpells}
-						removeSpell={removeSpell}/>
+				<PowerSelectedDisplay
+						selectedPowers={selectedPowers}
+						removePower={removePower}/>
 			</div>
 		);
 	}
 }
 
-const SpellSelectedDisplay = ({selectedSpells, removeSpell}) => {
-	let spellTableData = {},
-		spellDisplayTables = [],
-		generateRemoveSpellButton = (spell, spellName, index) => {
-			let removeSpellClick = () => {
-				removeSpell({spellIndex: index});
+const PowerSelectedDisplay = ({selectedPowers, removePower}) => {
+	let powerTableData = {},
+		powerDisplayTables = [],
+		generateRemovePowerButton = (power, powerName, index) => {
+			let removePowerClick = () => {
+				removePower({powerIndex: index});
 			};
-			return (<button className="btn btn-warning" onClick={removeSpellClick}>-</button>);
+			return (<button className="btn btn-warning" onClick={removePowerClick}>-</button>);
 		};
 
-	spellTableData = generateSpellDetailTablesRows(selectedSpells, generateRemoveSpellButton);
+	powerTableData = generatePowerDetailTablesRows(selectedPowers, generateRemovePowerButton);
 
-	for(let spellCat in spellTableData) {
-		spellDisplayTables.push(
-			<div key={'selected-'+ spellCat} className={'selected-spell-in-' + spellCat}>
-				<h4>{spellCat}</h4>
-				<SpellsTables
-					spellRow = {spellTableData[spellCat]}/>
+	for(let powerCat in powerTableData) {
+		powerDisplayTables.push(
+			<div key={'selected-'+ powerCat} className={'selected-power-in-' + powerCat}>
+				<h4>{powerCat}</h4>
+				<PowersTables
+					powerRow = {powerTableData[powerCat]}/>
 			</div>
 		);
 	}
 
 	return (
-		<div className="selected-spells">
-			{spellDisplayTables}
+		<div className="selected-powers">
+			{powerDisplayTables}
 		</div>
 	);
 };
 
-const SpellsTables = ({spellRow}) => {
+const PowersTables = ({powerRow}) => {
 	return (
 		<div className="table-responsive">
 			<table className="table">
 				<tbody>
-					{spellRow}
+					{powerRow}
 				</tbody>
 			</table>
 		</div>
 	);
 };
 
-export default SpellSelectorComponent;
+export default PowerSelectorComponent;
