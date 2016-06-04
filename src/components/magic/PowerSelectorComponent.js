@@ -89,7 +89,7 @@ function generatePowerDetailTablesRows(arrayOfPowers, generateBtnFn) {
 	arrayOfPowers.forEach((power, powerIndex)=>{
 
 		let powerName = createPowerNameWithOptions(power.name),
-			addPowerButton = (<td>{generateBtnFn(power, powerName, powerIndex)}</td>);
+			addPowerButton = (<td>{generateBtnFn(power, powerIndex)}</td>);
 
 		//need to make a Extended class component to make this work
 		powerTables = createPowerIndividualRow(powerTables, powerName, power, addPowerButton, powerID++);
@@ -102,11 +102,11 @@ class PowerSelectorComponent extends React.Component {
 	render() {
 		const {addPower, removePower, selectedPowers, powerMax} = this.props;
 		let powersToSeletTableRows = [],
-			generateAddPowerButton = (power, powerName) => {
+			generateAddPowerButton = (power) => {
 			let addPowerClick = () => {
 				if(powerMax > selectedPowers.length) {
 					let powerNameOptions = this.refs['powerOption'+power.name] ? this.refs['powerOption'+power.name].value : '',
-						newName = powerName.start + powerNameOptions + powerName.end,
+						newName = power.name + powerNameOptions,
 						powerToAdd = Object.assign(
 							{},
 							power,
@@ -155,7 +155,7 @@ class PowerSelectorComponent extends React.Component {
 
 const PowerSelectedDisplay = ({selectedPowers, removePower}) => {
 	let powerTableData = [],
-		generateRemovePowerButton = (power, powerName, index) => {
+		generateRemovePowerButton = (power, index) => {
 			let removePowerClick = () => {
 				removePower({spellIndex: index});
 			};
