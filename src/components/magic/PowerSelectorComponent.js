@@ -7,27 +7,18 @@ const powerData = require('json!../data/powers.json');
 require('styles/magic/SpellSelector.sass');
 
 //helper functions
-function createPowerCategoryLabel (PowersObj, {category}) {
-	if(!PowersObj[category]) {
-		PowersObj[category] = [];
-		const powerLabel = category + '-label',
-			buildHeader = {
-				Powers: () => {
-					PowersObj[category].push(
-						<tr key={powerLabel} className={powerLabel}>
-							<th>Learn</th>
-							<th>Rating</th>
-							<th>Power</th>
-							<th>Cost</th>
-							<th>Bonus</th>
-							<th>Ref</th>
-						</tr>
-					);
-				}
-			};
-		
-		(buildHeader[category])();
-	}
+function createPowerCategoryLabel (PowersObj) {
+		const powerLabel = 'powers-label';
+		PowersObj.push(
+			<tr key={powerLabel} className={powerLabel}>
+				<th>Learn</th>
+				<th>Rating</th>
+				<th>Power</th>
+				<th>Cost</th>
+				<th>Bonus</th>
+				<th>Ref</th>
+			</tr>
+		);
 
 	return PowersObj;
 }
@@ -75,37 +66,27 @@ function powerBonus(boni, powerName) {
 }
 
 function createPowerIndividualRow(powerArray, powerName, powerDetails, button, powerID) {
-	//TODO: refactor this to not be complete bulldrek
-
-	const buildRow = {
-		Powers: () => {
-			powerArray[powerDetails.category].push(
-				<tr key={'complexform-'+ (powerID)}>
-					{button}
-					<td>{powerDetails.levels === 'yes'? 1 : 'N/A'}</td>
-					<td>{powerName.start}</td>
-					<td>{powerDetails.points}</td>
-					<td>{powerDetails.bonus?powerBonus(powerDetails.bonus, powerDetails.name):'N/A'}</td>
-					<td>{powerDetails.source + ' p' + powerDetails.page}</td>
-				</tr>
-			);
-		}
-	};
-
-	(buildRow[powerDetails.category])();
+	powerArray.push(
+		<tr key={'power-'+ (powerID)}>
+			{button}
+			<td>{powerDetails.levels === 'yes'? 1 : 'N/A'}</td>
+			<td>{powerName.start}</td>
+			<td>{powerDetails.points}</td>
+			<td>{powerDetails.bonus?powerBonus(powerDetails.bonus, powerDetails.name):'N/A'}</td>
+			<td>{powerDetails.source + ' p' + powerDetails.page}</td>
+		</tr>
+	);
 
 	return powerArray;
 }
 
-function generatePowerDetailTablesRows(arrayOfPowers, generateBtnFn, abilityType) {
-	let powerTables = {},
+function generatePowerDetailTablesRows(arrayOfPowers, generateBtnFn) {
+	let powerTables = [],
 		powerID = 0;
 
+	powerTables = createPowerCategoryLabel(powerTables);
+
 	arrayOfPowers.forEach((power, powerIndex)=>{
-		if(!power.category) {
-			power.category = abilityType;
-		}
-		powerTables = createPowerCategoryLabel(powerTables, power);
 
 		let powerName = createPowerNameWithOptions(power.name),
 			addPowerButton = (<td>{generateBtnFn(power, powerName, powerIndex)}</td>);
@@ -119,9 +100,8 @@ function generatePowerDetailTablesRows(arrayOfPowers, generateBtnFn, abilityType
 
 class PowerSelectorComponent extends React.Component {
 	render() {
-		const {abilities, addPower, removePower, selectedPowers, powerMax} = this.props;
-		let powersToSeletTables = {},
-			addPowerModals = [],
+		const {addPower, removePower, selectedPowers, powerMax} = this.props;
+		let powersToSeletTableRows = [],
 			generateAddPowerButton = (power, powerName) => {
 			let addPowerClick = () => {
 				if(powerMax > selectedPowers.length) {
@@ -145,26 +125,20 @@ class PowerSelectorComponent extends React.Component {
 		};
 
 		//generated power details to populate addPowerModals
-		powersToSeletTables = generatePowerDetailTablesRows(powerData, generateAddPowerButton, abilities);
-
-		for(let powerCat in powersToSeletTables) {
-			addPowerModals.push(
-				<Modal
-					key={'powers-' + powerCat}
-					modalName={powerCat}
-					modalContent={
-						<PowersTables
-							powerRow={powersToSeletTables[powerCat]}/>
-					}
-				/>
-			);
-		}
+		powersToSeletTableRows = generatePowerDetailTablesRows(powerData, generateAddPowerButton);
 
 		return (
 			<div className="powers">
 				<div className="power-selector">
 					<div className="btn-group">
-						{addPowerModals}
+						<Modal
+							key={'powers'}
+							modalName="Powers"
+							modalContent={
+								<PowersTables
+									powerRow={powersToSeletTableRows}/>
+							}
+						/>
 					</div>
 				</div>
 				<PowerSelectedDisplay
@@ -176,8 +150,7 @@ class PowerSelectorComponent extends React.Component {
 }
 
 const PowerSelectedDisplay = ({selectedPowers, removePower}) => {
-	let powerTableData = {},
-		powerDisplayTables = [],
+	let powerTableData = [],
 		generateRemovePowerButton = (power, powerName, index) => {
 			let removePowerClick = () => {
 				removePower({powerIndex: index});
@@ -187,19 +160,11 @@ const PowerSelectedDisplay = ({selectedPowers, removePower}) => {
 
 	powerTableData = generatePowerDetailTablesRows(selectedPowers, generateRemovePowerButton);
 
-	for(let powerCat in powerTableData) {
-		powerDisplayTables.push(
-			<div key={'selected-'+ powerCat} className={'selected-power-in-' + powerCat}>
-				<h4>{powerCat}</h4>
-				<PowersTables
-					powerRow = {powerTableData[powerCat]}/>
-			</div>
-		);
-	}
-
 	return (
 		<div className="selected-powers">
-			{powerDisplayTables}
+			<h4>Powers</h4>
+			<PowersTables
+				powerRow = {powerTableData}/>
 		</div>
 	);
 };

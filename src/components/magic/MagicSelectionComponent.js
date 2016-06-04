@@ -114,7 +114,6 @@ const MagicSelectionComponent = ({magicPriority, magictype, selectedSpellsPowers
 				<div>
 					<h3>Adept Powers</h3>
 					<PowerSelector
-						abilities="Powers"
 						addPower = {actions.addPower}
 						removePower = {actions.removePower}
 						selectedPowers = {selectedSpellsPowers.powers}
