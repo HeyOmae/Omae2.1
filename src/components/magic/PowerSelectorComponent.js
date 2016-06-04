@@ -141,9 +141,12 @@ class PowerSelectorComponent extends React.Component {
 						/>
 					</div>
 				</div>
-				<PowerSelectedDisplay
+				{selectedPowers.length > 0?
+					<PowerSelectedDisplay
 						selectedPowers={selectedPowers}
 						removePower={removePower}/>
+					: null
+				}
 			</div>
 		);
 	}
