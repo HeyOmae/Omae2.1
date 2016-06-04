@@ -117,7 +117,8 @@ class PowerSelectorComponent extends React.Component {
 						if (powerToAdd.bonus) {
 							powerToAdd.bonus = powerNameOptions.replace(/[()]/g, '');
 						}
-					addPower({newPower: powerToAdd});
+
+					addPower({newSpell: powerToAdd});
 				}
 			};
 			
@@ -156,7 +157,7 @@ const PowerSelectedDisplay = ({selectedPowers, removePower}) => {
 	let powerTableData = [],
 		generateRemovePowerButton = (power, powerName, index) => {
 			let removePowerClick = () => {
-				removePower({powerIndex: index});
+				removePower({spellIndex: index});
 			};
 			return (<button className="btn btn-warning" onClick={removePowerClick}>-</button>);
 		};
