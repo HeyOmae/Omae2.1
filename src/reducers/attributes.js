@@ -14,6 +14,7 @@ const initialState = {
 	cha: 0,
 	edg: 0,
 	ess: 6,
+	augmented: {},
 	special: 0,
 	baseSpent: 0,
 	specialSpent: 0
@@ -44,6 +45,7 @@ const attributesReducer = (state=initialState, action) => {
 			}
 			return newState;
 		},
+
 		DECREMENT_ATTRIBUTE: () => {
 			var {attribute, spend} = action.parameter,
 				newState,
@@ -62,6 +64,84 @@ const attributesReducer = (state=initialState, action) => {
 			}
 			return newState;
 		},
+
+		INCREMENT_AUGMENTED: () => {
+			let {attribute} = action.parameter,
+				newState,
+				augmentedAttribute = state.augmented[attribute],
+				nextIncrement;
+
+			if(augmentedAttribute){
+				nextIncrement = augmentedAttribute + 1;
+			} else {
+				nextIncrement = 1;
+			}
+
+			if(nextIncrement < 4) {
+				newState = Object.assign(
+					{},
+					state,
+					{
+						augmented: Object.assign(
+							{},
+							state.augmented,
+							{
+								[attribute]: nextIncrement
+							}
+						)
+					}
+				);
+
+				return newState;
+			} else {
+				return state;
+			}
+		},
+
+		DECREMENT_AUGMENTED: () => {
+			let {attribute} = action.parameter,
+				newState,
+				augmentedAttribute = state.augmented[attribute],
+				nextDecrement;
+
+			if(augmentedAttribute) {
+				nextDecrement = augmentedAttribute - 1;
+			} else {
+				return state;
+			}
+
+			if(nextDecrement > 1) {
+				newState = Object.assign(
+					{},
+					state,
+					{
+						augmented: Object.assign(
+							{},
+							state.augmented,
+							{
+								[attribute]: nextDecrement
+							}
+						)
+					}
+				);
+			} else {
+				newState = Object.assign(
+					{},
+					state,
+					{
+						augmented: Object.assign(
+							{},
+							state.augmented
+						)
+					}
+				);
+
+				delete newState.augmented[attribute];
+			}
+
+			return newState;
+		},
+
 		DEFAULT: () => { return state; }
 	};
 	return (actionsToTake[action.type] || actionsToTake.DEFAULT)();
