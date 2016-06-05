@@ -23,25 +23,6 @@ function createPowerCategoryLabel (PowersObj) {
 	return PowersObj;
 }
 
-function createPowerNameWithOptions(powerName) {
-	let partsOfName = {
-		start: '',
-		end: '',
-		placeholderText: ''
-	},
-	nameWithNoOptions = powerName.replace(/\[[\s\S]*\]/g, (match, offset, string) => {
-		partsOfName.placeholderText = match;
-		partsOfName.start = offset === 0 ? '' : string.slice(0, offset);
-		partsOfName.end = string.slice(string.indexOf(']') + 1);
-		return '';
-	});
-	if (!partsOfName.start && !partsOfName.end) {
-		partsOfName.start = nameWithNoOptions;
-	}
-
-	return partsOfName;
-}
-
 function powerBonus(boni, powerName) {
 	const powerBoni = {
 		selectattribute: (attributes) => {
@@ -65,12 +46,12 @@ function powerBonus(boni, powerName) {
 	}
 }
 
-function createPowerIndividualRow(powerArray, powerName, powerDetails, button, powerID) {
+function createPowerIndividualRow(powerArray, powerDetails, button, powerID) {
 	powerArray.push(
 		<tr key={'power-'+ (powerID)}>
 			{button}
 			<td>{powerDetails.levels === 'yes'? 1 : 'N/A'}</td>
-			<td>{powerName.start}</td>
+			<td>{powerDetails.name}</td>
 			<td>{powerDetails.points}</td>
 			<td>{powerDetails.bonus?powerBonus(powerDetails.bonus, powerDetails.name):'N/A'}</td>
 			<td>{powerDetails.source + ' p' + powerDetails.page}</td>
@@ -88,11 +69,10 @@ function generatePowerDetailTablesRows(arrayOfPowers, generateBtnFn) {
 
 	arrayOfPowers.forEach((power, powerIndex)=>{
 
-		let powerName = createPowerNameWithOptions(power.name),
-			addPowerButton = (<td>{generateBtnFn(power, powerIndex)}</td>);
+		let addPowerButton = (<td>{generateBtnFn(power, powerIndex)}</td>);
 
 		//need to make a Extended class component to make this work
-		powerTables = createPowerIndividualRow(powerTables, powerName, power, addPowerButton, powerID++);
+		powerTables = createPowerIndividualRow(powerTables, power, addPowerButton, powerID++);
 	});
 
 	return powerTables;
