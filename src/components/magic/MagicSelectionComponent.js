@@ -116,6 +116,8 @@ const MagicSelectionComponent = ({magicPriority, magictype, selectedSpellsPowers
 					<PowerSelector
 						addPower = {actions.addPower}
 						removePower = {actions.removePower}
+						incrementAugmented={actions.incrementAugmented}
+						decrementAugmented={actions.decrementAugmented}
 						selectedPowers = {selectedSpellsPowers.powers}
 						powerMax={6}
 						/>

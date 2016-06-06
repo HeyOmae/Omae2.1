@@ -131,6 +131,8 @@ function mapDispatchToProps(dispatch) {
     selectMetatype: require('../actions/selectMetatype.js'),
     incrementAttribute: require('../actions/attributes/incrementAttribute.js'),
     decrementAttribute: require('../actions/attributes/decrementAttribute.js'),
+    incrementAugmented: require('../actions/attributes/incrementAugmented.js'),
+    decrementAugmented: require('../actions/attributes/decrementAugmented.js'),
     selectMagictype: require('../actions/selectMagictype.js'),
     incrementSkill: require('../actions/skills/incrementSkill.js'),
     decrementSkill: require('../actions/skills/decrementSkill.js'),
