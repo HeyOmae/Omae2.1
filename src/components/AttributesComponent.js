@@ -44,6 +44,7 @@ class AttributesComponent extends React.Component {
 
 		for(let att in metatypeData[metatype].min) {
 			let baseAtt = metatypeData[metatype].min[att],
+				currentAtt = baseAtt + attributes[att],
 				maxAtt = metatypeData[metatype].max[att],
 				maxPoints = maxAtt - baseAtt;
 
@@ -61,7 +62,7 @@ class AttributesComponent extends React.Component {
 				);
 				attributeElements[attType].display.push(
 					<td key={'display-'+att} className={attributes[att] > maxAtt ? 'table-danger' : ''}>
-						{baseAtt + attributes[att]}/{maxAtt}
+						{currentAtt}/{maxAtt}{attributes.augmented[att]?`(${attributes.augmented[att]+currentAtt})`:null}
 					</td>
 				);
 				attributeElements[attType].decBtn.push(

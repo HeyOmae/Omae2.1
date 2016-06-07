@@ -41,8 +41,12 @@ function powerBonus(boni, powerName) {
 		}
 	};
 
-	for(let effect in boni) {
-		return (powerBoni[effect]||powerBoni.default)(boni[effect]);
+	if(typeof boni === 'object') {
+		for(let effect in boni) {
+			return (powerBoni[effect]||powerBoni.default)(boni[effect]);
+		}
+	} else {
+		return boni;
 	}
 }
 
@@ -78,9 +82,24 @@ function generatePowerDetailTablesRows(arrayOfPowers, generateBtnFn) {
 	return powerTables;
 }
 
+function applyBonus(name, fn, attribute) {
+	const bonusToApply = {
+		'Improved Physical Attribute': () => {
+			debugger;
+			fn({attribute: attribute});
+		},
+		default: () => {
+			return null;
+		}
+	};
+
+	(bonusToApply[name]||bonusToApply.default)();
+
+}
+
 class PowerSelectorComponent extends React.Component {
 	render() {
-		const {addPower, removePower, selectedPowers, powerMax} = this.props;
+		const {addPower, removePower, incrementAugmented, selectedPowers, powerMax} = this.props;
 		let powersToSeletTableRows = [],
 			generateAddPowerButton = (power) => {
 			let addPowerClick = () => {
@@ -96,6 +115,7 @@ class PowerSelectorComponent extends React.Component {
 						);
 						if (powerToAdd.bonus) {
 							powerToAdd.bonus = powerNameOptions.replace(/[()]/g, '');
+							applyBonus(power.name, incrementAugmented, powerToAdd.bonus);
 						}
 
 					addPower({newSpell: powerToAdd});
