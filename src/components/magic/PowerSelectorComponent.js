@@ -12,7 +12,7 @@ function createPowerCategoryLabel (PowersObj) {
 		PowersObj.push(
 			<tr key={powerLabel} className={powerLabel}>
 				<th>Learn</th>
-				<th>Rating</th>
+				<th>Levels</th>
 				<th>Power</th>
 				<th>Cost</th>
 				<th>Bonus</th>
@@ -54,7 +54,7 @@ function createPowerIndividualRow(powerArray, powerDetails, button, powerID) {
 	powerArray.push(
 		<tr key={'power-'+ (powerID)}>
 			{button}
-			<td>{powerDetails.levels === 'yes'? 1 : 'N/A'}</td>
+			<td>{powerDetails.levels}</td>
 			<td>{powerDetails.name}</td>
 			<td>{powerDetails.points}</td>
 			<td>{powerDetails.bonus?powerBonus(powerDetails.bonus, powerDetails.name):'N/A'}</td>
@@ -116,6 +116,12 @@ class PowerSelectorComponent extends React.Component {
 						if (powerToAdd.bonus) {
 							powerToAdd.bonus = powerNameOptions.replace(/[()]/g, '');
 							applyBonus(power.name, incrementAugmented, powerToAdd.bonus);
+						}
+
+						if(powerToAdd.levels === 'yes') {
+							powerToAdd.levels = 1;
+						} else {
+							powerToAdd.levels = 'N/A';
 						}
 
 					addPower({newSpell: powerToAdd});

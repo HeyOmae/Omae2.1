@@ -85,6 +85,18 @@ const spellReducer = (state=initialState, action) => {
 			);
 		},
 
+		RAISE_POWER: () => {
+			const {spellIndex} = action.parameter;
+
+			return Object.assign(
+				{},
+				state,
+				{
+					powers: state.powers.splice(spellIndex, 1, {})
+				}
+			);
+		},
+
 		RESET_ABILITY: () => {
 			const {ability} = action.parameter;
 			if(state[ability].length > 0){
