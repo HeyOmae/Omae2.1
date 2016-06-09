@@ -51,10 +51,23 @@ function powerBonus(boni, powerName) {
 }
 
 function createPowerIndividualRow(powerArray, powerDetails, button, powerID) {
+	function raiseLevel() {
+		console.log('raise');
+	}
+	function lowerLevel() {
+		console.log('lower');
+	}
+	const levelButton = (
+		<div>
+			<button className='btn btn-success col-xs-12 col-sm-4' onClick={raiseLevel}>+</button>
+			<span className='col-xs-12 col-sm-4'>{powerDetails.levels}</span>
+			<button className='btn btn-warning col-xs-12 col-sm-4' onClick={lowerLevel}>-</button>
+		</div>
+		);
 	powerArray.push(
 		<tr key={'power-'+ (powerID)}>
 			{button}
-			<td>{powerDetails.levels}</td>
+			<td>{typeof powerDetails.levels === 'number'? levelButton : powerDetails.levels}</td>
 			<td>{powerDetails.name}</td>
 			<td>{powerDetails.points}</td>
 			<td>{powerDetails.bonus?powerBonus(powerDetails.bonus, powerDetails.name):'N/A'}</td>
