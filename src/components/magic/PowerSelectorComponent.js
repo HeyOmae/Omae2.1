@@ -112,11 +112,11 @@ function applyBonus(name, fn, attribute) {
 
 class PowerSelectorComponent extends React.Component {
 	render() {
-		const {addPower, removePower, incrementAugmented, selectedPowers, powerMax} = this.props;
+		const {addPower, removePower, incrementAugmented, selectedPowers, pointSpent} = this.props;
 		let powersToSeletTableRows = [],
 			generateAddPowerButton = (power) => {
 			let addPowerClick = () => {
-				if(powerMax > selectedPowers.length) {
+				if(pointSpent < 6) { //replace 6 with magic rating
 					let powerNameOptions = this.refs['powerOption'+power.name] ? this.refs['powerOption'+power.name].value : '',
 						newName = power.name + powerNameOptions,
 						powerToAdd = Object.assign(
@@ -146,9 +146,10 @@ class PowerSelectorComponent extends React.Component {
 
 		//generated power details to populate addPowerModals
 		powersToSeletTableRows = generatePowerDetailTablesRows(powerData, generateAddPowerButton);
-
+console.log(pointSpent);
 		return (
 			<div className="powers">
+				<p><strong>{pointSpent}</strong></p>
 				<div className="power-selector">
 					<div className="btn-group">
 						<Modal

@@ -6,6 +6,7 @@
 const initialState = {
 	spells: [],
 	powers: [],
+	powerPointsSpent: 0,
 	complexforms: []
 };
 
@@ -70,7 +71,8 @@ const spellReducer = (state=initialState, action) => {
 				{},
 				state,
 				{
-					powers: addingSpellToList(state.powers, action.parameter.newSpell)
+					powers: addingSpellToList(state.powers, action.parameter.newSpell),
+					powerPointsSpent: state.powerPointsSpent + Number(action.parameter.newSpell.points)
 				}
 			);
 		},
@@ -80,7 +82,8 @@ const spellReducer = (state=initialState, action) => {
 				{},
 				state,
 				{
-					powers: removeSpellFromList(state.powers, action.parameter.spellIndex)
+					powers: removeSpellFromList(state.powers, action.parameter.spellIndex),
+					powerPointsSpent: state.powerPointsSpent - Number(aaction.parameter.newSpell.points)
 				}
 			);
 		},

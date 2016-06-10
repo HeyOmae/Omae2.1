@@ -119,7 +119,7 @@ const MagicSelectionComponent = ({magicPriority, magictype, selectedSpellsPowers
 						incrementAugmented={actions.incrementAugmented}
 						decrementAugmented={actions.decrementAugmented}
 						selectedPowers = {selectedSpellsPowers.powers}
-						powerMax={6}
+						pointSpent={selectedSpellsPowers.powerPointsSpent}
 						/>
 				</div>
 				:

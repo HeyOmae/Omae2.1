@@ -52,6 +52,7 @@ describe('spellSelect', () => {
 				page: '309'
 			}
 		],
+		powerPointsSpent: 1,
 		complexforms: [
 			{
 				id: '33e75cd6-cad7-43dd-87ac-9838c83eccb5',
