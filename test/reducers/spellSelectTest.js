@@ -52,7 +52,7 @@ describe('spellSelect', () => {
 				page: '309'
 			}
 		],
-		powerPointsSpent: 1,
+		powerPointsSpent: 1.25,
 		complexforms: [
 			{
 				id: '33e75cd6-cad7-43dd-87ac-9838c83eccb5',
@@ -160,6 +160,9 @@ describe('spellSelect', () => {
 
 		expect(newState.powers[newState.powers.length - 1]).to.eql(newSpell);
 		expect(newState.powers.length).to.equal(state.powers.length + 1);
+
+		expect(newState.powerPointsSpent).to.equal(1.5);
+		expect(state.powerPointsSpent).to.equal(1.25);
 	});
 
 	it('should remove power from the state.powers', () => {
@@ -167,6 +170,9 @@ describe('spellSelect', () => {
 
 		expect(newState.powers[1]).to.not.eql(state.powers[1]);
 		expect(newState.powers.length).to.equal(state.powers.length - 1);
+
+		expect(newState.powerPointsSpent).to.equal(1);
+		expect(state.powerPointsSpent).to.equal(1.25);
 	});
 
 	describe('RESET_ABILITY', () => {
