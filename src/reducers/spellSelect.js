@@ -20,9 +20,17 @@ const spellReducer = (state=initialState, action) => {
 
 	function removeSpellFromList (listOfSpells, indexToDelete) {
 		return [
-				...listOfSpells.slice(0, indexToDelete),
-				...listOfSpells.slice(indexToDelete + 1)
-			];
+			...listOfSpells.slice(0, indexToDelete),
+			...listOfSpells.slice(indexToDelete + 1)
+		];
+	}
+
+	function modifyPowerFromList (listOfPowers, indexToModify, modifiedPower) {
+		return [
+			...listOfPowers.slice(0, indexToModify),
+			modifiedPower,
+			...listOfPowers.slice(indexToModify + 1)
+		];
 	}
 
 	const actionsToTake = {
@@ -90,13 +98,21 @@ const spellReducer = (state=initialState, action) => {
 		},
 
 		RAISE_POWER: () => {
-			const {spellIndex} = action.parameter;
+			const {spellIndex} = action.parameter,
+				powerToRaise = state.powers[spellIndex],
+				powerLevelRasied = Object.assign(
+					{},
+					powerToRaise,
+					{
+						levels: powerToRaise.levels + 1
+					}
+				);
 
 			return Object.assign(
 				{},
 				state,
 				{
-					powers: state.powers.splice(spellIndex, 1, {})
+					powers: modifyPowerFromList(state.powers, spellIndex, powerLevelRasied)
 				}
 			);
 		},
