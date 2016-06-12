@@ -50,24 +50,11 @@ function powerBonus(boni, powerName) {
 	}
 }
 
-function createPowerIndividualRow(powerArray, powerDetails, button, powerID) {
-	function raiseLevel() {
-		console.log('raise');
-	}
-	function lowerLevel() {
-		console.log('lower');
-	}
-	const levelButton = (
-		<div>
-			<button className='btn btn-success col-xs-12 col-sm-4' onClick={raiseLevel}>+</button>
-			<span className='col-xs-12 col-sm-4'>{powerDetails.levels}</span>
-			<button className='btn btn-warning col-xs-12 col-sm-4' onClick={lowerLevel}>-</button>
-		</div>
-		);
+function createPowerIndividualRow(powerArray, powerDetails, button, powerID, levels=powerDetails.levels) {
 	powerArray.push(
 		<tr key={'power-'+ (powerID)}>
 			{button}
-			<td>{typeof powerDetails.levels === 'number'? levelButton : powerDetails.levels}</td>
+			<td>{levels}</td>
 			<td>{powerDetails.name}</td>
 			<td>{powerDetails.points}</td>
 			<td>{powerDetails.bonus?powerBonus(powerDetails.bonus, powerDetails.name):'N/A'}</td>
@@ -78,7 +65,27 @@ function createPowerIndividualRow(powerArray, powerDetails, button, powerID) {
 	return powerArray;
 }
 
-function generatePowerDetailTablesRows(arrayOfPowers, generateBtnFn) {
+function createSelectedPowerIndividualRow(powerArray, powerDetails, button, powerID, modifyPowers, powerIndex) {
+	function raiseLevel() {
+		modifyPowers.incrementAugmented({attribute: powerDetails.bonus});
+		modifyPowers.raisePower({powerIndex});
+	}
+	function lowerLevel() {
+		modifyPowers.decrementAugmented({attribute: powerDetails.bonus});
+		modifyPowers.lowerPower({powerIndex});
+	}
+	const levelButton = (
+		<div>
+			<button className='btn btn-success col-xs-12 col-sm-4' onClick={raiseLevel}>+</button>
+			<span className='col-xs-12 col-sm-4'>{powerDetails.levels}</span>
+			<button className='btn btn-warning col-xs-12 col-sm-4' onClick={lowerLevel}>-</button>
+		</div>
+	);
+
+	return createPowerIndividualRow(powerArray, powerDetails, button, powerID, levelButton);
+}
+
+function generatePowerDetailTablesRows(arrayOfPowers, generateBtnFn, modifyPowers) {
 	let powerTables = [],
 		powerID = 0;
 
@@ -89,7 +96,12 @@ function generatePowerDetailTablesRows(arrayOfPowers, generateBtnFn) {
 		let addPowerButton = (<td>{generateBtnFn(power, powerIndex)}</td>);
 
 		//need to make a Extended class component to make this work
-		powerTables = createPowerIndividualRow(powerTables, power, addPowerButton, powerID++);
+		if (modifyPowers && power.levels > 0) {
+			powerTables = createSelectedPowerIndividualRow(powerTables, power, addPowerButton, powerID++, modifyPowers, powerIndex);
+		} else {
+			powerTables = createPowerIndividualRow(powerTables, power, addPowerButton, powerID++);
+		}
+		
 	});
 
 	return powerTables;
@@ -106,7 +118,6 @@ function applyBonus(name, fn, attribute) {
 	};
 
 	(bonusToApply[name]||bonusToApply.default)();
-
 }
 
 class PowerSelectorComponent extends React.Component {
@@ -167,7 +178,7 @@ class PowerSelectorComponent extends React.Component {
 					<PowerSelectedDisplay
 						selectedPowers={selectedPowers}
 						removePower={removePower}
-						decrementAugmented={decrementAugmented}/>
+						modifyPowers={{incrementAugmented, decrementAugmented, raisePower, lowerPower}}/>
 					: null
 				}
 			</div>
@@ -175,19 +186,19 @@ class PowerSelectorComponent extends React.Component {
 	}
 }
 
-const PowerSelectedDisplay = ({selectedPowers, removePower, decrementAugmented}) => {
+const PowerSelectedDisplay = ({selectedPowers, removePower, modifyPowers}) => {
 	let powerTableData = [],
 		generateRemovePowerButton = (power, index) => {
 			let removePowerClick = () => {
 				if(power.bonus !== 'N/A') {
-					applyBonus(power.name.match(/.+?(?=\()/g), decrementAugmented, power.bonus);
+					applyBonus(power.name.match(/.+?(?=\()/g), modifyPowers.decrementAugmented, power.bonus);
 				}
 				removePower({spellIndex: index});
 			};
 			return (<button className="btn btn-warning" onClick={removePowerClick}>-</button>);
 		};
 
-	powerTableData = generatePowerDetailTablesRows(selectedPowers, generateRemovePowerButton);
+	powerTableData = generatePowerDetailTablesRows(selectedPowers, generateRemovePowerButton, modifyPowers);
 
 	return (
 		<div className="selected-powers">

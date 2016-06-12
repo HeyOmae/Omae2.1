@@ -176,14 +176,14 @@ describe('spellSelect', () => {
 	});
 
 	it('should raise a power[spellIndex].levels by one when RAISE_POWER is called', () => {
-		const newState = reducer(state, {type: 'RAISE_POWER', parameter: {spellIndex: 1}});
+		const newState = reducer(state, {type: 'RAISE_POWER', parameter: {powerIndex: 1}});
 
 		expect(newState.powers[1].levels).to.equal(3);
 		expect(state.powers[1].levels).to.equal(2);
 	});
 
 	it('should lower a power[spellIndex].levels by one when LOWER_POWER is called', () => {
-		const newState = reducer(state, {type: 'LOWER_POWER', parameter: {spellIndex: 1}});
+		const newState = reducer(state, {type: 'LOWER_POWER', parameter: {powerIndex: 1}});
 
 		expect(newState.powers[1].levels).to.equal(1);
 		expect(state.powers[1].levels).to.equal(2);

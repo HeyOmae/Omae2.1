@@ -98,8 +98,8 @@ const spellReducer = (state=initialState, action) => {
 		},
 
 		RAISE_POWER: () => {
-			const {spellIndex} = action.parameter,
-				powerToRaise = state.powers[spellIndex],
+			const {powerIndex} = action.parameter,
+				powerToRaise = state.powers[powerIndex],
 				powerLevelRasied = Object.assign(
 					{},
 					powerToRaise,
@@ -112,14 +112,14 @@ const spellReducer = (state=initialState, action) => {
 				{},
 				state,
 				{
-					powers: modifyPowerFromList(state.powers, spellIndex, powerLevelRasied)
+					powers: modifyPowerFromList(state.powers, powerIndex, powerLevelRasied)
 				}
 			);
 		},
 
 		LOWER_POWER: () => {
-			const {spellIndex} = action.parameter,
-				powerToLower = state.powers[spellIndex],
+			const {powerIndex} = action.parameter,
+				powerToLower = state.powers[powerIndex],
 				powerLevelLowered = Object.assign(
 					{},
 					powerToLower,
@@ -132,7 +132,7 @@ const spellReducer = (state=initialState, action) => {
 				{},
 				state,
 				{
-					powers: modifyPowerFromList(state.powers, spellIndex, powerLevelLowered)
+					powers: modifyPowerFromList(state.powers, powerIndex, powerLevelLowered)
 				}
 			);
 		},

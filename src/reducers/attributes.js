@@ -77,7 +77,7 @@ const attributesReducer = (state=initialState, action) => {
 				nextIncrement = 1;
 			}
 
-			if(nextIncrement < 4) {
+			if(nextIncrement <= 4) {
 				newState = Object.assign(
 					{},
 					state,
