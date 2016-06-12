@@ -148,6 +148,8 @@ function mapDispatchToProps(dispatch) {
     removeComplexform: require('../actions/magic/removeComplexform.js'),
     addPower: require('../actions/magic/addPower.js'),
     removePower: require('../actions/magic/removePower.js'),
+    raisePower: require('../actions/magic/raisePower.js'),
+    lowerPower: require('../actions/magic/lowerPower.js'),
     resetAbility: require('../actions/magic/resetAbility.js')
   };
   const actionMap = { actions: bindActionCreators(actions, dispatch) };

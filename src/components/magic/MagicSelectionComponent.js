@@ -114,10 +114,7 @@ const MagicSelectionComponent = ({magicPriority, magictype, selectedSpellsPowers
 				<div>
 					<h3>Adept Powers</h3>
 					<PowerSelector
-						addPower = {actions.addPower}
-						removePower = {actions.removePower}
-						incrementAugmented={actions.incrementAugmented}
-						decrementAugmented={actions.decrementAugmented}
+						actions = {actions}
 						selectedPowers = {selectedSpellsPowers.powers}
 						pointSpent={selectedSpellsPowers.powerPointsSpent}
 						/>

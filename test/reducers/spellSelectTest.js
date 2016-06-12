@@ -182,6 +182,13 @@ describe('spellSelect', () => {
 		expect(state.powers[1].levels).to.equal(2);
 	});
 
+	it('should lower a power[spellIndex].levels by one when LOWER_POWER is called', () => {
+		const newState = reducer(state, {type: 'LOWER_POWER', parameter: {spellIndex: 1}});
+
+		expect(newState.powers[1].levels).to.equal(1);
+		expect(state.powers[1].levels).to.equal(2);
+	});
+
 	describe('RESET_ABILITY', () => {
 		it('should reset spells when called with spells', ()=>{
 			const newState = reducer(state, {type: 'RESET_ABILITY', parameter: {ability: 'spells'}});

@@ -98,7 +98,6 @@ function generatePowerDetailTablesRows(arrayOfPowers, generateBtnFn) {
 function applyBonus(name, fn, attribute) {
 	const bonusToApply = {
 		'Improved Physical Attribute': () => {
-			debugger;
 			fn({attribute: attribute});
 		},
 		default: () => {
@@ -112,7 +111,9 @@ function applyBonus(name, fn, attribute) {
 
 class PowerSelectorComponent extends React.Component {
 	render() {
-		const {addPower, removePower, incrementAugmented, selectedPowers, pointSpent} = this.props;
+		const {actions, selectedPowers, pointSpent} = this.props,
+			{addPower, removePower, incrementAugmented, decrementAugmented, raisePower, lowerPower} = actions;
+
 		let powersToSeletTableRows = [],
 			generateAddPowerButton = (power) => {
 			let addPowerClick = () => {
@@ -146,7 +147,7 @@ class PowerSelectorComponent extends React.Component {
 
 		//generated power details to populate addPowerModals
 		powersToSeletTableRows = generatePowerDetailTablesRows(powerData, generateAddPowerButton);
-console.log(pointSpent);
+
 		return (
 			<div className="powers">
 				<p><strong>{pointSpent}</strong></p>
@@ -165,7 +166,8 @@ console.log(pointSpent);
 				{selectedPowers.length > 0?
 					<PowerSelectedDisplay
 						selectedPowers={selectedPowers}
-						removePower={removePower}/>
+						removePower={removePower}
+						decrementAugmented={decrementAugmented}/>
 					: null
 				}
 			</div>
@@ -173,10 +175,13 @@ console.log(pointSpent);
 	}
 }
 
-const PowerSelectedDisplay = ({selectedPowers, removePower}) => {
+const PowerSelectedDisplay = ({selectedPowers, removePower, decrementAugmented}) => {
 	let powerTableData = [],
 		generateRemovePowerButton = (power, index) => {
 			let removePowerClick = () => {
+				if(power.bonus !== 'N/A') {
+					applyBonus(power.name.match(/.+?(?=\()/g), decrementAugmented, power.bonus);
+				}
 				removePower({spellIndex: index});
 			};
 			return (<button className="btn btn-warning" onClick={removePowerClick}>-</button>);

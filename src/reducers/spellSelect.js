@@ -117,6 +117,26 @@ const spellReducer = (state=initialState, action) => {
 			);
 		},
 
+		LOWER_POWER: () => {
+			const {spellIndex} = action.parameter,
+				powerToLower = state.powers[spellIndex],
+				powerLevelLowered = Object.assign(
+					{},
+					powerToLower,
+					{
+						levels: powerToLower.levels - 1
+					}
+				);
+
+			return Object.assign(
+				{},
+				state,
+				{
+					powers: modifyPowerFromList(state.powers, spellIndex, powerLevelLowered)
+				}
+			);
+		},
+
 		RESET_ABILITY: () => {
 			const {ability} = action.parameter;
 			if(state[ability].length > 0){
