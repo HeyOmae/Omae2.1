@@ -67,13 +67,22 @@ function createPowerIndividualRow(powerArray, powerDetails, button, powerID, lev
 
 function createSelectedPowerIndividualRow(powerArray, powerDetails, button, powerID, modifyPowers, powerIndex) {
 	function raiseLevel() {
-		modifyPowers.incrementAugmented({attribute: powerDetails.bonus});
+		if(powerDetails.name.indexOf('Improved Physical Attribute') > -1 && powerDetails.levels < 4) {
+			modifyPowers.incrementAugmented({attribute: powerDetails.bonus});
+		} else {
+			return;
+		}
 		modifyPowers.raisePower({powerIndex});
 	}
 	function lowerLevel() {
-		modifyPowers.decrementAugmented({attribute: powerDetails.bonus});
+		if(powerDetails.name.indexOf('Improved Physical Attribute') > -1 && powerDetails.levels > 1) {
+			modifyPowers.decrementAugmented({attribute: powerDetails.bonus});
+		} else {
+			return;
+		}
 		modifyPowers.lowerPower({powerIndex});
 	}
+
 	const levelButton = (
 		<div>
 			<button className='btn btn-success col-xs-12 col-sm-4' onClick={raiseLevel}>+</button>

@@ -110,7 +110,7 @@ const attributesReducer = (state=initialState, action) => {
 				return state;
 			}
 
-			if(nextDecrement > 1) {
+			if(nextDecrement > 0) {
 				newState = Object.assign(
 					{},
 					state,
