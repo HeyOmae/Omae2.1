@@ -112,7 +112,8 @@ const spellReducer = (state=initialState, action) => {
 				{},
 				state,
 				{
-					powers: modifyPowerFromList(state.powers, powerIndex, powerLevelRasied)
+					powers: modifyPowerFromList(state.powers, powerIndex, powerLevelRasied),
+					powerPointsSpent: state.powerPointsSpent + Number(state.powers[powerIndex].points)
 				}
 			);
 		},
@@ -132,7 +133,8 @@ const spellReducer = (state=initialState, action) => {
 				{},
 				state,
 				{
-					powers: modifyPowerFromList(state.powers, powerIndex, powerLevelLowered)
+					powers: modifyPowerFromList(state.powers, powerIndex, powerLevelLowered),
+					powerPointsSpent: state.powerPointsSpent - Number(state.powers[powerIndex].points)
 				}
 			);
 		},
