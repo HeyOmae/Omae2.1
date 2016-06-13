@@ -99,13 +99,13 @@ const attributesReducer = (state=initialState, action) => {
 		},
 
 		DECREMENT_AUGMENTED: () => {
-			let {attribute} = action.parameter,
+			let {attribute, decreaseBy = 1} = action.parameter,
 				newState,
 				augmentedAttribute = state.augmented[attribute],
 				nextDecrement;
 
 			if(augmentedAttribute) {
-				nextDecrement = augmentedAttribute - 1;
+				nextDecrement = augmentedAttribute - decreaseBy;
 			} else {
 				return state;
 			}

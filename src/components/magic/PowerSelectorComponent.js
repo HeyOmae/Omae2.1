@@ -107,10 +107,10 @@ function generatePowerDetailTablesRows(arrayOfPowers, generateBtnFn, modifyPower
 	return powerTables;
 }
 
-function applyBonus(name, fn, attribute) {
+function applyBonus(name, fn, attribute, decreaseBy) {
 	const bonusToApply = {
 		'Improved Physical Attribute': () => {
-			fn({attribute: attribute});
+			fn({attribute: attribute, decreaseBy});
 		},
 		default: () => {
 			return null;
@@ -191,9 +191,9 @@ const PowerSelectedDisplay = ({selectedPowers, removePower, modifyPowers}) => {
 		generateRemovePowerButton = (power, index) => {
 			let removePowerClick = () => {
 				if(power.bonus !== 'N/A') {
-					applyBonus(power.name.match(/.+?(?=\()/g), modifyPowers.decrementAugmented, power.bonus);
+					applyBonus(power.name.match(/.+?(?=\()/g), modifyPowers.decrementAugmented, power.bonus, power.levels);
 				}
-				removePower({spellIndex: index});
+				removePower({powerIndex: index});
 			};
 			return (<button className="btn btn-warning" onClick={removePowerClick}>-</button>);
 		};

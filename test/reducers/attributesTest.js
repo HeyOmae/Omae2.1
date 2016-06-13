@@ -124,6 +124,22 @@ describe('attributes', () => {
 			expect(newState.augmented.rea).to.equal(3);
 			expect(state.augmented.rea).to.equal(4);
 		});
+
+		describe('if decreaseBy is defined', () => {
+			it('should remove an attribute if decreaseBy is the same or more then its current rating', () => {
+				const newState = reducer(state, {type: 'DECREMENT_AUGMENTED', parameter: {attribute: 'rea', decreaseBy: 4}});
+
+				expect(newState.augmented.rea).to.equal(undefined);
+				expect(state.augmented.rea).to.equal(4);
+			});
+
+			it('should decrement an attribute if decreaseBy is set', () => {
+				const newState = reducer(state, {type: 'DECREMENT_AUGMENTED', parameter: {attribute: 'rea', decreaseBy: 2}});
+
+				expect(newState.augmented.rea).to.equal(2);
+				expect(state.augmented.rea).to.equal(4);
+			});
+		});
 	});
 
 });

@@ -166,7 +166,7 @@ describe('spellSelect', () => {
 	});
 
 	it('should remove power from the state.powers', () => {
-		const newState = reducer(state, {type: 'REMOVE_POWER', parameter: {spellIndex: 1}});
+		const newState = reducer(state, {type: 'REMOVE_POWER', parameter: {powerIndex: 1}});
 
 		expect(newState.powers[1]).to.not.eql(state.powers[1]);
 		expect(newState.powers.length).to.equal(state.powers.length - 1);
@@ -175,7 +175,7 @@ describe('spellSelect', () => {
 		expect(state.powerPointsSpent).to.equal(1.25);
 	});
 
-	it('should raise a power[spellIndex].levels by one when RAISE_POWER is called', () => {
+	it('should raise a power[powerIndex].levels by one when RAISE_POWER is called', () => {
 		const newState = reducer(state, {type: 'RAISE_POWER', parameter: {powerIndex: 1}});
 
 		expect(newState.powers[1].levels).to.equal(3);
