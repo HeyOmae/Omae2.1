@@ -67,6 +67,9 @@ function createPowerIndividualRow(powerArray, powerDetails, button, powerID, lev
 
 function createSelectedPowerIndividualRow(powerArray, powerDetails, button, powerID, modifyPowers, powerIndex) {
 	function raiseLevel() {
+		if(modifyPowers.pointSpent + Number(powerDetails.points) >= modifyPowers.maxPointPoints) {
+			return;
+		}
 		if(powerDetails.name.indexOf('Improved Physical Attribute') > -1 && powerDetails.levels < 4) {
 			modifyPowers.incrementAugmented({attribute: powerDetails.bonus});
 		} else {
@@ -131,13 +134,13 @@ function applyBonus(name, fn, attribute, decreaseBy) {
 
 class PowerSelectorComponent extends React.Component {
 	render() {
-		const {actions, selectedPowers, pointSpent} = this.props,
+		const {actions, selectedPowers, pointSpent, maxPointPoints} = this.props,
 			{addPower, removePower, incrementAugmented, decrementAugmented, raisePower, lowerPower} = actions;
 
 		let powersToSeletTableRows = [],
 			generateAddPowerButton = (power) => {
 			let addPowerClick = () => {
-				if(pointSpent < 6) { //replace 6 with magic rating
+				if(pointSpent + Number(power.points) <= maxPointPoints) { //replace 6 with magic rating
 					let powerNameOptions = this.refs['powerOption'+power.name] ? this.refs['powerOption'+power.name].value : '',
 						newName = power.name + powerNameOptions,
 						powerToAdd = Object.assign(
@@ -187,7 +190,7 @@ class PowerSelectorComponent extends React.Component {
 					<PowerSelectedDisplay
 						selectedPowers={selectedPowers}
 						removePower={removePower}
-						modifyPowers={{incrementAugmented, decrementAugmented, raisePower, lowerPower}}/>
+						modifyPowers={{incrementAugmented, decrementAugmented, raisePower, lowerPower, pointSpent, maxPointPoints}}/>
 					: null
 				}
 			</div>

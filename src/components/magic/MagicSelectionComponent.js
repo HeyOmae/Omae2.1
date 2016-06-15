@@ -8,8 +8,9 @@ require('styles//magic/MagicSelection.sass');
 const priorityData = require('json!../data/priority.json');
 
 
-const MagicSelectionComponent = ({magicPriority, magictype, selectedSpellsPowers, actions}) => {
+const MagicSelectionComponent = ({magicPriority, magictype, magicAttribute, selectedSpellsPowers, actions}) => {
 	const awakenTypes = ['Mage', 'Mystic', 'Technomancer','Adept', 'Aspected', 'mundane'],
+		magicAtt = priorityData[magicPriority].magic[magictype].attribute.points + magicAttribute,
 		magicPriorityStats = priorityData[magicPriority].magic,
 		toggleAbilities = {
 			Mage: () => {
@@ -117,6 +118,7 @@ const MagicSelectionComponent = ({magicPriority, magictype, selectedSpellsPowers
 						actions = {actions}
 						selectedPowers = {selectedSpellsPowers.powers}
 						pointSpent={selectedSpellsPowers.powerPointsSpent}
+						maxPointPoints={magicAtt}
 						/>
 				</div>
 				:

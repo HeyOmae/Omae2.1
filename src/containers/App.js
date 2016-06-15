@@ -69,6 +69,7 @@ class App extends Component {
 						<MagicSelectionComponent
               magicPriority={priorityTable.magres}
               magictype={selectMagRes}
+              magicAttribute = {attributes.special}
               selectedSpellsPowers={spellSelect}
               actions={actions} />
 
