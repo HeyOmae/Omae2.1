@@ -67,23 +67,16 @@ function createPowerIndividualRow(powerArray, powerDetails, button, powerID, lev
 
 function createSelectedPowerIndividualRow(powerArray, powerDetails, button, powerID, modifyPowers, powerIndex) {
 	function raiseLevel() {
-		if(modifyPowers.pointSpent + Number(powerDetails.points) >= modifyPowers.maxPointPoints) {
-			return;
+		if(modifyPowers.pointSpent + Number(powerDetails.points) <= modifyPowers.maxPointPoints) {
+			modifyPowers.bonusUp(powerDetails.name, powerDetails.bonus);
+			modifyPowers.raisePower({powerIndex});
 		}
-		if(powerDetails.name.indexOf('Improved Physical Attribute') > -1 && powerDetails.levels < 4) {
-			modifyPowers.incrementAugmented({attribute: powerDetails.bonus});
-		} else {
-			return;
-		}
-		modifyPowers.raisePower({powerIndex});
 	}
 	function lowerLevel() {
-		if(powerDetails.name.indexOf('Improved Physical Attribute') > -1 && powerDetails.levels > 1) {
-			modifyPowers.decrementAugmented({attribute: powerDetails.bonus});
-		} else {
-			return;
+		if(modifyPowers.pointSpent - Number(powerDetails.points) >= 0 && powerDetails.levels > 1){
+			modifyPowers.bonusDown(powerDetails.name, powerDetails.bonus);
+			modifyPowers.lowerPower({powerIndex});
 		}
-		modifyPowers.lowerPower({powerIndex});
 	}
 
 	const levelButton = (
@@ -119,23 +112,36 @@ function generatePowerDetailTablesRows(arrayOfPowers, generateBtnFn, modifyPower
 	return powerTables;
 }
 
-function applyBonus(name, fn, attribute, decreaseBy) {
-	const bonusToApply = {
-		'Improved Physical Attribute': () => {
-			fn({attribute: attribute, decreaseBy});
-		},
-		default: () => {
-			return null;
-		}
-	};
-
-	(bonusToApply[name]||bonusToApply.default)();
-}
-
 class PowerSelectorComponent extends React.Component {
 	render() {
 		const {actions, selectedPowers, pointSpent, maxPointPoints} = this.props,
 			{addPower, removePower, incrementAugmented, decrementAugmented, raisePower, lowerPower} = actions;
+
+		function bonusUp(name, bonusToApply) {
+			const bonusAction = {
+				'Improved Physical Attribute': () => {
+					incrementAugmented({attribute: bonusToApply});
+				},
+				default: () => {
+					return null;
+				}
+			};
+
+			(bonusAction[name.replace(/[()]/g, '')]||bonusAction.default)();
+		}
+
+		function bonusDown(name, bonusToRemove, decreaseBy) {
+			const bonusAction = {
+				'Improved Physical Attribute': () => {
+					decrementAugmented({attribute: bonusToRemove, decreaseBy});
+				},
+				default: () => {
+					return null;
+				}
+			};
+
+			(bonusAction[name]||bonusAction.default)();
+		}
 
 		let powersToSeletTableRows = [],
 			generateAddPowerButton = (power) => {
@@ -152,7 +158,7 @@ class PowerSelectorComponent extends React.Component {
 						);
 						if (powerToAdd.bonus) {
 							powerToAdd.bonus = powerNameOptions.replace(/[()]/g, '');
-							applyBonus(power.name, incrementAugmented, powerToAdd.bonus);
+							bonusUp(power.name, powerToAdd.bonus);
 						}
 
 						if(powerToAdd.levels === 'yes') {
@@ -190,7 +196,7 @@ class PowerSelectorComponent extends React.Component {
 					<PowerSelectedDisplay
 						selectedPowers={selectedPowers}
 						removePower={removePower}
-						modifyPowers={{incrementAugmented, decrementAugmented, raisePower, lowerPower, pointSpent, maxPointPoints}}/>
+						modifyPowers={{raisePower, lowerPower, pointSpent, maxPointPoints, bonusUp, bonusDown}}/>
 					: null
 				}
 			</div>
@@ -203,7 +209,7 @@ const PowerSelectedDisplay = ({selectedPowers, removePower, modifyPowers}) => {
 		generateRemovePowerButton = (power, index) => {
 			let removePowerClick = () => {
 				if(power.bonus !== 'N/A') {
-					applyBonus(power.name.match(/.+?(?=\()/g), modifyPowers.decrementAugmented, power.bonus, power.levels);
+					modifyPowers.bonusDown(power.name.match(/.+?(?=\()/g), power.bonus, power.levels);
 				}
 				removePower({powerIndex: index});
 			};
