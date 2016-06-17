@@ -86,13 +86,14 @@ const spellReducer = (state=initialState, action) => {
 		},
 
 		REMOVE_POWER: () => {
-			const {powerIndex} = action.parameter;
+			const {powerIndex} = action.parameter,
+				power = state.powers[powerIndex];
 			return Object.assign(
 				{},
 				state,
 				{
 					powers: removeSpellFromList(state.powers, powerIndex),
-					powerPointsSpent: state.powerPointsSpent - Number(state.powers[powerIndex].points)
+					powerPointsSpent: state.powerPointsSpent - (Number(power.points)* power.levels)
 				}
 			);
 		},
