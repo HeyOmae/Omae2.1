@@ -33,6 +33,15 @@ const spellReducer = (state=initialState, action) => {
 		];
 	}
 
+	// function calculateAdeptPointsSpent() {
+	// 	var pointsSpent = 0;
+	// 	for(var power of state.powers) {
+	// 		pointsSpent += power.points * (power.levels>0?power.levels : 1);
+	// 	}
+
+	// 	return pointsSpent;
+	// }
+
 	const actionsToTake = {
 		ADD_SPELL: () => {
 			return Object.assign(

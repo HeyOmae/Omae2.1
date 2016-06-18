@@ -35,8 +35,6 @@ function powerBonus(boni, powerName) {
 			return (<select className='form-control' ref={'powerOption'+powerName}>{options}</select>);
 		},
 		default: (thing) => {
-			// console.log(powerName, thing);
-
 			return Object.keys(thing).join(', ');
 		}
 	};
@@ -126,6 +124,8 @@ class PowerSelectorComponent extends React.Component {
 					return null;
 				}
 			};
+
+			console.log(name.replace(/[()]/g, ''));
 
 			(bonusAction[name.replace(/[()]/g, '')]||bonusAction.default)();
 		}

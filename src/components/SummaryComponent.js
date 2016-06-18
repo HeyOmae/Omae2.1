@@ -29,10 +29,11 @@ const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed
 	}
 
 	for(let att in metatypeData[metatype].min) {
-		let baseAtt = metatypeData[metatype].min[att];
-		calculatedStats.attributes[att] = baseAtt + attributes[att];
+		let baseAtt = metatypeData[metatype].min[att],
+			currentAtt = baseAtt + attributes[att];
+		calculatedStats.attributes[att] = currentAtt;
 		attributesHead.push(<th key={'summary-attribute-head-' + att}>{att}</th>);
-		attributesData.push(<td key={'summary-attribute-data-' + att}>{calculatedStats.attributes[att]}</td>);
+		attributesData.push(<td key={'summary-attribute-data-' + att}>{currentAtt}{attributes.augmented[att]?`(${attributes.augmented[att]+currentAtt})`:null}</td>);
 	}
 
 	const magicPriorityData = priorityTableData[priority.magres].magic[magres];
