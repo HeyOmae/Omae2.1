@@ -65,11 +65,22 @@ function createPowerIndividualRow(powerArray, powerDetails, button, powerID, lev
 
 function createSelectedPowerIndividualRow(powerArray, powerDetails, button, powerID, modifyPowers, powerIndex) {
 	function raiseLevel() {
-		if(modifyPowers.pointSpent + Number(powerDetails.points) <= modifyPowers.maxPointPoints) {
-			modifyPowers.bonusUp(powerDetails.name, powerDetails.bonus);
+		function findLevelCap(name, level) {
+			const capOf = {
+				'Improved Physical Attribute': 4,
+				default: modifyPowers.maxPointPoints
+			};
+
+			return level < (capOf[name] || capOf.default);
+		}
+
+		let powerName = powerDetails.name.replace(/\((.*?)\)/g, '');
+		if(modifyPowers.pointSpent + Number(powerDetails.points) <= modifyPowers.maxPointPoints && findLevelCap(powerName, powerDetails.levels)) {
+			modifyPowers.bonusUp(powerName, powerDetails.bonus);
 			modifyPowers.raisePower({powerIndex});
 		}
 	}
+
 	function lowerLevel() {
 		if(modifyPowers.pointSpent - Number(powerDetails.points) >= 0 && powerDetails.levels > 1){
 			modifyPowers.bonusDown(powerDetails.name, powerDetails.bonus);
@@ -125,9 +136,7 @@ class PowerSelectorComponent extends React.Component {
 				}
 			};
 
-			console.log(name.replace(/[()]/g, ''));
-
-			(bonusAction[name.replace(/[()]/g, '')]||bonusAction.default)();
+			(bonusAction[name]||bonusAction.default)();
 		}
 
 		function bonusDown(name, bonusToRemove, decreaseBy) {
@@ -146,7 +155,7 @@ class PowerSelectorComponent extends React.Component {
 		let powersToSeletTableRows = [],
 			generateAddPowerButton = (power) => {
 			let addPowerClick = () => {
-				if(pointSpent + Number(power.points) <= maxPointPoints) { //replace 6 with magic rating
+				if(pointSpent + Number(power.points) <= maxPointPoints) {
 					let powerNameOptions = this.refs['powerOption'+power.name] ? this.refs['powerOption'+power.name].value : '',
 						newName = power.name + powerNameOptions,
 						powerToAdd = Object.assign(
