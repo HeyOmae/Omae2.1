@@ -102,7 +102,7 @@ const spellReducer = (state=initialState, action) => {
 				state,
 				{
 					powers: removeSpellFromList(state.powers, powerIndex),
-					powerPointsSpent: state.powerPointsSpent - (Number(power.points)* power.levels)
+					powerPointsSpent: state.powerPointsSpent - (Number(power.points)* (power.levels > 0 ? power.levels : 1))
 				}
 			);
 		},
@@ -156,7 +156,8 @@ const spellReducer = (state=initialState, action) => {
 					{},
 					state,
 					{
-						[ability]: []
+						[ability]: [],
+						powerPointsSpent: ability === 'powers'? 0 : state.powerPointsSpent
 					}
 				);
 			} else {
