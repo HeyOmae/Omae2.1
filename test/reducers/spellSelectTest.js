@@ -52,7 +52,7 @@ describe('spellSelect', () => {
 				page: '309'
 			}
 		],
-		powerPointsSpent: 1.25,
+		powerPointsSpent: 1.5,
 		complexforms: [
 			{
 				id: '33e75cd6-cad7-43dd-87ac-9838c83eccb5',
@@ -161,8 +161,8 @@ describe('spellSelect', () => {
 		expect(newState.powers[newState.powers.length - 1]).to.eql(newSpell);
 		expect(newState.powers.length).to.equal(state.powers.length + 1);
 
-		expect(newState.powerPointsSpent).to.equal(1.5);
-		expect(state.powerPointsSpent).to.equal(1.25);
+		expect(newState.powerPointsSpent).to.equal(1.75);
+		expect(state.powerPointsSpent).to.equal(1.5);
 	});
 
 	it('should remove power from the state.powers', () => {
@@ -172,7 +172,7 @@ describe('spellSelect', () => {
 		expect(newState.powers.length).to.equal(state.powers.length - 1);
 
 		expect(newState.powerPointsSpent).to.equal(1);
-		expect(state.powerPointsSpent).to.equal(1.25);
+		expect(state.powerPointsSpent).to.equal(1.5);
 	});
 
 	it('should raise a power[powerIndex].levels by one when RAISE_POWER is called', () => {
@@ -202,6 +202,16 @@ describe('spellSelect', () => {
 
 			expect(newState.complexforms).to.eql([]);
 			expect(state.complexforms.length).to.equal(3);
+		});
+
+		it('should reset powers when called with powers, and set powerPointsSpent to 0', ()=>{
+			const newState = reducer(state, {type: 'RESET_ABILITY', parameter: {ability: 'powers'}});
+
+			expect(newState.powers).to.eql([]);
+			expect(state.powers.length).to.equal(2);
+
+			expect(newState.powerPointsSpent).to.eql(0);
+			expect(state.powerPointsSpent).to.equal(1.5);
 		});
 
 		it('should return state when the ability is empty', ()=>{
