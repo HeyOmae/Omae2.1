@@ -172,6 +172,7 @@ const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed
 					priority={priority}
 					metatype={metatype}
 					attributes={calculatedStats.attributes}
+					augmentedAtt={attributes.augmented}
 					magres={magres}
 					skills={skills}
 					spellsAndPowers={spellsAndPowers}/>
