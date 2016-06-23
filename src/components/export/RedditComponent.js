@@ -6,7 +6,6 @@ import Modal from '../ModalComponent';
 require('styles/export/Reddit.sass');
 
 const RedditComponent = ({priority, metatype, attributes, augmentedAtt, magres, skills, spellsAndPowers}) => {
-	console.log(attributes);
 	let activeSkills = '',
 		learnedSpells = '';
 
@@ -108,10 +107,36 @@ Karma | Total Karma
 Bod | Agi | Rea | Str | Wil | Log | Int | Cha | Edg | Mag
 ---|---|---|---|---|---|---|---|---|---
 ${
-	attributes.bod
-}${
-	augmentedAtt.bod?`(${augmentedAtt.bod+attributes.bod})`:''
-} | ${attributes.agi} | ${attributes.rea} | ${attributes.str} | ${attributes.wil} | ${attributes.log} | ${attributes.int} | ${attributes.cha} | ${attributes.edg} | ${attributes.mag||'–'}
+	attributes.bod +
+	(augmentedAtt.bod?`(${augmentedAtt.bod+attributes.bod})`:'')
+} | ${
+	attributes.agi +
+	(augmentedAtt.agi?`(${augmentedAtt.agi+attributes.agi})`:'')
+} | ${
+	attributes.rea +
+	(augmentedAtt.rea?`(${augmentedAtt.rea+attributes.rea})`:'')
+} | ${
+	attributes.str +
+	(augmentedAtt.str?`(${augmentedAtt.str+attributes.str})`:'')
+} | ${
+	attributes.wil +
+	(augmentedAtt.wil?`(${augmentedAtt.wil+attributes.wil})`:'')
+} | ${
+	attributes.log +
+	(augmentedAtt.log?`(${augmentedAtt.log+attributes.log})`:'')
+} | ${
+	attributes.int +
+	(augmentedAtt.int?`(${augmentedAtt.int+attributes.int})`:'')
+} | ${
+	attributes.cha +
+	(augmentedAtt.cha?`(${augmentedAtt.cha+attributes.cha})`:'')
+} | ${
+	attributes.edg +
+	(augmentedAtt.cha?`(${augmentedAtt.cha+attributes.cha})`:'')
+} | ${
+	(attributes.mag||'–') +
+	(augmentedAtt.mag?`(${augmentedAtt.mag+attributes.mag})`:'')
+}
 
 ###Limits
 
