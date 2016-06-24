@@ -80,7 +80,7 @@ const RedditComponent = ({priority, metatype, attributes, augmentedAtt, magres, 
 	}
 
 	const formate = `
-# (Character Name) – (Player Name)
+# [Character Name] – [Player Name]
 
 ##Priority
 
@@ -90,7 +90,7 @@ ${priority.metatype} | ${priority.attribute} | ${priority.magres} | ${priority.s
 
 ##Personal Details
 
-**Name/Alias:** (Insert name)
+**Name/Alias:** [Insert name]
 
 **Metatype:** ${metatype}
 
@@ -148,7 +148,7 @@ ${Math.ceil((attributes.str*2 + attributes.bod + attributes.rea)/3)} | ${Math.ce
 
 **Type:** ${magres}
 
-###Spells
+###Spells/Powers
 
 ${learnedSpells}
 
