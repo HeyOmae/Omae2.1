@@ -45,7 +45,7 @@ const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed
 		attributesData.push(<td key={'summary-attribute-data-mag'}>{calculatedStats.attributes.mag}</td>);
 		for(let magicCat in spellsAndPowers) {
 			let spellPowerArray = spellsAndPowers[magicCat];
-			if (typeof spellPowerArray === 'array'){
+			if (Array.isArray(spellPowerArray)){
 				spellPowerArray.forEach((spell, index)=>{
 					displaySpellsPowers.push(
 						<tr key={'summary-' + (magicCat||'complex-form') + spell.name + index}><td>{spell.name}</td><td>{spell.source} {spell.page}p</td></tr>

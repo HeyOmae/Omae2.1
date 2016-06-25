@@ -27,11 +27,11 @@ const RedditComponent = ({priority, metatype, attributes, augmentedAtt, magres, 
 `;
 	}
 
-	function generateSpellHeader(spell) {
+	function generateSpellHeader(spell, detailsToIgnore) {
 		let header = '',
 			tableBreak = '';
 		for(let detailName in spell) {
-			if(detailName === 'id' || typeof spell[detailName] === 'object') {
+			if(detailsToIgnore.indexOf(detailName) > -1 || typeof spell[detailName] === 'object') {
 				continue;
 			} else if (!header) {
 				header += `\n${detailName}`;
@@ -45,25 +45,27 @@ const RedditComponent = ({priority, metatype, attributes, augmentedAtt, magres, 
 		return header + tableBreak + '\n';
 	}
 
+	const detailsToIgnore = ['id', 'limit', 'adeptway'];
+
 	for(let magicCat in spellsAndPowers) {
 		let magicAbility = spellsAndPowers[magicCat],
-			header = '';
-		if (typeof magicAbility === 'array'){
+			header = {};
+		if (Array.isArray(magicAbility)){
 			magicAbility.forEach((spell) => {
 				if(magicCat === 'spells' && !spell.description) {
 					spell.description = '';
 				}
 
-				if (!header) {
-					header = generateSpellHeader(spell);
-					learnedSpells += header;
+				if (!header[magicCat]) {
+					header[magicCat] = generateSpellHeader(spell, detailsToIgnore);
+					learnedSpells += header[magicCat];
 				}
 
 				const spellDetails = Object.keys(spell);
 
 				for(let i = 0, len = spellDetails.length - 1; i <= len; ++i) {
 					const detailName = spellDetails[i];
-					if (detailName !== 'id' && typeof spell[detailName] !== 'object') {
+					if (detailsToIgnore.indexOf(detailName) < 0 && typeof spell[detailName] !== 'object') {
 						const detail = spell[detailName];
 						if(i !== len) {
 							learnedSpells += detail + ' | ';
