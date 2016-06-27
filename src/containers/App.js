@@ -14,6 +14,7 @@ import Main from '../components/Main';
 import PriorityTableComponent from '../components/PriorityTableComponent';
 import MetatypeSelector from '../components/MetatypeSelectorComponent';
 import AttributesComponent from '../components/AttributesComponent';
+import QualityComponent from '../components/QualityComponent';
 import MagicSelectionComponent from '../components/magic/MagicSelectionComponent';
 import ActiveSkillsComponent from '../components/skills/ActiveSkillsComponent';
 import SummaryComponent from '../components/SummaryComponent';
@@ -65,6 +66,9 @@ class App extends Component {
                 decrementAttribute: actions.decrementAttribute
               }}
               attributes={attributes}/>
+
+            <QualityComponent
+              />
 
 						<MagicSelectionComponent
               magicPriority={priorityTable.magres}
