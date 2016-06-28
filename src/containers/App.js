@@ -24,9 +24,9 @@ class App extends Component {
     const {actions} = this;
     let summary = document.getElementById('summary'), sumLoc = summary.getBoundingClientRect();
     if (sumLoc.top < 0) {
-      actions.fixSummary({ summaryFix: true });  // summary.children[0].classList.add('fixed'); // Native implimitation back up
+      actions.fixSummary({ summaryFix: true });
     } else {
-      actions.fixSummary({ summaryFix: false });  // summary.children[0].classList.remove('fixed'); // Native implimitation back up
+      actions.fixSummary({ summaryFix: false });
     }
   }
   componentDidMount() {
