@@ -15,6 +15,7 @@ const reducers = {
   selectMagRes: require('../reducers/selectMagRes.js'),
   settingSkills: require('../reducers/settingSkills.js'),
   appControl: require('../reducers/appControl.js'),
-  spellSelect: require('../reducers/spellSelect.js')
+  spellSelect: require('../reducers/spellSelect.js'),
+  quality: require('../reducers/quality.js')
 };
 module.exports = combineReducers(reducers);
