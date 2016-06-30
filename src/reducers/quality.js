@@ -3,22 +3,25 @@
  * If you change the type from object to something else, do not forget to update
  * src/container/App.js accordingly.
  */
-const initialState = {};
 
-module.exports = function(state = initialState, action) {
-  /* Keep the reducer clean - do not mutate the original state. */
-  //let nextState = Object.assign({}, state);
+const initialState = {
+	positive: [],
+	negative: []
+};
 
-  switch(action.type) {
-    /*
-    case 'YOUR_ACTION': {
-      // Modify next state depending on the action and return it
-      return nextState;
-    } break;
-    */
-    default: {
-      /* Return original state if no actions were consumed. */
-      return state;
-    }
-  }
-}
+const qualityReducer = (state=initialState, action) => {
+	const actionsToTake = {
+		EXPAND_LIST: () => {
+			let {rating, category} = action.parameter;
+			return Object.assign({}, state, {[category]: rating});
+		},
+		FILTER_LIST_NAME: () => {},
+		FILTER_LIST_KARMA: () => {},
+		SELECT_QUALITY: () => {},
+		REMOVE_QUALITY: () => {},
+		DEFAULT: () => { return state; }
+	};
+	return (actionsToTake[action.type] || actionsToTake.DEFAULT)();
+};
+
+module.exports = qualityReducer;
