@@ -1,6 +1,3 @@
-/*eslint-env node, mocha */
-/*global expect */
-/*eslint no-console: 0*/
 var reducer = require('../../src/reducers/appControl');
 
 describe('appControl', () => {
@@ -15,7 +12,7 @@ describe('appControl', () => {
 	it('change summaryFix to true if state.summaryFix is false and passed in as true', () => {
 		const initState = {
 			summaryFix: false
-		}
+		};
 
 		const newState = reducer(initState, {type: 'FIX_SUMMARY', parameter: {summaryFix: true}});
 
@@ -25,7 +22,7 @@ describe('appControl', () => {
 	it('return state if state.summaryFix is false and being set to false', () => {
 		const initState = {
 			summaryFix: false
-		}
+		};
 
 		const newState = reducer(initState, {type: 'FIX_SUMMARY', parameter: {summaryFix: false}});
 
