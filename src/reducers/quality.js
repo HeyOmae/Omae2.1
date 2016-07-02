@@ -5,8 +5,8 @@
  */
 
 const initialState = {
-	positive: [],
-	negative: [],
+	Positive: [],
+	Negative: [],
 	display: ''
 };
 
@@ -16,8 +16,6 @@ const qualityReducer = (state=initialState, action) => {
 			let {rating, category} = action.parameter;
 			return Object.assign({}, state, {[category]: rating});
 		},
-		FILTER_LIST_NAME: () => {},
-		FILTER_LIST_KARMA: () => {},
 		SELECT_QUALITY: () => {},
 		REMOVE_QUALITY: () => {},
 		DEFAULT: () => { return state; }

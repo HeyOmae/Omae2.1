@@ -1,6 +1,3 @@
-/*eslint-env node, mocha */
-/*global expect */
-/*eslint no-console: 0*/
 var reducer = require('../../src/reducers/settingSkills');
 
 describe('settingSkills', () => {
