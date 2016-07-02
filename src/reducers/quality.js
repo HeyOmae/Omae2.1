@@ -6,7 +6,8 @@
 
 const initialState = {
 	positive: [],
-	negative: []
+	negative: [],
+	display: ''
 };
 
 const qualityReducer = (state=initialState, action) => {
