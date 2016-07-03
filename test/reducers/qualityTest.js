@@ -16,23 +16,6 @@ describe('quality', () => {
 		done();
 	});
 
-	describe('EXPAND_LIST', () => {
-		it('should set the display to the string passed into it', () => {
-			const newState = reducer(state, {type: 'EXPAND_LIST', parameter: {list: 'positive'}});
-
-			expect(newState.display).to.equal('positive');
-			expect(state.display).to.equal('');
-		});
-
-		it('should set the display to an empty string if the same string is passed in', () => {
-			state.display = 'positive';
-			const newState = reducer(state, {type: 'EXPAND_LIST', parameter: {list: 'positive'}});
-
-			expect(newState.display).to.equal('');
-			expect(state.display).to.equal('positive');
-		});
-	});
-
 	describe('SELECT_QUALITY', () => {
 		it('should add a positive quality to the state.Positive array', () => {
 			const newQuality = {

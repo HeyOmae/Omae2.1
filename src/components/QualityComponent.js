@@ -1,7 +1,8 @@
 'use strict';
 
 import React from 'react';
-let qualityData = require('json!./data/qualities.json');
+import Modal from './ModalComponent';
+const qualityData = require('json!./data/qualities.json');
 
 require('styles//Quality.sass');
 
@@ -22,40 +23,51 @@ class QualityComponent extends React.Component {
 			);
 		});
 		return (
-			<div className="quality-component">
-				<h2>Qualities</h2>
-				<div className="table-responsive">
-					<h3>Positive</h3>
-					<table className="table">
-						<thead>
-							<tr>
-								<th>Add</th>
-								<th>Name</th>
-								<th>Karma</th>
-								<th>Ref</th>
-							</tr>
-						</thead>
-						<tbody>
-							{qualities.Positive}
-						</tbody>
-					</table>
-				</div>
-				<div className="table-responsive">
-					<h3>Negative</h3>
-					<table className="table">
-						<thead>
-							<tr>
-								<th>Add</th>
-								<th>Name</th>
-								<th>Karma</th>
-								<th>Ref</th>
-							</tr>
-						</thead>
-						<tbody>
-							{qualities.Negative}
-						</tbody>
-					</table>
-				</div>
+			<div className="quality-component row">
+				<div className="col-md-12">
+					<h2>Qualities</h2>
+						<Modal
+							modalName="Positive"
+							modalContent={
+								<div className="table-responsive">
+									<table className="table">
+										<thead>
+											<tr>
+												<th>Add</th>
+												<th>Name</th>
+												<th>Karma</th>
+												<th>Ref</th>
+											</tr>
+										</thead>
+										<tbody>
+											{qualities.Positive}
+										</tbody>
+									</table>
+								</div>
+							}
+							/>
+
+						<Modal
+							modalName="Negative"
+							modalContent={
+								<div className="table-responsive">
+									<table className="table">
+										<thead>
+											<tr>
+												<th>Add</th>
+												<th>Name</th>
+												<th>Karma</th>
+												<th>Ref</th>
+											</tr>
+										</thead>
+										<tbody>
+											{qualities.Negative}
+										</tbody>
+									</table>
+								</div>
+							}
+						/>
+					</div>
 			</div>
 		);
 	}
