@@ -6,18 +6,39 @@
 
 const initialState = {
 	Positive: [],
-	Negative: [],
-	display: ''
+	Negative: []
 };
 
 const qualityReducer = (state=initialState, action) => {
 	const actionsToTake = {
-		EXPAND_LIST: () => {
-			let {rating, category} = action.parameter;
-			return Object.assign({}, state, {[category]: rating});
+		SELECT_QUALITY: () => {
+			const {newQuality} = action.parameter;
+
+			return Object.assign(
+					{},
+					state,
+					{
+						[newQuality.category]: [
+							...state[newQuality.category],
+							newQuality
+						]
+					}
+				);
 		},
-		SELECT_QUALITY: () => {},
-		REMOVE_QUALITY: () => {},
+		REMOVE_QUALITY: () => {
+			const {qualityIndex, category} = action.parameter,
+				qualityArray = state[category];
+			return Object.assign(
+					{},
+					state,
+					{
+						[category]: [
+							...qualityArray.slice(0, qualityIndex),
+							...qualityArray.slice(qualityIndex + 1)
+						]
+					}
+				);
+		},
 		DEFAULT: () => { return state; }
 	};
 	return (actionsToTake[action.type] || actionsToTake.DEFAULT)();

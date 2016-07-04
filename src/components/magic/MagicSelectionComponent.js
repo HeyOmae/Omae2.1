@@ -10,7 +10,8 @@ const priorityData = require('json!../data/priority.json');
 
 const MagicSelectionComponent = ({magicPriority, magictype, magicAttribute, selectedSpellsPowers, actions}) => {
 	const awakenTypes = ['Mage', 'Mystic', 'Technomancer','Adept', 'Aspected', 'mundane'],
-		magicAtt = priorityData[magicPriority].magic[magictype].attribute.points + magicAttribute,
+		priorityMagic = priorityData[magicPriority].magic[magictype],
+		magicAtt = (priorityMagic && priorityMagic.attribute &&  priorityMagic.attribute.points) + magicAttribute,
 		magicPriorityStats = priorityData[magicPriority].magic,
 		toggleAbilities = {
 			Mage: () => {

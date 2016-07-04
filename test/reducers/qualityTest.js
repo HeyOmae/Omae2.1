@@ -3,9 +3,46 @@ var reducer = require('../../src/reducers/quality');
 describe('quality', () => {
 
 	let state = {
-		Positive: [],
-		Negative: [],
-		display: ''
+		Positive: [
+			{
+				'id': '5b19dbcd-fb69-4a02-a25a-7ac5342ca576',
+				'name': 'Analytical Mind',
+				'karma': '5',
+				'category': 'Positive',
+				'source': 'SR5',
+				'page': '72'
+			},
+			{
+				'id': 'c734e46a-d391-45a6-b022-6f18db5019f1',
+				'name': 'Bilingual',
+				'karma': '5',
+				'category': 'Positive',
+				'source': 'SR5',
+				'page': '72'
+			}
+		],
+		Negative: [
+			{
+				'id': '25356bae-efcc-46c6-9c4f-66909b9b7233',
+				'name': 'Bad Rep',
+				'karma': '-7',
+				'category': 'Negative',
+				'bonus': {
+					'notoriety': '3'
+				},
+				'source': 'SR5',
+				'page': '79'
+			},
+			{
+				'id': '62c7ed8f-b534-41e3-84ac-29534826d476',
+				'name': 'Combat Paralysis',
+				'karma': '-12',
+				'implemented': 'False',
+				'category': 'Negative',
+				'source': 'SR5',
+				'page': '80'
+			}
+		]
 	};
 
 	it('should not change the passed state', (done) => {
@@ -55,17 +92,15 @@ describe('quality', () => {
 
 	describe('REMOVE_QUALITY', () => {
 		it('should remove a positive quality from the state.Positive array', () => {
-			const newState = reducer(state, {type: 'REMOVE_QUALITY', parameter: { qualityIndex: 1 }});
+			const newState = reducer(state, {type: 'REMOVE_QUALITY', parameter: { qualityIndex: 1, category: 'Positive' }});
 
 			expect(newState.Positive.length).to.equal(state.Positive.length - 1);
-			expect(state.Positive.length).to.equal(newState.Positive.length + 1);
 		});
 
 		it('should remove a Negative quality from the state.Negative array', () => {
-			const newState = reducer(state, {type: 'REMOVE_QUALITY', parameter: { qualityIndex: 1 }});
+			const newState = reducer(state, {type: 'REMOVE_QUALITY', parameter: { qualityIndex: 1, category: 'Negative' }});
 
 			expect(newState.Negative.length).to.equal(state.Negative.length - 1);
-			expect(state.Negative.length).to.equal(newState.Negative.length + 1);
 		});
 	});
 
