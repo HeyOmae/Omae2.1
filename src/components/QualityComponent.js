@@ -8,6 +8,8 @@ require('styles//Quality.sass');
 
 class QualityComponent extends React.Component {
 	render() {
+		const {actions} = this.props;
+
 		let qualities = {
 			Positive: [],
 			Negative: []

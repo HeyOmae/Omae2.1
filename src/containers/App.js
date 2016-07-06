@@ -67,7 +67,8 @@ class App extends Component {
               }}
               attributes={attributes}/>
 
-            <QualityComponent/>
+            <QualityComponent
+              actions={actions}/>
 
 						<MagicSelectionComponent
               magicPriority={priorityTable.magres}
@@ -156,7 +157,9 @@ function mapDispatchToProps(dispatch) {
     removePower: require('../actions/magic/removePower.js'),
     raisePower: require('../actions/magic/raisePower.js'),
     lowerPower: require('../actions/magic/lowerPower.js'),
-    resetAbility: require('../actions/magic/resetAbility.js')
+    resetAbility: require('../actions/magic/resetAbility.js'),
+    selectQuality: require('../actions/quality/selectQuality.js'),
+    removeQuality: require('../actions/quality/removeQuality.js')
   };
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;
