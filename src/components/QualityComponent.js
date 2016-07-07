@@ -8,16 +8,20 @@ require('styles//Quality.sass');
 
 class QualityComponent extends React.Component {
 	render() {
-		const {actions} = this.props;
+		const {actions, selectedQualities} = this.props;
 
-		let qualities = {
+		console.log(selectedQualities);
+
+		let qualitiesTableRow = {
 			Positive: [],
 			Negative: []
 		};
 		qualityData.forEach((quality)=>{
-			qualities[quality.category].push(
+			qualitiesTableRow[quality.category].push(
 				<tr key={quality.category + '-' + quality.name}>
-					<td><button className="btn btn-success">+</button></td>
+					<td><button className="btn btn-success" onClick={()=>{
+						actions.selectQuality({newQuality: quality});
+					}}>+</button></td>
 					<td>{quality.name}</td>
 					<td>{quality.karma}</td>
 					<td>{quality.source} p{quality.page}</td>
@@ -28,52 +32,54 @@ class QualityComponent extends React.Component {
 			<div className="quality-component row">
 				<div className="col-md-12">
 					<h2>Qualities</h2>
-						<Modal
-							modalName="Positive"
-							modalContent={
-								<div className="table-responsive">
-									<table className="table">
-										<thead>
-											<tr>
-												<th>Add</th>
-												<th>Name</th>
-												<th>Karma</th>
-												<th>Ref</th>
-											</tr>
-										</thead>
-										<tbody>
-											{qualities.Positive}
-										</tbody>
-									</table>
-								</div>
-							}
-							/>
-
-						<Modal
-							modalName="Negative"
-							modalContent={
-								<div className="table-responsive">
-									<table className="table">
-										<thead>
-											<tr>
-												<th>Add</th>
-												<th>Name</th>
-												<th>Karma</th>
-												<th>Ref</th>
-											</tr>
-										</thead>
-										<tbody>
-											{qualities.Negative}
-										</tbody>
-									</table>
-								</div>
-							}
+					<Modal
+						modalName="Positive"
+						modalContent={
+							<QualityTable
+								tableRows={qualitiesTableRow.Positive} />
+						}
 						/>
+
+					<Modal
+						modalName="Negative"
+						modalContent={
+							<QualityTable
+								tableRows={qualitiesTableRow.Negative} />
+						}
+					/>
+				</div>
+				{selectedQualities.Positive ?
+					<div className="qualities-positive--seleted table-responsive">
+						<table>
+							
+						</table>
 					</div>
+					: null
+				}
 			</div>
 		);
 	}
 }
+
+const QualityTable = ({tableRows}) => {
+	return(
+		<div className="table-responsive">
+			<table className="table">
+				<thead>
+					<tr>
+						<th>Add</th>
+						<th>Name</th>
+						<th>Karma</th>
+						<th>Ref</th>
+					</tr>
+				</thead>
+				<tbody>
+					{tableRows}
+				</tbody>
+			</table>
+		</div>
+	);
+};
 
 
 
