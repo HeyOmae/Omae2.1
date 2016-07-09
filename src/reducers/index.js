@@ -16,6 +16,7 @@ const reducers = {
   settingSkills: require('../reducers/settingSkills.js'),
   appControl: require('../reducers/appControl.js'),
   spellSelect: require('../reducers/spellSelect.js'),
-  quality: require('../reducers/quality.js')
+  quality: require('../reducers/quality.js'),
+  karma: require('../reducers/karma.js')
 };
 module.exports = combineReducers(reducers);

@@ -4,7 +4,7 @@
 var reducer = require('../../src/reducers/selectMagRes');
 
 describe('selectMagRes', () => {
-	const state = 'Mage'
+	const state = 'Mage';
 
 	it('should not change the passed state', (done) => {
 		let newState = reducer(state, {type: 'INVALID'});
@@ -17,5 +17,6 @@ describe('selectMagRes', () => {
 		let newState = reducer(state, {type: 'SELECT_MAGICTYPE', parameter: 'Adept' });
 
 		expect(newState).to.equal('Adept');
+		expect(state).to.equal('Mage');
 	});
 });

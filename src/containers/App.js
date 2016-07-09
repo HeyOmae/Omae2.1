@@ -36,9 +36,9 @@ class App extends Component {
     window.removeEventListener('scroll', this.handleScroll);
   }
   render() {
-    const {actions, priorityTable, selectMetatype, attributes, selectMagRes, settingSkills, appControl, spellSelect, quality} = this.props;
+    const {actions, priorityTable, selectMetatype, attributes, selectMagRes, settingSkills, appControl, spellSelect, quality, karma} = this.props;
     return (
-      <div className='container'>
+      <div className='container' karma={karma}>
 				<div className='row'>
 					<div className='col-md-12'>
 						<Main
@@ -67,9 +67,7 @@ class App extends Component {
               }}
               attributes={attributes}/>
 
-            <QualityComponent
-              actions={actions}
-              selectedQualities={quality}/>
+            <QualityComponent actions={actions} selectedQualities={quality}/>
 
 						<MagicSelectionComponent
               magicPriority={priorityTable.magres}
@@ -116,7 +114,8 @@ App.propTypes = {
   settingSkills: PropTypes.object.isRequired,
   appControl: PropTypes.object.isRequired,
   spellSelect: PropTypes.object.isRequired,
-  quality: PropTypes.object.isRequired
+  quality: PropTypes.object.isRequired,
+  karma: PropTypes.object.isRequired
 };
 function mapStateToProps(state) {
   /* Populated by react-webpack-redux:reducer */
@@ -128,7 +127,8 @@ function mapStateToProps(state) {
     settingSkills: state.settingSkills,
     appControl: state.appControl,
     spellSelect: state.spellSelect,
-    quality: state.quality
+    quality: state.quality,
+    karma: state.karma
   };
   return props;
 }
