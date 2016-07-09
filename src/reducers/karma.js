@@ -4,17 +4,17 @@
  * src/container/App.js accordingly.
  */
 
-const initialState = 0;
+const initialState = 25;
 
 const KarmaReducer = (state=initialState, action) => {
-  const actionsToTake = {
-    KARMA: () => {
-      const {karmaPoints} = action.parameter;
-      return state + karmaPoints;
-    },
-    DEFAULT: () => { return state; }
-  };
-  return (actionsToTake[action.type] || actionsToTake.DEFAULT)();
+	const actionsToTake = {
+		KARMA: () => {
+			const {karmaPoints} = action.parameter;
+			return state + karmaPoints;
+		},
+		DEFAULT: () => { return state; }
+	};
+	return (actionsToTake[action.type] || actionsToTake.DEFAULT)();
 };
 
 module.exports = KarmaReducer;

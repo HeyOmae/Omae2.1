@@ -38,7 +38,7 @@ class App extends Component {
   render() {
     const {actions, priorityTable, selectMetatype, attributes, selectMagRes, settingSkills, appControl, spellSelect, quality, karma} = this.props;
     return (
-      <div className='container' karma={karma}>
+      <div className='container'>
 				<div className='row'>
 					<div className='col-md-12'>
 						<Main
@@ -67,7 +67,10 @@ class App extends Component {
               }}
               attributes={attributes}/>
 
-            <QualityComponent actions={actions} selectedQualities={quality}/>
+            <QualityComponent
+              karma={karma}
+              actions={actions}
+              selectedQualities={quality}/>
 
 						<MagicSelectionComponent
               magicPriority={priorityTable.magres}
@@ -115,7 +118,7 @@ App.propTypes = {
   appControl: PropTypes.object.isRequired,
   spellSelect: PropTypes.object.isRequired,
   quality: PropTypes.object.isRequired,
-  karma: PropTypes.object.isRequired
+  karma: PropTypes.number.isRequired
 };
 function mapStateToProps(state) {
   /* Populated by react-webpack-redux:reducer */
@@ -160,7 +163,8 @@ function mapDispatchToProps(dispatch) {
     lowerPower: require('../actions/magic/lowerPower.js'),
     resetAbility: require('../actions/magic/resetAbility.js'),
     selectQuality: require('../actions/quality/selectQuality.js'),
-    removeQuality: require('../actions/quality/removeQuality.js')
+    removeQuality: require('../actions/quality/removeQuality.js'),
+    karma: require('../actions/karma.js')
   };
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;

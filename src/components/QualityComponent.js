@@ -8,7 +8,7 @@ require('styles//Quality.sass');
 
 class QualityComponent extends React.Component {
 	render() {
-		const {actions, selectedQualities} = this.props;
+		const {actions, selectedQualities, karma} = this.props;
 
 		let qualitiesTableRow = {
 			Positive: [],
@@ -28,6 +28,7 @@ class QualityComponent extends React.Component {
 		generatePurchaseableQualityTableRow = (quality)=>{
 			const addButton = <button className="btn btn-success" onClick={()=>{
 						actions.selectQuality({newQuality: quality});
+						actions.karma({karmaPoints: -Number(quality.karma)});
 					}}>+</button>;
 			qualitiesTableRow[quality.category].push(generateQualityTableRow(quality, addButton));
 		},
@@ -37,6 +38,7 @@ class QualityComponent extends React.Component {
 					className="btn btn-warning"
 					onClick={()=>{
 						actions.removeQuality({qualityIndex, category: quality.category});
+						actions.karma({karmaPoints: Number(quality.karma)});
 					}}
 					>
 						-
@@ -51,6 +53,7 @@ class QualityComponent extends React.Component {
 			<div className="quality-component row">
 				<div className="col-md-12">
 					<h2>Qualities</h2>
+					<p>Karma: <strong>{karma}</strong></p>
 					<Modal
 						modalName="Positive"
 						modalContent={
