@@ -188,7 +188,7 @@ class PowerSelectorComponent extends React.Component {
 
 		return (
 			<div className="powers">
-				<p><strong>{pointSpent}</strong></p>
+				<p>Power Points: <strong>{pointSpent}</strong></p>
 				<div className="power-selector">
 					<div className="btn-group">
 						<Modal

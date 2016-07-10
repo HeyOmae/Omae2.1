@@ -57,7 +57,7 @@ class ActiveSkillsComponent extends React.Component {
 			let skillinCategory = skillsData.active[skillKey];
 
 			const attributeAbriv = attAbriviation[skillKey],
-				baseAttribute = metatypeData[metatype].min[attributeAbriv] || baseMagicAttribute,
+				baseAttribute = metatypeData[metatype.typeName].min[attributeAbriv] || baseMagicAttribute,
 				attributePool = baseAttribute + attributes[attributeAbriv];
 
 

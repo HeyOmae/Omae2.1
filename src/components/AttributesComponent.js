@@ -23,17 +23,17 @@ class AttributesComponent extends React.Component {
 				}
 			},
 			attibutePointsLeft = priorityData[priorityRating].attributes - attributes.baseSpent,
-			specialPointsLeft = priorityData[metatypeRating].metatype[metatype].special - attributes.specialSpent;
+			specialPointsLeft = priorityData[metatypeRating].metatype[metatype.typeName].special - attributes.specialSpent;
 
 		const attList = ['bod', 'agi', 'rea', 'str', 'wil', 'log', 'int', 'cha'];
 
 		let oneBaseAttAtMax = false;
 
 		attList.find((att) => {
-			let baseAtt = metatypeData[metatype].min[att],
+			let baseAtt = metatypeData[metatype.typeName].min[att],
 				currentAtt = baseAtt + attributes[att];
 
-			if (currentAtt < metatypeData[metatype].max[att]) {
+			if (currentAtt < metatypeData[metatype.typeName].max[att]) {
 				return false;
 			} else {
 				oneBaseAttAtMax = true;
@@ -42,10 +42,10 @@ class AttributesComponent extends React.Component {
 
 		});
 
-		for(let att in metatypeData[metatype].min) {
-			let baseAtt = metatypeData[metatype].min[att],
+		for(let att in metatypeData[metatype.typeName].min) {
+			let baseAtt = metatypeData[metatype.typeName].min[att],
 				currentAtt = baseAtt + attributes[att],
-				maxAtt = metatypeData[metatype].max[att],
+				maxAtt = metatypeData[metatype.typeName].max[att],
 				maxPoints = maxAtt - baseAtt;
 
 			function addingElements(attType, pointsLeft) {

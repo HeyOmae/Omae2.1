@@ -8,20 +8,25 @@ require('styles//MetatypeSelector.sass');
 
 class MetatypeSelectorComponent extends React.Component {
 	render() {
-		const {priorityRating, metatype, action} = this.props;
+		const {priorityRating, metatype, action, karma} = this.props;
 		let buttonElements = [],
 			racialDetails = [],
-			currentMetaData = metatypeData[metatype];
+			currentMetaData = metatypeData[metatype.typeName];
 
 		for(let typeName in metatypeData) {
-			let selectedMetatype = metatype === typeName;
+			let selectedMetatype = metatype.typeName === typeName;
+			const priorityMetaData = priorityData[priorityRating].metatype;
 			buttonElements.push(
 				<MetatypeButton
 					typeName={typeName}
-					anOption={typeName in priorityData[priorityRating].metatype}
+					anOption={typeName in priorityMetaData}
 					checked={selectedMetatype}
 					key={typeName}
 					selectMetatypeAction = {action}
+					priority = {priorityRating}
+					karma={karma}
+					karmaNewCost = {(priorityMetaData[typeName] && priorityMetaData[typeName].karma) || 0}
+					karmaOldCost = {priorityData[metatype.priority].metatype[metatype.typeName].karma || 0}
 				/>
 			);
 
@@ -58,7 +63,7 @@ class MetatypeSelectorComponent extends React.Component {
 	}
 }
 
-const MetatypeButton = ({typeName, anOption, checked, selectMetatypeAction}) => {
+const MetatypeButton = ({typeName, anOption, checked, selectMetatypeAction, karma, karmaNewCost, karmaOldCost, priority}) => {
 	return(
 		<label className={`btn
 			${(!anOption && checked ? 'btn-danger' : 'btn-primary')}
@@ -73,7 +78,9 @@ const MetatypeButton = ({typeName, anOption, checked, selectMetatypeAction}) => 
 				checked={checked}
 				onChange={()=> {
 					if(anOption){
-						selectMetatypeAction(typeName);
+						selectMetatypeAction({typeName, priority});
+						karma({karmaPoints: karmaOldCost});
+						karma({karmaPoints: -karmaNewCost});
 					}
 				}}
 			/>

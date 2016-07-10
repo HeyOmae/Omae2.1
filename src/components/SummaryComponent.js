@@ -28,8 +28,8 @@ const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed
 		priorityData.push(<td key={'summary-priority-data-' + pariorityCategory}>{priority[pariorityCategory]}</td>);
 	}
 
-	for(let att in metatypeData[metatype].min) {
-		let baseAtt = metatypeData[metatype].min[att],
+	for(let att in metatypeData[metatype.typeName].min) {
+		let baseAtt = metatypeData[metatype.typeName].min[att],
 			currentAtt = baseAtt + attributes[att];
 		calculatedStats.attributes[att] = currentAtt;
 		attributesHead.push(<th key={'summary-attribute-head-' + att}>{att}</th>);
@@ -98,7 +98,7 @@ const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed
 
 			<div>
 				<h2>Metatype</h2>
-				<div className="col-xs-12">{metatype}</div>
+				<div className="col-xs-12">{metatype.typeName}</div>
 			</div>
 
 			<div className="table-responsive">
@@ -170,7 +170,7 @@ const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed
 				<h2>Export</h2>
 				<RedditExport
 					priority={priority}
-					metatype={metatype}
+					metatype={metatype.typeName}
 					attributes={calculatedStats.attributes}
 					augmentedAtt={attributes.augmented}
 					magres={magres}

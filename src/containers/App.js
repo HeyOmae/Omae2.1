@@ -53,7 +53,11 @@ class App extends Component {
 
 				<div className='row'>
 					<div className='col-md-12 col-lg-9'>
-						<MetatypeSelector priorityRating={priorityTable.metatype} metatype={selectMetatype} action={actions.selectMetatype}/>
+						<MetatypeSelector
+              priorityRating={priorityTable.metatype}
+              metatype={selectMetatype}
+              action={actions.selectMetatype}
+              karma={actions.karma}/>
 
 						<AttributesComponent
               metatypeRating={priorityTable.metatype}
@@ -111,7 +115,7 @@ class App extends Component {
 App.propTypes = {
   actions: PropTypes.object.isRequired,
   priorityTable: PropTypes.object.isRequired,
-  selectMetatype: PropTypes.string.isRequired,
+  selectMetatype: PropTypes.object.isRequired,
   attributes: PropTypes.object.isRequired,
   selectMagRes: PropTypes.string.isRequired,
   settingSkills: PropTypes.object.isRequired,
