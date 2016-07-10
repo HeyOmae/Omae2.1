@@ -2548,8 +2548,53 @@
 	"source": "RF",
 	"page": "149"
 }, {
-	"name": "Rank",
-	"karma": "Variable(5-30)",
+	"name": "Rank[Lance Corporal, Lieutenant, Officer, Dectective]",
+	"karma": "5",
+	"category": "Positive",
+	"bonus": {
+
+	},
+	"source": "RF",
+	"page": "86"
+}, {
+	"name": "Rank[Sergent, Captain, Corpral, Detective Sergeant]",
+	"karma": "10",
+	"category": "Positive",
+	"bonus": {
+
+	},
+	"source": "RF",
+	"page": "86"
+}, {
+	"name": "Rank[Sergent Major, Major, Sergent, Captain]",
+	"karma": "15",
+	"category": "Positive",
+	"bonus": {
+
+	},
+	"source": "RF",
+	"page": "86"
+}, {
+	"name": "Rank[5 Years, Manager]",
+	"karma": "20",
+	"category": "Positive",
+	"bonus": {
+
+	},
+	"source": "RF",
+	"page": "86"
+}, {
+	"name": "Rank[10 Years, Area Manager]",
+	"karma": "25",
+	"category": "Positive",
+	"bonus": {
+
+	},
+	"source": "RF",
+	"page": "86"
+}, {
+	"name": "Rank[20 Years, Regional Manager]",
+	"karma": "30",
 	"category": "Positive",
 	"bonus": {
 

@@ -11,7 +11,7 @@ const initialState = {
 const metatypeReducer = (state=initialState, action) => {
 	const actionsToTake = {
 		SELECT_METATYPE: () => {
-			return Object.assign({}, state, action.parameter);
+			return action.parameter;
 		},
 
 		DEFAULT: () => { return state; }
