@@ -53,7 +53,11 @@ class QualityComponent extends React.Component {
 			<div className="quality-component row">
 				<div className="col-md-12">
 					<h2>Qualities</h2>
-					<p>Karma: <strong>{karma}</strong></p>
+					<p>
+						<span>Karma: <strong>{karma}</strong></span>
+						<span className={selectedQualities.karma.Positive > 25 ? 'text-danger': ''}> Positive: <strong>{selectedQualities.karma.Positive}</strong></span>
+						<span className={selectedQualities.karma.Negative < -25 ? 'text-danger': ''}> Negative: <strong>{selectedQualities.karma.Negative}</strong></span>
+					</p>
 					<Modal
 						modalName="Positive"
 						modalContent={
