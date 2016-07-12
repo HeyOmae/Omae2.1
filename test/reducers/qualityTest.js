@@ -42,7 +42,11 @@ describe('quality', () => {
 				'source': 'SR5',
 				'page': '80'
 			}
-		]
+		],
+		karma: {
+			Positive: 10,
+			Negative: -19
+		}
 	};
 
 	it('should not change the passed state', (done) => {
@@ -67,7 +71,9 @@ describe('quality', () => {
 			newState = reducer(state, {type: 'SELECT_QUALITY', parameter: { newQuality }});
 
 			expect(newState.Positive[newState.Positive.length - 1]).to.eql(newQuality);
+			expect(newState.karma.Positive).to.equal(14);
 			expect(state.Positive.length).to.equal(newState.Positive.length - 1);
+			expect(state.karma.Positive).to.equal(10);
 		});
 
 		it('should add a Negative quality to the state.Negative array', () => {
@@ -86,7 +92,9 @@ describe('quality', () => {
 			newState = reducer(state, {type: 'SELECT_QUALITY', parameter: { newQuality }});
 
 			expect(newState.Negative[newState.Negative.length - 1]).to.eql(newQuality);
+			expect(newState.karma.Negative).to.equal(-23);
 			expect(state.Negative.length).to.equal(newState.Negative.length - 1);
+			expect(state.karma.Negative).to.equal(-19);
 		});
 	});
 
@@ -95,12 +103,14 @@ describe('quality', () => {
 			const newState = reducer(state, {type: 'REMOVE_QUALITY', parameter: { qualityIndex: 1, category: 'Positive' }});
 
 			expect(newState.Positive.length).to.equal(state.Positive.length - 1);
+			expect(newState.karma.Positive).to.equal(5);
 		});
 
 		it('should remove a Negative quality from the state.Negative array', () => {
 			const newState = reducer(state, {type: 'REMOVE_QUALITY', parameter: { qualityIndex: 1, category: 'Negative' }});
 
 			expect(newState.Negative.length).to.equal(state.Negative.length - 1);
+			expect(newState.karma.Negative).to.equal(-7);
 		});
 	});
 

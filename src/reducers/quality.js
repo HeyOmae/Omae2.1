@@ -6,28 +6,41 @@
 
 const initialState = {
 	Positive: [],
-	Negative: []
+	Negative: [],
+	karma: {
+		Positive: 0,
+		Negative: 0
+	}
 };
 
 const qualityReducer = (state=initialState, action) => {
 	const actionsToTake = {
 		SELECT_QUALITY: () => {
-			const {newQuality} = action.parameter;
+			const {newQuality} = action.parameter,
+				{category} = newQuality;
 
 			return Object.assign(
 					{},
 					state,
 					{
-						[newQuality.category]: [
-							...state[newQuality.category],
+						[category]: [
+							...state[category],
 							newQuality
-						]
+						],
+						karma: Object.assign(
+							{},
+							state.karma,
+							{
+								[category]: state.karma[category] + Number(newQuality.karma)
+							}
+						)
 					}
 				);
 		},
 		REMOVE_QUALITY: () => {
 			const {qualityIndex, category} = action.parameter,
-				qualityArray = state[category];
+				qualityArray = state[category],
+				removeQualityKarma = state[category][qualityIndex].karma;
 			return Object.assign(
 					{},
 					state,
@@ -35,7 +48,14 @@ const qualityReducer = (state=initialState, action) => {
 						[category]: [
 							...qualityArray.slice(0, qualityIndex),
 							...qualityArray.slice(qualityIndex + 1)
-						]
+						],
+						karma: Object.assign(
+							{},
+							state.karma,
+							{
+								[category]: state.karma[category] - Number(removeQualityKarma)
+							}
+						)
 					}
 				);
 		},
