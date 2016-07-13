@@ -7,7 +7,11 @@ const metatypeData = require('json!./data/metatype.json'),
 
 require('styles//Summary.sass');
 
-const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed, spellsAndPowers}) => {
+const TableRowHeader = () => {
+	return <tr><th>Name</th><th>Ref</th></tr>;
+};
+
+const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed, spellsAndPowers, selectedQualities}) => {
 	let priorityHead = [],
 		priorityData = [],
 		attributesHead = [],
@@ -21,12 +25,23 @@ const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed
 			attributes: {}
 		},
 		displaySpellsPowers = [
-			<tr key='summary-spell-header'><th>Name</th><th>Ref</th></tr>
-		];
+			<TableRowHeader key="summary-spell-header"/>
+		],
+		displayQualities = {
+			Positive: [<TableRowHeader key="summary-quality--positive--header"></TableRowHeader>],
+			Negative: [<TableRowHeader key="summary-quality--negative--header"></TableRowHeader>]
+		};
 	for(let pariorityCategory in priority) {
 		priorityHead.push(<th key={'summary-priority-head-' + pariorityCategory}>{pariorityCategory}</th>);
 		priorityData.push(<td key={'summary-priority-data-' + pariorityCategory}>{priority[pariorityCategory]}</td>);
 	}
+
+	const generateQualityTableRow = (quality) => {
+		return(<tr><td>{quality.name}</td><td>{quality.source} p{quality.page}</td></tr>);
+	};
+
+	displayQualities.Positive = selectedQualities.Positive.map(generateQualityTableRow);
+	displayQualities.Negative = selectedQualities.Negative.map(generateQualityTableRow);
 
 	for(let att in metatypeData[metatype.typeName].min) {
 		let baseAtt = metatypeData[metatype.typeName].min[att],
@@ -48,7 +63,7 @@ const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed
 			if (Array.isArray(spellPowerArray)){
 				spellPowerArray.forEach((spell, index)=>{
 					displaySpellsPowers.push(
-						<tr key={'summary-' + (magicCat||'complex-form') + spell.name + index}><td>{spell.name}</td><td>{spell.source} {spell.page}p</td></tr>
+						<tr key={'summary-' + (magicCat||'complex-form') + spell.name + index}><td>{spell.name}</td><td>{spell.source} p{spell.page}</td></tr>
 					);
 				});
 			}
@@ -115,6 +130,32 @@ const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed
 						</tr>
 					</tbody>
 				</table>
+			</div>
+
+			<div className="summary-qualities">
+				<h2>Qualities</h2>
+				{ selectedQualities.Positive.length > 0 ?
+					<div className="table-responsive">
+						<h3>Positive</h3>
+						<table className="table">
+							<tbody>
+								{displayQualities.Positive}
+							</tbody>
+						</table>
+					</div>
+					: null
+				}
+				{ selectedQualities.Negative.length > 0 ?
+					<div className="table-responsive">
+						<h3>Negative</h3>
+						<table className="table">
+							<tbody>
+								{displayQualities.Negative}
+							</tbody>
+						</table>
+					</div>
+					: null
+				}
 			</div>
 
 			<div>

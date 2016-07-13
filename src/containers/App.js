@@ -100,7 +100,8 @@ class App extends Component {
               magres={selectMagRes}
               spellsAndPowers={spellSelect}
               skills={settingSkills}
-              fixed={appControl.summaryFix}/>
+              fixed={appControl.summaryFix}
+              selectedQualities={quality}/>
 					</div>
 				</div>
 			</div>
