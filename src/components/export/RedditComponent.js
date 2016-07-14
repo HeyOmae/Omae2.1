@@ -5,9 +5,21 @@ import Modal from '../ModalComponent';
 
 require('styles/export/Reddit.sass');
 
-const RedditComponent = ({priority, metatype, attributes, augmentedAtt, magres, skills, spellsAndPowers}) => {
+const RedditComponent = ({priority, metatype, attributes, augmentedAtt, magres, skills, spellsAndPowers, qualities}) => {
 	let activeSkills = '',
-		learnedSpells = '';
+		learnedSpells = '',
+		selectedQualities = '';
+
+	for (let qualityKey in qualities) {
+		const qualityArray = qualities[qualityKey];
+
+		if(Array.isArray(qualityArray)) {
+			qualityArray.forEach((quality) => {
+				selectedQualities += `${quality.name} | ${quality.category} | ${quality.source} p${quality.page}
+`;
+			});
+		}
+	}
 
 	for(let name in skills.active) {
 		let skill = skills.active[name],
@@ -145,6 +157,12 @@ ${
 Physical | Mental | Social
 --------|------|------
 ${Math.ceil((attributes.str*2 + attributes.bod + attributes.rea)/3)} | ${Math.ceil((attributes.log*2 + attributes.int + attributes.wil)/3)} | ${Math.ceil((attributes.cha*2 + attributes.wil + (attributes.ess||6))/3)}
+
+##Qualities
+
+Name | Category | Ref
+----|------|---
+${selectedQualities}
 
 ##Magic/Resonance
 

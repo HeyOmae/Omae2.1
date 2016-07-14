@@ -216,7 +216,8 @@ const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed
 					augmentedAtt={attributes.augmented}
 					magres={magres}
 					skills={skills}
-					spellsAndPowers={spellsAndPowers}/>
+					spellsAndPowers={spellsAndPowers}
+					qualities={selectedQualities}/>
 			</div>
 		</div>
 	);
