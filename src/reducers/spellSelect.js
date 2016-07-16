@@ -46,6 +46,17 @@ const spellReducer = (state=initialState, action) => {
 		return newState;
 	}
 
+	function addPower(state, action) {
+		return Object.assign(
+			{},
+			state,
+			{
+				powers: addingSpellToList(state.powers, action.parameter.newSpell),
+				powerPointsSpent: state.powerPointsSpent + Number(action.parameter.newSpell.points)
+			}
+		);
+	}
+
 	// function calculateAdeptPointsSpent() {
 	// 	var pointsSpent = 0;
 	// 	for(var power of state.powers) {
@@ -97,17 +108,12 @@ const spellReducer = (state=initialState, action) => {
 		},
 
 		ADD_POWER: () => {
-			let newState = Object.assign(
-				{},
-				state,
-				{
-					powers: addingSpellToList(state.powers, action.parameter.newSpell),
-					powerPointsSpent: state.powerPointsSpent + Number(action.parameter.newSpell.points)
-				}
-			);
+			return addPower(state, action);
+		},
 
+		MYSTIC_ADD_POWER: () => {
+			let newState = addPower(state, action);
 			newState = mysticPowerKarmaCost(action.parameter.isMystic, newState, state);
-
 			return newState;
 		},
 

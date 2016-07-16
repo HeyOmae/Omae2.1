@@ -53,6 +53,7 @@ describe('spellSelect', () => {
 			}
 		],
 		powerPointsSpent: 1.5,
+		powerPointsKarma: 2,
 		complexforms: [
 			{
 				id: '33e75cd6-cad7-43dd-87ac-9838c83eccb5',
@@ -167,7 +168,7 @@ describe('spellSelect', () => {
 		});
 
 		it('should add to the powerPowerKarma if a mystic', () => {
-			
+
 		});
 	});
 
