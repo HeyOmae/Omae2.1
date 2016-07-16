@@ -7,6 +7,7 @@ const initialState = {
 	spells: [],
 	powers: [],
 	powerPointsSpent: 0,
+	powerPointsKarma: 0,
 	complexforms: []
 };
 
@@ -31,6 +32,18 @@ const spellReducer = (state=initialState, action) => {
 			modifiedPower,
 			...listOfPowers.slice(indexToModify + 1)
 		];
+	}
+
+	function mysticPowerKarmaCost(isMystic, newState, oldState) {
+		if(isMystic && (newState.powerPointsSpent < Math.ceil(oldState.powerPointsSpent) || newState.powerPointsSpent > Math.floor(oldState.powerPointsSpent))) {
+			return Object.assign(
+				{},
+				newState,
+				{ powerPointsKarma: Math.ceil(newState.powerPointsSpent) * 5 }
+			);
+		}
+
+		return newState;
 	}
 
 	// function calculateAdeptPointsSpent() {
@@ -84,7 +97,7 @@ const spellReducer = (state=initialState, action) => {
 		},
 
 		ADD_POWER: () => {
-			return Object.assign(
+			let newState = Object.assign(
 				{},
 				state,
 				{
@@ -92,6 +105,10 @@ const spellReducer = (state=initialState, action) => {
 					powerPointsSpent: state.powerPointsSpent + Number(action.parameter.newSpell.points)
 				}
 			);
+
+			newState = mysticPowerKarmaCost(action.parameter.isMystic, newState, state);
+
+			return newState;
 		},
 
 		REMOVE_POWER: () => {

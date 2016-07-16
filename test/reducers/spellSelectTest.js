@@ -145,25 +145,33 @@ describe('spellSelect', () => {
 		expect(newState.complexforms.length).to.equal(state.complexforms.length - 1);
 	});
 
-	it('should add a power to the state.powers', () => {
-		const newSpell = {
-			id: '8caaadf4-75b4-4535-928a-5648d395c13a',
-			name: 'Adrenaline Boost',
-			points: '.25',
-			adeptway: '0',
-			levels: 'yes',
-			limit: '1',
-			source: 'SR5',
-			page: '309'
-		},
-		newState = reducer(state, {type: 'ADD_POWER', parameter: {newSpell}});
+	describe('ADD_POWER', () => {
+		it('should add a power to the state.powers', () => {
+			const newSpell = {
+				id: '8caaadf4-75b4-4535-928a-5648d395c13a',
+				name: 'Adrenaline Boost',
+				points: '.25',
+				adeptway: '0',
+				levels: 'yes',
+				limit: '1',
+				source: 'SR5',
+				page: '309'
+			},
+			newState = reducer(state, {type: 'ADD_POWER', parameter: {newSpell}});
 
-		expect(newState.powers[newState.powers.length - 1]).to.eql(newSpell);
-		expect(newState.powers.length).to.equal(state.powers.length + 1);
+			expect(newState.powers[newState.powers.length - 1]).to.eql(newSpell);
+			expect(newState.powers.length).to.equal(state.powers.length + 1);
 
-		expect(newState.powerPointsSpent).to.equal(1.75);
-		expect(state.powerPointsSpent).to.equal(1.5);
+			expect(newState.powerPointsSpent).to.equal(1.75);
+			expect(state.powerPointsSpent).to.equal(1.5);
+		});
+
+		it('should add to the powerPowerKarma if a mystic', () => {
+			
+		});
 	});
+
+	
 
 	it('should remove power from the state.powers', () => {
 		const newState = reducer(state, {type: 'REMOVE_POWER', parameter: {powerIndex: 1}});
