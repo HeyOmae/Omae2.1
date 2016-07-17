@@ -108,10 +108,6 @@ const spellReducer = (state=initialState, action) => {
 		},
 
 		ADD_POWER: () => {
-			return addPower(state, action);
-		},
-
-		MYSTIC_ADD_POWER: () => {
 			let newState = addPower(state, action);
 			newState = mysticPowerKarmaCost(action.parameter.isMystic, newState, state);
 			return newState;

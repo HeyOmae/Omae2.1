@@ -123,7 +123,7 @@ function generatePowerDetailTablesRows(arrayOfPowers, generateBtnFn, modifyPower
 
 class PowerSelectorComponent extends React.Component {
 	render() {
-		const {actions, selectedPowers, pointSpent, maxPointPoints} = this.props,
+		const {actions, selectedPowers, pointSpent, maxPointPoints, isMystic} = this.props,
 			{addPower, removePower, incrementAugmented, decrementAugmented, raisePower, lowerPower} = actions;
 
 		function bonusUp(name, bonusToApply) {
