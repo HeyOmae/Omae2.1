@@ -121,6 +121,7 @@ const MagicSelectionComponent = ({magicPriority, magictype, magicAttribute, sele
 						pointSpent={selectedSpellsPowers.powerPointsSpent}
 						maxPointPoints={magicAtt}
 						isMystic={magictype === 'Mystic'}
+						karmaSpent = {selectedSpellsPowers.powerPointsKarma}
 						/>
 				</div>
 				:

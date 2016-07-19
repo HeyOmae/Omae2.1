@@ -123,7 +123,7 @@ function generatePowerDetailTablesRows(arrayOfPowers, generateBtnFn, modifyPower
 
 class PowerSelectorComponent extends React.Component {
 	render() {
-		const {actions, selectedPowers, pointSpent, maxPointPoints, isMystic} = this.props,
+		const {actions, selectedPowers, pointSpent, maxPointPoints, isMystic, karmaSpent} = this.props,
 			{addPower, removePower, incrementAugmented, decrementAugmented, raisePower, lowerPower} = actions;
 
 		function bonusUp(name, bonusToApply) {
@@ -176,7 +176,7 @@ class PowerSelectorComponent extends React.Component {
 							powerToAdd.levels = 'N/A';
 						}
 
-					addPower({newSpell: powerToAdd});
+					addPower({newSpell: powerToAdd, isMystic});
 				}
 			};
 			
@@ -188,7 +188,7 @@ class PowerSelectorComponent extends React.Component {
 
 		return (
 			<div className="powers">
-				<p>Power Points: <strong>{pointSpent}</strong></p>
+				<p>Power Points: <strong>{pointSpent}</strong> Karma: {karmaSpent}</p>
 				<div className="power-selector">
 					<div className="btn-group">
 						<Modal

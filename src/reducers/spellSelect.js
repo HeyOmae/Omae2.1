@@ -46,17 +46,6 @@ const spellReducer = (state=initialState, action) => {
 		return newState;
 	}
 
-	function addPower(state, action) {
-		return Object.assign(
-			{},
-			state,
-			{
-				powers: addingSpellToList(state.powers, action.parameter.newSpell),
-				powerPointsSpent: state.powerPointsSpent + Number(action.parameter.newSpell.points)
-			}
-		);
-	}
-
 	// function calculateAdeptPointsSpent() {
 	// 	var pointsSpent = 0;
 	// 	for(var power of state.powers) {
@@ -108,15 +97,24 @@ const spellReducer = (state=initialState, action) => {
 		},
 
 		ADD_POWER: () => {
-			let newState = addPower(state, action);
+			let newState = Object.assign(
+				{},
+				state,
+				{
+					powers: addingSpellToList(state.powers, action.parameter.newSpell),
+					powerPointsSpent: state.powerPointsSpent + Number(action.parameter.newSpell.points)
+				}
+			);
+
 			newState = mysticPowerKarmaCost(action.parameter.isMystic, newState, state);
+
 			return newState;
 		},
 
 		REMOVE_POWER: () => {
 			const {powerIndex} = action.parameter,
 				power = state.powers[powerIndex];
-			return Object.assign(
+			let newState =  Object.assign(
 				{},
 				state,
 				{
@@ -124,6 +122,10 @@ const spellReducer = (state=initialState, action) => {
 					powerPointsSpent: state.powerPointsSpent - (Number(power.points)* (power.levels > 0 ? power.levels : 1))
 				}
 			);
+
+			newState = mysticPowerKarmaCost(action.parameter.isMystic, newState, state);
+
+			return newState;
 		},
 
 		RAISE_POWER: () => {
@@ -137,7 +139,7 @@ const spellReducer = (state=initialState, action) => {
 					}
 				);
 
-			return Object.assign(
+			let newState =   Object.assign(
 				{},
 				state,
 				{
@@ -145,6 +147,10 @@ const spellReducer = (state=initialState, action) => {
 					powerPointsSpent: state.powerPointsSpent + Number(state.powers[powerIndex].points)
 				}
 			);
+
+			newState = mysticPowerKarmaCost(action.parameter.isMystic, newState, state);
+
+			return newState;
 		},
 
 		LOWER_POWER: () => {
@@ -158,7 +164,7 @@ const spellReducer = (state=initialState, action) => {
 					}
 				);
 
-			return Object.assign(
+			let newState =   Object.assign(
 				{},
 				state,
 				{
@@ -166,12 +172,16 @@ const spellReducer = (state=initialState, action) => {
 					powerPointsSpent: state.powerPointsSpent - Number(state.powers[powerIndex].points)
 				}
 			);
+
+			newState = mysticPowerKarmaCost(action.parameter.isMystic, newState, state);
+
+			return newState;
 		},
 
 		RESET_ABILITY: () => {
 			const {ability} = action.parameter;
 			if(state[ability].length > 0){
-				return Object.assign(
+				let newState =  Object.assign(
 					{},
 					state,
 					{
@@ -179,6 +189,10 @@ const spellReducer = (state=initialState, action) => {
 						powerPointsSpent: ability === 'powers'? 0 : state.powerPointsSpent
 					}
 				);
+
+				newState = mysticPowerKarmaCost(action.parameter.isMystic, newState, state);
+
+				return newState;
 			} else {
 				return state;
 			}
