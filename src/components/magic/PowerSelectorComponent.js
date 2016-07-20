@@ -77,14 +77,14 @@ function createSelectedPowerIndividualRow(powerArray, powerDetails, button, powe
 		let powerName = powerDetails.name.replace(/\((.*?)\)/g, '');
 		if(modifyPowers.pointSpent + Number(powerDetails.points) <= modifyPowers.maxPointPoints && findLevelCap(powerName, powerDetails.levels)) {
 			modifyPowers.bonusUp(powerName, powerDetails.bonus);
-			modifyPowers.raisePower({powerIndex});
+			modifyPowers.raisePower({powerIndex, isMystic: modifyPowers.isMystic});
 		}
 	}
 
 	function lowerLevel() {
 		if(modifyPowers.pointSpent - Number(powerDetails.points) >= 0 && powerDetails.levels > 1){
 			modifyPowers.bonusDown(powerDetails.name, powerDetails.bonus);
-			modifyPowers.lowerPower({powerIndex});
+			modifyPowers.lowerPower({powerIndex, isMystic: modifyPowers.isMystic});
 		}
 	}
 
@@ -205,7 +205,7 @@ class PowerSelectorComponent extends React.Component {
 					<PowerSelectedDisplay
 						selectedPowers={selectedPowers}
 						removePower={removePower}
-						modifyPowers={{raisePower, lowerPower, pointSpent, maxPointPoints, bonusUp, bonusDown}}/>
+						modifyPowers={{raisePower, lowerPower, pointSpent, maxPointPoints, bonusUp, bonusDown, isMystic}}/>
 					: null
 				}
 			</div>
