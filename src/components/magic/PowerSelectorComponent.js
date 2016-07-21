@@ -220,7 +220,7 @@ const PowerSelectedDisplay = ({selectedPowers, removePower, modifyPowers}) => {
 				if(power.bonus !== 'N/A') {
 					modifyPowers.bonusDown(power.name.match(/.+?(?=\()/g), power.bonus, power.levels);
 				}
-				removePower({powerIndex: index});
+				removePower({powerIndex: index, isMystic: modifyPowers.isMystic});
 			};
 			return (<button className="btn btn-warning" onClick={removePowerClick}>-</button>);
 		};

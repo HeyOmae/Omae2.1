@@ -186,11 +186,10 @@ const spellReducer = (state=initialState, action) => {
 					state,
 					{
 						[ability]: [],
-						powerPointsSpent: ability === 'powers'? 0 : state.powerPointsSpent
+						powerPointsSpent: ability === 'powers'? 0 : state.powerPointsSpent,
+						powerPointsKarma: 0
 					}
 				);
-
-				newState = mysticPowerKarmaCost(action.parameter.isMystic, newState, state);
 
 				return newState;
 			} else {

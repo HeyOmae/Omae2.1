@@ -61,6 +61,7 @@ const MagicSelectionComponent = ({magicPriority, magictype, magicAttribute, sele
 			},
 			Mystic: () => {
 				actions.resetAbility({ability: 'complexforms'});
+				actions.resetAbility({ability: 'powers'});
 			},
 			Technomancer: () => {
 				actions.resetAbility({ability: 'powers'});
