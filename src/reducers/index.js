@@ -17,6 +17,7 @@ const reducers = {
   appControl: require('../reducers/appControl.js'),
   spellSelect: require('../reducers/spellSelect.js'),
   quality: require('../reducers/quality.js'),
-  karma: require('../reducers/karma.js')
+  karma: require('../reducers/karma.js'),
+  modalToggle: require('../reducers/modalToggle.js')
 };
 module.exports = combineReducers(reducers);
