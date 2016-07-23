@@ -73,7 +73,7 @@
     "normalize.css": "^3.0.3",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
-    "react-redux": "^4.0.6",
+    "react-redux": "^4.4.5",
     "redux": "^3.0.6"
   }
 }

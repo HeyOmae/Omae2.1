@@ -120,8 +120,7 @@ App.propTypes = {
   appControl: PropTypes.object.isRequired,
   spellSelect: PropTypes.object.isRequired,
   quality: PropTypes.object.isRequired,
-  karma: PropTypes.number.isRequired,
-  modalToggle: PropTypes.object.isRequired
+  karma: PropTypes.number.isRequired
 };
 function mapStateToProps(state) {
   /* Populated by react-webpack-redux:reducer */
