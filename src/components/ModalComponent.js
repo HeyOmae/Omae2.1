@@ -86,11 +86,6 @@ function mapStateToProps(state) {
 	return { modalToggle: state.modalToggle };
 }
 
-function mapDispatchToProps(dispatch) {
-	const toggleModalAction = require('../actions/toggleModal.js');
-
-	return {toggleModalAction: input => dispatch(toggleModalAction(input))};
-}
 // ModalComponent.defaultProps = {};
 
-export default connect(mapStateToProps, mapDispatchToProps)(ModalComponent);
+export default connect(mapStateToProps, { toggleModalAction: require('../actions/toggleModal.js')})(ModalComponent);

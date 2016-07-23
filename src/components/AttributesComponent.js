@@ -86,7 +86,7 @@ class AttributesComponent extends React.Component {
 					att = 'special';
 					baseAtt = priorityData[magicPriority].magic[magictype].attribute.points; //find magic rating
 					currentAtt = baseAtt + attributes[att];
-					maxAtt = Math.floor(attributes.ess); //set max to essense rounded down
+					maxAtt = ~~attributes.ess; //set max to essense rounded down
 					maxPoints = maxAtt - baseAtt;
 					addingElements('special', specialPointsLeft);
 					var magicName = priorityData[magicPriority].magic[magictype].attribute.name;

@@ -36,9 +36,9 @@ class App extends Component {
     window.removeEventListener('scroll', this.handleScroll);
   }
   render() {
-    const {actions, priorityTable, selectMetatype, attributes, selectMagRes, settingSkills, appControl, spellSelect, quality, karma, modalToggle} = this.props;
+    const {actions, priorityTable, selectMetatype, attributes, selectMagRes, settingSkills, appControl, spellSelect, quality, karma} = this.props;
     return (
-      <div className='container' modalToggle={modalToggle}>
+      <div className='container' >
 				<div className='row'>
 					<div className='col-md-12'>
 						<Main
@@ -133,8 +133,7 @@ function mapStateToProps(state) {
     appControl: state.appControl,
     spellSelect: state.spellSelect,
     quality: state.quality,
-    karma: state.karma,
-    modalToggle: state.modalToggle
+    karma: state.karma
   };
   return props;
 }

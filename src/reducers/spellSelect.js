@@ -35,7 +35,7 @@ const spellReducer = (state=initialState, action) => {
 	}
 
 	function mysticPowerKarmaCost(isMystic, newState, oldState) {
-		if(isMystic && (newState.powerPointsSpent < Math.ceil(oldState.powerPointsSpent) || newState.powerPointsSpent > Math.floor(oldState.powerPointsSpent))) {
+		if(isMystic && (newState.powerPointsSpent < Math.ceil(oldState.powerPointsSpent) || newState.powerPointsSpent > ~~oldState.powerPointsSpent)) {
 			return Object.assign(
 				{},
 				newState,
