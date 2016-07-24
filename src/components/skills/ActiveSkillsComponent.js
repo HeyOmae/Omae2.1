@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react';
+import Modal from '../ModalComponent';
 import Skillgroup from './SkillgroupsComponent';
 let skillsData = require('json!../data/skills.json'),
 	metatypeData = require('json!../data/metatype.json'),
@@ -62,17 +63,21 @@ class ActiveSkillsComponent extends React.Component {
 
 
 			listOfSkills.push(
-				<ActiveSkill
+				<Modal
 					key={'skill-'+skillKey}
-					skillAtt={skillKey}
-					skillList={skillinCategory}
-					actions={actions}
-					skills={skills.active}
-					skillPointsLeft={skillPointsLeft}
-					showSkill={skills.showSkill === skillKey}
-					attributePool={attributePool}
-					restrictedSkills={attributeAbriv === 'special' ? skillKey!==allowedSkill() : false}
-					/>
+					modalName={skillKey}
+					modalContent={
+						<ActiveSkill
+							skillList={skillinCategory}
+							actions={actions}
+							skills={skills.active}
+							skillPointsLeft={skillPointsLeft}
+							showSkill={skills.showSkill === skillKey}
+							attributePool={attributePool}
+							restrictedSkills={attributeAbriv === 'special' ? skillKey!==allowedSkill() : false}
+							/>
+					}
+				/>
 			);
 		}
 
@@ -86,12 +91,14 @@ class ActiveSkillsComponent extends React.Component {
 					/>
 				<h3>Skill Groups</h3>
 				<div className="row">
-					<Skillgroup
-						skillgroups={skills.groups}
-						skillgroupsData={skillsData.groups}
-						actions={actions}
-						pointsLeft = {groupPointsLeft}
-						displaySkillgroups = {skills.showSkill === 'Skillgroup'}/>
+					<div className="col-xs-12">
+						<Skillgroup
+							skillgroups={skills.groups}
+							skillgroupsData={skillsData.groups}
+							actions={actions}
+							pointsLeft = {groupPointsLeft}
+							displaySkillgroups = {skills.showSkill === 'Skillgroup'}/>
+					</div>
 				</div>
 
 				<h3>Active Skills</h3>
@@ -190,7 +197,7 @@ const FreeSkills = ({priorityDataFreeSkills, magicSkills, setMagicSkills}) => {
 	}
 };
 
-const ActiveSkill = ({skillAtt, skillList, actions, skills, skillPointsLeft, showSkill, attributePool, restrictedSkills}) => {
+const ActiveSkill = ({skillList, actions, skills, skillPointsLeft, attributePool, restrictedSkills}) => {
 	let skillTableData = [];
 
 	for(let skillName in skillList) {
@@ -287,26 +294,23 @@ const ActiveSkill = ({skillAtt, skillList, actions, skills, skillPointsLeft, sho
 
 	return (
 		<div className="table-responsive">
-			<h4><button className={'btn ' + (restrictedSkills ? 'btn-danger':'btn-info')} onClick={()=> actions.showSkill({ skillToShow: skillAtt })}>{skillAtt}</button></h4>
-			<div className={showSkill ? 'collapse in' : 'collapse'}>
-				<table className="table">
-					<thead>
-						<tr>
-							<th>Raise</th>
-							<th>Rating</th>
-							<th>Lower</th>
-							<th>Skill Name</th>
-							<th>Ref</th>
-							<th>Spec</th>
-							<th>Mods</th>
-							<th>Dice Pool</th>
-						</tr>
-					</thead>
-					<tbody>
-						{skillTableData}
-					</tbody>
-				</table>
-			</div>
+			<table className="table">
+				<thead>
+					<tr>
+						<th>Raise</th>
+						<th>Rating</th>
+						<th>Lower</th>
+						<th>Skill Name</th>
+						<th>Ref</th>
+						<th>Spec</th>
+						<th>Mods</th>
+						<th>Dice Pool</th>
+					</tr>
+				</thead>
+				<tbody>
+					{skillTableData}
+				</tbody>
+			</table>
 		</div>
 	);
 };

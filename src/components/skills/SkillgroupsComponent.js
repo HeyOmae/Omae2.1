@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react';
+import Modal from '../ModalComponent';
 
 require('styles/skills/Skillgroups.sass');
 
@@ -39,23 +40,26 @@ const SkillgroupsComponent = ({skillgroups, skillgroupsData, actions, pointsLeft
 		);
 	}
 	return (
-		<div className="skillgroups-component col-xs-12 table-responsive">
-			<h4><button className="btn btn-info" onClick={()=> actions.showSkill({ skillToShow: 'Skillgroup' })}>Skill Groups</button></h4>
-			<table className={'table ' + (displaySkillgroups ? 'collapse in' : 'collapse')}>
-				<thead>
-					<tr>
-						<th>Raise</th>
-						<th>Rating</th>
-						<th>Lower</th>
-						<th>Skill Group</th>
-						<th>Skills</th>
-					</tr>
-				</thead>
-				<tbody>
-					{listOfGroups}
-				</tbody>
-			</table>
-		</div>
+		<Modal
+			modalName="Skill Groups"
+			modalContent={
+				<div className="skillgroups-component col-xs-12 table-responsive">
+					<table className="table">
+						<thead>
+							<tr>
+								<th>Raise</th>
+								<th>Rating</th>
+								<th>Lower</th>
+								<th>Skill Group</th>
+								<th>Skills</th>
+							</tr>
+						</thead>
+						<tbody>
+							{listOfGroups}
+						</tbody>
+					</table>
+				</div>
+		} />
 	);
 };
 
