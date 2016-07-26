@@ -274,7 +274,7 @@ const ActiveSkill = ({skillList, actions, skills, skillPointsLeft, attributePool
 				<td>
 					<input
 						type="text"
-						className="form-control"
+						className="form-control input-specialization"
 						placeholder="Custom Spec"
 						onChange={changeSpec}
 						value={currentSpec}/>
