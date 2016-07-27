@@ -36,7 +36,8 @@ class App extends Component {
     window.removeEventListener('scroll', this.handleScroll);
   }
   render() {
-    const {actions, priorityTable, selectMetatype, attributes, selectMagRes, settingSkills, appControl, spellSelect, quality, karma} = this.props;
+    const {actions, priorityTable, selectMetatype, attributes, selectMagRes, settingSkills, appControl, spellSelect, quality, karma} = this.props,
+    karmaTotal = karma - spellSelect.powerPointsKarma;
     return (
       <div className='container' >
 				<div className='row'>
@@ -71,7 +72,7 @@ class App extends Component {
               }}
               attributes={attributes}/>
 
-            <QualityComponent karma={karma} actions={actions} selectedQualities={quality}/>
+            <QualityComponent karma={karmaTotal} actions={actions} selectedQualities={quality}/>
 
 						<MagicSelectionComponent
               magicPriority={priorityTable.magres}
