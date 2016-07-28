@@ -5,10 +5,12 @@ import Modal from '../ModalComponent';
 
 require('styles/export/Reddit.sass');
 
-const RedditComponent = ({priority, metatype, attributes, augmentedAtt, magres, skills, spellsAndPowers, qualities}) => {
+const RedditComponent = ({priority, metatype, attributes, augmentedAtt, magres, skills, spellsAndPowers, qualities, karma}) => {
 	let activeSkills = '',
 		learnedSpells = '',
 		selectedQualities = '';
+
+	const totalKarma = karma > 7 ? 7 : karma;
 
 	for (let qualityKey in qualities) {
 		const qualityArray = qualities[qualityKey];
@@ -114,7 +116,7 @@ Street Cred | Notoriety | Public Awareness
 
 Karma | Total Karma
 -----------|---------
-0 | 0
+${totalKarma} | ${totalKarma}
 
 ##Attributes
 

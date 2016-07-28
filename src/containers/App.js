@@ -99,7 +99,8 @@ class App extends Component {
               spellsAndPowers={spellSelect}
               skills={settingSkills}
               fixed={appControl.summaryFix}
-              selectedQualities={quality}/>
+              selectedQualities={quality}
+              karma={karmaTotal}/>
 					</div>
 				</div>
 			</div>

@@ -11,7 +11,7 @@ const TableRowHeader = () => {
 	return <tr><th>Name</th><th>Ref</th></tr>;
 };
 
-const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed, spellsAndPowers, selectedQualities}) => {
+const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed, spellsAndPowers, selectedQualities, karma}) => {
 	let priorityHead = [],
 		priorityData = [],
 		attributesHead = [],
@@ -132,6 +132,11 @@ const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed
 				</table>
 			</div>
 
+			<div>
+				<h2>Karma</h2>
+				<p><strong>{karma}</strong></p>
+			</div>
+
 			<div className="summary-qualities">
 				<h2>Qualities</h2>
 				{ selectedQualities.Positive.length > 0 ?
@@ -217,7 +222,8 @@ const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed
 					magres={magres}
 					skills={skills}
 					spellsAndPowers={spellsAndPowers}
-					qualities={selectedQualities}/>
+					qualities={selectedQualities}
+					karma={karma}/>
 			</div>
 		</div>
 	);
