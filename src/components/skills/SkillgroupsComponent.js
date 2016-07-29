@@ -5,7 +5,7 @@ import Modal from '../ModalComponent';
 
 require('styles/skills/Skillgroups.sass');
 
-const SkillgroupsComponent = ({skillgroups, skillgroupsData, actions, pointsLeft, displaySkillgroups}) => {
+const SkillgroupsComponent = ({skillgroups, skillgroupsData, actions, pointsLeft}) => {
 	let listOfGroups = [];
 	for (let groupName in skillgroupsData) {
 		let group = skillgroupsData[groupName],

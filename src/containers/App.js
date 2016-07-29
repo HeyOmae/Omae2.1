@@ -151,7 +151,6 @@ function mapDispatchToProps(dispatch) {
     selectMagictype: require('../actions/selectMagictype.js'),
     incrementSkill: require('../actions/skills/incrementSkill.js'),
     decrementSkill: require('../actions/skills/decrementSkill.js'),
-    showSkill: require('../actions/showSkill.js'),
     fixSummary: require('../actions/app/fixSummary.js'),
     incrementSkillgroup: require('../actions/skills/incrementSkillgroup.js'),
     decrementSkillgroup: require('../actions/skills/decrementSkillgroup.js'),

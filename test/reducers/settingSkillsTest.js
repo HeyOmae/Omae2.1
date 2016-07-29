@@ -97,32 +97,6 @@ describe('settingSkills', () => {
 		});
 	});
 
-	describe('SHOW_SKILL', () => {
-		it('should set showSkill to Agility', () => {
-			let newState = reducer(state, {type: 'SHOW_SKILL', parameter: {skillToShow: 'Agility' }});
-
-			expect(newState.showSkill).to.equal('Agility');
-		});
-
-		it('should set showSkill to an empty string if the same attribute is selected', ()=>{
-			const skillShowState = {
-				showSkill: 'Agility'
-			};
-
-			let newState = reducer(skillShowState, {type: 'SHOW_SKILL', parameter: {skillToShow: 'Agility' }});
-			expect(newState.showSkill).to.equal('');
-		});
-
-		it('should change the current skill to a new skill', ()=>{
-			const skillShowState = {
-				showSkill: 'Agility'
-			};
-
-			let newState = reducer(skillShowState, {type: 'SHOW_SKILL', parameter: {skillToShow: 'Body' }});
-			expect(newState.showSkill).to.equal('Body');
-		});
-	});
-
 	describe('SET_MAGIC_SKILLS', ()=> {
 		it('should create a skill with magicPoints', () => {
 			let newState = reducer(state, {type: 'SET_MAGIC_SKILLS', parameter: {magicSkills: [

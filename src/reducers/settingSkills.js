@@ -10,13 +10,12 @@ const initialState = {
 	groups: {},
 	magicSkills: [],
 	skillPointsSpent: 0,
-	groupPointSpent: 0,
-	showSkill: ''
+	groupPointSpent: 0
 };
 
 const skillReducer = (state=initialState, action) => {
 	if(action.parameter) {
-		var {name, category, max, skillToShow, attribute, skillsInGroup, spec, magicSkills} = action.parameter;
+		var {name, category, max, attribute, skillsInGroup, spec, magicSkills} = action.parameter;
 	}
 
 	function changeSkill(skillInfoUpdated, typeSpend, spentPoints, copyState = state, skillCategory = category) {
@@ -101,18 +100,6 @@ const skillReducer = (state=initialState, action) => {
 			} else {
 				return state;
 			}
-			return newState;
-		},
-
-		SHOW_SKILL: () => {
-			skillToShow = state.showSkill === skillToShow ? '' : skillToShow;
-			let newState = Object.assign(
-				{},
-				state,
-				{
-					showSkill: skillToShow
-				}
-			);
 			return newState;
 		},
 
