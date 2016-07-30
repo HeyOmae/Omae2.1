@@ -5,7 +5,7 @@ import SpecialComponent from './SpecialComponent';
 let metatypeData = require('json!./data/metatype.json'),
 	priorityData = require('json!./data/priority.json');
 
-require('styles//Attributes.sass');
+require('styles/Attributes.sass');
 
 class AttributesComponent extends React.Component {
 	render() {

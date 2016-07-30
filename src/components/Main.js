@@ -1,5 +1,5 @@
 require('normalize.css');
-require('../../node_modules/bootstrap/dist/css/bootstrap.css');
+require('styles/bootstrap-overwrite.scss');
 require('styles/App.css');
 
 import React from 'react';

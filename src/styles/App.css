@@ -88,10 +88,6 @@ strong {
 	color: #ccc;
 }
 
-.modal.hide {
-	display: none;
-}
-
 .modal-component {
 	float: left;
 	margin: .25em;
