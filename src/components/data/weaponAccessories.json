@@ -1,0 +1,811 @@
+[{
+	"id": "d34a93a8-b695-4c46-8e34-0948df68d44f",
+	"name": "Silencer, Ares Light Fire 70",
+	"mount": "Barrel",
+	"rating": "0",
+	"avail": "6F",
+	"cost": "750",
+	"source": "SR5",
+	"page": "425"
+}, {
+	"id": "4026650e-ecd3-4514-b2c6-d03dc1d466b5",
+	"name": "Silencer, Ares Light Fire 75",
+	"mount": "Barrel",
+	"rating": "0",
+	"avail": "6F",
+	"cost": "750",
+	"source": "SR5",
+	"page": "425"
+}, {
+	"id": "294a6b30-6e1c-4b7d-8e93-10964647c2dd",
+	"name": "Airburst Link",
+	"rating": "0",
+	"avail": "6R",
+	"cost": "600",
+	"source": "SR5",
+	"page": "431"
+}, {
+	"id": "6e06df00-95b8-450f-9f2a-4a86c582d342",
+	"name": "Bipod",
+	"mount": "Under",
+	"rating": "0",
+	"rc": "2",
+	"rcgroup": "1",
+	"avail": "2",
+	"cost": "200",
+	"source": "SR5",
+	"page": "431"
+}, {
+	"id": "7f66a669-917a-4423-bd83-cf0e0a1fb2a8",
+	"name": "Concealable Holster",
+	"rating": "0",
+	"conceal": "-1",
+	"avail": "2",
+	"cost": "150",
+	"source": "SR5",
+	"page": "431"
+}, {
+	"id": "f46b623b-75b5-4947-a3e4-baa2930749bf",
+	"name": "Gas-Vent 1 System",
+	"mount": "Barrel",
+	"rc": "1",
+	"rating": "0",
+	"avail": "3R",
+	"cost": "200",
+	"source": "SR5",
+	"page": "431"
+}, {
+	"id": "b3827611-f631-461e-8660-e744593ba2d2",
+	"name": "Gas-Vent 2 System",
+	"rating": "0",
+	"mount": "Barrel",
+	"rc": "2",
+	"avail": "6R",
+	"cost": "400",
+	"source": "SR5",
+	"page": "431"
+}, {
+	"id": "6b06cf52-04fa-4034-bb10-2bcdd58c4bfb",
+	"name": "Gas-Vent 3 System",
+	"mount": "Barrel",
+	"rating": "0",
+	"rc": "3",
+	"avail": "9R",
+	"cost": "600",
+	"source": "SR5",
+	"page": "431"
+}, {
+	"id": "baecb236-6b4a-4f7d-b9c4-25212f115d4a",
+	"name": "Gyro Mount",
+	"mount": "Under",
+	"rc": "6",
+	"rating": "0",
+	"rcgroup": "1",
+	"avail": "7",
+	"cost": "1400",
+	"source": "SR5",
+	"page": "432"
+}, {
+	"id": "7ca0c689-a05e-4377-ae44-3dc15abe2ee2",
+	"name": "Hidden Gun Arm Slide",
+	"conceal": "-1",
+	"rating": "0",
+	"avail": "4R",
+	"cost": "350",
+	"source": "SR5",
+	"page": "432"
+}, {
+	"id": "2905095e-937e-4dbc-aa56-3b66676e1559",
+	"name": "Imaging Scope",
+	"mount": "Top",
+	"avail": "2",
+	"rating": "0",
+	"cost": "300",
+	"allowgear": {
+		"gearcategory": "Vision Enhancements"
+	},
+	"source": "SR5",
+	"page": "432"
+}, {
+	"id": "521f9c2e-dfb2-42a6-b707-9808ae4885de",
+	"name": "Laser Sight",
+	"mount": "Top/Under",
+	"avail": "2",
+	"rating": "0",
+	"accuracy": "1",
+	"cost": "125",
+	"source": "SR5",
+	"page": "432"
+}, {
+	"id": "12e3bb7f-0058-4c9f-ba36-3a865d52b5a0",
+	"name": "Periscope",
+	"mount": "Top",
+	"avail": "3",
+	"cost": "70",
+	"rating": "0",
+	"source": "SR5",
+	"page": "432"
+}, {
+	"id": "18e18bbc-f287-4455-bedf-ba349779a4cb",
+	"name": "Quick-Draw Holster",
+	"avail": "4",
+	"rating": "0",
+	"cost": "175",
+	"source": "SR5",
+	"page": "432"
+}, {
+	"id": "46596db4-6f25-4990-80cc-c4102eaf80f7",
+	"name": "Shock Pad",
+	"rc": "1",
+	"rcgroup": "2",
+	"avail": "2",
+	"rating": "0",
+	"cost": "50",
+	"source": "SR5",
+	"page": "432"
+}, {
+	"id": "0da6149e-982f-4051-825b-52c1b79c7e52",
+	"name": "Silencer",
+	"mount": "Barrel",
+	"avail": "9F",
+	"cost": "500",
+	"rating": "0",
+	"source": "SR5",
+	"page": "432"
+}, {
+	"id": "3c329adb-7c13-4d2c-b25c-49be89173fa1",
+	"name": "Sound Suppressor",
+	"mount": "Barrel",
+	"avail": "9F",
+	"rating": "0",
+	"cost": "500",
+	"source": "SR5",
+	"page": "432"
+}, {
+	"id": "7e25eb59-3ce1-44d8-8367-527fd8c8bc1d",
+	"name": "Smart Firing Platform",
+	"mount": "Under",
+	"avail": "12F",
+	"rating": "0",
+	"cost": "2000",
+	"source": "SR5",
+	"page": "433"
+}, {
+	"id": "d57d2c64-1f61-4f5f-a465-8ce0dfacec6a",
+	"name": "Smartgun System, Internal",
+	"rating": "0",
+	"avail": "+2R",
+	"cost": "Weapon Cost",
+	"accuracy": "2",
+	"allowgear": {
+		"gearcategory": [
+			"Peripherals",
+			"Vision Enhancements"
+		]
+	},
+	"source": "SR5",
+	"page": "433"
+}, {
+	"id": "b3562903-b1c6-4300-9f6e-25e0102aa69b",
+	"name": "Smartgun System, External",
+	"mount": "Top/Under",
+	"rating": "0",
+	"avail": "4R",
+	"cost": "200",
+	"accuracy": "2",
+	"allowgear": {
+		"gearcategory": [
+			"Peripherals",
+			"Vision Enhancements"
+		]
+	},
+	"source": "SR5",
+	"page": "433"
+}, {
+	"id": "4ed24342-276e-4455-acba-22b551e4d775",
+	"name": "Spare Clip",
+	"ammoslots": "1",
+	"rating": "0",
+	"avail": "4",
+	"cost": "5",
+	"source": "SR5",
+	"page": "433"
+}, {
+	"id": "4c47baf0-6b34-4e00-8627-a0f605f84ba0",
+	"name": "Speed Loader",
+	"rating": "0",
+	"ammoslots": "1",
+	"avail": "2",
+	"cost": "25",
+	"source": "SR5",
+	"page": "433"
+}, {
+	"id": "28936368-9e16-498f-b028-92ec31e89a00",
+	"name": "Tripod",
+	"mount": "Under",
+	"rating": "0",
+	"rc": "6",
+	"rcgroup": "1",
+	"avail": "4",
+	"cost": "500",
+	"source": "SR5",
+	"page": "433"
+}, {
+	"id": "06e128ee-00fd-4992-8bf5-4be35815fd11",
+	"name": "Advanced Safety System, Basic",
+	"rating": "0",
+	"avail": "4",
+	"cost": "600",
+	"source": "RG",
+	"page": "50"
+}, {
+	"id": "7898e7dc-3ee6-46a9-83d7-d3ec54a456fb",
+	"name": "Silencer, PSK-3 Collapsible Heavy Pistol",
+	"mount": "Barrel",
+	"avail": "6F",
+	"rating": "0",
+	"cost": "700",
+	"source": "RG",
+	"page": "32"
+}, {
+	"id": "90804D8B-16CA-4A6F-81E6-454F71768DCE",
+	"name": "Collapsed Frame",
+	"mount": "Internal",
+	"rating": "0",
+	"conceal": "-6",
+	"avail": "0",
+	"cost": "0",
+	"source": "RG",
+	"page": "32"
+}, {
+	"id": "b895c431-3fb0-49b7-a3fc-ddb4e54b69ee",
+	"name": "Extra Case, Ares Executioner",
+	"avail": "0",
+	"cost": "400",
+	"rating": "0",
+	"source": "RG",
+	"page": "35"
+}, {
+	"id": "2fa27223-dd56-4520-b26b-a112e8733320",
+	"name": "Vindicator 200-Round Belt",
+	"rating": "0",
+	"avail": "4",
+	"cost": "100",
+	"source": "RG",
+	"page": "42"
+}, {
+	"id": "fad8757c-622f-41ce-8412-8bbb6fbf6445",
+	"name": "Advanced Safety System, Immobilization",
+	"avail": "6",
+	"rating": "0",
+	"cost": "700",
+	"source": "RG",
+	"page": "50"
+}, {
+	"id": "c9739e50-bbaf-47e7-a19b-c3d7fd2b95af",
+	"name": "Advanced Safety System, Self Destruct",
+	"rating": "0",
+	"avail": "6",
+	"cost": "800",
+	"source": "RG",
+	"page": "50"
+}, {
+	"id": "25b695f8-ed5a-4b75-baf0-164dcde74f2d",
+	"name": "Advanced Safety System, Explosive Self Destruct",
+	"rating": "0",
+	"avail": "11F",
+	"cost": "1000",
+	"source": "RG",
+	"page": "50"
+}, {
+	"id": "b64d5256-0c24-4842-b05d-25ee735c9b6a",
+	"name": "Advanced Safety System, Electro Shocker",
+	"rating": "0",
+	"avail": "6R",
+	"cost": "950",
+	"source": "RG",
+	"page": "50"
+}, {
+	"id": "dc859601-1271-4f5d-ac37-e389c95f052a",
+	"name": "Bayonet",
+	"rating": "0",
+	"mount": "Top/Under",
+	"avail": "4R",
+	"cost": "50",
+	"source": "RG",
+	"page": "50"
+}, {
+	"id": "ea64527d-0e1e-4248-957b-7c02d79dad30",
+	"name": "Concealed Quick-Draw Holster",
+	"conceal": "-1",
+	"rating": "0",
+	"avail": "6",
+	"cost": "275",
+	"source": "RG",
+	"page": "51"
+}, {
+	"id": "381dd922-19af-46fd-9999-0202c85574de",
+	"name": "Extreme Environment Modification",
+	"rating": "2",
+	"avail": "8",
+	"cost": "Rating * 1500",
+	"source": "RG",
+	"page": "51"
+}, {
+	"id": "41ca17be-6fe4-469f-9a66-7345263c4733",
+	"name": "Flashlight, Standard",
+	"mount": "Top/Under/Side",
+	"avail": "2",
+	"rating": "0",
+	"cost": "50",
+	"source": "RG",
+	"page": "51"
+}, {
+	"id": "487ae8d8-f45b-4133-a79f-c831a6b6a651",
+	"name": "Flashlight, Low Light",
+	"mount": "Top/Under/Side",
+	"avail": "4",
+	"cost": "200",
+	"rating": "0",
+	"source": "RG",
+	"page": "51"
+}, {
+	"id": "fa873465-a678-4077-888f-f7a1fb792d47",
+	"name": "Flashlight, Infrared",
+	"mount": "Top/Under/Side",
+	"avail": "6",
+	"cost": "400",
+	"rating": "0",
+	"source": "RG",
+	"page": "51"
+}, {
+	"id": "f8090e1f-424a-4298-a5d9-f2e6d650ef39",
+	"name": "Folding Stock",
+	"mount": "Stock",
+	"rating": "0",
+	"avail": "2",
+	"cost": "30",
+	"rc": "1",
+	"rcgroup": "2",
+	"source": "RG",
+	"page": "51"
+}, {
+	"id": "27de824f-d5e4-43fd-abaa-e42da6023569",
+	"name": "Stock",
+	"rating": "0",
+	"mount": "Stock",
+	"avail": "2",
+	"cost": "30",
+	"rc": "1",
+	"rcgroup": "2",
+	"source": "RG",
+	"page": "51"
+}, {
+	"id": "8eec5df1-88e2-4822-b156-9c2340a33efc",
+	"name": "Foregrip",
+	"rating": "0",
+	"mount": "Under/Barrel",
+	"avail": "2",
+	"cost": "100",
+	"rc": "1",
+	"rcgroup": "1",
+	"conceal": "1",
+	"source": "RG",
+	"page": "52"
+}, {
+	"id": "627f212a-ac15-4739-afbc-f44676dfe508",
+	"name": "Gecko Grip",
+	"rating": "0",
+	"avail": "6",
+	"cost": "100",
+	"source": "RG",
+	"page": "52"
+}, {
+	"id": "9a27efa9-f3f4-4e47-9165-76e8adbad4ba",
+	"name": "Guncam",
+	"mount": "Top/Under/Barrel/Side/Internal",
+	"avail": "4",
+	"rating": "0",
+	"cost": "350",
+	"source": "RG",
+	"page": "52"
+}, {
+	"id": "71a37dd2-d162-4829-a233-5afdd954691d",
+	"name": "Hip Pad Bracing System",
+	"mount": "Stock",
+	"rating": "0",
+	"avail": "4",
+	"cost": "250",
+	"rc": "1",
+	"rcgroup": "2",
+	"source": "RG",
+	"page": "52"
+}, {
+	"id": "21bc8b85-3fd7-4bde-ac8d-35e1fa099f21",
+	"name": "Improved Range Finder",
+	"mount": "Top/Under/Barrel/Side/Internal",
+	"avail": "6",
+	"cost": "2000",
+	"rating": "0",
+	"source": "RG",
+	"page": "52"
+}, {
+	"id": "06af1f95-772c-457d-9287-489cf1b0286d",
+	"name": "Peak-Discharge Battery Pack, Power Clip",
+	"avail": "14F",
+	"rating": "0",
+	"ammoslots": "1",
+	"ammoreplace": "10",
+	"cost": "400",
+	"source": "RG",
+	"page": "52"
+}, {
+	"id": "dda0b64a-6fa5-4e61-8631-f662f7066756",
+	"name": "Peak-Discharge Battery Pack, Satchel Power Pack",
+	"rating": "0",
+	"ammoslots": "1",
+	"ammoreplace": "20",
+	"avail": "16F",
+	"cost": "900",
+	"source": "RG",
+	"page": "52"
+}, {
+	"id": "5a7459f5-2d95-4866-a855-110c0bc4f158",
+	"name": "Peak-Discharge Battery Pack, Power Backpack",
+	"avail": "20F",
+	"rating": "0",
+	"ammoslots": "1",
+	"ammoreplace": "30",
+	"cost": "2500",
+	"source": "RG",
+	"page": "52"
+}, {
+	"id": "51740a3d-4464-4a38-8e2e-8858b3c1481e",
+	"name": "Safe Target System, Base",
+	"mount": "Top/Under/Barrel/Side/Internal",
+	"avail": "6",
+	"rating": "0",
+	"cost": "750",
+	"source": "RG",
+	"page": "52"
+}, {
+	"id": "fbf1ac2e-b131-499c-809e-c2c93c5ec286",
+	"name": "Safe Target System, Additional set of RFID or GPS data (10 data sets)",
+	"rating": "0",
+	"avail": "6",
+	"cost": "25",
+	"source": "RG",
+	"page": "52"
+}, {
+	"id": "9147a5ee-fba6-4915-9123-709df5835998",
+	"name": "Safe Target System, Image Recognition Capabilities",
+	"avail": "8",
+	"rating": "0",
+	"cost": "300",
+	"source": "RG",
+	"page": "52"
+}, {
+	"id": "69e7431a-cf62-4712-8e71-728297385d20",
+	"name": "Safe Target System, Extra image profiles (10 profiles)",
+	"avail": "8",
+	"rating": "0",
+	"cost": "25",
+	"source": "RG",
+	"page": "52"
+}, {
+	"id": "de62b79f-2864-4023-a286-6c1f270aade3",
+	"name": "Slide Mount",
+	"mount": "Top/Under/Side",
+	"avail": "4",
+	"rating": "0",
+	"cost": "500",
+	"source": "RG",
+	"page": "52"
+}, {
+	"id": "a1865555-8ad5-43ec-a30e-b7d77e804fab",
+	"name": "Sling",
+	"avail": "0",
+	"cost": "15",
+	"source": "RG",
+	"rating": "0",
+	"page": "52"
+}, {
+	"id": "324ee965-d210-4768-a282-aa3180588fc7",
+	"name": "Tracker",
+	"avail": "4",
+	"rating": "0",
+	"cost": "150",
+	"source": "RG",
+	"page": "53"
+}, {
+	"id": "dd786d50-9f42-406e-82d6-359213c086cc",
+	"name": "Underbarrel Bola Launcher",
+	"mount": "Under",
+	"avail": "8R",
+	"rating": "0",
+	"cost": "350",
+	"source": "RG",
+	"page": "53"
+}, {
+	"id": "2ce42c74-5129-4b33-b829-aa392c8eb392",
+	"name": "Underbarrel Chainsaw",
+	"mount": "Under",
+	"avail": "10R",
+	"cost": "500",
+	"source": "RG",
+	"rating": "0",
+	"page": "53"
+}, {
+	"id": "c0191eaa-058c-437c-9e10-141785fc7bc8",
+	"name": "Underbarrel Flamethrower",
+	"mount": "Under",
+	"avail": "2",
+	"cost": "200",
+	"rating": "0",
+	"source": "RG",
+	"page": "53"
+}, {
+	"id": "b479bb05-3b39-4d1f-a4b2-65da27335f18",
+	"name": "Underbarrel Grapple Gun",
+	"mount": "Under",
+	"avail": "8R",
+	"rating": "0",
+	"cost": "600",
+	"source": "RG",
+	"page": "53"
+}, {
+	"id": "25691076-94be-4869-a067-34e7657285b7",
+	"name": "Underbarrel Grenade Launcher",
+	"mount": "Under",
+	"rating": "0",
+	"avail": "10F",
+	"cost": "3500",
+	"source": "RG",
+	"page": "53"
+}, {
+	"id": "9dc660bb-a0b2-4b14-8c43-f5893b174265",
+	"name": "Underbarrel Weight",
+	"mount": "Under",
+	"avail": "0",
+	"cost": "0",
+	"rating": "0",
+	"rc": "1",
+	"rcgroup": "1",
+	"source": "RG",
+	"page": "53"
+}, {
+	"id": "6c703f4e-fade-4045-9d88-ea636e1266f6",
+	"name": "Weapon Commlink",
+	"allowgear": {
+		"gearcategory": "Commlinks"
+	},
+	"avail": "0",
+	"cost": "200",
+	"rating": "0",
+	"source": "RG",
+	"page": "53"
+}, {
+	"id": "e09095d7-72b5-44ef-b52a-aa2de172da2f",
+	"name": "Weapon Personality",
+	"avail": "8",
+	"cost": "250",
+	"rating": "0",
+	"source": "RG",
+	"page": "53"
+}, {
+	"id": "4821b29d-55cd-4cb1-a6e2-c51e9d3a95a1",
+	"name": "Vintage",
+	"rating": "0",
+	"avail": "0",
+	"cost": "0",
+	"source": "GH3",
+	"page": "53"
+}, {
+	"id": "ca3f4cb7-6c0e-4736-8a7c-339d00f03567",
+	"name": "Cyberimplanted",
+	"rating": "0",
+	"avail": "+4",
+	"cost": "0",
+	"source": "CF",
+	"page": "90"
+}, {
+	"id": "0c315fd8-3a1a-4748-8359-cb6a04436fbd",
+	"name": "Ammo Skip",
+	"rating": "0",
+	"avail": "8R",
+	"cost": "250",
+	"source": "HT",
+	"page": "180"
+}, {
+	"id": "5157f235-47c7-4121-aebb-d76709c4b6f8",
+	"name": "Explosive Magazine",
+	"ammoslots": "1",
+	"rating": "0",
+	"avail": "2F",
+	"cost": "20",
+	"source": "HT",
+	"page": "180"
+}, {
+	"id": "d40d2fc6-3aad-4793-843d-20e3597b2365",
+	"name": "Extended Clip",
+	"ammoslots": "1",
+	"rating": "2",
+	"avail": "6R",
+	"cost": "35",
+	"conceal": "Rating",
+	"source": "HT",
+	"page": "180"
+}, {
+	"id": "5d819147-d262-48c2-bb0e-80e0049c67ed",
+	"name": "Ceramic/Plasteel Components",
+	"rating": "6",
+	"avail": "12 + Rating",
+	"cost": "Weapon Cost * Rating",
+	"source": "HT",
+	"page": "180"
+}, {
+	"id": "5cc39a55-3973-4368-81ee-c7a5c0432323",
+	"name": "Chameleon Coating (Pistol)",
+	"rating": "0",
+	"avail": "10R",
+	"cost": "1000",
+	"conceal": "-2",
+	"source": "HT",
+	"page": "180"
+}, {
+	"id": "98c9ed33-2636-40bb-a455-334e8fb8e65f",
+	"name": "Chameleon Coating (Rifle)",
+	"rating": "0",
+	"avail": "10R",
+	"cost": "1000",
+	"conceal": "-1",
+	"source": "HT",
+	"page": "180"
+}, {
+	"id": "4e54b271-2617-44b5-a70f-ab389890dda8",
+	"name": "Holographic Sight",
+	"mount": "Top",
+	"avail": "2",
+	"rating": "0",
+	"accuracy": "1",
+	"cost": "125",
+	"source": "HT",
+	"page": "181"
+}, {
+	"id": "d5abeadd-fba4-47f9-ac35-bfbb31ce34be",
+	"name": "Long Barrel",
+	"mount": "Barrel",
+	"avail": "8R",
+	"rating": "0",
+	"conceal": "+1",
+	"accuracy": "1",
+	"cost": "Weapon Cost",
+	"source": "HT",
+	"page": "181"
+}, {
+	"id": "806bfacc-095e-448d-a5b2-c271c569ae51",
+	"name": "Melee Hardening",
+	"avail": "6",
+	"rating": "0",
+	"cost": "500",
+	"source": "HT",
+	"page": "181"
+}, {
+	"id": "83902f51-5f87-444f-a3ff-a74ce865e1af",
+	"name": "Easy Breakdown (Unpowered)",
+	"avail": "8R",
+	"cost": "750",
+	"rating": "0",
+	"source": "HT",
+	"page": "180"
+}, {
+	"id": "f27402fa-2845-4314-a97d-2747b3263e0d",
+	"name": "Easy Breakdown (Powered)",
+	"rating": "0",
+	"avail": "10R",
+	"cost": "1250",
+	"source": "HT",
+	"page": "180"
+}, {
+	"id": "2da4f104-cf0c-4e0c-a001-4a6da4c2b46b",
+	"name": "Electronic Firing",
+	"rating": "0",
+	"avail": "10R",
+	"rc": "1",
+	"rcgroup": "1",
+	"cost": "1000",
+	"source": "HT",
+	"page": "180"
+}, {
+	"id": "a2e4fcc6-cc21-4fc8-bbdf-efb489e9c377",
+	"name": "Mounted Crossbow",
+	"mount": "Under",
+	"avail": "8R",
+	"cost": "1000",
+	"rating": "0",
+	"source": "HT",
+	"page": "182"
+}, {
+	"id": "b83d5f60-7be2-4991-a518-775f6ae49207",
+	"name": "Underbarrel Laser",
+	"mount": "Under",
+	"avail": "16F",
+	"cost": "22000",
+	"rating": "0",
+	"source": "HT",
+	"page": "182"
+}, {
+	"id": "13d90aa2-6a67-47e5-a211-89aabea5f837",
+	"name": "Underbarrel Shotgun",
+	"mount": "Under",
+	"rating": "0",
+	"avail": "5R",
+	"cost": "600",
+	"source": "HT",
+	"page": "182"
+}, {
+	"id": "b8c019cc-5772-43b0-8ba8-a08581bab406",
+	"name": "Overclocked",
+	"damage": "-2",
+	"damagetype": "P",
+	"avail": "6F",
+	"cost": "200",
+	"rating": "0",
+	"source": "HT",
+	"page": "182"
+}, {
+	"id": "b83bfd3a-8011-4a8e-8e76-033dbd6a79c1",
+	"name": "Retractable Bayonet",
+	"mount": "Under",
+	"avail": "6R",
+	"cost": "200",
+	"source": "HT",
+	"rating": "0",
+	"page": "182"
+}, {
+	"id": "d67f3194-61f3-4440-b02c-e5f173532b01",
+	"name": "Custom Look",
+	"avail": "2",
+	"cost": "300",
+	"rating": "0",
+	"source": "HT",
+	"page": "180"
+}, {
+	"id": "225d5411-953e-4537-9e97-40bced059bd3",
+	"name": "Sawed Off/Shortbarrel",
+	"mount": "Barrel",
+	"rating": "0",
+	"conceal": "-1",
+	"avail": "4R",
+	"cost": "20",
+	"source": "HT",
+	"page": "182"
+}, {
+	"id": "88d0e08b-1ac2-442e-8f2f-dfaeb9cda9ab",
+	"name": "Stock Removal",
+	"mount": "Stock",
+	"conceal": "-1",
+	"rating": "0",
+	"avail": "2",
+	"cost": "20",
+	"source": "HT",
+	"page": "182"
+}, {
+	"id": "f2eee4ed-d0cb-4163-84d9-91e537cd13d9",
+	"name": "Trigger Removal",
+	"rating": "0",
+	"accuracy": "1",
+	"avail": "2",
+	"cost": "50",
+	"source": "HT",
+	"page": "182"
+}, {
+	"id": "85b01b5c-c788-4b43-8190-9e0c18391436",
+	"name": "Personalized Grip",
+	"rating": "0",
+	"accuracy": "1",
+	"avail": "2",
+	"cost": "100",
+	"source": "HT",
+	"page": "182"
+}]

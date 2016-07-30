@@ -1,0 +1,7820 @@
+[{
+	"id": "e5ac06f4-3755-42a7-9da9-88de4b3b2ad8",
+	"name": "Ares Thunderstruck Gauss Rifle",
+	"category": "Assault Cannons",
+	"type": "Ranged",
+	"conceal": "6",
+	"accuracy": "7",
+	"reach": "0",
+	"damage": "15P",
+	"ap": "-8",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "10(c) + energy",
+	"avail": "24F",
+	"cost": "26000",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Laser Sight"
+		}, {
+			"name": "Shock Pad"
+		}]
+	},
+	"source": "RG",
+	"page": "45"
+}, {
+	"id": "944dfbc8-5972-44f7-810e-039d9f7d98b7",
+	"name": "Ares Vigorous Assault Cannon",
+	"category": "Assault Cannons",
+	"type": "Ranged",
+	"conceal": "6",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "16P",
+	"ap": "-6",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "12(c)",
+	"avail": "18F",
+	"cost": "24500",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"source": "RG",
+	"page": "46"
+}, {
+	"id": "4a4810ca-4d11-49ee-8705-0411edc4d523",
+	"name": "Krime Bomb",
+	"category": "Assault Cannons",
+	"type": "Ranged",
+	"conceal": "6",
+	"accuracy": "6",
+	"reach": "0",
+	"damage": "16P",
+	"ap": "-6",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "4(m)",
+	"avail": "20F",
+	"cost": "23000",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Laser Sight"
+		}, {
+			"name": "Slide Mount"
+		}]
+	},
+	"source": "GH3",
+	"page": "35"
+}, {
+	"id": "3320c670-23ae-4cce-9c2c-e59d2554ddd7",
+	"name": "Krime Cannon",
+	"category": "Assault Cannons",
+	"type": "Ranged",
+	"conceal": "6",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "16P",
+	"ap": "-6",
+	"mode": "SA",
+	"rc": "1",
+	"ammo": "6(m)",
+	"avail": "20F",
+	"cost": "21000",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"source": "SR5",
+	"page": "431"
+}, {
+	"id": "b59116dd-eeba-4091-ad87-a1216e7e52fe",
+	"name": "Ogre Hammer SWS Assault Cannon",
+	"category": "Assault Cannons",
+	"type": "Ranged",
+	"conceal": "6",
+	"accuracy": "6",
+	"reach": "0",
+	"damage": "16P",
+	"ap": "-4",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "6(c)",
+	"avail": "20F",
+	"cost": "32000",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Advanced Safety System, Basic"
+		}, {
+			"name": "Weapon Commlink"
+		}, {
+			"name": "Imaging Scope"
+		}]
+	},
+	"source": "RG",
+	"page": "46"
+}, {
+	"id": "8b7cce7a-6e85-4e37-b953-9f79a0ae77fe",
+	"name": "Panther XXL",
+	"category": "Assault Cannons",
+	"type": "Ranged",
+	"conceal": "6",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "17P",
+	"ap": "-6",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "15(c)",
+	"avail": "20F",
+	"cost": "43000",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": {
+			"name": "Smartgun System, Internal"
+		}
+	},
+	"source": "SR5",
+	"page": "431"
+}, {
+	"id": "b625833a-88bc-4047-b3fc-bc432d96744b",
+	"name": "AK-97",
+	"category": "Assault Rifles",
+	"type": "Ranged",
+	"conceal": "6",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "10P",
+	"ap": "-2",
+	"mode": "SA/BF/FA",
+	"rc": "0",
+	"ammo": "38(c)",
+	"avail": "4R",
+	"cost": "950",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"source": "SR5",
+	"page": "428"
+}, {
+	"id": "1a5768a6-012a-4884-9bdd-4f3b32e86aa2",
+	"name": "AK-98",
+	"category": "Assault Rifles",
+	"type": "Ranged",
+	"conceal": "6",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "10P",
+	"ap": "-2",
+	"mode": "SA/BF/FA",
+	"rc": "0",
+	"ammo": "38(c)",
+	"avail": "8F",
+	"cost": "1250",
+	"underbarrel": "AK-98 Grenade Launcher",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"source": "RG",
+	"page": "36"
+}, {
+	"id": "3a7a90ce-fbb5-4599-a857-b9849eb9769c",
+	"name": "Ares Alpha",
+	"category": "Assault Rifles",
+	"type": "Ranged",
+	"conceal": "6",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "11P",
+	"ap": "-2",
+	"mode": "SA/BF/FA",
+	"rc": "2",
+	"ammo": "42(c)",
+	"avail": "11F",
+	"cost": "2650",
+	"underbarrel": "Ares Alpha Grenade Launcher",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": {
+			"name": "Smartgun System, Internal"
+		}
+	},
+	"source": "SR5",
+	"page": "428"
+}, {
+	"id": "413200d1-fbd4-485f-8a18-152b60cfb290",
+	"name": "Ares HVAR",
+	"category": "Assault Rifles",
+	"type": "Ranged",
+	"conceal": "6",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "8P",
+	"ap": "0",
+	"mode": "SA/BF/FA",
+	"rc": "3",
+	"ammo": "50(c)",
+	"avail": "11F",
+	"cost": "2400",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Shock Pad"
+		}, {
+			"name": "Smartgun System, Internal"
+		}]
+	},
+	"source": "RG",
+	"page": "37"
+}, {
+	"id": "6d99b7b6-7610-4ba0-833b-ecda09d83366",
+	"name": "Colt Inception",
+	"category": "Assault Rifles",
+	"type": "Ranged",
+	"conceal": "6",
+	"accuracy": "7",
+	"reach": "0",
+	"damage": "10P",
+	"ap": "-1",
+	"mode": "SA/BF",
+	"rc": "1",
+	"ammo": "36(c)",
+	"avail": "11R",
+	"cost": "2250",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Bipod"
+		}, {
+			"name": "Laser Sight"
+		}]
+	},
+	"source": "GH3",
+	"page": "14"
+}, {
+	"id": "e27e14ac-01bb-46e0-8d63-62994052d92c",
+	"name": "Colt M23",
+	"category": "Assault Rifles",
+	"type": "Ranged",
+	"conceal": "6",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "9P",
+	"ap": "-2",
+	"mode": "SA/BF/FA",
+	"rc": "0",
+	"ammo": "40(c)",
+	"avail": "4R",
+	"cost": "550",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"source": "SR5",
+	"page": "428"
+}, {
+	"id": "e39c445a-9657-4e71-949e-a1ea093c3504",
+	"name": "FN HAR",
+	"category": "Assault Rifles",
+	"type": "Ranged",
+	"conceal": "6",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "10P",
+	"ap": "-2",
+	"mode": "SA/BF/FA",
+	"rc": "0",
+	"ammo": "35(c)",
+	"avail": "8R",
+	"cost": "1500",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Laser Sight"
+		}, {
+			"name": "Gas-Vent 2 System"
+		}]
+	},
+	"source": "SR5",
+	"page": "428"
+}, {
+	"id": "5f512bfb-c620-491a-bef4-d7c1b1601035",
+	"name": "HK XM30",
+	"category": "Assault Rifles",
+	"type": "Ranged",
+	"conceal": "6",
+	"accuracy": "6",
+	"reach": "0",
+	"damage": "9P",
+	"ap": "-2",
+	"mode": "SA/BF/FA",
+	"rc": "0",
+	"ammo": "30(c)",
+	"avail": "15F",
+	"cost": "4500",
+	"underbarrel": "HK XM30 Grenade Launcher",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Shock Pad"
+		}, {
+			"name": "Imaging Scope"
+		}, {
+			"name": "Smartgun System, Internal"
+		}]
+	},
+	"source": "RG",
+	"page": "37"
+}, {
+	"id": "cc446f64-1dbd-42dd-8fc4-ca17dc6bcf42",
+	"name": "HK XM30 Carbine",
+	"category": "Assault Rifles",
+	"type": "Ranged",
+	"spec": "Submachine Guns",
+	"conceal": "6",
+	"accuracy": "6",
+	"reach": "0",
+	"damage": "9P",
+	"ap": "-2",
+	"mode": "SA/BF/FA",
+	"rc": "0",
+	"ammo": "30(c)",
+	"avail": "0",
+	"cost": "0",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Shock Pad"
+		}, {
+			"name": "Imaging Scope"
+		}, {
+			"name": "Smartgun System, Internal"
+		}]
+	},
+	"range": "Submachine Guns",
+	"useskill": "Automatics",
+	"source": "RG",
+	"page": "37"
+}, {
+	"id": "1bdda305-3448-4419-871d-42bcd971751b",
+	"name": "HK XM30 LMG",
+	"category": "Assault Rifles",
+	"type": "Ranged",
+	"spec": "Machine Guns",
+	"conceal": "6",
+	"accuracy": "6",
+	"reach": "0",
+	"damage": "9P",
+	"ap": "-2",
+	"mode": "BF/FA",
+	"rc": "2",
+	"ammo": "100(belt)",
+	"avail": "0",
+	"cost": "0",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Shock Pad"
+		}, {
+			"name": "Imaging Scope"
+		}, {
+			"name": "Smartgun System, Internal"
+		}]
+	},
+	"range": "Light Machine Guns",
+	"useskill": "Heavy Weapons",
+	"source": "RG",
+	"page": "37"
+}, {
+	"id": "146d58e4-d705-41a0-bd92-c1901b71ffc0",
+	"name": "HK XM30 Shotgun",
+	"category": "Assault Rifles",
+	"type": "Ranged",
+	"spec": "Shotguns",
+	"conceal": "6",
+	"accuracy": "3",
+	"reach": "0",
+	"damage": "10P",
+	"ap": "-1",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "10(c)",
+	"avail": "0",
+	"cost": "0",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Shock Pad"
+		}, {
+			"name": "Imaging Scope"
+		}, {
+			"name": "Smartgun System, Internal"
+		}]
+	},
+	"range": "Shotguns (flechette)",
+	"useskill": "Longarms",
+	"source": "RG",
+	"page": "37"
+}, {
+	"id": "5d366d23-c0cd-4613-a035-f5a5378dcfa9",
+	"name": "HK XM30 Sniper",
+	"category": "Assault Rifles",
+	"spec": "Sniper Rifles",
+	"type": "Ranged",
+	"conceal": "6",
+	"accuracy": "7",
+	"reach": "0",
+	"damage": "9P",
+	"ap": "-2",
+	"mode": "SA",
+	"rc": "2",
+	"ammo": "10(c)",
+	"avail": "0",
+	"cost": "0",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Shock Pad"
+		}, {
+			"name": "Imaging Scope"
+		}, {
+			"name": "Smartgun System, Internal"
+		}]
+	},
+	"range": "Sniper Rifles",
+	"useskill": "Longarms",
+	"source": "RG",
+	"page": "37"
+}, {
+	"id": "2abf6c76-fe19-4678-b6a3-f0b8750ee61c",
+	"name": "Krupp Arms Kriegfaust",
+	"category": "Assault Rifles",
+	"type": "Ranged",
+	"conceal": "6",
+	"accuracy": "8",
+	"reach": "0",
+	"damage": "9P",
+	"ap": "-1",
+	"mode": "SA/BF",
+	"rc": "1",
+	"ammo": "25(d)",
+	"avail": "10R",
+	"cost": "1300",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": {
+			"name": "Imaging Scope"
+		}
+	},
+	"source": "GH3",
+	"page": "15"
+}, {
+	"id": "fd7f400f-c8d5-4e8c-94aa-001109635f19",
+	"name": "Nissan Optimum II",
+	"category": "Assault Rifles",
+	"type": "Ranged",
+	"conceal": "6",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "9P",
+	"ap": "-2",
+	"mode": "SA/BF/FA",
+	"rc": "1",
+	"ammo": "30(c)",
+	"avail": "10F",
+	"cost": "2300",
+	"underbarrel": "Nissan Optiumum II Shotgun",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Shock Pad"
+		}, {
+			"name": "Smartgun System, Internal"
+		}]
+	},
+	"source": "RG",
+	"page": "38"
+}, {
+	"id": "89396ad6-c605-4577-ad5b-6a18cf58d167",
+	"name": "SBd-44",
+	"category": "Assault Rifles",
+	"type": "Ranged",
+	"conceal": "6",
+	"accuracy": "3",
+	"reach": "0",
+	"damage": "10P",
+	"ap": "-1",
+	"mode": "SA/BF/FA",
+	"rc": "0",
+	"ammo": "32(c)",
+	"avail": "4R",
+	"cost": "500",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": {
+			"name": "Vintage"
+		}
+	},
+	"source": "GH3",
+	"page": "16"
+}, {
+	"id": "23141cfc-e7c9-4af9-b4e0-a7f0443f1170",
+	"name": "Shiawase Arms Monsoon",
+	"category": "Assault Rifles",
+	"type": "Ranged",
+	"conceal": "6",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "10P",
+	"ap": "-1",
+	"mode": "SA/FA",
+	"rc": "1",
+	"ammo": "6x20(ml)",
+	"avail": "10F",
+	"cost": "1900",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": {
+			"name": "Smartgun System, Internal"
+		}
+	},
+	"source": "GH3",
+	"page": "13"
+}, {
+	"id": "40bf3eed-b239-4521-ac1d-80a4e472451e",
+	"name": "Ultimax Rain Forest Carbine",
+	"category": "Assault Rifles",
+	"type": "Ranged",
+	"conceal": "6",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "11P",
+	"ap": "-2",
+	"mode": "SA/BF",
+	"rc": "0",
+	"ammo": "18(c)",
+	"avail": "8R",
+	"cost": "2800",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Imaging Scope"
+		}, {
+			"name": "Folding Stock"
+		}]
+	},
+	"source": "GH3",
+	"page": "32"
+}, {
+	"id": "01e0eee7-452b-4fd5-abe1-29145da4a5e6",
+	"name": "Yamaha Raiden",
+	"category": "Assault Rifles",
+	"type": "Ranged",
+	"conceal": "6",
+	"accuracy": "6",
+	"reach": "0",
+	"damage": "11P",
+	"ap": "-2",
+	"mode": "BF/FA",
+	"rc": "1",
+	"ammo": "60(c)",
+	"avail": "14F",
+	"cost": "2600",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Sound Suppressor"
+		}, {
+			"name": "Smartgun System, Internal"
+		}]
+	},
+	"source": "SR5",
+	"page": "428"
+}, {
+	"id": "ad4a06e3-7f8e-4f05-a42e-5be2c875bb72",
+	"name": "Ares 'One' Monosword",
+	"category": "Blades",
+	"type": "Melee",
+	"spec": "Swords",
+	"conceal": "6",
+	"accuracy": "5",
+	"reach": "1",
+	"damage": "(STR+3)P",
+	"ap": "-3",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "8R",
+	"cost": "900",
+	"allowaccessory": "true",
+	"source": "RG",
+	"page": "19"
+}, {
+	"id": "7c59cf2f-87ea-4dca-95e7-ad17008386a0",
+	"name": "Combat Axe",
+	"category": "Blades",
+	"type": "Melee",
+	"spec": "Axes",
+	"conceal": "10",
+	"accuracy": "4",
+	"reach": "2",
+	"damage": "(STR+5)P",
+	"ap": "-4",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "12R",
+	"cost": "4000",
+	"allowaccessory": "true",
+	"source": "SR5",
+	"page": "422"
+}, {
+	"id": "656906d8-b6a4-47a2-9554-de365097eba0",
+	"name": "Combat Knife",
+	"category": "Blades",
+	"type": "Melee",
+	"spec": "Knives",
+	"conceal": "-2",
+	"accuracy": "6",
+	"reach": "0",
+	"damage": "(STR+2)P",
+	"ap": "-3",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "4",
+	"cost": "300",
+	"allowaccessory": "true",
+	"source": "SR5",
+	"page": "422"
+}, {
+	"id": "78bcb170-2292-4f90-af26-dd16ff303569",
+	"name": "Cougar Fineblade: Long",
+	"category": "Blades",
+	"type": "Melee",
+	"spec": "Swords",
+	"conceal": "2",
+	"accuracy": "7",
+	"reach": "0",
+	"damage": "(STR+3)P",
+	"ap": "-1",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "7R",
+	"cost": "600",
+	"allowaccessory": "true",
+	"source": "RG",
+	"page": "20"
+}, {
+	"id": "bb068078-540d-4c98-85fd-e526e381dec9",
+	"name": "Cougar Fineblade: Short",
+	"category": "Blades",
+	"type": "Melee",
+	"spec": "Swords",
+	"conceal": "0",
+	"accuracy": "7",
+	"reach": "0",
+	"damage": "(STR+2)P",
+	"ap": "-1",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "5R",
+	"cost": "350",
+	"allowaccessory": "true",
+	"source": "RG",
+	"page": "20"
+}, {
+	"id": "4ca64aa3-f172-4f0b-8c6d-954ddd1133b1",
+	"name": "Forearm Snap-Blades",
+	"category": "Blades",
+	"type": "Melee",
+	"conceal": "-2",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "(STR+2)P",
+	"ap": "-2",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "7R",
+	"cost": "200",
+	"allowaccessory": "true",
+	"source": "SR5",
+	"page": "422"
+}, {
+	"id": "5ec246dc-c129-4e61-a27a-c4d82b223bea",
+	"name": "Hand Blade",
+	"category": "Blades",
+	"type": "Melee",
+	"spec": "Cyber Implants",
+	"conceal": "-2",
+	"accuracy": "Physical",
+	"reach": "0",
+	"damage": "(STR+2)P",
+	"ap": "-2",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "0",
+	"cost": "0",
+	"cyberware": "yes",
+	"allowaccessory": "true",
+	"useskill": "Unarmed Combat",
+	"source": "SR5",
+	"page": "458"
+}, {
+	"id": "16fe95d3-9c66-4ac6-b4e3-562de5e5619e",
+	"name": "Hand Razors",
+	"category": "Blades",
+	"type": "Melee",
+	"spec": "Cyber Implants",
+	"conceal": "-2",
+	"accuracy": "Physical",
+	"reach": "0",
+	"damage": "(STR+1)P",
+	"ap": "-3",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "0",
+	"cost": "0",
+	"cyberware": "yes",
+	"allowaccessory": "true",
+	"useskill": "Unarmed Combat",
+	"source": "SR5",
+	"page": "458"
+}, {
+	"id": "cae4ffe9-cf22-4917-92b1-57be89741f07",
+	"name": "Highland Forge Claymore",
+	"category": "Blades",
+	"type": "Melee",
+	"spec": "Swords",
+	"conceal": "10",
+	"accuracy": "5",
+	"reach": "2",
+	"damage": "(STR+5)P",
+	"ap": "-5",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "14R",
+	"cost": "4500",
+	"allowaccessory": "true",
+	"source": "RG",
+	"page": "18"
+}, {
+	"id": "2ac6ad2e-1252-4204-943e-7b65ffbe803f",
+	"name": "Horizon-Flynn Rapier",
+	"category": "Blades",
+	"type": "Melee",
+	"spec": "Swords",
+	"conceal": "4",
+	"accuracy": "7",
+	"reach": "1",
+	"damage": "(STR+2)P",
+	"ap": "-3",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "9R",
+	"cost": "500",
+	"allowaccessory": "true",
+	"source": "RG",
+	"page": "18"
+}, {
+	"id": "8f266b4c-4035-4ba3-aa89-3289d0f42ce1",
+	"name": "Katana",
+	"category": "Blades",
+	"type": "Melee",
+	"spec": "Swords",
+	"conceal": "6",
+	"accuracy": "7",
+	"reach": "1",
+	"damage": "(STR+3)P",
+	"ap": "-3",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "9R",
+	"cost": "1000",
+	"allowaccessory": "true",
+	"source": "SR5",
+	"page": "422"
+}, {
+	"id": "eb16de72-e646-4880-aa5b-21a5a0a2b342",
+	"name": "Knife",
+	"category": "Blades",
+	"type": "Melee",
+	"spec": "Knives",
+	"conceal": "-2",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "(STR+1)P",
+	"ap": "-1",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "0",
+	"cost": "10",
+	"allowaccessory": "true",
+	"source": "SR5",
+	"page": "422"
+}, {
+	"id": "60f52b1f-6376-49fc-a746-b811c54197e7",
+	"name": "Pole Arm",
+	"category": "Blades",
+	"type": "Melee",
+	"conceal": "10",
+	"accuracy": "5",
+	"reach": "3",
+	"damage": "(STR+3)P",
+	"ap": "-2",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "6R",
+	"cost": "1000",
+	"allowaccessory": "true",
+	"source": "SR5",
+	"page": "422"
+}, {
+	"id": "fe835c72-a973-4976-bf5f-751aff1371d4",
+	"name": "Spurs",
+	"category": "Blades",
+	"type": "Melee",
+	"spec": "Cyber Implants",
+	"conceal": "0",
+	"accuracy": "Physical",
+	"reach": "0",
+	"damage": "(STR+3)P",
+	"ap": "-2",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "0",
+	"cost": "0",
+	"cyberware": "yes",
+	"allowaccessory": "true",
+	"useskill": "Unarmed Combat",
+	"source": "SR5",
+	"page": "458"
+}, {
+	"id": "e5e5e025-8622-406c-a2bb-030ad5392d79",
+	"name": "Survival Knife",
+	"category": "Blades",
+	"type": "Melee",
+	"spec": "Knives",
+	"conceal": "-2",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "(STR+2)P",
+	"ap": "-1",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "0",
+	"cost": "100",
+	"allowaccessory": "true",
+	"source": "SR5",
+	"page": "422"
+}, {
+	"id": "95fd2fb9-f174-4f03-add9-80e1d947bd5b",
+	"name": "Sword",
+	"category": "Blades",
+	"type": "Melee",
+	"spec": "Swords",
+	"conceal": "4",
+	"accuracy": "6",
+	"reach": "1",
+	"damage": "(STR+3)P",
+	"ap": "-2",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "5R",
+	"cost": "500",
+	"allowaccessory": "true",
+	"source": "SR5",
+	"page": "422"
+}, {
+	"id": "dd817517-aa02-4035-9a3c-c0274f705822",
+	"name": "Victorinox Memory Blade: Dagger",
+	"category": "Blades",
+	"type": "Melee",
+	"spec": "Swords",
+	"conceal": "-2",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "(STR+1)P",
+	"ap": "-2",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "14R",
+	"cost": "1250",
+	"allowaccessory": "true",
+	"source": "RG",
+	"page": "19"
+}, {
+	"id": "47cb2812-b8dd-4f6d-8671-0f2736f29124",
+	"name": "Victorinox Memory Blade: Sword",
+	"category": "Blades",
+	"type": "Melee",
+	"spec": "Swords",
+	"conceal": "4",
+	"accuracy": "5",
+	"reach": "1",
+	"damage": "(STR+2)P",
+	"ap": "-2",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "14R",
+	"cost": "1500",
+	"allowaccessory": "true",
+	"source": "RG",
+	"page": "19"
+}, {
+	"id": "2d4e1dae-eedd-426c-84c2-2aba387d98d0",
+	"name": "Bow (Rating 1)",
+	"category": "Bows",
+	"spec": "Bow",
+	"type": "Ranged",
+	"conceal": "8",
+	"accuracy": "6",
+	"reach": "0",
+	"damage": "3P",
+	"ap": "-",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "1",
+	"avail": "1",
+	"cost": "100",
+	"allowaccessory": "true",
+	"useskill": "Archery",
+	"source": "SR5",
+	"page": "423"
+}, {
+	"id": "01c3880f-d0a7-4cd5-8460-ba69fc36ae63",
+	"name": "Bow (Rating 10)",
+	"category": "Bows",
+	"spec": "Bow",
+	"type": "Ranged",
+	"conceal": "8",
+	"accuracy": "6",
+	"reach": "0",
+	"damage": "12P",
+	"ap": "-2",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "1",
+	"avail": "10",
+	"cost": "1000",
+	"allowaccessory": "true",
+	"useskill": "Archery",
+	"source": "SR5",
+	"page": "423"
+}, {
+	"id": "ad373842-3031-4ecf-a985-d27f67f096d6",
+	"name": "Bow (Rating 2)",
+	"category": "Bows",
+	"spec": "Bow",
+	"type": "Ranged",
+	"conceal": "8",
+	"accuracy": "6",
+	"reach": "0",
+	"damage": "4P",
+	"ap": "-",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "1",
+	"avail": "2",
+	"cost": "200",
+	"allowaccessory": "true",
+	"useskill": "Archery",
+	"source": "SR5",
+	"page": "423"
+}, {
+	"id": "9c17f382-b1c9-45e1-abe6-9644d477d258",
+	"name": "Bow (Rating 3)",
+	"category": "Bows",
+	"spec": "Bow",
+	"type": "Ranged",
+	"conceal": "8",
+	"accuracy": "6",
+	"reach": "0",
+	"damage": "5P",
+	"ap": "-",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "1",
+	"avail": "3",
+	"cost": "300",
+	"allowaccessory": "true",
+	"useskill": "Archery",
+	"source": "SR5",
+	"page": "423"
+}, {
+	"id": "b6bf94d9-3513-409f-b5aa-29f415fe9fd7",
+	"name": "Bow (Rating 4)",
+	"category": "Bows",
+	"spec": "Bow",
+	"type": "Ranged",
+	"conceal": "8",
+	"accuracy": "6",
+	"reach": "0",
+	"damage": "6P",
+	"ap": "-1",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "1",
+	"avail": "4",
+	"cost": "400",
+	"allowaccessory": "true",
+	"useskill": "Archery",
+	"source": "SR5",
+	"page": "423"
+}, {
+	"id": "47d48423-4042-416d-a9e8-f9b69b2dfa4f",
+	"name": "Bow (Rating 5)",
+	"category": "Bows",
+	"spec": "Bow",
+	"type": "Ranged",
+	"conceal": "8",
+	"accuracy": "6",
+	"reach": "0",
+	"damage": "7P",
+	"ap": "-1",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "1",
+	"avail": "5",
+	"cost": "500",
+	"allowaccessory": "true",
+	"useskill": "Archery",
+	"source": "SR5",
+	"page": "423"
+}, {
+	"id": "48e0644a-9cdb-4dc6-8cca-c5ef08433177",
+	"name": "Bow (Rating 6)",
+	"category": "Bows",
+	"spec": "Bow",
+	"type": "Ranged",
+	"conceal": "8",
+	"accuracy": "6",
+	"reach": "0",
+	"damage": "8P",
+	"ap": "-1",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "1",
+	"avail": "6",
+	"cost": "600",
+	"allowaccessory": "true",
+	"useskill": "Archery",
+	"source": "SR5",
+	"page": "423"
+}, {
+	"id": "a2445838-ebba-46f7-95a6-ed7e02f8373f",
+	"name": "Bow (Rating 7)",
+	"category": "Bows",
+	"spec": "Bow",
+	"type": "Ranged",
+	"conceal": "8",
+	"accuracy": "6",
+	"reach": "0",
+	"damage": "9P",
+	"ap": "-1",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "1",
+	"avail": "7",
+	"cost": "700",
+	"allowaccessory": "true",
+	"useskill": "Archery",
+	"source": "SR5",
+	"page": "423"
+}, {
+	"id": "c28934c2-b82c-4a81-9964-999dc2a66ddd",
+	"name": "Bow (Rating 8)",
+	"category": "Bows",
+	"spec": "Bow",
+	"type": "Ranged",
+	"conceal": "8",
+	"accuracy": "6",
+	"reach": "0",
+	"damage": "10P",
+	"ap": "-2",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "1",
+	"avail": "8",
+	"cost": "800",
+	"allowaccessory": "true",
+	"useskill": "Archery",
+	"source": "SR5",
+	"page": "423"
+}, {
+	"id": "82953b59-7e08-4abb-afe7-7b568d9a07d1",
+	"name": "Bow (Rating 9)",
+	"category": "Bows",
+	"spec": "Bow",
+	"type": "Ranged",
+	"conceal": "8",
+	"accuracy": "6",
+	"reach": "0",
+	"damage": "11P",
+	"ap": "-2",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "1",
+	"avail": "9",
+	"cost": "900",
+	"allowaccessory": "true",
+	"useskill": "Archery",
+	"source": "SR5",
+	"page": "423"
+}, {
+	"id": "5af85697-7d67-4bf7-b539-dbd4e63a34d1",
+	"name": "Club",
+	"category": "Clubs",
+	"type": "Melee",
+	"conceal": "0",
+	"accuracy": "4",
+	"reach": "1",
+	"damage": "(STR+3)P",
+	"ap": "-",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "0",
+	"cost": "30",
+	"allowaccessory": "true",
+	"source": "SR5",
+	"page": "422"
+}, {
+	"id": "2eccd04e-e85c-402e-8c3a-80686e9ec217",
+	"name": "Extendable Baton",
+	"category": "Clubs",
+	"type": "Melee",
+	"spec": "Batons",
+	"conceal": "0",
+	"accuracy": "5",
+	"reach": "1",
+	"damage": "(STR+2)P",
+	"ap": "-",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "4",
+	"cost": "100",
+	"allowaccessory": "true",
+	"source": "SR5",
+	"page": "422"
+}, {
+	"id": "94c29c4b-e4f4-493f-9155-447608e00874",
+	"name": "Nemesis Arms Maul Stun Staff",
+	"category": "Clubs",
+	"type": "Melee",
+	"conceal": "10",
+	"accuracy": "6",
+	"reach": "2",
+	"damage": "9S(e)",
+	"ap": "-5",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "8R",
+	"cost": "1000",
+	"allowaccessory": "true",
+	"source": "RG",
+	"page": "20"
+}, {
+	"id": "e6d9f23b-f4a4-4ba8-86ea-b3811f87fc82",
+	"name": "Sap",
+	"category": "Clubs",
+	"type": "Melee",
+	"spec": "Saps",
+	"conceal": "0",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "(STR+2)P",
+	"ap": "-",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "2",
+	"cost": "30",
+	"allowaccessory": "true",
+	"source": "SR5",
+	"page": "422"
+}, {
+	"id": "73c71350-fafe-4f9e-af22-198727241a4d",
+	"name": "Staff",
+	"category": "Clubs",
+	"type": "Melee",
+	"spec": "Staves",
+	"conceal": "10",
+	"accuracy": "6",
+	"reach": "2",
+	"damage": "(STR+3)P",
+	"ap": "-",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "3",
+	"cost": "100",
+	"allowaccessory": "true",
+	"source": "SR5",
+	"page": "422"
+}, {
+	"id": "c0011883-a35b-4d32-94fd-dbb21e25882f",
+	"name": "Stun Baton",
+	"category": "Clubs",
+	"type": "Melee",
+	"spec": "Batons",
+	"conceal": "2",
+	"accuracy": "4",
+	"reach": "1",
+	"damage": "9S(e)",
+	"ap": "-5",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "10",
+	"requireammo": "false",
+	"avail": "6R",
+	"cost": "750",
+	"allowaccessory": "true",
+	"source": "SR5",
+	"page": "422"
+}, {
+	"id": "b4b3a872-1532-4477-9bf3-76db34dc7bbf",
+	"name": "Telescoping Staff",
+	"category": "Clubs",
+	"type": "Melee",
+	"spec": "Staves",
+	"conceal": "0",
+	"accuracy": "4",
+	"reach": "2",
+	"damage": "(STR+2)P",
+	"ap": "-",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "4",
+	"cost": "350",
+	"allowaccessory": "true",
+	"source": "SR5",
+	"page": "422"
+}, {
+	"id": "a20f44a1-ced0-4018-9522-8a0e7234c29d",
+	"name": "Aquadyne Shark-XS Harpoon Gun",
+	"category": "Crossbows",
+	"type": "Ranged",
+	"conceal": "6",
+	"accuracy": "5",
+	"reach": "1",
+	"damage": "9P",
+	"ap": "-2",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "5(m)",
+	"avail": "8R",
+	"cost": "800",
+	"allowaccessory": "true",
+	"range": "Light Crossbows",
+	"source": "RG",
+	"page": "22"
+}, {
+	"id": "437c30e5-580a-401a-8097-e9fab0dc2b57",
+	"name": "Ares Giantslayer Slingshot",
+	"category": "Crossbows",
+	"type": "Ranged",
+	"conceal": "6",
+	"accuracy": "7",
+	"reach": "1",
+	"damage": "2P",
+	"ap": "0",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "5(m)",
+	"avail": "0",
+	"cost": "50",
+	"allowaccessory": "true",
+	"range": "Shuriken",
+	"source": "RG",
+	"page": "23"
+}, {
+	"id": "db213a06-0430-4711-81a3-5790d5152ba3",
+	"name": "Heavy Crossbow",
+	"category": "Crossbows",
+	"type": "Ranged",
+	"conceal": "6",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "10P",
+	"ap": "-3",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "4",
+	"avail": "8R",
+	"cost": "1000",
+	"allowaccessory": "true",
+	"range": "Heavy Crossbows",
+	"source": "SR5",
+	"page": "424"
+}, {
+	"id": "bc9db3ec-6fa2-407d-ad76-e49daac3c06f",
+	"name": "Light Crossbow",
+	"category": "Crossbows",
+	"type": "Ranged",
+	"conceal": "2",
+	"accuracy": "7",
+	"reach": "0",
+	"damage": "5P",
+	"ap": "-1",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "4",
+	"avail": "2",
+	"cost": "300",
+	"allowaccessory": "true",
+	"range": "Light Crossbows",
+	"source": "SR5",
+	"page": "424"
+}, {
+	"id": "0df17331-7631-4f78-b857-0f3929678db2",
+	"name": "Medium Crossbow",
+	"category": "Crossbows",
+	"type": "Ranged",
+	"conceal": "4",
+	"accuracy": "6",
+	"reach": "0",
+	"damage": "7P",
+	"ap": "-2",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "4",
+	"avail": "4R",
+	"cost": "500",
+	"allowaccessory": "true",
+	"range": "Medium Crossbows",
+	"source": "SR5",
+	"page": "424"
+}, {
+	"id": "28072a3f-5153-444e-83e3-46129b9ff572",
+	"name": "Ranger Silver Pistol Crossbow",
+	"category": "Crossbows",
+	"type": "Ranged",
+	"conceal": "-4",
+	"accuracy": "7",
+	"reach": "1",
+	"damage": "4P",
+	"ap": "0",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "5(m)",
+	"avail": "6R",
+	"cost": "300",
+	"allowaccessory": "true",
+	"range": "Heavy Pistols",
+	"source": "RG",
+	"page": "23"
+}, {
+	"id": "d50f0212-490b-44ca-8365-09e62ea69697",
+	"name": "Standard Harpoon Gun",
+	"category": "Crossbows",
+	"type": "Ranged",
+	"conceal": "6",
+	"accuracy": "5",
+	"reach": "1",
+	"damage": "9P",
+	"ap": "-2",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "1",
+	"avail": "6R",
+	"cost": "200",
+	"allowaccessory": "true",
+	"range": "Light Crossbows",
+	"source": "RG",
+	"page": "22"
+}, {
+	"id": "a47e8191-869a-456e-b376-ed04ba7a59f0",
+	"name": "Ballistic Shield",
+	"category": "Exotic Melee Weapons",
+	"type": "Melee",
+	"spec": "Shields",
+	"conceal": "8",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "(STR+2)S",
+	"ap": "0",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "12R",
+	"cost": "1200",
+	"allowaccessory": "true",
+	"source": "SR5",
+	"page": "438"
+}, {
+	"id": "1752def7-cfed-44d8-a79f-bc95f32c4c13",
+	"name": "Battering Ram, Fluid-Motion",
+	"category": "Exotic Melee Weapons",
+	"type": "Melee",
+	"spec": "Battering Ram",
+	"conceal": "8",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "(STR+3)P",
+	"ap": "-1",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "10R",
+	"cost": "3500",
+	"allowaccessory": "true",
+	"source": "RG",
+	"page": "103"
+}, {
+	"id": "375930d0-6a29-480e-a6d8-46fe4eaf2a16",
+	"name": "Battering Ram, Pneumatic",
+	"category": "Exotic Melee Weapons",
+	"type": "Melee",
+	"spec": "Battering Ram",
+	"conceal": "8",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "16P",
+	"ap": "-4",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "18R",
+	"cost": "10000",
+	"allowaccessory": "true",
+	"source": "RG",
+	"page": "104"
+}, {
+	"id": "c0e77aad-3ecb-4136-b39d-00e9db6e6407",
+	"name": "Battering Ram, Shock",
+	"category": "Exotic Melee Weapons",
+	"type": "Melee",
+	"spec": "Battering Ram",
+	"conceal": "8",
+	"accuracy": "4",
+	"reach": "1",
+	"damage": "(STR+2)P + 12(e)",
+	"ap": "-3",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "10R",
+	"cost": "15000",
+	"allowaccessory": "true",
+	"source": "RG",
+	"page": "104"
+}, {
+	"id": "5ed720a1-bfa5-4670-85a2-5867f5caafbf",
+	"name": "Battering Ram, Standard",
+	"category": "Exotic Melee Weapons",
+	"type": "Melee",
+	"spec": "Battering Ram",
+	"conceal": "8",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "(STR+2)P",
+	"ap": "-1",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "10R",
+	"cost": "2000",
+	"allowaccessory": "true",
+	"source": "RG",
+	"page": "103"
+}, {
+	"id": "ebbdbe5e-17da-4a97-8a65-9839513c91fe",
+	"name": "Blast Shield",
+	"category": "Exotic Melee Weapons",
+	"type": "Melee",
+	"spec": "Shield",
+	"conceal": "8",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "20P",
+	"ap": "-4",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "8R",
+	"cost": "20000",
+	"allowaccessory": "true",
+	"source": "RG",
+	"page": "104"
+}, {
+	"id": "fb814f8e-7284-4ae8-b362-63958d6a1921",
+	"name": "Monofilament Chainsaw",
+	"category": "Exotic Melee Weapons",
+	"type": "Melee",
+	"spec": "Chainsaw",
+	"conceal": "8",
+	"accuracy": "3",
+	"reach": "1",
+	"damage": "8P",
+	"ap": "-6",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "8",
+	"cost": "500",
+	"allowaccessory": "true",
+	"source": "SR5",
+	"page": "448"
+}, {
+	"id": "e66ab7ea-3408-4a3b-9ab9-7bc26a8e8a6e",
+	"name": "Riot Shield",
+	"category": "Exotic Melee Weapons",
+	"type": "Melee",
+	"spec": "Shields",
+	"conceal": "8",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "9S(e)",
+	"ap": "0",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "10R",
+	"cost": "1500",
+	"allowaccessory": "true",
+	"source": "SR5",
+	"page": "438"
+}, {
+	"id": "c0f77a8a-6bda-489e-aea6-bd4d6b3efe33",
+	"name": "Ash Arms Combat Chainsaw",
+	"category": "Exotic Melee Weapons",
+	"type": "Melee",
+	"conceal": "8",
+	"accuracy": "5",
+	"reach": "1",
+	"damage": "8P",
+	"ap": "-4",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "6R",
+	"cost": "2000",
+	"allowaccessory": "true",
+	"source": "RG",
+	"page": "21"
+}, {
+	"id": "05313081-d711-4af0-9a11-ebfbcdd4583f",
+	"name": "Ash Arms Monofilament Chainsaw",
+	"category": "Exotic Melee Weapons",
+	"type": "Melee",
+	"conceal": "8",
+	"accuracy": "5",
+	"reach": "1",
+	"damage": "12P",
+	"ap": "-8",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "8R",
+	"cost": "7500",
+	"allowaccessory": "true",
+	"source": "RG",
+	"page": "21"
+}, {
+	"id": "e3f90df3-a19e-458a-a09f-01ee4cd04502",
+	"name": "Bullwhip",
+	"category": "Exotic Melee Weapons",
+	"type": "Melee",
+	"conceal": "2",
+	"accuracy": "6",
+	"reach": "2",
+	"damage": "(STR+1)P",
+	"ap": "+3",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "6",
+	"cost": "100",
+	"allowaccessory": "true",
+	"source": "RG",
+	"page": "20"
+}, {
+	"id": "e9e5f7a1-a17f-4331-843d-c257af2130aa",
+	"name": "Garrote",
+	"category": "Exotic Melee Weapons",
+	"type": "Melee",
+	"conceal": "-4",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "(STR+4)S",
+	"ap": "-6",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "0",
+	"cost": "50",
+	"allowaccessory": "true",
+	"source": "RG",
+	"page": "20"
+}, {
+	"id": "f2ac00fc-305c-4f2e-b48d-62f9daa528c7",
+	"name": "Monofilament Garrote",
+	"category": "Exotic Melee Weapons",
+	"type": "Melee",
+	"conceal": "-4",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "(STR+6)P",
+	"ap": "-8",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "18F",
+	"cost": "2000",
+	"allowaccessory": "true",
+	"source": "RG",
+	"page": "20"
+}, {
+	"id": "c3ea1ed4-b117-4ba7-99eb-7d7b4b130b55",
+	"name": "Monofilament Whip",
+	"category": "Exotic Melee Weapons",
+	"type": "Melee",
+	"conceal": "-4",
+	"accuracy": "5",
+	"reach": "2",
+	"damage": "12P",
+	"ap": "-8",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "12F",
+	"cost": "10000",
+	"allowaccessory": "true",
+	"source": "SR5",
+	"page": "423"
+}, {
+	"id": "9c267b03-103e-43f4-bfe8-986c69dc17d2",
+	"name": "Grapple Gun",
+	"category": "Exotic Ranged Weapons",
+	"type": "Ranged",
+	"spec": "Grapple Gun",
+	"conceal": "6",
+	"accuracy": "3",
+	"reach": "0",
+	"damage": "7S",
+	"ap": "-2",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "1(ml)",
+	"avail": "0",
+	"cost": "0",
+	"range": "Light Crossbows",
+	"allowaccessory": "true",
+	"source": "SR5",
+	"page": "449"
+}, {
+	"id": "87a94632-b229-44b7-a150-9808388cfa20",
+	"name": "Hold-Fast Sprayer",
+	"category": "Exotic Ranged Weapons",
+	"type": "Ranged",
+	"spec": "Sprayer",
+	"conceal": "6",
+	"accuracy": "2",
+	"reach": "0",
+	"damage": "Special",
+	"ap": "-2",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "10",
+	"avail": "0",
+	"cost": "0",
+	"range": "Tasers",
+	"allowaccessory": "true",
+	"source": "RG",
+	"page": "104"
+}, {
+	"id": "fac9d052-4f7d-43cd-a649-8703b4c0b9c2",
+	"name": "Micro Flare Launcher",
+	"category": "Exotic Ranged Weapons",
+	"type": "Ranged",
+	"spec": "Flare Launcher",
+	"conceal": "-2",
+	"accuracy": "3",
+	"reach": "0",
+	"damage": "5P(fire)",
+	"ap": "-5",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "1(ml)",
+	"avail": "0",
+	"cost": "0",
+	"allowaccessory": "true",
+	"range": "Tasers",
+	"source": "SR5",
+	"page": "449"
+}, {
+	"id": "dd4a69d9-6861-41de-9557-83617a3fa904",
+	"name": "Shiawase Arms Incinerator",
+	"category": "Flamethrowers",
+	"type": "Ranged",
+	"conceal": "2",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "12P",
+	"ap": "-6",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "6(c)",
+	"avail": "12F",
+	"cost": "10000",
+	"allowaccessory": "true",
+	"accessories": {
+		"accessory": {
+			"name": "Slide Mount"
+		}
+	},
+	"range": "Light Pistols",
+	"source": "GH3",
+	"page": "36"
+}, {
+	"id": "a9a07174-a498-4e91-95c9-b6604e03a02c",
+	"name": "Shiawase Blazer",
+	"category": "Flamethrowers",
+	"type": "Ranged",
+	"conceal": "6",
+	"accuracy": "6",
+	"reach": "0",
+	"damage": "10P",
+	"ap": "-6",
+	"mode": "SA/BF/FA",
+	"rc": "0",
+	"ammo": "4(c)",
+	"avail": "16F",
+	"cost": "2200",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Top",
+			"Under"
+		]
+	},
+	"range": "Tasers",
+	"source": "RG",
+	"page": "50"
+}, {
+	"id": "6a8221c2-f926-4148-9349-4c16664630ae",
+	"name": "Boomerang",
+	"category": "Gear",
+	"type": "Ranged",
+	"conceal": "-2",
+	"accuracy": "Physical-1",
+	"reach": "0",
+	"damage": "(STR+2)P",
+	"ap": "0",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "4",
+	"cost": "50",
+	"allowaccessory": "true",
+	"useskill": "Throwing Weapons",
+	"range": "Aerodynamic Grenade",
+	"source": "RG",
+	"page": "24"
+}, {
+	"id": "011493be-12eb-47ba-a445-f0c8cf139d4f",
+	"name": "Urban Tribe Tomahawk",
+	"category": "Gear",
+	"type": "Ranged",
+	"conceal": "-2",
+	"accuracy": "Physical+1",
+	"reach": "0",
+	"damage": "(STR+2)P",
+	"ap": "-1",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "4",
+	"cost": "200",
+	"allowaccessory": "true",
+	"useskill": "Throwing Weapons",
+	"range": "Aerodynamic Grenade",
+	"source": "RG",
+	"page": "25"
+}, {
+	"id": "9629810f-8db3-44a4-afc4-97eb5b391fb5",
+	"name": "Grenade: Flash-Bang",
+	"category": "Gear",
+	"type": "Ranged",
+	"conceal": "0",
+	"accuracy": "Physical",
+	"reach": "0",
+	"damage": "10S (10m Radius)",
+	"ap": "-4",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "6R",
+	"cost": "100",
+	"allowaccessory": "true",
+	"useskill": "Throwing Weapons",
+	"range": "Standard Grenade",
+	"source": "SR5",
+	"page": "435"
+}, {
+	"id": "fdee91ef-c382-49c4-87f6-b9166b9bd9fa",
+	"name": "Grenade: Flash-Pak",
+	"category": "Gear",
+	"type": "Ranged",
+	"conceal": "0",
+	"accuracy": "Physical",
+	"reach": "0",
+	"damage": "Special",
+	"ap": "-",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "4",
+	"cost": "125",
+	"allowaccessory": "true",
+	"useskill": "Throwing Weapons",
+	"range": "Standard Grenade",
+	"source": "SR5",
+	"page": "435"
+}, {
+	"id": "c674a254-d47b-4215-a12d-e6dd3f0910af",
+	"name": "Grenade: Fragmentation",
+	"category": "Gear",
+	"type": "Ranged",
+	"conceal": "0",
+	"accuracy": "Physical",
+	"reach": "0",
+	"damage": "18P(f) (-1/m)",
+	"ap": "+5",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "11F",
+	"cost": "100",
+	"allowaccessory": "true",
+	"useskill": "Throwing Weapons",
+	"range": "Standard Grenade",
+	"source": "SR5",
+	"page": "435"
+}, {
+	"id": "aecfccf7-d22e-4ead-abf9-e29f6dbf8550",
+	"name": "Grenade: Gas",
+	"category": "Gear",
+	"type": "Ranged",
+	"accuracy": "Physical",
+	"conceal": "0",
+	"reach": "0",
+	"damage": "Chemical (10m Radius)",
+	"ap": "-",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "4R",
+	"cost": "40",
+	"allowaccessory": "true",
+	"useskill": "Throwing Weapons",
+	"range": "Standard Grenade",
+	"source": "SR5",
+	"page": "435"
+}, {
+	"id": "cbe5694e-9da3-4aad-a0a0-036087dbab55",
+	"name": "Grenade: High Explosive",
+	"category": "Gear",
+	"type": "Ranged",
+	"conceal": "0",
+	"accuracy": "Physical",
+	"reach": "0",
+	"damage": "16P (-2/m)",
+	"ap": "-2",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "11F",
+	"cost": "100",
+	"allowaccessory": "true",
+	"useskill": "Throwing Weapons",
+	"range": "Standard Grenade",
+	"source": "SR5",
+	"page": "435"
+}, {
+	"id": "cbce4476-7c0b-448c-8e43-0d5c3293d25d",
+	"name": "Grenade: Paint",
+	"category": "Gear",
+	"type": "Ranged",
+	"conceal": "0",
+	"accuracy": "Physical",
+	"reach": "0",
+	"damage": "(10m Radius)",
+	"ap": "-",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "8R",
+	"cost": "100",
+	"allowaccessory": "true",
+	"useskill": "Throwing Weapons",
+	"range": "Standard Grenade",
+	"source": "RG",
+	"page": "102"
+}, {
+	"id": "bb4e9274-2cf0-4c73-a312-f1b51649d1bc",
+	"name": "Smokebomb",
+	"category": "Gear",
+	"type": "Ranged",
+	"conceal": "0",
+	"accuracy": "Physical",
+	"reach": "0",
+	"damage": "(3m Radius)",
+	"ap": "-",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "6",
+	"cost": "25",
+	"allowaccessory": "true",
+	"useskill": "Throwing Weapons",
+	"range": "Standard Grenade",
+	"source": "HT",
+	"page": "187"
+}, {
+	"id": "aab70ade-8586-4539-a184-99cb63e7bfab",
+	"name": "Grenade: Smoke",
+	"category": "Gear",
+	"type": "Ranged",
+	"conceal": "0",
+	"accuracy": "Physical",
+	"reach": "0",
+	"damage": "(10m Radius)",
+	"ap": "-",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "4R",
+	"cost": "40",
+	"allowaccessory": "true",
+	"useskill": "Throwing Weapons",
+	"range": "Standard Grenade",
+	"source": "SR5",
+	"page": "435"
+}, {
+	"id": "691ba610-d99a-4a86-a010-e21fa17e924c",
+	"name": "Grenade: Thermal Smoke",
+	"category": "Gear",
+	"type": "Ranged",
+	"conceal": "0",
+	"accuracy": "Physical",
+	"reach": "0",
+	"damage": "(10m Radius)",
+	"ap": "-",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "6R",
+	"cost": "60",
+	"allowaccessory": "true",
+	"useskill": "Throwing Weapons",
+	"range": "Standard Grenade",
+	"source": "SR5",
+	"page": "435"
+}, {
+	"id": "44eca724-0196-407c-820c-7631a6d4c981",
+	"name": "Harpoon",
+	"category": "Gear",
+	"type": "Ranged",
+	"conceal": "-2",
+	"accuracy": "Physical",
+	"reach": "0",
+	"damage": "(STR+3)P",
+	"ap": "-1",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "6",
+	"cost": "125",
+	"allowaccessory": "true",
+	"useskill": "Throwing Weapons",
+	"range": "Aerodynamic Grenade",
+	"source": "RG",
+	"page": "24"
+}, {
+	"id": "184e07a0-fff1-4102-961c-02c8f53ac335",
+	"name": "Javelin",
+	"category": "Gear",
+	"type": "Ranged",
+	"conceal": "-2",
+	"accuracy": "Physical",
+	"reach": "0",
+	"damage": "(STR+3)P",
+	"ap": "-1",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "6",
+	"cost": "125",
+	"allowaccessory": "true",
+	"useskill": "Throwing Weapons",
+	"range": "Aerodynamic Grenade",
+	"source": "RG",
+	"page": "24"
+}, {
+	"id": "a12169ea-a345-407f-96a3-32bf32449bf3",
+	"name": "Minigrenade: Flash-Bang",
+	"category": "Gear",
+	"type": "Ranged",
+	"accuracy": "0",
+	"conceal": "-2",
+	"reach": "0",
+	"damage": "10S (10m Radius)",
+	"ap": "-4",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "6R",
+	"cost": "100",
+	"allowaccessory": "true",
+	"useskill": "Heavy Weapons",
+	"spec": "Grenade Launcher",
+	"range": "Grenade Launcher",
+	"source": "SR5",
+	"page": "435"
+}, {
+	"id": "a4aa3021-b760-4531-96af-6dcc19b6018e",
+	"name": "Minigrenade: Flash-Pak",
+	"category": "Gear",
+	"type": "Ranged",
+	"accuracy": "0",
+	"conceal": "-2",
+	"reach": "0",
+	"damage": "Special",
+	"ap": "-",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "4",
+	"cost": "125",
+	"allowaccessory": "true",
+	"useskill": "Heavy Weapons",
+	"spec": "Grenade Launcher",
+	"range": "Grenade Launcher",
+	"source": "SR5",
+	"page": "435"
+}, {
+	"id": "dca59877-c9c9-4f53-81d2-9376c2b363cf",
+	"name": "Minigrenade: Fragmentation",
+	"category": "Gear",
+	"accuracy": "0",
+	"type": "Ranged",
+	"conceal": "-2",
+	"reach": "0",
+	"damage": "18P(f) (-1/m)",
+	"ap": "+5",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "11F",
+	"cost": "100",
+	"allowaccessory": "true",
+	"useskill": "Heavy Weapons",
+	"spec": "Grenade Launcher",
+	"range": "Grenade Launcher",
+	"source": "SR5",
+	"page": "435"
+}, {
+	"id": "e5ce47b1-f829-4ecf-ab68-471ab782bf7c",
+	"name": "Minigrenade: Gas",
+	"category": "Gear",
+	"type": "Ranged",
+	"conceal": "-2",
+	"accuracy": "0",
+	"reach": "0",
+	"damage": "Chemical (10m Radius)",
+	"ap": "-",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "4R",
+	"cost": "40",
+	"allowaccessory": "true",
+	"useskill": "Heavy Weapons",
+	"spec": "Grenade Launcher",
+	"range": "Grenade Launcher",
+	"source": "SR5",
+	"page": "435"
+}, {
+	"id": "d7c9b470-018c-4d49-b954-6fbe39e0499b",
+	"name": "Minigrenade: High Explosive",
+	"category": "Gear",
+	"type": "Ranged",
+	"conceal": "-2",
+	"accuracy": "0",
+	"reach": "0",
+	"damage": "16P (-2/m)",
+	"ap": "-2",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "11F",
+	"cost": "100",
+	"allowaccessory": "true",
+	"useskill": "Heavy Weapons",
+	"spec": "Grenade Launcher",
+	"range": "Grenade Launcher",
+	"source": "SR5",
+	"page": "435"
+}, {
+	"id": "38d67d7b-91b6-4b24-a936-d6ac49fdd6df",
+	"name": "Minigrenade: Smoke",
+	"category": "Gear",
+	"type": "Ranged",
+	"conceal": "-2",
+	"accuracy": "0",
+	"reach": "0",
+	"damage": "(10m Radius)",
+	"ap": "-",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "4R",
+	"cost": "40",
+	"allowaccessory": "true",
+	"useskill": "Heavy Weapons",
+	"spec": "Grenade Launcher",
+	"range": "Grenade Launcher",
+	"source": "SR5",
+	"page": "435"
+}, {
+	"id": "6247a897-218b-4488-bcd7-01c990703a9c",
+	"name": "Minigrenade: Thermal Smoke",
+	"category": "Gear",
+	"type": "Ranged",
+	"conceal": "-2",
+	"accuracy": "0",
+	"reach": "0",
+	"damage": "(10m Radius)",
+	"ap": "-",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "6R",
+	"cost": "60",
+	"allowaccessory": "true",
+	"useskill": "Heavy Weapons",
+	"spec": "Grenade Launcher",
+	"range": "Grenade Launcher",
+	"source": "SR5",
+	"page": "435"
+}, {
+	"id": "5f04a3bf-666e-4efd-a037-9cd053e6b1eb",
+	"name": "Missile: Anti-Vehicle",
+	"category": "Gear",
+	"type": "Ranged",
+	"accuracy": "0",
+	"conceal": "10",
+	"reach": "0",
+	"damage": "24P (-4/m)",
+	"ap": "-4/-10",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "18F",
+	"cost": "2800",
+	"allowaccessory": "true",
+	"source": "SR5",
+	"page": "436"
+}, {
+	"id": "046241b3-d009-4bed-b68b-89a3fcdbf99b",
+	"name": "Missile: Fragmentation",
+	"category": "Gear",
+	"type": "Ranged",
+	"conceal": "10",
+	"accuracy": "0",
+	"reach": "0",
+	"damage": "23P(f) (-1/m)",
+	"ap": "+5",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "12F",
+	"cost": "2000",
+	"allowaccessory": "true",
+	"source": "SR5",
+	"page": "436"
+}, {
+	"id": "034a4b54-02d3-4891-84fa-931f0124e260",
+	"name": "Missile: High Explosive",
+	"category": "Gear",
+	"type": "Ranged",
+	"accuracy": "0",
+	"conceal": "10",
+	"reach": "0",
+	"damage": "21P (-2/m)",
+	"ap": "-2",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "18F",
+	"cost": "2100",
+	"allowaccessory": "true",
+	"source": "SR5",
+	"page": "436"
+}, {
+	"id": "e360eb17-5cf2-40c7-a65a-92d37f7c9511",
+	"name": "Net",
+	"category": "Gear",
+	"type": "Ranged",
+	"conceal": "-2",
+	"accuracy": "Physical-2",
+	"reach": "0",
+	"damage": "0",
+	"ap": "0",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "6",
+	"cost": "350",
+	"allowaccessory": "true",
+	"useskill": "Exotic Ranged Weapon",
+	"range": "Thrown Knife",
+	"source": "RG",
+	"page": "24"
+}, {
+	"id": "469a2853-64ea-4701-8c63-dfa905f9c6fb",
+	"name": "Rocket: Anti-Vehicle",
+	"category": "Gear",
+	"type": "Ranged",
+	"accuracy": "0",
+	"conceal": "10",
+	"reach": "0",
+	"damage": "24P (-4/m)",
+	"ap": "-4/-10",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "18F",
+	"cost": "2800",
+	"allowaccessory": "true",
+	"source": "SR5",
+	"page": "436"
+}, {
+	"id": "5f60fc01-7411-4e55-9227-968391430d1f",
+	"name": "Rocket: Fragmentation",
+	"category": "Gear",
+	"type": "Ranged",
+	"conceal": "10",
+	"accuracy": "0",
+	"reach": "0",
+	"damage": "23P(f) (-1/m)",
+	"ap": "+5",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "12F",
+	"cost": "2000",
+	"allowaccessory": "true",
+	"source": "SR5",
+	"page": "436"
+}, {
+	"id": "0477cd16-a295-4ffa-b7ac-1f2c9471c5ed",
+	"name": "Rocket: High Explosive",
+	"category": "Gear",
+	"type": "Ranged",
+	"conceal": "10",
+	"accuracy": "0",
+	"reach": "0",
+	"damage": "21P (-2/m)",
+	"ap": "-2",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "18F",
+	"cost": "2100",
+	"allowaccessory": "true",
+	"source": "SR5",
+	"page": "436"
+}, {
+	"id": "e3b33b2b-3cd4-408d-b579-3a9d73d387f7",
+	"name": "Shuriken",
+	"category": "Gear",
+	"type": "Ranged",
+	"conceal": "-2",
+	"accuracy": "Physical",
+	"reach": "0",
+	"damage": "(STR+1)P",
+	"ap": "-1",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "4R",
+	"cost": "25",
+	"allowaccessory": "true",
+	"useskill": "Throwing Weapons",
+	"range": "Thrown Knife",
+	"source": "SR5",
+	"page": "424"
+}, {
+	"id": "AB91307F-B8D1-46E5-A3C1-9A0047F5B1EF",
+	"name": "Chakram",
+	"category": "Gear",
+	"type": "Ranged",
+	"conceal": "0",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "(STR)P",
+	"ap": "0",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "8R",
+	"cost": "750",
+	"allowaccessory": "true",
+	"useskill": "Throwing Weapons",
+	"range": "Thrown Knife",
+	"source": "RG",
+	"page": "20"
+}, {
+	"id": "f096953c-1418-4dd3-887b-71c6a4436583",
+	"name": "Throwing Knife",
+	"category": "Gear",
+	"type": "Ranged",
+	"conceal": "-2",
+	"accuracy": "Physical",
+	"reach": "0",
+	"damage": "(STR+1)P",
+	"ap": "-1",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "4R",
+	"cost": "25",
+	"allowaccessory": "true",
+	"useskill": "Throwing Weapons",
+	"range": "Thrown Knife",
+	"source": "SR5",
+	"page": "424"
+}, {
+	"id": "504cba24-2141-4879-8062-782332e83386",
+	"name": "Ares Antioch-2",
+	"category": "Grenade Launchers",
+	"type": "Ranged",
+	"conceal": "8",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "Grenade",
+	"ap": "-",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "8(m)",
+	"avail": "8F",
+	"cost": "3200",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": {
+			"name": "Smartgun System, Internal"
+		}
+	},
+	"source": "SR5",
+	"page": "430"
+}, {
+	"id": "5b98b55d-c87c-453a-ad87-9b34c8cbf04b",
+	"name": "ArmTech MGL-12",
+	"category": "Grenade Launchers",
+	"type": "Ranged",
+	"conceal": "8",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "Grenade",
+	"ap": "-",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "12(c)",
+	"avail": "10F",
+	"cost": "5000",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"source": "SR5",
+	"page": "431"
+}, {
+	"id": "5fe3a884-8213-4fe3-a538-750eba3bda27",
+	"name": "Cyber Microgrenade Launcher",
+	"category": "Grenade Launchers",
+	"type": "Ranged",
+	"conceal": "8",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "As Grenade",
+	"ap": "As Grenade",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "2(m)/6(c)",
+	"avail": "0",
+	"cost": "0",
+	"cyberware": "yes",
+	"allowaccessory": "true",
+	"accessories": {
+		"accessory": {
+			"name": "Smartgun System, Internal"
+		}
+	},
+	"source": "SR5",
+	"page": "458"
+}, {
+	"id": "bcaa065e-3a38-4c14-9839-a24d3aef2cc3",
+	"name": "RPK HMG",
+	"category": "Heavy Machine Guns",
+	"type": "Ranged",
+	"spec": "Machine Guns",
+	"conceal": "10",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "12P",
+	"ap": "-4",
+	"mode": "FA",
+	"rc": "0",
+	"ammo": "40(c) or belt",
+	"avail": "16F",
+	"cost": "16300",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": {
+			"name": "Tripod"
+		}
+	},
+	"range": "Medium/Heavy Machinegun",
+	"source": "SR5",
+	"page": "430"
+}, {
+	"id": "d13da888-212b-4eff-9d1d-7d02419250e9",
+	"name": "Ruhrmetall SF-20",
+	"category": "Heavy Machine Guns",
+	"type": "Ranged",
+	"spec": "Machine Guns",
+	"conceal": "10",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "12P",
+	"ap": "-4",
+	"mode": "FA",
+	"rc": "4",
+	"ammo": "50(c) or 100(belt)",
+	"avail": "18F",
+	"cost": "19600",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Hip Pad Bracing System"
+		}, {
+			"name": "Laser Sight"
+		}]
+	},
+	"range": "Medium/Heavy Machinegun",
+	"source": "RG",
+	"page": "44"
+}, {
+	"id": "c0857027-d3b2-4677-bc97-3f98bcc6f80f",
+	"name": "Ultamax HMG-2",
+	"category": "Heavy Machine Guns",
+	"type": "Ranged",
+	"spec": "Machine Guns",
+	"conceal": "10",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "11P",
+	"ap": "-4",
+	"mode": "FA",
+	"rc": "6",
+	"ammo": "50(c) or 100(belt)",
+	"avail": "16F",
+	"cost": "16000",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Tripod"
+		}, {
+			"name": "Laser Sight"
+		}]
+	},
+	"range": "Medium/Heavy Machinegun",
+	"source": "RG",
+	"page": "44"
+}, {
+	"id": "971c711b-db32-4339-9203-865ef38f350e",
+	"name": "Ares Predator V",
+	"category": "Heavy Pistols",
+	"type": "Ranged",
+	"spec": "Semi-Automatics",
+	"conceal": "0",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "8P",
+	"ap": "-1",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "15(c)",
+	"avail": "5R",
+	"cost": "725",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Barrel",
+			"Top"
+		]
+	},
+	"accessories": {
+		"accessory": {
+			"name": "Smartgun System, Internal"
+		}
+	},
+	"source": "SR5",
+	"page": "426"
+}, {
+	"id": "b6078372-786c-4aa0-9d16-38541b403730",
+	"name": "Ares Viper Slivergun",
+	"category": "Heavy Pistols",
+	"type": "Ranged",
+	"spec": "Semi-Automatics",
+	"conceal": "0",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "9P(f)",
+	"ap": "+4",
+	"mode": "SA/BF",
+	"rc": "0",
+	"ammo": "30(c)",
+	"avail": "8F",
+	"cost": "380",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Barrel",
+			"Top"
+		]
+	},
+	"accessories": {
+		"accessory": {
+			"name": "Sound Suppressor"
+		}
+	},
+	"source": "SR5",
+	"page": "426"
+}, {
+	"id": "6fb39402-3ae3-4a21-9ed1-50b2c2e1b2c8",
+	"name": "Browning Ultra-Power",
+	"category": "Heavy Pistols",
+	"type": "Ranged",
+	"spec": "Semi-Automatics",
+	"conceal": "0",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "8P",
+	"ap": "-1",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "10(c)",
+	"avail": "4R",
+	"cost": "640",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Barrel",
+			"Top"
+		]
+	},
+	"accessories": {
+		"accessory": {
+			"name": "Laser Sight"
+		}
+	},
+	"source": "SR5",
+	"page": "426"
+}, {
+	"id": "4fcefd61-567a-4f26-a041-d000a07c96d1",
+	"name": "Cavalier Deputy",
+	"category": "Heavy Pistols",
+	"type": "Ranged",
+	"spec": "Revolvers",
+	"conceal": "0",
+	"accuracy": "6",
+	"reach": "0",
+	"damage": "7P",
+	"ap": "-1",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "7(cy)",
+	"avail": "3R",
+	"cost": "225",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Barrel",
+			"Top"
+		]
+	},
+	"source": "RG",
+	"page": "32"
+}, {
+	"id": "36957626-3c6f-4e15-a3ee-dce8c82e2c94",
+	"name": "Colt Future Frontier",
+	"category": "Heavy Pistols",
+	"type": "Ranged",
+	"spec": "Revolvers",
+	"conceal": "0",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "8P",
+	"ap": "-1",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "7(cy)",
+	"avail": "6R",
+	"cost": "500",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Barrel",
+			"Top"
+		]
+	},
+	"source": "GH3",
+	"page": "6"
+}, {
+	"id": "6366691e-c1e0-4d5e-b7a6-1c0371708714",
+	"name": "Colt Government 2066",
+	"category": "Heavy Pistols",
+	"type": "Ranged",
+	"spec": "Semi-Automatics",
+	"conceal": "0",
+	"accuracy": "6",
+	"reach": "0",
+	"damage": "7P",
+	"ap": "-1",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "14(c)",
+	"avail": "7R",
+	"cost": "425",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Barrel",
+			"Top"
+		]
+	},
+	"source": "SR5",
+	"page": "426"
+}, {
+	"id": "158224db-e409-407f-b2f0-4617886ad80f",
+	"name": "Heavy Cyber Pistol",
+	"category": "Heavy Pistols",
+	"type": "Ranged",
+	"spec": "Semi-Automatics",
+	"conceal": "0",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "7P",
+	"ap": "-1",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "8(m)/12(c)",
+	"avail": "0",
+	"cost": "0",
+	"cyberware": "yes",
+	"allowaccessory": "true",
+	"accessories": {
+		"accessory": {
+			"name": "Smartgun System, Internal"
+		}
+	},
+	"source": "SR5",
+	"page": "458"
+}, {
+	"id": "0158c348-b0e0-41e1-a171-1a34af39f0e5",
+	"name": "Onotari Arms Violator",
+	"category": "Heavy Pistols",
+	"type": "Ranged",
+	"spec": "Semi-Automatics",
+	"conceal": "0",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "7P",
+	"ap": "-1",
+	"mode": "SA",
+	"rc": "1",
+	"ammo": "10(c)",
+	"avail": "7R",
+	"cost": "550",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Barrel",
+			"Top"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Smartgun System, Internal"
+		}, {
+			"name": "Safe Target System, Base"
+		}, {
+			"name": "Advanced Safety System, Basic"
+		}]
+	},
+	"source": "RG",
+	"page": "33"
+}, {
+	"id": "43103267-c408-4499-92da-602f70ccb24e",
+	"name": "PSK-3 Collapsible Heavy Pistol",
+	"category": "Heavy Pistols",
+	"type": "Ranged",
+	"spec": "Semi-Automatics",
+	"conceal": "0",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "8P",
+	"ap": "-1",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "10(c)",
+	"avail": "16F",
+	"cost": "1050",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Barrel",
+			"Top"
+		]
+	},
+	"source": "RG",
+	"page": "32"
+}, {
+	"id": "c6c02391-12b5-4361-bc24-e1b5afc1ec6e",
+	"name": "Remington Roomsweeper",
+	"category": "Heavy Pistols",
+	"type": "Ranged",
+	"spec": "Semi-Automatics",
+	"conceal": "0",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "7P",
+	"ap": "-1",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "8(m)",
+	"avail": "6R",
+	"cost": "250",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Barrel",
+			"Top"
+		]
+	},
+	"source": "SR5",
+	"page": "426"
+}, {
+	"id": "61c59a89-3c51-46b7-880a-933b29394315",
+	"name": "Ruger Super Warhawk",
+	"category": "Heavy Pistols",
+	"type": "Ranged",
+	"spec": "Revolvers",
+	"conceal": "0",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "9P",
+	"ap": "-2",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "6(cy)",
+	"avail": "4R",
+	"cost": "400",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Barrel",
+			"Top"
+		]
+	},
+	"source": "SR5",
+	"page": "427"
+}, {
+	"id": "54a29917-7a30-4e21-b577-e0324b860501",
+	"name": "Savalette Guardian",
+	"category": "Heavy Pistols",
+	"type": "Ranged",
+	"spec": "Semi-Automatics",
+	"conceal": "0",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "8P",
+	"ap": "-1",
+	"mode": "SA/BF",
+	"rc": "1",
+	"ammo": "12(c)",
+	"avail": "6R",
+	"cost": "870",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Barrel",
+			"Top"
+		]
+	},
+	"accessories": {
+		"accessory": {
+			"name": "Smartgun System, Internal"
+		}
+	},
+	"source": "RG",
+	"page": "33"
+}, {
+	"id": "c87b03f7-403d-4db9-987a-022ab525b4be",
+	"name": "Cyber Hold-Out",
+	"category": "Holdouts",
+	"type": "Ranged",
+	"spec": "Semi-Automatics",
+	"conceal": "-4",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "6P",
+	"ap": "-",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "2(m)/6(c)",
+	"avail": "0",
+	"cost": "0",
+	"cyberware": "yes",
+	"allowaccessory": "true",
+	"accessories": {
+		"accessory": {
+			"name": "Smartgun System, Internal"
+		}
+	},
+	"source": "SR5",
+	"page": "458"
+}, {
+	"id": "71655ecf-6cb5-4adb-ac96-583b57fa6e9a",
+	"name": "Fichetti Tiffani Needler",
+	"category": "Holdouts",
+	"type": "Ranged",
+	"conceal": "-4",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "8P(f)",
+	"ap": "+5",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "4(c)",
+	"avail": "5R",
+	"allowaccessory": "true",
+	"cost": "1000",
+	"source": "SR5",
+	"page": "425"
+}, {
+	"id": "1f122193-a0f5-4f4d-b4bf-6cfc7455ce3b",
+	"name": "Fichetti Tiffani Self-Defender",
+	"category": "Holdouts",
+	"type": "Ranged",
+	"conceal": "-4",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "6P",
+	"allowaccessory": "true",
+	"ap": "0",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "4(c)",
+	"avail": "3R",
+	"cost": "350",
+	"source": "RG",
+	"page": "30"
+}, {
+	"id": "f5497ad2-f4aa-4b84-9d1d-a9d2dfe90bfc",
+	"name": "Streetline Special",
+	"category": "Holdouts",
+	"type": "Ranged",
+	"conceal": "-4",
+	"accuracy": "4",
+	"reach": "0",
+	"allowaccessory": "true",
+	"damage": "6P",
+	"ap": "-",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "6(c)",
+	"avail": "4R",
+	"cost": "120",
+	"source": "SR5",
+	"page": "425"
+}, {
+	"id": "0b4c00be-d7bb-4480-b9f4-6300abde27c4",
+	"name": "Walther Palm Pistol",
+	"category": "Holdouts",
+	"type": "Ranged",
+	"conceal": "-4",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "7P",
+	"allowaccessory": "true",
+	"ap": "-",
+	"mode": "SS/BF",
+	"rc": "0",
+	"ammo": "2(b)",
+	"avail": "4R",
+	"cost": "180",
+	"source": "SR5",
+	"page": "425"
+}, {
+	"id": "07ce89c6-7c69-45a4-91a9-3375847c878a",
+	"name": "Bottle (broken, after first hit)",
+	"category": "Improvised Weapons",
+	"type": "Melee",
+	"conceal": "-4",
+	"accuracy": "3",
+	"reach": "0",
+	"damage": "(STR)P",
+	"ap": "0",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "0",
+	"allowaccessory": "false",
+	"cost": "0",
+	"useskill": "Exotic Melee Weapon",
+	"source": "RG",
+	"page": "22"
+}, {
+	"id": "4c1d521e-bc16-4b6f-9f54-f92e8f957ef4",
+	"name": "Bottle (unbroken)",
+	"category": "Improvised Weapons",
+	"type": "Melee",
+	"conceal": "-4",
+	"accuracy": "3",
+	"reach": "0",
+	"damage": "(STR+1)S",
+	"ap": "0",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "0",
+	"cost": "0",
+	"useskill": "Exotic Melee Weapon",
+	"source": "RG",
+	"page": "22"
+}, {
+	"id": "0e43cd31-af94-44aa-9916-bddd579e602e",
+	"name": "Chain",
+	"category": "Improvised Weapons",
+	"type": "Melee",
+	"conceal": "2",
+	"accuracy": "4",
+	"reach": "2",
+	"damage": "(STR+1)P",
+	"ap": "0",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "0",
+	"cost": "10",
+	"allowaccessory": "true",
+	"useskill": "Exotic Melee Weapon",
+	"source": "RG",
+	"page": "22"
+}, {
+	"id": "fe954a0e-2d54-4bd4-9ea2-f1fc2c5bac58",
+	"name": "Chair",
+	"category": "Improvised Weapons",
+	"type": "Melee",
+	"conceal": "10",
+	"accuracy": "3",
+	"reach": "2",
+	"damage": "(STR+2)S",
+	"ap": "0",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "0",
+	"cost": "30",
+	"allowaccessory": "true",
+	"useskill": "Exotic Melee Weapon",
+	"source": "RG",
+	"page": "22"
+}, {
+	"id": "a9d3f2e3-256b-4557-8c06-3821d9d9b370",
+	"name": "Fork",
+	"category": "Improvised Weapons",
+	"type": "Melee",
+	"conceal": "-4",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "(STR-1)P",
+	"ap": "+1",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "0",
+	"cost": "0",
+	"allowaccessory": "true",
+	"useskill": "Exotic Melee Weapon",
+	"source": "RG",
+	"page": "22"
+}, {
+	"id": "7b6f0b51-e218-4f67-9ca4-99cdf6990535",
+	"name": "Frying Pan",
+	"category": "Improvised Weapons",
+	"type": "Melee",
+	"conceal": "0",
+	"accuracy": "3",
+	"reach": "2",
+	"damage": "(STR+1)P",
+	"ap": "0",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "0",
+	"cost": "20",
+	"allowaccessory": "true",
+	"useskill": "Exotic Melee Weapon",
+	"source": "RG",
+	"page": "22"
+}, {
+	"id": "9442e7c1-01ca-4331-831e-9ad2209fceb1",
+	"name": "Hammer",
+	"category": "Improvised Weapons",
+	"type": "Melee",
+	"conceal": "-2",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "(STR+1)P",
+	"ap": "-1/-2",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "0",
+	"cost": "30",
+	"allowaccessory": "true",
+	"useskill": "Exotic Melee Weapon",
+	"source": "RG",
+	"page": "22"
+}, {
+	"id": "639651f0-a8bf-4884-ab73-0d78affa1a22",
+	"name": "Pistol",
+	"category": "Improvised Weapons",
+	"type": "Melee",
+	"conceal": "0",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "(STR+1)P",
+	"ap": "0",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "As weapon",
+	"cost": "As weapon",
+	"allowaccessory": "true",
+	"useskill": "Exotic Melee Weapon",
+	"source": "RG",
+	"page": "22"
+}, {
+	"id": "040a6dd5-e786-4196-8312-c1cb04505336",
+	"name": "Pool Cue",
+	"category": "Improvised Weapons",
+	"type": "Melee",
+	"conceal": "10",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "(STR)P",
+	"ap": "+1",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "0",
+	"cost": "45",
+	"allowaccessory": "true",
+	"useskill": "Exotic Melee Weapon",
+	"source": "RG",
+	"page": "22"
+}, {
+	"id": "9dfa8458-d544-4b31-924e-9439478d9d27",
+	"name": "Rifle Butt",
+	"category": "Improvised Weapons",
+	"type": "Melee",
+	"conceal": "6",
+	"accuracy": "3",
+	"reach": "0",
+	"damage": "(STR+3)S",
+	"ap": "0",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "As weapon",
+	"cost": "As weapon",
+	"allowaccessory": "true",
+	"useskill": "Exotic Melee Weapon",
+	"source": "RG",
+	"page": "22"
+}, {
+	"id": "6fc16aa4-f093-4677-a257-4649fd4280fa",
+	"name": "Sledge Hammer",
+	"category": "Improvised Weapons",
+	"type": "Melee",
+	"conceal": "10",
+	"accuracy": "3",
+	"reach": "1",
+	"damage": "(STR+4)P",
+	"ap": "0",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "1",
+	"cost": "40",
+	"allowaccessory": "true",
+	"useskill": "Exotic Melee Weapon",
+	"source": "RG",
+	"page": "22"
+}, {
+	"id": "df5d5c83-ddf8-4ec2-8a6f-28c61ec7325a",
+	"name": "Ares Archon Heavy MP Laser",
+	"category": "Laser Weapons",
+	"type": "Ranged",
+	"conceal": "10",
+	"accuracy": "7",
+	"reach": "0",
+	"damage": "10P",
+	"ap": "-10",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "Internal source",
+	"avail": "24F",
+	"cost": "35000",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": {
+			"name": "Bipod"
+		}
+	},
+	"range": "Sniper Rifle",
+	"source": "RG",
+	"page": "49"
+}, {
+	"id": "d6c4ff4a-5fbb-4885-9220-a784e2bff4f4",
+	"name": "Ares Lancer MP Laser",
+	"category": "Laser Weapons",
+	"type": "Ranged",
+	"conceal": "6",
+	"accuracy": "7",
+	"reach": "0",
+	"damage": "7P",
+	"ap": "-10",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "2x10(c) or Internal source",
+	"avail": "18F",
+	"cost": "16000",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Top",
+			"Under"
+		]
+	},
+	"range": "Assault Rifles",
+	"source": "RG",
+	"page": "48"
+}, {
+	"id": "78293136-5bd0-49ac-aa9b-7c291f94c7a4",
+	"name": "Ares Redline",
+	"category": "Laser Weapons",
+	"type": "Ranged",
+	"conceal": "2",
+	"accuracy": "9",
+	"reach": "0",
+	"damage": "5P",
+	"ap": "-10",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "10(c) or Internal source",
+	"avail": "14F",
+	"cost": "7500",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Top",
+			"Under"
+		]
+	},
+	"range": "Submachine Guns",
+	"source": "RG",
+	"page": "48"
+}, {
+	"id": "df19a07f-cc04-44b6-b9b2-6d4fe73062e4",
+	"name": "GE Vindicator Mini-Gun",
+	"category": "Light Machine Guns",
+	"type": "Ranged",
+	"spec": "Machine Guns",
+	"conceal": "10",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "9P",
+	"ap": "-4",
+	"mode": "FA",
+	"rc": "2",
+	"ammo": "200(belt)",
+	"avail": "24F",
+	"cost": "6000",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Slide Mount"
+		}, {
+			"name": "Slide Mount"
+		}, {
+			"name": "Smartgun System, Internal"
+		}]
+	},
+	"source": "RG",
+	"page": "42"
+}, {
+	"id": "cb04b4c1-97ff-4984-9bc8-943e5f3ac557",
+	"name": "Ingram Valiant",
+	"category": "Light Machine Guns",
+	"type": "Ranged",
+	"spec": "Machine Guns",
+	"conceal": "10",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "9P",
+	"ap": "-2",
+	"mode": "BF/FA",
+	"rc": "2",
+	"ammo": "50(c) or 100(belt)",
+	"avail": "12F",
+	"cost": "5800",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Stock"
+		}, {
+			"name": "Shock Pad"
+		}, {
+			"name": "Laser Sight"
+		}, {
+			"name": "Gas-Vent 2 System"
+		}]
+	},
+	"source": "SR5",
+	"page": "430"
+}, {
+	"id": "ba34be4c-2dff-439a-8b7e-942f71bb4942",
+	"name": "Krime Wave",
+	"category": "Light Machine Guns",
+	"type": "Ranged",
+	"spec": "Machine Guns",
+	"conceal": "10",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "10P",
+	"ap": "-2",
+	"mode": "FA",
+	"rc": "0",
+	"ammo": "50(c) or 100(belt)",
+	"avail": "11F",
+	"cost": "2000",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": {
+			"name": "Bipod"
+		}
+	},
+	"source": "GH3",
+	"page": "34"
+}, {
+	"id": "b2b51722-5c37-43ce-9b08-646b8f1a51eb",
+	"name": "Shiawase Armaments Nemesis",
+	"category": "Light Machine Guns",
+	"type": "Ranged",
+	"spec": "Machine Guns",
+	"conceal": "10",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "9P",
+	"ap": "-2",
+	"mode": "BF/FA",
+	"rc": "2",
+	"ammo": "50(c) or 100(belt)",
+	"avail": "16F",
+	"cost": "6500",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Safe Target System, Base"
+		}, {
+			"name": "Safe Target System, Additional set of RFID or GPS data (10 data sets)"
+		}, {
+			"name": "Smartgun System, Internal"
+		}]
+	},
+	"source": "RG",
+	"page": "43"
+}, {
+	"id": "67474de7-d29b-4b31-a6ae-1e2e981fa5d2",
+	"name": "Ares Light Fire 70",
+	"category": "Light Pistols",
+	"type": "Ranged",
+	"spec": "Semi-Automatics",
+	"conceal": "-2",
+	"accuracy": "7",
+	"reach": "0",
+	"damage": "6P",
+	"ap": "-",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "16(c)",
+	"avail": "3R",
+	"cost": "200",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Barrel",
+			"Top"
+		]
+	},
+	"source": "SR5",
+	"page": "425"
+}, {
+	"id": "93722378-dcb6-4988-ba4e-54ce545644fe",
+	"name": "Ares Light Fire 75",
+	"category": "Light Pistols",
+	"type": "Ranged",
+	"spec": "Semi-Automatics",
+	"conceal": "-2",
+	"accuracy": "6",
+	"reach": "0",
+	"damage": "6P",
+	"ap": "-",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "16(c)",
+	"avail": "6F",
+	"cost": "1250",
+	"accessories": {
+		"accessory": [{
+			"name": "Smartgun System, Internal"
+		}, {
+			"name": "Silencer, Ares Light Fire 70"
+		}]
+	},
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Barrel",
+			"Top"
+		]
+	},
+	"source": "SR5",
+	"page": "425"
+}, {
+	"id": "cbff618e-6a12-4bab-aaeb-2453706bf42e",
+	"name": "Beretta 201T",
+	"category": "Light Pistols",
+	"type": "Ranged",
+	"spec": "Semi-Automatics",
+	"conceal": "-2",
+	"accuracy": "6",
+	"reach": "0",
+	"damage": "6P",
+	"ap": "-",
+	"mode": "SA/BF",
+	"rc": "0",
+	"ammo": "21(c)",
+	"avail": "7R",
+	"cost": "210",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Barrel",
+			"Top"
+		]
+	},
+	"accessories": {
+		"accessory": {
+			"name": "Stock"
+		}
+	},
+	"source": "SR5",
+	"page": "425"
+}, {
+	"id": "21ddd00b-0e30-4fc0-97c0-14db61af24ad",
+	"name": "Colt Agent Special",
+	"category": "Light Pistols",
+	"type": "Ranged",
+	"spec": "Semi-Automatics",
+	"conceal": "-2",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "8P",
+	"ap": "0",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "8(c)",
+	"avail": "5R",
+	"cost": "250",
+	"ammocategory": "Heavy Pistols",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Barrel",
+			"Top"
+		]
+	},
+	"range": "Tasers",
+	"source": "GH3",
+	"page": "5"
+}, {
+	"id": "676660a2-3320-4b4a-acaf-f645f2ba6cd7",
+	"name": "Colt America L36",
+	"category": "Light Pistols",
+	"type": "Ranged",
+	"spec": "Semi-Automatics",
+	"conceal": "-2",
+	"accuracy": "7",
+	"reach": "0",
+	"damage": "7P",
+	"ap": "-",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "11(c)",
+	"avail": "4R",
+	"cost": "320",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Barrel",
+			"Top"
+		]
+	},
+	"source": "SR5",
+	"page": "425"
+}, {
+	"id": "305a23ec-098f-47c9-898f-ca28016846d1",
+	"name": "Colt New Model Revolver",
+	"category": "Holdouts",
+	"type": "Ranged",
+	"allowaccessory": [
+		"true",
+		"true"
+	],
+	"spec": "Revolvers",
+	"conceal": "-4",
+	"accuracy": "6",
+	"reach": "0",
+	"damage": "5P",
+	"ap": "-",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "5(cy)",
+	"avail": "4R",
+	"cost": "180",
+	"accessorymounts": {
+		"mount": [
+			"Barrel",
+			"Top"
+		]
+	},
+	"source": "GH3",
+	"page": "4"
+}, {
+	"id": "35f168ec-cc4d-4dd5-bc3e-e1e3f8376dc4",
+	"name": "Fichetti Executive Action",
+	"category": "Light Pistols",
+	"type": "Ranged",
+	"spec": "Semi-Automatics",
+	"conceal": "-2",
+	"accuracy": "6",
+	"reach": "0",
+	"damage": "7P",
+	"ap": "-",
+	"mode": "SA/BF",
+	"rc": "0",
+	"ammo": "18(c)",
+	"avail": "10R",
+	"cost": "300",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Barrel",
+			"Top"
+		]
+	},
+	"source": "RG",
+	"page": "30"
+}, {
+	"id": "7dff8ab0-c659-4901-ac3b-cb8b4f3839bf",
+	"name": "Fichetti Security 600",
+	"category": "Light Pistols",
+	"type": "Ranged",
+	"spec": "Semi-Automatics",
+	"conceal": "-2",
+	"accuracy": "6",
+	"reach": "0",
+	"damage": "7P",
+	"ap": "-",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "30(c)",
+	"avail": "6R",
+	"cost": "350",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Barrel",
+			"Top"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Stock"
+		}, {
+			"name": "Laser Sight"
+		}]
+	},
+	"source": "SR5",
+	"page": "426"
+}, {
+	"id": "261165ce-6111-4a51-9519-46c41edac9b0",
+	"name": "Light Cyber Pistol",
+	"category": "Light Pistols",
+	"type": "Ranged",
+	"spec": "Semi-Automatics",
+	"conceal": "-2",
+	"accuracy": "6",
+	"reach": "0",
+	"damage": "7P",
+	"ap": "-",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "10(m)/15(c)",
+	"avail": "0",
+	"cost": "0",
+	"cyberware": "yes",
+	"allowaccessory": "true",
+	"accessories": {
+		"accessory": {
+			"name": "Smartgun System, Internal"
+		}
+	},
+	"source": "SR5",
+	"page": "458"
+}, {
+	"id": "8a6d3d73-2091-4bc1-9a16-b42aa9b159e6",
+	"name": "Nitama Sporter",
+	"category": "Light Pistols",
+	"type": "Ranged",
+	"spec": "Semi-Automatics",
+	"conceal": "-2",
+	"accuracy": "6",
+	"reach": "0",
+	"damage": "6P",
+	"ap": "-",
+	"mode": "SA",
+	"rc": "1",
+	"ammo": "5(m)",
+	"avail": "4R",
+	"cost": "270",
+	"range": "Heavy Pistols",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Barrel",
+			"Top"
+		]
+	},
+	"accessories": {
+		"accessory": {
+			"name": "Laser Sight"
+		}
+	},
+	"source": "RG",
+	"page": "31"
+}, {
+	"id": "274585e0-7e3c-44fd-88f3-287c12c90173",
+	"name": "Shiawase Armaments Puzzler",
+	"category": "Light Pistols",
+	"type": "Ranged",
+	"spec": "Semi-Automatics",
+	"conceal": "-2",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "6P",
+	"ap": "-",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "12(c)",
+	"avail": "14R",
+	"cost": "900",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Barrel",
+			"Top"
+		]
+	},
+	"source": "RG",
+	"page": "31"
+}, {
+	"id": "66955e6e-0b77-4ce0-9e24-6bb637a36541",
+	"name": "Taurus Omni-6",
+	"category": "Light Pistols",
+	"type": "Ranged",
+	"spec": "Semi-Automatics",
+	"conceal": "-2",
+	"spec2": "Revolvers",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "6P",
+	"ap": "-",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "6(cy)",
+	"avail": "3R",
+	"cost": "300",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Barrel",
+			"Top"
+		]
+	},
+	"accessories": {
+		"accessory": {
+			"name": "Laser Sight"
+		}
+	},
+	"source": "SR5",
+	"page": "426"
+}, {
+	"id": "cb2afbcc-a1bf-465b-9fc2-c91e1ddfb100",
+	"name": "Ares Crusader II",
+	"category": "Machine Pistols",
+	"type": "Ranged",
+	"spec": "Semi-Automatics",
+	"conceal": "0",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "7P",
+	"ap": "-",
+	"mode": "SA/BF",
+	"rc": "0",
+	"ammo": "40(c)",
+	"avail": "9R",
+	"cost": "830",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Smartgun System, Internal"
+		}, {
+			"name": "Gas-Vent 2 System"
+		}]
+	},
+	"source": "SR5",
+	"page": "427"
+}, {
+	"id": "a68fe409-bebb-4c72-941c-0fce94048fec",
+	"name": "Cavalier Evanator",
+	"category": "Machine Pistols",
+	"type": "Ranged",
+	"spec": "Semi-Automatics",
+	"conceal": "0",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "6P",
+	"ap": "0",
+	"mode": "BF/FA",
+	"rc": "0",
+	"ammo": "20(c)",
+	"avail": "8R",
+	"cost": "775",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Folding Stock"
+		}, {
+			"name": "Laser Sight"
+		}]
+	},
+	"source": "GH3",
+	"page": "8"
+}, {
+	"id": "0c8076a9-97e3-4583-8385-c32266c25190",
+	"name": "Ceska Black Scorpion",
+	"category": "Machine Pistols",
+	"type": "Ranged",
+	"spec": "Semi-Automatics",
+	"conceal": "0",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "6P",
+	"ap": "-",
+	"mode": "SA/BF",
+	"rc": "0",
+	"ammo": "35(c)",
+	"avail": "6R",
+	"cost": "270",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": {
+			"name": "Stock"
+		}
+	},
+	"source": "SR5",
+	"page": "427"
+}, {
+	"id": "496e4b81-8437-41fb-adf5-2e4709df656e",
+	"name": "Cyber Machine Pistol",
+	"category": "Machine Pistols",
+	"type": "Ranged",
+	"spec": "Semi-Automatics",
+	"conceal": "0",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "6P",
+	"ap": "-",
+	"mode": "SA/BF",
+	"rc": "1",
+	"ammo": "18(m)/32(c)",
+	"avail": "0",
+	"cost": "0",
+	"cyberware": "yes",
+	"allowaccessory": "true",
+	"accessories": {
+		"accessory": {
+			"name": "Smartgun System, Internal"
+		}
+	},
+	"source": "SR5",
+	"page": "458"
+}, {
+	"id": "5563a612-bf02-4fd9-b942-2400bbd1eb70",
+	"name": "Fianchetti Military 100",
+	"category": "Machine Pistols",
+	"type": "Ranged",
+	"spec": "Semi-Automatics",
+	"conceal": "0",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "6P",
+	"ap": "0",
+	"mode": "SA/BF/FA",
+	"rc": "0",
+	"ammo": "20(c)",
+	"avail": "8R",
+	"cost": "850",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": {
+			"name": "Smartgun System, Internal"
+		}
+	},
+	"source": "GH3",
+	"page": "7"
+}, {
+	"id": "404c20aa-8c02-4fcd-a37e-ba63b3e3553f",
+	"name": "Onotari Arms Equalizer",
+	"category": "Machine Pistols",
+	"type": "Ranged",
+	"spec": "Semi-Automatics",
+	"conceal": "0",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "7P",
+	"ap": "-",
+	"mode": "BF/FA",
+	"rc": "0",
+	"ammo": "12(c)",
+	"avail": "7R",
+	"cost": "750",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Folding Stock"
+		}, {
+			"name": "Laser Sight"
+		}]
+	},
+	"source": "RG",
+	"page": "34"
+}, {
+	"id": "38e9682d-d679-47a4-97a1-7161cba07cd2",
+	"name": "PPSK-4 Collapsible Machine Pistol",
+	"category": "Machine Pistols",
+	"type": "Ranged",
+	"spec": "Semi-Automatics",
+	"conceal": "0",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "6P",
+	"ap": "-",
+	"mode": "SA/BF",
+	"rc": "0",
+	"ammo": "30(c)",
+	"avail": "17F",
+	"cost": "2800",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Collapsed Frame"
+		}, {
+			"name": "Folding Stock"
+		}, {
+			"name": "Laser Sight"
+		}]
+	},
+	"source": "RG",
+	"page": "34"
+}, {
+	"id": "6596b05e-d51b-4388-b57a-950d9b5a96ac",
+	"name": "Remington Suppressor",
+	"category": "Machine Pistols",
+	"type": "Ranged",
+	"spec": "Semi-Automatics",
+	"conceal": "0",
+	"accuracy": "6",
+	"reach": "0",
+	"damage": "7P",
+	"ap": "-1",
+	"mode": "SA/BF",
+	"rc": "0",
+	"ammo": "15(c)",
+	"avail": "6R",
+	"cost": "700",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": {
+			"name": "Sound Suppressor"
+		}
+	},
+	"source": "GH3",
+	"page": "9"
+}, {
+	"id": "c8e3d921-45df-4850-8619-7fcca279d774",
+	"name": "Steyr TMP",
+	"category": "Machine Pistols",
+	"type": "Ranged",
+	"spec": "Semi-Automatics",
+	"conceal": "0",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "7P",
+	"ap": "-",
+	"mode": "SA/BF/FA",
+	"rc": "0",
+	"ammo": "30(c)",
+	"avail": "8R",
+	"cost": "350",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": {
+			"name": "Laser Sight"
+		}
+	},
+	"source": "SR5",
+	"page": "427"
+}, {
+	"id": "060cbbd5-3413-4e57-8c7a-5ee3d2e94945",
+	"name": "Ultimax 70",
+	"category": "Machine Pistols",
+	"type": "Ranged",
+	"spec": "Semi-Automatics",
+	"conceal": "0",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "6P",
+	"ap": "-",
+	"mode": "BF/FA",
+	"rc": "2",
+	"ammo": "15(c)",
+	"avail": "7R",
+	"cost": "800",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": {
+			"name": "Laser Sight"
+		}
+	},
+	"source": "RG",
+	"page": "35"
+}, {
+	"id": "091c2e28-94fb-4357-9eb9-bcfa2ca5d8ed",
+	"name": "FN MAG-5",
+	"category": "Medium Machine Guns",
+	"type": "Ranged",
+	"spec": "Machine Guns",
+	"conceal": "10",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "11P",
+	"ap": "-3",
+	"mode": "FA",
+	"rc": "2",
+	"ammo": "50(c) or 100(belt)",
+	"avail": "18F",
+	"cost": "8500",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Laser Sight"
+		}, {
+			"name": "Tripod"
+		}]
+	},
+	"range": "Medium/Heavy Machinegun",
+	"source": "RG",
+	"page": "43"
+}, {
+	"id": "a95df82f-4c48-43b1-8cfe-58d9aedb0b07",
+	"name": "Stoner-Ares M202",
+	"category": "Medium Machine Guns",
+	"type": "Ranged",
+	"spec": "Machine Guns",
+	"conceal": "10",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "10P",
+	"ap": "-3",
+	"mode": "FA",
+	"rc": "0",
+	"ammo": "50(c) or 100(belt)",
+	"avail": "12F",
+	"cost": "7000",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"range": "Medium/Heavy Machinegun",
+	"source": "SR5",
+	"page": "430"
+}, {
+	"id": "08e04ae5-ee6f-451d-8dc9-7873b6f9d3a5",
+	"name": "Ultimax MMG",
+	"category": "Medium Machine Guns",
+	"type": "Ranged",
+	"spec": "Machine Guns",
+	"conceal": "10",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "10P",
+	"ap": "-2",
+	"mode": "FA",
+	"rc": "1",
+	"ammo": "50(c) or 100(belt)",
+	"avail": "16F",
+	"cost": "7600",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Foregrip"
+		}, {
+			"name": "Laser Sight"
+		}, {
+			"name": "Tripod"
+		}]
+	},
+	"range": "Medium/Heavy Machinegun",
+	"source": "RG",
+	"page": "44"
+}, {
+	"id": "c6410d5f-def3-4dc6-b5d6-68fff704f7f2",
+	"name": "Aztechnology Striker",
+	"category": "Missile Launchers",
+	"type": "Ranged",
+	"conceal": "10",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "Missile",
+	"ap": "-",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "1(ml)",
+	"avail": "10F",
+	"cost": "1200",
+	"allowaccessory": "true",
+	"source": "SR5",
+	"page": "431"
+}, {
+	"id": "41eb651e-3efc-4978-9318-7ece7f151eef",
+	"name": "Mitsubishi Yakusoku MRL",
+	"category": "Missile Launchers",
+	"type": "Ranged",
+	"conceal": "10",
+	"accuracy": "Missile",
+	"reach": "0",
+	"damage": "Missile",
+	"ap": "Missile",
+	"mode": "SA/BF",
+	"rc": "0",
+	"ammo": "4x2(m)",
+	"avail": "20F",
+	"cost": "14000",
+	"allowaccessory": "true",
+	"source": "RG",
+	"page": "47"
+}, {
+	"id": "b4e80557-89cc-40ef-ab2d-8970b818fae9",
+	"name": "Onotari Arms Ballista MML",
+	"category": "Missile Launchers",
+	"type": "Ranged",
+	"conceal": "10",
+	"accuracy": "Missile",
+	"reach": "0",
+	"damage": "Missile",
+	"ap": "Missile",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "4(m)",
+	"avail": "19F",
+	"cost": "7500",
+	"allowaccessory": "true",
+	"source": "RG",
+	"page": "46"
+}, {
+	"id": "6753f5f1-72c5-41fb-beb6-6c1a37b82f5e",
+	"name": "Onotari Interceptor",
+	"category": "Missile Launchers",
+	"type": "Ranged",
+	"conceal": "10",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "Missile",
+	"ap": "-",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "2(ml)",
+	"avail": "18F",
+	"cost": "14000",
+	"allowaccessory": "true",
+	"accessories": {
+		"accessory": {
+			"name": "Smartgun System, Internal"
+		}
+	},
+	"source": "SR5",
+	"page": "431"
+}, {
+	"id": "923ba564-7883-49e8-82a2-415cbfa96685",
+	"name": "Auto-Assault 16",
+	"category": "Shotguns",
+	"type": "Ranged",
+	"conceal": "6",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "13P",
+	"ap": "-1",
+	"mode": "SA/BF/FA",
+	"rc": "2",
+	"ammo": "10(c) or 32(d)",
+	"avail": "18F",
+	"cost": "1800",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"source": "RG",
+	"page": "40"
+}, {
+	"id": "31269939-24bb-405a-aa5e-a1b77458a1df",
+	"name": "Cavalier Falchion",
+	"category": "Shotguns",
+	"type": "Ranged",
+	"conceal": "6",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "12P",
+	"ap": "-1",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "8(m)",
+	"avail": "9R",
+	"cost": "1200",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Advanced Safety System, Basic"
+		}, {
+			"name": "Smartgun System, Internal"
+		}, {
+			"name": "Melee Hardening"
+		}, {
+			"name": "Trigger Removal"
+		}]
+	},
+	"source": "GH3",
+	"page": "22"
+}, {
+	"id": "97cab27f-620b-45d7-8da4-3136c1e69f2b",
+	"name": "Cyber Shotgun",
+	"category": "Shotguns",
+	"type": "Ranged",
+	"conceal": "6",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "10P",
+	"ap": "-1",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "4(m)/10(c)",
+	"avail": "0",
+	"cost": "0",
+	"cyberware": "yes",
+	"allowaccessory": "true",
+	"accessories": {
+		"accessory": {
+			"name": "Smartgun System, Internal"
+		}
+	},
+	"source": "SR5",
+	"page": "458"
+}, {
+	"id": "c2c0e756-a099-4f9d-b6bb-18f412d670a3",
+	"name": "Defiance T-250",
+	"category": "Shotguns",
+	"type": "Ranged",
+	"conceal": "6",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "10P",
+	"ap": "-1",
+	"mode": "SS/SA",
+	"rc": "0",
+	"ammo": "5(m)",
+	"avail": "4R",
+	"cost": "450",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"source": "SR5",
+	"page": "429"
+}, {
+	"id": "5011b79e-8594-4dbe-9768-0db4d11ead2b",
+	"name": "Defiance T-250, Short-Barrel",
+	"category": "Shotguns",
+	"type": "Ranged",
+	"conceal": "4",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "9P",
+	"ap": "-1",
+	"mode": "SS/SA",
+	"rc": "0",
+	"ammo": "5(m)",
+	"avail": "3R",
+	"cost": "475",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"range": "Heavy Pistols",
+	"source": "SR5",
+	"page": "429"
+}, {
+	"id": "622bd915-0e0c-431b-9da5-e0c0c31e2122",
+	"name": "Enfield AS-7",
+	"category": "Shotguns",
+	"type": "Ranged",
+	"conceal": "6",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "13P",
+	"ap": "-1",
+	"mode": "SA/BF",
+	"rc": "0",
+	"ammo": "10(c) or 24(d)",
+	"avail": "12F",
+	"cost": "1100",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": {
+			"name": "Laser Sight"
+		}
+	},
+	"source": "SR5",
+	"page": "429"
+}, {
+	"id": "76e0ae30-a3cf-4d4f-b278-ad49a10df4d2",
+	"name": "Franchi SPAS-24",
+	"category": "Shotguns",
+	"type": "Ranged",
+	"conceal": "6",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "12P",
+	"ap": "-1",
+	"mode": "SA/BF",
+	"rc": "0",
+	"ammo": "10(c)",
+	"avail": "12F",
+	"cost": "1050",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Shock Pad"
+		}, {
+			"name": "Smartgun System, Internal"
+		}]
+	},
+	"source": "RG",
+	"page": "41"
+}, {
+	"id": "8818b584-e084-4fcb-94b8-632728015c6f",
+	"name": "Krime Boss",
+	"category": "Shotguns",
+	"type": "Ranged",
+	"conceal": "6",
+	"accuracy": "3",
+	"reach": "0",
+	"damage": "13P",
+	"ap": "-1",
+	"mode": "SA",
+	"rc": "1",
+	"ammo": "15(d)",
+	"avail": "11R",
+	"cost": "600",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"source": "GH3",
+	"page": "17"
+}, {
+	"id": "228a2a5d-01e5-4f58-90bf-1d61602ad1c5",
+	"name": "Mossberg AM-CMDT",
+	"category": "Shotguns",
+	"type": "Ranged",
+	"conceal": "6",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "12P",
+	"ap": "-1",
+	"mode": "SA/BF/FA",
+	"rc": "0",
+	"ammo": "10(c)",
+	"avail": "12F",
+	"cost": "1400",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": {
+			"name": "Smartgun System, Internal"
+		}
+	},
+	"source": "RG",
+	"page": "41"
+}, {
+	"id": "62221199-7958-4a76-a538-0c8e0a516608",
+	"name": "PJSS Model 55",
+	"category": "Shotguns",
+	"type": "Ranged",
+	"conceal": "6",
+	"accuracy": "6",
+	"reach": "0",
+	"damage": "11P",
+	"ap": "-1",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "2(b)",
+	"avail": "9R",
+	"cost": "1000",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Stock"
+		}, {
+			"name": "Shock Pad"
+		}]
+	},
+	"source": "SR5",
+	"page": "429"
+}, {
+	"id": "67f18a4a-e516-4946-984a-5254b3ba850f",
+	"name": "Remington 990",
+	"category": "Shotguns",
+	"type": "Ranged",
+	"conceal": "6",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "11P",
+	"ap": "-1",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "8(c)",
+	"avail": "6R",
+	"cost": "950",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Slide Mount"
+		}, {
+			"name": "Slide Mount"
+		}]
+	},
+	"source": "RG",
+	"page": "42"
+}, {
+	"id": "3af9c1f7-8582-4849-8b1e-b49dd14c207f",
+	"name": "Shiawase Arms Rain",
+	"category": "Shotguns",
+	"type": "Ranged",
+	"conceal": "6",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "10P",
+	"ap": "-1",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "5(ml)",
+	"avail": "4R",
+	"cost": "450",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": {
+			"name": "Folding Stock"
+		}
+	},
+	"source": "GH3",
+	"page": "21"
+}, {
+	"id": "eaef40ea-c1ff-4f64-a4fe-31720b250860",
+	"name": "Winchester Model 201",
+	"category": "Shotguns",
+	"type": "Ranged",
+	"conceal": "6",
+	"accuracy": "8",
+	"reach": "0",
+	"damage": "11P",
+	"ap": "-1",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "2(b)",
+	"avail": "8R",
+	"cost": "1300",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"source": "GH3",
+	"page": "18"
+}, {
+	"id": "93869598-2945-412f-8b42-90764ddc1e59",
+	"name": "Winchester Model 2054",
+	"category": "Shotguns",
+	"type": "Ranged",
+	"conceal": "6",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "11P",
+	"ap": "-1",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "7(m)",
+	"avail": "6R",
+	"cost": "900",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Folding Stock"
+		}, {
+			"name": "Laser Sight"
+		}]
+	},
+	"source": "GH3",
+	"page": "20"
+}, {
+	"id": "afee8d53-f1da-4500-ab6c-8e22b9c57c3e",
+	"name": "Winchester Model 2066",
+	"category": "Shotguns",
+	"type": "Ranged",
+	"conceal": "6",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "11P",
+	"ap": "-1",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "5(m)",
+	"avail": "4R",
+	"cost": "1000",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"source": "GH3",
+	"page": "19"
+}, {
+	"id": "50cec60d-a421-4edd-9baa-d10bfbc08e70",
+	"name": "Ares Desert Strike",
+	"category": "Sniper Rifles",
+	"type": "Ranged",
+	"conceal": "8",
+	"accuracy": "7",
+	"reach": "0",
+	"damage": "13P",
+	"ap": "-4",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "14(c)",
+	"avail": "10F",
+	"cost": "17500",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Stock"
+		}, {
+			"name": "Shock Pad"
+		}, {
+			"name": "Imaging Scope"
+		}]
+	},
+	"source": "SR5",
+	"page": "428"
+}, {
+	"id": "ffc2ae2b-fbaa-4d65-9456-c6433f3d53e8",
+	"name": "Barret Model 122",
+	"category": "Sniper Rifles",
+	"type": "Ranged",
+	"conceal": "8",
+	"accuracy": "7",
+	"reach": "0",
+	"damage": "14P",
+	"ap": "-6",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "14(c)",
+	"avail": "20F",
+	"cost": "38500",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Bipod"
+		}, {
+			"name": "Smartgun System, Internal"
+		}, {
+			"name": "Sound Suppressor"
+		}]
+	},
+	"source": "RG",
+	"page": "40"
+}, {
+	"id": "8c22582e-56ff-4a44-9358-487d8a594833",
+	"name": "Cavalier Arms Crockett EBR",
+	"category": "Sniper Rifles",
+	"type": "Ranged",
+	"conceal": "8",
+	"accuracy": "6",
+	"reach": "0",
+	"damage": "12P",
+	"ap": "-3",
+	"mode": "SA/BF",
+	"rc": "0",
+	"ammo": "20(c)",
+	"avail": "12F",
+	"cost": "10300",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Stock"
+		}, {
+			"name": "Shock Pad"
+		}, {
+			"name": "Imaging Scope"
+		}]
+	},
+	"source": "SR5",
+	"page": "428"
+}, {
+	"id": "8524048e-6c2c-414c-91e8-5d4bca711957",
+	"name": "Onotari Arms JP-K50",
+	"category": "Sniper Rifles",
+	"type": "Ranged",
+	"conceal": "8",
+	"accuracy": "7",
+	"reach": "0",
+	"damage": "12P",
+	"ap": "-3",
+	"mode": "SA/BF",
+	"rc": "1",
+	"ammo": "25(c)",
+	"avail": "13F",
+	"cost": "12500",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": {
+			"name": "Shock Pad"
+		}
+	},
+	"source": "RG",
+	"page": "39"
+}, {
+	"id": "cf9d0938-73e5-4e40-9a50-003ded439586",
+	"name": "Pioneer 60",
+	"category": "Sniper Rifles",
+	"type": "Ranged",
+	"conceal": "8",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "10P",
+	"ap": "-1",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "5(m)",
+	"avail": "2R",
+	"cost": "500",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": {
+			"name": "Shock Pad"
+		}
+	},
+	"source": "RG",
+	"page": "39"
+}, {
+	"id": "e2649ef2-c9a8-43ac-9f6c-9279e7be2f67",
+	"name": "Ranger Arms SM-5",
+	"category": "Sniper Rifles",
+	"type": "Ranged",
+	"conceal": "8",
+	"accuracy": "8",
+	"reach": "0",
+	"damage": "14P",
+	"ap": "-5",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "15(c)",
+	"avail": "16F",
+	"cost": "28000",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Silencer"
+		}, {
+			"name": "Imaging Scope"
+		}, {
+			"name": "Stock"
+		}, {
+			"name": "Shock Pad"
+		}]
+	},
+	"source": "SR5",
+	"page": "429"
+}, {
+	"id": "01d7b203-e57e-4cbd-9f68-a2134683e178",
+	"name": "Remington 950",
+	"category": "Sniper Rifles",
+	"type": "Ranged",
+	"conceal": "8",
+	"accuracy": "7",
+	"reach": "0",
+	"damage": "12P",
+	"ap": "-4",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "5(m)",
+	"avail": "4R",
+	"cost": "2100",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Barrel",
+			"Top"
+		]
+	},
+	"accessories": {
+		"accessory": {
+			"name": "Imaging Scope"
+		}
+	},
+	"source": "SR5",
+	"page": "429"
+}, {
+	"id": "6098fea5-3069-42b8-9405-80d07578b660",
+	"name": "Ruger 101",
+	"category": "Sniper Rifles",
+	"type": "Ranged",
+	"conceal": "8",
+	"accuracy": "6",
+	"reach": "0",
+	"damage": "11P",
+	"ap": "-3",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "8(m)",
+	"avail": "4R",
+	"cost": "1300",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Imaging Scope"
+		}, {
+			"name": "Stock"
+		}, {
+			"name": "Shock Pad"
+		}]
+	},
+	"source": "SR5",
+	"page": "429"
+}, {
+	"id": "e238d380-5e5f-499c-9d33-548d02b50076",
+	"name": "SVD",
+	"category": "Sniper Rifles",
+	"type": "Ranged",
+	"conceal": "8",
+	"accuracy": "6",
+	"reach": "0",
+	"damage": "10P",
+	"ap": "-2",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "10(c)",
+	"avail": "6R",
+	"cost": "800",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"source": "AP",
+	"page": "11"
+}, {
+	"id": "8d2c12e7-e08d-4c7a-907a-b5bc178ce9e3",
+	"name": "Terracotta Arms AM-47",
+	"category": "Sniper Rifles",
+	"type": "Ranged",
+	"conceal": "8",
+	"accuracy": "7",
+	"reach": "0",
+	"damage": "15P",
+	"ap": "-4",
+	"mode": "SA",
+	"rc": "1",
+	"ammo": "18(c)",
+	"avail": "14F",
+	"cost": "35000",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Bipod"
+		}, {
+			"name": "Weapon Commlink"
+		}, {
+			"name": "Smartgun System, Internal"
+		}, {
+			"name": "Imaging Scope"
+		}, {
+			"name": "Underbarrel Weight"
+		}, {
+			"name": "Safe Target System, Base"
+		}]
+	},
+	"source": "RG",
+	"page": "38"
+}, {
+	"id": "15ec7fbb-4c22-4cae-a7cd-d2c580a6b447",
+	"name": "Ares S-III Super Squirt",
+	"category": "Exotic Ranged Weapons",
+	"type": "Ranged",
+	"conceal": "6",
+	"accuracy": "3",
+	"reach": "0",
+	"damage": "Chemical",
+	"ap": "-",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "20(c)",
+	"avail": "7R",
+	"cost": "950",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Top",
+			"Under"
+		]
+	},
+	"useskill": "Exotic Ranged Weapon",
+	"range": "Light Pistols",
+	"source": "SR5",
+	"page": "429"
+}, {
+	"id": "e85d55b3-06f1-48e0-bbe1-14b833ac4181",
+	"name": "Ares Screech Sonic Rifle",
+	"category": "Exotic Ranged Weapons",
+	"type": "Ranged",
+	"conceal": "6",
+	"accuracy": "6",
+	"reach": "0",
+	"damage": "7S",
+	"ap": "-",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "10(c)",
+	"avail": "16R",
+	"cost": "8000",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Top",
+			"Under"
+		]
+	},
+	"useskill": "Exotic Ranged Weapon",
+	"range": "Shotguns",
+	"source": "RG",
+	"page": "26"
+}, {
+	"id": "92b11d6e-8dbb-448a-95a9-e72d11527fe5",
+	"name": "Blowgun",
+	"category": "Exotic Ranged Weapons",
+	"type": "Ranged",
+	"conceal": "4",
+	"accuracy": "8",
+	"reach": "0",
+	"damage": "1P",
+	"ap": "-",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "1(ml)",
+	"avail": "4",
+	"cost": "15",
+	"allowaccessory": "true",
+	"useskill": "Exotic Ranged Weapon",
+	"range": "Tasers",
+	"source": "RG",
+	"page": "26"
+}, {
+	"id": "07200c8e-d3f3-4ec1-8911-11be322c6d5f",
+	"name": "Bola",
+	"category": "Exotic Ranged Weapons",
+	"type": "Ranged",
+	"conceal": "-2",
+	"accuracy": "Physical",
+	"reach": "0",
+	"damage": "(STR+3)S",
+	"ap": "+4",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "1",
+	"avail": "6",
+	"cost": "75",
+	"allowaccessory": "true",
+	"useskill": "Exotic Ranged Weapon",
+	"range": "Shuriken",
+	"source": "RG",
+	"page": "26"
+}, {
+	"id": "a836fc0b-a1e1-491d-ad8d-7f803c88acdc",
+	"name": "FN-AAL Gyrojet Pistol",
+	"category": "Exotic Ranged Weapons",
+	"type": "Ranged",
+	"conceal": "+0",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "10P",
+	"ap": "-2",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "10(c)",
+	"avail": "12F",
+	"cost": "2000",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"accesorymount": "top"
+	},
+	"useskill": "Exotic Ranged Weapon",
+	"range": "Heavy Pistols",
+	"source": "RG",
+	"page": "26"
+}, {
+	"id": "c884cf55-9a96-459d-a764-f223e1853149",
+	"name": "Fichetti Pain Inducer",
+	"category": "Exotic Ranged Weapons",
+	"type": "Ranged",
+	"conceal": "-2",
+	"accuracy": "3",
+	"reach": "0",
+	"damage": "Special",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "Special",
+	"avail": "11R",
+	"cost": "5000",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Top",
+			"Under"
+		]
+	},
+	"useskill": "Exotic Ranged Weapon",
+	"range": "Submachine Guns",
+	"source": "SR5",
+	"page": "430"
+}, {
+	"id": "da91e16e-df0f-475e-9a41-c342c59540ab",
+	"name": "Knockoff Gun Cane",
+	"category": "Exotic Ranged Weapons",
+	"type": "Ranged",
+	"conceal": "4",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "9P",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "1(b)",
+	"avail": "6R",
+	"cost": "150",
+	"allowaccessory": "true",
+	"useskill": "Exotic Ranged Weapon",
+	"range": "Heavy Pistols",
+	"source": "RG",
+	"page": "27"
+}, {
+	"id": "04fd6c88-6d3c-4e5e-8490-4cf422f3e02e",
+	"name": "Monofilament Bola",
+	"category": "Exotic Ranged Weapons",
+	"type": "Ranged",
+	"conceal": "-2",
+	"accuracy": "Physical",
+	"reach": "0",
+	"damage": "(STR+3)S/12P",
+	"ap": "+4/-8",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "1",
+	"avail": "18F",
+	"cost": "4000",
+	"allowaccessory": "true",
+	"useskill": "Exotic Ranged Weapon",
+	"range": "Shuriken",
+	"source": "RG",
+	"page": "26"
+}, {
+	"id": "eb9c657d-d98d-476e-8a86-40d83d8cb821",
+	"name": "Mortimer of London 'Trafalger' Gun Cane",
+	"category": "Exotic Ranged Weapons",
+	"type": "Ranged",
+	"conceal": "4",
+	"accuracy": "6",
+	"reach": "0",
+	"damage": "7P",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "1(b)",
+	"avail": "9R",
+	"cost": "750",
+	"allowaccessory": "true",
+	"useskill": "Exotic Ranged Weapon",
+	"range": "Heavy Pistols",
+	"source": "RG",
+	"page": "27"
+}, {
+	"id": "9c3d9b2e-336e-4c37-b05d-07bea9ae9c3f",
+	"name": "Parashield Dart Pistol",
+	"category": "Exotic Ranged Weapons",
+	"type": "Ranged",
+	"conceal": "0",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "As Drug/Toxin",
+	"ap": "0",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "5(c)",
+	"avail": "4R",
+	"cost": "600",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": "Top"
+	},
+	"useskill": "Exotic Ranged Weapon",
+	"range": "Heavy Pistols",
+	"source": "SR5",
+	"page": "430"
+}, {
+	"id": "8432b006-0496-4930-b966-25ab56feb7e2",
+	"name": "Parashield Dart Rifle",
+	"category": "Exotic Ranged Weapons",
+	"type": "Ranged",
+	"conceal": "6",
+	"accuracy": "6",
+	"reach": "0",
+	"damage": "As Drug/Toxin",
+	"ap": "0",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "6(m)",
+	"avail": "6R",
+	"cost": "1200",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Top",
+			"Under"
+		]
+	},
+	"useskill": "Exotic Ranged Weapon",
+	"range": "Sniper Rifles",
+	"source": "SR5",
+	"page": "430"
+}, {
+	"id": "61555ac9-9925-4252-bc25-92c948eb9dfd",
+	"name": "SA Retarius Net Gun",
+	"category": "Exotic Ranged Weapons",
+	"type": "Ranged",
+	"conceal": "6",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "0",
+	"ap": "0",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "4(b)",
+	"avail": "9",
+	"cost": "750",
+	"allowaccessory": "true",
+	"useskill": "Exotic Ranged Weapon",
+	"range": "Light Pistols",
+	"source": "RG",
+	"page": "28"
+}, {
+	"id": "a4dda50f-fec2-4142-bc19-49bcc3a13516",
+	"name": "SA Retarius Net Gun XL",
+	"category": "Exotic Ranged Weapons",
+	"type": "Ranged",
+	"conceal": "6",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "0",
+	"ap": "0",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "2(b)",
+	"avail": "9",
+	"cost": "1000",
+	"allowaccessory": "true",
+	"useskill": "Exotic Ranged Weapon",
+	"range": "Light Pistols",
+	"source": "RG",
+	"page": "28"
+}, {
+	"id": "a130db89-380f-49f8-b9f4-6cfd66cbc4fe",
+	"name": "Tiffani Elegance Shooting Bracers",
+	"category": "Exotic Ranged Weapons",
+	"type": "Ranged",
+	"conceal": "-5",
+	"accuracy": "6",
+	"reach": "0",
+	"damage": "7P",
+	"ap": "0",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "1(b)",
+	"avail": "10R",
+	"cost": "1250",
+	"allowaccessory": "true",
+	"useskill": "Exotic Ranged Weapon",
+	"range": "Tasers",
+	"source": "RG",
+	"page": "28"
+}, {
+	"id": "b312c6dd-56db-4569-b96d-32a9e290e78b",
+	"name": "M1 Garand",
+	"category": "Sporting Rifles",
+	"type": "Ranged",
+	"conceal": "8",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "12P",
+	"ap": "-1",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "8(c)",
+	"avail": "3R",
+	"cost": "1100",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": {
+			"name": "Vintage"
+		}
+	},
+	"source": "GH3",
+	"page": "27"
+}, {
+	"id": "1a1a3b5f-064a-4626-8ddb-efc015187236",
+	"name": "Marlin 3041 BL",
+	"category": "Sporting Rifles",
+	"type": "Ranged",
+	"conceal": "8",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "10P",
+	"ap": "-3",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "6(m)",
+	"avail": "5R",
+	"cost": "1100",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": {
+			"name": "Imaging Scope"
+		}
+	},
+	"source": "GH3",
+	"page": "29"
+}, {
+	"id": "afbb08e1-9362-46c6-b890-9dbd3cd26d2d",
+	"name": "Marlin 3468SS",
+	"category": "Sporting Rifles",
+	"type": "Ranged",
+	"conceal": "8",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "13P",
+	"ap": "-1",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "4(m)",
+	"avail": "6R",
+	"cost": "1000",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"source": "GH3",
+	"page": "25"
+}, {
+	"id": "c4cb38e3-3748-41ad-82e9-56abc111fafe",
+	"name": "Marlin 79S",
+	"category": "Sporting Rifles",
+	"type": "Ranged",
+	"conceal": "8",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "6P",
+	"ap": "-",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "10(c)",
+	"avail": "3R",
+	"cost": "300",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"source": "GH3",
+	"page": "31"
+}, {
+	"id": "2082a58b-e94d-4911-a486-1ad33ac8e3b8",
+	"name": "Marlin X71",
+	"category": "Sporting Rifles",
+	"type": "Ranged",
+	"conceal": "8",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "12P",
+	"ap": "-4",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "5(m)",
+	"avail": "6R",
+	"cost": "1500",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Imaging Scope"
+		}, {
+			"name": "Extreme Environment Modification",
+			"rating": "1"
+		}]
+	},
+	"source": "GH3",
+	"page": "30"
+}, {
+	"id": "c571ea1e-dfd8-4c4e-84d8-9355f24874b0",
+	"name": "Springfield 2003",
+	"category": "Sporting Rifles",
+	"type": "Ranged",
+	"conceal": "8",
+	"accuracy": "9",
+	"reach": "0",
+	"damage": "12P",
+	"ap": "-2",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "5(m)",
+	"avail": "4R",
+	"cost": "3600",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": {
+			"name": "Vintage"
+		}
+	},
+	"source": "GH3",
+	"page": "23"
+}, {
+	"id": "72659b65-56ab-4629-be63-d82549edb0b4",
+	"name": "Springfield M1A",
+	"category": "Sporting Rifles",
+	"type": "Ranged",
+	"conceal": "8",
+	"accuracy": "6",
+	"reach": "0",
+	"damage": "12P",
+	"ap": "-1",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "20(c)",
+	"avail": "6R",
+	"cost": "1700",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": {
+			"name": "Imaging Scope"
+		}
+	},
+	"source": "GH3",
+	"page": "26"
+}, {
+	"id": "c154d964-599f-41bd-9b20-3b63dcbb213d",
+	"name": "Springfield Model 1855 Reproduction",
+	"category": "Sporting Rifles",
+	"type": "Ranged",
+	"conceal": "8",
+	"accuracy": "2",
+	"reach": "0",
+	"damage": "10P",
+	"ap": "0",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "1(cb)",
+	"avail": "4R",
+	"cost": "850",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": {
+			"name": "Vintage"
+		}
+	},
+	"source": "GH3",
+	"page": "28"
+}, {
+	"id": "a6afb306-df84-4d99-8f62-1b9a988bea07",
+	"name": "Winchester Model 2024",
+	"category": "Sporting Rifles",
+	"type": "Ranged",
+	"conceal": "8",
+	"accuracy": "6",
+	"reach": "0",
+	"damage": "12P",
+	"ap": "-",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "7(m)",
+	"avail": "4R",
+	"cost": "1800",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": {
+			"name": "Imaging Scope"
+		}
+	},
+	"source": "GH3",
+	"page": "24"
+}, {
+	"id": "7aa7ed5d-b094-45c9-9275-974e8aeb4de8",
+	"name": "Winchester Model 2067",
+	"category": "Sporting Rifles",
+	"type": "Ranged",
+	"conceal": "8",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "8P",
+	"ap": "-1",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "15(m)",
+	"avail": "4R",
+	"cost": "650",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": {
+			"name": "Vintage"
+		}
+	},
+	"range": "Submachine Guns",
+	"source": "GH3",
+	"page": "33"
+}, {
+	"id": "c9ae9813-cf66-4435-82c5-a5f28c441d5d",
+	"name": "Ares Executioner",
+	"category": "Submachine Guns",
+	"type": "Ranged",
+	"conceal": "2",
+	"accuracy": "6",
+	"reach": "0",
+	"damage": "7P",
+	"ap": "-",
+	"mode": "SA/BF/FA",
+	"rc": "0",
+	"ammo": "30(c)",
+	"avail": "14F",
+	"cost": "1000",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Barrel",
+			"Top"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Folding Stock"
+		}, {
+			"name": "Sound Suppressor"
+		}]
+	},
+	"source": "RG",
+	"page": "35"
+}, {
+	"id": "53393829-2f6d-445d-b3d4-325aabec7cba",
+	"name": "Ares SIGMA 3",
+	"category": "Submachine Guns",
+	"type": "Ranged",
+	"conceal": "2",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "8P",
+	"ap": "-",
+	"mode": "SA/BF/FA",
+	"rc": "1",
+	"ammo": "50(d)",
+	"avail": "7R",
+	"cost": "1000",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Folding Stock"
+		}, {
+			"name": "Slide Mount"
+		}, {
+			"name": "Slide Mount"
+		}, {
+			"name": "Smartgun System, Internal"
+		}]
+	},
+	"source": "GH3",
+	"page": "11"
+}, {
+	"id": "1603b758-f59c-4288-937a-8d7467b9ed33",
+	"name": "Cavalier Arms Gladius",
+	"category": "Submachine Guns",
+	"type": "Ranged",
+	"conceal": "2",
+	"accuracy": "3",
+	"reach": "0",
+	"damage": "7P",
+	"ap": "-",
+	"mode": "BF/FA",
+	"rc": "1",
+	"ammo": "32(c)",
+	"avail": "6R",
+	"cost": "400",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Folding Stock"
+		}, {
+			"name": "Laser Sight"
+		}]
+	},
+	"source": "GH3",
+	"page": "12"
+}, {
+	"id": "b2eefb04-0e33-4faa-8e92-5c4bcbfc3f16",
+	"name": "Colt Cobra TZ-120",
+	"category": "Submachine Guns",
+	"type": "Ranged",
+	"conceal": "2",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "7P",
+	"ap": "-",
+	"mode": "SA/BF/FA",
+	"rc": "2",
+	"ammo": "32(c)",
+	"avail": "5R",
+	"cost": "660",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Barrel",
+			"Top"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Folding Stock"
+		}, {
+			"name": "Laser Sight"
+		}]
+	},
+	"source": "SR5",
+	"page": "427"
+}, {
+	"id": "95295a59-46b3-4cc0-8a1d-ac869cf9912c",
+	"name": "Cyber Submachine Gun",
+	"category": "Submachine Guns",
+	"type": "Ranged",
+	"conceal": "2",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "7P",
+	"ap": "-",
+	"mode": "SA/BF",
+	"rc": "2",
+	"ammo": "18(m)/32(c)",
+	"avail": "0",
+	"cost": "0",
+	"cyberware": "yes",
+	"allowaccessory": "true",
+	"accessories": {
+		"accessory": {
+			"name": "Smartgun System, Internal"
+		}
+	},
+	"source": "SR5",
+	"page": "458"
+}, {
+	"id": "de333a81-b997-4b17-ae0d-c221d22a28c7",
+	"name": "FN P93 Praetor",
+	"category": "Submachine Guns",
+	"type": "Ranged",
+	"conceal": "2",
+	"accuracy": "6",
+	"reach": "0",
+	"damage": "8P",
+	"ap": "-",
+	"mode": "SA/BF/FA",
+	"rc": "1",
+	"ammo": "50(c)",
+	"avail": "11F",
+	"cost": "900",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Barrel",
+			"Top"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Stock"
+		}, {
+			"name": "Flashlight, Standard"
+		}]
+	},
+	"source": "SR5",
+	"page": "427"
+}, {
+	"id": "f9ff7bf6-3ed4-41bd-b934-34e751ecf266",
+	"name": "HK 227",
+	"category": "Submachine Guns",
+	"type": "Ranged",
+	"conceal": "2",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "7P",
+	"ap": "-",
+	"mode": "SA/BF/FA",
+	"rc": "0",
+	"ammo": "28(c)",
+	"avail": "8R",
+	"cost": "730",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Barrel",
+			"Top"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Folding Stock"
+		}, {
+			"name": "Smartgun System, Internal"
+		}, {
+			"name": "Sound Suppressor"
+		}]
+	},
+	"source": "SR5",
+	"page": "427"
+}, {
+	"id": "7bf032e5-7e53-4dbd-b5c8-8c57d6c4c9ba",
+	"name": "HK Urban Combat",
+	"category": "Submachine Guns",
+	"type": "Ranged",
+	"conceal": "2",
+	"accuracy": "7",
+	"reach": "0",
+	"damage": "8P",
+	"ap": "-",
+	"mode": "SA/BF/FA",
+	"rc": "2",
+	"ammo": "36(c)",
+	"avail": "16F",
+	"cost": "2300",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Barrel",
+			"Top"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Smartgun System, Internal"
+		}, {
+			"name": "Sound Suppressor"
+		}]
+	},
+	"source": "RG",
+	"page": "36"
+}, {
+	"id": "017d8327-3bce-420a-af24-a2bed3ab0e83",
+	"name": "Ingram Smartgun X",
+	"category": "Submachine Guns",
+	"type": "Ranged",
+	"conceal": "2",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "8P",
+	"ap": "-",
+	"mode": "BF/FA",
+	"rc": "2",
+	"ammo": "32(c)",
+	"avail": "6R",
+	"cost": "800",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Barrel",
+			"Top"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Smartgun System, Internal"
+		}, {
+			"name": "Sound Suppressor"
+		}]
+	},
+	"source": "SR5",
+	"page": "427"
+}, {
+	"id": "980bc771-06f2-41b5-8879-c609bd80254f",
+	"name": "Krime Spree",
+	"category": "Submachine Guns",
+	"type": "Ranged",
+	"conceal": "2",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "7P",
+	"ap": "-",
+	"mode": "FA",
+	"rc": "1",
+	"ammo": "30(c)",
+	"avail": "6R",
+	"cost": "425",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"source": "GH3",
+	"page": "10"
+}, {
+	"id": "be17251c-109c-4fbb-93e6-b59226592536",
+	"name": "SCK Model 100",
+	"category": "Submachine Guns",
+	"type": "Ranged",
+	"conceal": "2",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "8P",
+	"ap": "-",
+	"mode": "SA/BF",
+	"rc": "0",
+	"ammo": "30(c)",
+	"avail": "6R",
+	"cost": "875",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Barrel",
+			"Top"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Folding Stock"
+		}, {
+			"name": "Smartgun System, Internal"
+		}]
+	},
+	"source": "SR5",
+	"page": "428"
+}, {
+	"id": "e80cca4e-3210-4e38-b333-6c1cd42d6b54",
+	"name": "Uzi IV",
+	"category": "Submachine Guns",
+	"type": "Ranged",
+	"conceal": "2",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "7P",
+	"ap": "-",
+	"mode": "BF",
+	"rc": "0",
+	"ammo": "24(c)",
+	"avail": "4R",
+	"cost": "450",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Barrel",
+			"Top"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Folding Stock"
+		}, {
+			"name": "Laser Sight"
+		}]
+	},
+	"source": "SR5",
+	"page": "428"
+}, {
+	"id": "74475182-fc21-4583-b9b9-84db8af29328",
+	"name": "Cavalier Safeguard",
+	"category": "Tasers",
+	"type": "Ranged",
+	"conceal": "0",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "6S(e)",
+	"ap": "-5",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "6(m)",
+	"avail": "0",
+	"cost": "275",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": "Top"
+	},
+	"accessories": {
+		"accessory": {
+			"name": "Laser Sight"
+		}
+	},
+	"source": "RG",
+	"page": "29"
+}, {
+	"id": "7d5bcc0b-9ec2-4c87-aaa7-a4d531d7974e",
+	"name": "Defiance EX Shocker",
+	"category": "Tasers",
+	"type": "Ranged",
+	"conceal": "0",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "9S(e)",
+	"ap": "-5",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "4(m)",
+	"avail": "0",
+	"cost": "250",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": "Top"
+	},
+	"source": "SR5",
+	"page": "424"
+}, {
+	"id": "3540d227-3288-410f-aa11-5048179ab322",
+	"name": "Tiffani-Defiance Protector",
+	"category": "Tasers",
+	"type": "Ranged",
+	"conceal": "0",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "7S(e)",
+	"ap": "-5",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "3(m)",
+	"avail": "0",
+	"cost": "300",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": "Top"
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Laser Sight"
+		}, {
+			"name": "Gecko Grip"
+		}]
+	},
+	"source": "RG",
+	"page": "29"
+}, {
+	"id": "21628e04-95d0-4ba4-bc66-fcbed5a1bf8e",
+	"name": "Yamaha Pulsar",
+	"category": "Tasers",
+	"type": "Ranged",
+	"conceal": "0",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "7S(e)",
+	"ap": "-5",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "4(m)",
+	"avail": "0",
+	"cost": "180",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": "Top"
+	},
+	"source": "SR5",
+	"page": "425"
+}, {
+	"id": "168c2aa5-c4d9-4fd7-a629-fc70c6720d03",
+	"name": "Knucks",
+	"category": "Unarmed",
+	"type": "Melee",
+	"conceal": "0",
+	"accuracy": "Physical",
+	"reach": "0",
+	"damage": "(STR+1)P",
+	"ap": "-",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "2R",
+	"cost": "100",
+	"allowaccessory": "true",
+	"useskill": "Unarmed Combat",
+	"source": "SR5",
+	"page": "422"
+}, {
+	"id": "e789ce47-f1bf-4c08-88b8-3295dddd03b1",
+	"name": "Shock Gloves",
+	"category": "Unarmed",
+	"type": "Melee",
+	"conceal": "0",
+	"accuracy": "Physical",
+	"reach": "0",
+	"damage": "8S(e)",
+	"ap": "-5",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "6R",
+	"cost": "550",
+	"allowaccessory": "true",
+	"useskill": "Unarmed Combat",
+	"source": "SR5",
+	"page": "423"
+}, {
+	"id": "fec4a4f8-4432-4bdc-b3b9-83c032d71d63",
+	"name": "Shock Hand",
+	"category": "Unarmed",
+	"type": "Melee",
+	"spec": "Cyber Implants",
+	"conceal": "0",
+	"accuracy": "Physical",
+	"reach": "0",
+	"damage": "9S(e)",
+	"ap": "-5",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "0",
+	"cost": "0",
+	"cyberware": "yes",
+	"allowaccessory": "true",
+	"useskill": "Unarmed Combat",
+	"source": "SR5",
+	"page": "458"
+}, {
+	"id": "63dcfdb6-bbd9-4a58-bbf4-cd35f7614fdc",
+	"name": "Unarmed Attack",
+	"category": "Unarmed",
+	"type": "Melee",
+	"conceal": "0",
+	"accuracy": "Physical",
+	"reach": "0",
+	"damage": "(STR)S",
+	"ap": "-",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "0",
+	"cost": "0",
+	"allowaccessory": "true",
+	"source": "SR5",
+	"page": "132"
+}, {
+	"id": "ae58f859-37ee-4fac-befa-365acd3c7da7",
+	"name": "AK-98 Grenade Launcher",
+	"category": "Underbarrel Weapons",
+	"type": "Ranged",
+	"conceal": "6",
+	"accuracy": "3",
+	"reach": "0",
+	"damage": "Grenade",
+	"ap": "-",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "6(m)",
+	"ammocategory": "Grenade Launchers",
+	"avail": "0",
+	"cost": "0",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"useskill": "Heavy Weapons",
+	"range": "Grenade Launchers",
+	"source": "SR5",
+	"page": "428"
+}, {
+	"id": "e9bea546-f35d-4ecc-9d15-8b30df9bdb28",
+	"name": "Ares Alpha Grenade Launcher",
+	"category": "Underbarrel Weapons",
+	"type": "Ranged",
+	"conceal": "6",
+	"accuracy": "6",
+	"reach": "0",
+	"damage": "Grenade",
+	"ap": "-",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "6(c)",
+	"ammocategory": "Grenade Launchers",
+	"avail": "0",
+	"cost": "0",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"useskill": "Heavy Weapons",
+	"range": "Grenade Launchers",
+	"source": "SR5",
+	"page": "428"
+}, {
+	"id": "74e0b1e5-2449-4075-9b0d-eb0d8383033b",
+	"name": "HK XM30 Grenade Launcher",
+	"category": "Underbarrel Weapons",
+	"type": "Ranged",
+	"spec": "Grenade Launchers",
+	"conceal": "6",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "Grenade",
+	"ap": "-",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "6(c)",
+	"ammocategory": "Grenade Launchers",
+	"avail": "0",
+	"cost": "0",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Shock Pad"
+		}, {
+			"name": "Imaging Scope"
+		}, {
+			"name": "Smartgun System, Internal"
+		}]
+	},
+	"useskill": "Heavy Weapons",
+	"range": "Grenade Launchers",
+	"source": "RG",
+	"page": "37"
+}, {
+	"id": "232dfc49-21ad-4b90-b05f-e5523b3ee142",
+	"name": "Nissan Optiumum II Shotgun",
+	"category": "Underbarrel Weapons",
+	"type": "Ranged",
+	"spec": "Shotguns",
+	"conceal": "6",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "10P",
+	"ap": "-1",
+	"mode": "SA",
+	"rc": "1",
+	"ammo": "5(m)",
+	"ammocategory": "Shotguns",
+	"avail": "0",
+	"cost": "0",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Stock",
+			"Side",
+			"Internal",
+			"Barrel",
+			"Top",
+			"Under"
+		]
+	},
+	"accessories": {
+		"accessory": [{
+			"name": "Shock Pad"
+		}, {
+			"name": "Smartgun System, Internal"
+		}]
+	},
+	"useskill": "Longarms",
+	"range": "Shotguns",
+	"source": "RG",
+	"page": "38"
+}, {
+	"id": "3a91672e-0588-45a6-b225-149624e813ac",
+	"name": "Ares Predator III",
+	"category": "Heavy Pistols",
+	"type": "Ranged",
+	"spec": "Semi-Automatics",
+	"conceal": "0",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "7P",
+	"ap": "-1",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "15(c)",
+	"avail": "6R",
+	"cost": "600",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Barrel",
+			"Top"
+		]
+	},
+	"source": "SASS",
+	"page": "31"
+}, {
+	"id": "793034c5-61b9-4a91-beea-eb7c671ee956",
+	"name": "Vibro Knife",
+	"category": "Blades",
+	"type": "Melee",
+	"spec": "Knives",
+	"conceal": "-2",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "(STR+2)P",
+	"ap": "-2",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "6R",
+	"cost": "1000",
+	"allowaccessory": "true",
+	"source": "SASS",
+	"page": "31"
+}, {
+	"id": "a5a300fd-d9fa-41dc-a792-2f96015cbe8a",
+	"name": "Vibro Sword",
+	"category": "Blades",
+	"type": "Melee",
+	"spec": "Swords",
+	"conceal": "6",
+	"accuracy": "6",
+	"reach": "1",
+	"damage": "(STR+4)P",
+	"ap": "-2",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "8F",
+	"cost": "2000",
+	"allowaccessory": "true",
+	"source": "SASS",
+	"page": "31"
+}, {
+	"name": "Digging Claws",
+	"category": "Quality",
+	"type": "Melee",
+	"conceal": "0",
+	"accuracy": "Physical",
+	"reach": "0",
+	"damage": "(STR)P",
+	"ap": "+1",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "0",
+	"cost": "0",
+	"allowaccessory": "false",
+	"useskill": "Unarmed Combat",
+	"source": "RF",
+	"page": "113"
+}, {
+	"name": "Razor Claws",
+	"category": "Quality",
+	"type": "Melee",
+	"conceal": "0",
+	"accuracy": "Physical",
+	"reach": "0",
+	"damage": "(STR+1)P",
+	"ap": "-1",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "0",
+	"cost": "0",
+	"allowaccessory": "false",
+	"useskill": "Unarmed Combat",
+	"source": "RF",
+	"page": "113"
+}, {
+	"name": "Retractable Claws",
+	"category": "Quality",
+	"type": "Melee",
+	"conceal": "0",
+	"accuracy": "Physical",
+	"reach": "0",
+	"damage": "(STR+1)P",
+	"ap": "-1",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "0",
+	"cost": "0",
+	"allowaccessory": "false",
+	"useskill": "Unarmed Combat",
+	"source": "RF",
+	"page": "113"
+}, {
+	"id": "d8ce8d26-bccb-4107-aa90-3dd88af14d41",
+	"name": "Raptor Beak",
+	"category": "Quality",
+	"type": "Melee",
+	"reach": "-1",
+	"damage": "(STR+2)P",
+	"ap": "-2",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"conceal": "0",
+	"accuracy": "Physical",
+	"avail": "0",
+	"cost": "0",
+	"allowaccessory": "false",
+	"useskill": "Unarmed Combat",
+	"source": "RF",
+	"page": "112"
+}, {
+	"id": "847c2843-717f-4192-bad9-df21ffd4083b",
+	"name": "Fangs",
+	"category": "Quality",
+	"type": "Melee",
+	"reach": "-1",
+	"damage": "(STR+1)P",
+	"ap": "-",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"conceal": "0",
+	"accuracy": "Physical",
+	"avail": "0",
+	"cost": "0",
+	"allowaccessory": "false",
+	"useskill": "Unarmed Combat",
+	"source": "RF",
+	"page": "115"
+}, {
+	"id": "63bb72d2-977f-4ea3-b119-898186d2c299",
+	"name": "Functional Tail (Thagomizer)",
+	"category": "Quality",
+	"type": "Melee",
+	"reach": "1",
+	"damage": "(STR+3)P",
+	"ap": "-1",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"conceal": "0",
+	"accuracy": "Physical",
+	"avail": "0",
+	"cost": "0",
+	"allowaccessory": "false",
+	"useskill": "Exotic Melee Weapon",
+	"source": "RF",
+	"page": "115"
+}, {
+	"id": "c847a859-8a72-4a1b-acb5-201ddc66fe73",
+	"name": "Goring Horns",
+	"category": "Quality",
+	"type": "Melee",
+	"reach": "0",
+	"damage": "(STR+2)P",
+	"ap": "-1",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"conceal": "0",
+	"accuracy": "Physical",
+	"avail": "0",
+	"cost": "0",
+	"allowaccessory": "false",
+	"useskill": "Exotic Melee Weapon",
+	"source": "RF",
+	"page": "115"
+}, {
+	"id": "54048c9d-854e-41b5-b493-6aa863da8fbd",
+	"name": "Larger Tusks",
+	"category": "Quality",
+	"type": "Melee",
+	"reach": "0",
+	"damage": "(STR+2)P",
+	"ap": "-",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"conceal": "0",
+	"accuracy": "Physical",
+	"avail": "0",
+	"cost": "0",
+	"allowaccessory": "false",
+	"useskill": "Unarmed Combat",
+	"source": "RF",
+	"page": "115"
+}, {
+	"id": "1cdc0732-eb63-42c4-b8f4-cdf0e2d7c67c",
+	"name": "Proboscis",
+	"category": "Quality",
+	"type": "Melee",
+	"reach": "0",
+	"damage": "(STR-1)P",
+	"ap": "+1",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"conceal": "0",
+	"accuracy": "Physical",
+	"avail": "0",
+	"cost": "0",
+	"allowaccessory": "false",
+	"useskill": "Unarmed Combat",
+	"source": "RF",
+	"page": "118"
+}, {
+	"id": "e4124dde-69f2-4322-884a-620ba7792b82",
+	"name": "Kick (Centaur)",
+	"category": "Quality",
+	"type": "Melee",
+	"conceal": "0",
+	"accuracy": "Physical",
+	"reach": "1",
+	"damage": "(STR+2)P",
+	"ap": "+1",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "0",
+	"cost": "0",
+	"allowaccessory": "false",
+	"useskill": "Unarmed Combat",
+	"source": "RF",
+	"page": "105"
+}, {
+	"id": "e9dd389a-df19-4b1f-981f-342d23f2e506",
+	"name": "Bite (Infected)",
+	"category": "Quality",
+	"type": "Melee",
+	"conceal": "0",
+	"accuracy": "Physical",
+	"reach": "-1",
+	"damage": "(STR+1)P",
+	"ap": "-1",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "0",
+	"cost": "0",
+	"allowaccessory": "false",
+	"useskill": "Unarmed Combat",
+	"source": "RF",
+	"page": "137"
+}, {
+	"id": "e9dd389a-df19-4b1f-981f-342d23f2e506",
+	"name": "Bite (Naga)",
+	"category": "Quality",
+	"type": "Melee",
+	"conceal": "0",
+	"accuracy": "Physical",
+	"reach": "-1",
+	"damage": "(STR+1)P",
+	"ap": "-2",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "0",
+	"cost": "0",
+	"allowaccessory": "false",
+	"useskill": "Unarmed Combat",
+	"source": "RF",
+	"page": "105"
+}, {
+	"id": "30e8dab2-f435-4169-be3c-7e53a7840010",
+	"name": "Claws (Sasquatch)",
+	"category": "Quality",
+	"type": "Melee",
+	"conceal": "0",
+	"accuracy": "Physical",
+	"reach": "1",
+	"damage": "(STR+1)P",
+	"ap": "0",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "0",
+	"cost": "0",
+	"allowaccessory": "false",
+	"useskill": "Unarmed Combat",
+	"source": "RF",
+	"page": "105"
+}, {
+	"id": "30e8dab2-f435-4169-be3c-7e53a7840010",
+	"name": "Claws (Sasquatch)",
+	"category": "Quality",
+	"type": "Melee",
+	"conceal": "0",
+	"accuracy": "Physical",
+	"reach": "1",
+	"damage": "(STR+1)P",
+	"ap": "0",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "0",
+	"cost": "0",
+	"allowaccessory": "false",
+	"useskill": "Unarmed Combat",
+	"source": "RF",
+	"page": "105"
+}, {
+	"id": "30e8dab2-f435-4169-be3c-7e53a7840010",
+	"name": "Claws (Infected) 3",
+	"category": "Quality",
+	"type": "Melee",
+	"conceal": "0",
+	"accuracy": "Physical",
+	"reach": "1",
+	"damage": "(STR+3)P",
+	"ap": "-2",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "0",
+	"cost": "0",
+	"allowaccessory": "false",
+	"useskill": "Unarmed Combat",
+	"source": "RF",
+	"page": "136"
+}, {
+	"id": "30e8dab2-f435-4169-be3c-7e53a7840010",
+	"name": "Claws (Infected) 2",
+	"category": "Quality",
+	"type": "Melee",
+	"conceal": "0",
+	"accuracy": "Physical",
+	"reach": "1",
+	"damage": "(STR+2)P",
+	"ap": "-1",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "0",
+	"cost": "0",
+	"allowaccessory": "false",
+	"useskill": "Unarmed Combat",
+	"source": "RF",
+	"page": "136"
+}, {
+	"id": "30e8dab2-f435-4169-be3c-7e53a7840010",
+	"name": "Claws (Infected) 1",
+	"category": "Natural",
+	"type": "Melee",
+	"conceal": "0",
+	"accuracy": "Physical",
+	"reach": "1",
+	"damage": "(STR+1)P",
+	"ap": "-1",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "0",
+	"cost": "0",
+	"allowaccessory": "false",
+	"useskill": "Unarmed Combat",
+	"source": "RF",
+	"page": "136"
+}, {
+	"id": "e9dd389a-df19-4b1f-981f-342d23f2e506",
+	"name": "Bite (Infected) 1",
+	"category": "Natural",
+	"type": "Melee",
+	"conceal": "0",
+	"accuracy": "Physical",
+	"reach": "-1",
+	"damage": "(STR+1)P",
+	"ap": "-1",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "0",
+	"cost": "0",
+	"allowaccessory": "false",
+	"useskill": "Unarmed Combat",
+	"source": "RF",
+	"page": "137"
+}, {
+	"id": "e9dd389a-df19-4b1f-981f-342d23f2e506",
+	"name": "Bite (Infected) 2",
+	"category": "Quality",
+	"type": "Melee",
+	"conceal": "0",
+	"accuracy": "Physical",
+	"reach": "-1",
+	"damage": "(STR+2)P",
+	"ap": "-2",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "0",
+	"cost": "0",
+	"allowaccessory": "false",
+	"useskill": "Unarmed Combat",
+	"source": "RF",
+	"page": "137"
+}, {
+	"id": "e9dd389a-df19-4b1f-981f-342d23f2e506",
+	"name": "Bite (Gnawer)",
+	"category": "Quality",
+	"type": "Melee",
+	"conceal": "0",
+	"accuracy": "Physical",
+	"reach": "-1",
+	"damage": "(STR+2)P",
+	"ap": "-2",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "0",
+	"cost": "0",
+	"allowaccessory": "false",
+	"useskill": "Unarmed Combat",
+	"source": "RF",
+	"page": "137"
+}, {
+	"id": "0b43e7a8-892d-403a-a0e2-0d015556b1af",
+	"name": "Oral Slasher",
+	"category": "Cyberweapon",
+	"type": "Melee",
+	"conceal": "-4",
+	"accuracy": "Physical",
+	"reach": "1",
+	"damage": "6P",
+	"ap": "-3",
+	"mode": "0",
+	"rc": "0",
+	"useskill": "Exotic Melee Weapon",
+	"ammo": "0",
+	"avail": "12R",
+	"cost": "0",
+	"cyberware": "yes",
+	"allowaccessory": "true",
+	"source": "CF",
+	"page": "92"
+}, {
+	"id": "a67facdd-fbd1-48dd-bb10-e5eaca69ec3d",
+	"name": "Flametosser",
+	"category": "Flamethrowers",
+	"type": "Ranged",
+	"conceal": "2",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "6P",
+	"ap": "-6",
+	"mode": "SA/BF",
+	"rc": "0",
+	"ammo": "5(m)",
+	"avail": "12F",
+	"cost": "0",
+	"cyberware": "yes",
+	"useskill": "Exotic Ranged Weapon",
+	"allowaccessory": "true",
+	"range": "Light Pistols",
+	"source": "CF",
+	"page": "91"
+}, {
+	"id": "8a842089-5a2c-43ee-9613-7f3db793fa71",
+	"name": "Cyberfangs",
+	"category": "Cyberweapon",
+	"type": "Melee",
+	"conceal": "-4",
+	"accuracy": "Physical-2",
+	"reach": "0",
+	"damage": "(STR)P",
+	"ap": "0",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "0",
+	"cost": "0",
+	"cyberware": "yes",
+	"useskill": "Unarmed Combat",
+	"allowaccessory": "true",
+	"source": "CF",
+	"page": "91"
+}, {
+	"id": "D82CFA4C-DBEB-4CEA-977C-8849E97C0438",
+	"name": "Extreme Cyberimplant",
+	"category": "Cyberweapon",
+	"type": "Melee",
+	"conceal": "0",
+	"accuracy": "Physical",
+	"reach": "0",
+	"damage": "(STR+5)P",
+	"ap": "0",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "0",
+	"cost": "0",
+	"cyberware": "yes",
+	"allowaccessory": "true",
+	"useskill": "Unarmed Combat",
+	"source": "CF",
+	"page": "91"
+}, {
+	"id": "D82CFA4C-DBEB-4CEA-977C-8849E97C0438",
+	"name": "Junkyard Jaw",
+	"category": "Cyberweapon",
+	"type": "Melee",
+	"conceal": "0",
+	"accuracy": "Physical",
+	"reach": "0",
+	"useskill": "Unarmed Combat",
+	"damage": "(STR+3)P",
+	"ap": "-6",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "0",
+	"cost": "0",
+	"cyberware": "yes",
+	"allowaccessory": "true",
+	"source": "CF",
+	"page": "91"
+}, {
+	"name": "Claws (Bio-Weapon)",
+	"id": "458A2ECB-725D-414B-B033-23C18C62E61B",
+	"category": "Bio-Weapon",
+	"type": "Melee",
+	"conceal": "0",
+	"accuracy": "Physical",
+	"reach": "0",
+	"damage": "(STR+1)P",
+	"ap": "-3",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "0",
+	"cost": "0",
+	"allowaccessory": "false",
+	"useskill": "Unarmed Combat",
+	"source": "CF",
+	"page": "121"
+}, {
+	"id": "458A2ECB-725D-414B-B033-23C18C62E61B",
+	"name": "Retractable Claws (Bio-Weapon)",
+	"category": "Bio-Weapon",
+	"type": "Melee",
+	"conceal": "0",
+	"accuracy": "Physical",
+	"reach": "0",
+	"damage": "(STR+1)P",
+	"ap": "-3",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "0",
+	"cost": "0",
+	"allowaccessory": "false",
+	"useskill": "Unarmed Combat",
+	"source": "CF",
+	"page": "121"
+}, {
+	"id": "458A2ECB-725D-414B-B033-23C18C62E61B",
+	"name": "Electrical Discharge",
+	"category": "Bio-Weapon",
+	"type": "Melee",
+	"conceal": "0",
+	"accuracy": "Physical",
+	"reach": "0",
+	"damage": "1-8S(e) (Special)",
+	"ap": "-4",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "0",
+	"cost": "0",
+	"allowaccessory": "false",
+	"useskill": "Unarmed Combat",
+	"source": "CF",
+	"page": "122"
+}, {
+	"id": "458A2ECB-725D-414B-B033-23C18C62E61B",
+	"name": "Fangs (Bio-Weapon)",
+	"category": "Bio-Weapon",
+	"type": "Melee",
+	"reach": "0",
+	"damage": "(STR+2)P",
+	"ap": "-4",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"conceal": "0",
+	"accuracy": "3",
+	"avail": "0",
+	"cost": "0",
+	"allowaccessory": "false",
+	"useskill": "Unarmed Combat",
+	"source": "CF",
+	"page": "121"
+}, {
+	"id": "576770af-b5da-4b76-afdf-5559e7401e2d",
+	"name": "Retractable Fangs (Bio-Weapon)",
+	"category": "Bio-Weapon",
+	"type": "Melee",
+	"reach": "0",
+	"damage": "(STR+2)P",
+	"ap": "-4",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"conceal": "0",
+	"accuracy": "3",
+	"avail": "0",
+	"cost": "0",
+	"allowaccessory": "false",
+	"useskill": "Unarmed Combat",
+	"source": "CF",
+	"page": "121"
+}, {
+	"id": "458A2ECB-725D-414B-B033-23C18C62E61B",
+	"name": "Horns (Bio-Weapon)",
+	"category": "Bio-Weapon",
+	"type": "Melee",
+	"reach": "0",
+	"damage": "(STR+1)P",
+	"ap": "-4",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"conceal": "0",
+	"accuracy": "4",
+	"avail": "0",
+	"cost": "0",
+	"allowaccessory": "false",
+	"useskill": "Unarmed Combat",
+	"source": "CF",
+	"page": "121"
+}, {
+	"id": "458A2ECB-725D-414B-B033-23C18C62E61B",
+	"name": "Large Stinger",
+	"category": "Bio-Weapon",
+	"type": "Melee",
+	"reach": "1",
+	"damage": "(STR+3)P",
+	"ap": "-4",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"conceal": "0",
+	"accuracy": "Physical",
+	"avail": "0",
+	"cost": "0",
+	"allowaccessory": "false",
+	"useskill": "Unarmed Combat",
+	"source": "CF",
+	"page": "121"
+}, {
+	"id": "458A2ECB-725D-414B-B033-23C18C62E61B",
+	"name": "Medium Stinger",
+	"category": "Bio-Weapon",
+	"type": "Melee",
+	"reach": "1",
+	"damage": "(STR+2)P",
+	"ap": "-2",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"conceal": "0",
+	"accuracy": "Physical",
+	"avail": "0",
+	"cost": "0",
+	"allowaccessory": "false",
+	"useskill": "Unarmed Combat",
+	"source": "CF",
+	"page": "121"
+}, {
+	"id": "458A2ECB-725D-414B-B033-23C18C62E61B",
+	"name": "Horns (Bio-Weapon)",
+	"category": "Bio-Weapon",
+	"type": "Melee",
+	"reach": "0",
+	"damage": "(STR+1)P",
+	"ap": "-2",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"conceal": "0",
+	"accuracy": "4",
+	"avail": "0",
+	"cost": "0",
+	"allowaccessory": "false",
+	"useskill": "Unarmed Combat",
+	"source": "CF",
+	"page": "121"
+}, {
+	"id": "458A2ECB-725D-414B-B033-23C18C62E61B",
+	"name": "Medium Tusk(s)",
+	"category": "Bio-Weapon",
+	"type": "Melee",
+	"reach": "0",
+	"damage": "(STR)P",
+	"ap": "-1",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"conceal": "0",
+	"accuracy": "4",
+	"avail": "0",
+	"cost": "0",
+	"allowaccessory": "false",
+	"useskill": "Unarmed Combat",
+	"source": "CF",
+	"page": "121"
+}, {
+	"id": "458A2ECB-725D-414B-B033-23C18C62E61B",
+	"name": "Large Tusk(s)",
+	"category": "Bio-Weapon",
+	"type": "Melee",
+	"reach": "0",
+	"damage": "(STR+1)P",
+	"ap": "-2",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"conceal": "0",
+	"accuracy": "4",
+	"avail": "0",
+	"cost": "0",
+	"allowaccessory": "false",
+	"useskill": "Unarmed Combat",
+	"source": "CF",
+	"page": "121"
+}, {
+	"id": "458A2ECB-725D-414B-B033-23C18C62E61B",
+	"name": "Raptor Foot",
+	"category": "Cyber-Weapon",
+	"type": "Melee",
+	"reach": "0",
+	"damage": "(STR+2)P",
+	"ap": "-3",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"conceal": "0",
+	"accuracy": "Physical-1",
+	"avail": "0",
+	"cost": "0",
+	"allowaccessory": "false",
+	"useskill": "Unarmed Combat",
+	"source": "CF",
+	"page": "90"
+}, {
+	"id": "458A2ECB-725D-414B-B033-23C18C62E61B",
+	"name": "Grapple Fist",
+	"category": "Cyber-Weapon",
+	"type": "Ranged",
+	"spec": "Grapple Gun",
+	"conceal": "0",
+	"accuracy": "3",
+	"reach": "0",
+	"damage": "7S",
+	"ap": "-2",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "1(ml)",
+	"avail": "0",
+	"cost": "0",
+	"range": "Light Crossbows",
+	"useskill": "Exotic Ranged Weapon",
+	"allowaccessory": "False",
+	"source": "CF",
+	"page": "90"
+}, {
+	"id": "3a60c3ee-9f6f-46cb-be2f-bec0bccc3318",
+	"name": "Tactical Grapple Gun",
+	"category": "Exotic Ranged Weapons",
+	"type": "Ranged",
+	"spec": "Grapple Gun",
+	"conceal": "6",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "9S",
+	"ap": "-2",
+	"mode": "SS",
+	"rc": "0",
+	"accessories": {
+		"accessory": {
+			"name": "Smartgun System, Internal"
+		}
+	},
+	"ammo": "1(b)",
+	"avail": "15F",
+	"cost": "10000",
+	"range": "Heavy Crossbows",
+	"allowaccessory": "true",
+	"source": "HT",
+	"page": "187"
+}, {
+	"id": "a68d164d-4b79-47b9-ac89-4985ae18e882",
+	"name": "Sapphire Knife",
+	"category": "Blades",
+	"type": "Melee",
+	"spec": "Knives",
+	"conceal": "-2",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "(STR+2)P",
+	"ap": "-3",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "6R",
+	"cost": "900",
+	"allowaccessory": "true",
+	"source": "HT",
+	"page": "179"
+}, {
+	"id": "cbc5270f-5848-41cd-a723-e86a7f48cfb4",
+	"name": "Ceramic/Plasteel Knife",
+	"category": "Blades",
+	"type": "Melee",
+	"spec": "Knives",
+	"conceal": "-2",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "(STR+1)P",
+	"ap": "-1",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "4",
+	"cost": "75",
+	"allowaccessory": "true",
+	"source": "HT",
+	"page": "179"
+}, {
+	"id": "d036885b-4238-4ed7-ae9d-5dba97071e19",
+	"name": "Foot Blade",
+	"category": "Blades",
+	"type": "Melee",
+	"spec": "Cyber Implants",
+	"conceal": "0",
+	"accuracy": "Physical",
+	"reach": "0",
+	"damage": "(STR+2)P",
+	"ap": "0",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "0",
+	"cost": "0",
+	"cyberware": "yes",
+	"allowaccessory": "true",
+	"useskill": "Unarmed Combat",
+	"source": "HT",
+	"page": "185"
+}, {
+	"id": "7b928bc3-c44e-4002-b8ac-17a2bdd01d5a",
+	"name": "Bone Spike I",
+	"category": "Blades",
+	"type": "Melee",
+	"spec": "Cyber Implants",
+	"conceal": "0",
+	"accuracy": "Physical",
+	"reach": "0",
+	"damage": "(STR+2)P",
+	"ap": "0",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "0",
+	"cost": "0",
+	"cyberware": "yes",
+	"allowaccessory": "true",
+	"useskill": "Unarmed Combat",
+	"source": "HT",
+	"page": "185"
+}, {
+	"id": "2ef46f42-8890-48fd-bb94-67c34c12f0fb",
+	"name": "Bone Spike II",
+	"category": "Blades",
+	"type": "Melee",
+	"spec": "Cyber Implants",
+	"conceal": "0",
+	"accuracy": "Physical",
+	"reach": "0",
+	"damage": "(STR+3)P",
+	"ap": "0",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "0",
+	"cost": "0",
+	"cyberware": "yes",
+	"allowaccessory": "true",
+	"useskill": "Unarmed Combat",
+	"source": "HT",
+	"page": "185"
+}, {
+	"id": "3babb9d3-a3bb-4c8f-96ce-73f27b6ec7a6",
+	"name": "Bone Spike III",
+	"category": "Blades",
+	"type": "Melee",
+	"spec": "Cyber Implants",
+	"conceal": "0",
+	"accuracy": "Physical",
+	"reach": "0",
+	"damage": "(STR+4)P",
+	"ap": "0",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "0",
+	"cost": "0",
+	"cyberware": "yes",
+	"allowaccessory": "true",
+	"useskill": "Unarmed Combat",
+	"source": "HT",
+	"page": "185"
+}, {
+	"id": "9434fb76-1d7f-463e-b377-b7c07e2a18e2",
+	"name": "Cougar Collapsible Spear",
+	"category": "Blades",
+	"type": "Melee",
+	"spec": "Swords",
+	"conceal": "4",
+	"accuracy": "5",
+	"reach": "3",
+	"damage": "(STR+3)P",
+	"ap": "-2",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "14R",
+	"cost": "1250",
+	"allowaccessory": "true",
+	"source": "HT",
+	"page": "180"
+}, {
+	"id": "6967eea2-01f8-4931-a59f-d2cd64419561",
+	"name": "Collapsible Scythe",
+	"category": "Blades",
+	"type": "Melee",
+	"spec": "Swords",
+	"conceal": "4",
+	"accuracy": "5",
+	"reach": "2",
+	"damage": "(STR+2)P",
+	"ap": "-2",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "16R",
+	"cost": "2350",
+	"allowaccessory": "true",
+	"source": "HT",
+	"page": "183"
+}, {
+	"id": "023bb6db-4c14-470b-a063-9df1adf31a00",
+	"name": "Victorinox Collapsible Hatchet",
+	"category": "Blades",
+	"type": "Melee",
+	"spec": "Swords",
+	"conceal": "4",
+	"accuracy": "5",
+	"reach": "1",
+	"damage": "(STR+2)P",
+	"ap": "-1",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "4",
+	"cost": "250",
+	"allowaccessory": "true",
+	"source": "HT",
+	"page": "179"
+}, {
+	"id": "4225b0c1-2da0-4dd9-9c98-2136a57946cf",
+	"name": "Throwing Syringe",
+	"category": "Gear",
+	"type": "Ranged",
+	"conceal": "-2",
+	"accuracy": "Physical",
+	"reach": "0",
+	"damage": "(STR-2)P",
+	"ap": "-1",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "6F",
+	"cost": "40",
+	"allowaccessory": "true",
+	"useskill": "Exotic Ranged Weapons",
+	"range": "Aerodynamic Grenade",
+	"source": "HT",
+	"page": "183"
+}, {
+	"id": "1c738c1d-7abc-4756-a683-f5bf92902671",
+	"name": "Cavalier Arms Adder Silvergun",
+	"category": "Light Pistols",
+	"type": "Ranged",
+	"spec": "Semi-Automatics",
+	"conceal": "-2",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "8P(f)",
+	"ap": "+5",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "20(c)",
+	"avail": "7F",
+	"cost": "320",
+	"allowaccessory": "true",
+	"accessorymounts": {
+		"mount": [
+			"Barrel",
+			"Top"
+		]
+	},
+	"source": "HT",
+	"page": "178"
+}, {
+	"id": "a1b5cec9-e14d-4b4d-8377-436af40b09cd",
+	"name": "Flame Bracer",
+	"category": "Exotic Ranged Weapons",
+	"type": "Ranged",
+	"conceal": "-5",
+	"accuracy": "4",
+	"reach": "0",
+	"damage": "6P(fire)",
+	"ap": "-6",
+	"mode": "SS",
+	"rc": "0",
+	"ammo": "2(c)",
+	"avail": "8F",
+	"cost": "775",
+	"allowaccessory": "true",
+	"useskill": "Exotic Ranged Weapon",
+	"range": "Tasers",
+	"source": "HT",
+	"page": "184"
+}, {
+	"id": "176ab92a-0c00-48fe-a994-668903407fbf",
+	"name": "Ares Armatus",
+	"category": "Exotic Ranged Weapons",
+	"type": "Ranged",
+	"conceal": "+4",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "6P",
+	"ap": "-5",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "10(c)",
+	"avail": "20F",
+	"cost": "19000",
+	"allowaccessory": "true",
+	"useskill": "Exotic Ranged Weapon",
+	"range": "Shotgun",
+	"source": "HT",
+	"page": "184"
+}, {
+	"id": "7aa56de0-e709-4a0e-aadb-fbcdd2fcfeb0",
+	"name": "Plasteel Toe Boots",
+	"category": "Unarmed",
+	"type": "Melee",
+	"conceal": "0",
+	"accuracy": "Physical",
+	"reach": "0",
+	"damage": "(STR+1)P",
+	"ap": "-",
+	"mode": "0",
+	"rc": "0",
+	"ammo": "0",
+	"avail": "2",
+	"cost": "200",
+	"allowaccessory": "true",
+	"useskill": "Unarmed Combat",
+	"source": "HT",
+	"page": "179"
+}, {
+	"id": "431b07eb-8eb8-4091-a47c-5ffe8736bb50",
+	"name": "Colt Manhunter",
+	"category": "Heavy Pistols",
+	"type": "Ranged",
+	"spec": "Semi-Automatics",
+	"conceal": "0",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "8P",
+	"ap": "-1",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "16(c)",
+	"avail": "5R",
+	"cost": "700",
+	"allowaccessory": "true",
+	"accessories": {
+		"accessory": {
+			"name": "Holographic Sight"
+		}
+	},
+	"accessorymounts": {
+		"mount": [
+			"Barrel",
+			"Top"
+		]
+	},
+	"source": "HT",
+	"page": "178"
+}, {
+	"id": "d36e75cc-73bc-4de3-9d9c-a236284e9d76",
+	"name": "Lemat 2072",
+	"category": "Heavy Pistols",
+	"type": "Ranged",
+	"spec": "Semi-Automatics",
+	"conceal": "0",
+	"accuracy": "5",
+	"reach": "0",
+	"damage": "8P",
+	"ap": "-1",
+	"mode": "SA",
+	"rc": "0",
+	"ammo": "9(cy)",
+	"avail": "8R",
+	"cost": "1080",
+	"allowaccessory": "true",
+	"accessories": {
+		"accessory": {
+			"name": "Ammo Skip"
+		}
+	},
+	"accessorymounts": {
+		"mount": [
+			"Barrel",
+			"Top"
+		]
+	},
+	"source": "HT",
+	"page": "178"
+}]

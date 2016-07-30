@@ -4,6 +4,10 @@
  *          This modifications only run once when the generator is invoked - if
  *          you edit them, they are not updated again.
  */
+require('normalize.css');
+require('styles/bootstrap-overwrite.scss');
+require('styles/App.css');
+
 import React, {
   Component,
   PropTypes
@@ -18,6 +22,7 @@ import QualityComponent from '../components/QualityComponent';
 import MagicSelectionComponent from '../components/magic/MagicSelectionComponent';
 import ActiveSkillsComponent from '../components/skills/ActiveSkillsComponent';
 import SummaryComponent from '../components/SummaryComponent';
+import StreetGearComponent from '../components/StreetGearComponent';
 /* Populated by react-webpack-redux:reducer */
 class App extends Component {
   handleScroll() {
@@ -89,6 +94,9 @@ class App extends Component {
               attributes={attributes}
               metatype={selectMetatype}
               magictype={selectMagRes}/>
+            <h2>Street Gear</h2>
+            <StreetGearComponent
+              />
 					</div>
 					<div id='summary' className='col-md-12 col-lg-3'>
 						<SummaryComponent
