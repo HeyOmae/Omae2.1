@@ -22,7 +22,7 @@ import QualityComponent from '../components/QualityComponent';
 import MagicSelectionComponent from '../components/magic/MagicSelectionComponent';
 import ActiveSkillsComponent from '../components/skills/ActiveSkillsComponent';
 import SummaryComponent from '../components/SummaryComponent';
-import StreetGearComponent from '../components/StreetGearComponent';
+import StreetGearComponent from '../components/gear/StreetGearComponent';
 /* Populated by react-webpack-redux:reducer */
 class App extends Component {
   handleScroll() {

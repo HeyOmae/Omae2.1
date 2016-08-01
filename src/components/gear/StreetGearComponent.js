@@ -1,14 +1,15 @@
 'use strict';
 
 import React from 'react';
+import WeaponsComponent from './WeaponsComponent';
 
-require('styles//StreetGear.scss');
+require('styles/gear/StreetGear.scss');
 
 class StreetGearComponent extends React.Component {
 	render() {
 		return (
 			<div className="streetgear-component">
-				<h3>Melee Weapons</h3>
+				<WeaponsComponent />
 			</div>
 		);
 	}
