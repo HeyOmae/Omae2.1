@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react';
+import Modal from '../ModalComponent';
 
 require('styles/gear/Weapons.scss');
 
@@ -38,18 +39,23 @@ class WeaponsComponent extends React.Component {
 
 		for(let category in weaponsTableRow) {
 			weaponTable.push(
-				<div key={category} className="table-responsive">
-					<h3>{category}</h3>
-					<table className="table">
-						<tbody>{weaponsTableRow[category]}</tbody>
-					</table>
-				</div>
+				<Modal
+					key={category}
+					modalName={category}
+					modalContent={
+						<div className="table-responsive">
+							<table className="table">
+								<tbody>{weaponsTableRow[category]}</tbody>
+							</table>
+						</div>
+					}
+				/>
 				);
 		}
 
-		console.log(weaponsTableRow);
 		return (
 			<div className="weapons-component">
+				<h3>Weapons</h3>
 				{weaponTable}
 			</div>
 		);
