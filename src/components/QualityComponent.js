@@ -7,10 +7,10 @@ const qualityData = require('json!./data/qualities.json');
 require('styles//Quality.sass');
 
 class QualityComponent extends React.Component {
-	render() {
-		const {actions, selectedQualities, karma} = this.props;
+	componentWillMount() {
+		const {actions} = this.props;
 
-		let qualitiesTableRow = {
+		this.qualitiesTableRow = {
 			Positive: [],
 			Negative: []
 		};
@@ -30,9 +30,9 @@ class QualityComponent extends React.Component {
 						actions.selectQuality({newQuality: quality});
 						actions.karma({karmaPoints: -Number(quality.karma)});
 					}}>+</button>;
-			qualitiesTableRow[quality.category].push(generateQualityTableRow(quality, addButton));
-		},
-		generateSelectedQualityTableRow = (selectQualities) => {
+			this.qualitiesTableRow[quality.category].push(generateQualityTableRow(quality, addButton));
+		};
+		this.generateSelectedQualityTableRow = (selectQualities) => {
 			return selectQualities.map((quality, qualityIndex) => {
 				const removeButton = <button
 					className="btn btn-warning"
@@ -48,6 +48,9 @@ class QualityComponent extends React.Component {
 		};
 
 		qualityData.forEach(generatePurchaseableQualityTableRow);
+	}
+	render() {
+		const {selectedQualities, karma} = this.props;
 
 		return (
 			<div className="quality-component row">
@@ -63,7 +66,7 @@ class QualityComponent extends React.Component {
 						modalContent={
 							<QualityTable
 								buttonText="Add"
-								tableRows={qualitiesTableRow.Positive} />
+								tableRows={this.qualitiesTableRow.Positive} />
 						}
 						/>
 
@@ -72,7 +75,7 @@ class QualityComponent extends React.Component {
 						modalContent={
 							<QualityTable
 								buttonText="Add"
-								tableRows={qualitiesTableRow.Negative} />
+								tableRows={this.qualitiesTableRow.Negative} />
 						}
 					/>
 				</div>
@@ -81,7 +84,7 @@ class QualityComponent extends React.Component {
 						<h3>Positive Qualities</h3>
 						<QualityTable
 							buttonText="Remove"
-							tableRows={generateSelectedQualityTableRow(selectedQualities.Positive)} />
+							tableRows={this.generateSelectedQualityTableRow(selectedQualities.Positive)} />
 					</div>
 					: null
 				}
@@ -90,7 +93,7 @@ class QualityComponent extends React.Component {
 						<h3>Negative Qualities</h3>
 						<QualityTable
 							buttonText="Remove"
-							tableRows={generateSelectedQualityTableRow(selectedQualities.Negative)} />
+							tableRows={this.generateSelectedQualityTableRow(selectedQualities.Negative)} />
 					</div>
 					: null
 				}

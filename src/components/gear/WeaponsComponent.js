@@ -8,9 +8,9 @@ require('styles/gear/Weapons.scss');
 let weaponData = require('json!../data/weapons.json');
 
 class WeaponsComponent extends React.Component {
-	render() {
-		let weaponsTableRow = {},
-			weaponTable = [];
+	componentWillMount() {
+		let weaponsTableRow = {};
+		this.weaponTable = [];
 		weaponData.forEach((weapon) => {
 			if(!weaponsTableRow[weapon.category]) {
 				weaponsTableRow[weapon.category] = [];
@@ -38,7 +38,7 @@ class WeaponsComponent extends React.Component {
 		});
 
 		for(let category in weaponsTableRow) {
-			weaponTable.push(
+			this.weaponTable.push(
 				<Modal
 					key={category}
 					modalName={category}
@@ -52,11 +52,13 @@ class WeaponsComponent extends React.Component {
 				/>
 				);
 		}
+	}
+	render() {
 
 		return (
 			<div className="weapons-component">
 				<h3>Weapons</h3>
-				{weaponTable}
+				{this.weaponTable}
 			</div>
 		);
 	}
