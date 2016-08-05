@@ -49,8 +49,10 @@ class QualityComponent extends React.Component {
 
 		qualityData.forEach(generatePurchaseableQualityTableRow);
 	}
+
 	render() {
-		const {selectedQualities, karma} = this.props;
+		const {selectedQualities, karma} = this.props,
+			{qualitiesTableRow, generateSelectedQualityTableRow} = this;
 
 		return (
 			<div className="quality-component row">
@@ -66,7 +68,7 @@ class QualityComponent extends React.Component {
 						modalContent={
 							<QualityTable
 								buttonText="Add"
-								tableRows={this.qualitiesTableRow.Positive} />
+								tableRows={qualitiesTableRow.Positive} />
 						}
 						/>
 
@@ -75,7 +77,7 @@ class QualityComponent extends React.Component {
 						modalContent={
 							<QualityTable
 								buttonText="Add"
-								tableRows={this.qualitiesTableRow.Negative} />
+								tableRows={qualitiesTableRow.Negative} />
 						}
 					/>
 				</div>
@@ -84,7 +86,7 @@ class QualityComponent extends React.Component {
 						<h3>Positive Qualities</h3>
 						<QualityTable
 							buttonText="Remove"
-							tableRows={this.generateSelectedQualityTableRow(selectedQualities.Positive)} />
+							tableRows={generateSelectedQualityTableRow(selectedQualities.Positive)} />
 					</div>
 					: null
 				}
@@ -93,7 +95,7 @@ class QualityComponent extends React.Component {
 						<h3>Negative Qualities</h3>
 						<QualityTable
 							buttonText="Remove"
-							tableRows={this.generateSelectedQualityTableRow(selectedQualities.Negative)} />
+							tableRows={generateSelectedQualityTableRow(selectedQualities.Negative)} />
 					</div>
 					: null
 				}
