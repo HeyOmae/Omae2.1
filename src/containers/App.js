@@ -21,27 +21,12 @@ import AttributesComponent from '../components/AttributesComponent';
 import QualityComponent from '../components/QualityComponent';
 import MagicSelectionComponent from '../components/magic/MagicSelectionComponent';
 import ActiveSkillsComponent from '../components/skills/ActiveSkillsComponent';
-import SummaryComponent from '../components/SummaryComponent';
 import StreetGearComponent from '../components/gear/StreetGearComponent';
+import Summary from './summary';
 /* Populated by react-webpack-redux:reducer */
 class App extends Component {
-  handleScroll() {
-    const {actions} = this;
-    let summary = document.getElementById('summary'), sumLoc = summary.getBoundingClientRect();
-    if (sumLoc.top < 0) {
-      actions.fixSummary({ summaryFix: true });
-    } else {
-      actions.fixSummary({ summaryFix: false });
-    }
-  }
-  componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll.bind(this.props));
-  }
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll);
-  }
   render() {
-    const {actions, priorityTable, selectMetatype, attributes, selectMagRes, settingSkills, appControl, spellSelect, quality, karma} = this.props,
+    const {actions, priorityTable, selectMetatype, attributes, selectMagRes, settingSkills, spellSelect, quality, karma} = this.props,
     karmaTotal = karma - spellSelect.powerPointsKarma;
     return (
       <div className='container' >
@@ -99,16 +84,7 @@ class App extends Component {
               />
 					</div>
 					<div id='summary' className='col-md-12 col-lg-3'>
-						<SummaryComponent
-              priority={priorityTable}
-              metatype={selectMetatype}
-              attributes={attributes}
-              magres={selectMagRes}
-              spellsAndPowers={spellSelect}
-              skills={settingSkills}
-              fixed={appControl.summaryFix}
-              selectedQualities={quality}
-              karma={karmaTotal}/>
+						<Summary />
 					</div>
 				</div>
 			</div>
@@ -159,7 +135,6 @@ function mapDispatchToProps(dispatch) {
     selectMagictype: require('../actions/selectMagictype.js'),
     incrementSkill: require('../actions/skills/incrementSkill.js'),
     decrementSkill: require('../actions/skills/decrementSkill.js'),
-    fixSummary: require('../actions/app/fixSummary.js'),
     incrementSkillgroup: require('../actions/skills/incrementSkillgroup.js'),
     decrementSkillgroup: require('../actions/skills/decrementSkillgroup.js'),
     setSpec: require('../actions/skills/setSpec.js'),
