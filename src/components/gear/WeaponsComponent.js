@@ -9,9 +9,14 @@ let weaponData = require('json!../data/weapons.json');
 
 class WeaponsComponent extends React.Component {
 	componentWillMount() {
-		let weaponsTableRow = {};
-		this.weaponTable = [];
+		let weaponsTableRow = {},
+			weaponTable = [];
+
+		const skipWeapons = ['Quality', 'Natural', 'Cyberweapon', 'Bio-Weapon', 'Cyber-Weapon'];
 		weaponData.forEach((weapon) => {
+			if( skipWeapons.indexOf(weapon.category) > -1 ) {
+				return;
+			}
 			if(!weaponsTableRow[weapon.category]) {
 				weaponsTableRow[weapon.category] = [];
 			}
@@ -31,14 +36,14 @@ class WeaponsComponent extends React.Component {
 						<td>{weapon.ap}</td>
 						<td>{weapon.type === 'Melee'? weapon.reach : weapon.rc}</td>
 						<td>{weapon.avail}</td>
-						<td>{weapon.cost}</td>
+						<td>{weapon.cost}&yen;</td>
 						<td>{weapon.source} p{weapon.page}</td>
 					</tr>
 				);
 		});
 
 		for(let category in weaponsTableRow) {
-			this.weaponTable.push(
+			weaponTable.push(
 				<Modal
 					key={category}
 					modalName={category}
@@ -52,6 +57,7 @@ class WeaponsComponent extends React.Component {
 				/>
 				);
 		}
+		this.weaponTable = weaponTable;
 	}
 	render() {
 

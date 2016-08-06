@@ -6968,25 +6968,6 @@
 	"page": "105"
 }, {
 	"id": "30e8dab2-f435-4169-be3c-7e53a7840010",
-	"name": "Claws (Sasquatch)",
-	"category": "Quality",
-	"type": "Melee",
-	"conceal": "0",
-	"accuracy": "Physical",
-	"reach": "1",
-	"damage": "(STR+1)P",
-	"ap": "0",
-	"mode": "0",
-	"rc": "0",
-	"ammo": "0",
-	"avail": "0",
-	"cost": "0",
-	"allowaccessory": "false",
-	"useskill": "Unarmed Combat",
-	"source": "RF",
-	"page": "105"
-}, {
-	"id": "30e8dab2-f435-4169-be3c-7e53a7840010",
 	"name": "Claws (Infected) 3",
 	"category": "Quality",
 	"type": "Melee",
