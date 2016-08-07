@@ -1,6 +1,3 @@
-/*eslint-env node, mocha */
-/*global expect */
-/*eslint no-console: 0*/
 var reducer = require('../../src/reducers/spellSelect');
 
 describe('spellSelect', () => {
@@ -53,7 +50,7 @@ describe('spellSelect', () => {
 			}
 		],
 		powerPointsSpent: 1.5,
-		powerPointsKarma: 2,
+		powerPointsKarma: 10,
 		complexforms: [
 			{
 				id: '33e75cd6-cad7-43dd-87ac-9838c83eccb5',
@@ -96,54 +93,63 @@ describe('spellSelect', () => {
 		done();
 	});
 
-	it('should add a spell to the state.spells', () => {
-		const newSpell = {
-			id: 'c78d91cc-fa02-48c3-a243-28823a2038ef',
-			name: 'Acid Stream',
-			descriptor: 'Indirect, Elemental',
-			category: 'Combat',
-			type: 'P',
-			range: 'LOS',
-			damage: 'P',
-			duration: 'I',
-			dv: 'F-3',
-			source: 'SR5',
-			page: '283'
-		},
-		newState = reducer(state, {type: 'ADD_SPELL', parameter: {newSpell}});
+	describe('ADD_SPELL', () => {
+		it('should add a spell to the state.spells', () => {
+			const newSpell = {
+				id: 'c78d91cc-fa02-48c3-a243-28823a2038ef',
+				name: 'Acid Stream',
+				descriptor: 'Indirect, Elemental',
+				category: 'Combat',
+				type: 'P',
+				range: 'LOS',
+				damage: 'P',
+				duration: 'I',
+				dv: 'F-3',
+				source: 'SR5',
+				page: '283'
+			},
+			newState = reducer(state, {type: 'ADD_SPELL', parameter: {newSpell}});
 
-		expect(newState.spells[newState.spells.length - 1]).to.eql(newSpell);
-		expect(newState.spells.length).to.eql(state.spells.length + 1);
+			expect(newState.spells[newState.spells.length - 1]).to.eql(newSpell);
+			expect(newState.spells.length).to.eql(state.spells.length + 1);
+		});
 	});
 
-	it('should remove spells from the state.spells', () => {
-		const newState = reducer(state, {type: 'REMOVE_SPELL', parameter: {spellIndex: 0}});
+	describe('REMOVE_SPELL', () => {
+		it('should remove spells from the state.spells', () => {
+			const newState = reducer(state, {type: 'REMOVE_SPELL', parameter: {spellIndex: 0}});
 
-		expect(newState.spells[0]).to.not.eql(state.spells[0]);
-		expect(newState.spells.length).to.equal(state.spells.length - 1);
+			expect(newState.spells[0]).to.not.eql(state.spells[0]);
+			expect(newState.spells.length).to.equal(state.spells.length - 1);
+		});
+
 	});
 
-	it('should add a complexform to the state.complexforms', () => {
-		const newSpell = {
-			id: '373638b9-4334-4645-99f5-c3673e4f809b',
-			name: 'Cleaner',
-			target: 'Persona',
-			duration: 'P',
-			fv: 'L+1',
-			source: 'SR5',
-			page: '252'
-		},
-		newState = reducer(state, {type: 'ADD_COMPLEXFORM', parameter: {newSpell}});
+	describe('ADD_COMPLEXFORM', () => {
+		it('should add a complexform to the state.complexforms', () => {
+			const newSpell = {
+				id: '373638b9-4334-4645-99f5-c3673e4f809b',
+				name: 'Cleaner',
+				target: 'Persona',
+				duration: 'P',
+				fv: 'L+1',
+				source: 'SR5',
+				page: '252'
+			},
+			newState = reducer(state, {type: 'ADD_COMPLEXFORM', parameter: {newSpell}});
 
-		expect(newState.complexforms[newState.complexforms.length - 1]).to.eql(newSpell);
-		expect(newState.complexforms.length).to.equal(state.complexforms.length + 1);
+			expect(newState.complexforms[newState.complexforms.length - 1]).to.eql(newSpell);
+			expect(newState.complexforms.length).to.equal(state.complexforms.length + 1);
+		});
 	});
 
-	it('should remove complexform from the state.complexforms', () => {
-		const newState = reducer(state, {type: 'REMOVE_COMPLEXFORM', parameter: {spellIndex: 1}});
+	describe('REMOVE_COMPLEXFORM', () => {
+		it('should remove complexform from the state.complexforms', () => {
+			const newState = reducer(state, {type: 'REMOVE_COMPLEXFORM', parameter: {spellIndex: 1}});
 
-		expect(newState.complexforms[1]).to.not.eql(state.complexforms[1]);
-		expect(newState.complexforms.length).to.equal(state.complexforms.length - 1);
+			expect(newState.complexforms[1]).to.not.eql(state.complexforms[1]);
+			expect(newState.complexforms.length).to.equal(state.complexforms.length - 1);
+		});
 	});
 
 	describe('ADD_POWER', () => {
@@ -162,40 +168,87 @@ describe('spellSelect', () => {
 
 			expect(newState.powers[newState.powers.length - 1]).to.eql(newSpell);
 			expect(newState.powers.length).to.equal(state.powers.length + 1);
+			expect(newState.powerPointsKarma).to.equal(10);
 
 			expect(newState.powerPointsSpent).to.equal(1.75);
+			expect(state.powerPointsKarma).to.equal(10);
 			expect(state.powerPointsSpent).to.equal(1.5);
 		});
 
-		it('should add to the powerPowerKarma if a mystic', () => {
+		it('should keep powerPowerKarma the same for mystics if the power points do not go to the next whole number', () => {
+			const newSpell = {
+				id: '8caaadf4-75b4-4535-928a-5648d395c13a',
+				name: 'Adrenaline Boost',
+				points: '.25',
+				adeptway: '0',
+				levels: 'yes',
+				limit: '1',
+				source: 'SR5',
+				page: '309'
+			},
+			newState = reducer(state, {type: 'ADD_POWER', parameter: {newSpell, isMystic: true}});
 
+			expect(newState.powers[newState.powers.length - 1]).to.eql(newSpell);
+			expect(newState.powers.length).to.equal(state.powers.length + 1);
+			expect(newState.powerPointsKarma).to.equal(10);
+
+			expect(newState.powerPointsSpent).to.equal(1.75);
+			expect(state.powerPointsSpent).to.equal(1.5);
+			expect(state.powerPointsKarma).to.equal(10);
+		});
+
+		it('should increase the powerPowerKarma by 5 for for mystics if the power points does go above the next whole number', () => {
+			const newSpell = {
+				'id': '3f3fcdbc-c046-4a95-bd46-511a76d75b56',
+				'name': 'Traceless Walk',
+				'points': '1',
+				'adeptway': '.5',
+				'levels': 'no',
+				'limit': '1',
+				'source': 'SR5',
+				'page': '311'
+			},
+			newState = reducer(state, {type: 'ADD_POWER', parameter: {newSpell, isMystic: true}});
+
+			expect(newState.powers[newState.powers.length - 1]).to.eql(newSpell);
+			expect(newState.powers.length).to.equal(state.powers.length + 1);
+			expect(newState.powerPointsKarma).to.equal(15);
+
+			expect(newState.powerPointsSpent).to.equal(2.5);
+			expect(state.powerPointsSpent).to.equal(1.5);
+			expect(state.powerPointsKarma).to.equal(10);
 		});
 	});
 
-	
+	describe('REMOVE_POWER', () => {
+		it('should remove power from the state.powers', () => {
+			const newState = reducer(state, {type: 'REMOVE_POWER', parameter: {powerIndex: 1}});
 
-	it('should remove power from the state.powers', () => {
-		const newState = reducer(state, {type: 'REMOVE_POWER', parameter: {powerIndex: 1}});
+			expect(newState.powers[1]).to.not.eql(state.powers[1]);
+			expect(newState.powers.length).to.equal(state.powers.length - 1);
 
-		expect(newState.powers[1]).to.not.eql(state.powers[1]);
-		expect(newState.powers.length).to.equal(state.powers.length - 1);
-
-		expect(newState.powerPointsSpent).to.equal(1);
-		expect(state.powerPointsSpent).to.equal(1.5);
+			expect(newState.powerPointsSpent).to.equal(1);
+			expect(state.powerPointsSpent).to.equal(1.5);
+		});
 	});
 
-	it('should raise a power[powerIndex].levels by one when RAISE_POWER is called', () => {
-		const newState = reducer(state, {type: 'RAISE_POWER', parameter: {powerIndex: 1}});
 
-		expect(newState.powers[1].levels).to.equal(3);
-		expect(state.powers[1].levels).to.equal(2);
+	describe('RAISE_POWER', () => {
+		it('should raise a power[powerIndex].levels by one when RAISE_POWER is called', () => {
+			const newState = reducer(state, {type: 'RAISE_POWER', parameter: {powerIndex: 1}});
+
+			expect(newState.powers[1].levels).to.equal(3);
+			expect(state.powers[1].levels).to.equal(2);
+		});
 	});
 
-	it('should lower a power[spellIndex].levels by one when LOWER_POWER is called', () => {
-		const newState = reducer(state, {type: 'LOWER_POWER', parameter: {powerIndex: 1}});
+	describe('LOWER_POWER', () => {
+		it('should lower a power[spellIndex].levels by one when LOWER_POWER is called', () => {
+			const newState = reducer(state, {type: 'LOWER_POWER', parameter: {powerIndex: 1}});
 
-		expect(newState.powers[1].levels).to.equal(1);
-		expect(state.powers[1].levels).to.equal(2);
+			expect(newState.powers[1].levels).to.equal(1);
+			expect(state.powers[1].levels).to.equal(2);
+		});
 	});
 
 	describe('RESET_ABILITY', () => {
