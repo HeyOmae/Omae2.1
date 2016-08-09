@@ -175,60 +175,88 @@ describe('spellSelect', () => {
 			expect(state.powerPointsSpent).to.equal(1.5);
 		});
 
-		it('should keep powerPowerKarma the same for mystics if the power points do not go to the next whole number', () => {
-			const newSpell = {
-				id: '8caaadf4-75b4-4535-928a-5648d395c13a',
-				name: 'Adrenaline Boost',
-				points: '.25',
-				adeptway: '0',
-				levels: 'yes',
-				limit: '1',
-				source: 'SR5',
-				page: '309'
-			},
-			newState = reducer(state, {type: 'ADD_POWER', parameter: {newSpell, isMystic: true}});
+		describe('Mystic Adepts', () => {
+			it('should keep powerPowerKarma the same if the power points do not go to the next whole number', () => {
+				const newSpell = {
+					id: '8caaadf4-75b4-4535-928a-5648d395c13a',
+					name: 'Adrenaline Boost',
+					points: '.25',
+					adeptway: '0',
+					levels: 'yes',
+					limit: '1',
+					source: 'SR5',
+					page: '309'
+				},
+				newState = reducer(state, {type: 'ADD_POWER', parameter: {newSpell, isMystic: true}});
 
-			expect(newState.powers[newState.powers.length - 1]).to.eql(newSpell);
-			expect(newState.powers.length).to.equal(state.powers.length + 1);
-			expect(newState.powerPointsKarma).to.equal(10);
+				expect(newState.powers[newState.powers.length - 1]).to.eql(newSpell);
+				expect(newState.powers.length).to.equal(state.powers.length + 1);
+				expect(newState.powerPointsKarma).to.equal(10);
 
-			expect(newState.powerPointsSpent).to.equal(1.75);
-			expect(state.powerPointsSpent).to.equal(1.5);
-			expect(state.powerPointsKarma).to.equal(10);
+				expect(newState.powerPointsSpent).to.equal(1.75);
+				expect(state.powerPointsSpent).to.equal(1.5);
+				expect(state.powerPointsKarma).to.equal(10);
+			});
+
+			it('should increase the powerPowerKarma by 5 if the power points does go above the next whole number', () => {
+				const newSpell = {
+					id: '3f3fcdbc-c046-4a95-bd46-511a76d75b56',
+					name: 'Traceless Walk',
+					points: '1',
+					adeptway: '.5',
+					levels: 'no',
+					limit: '1',
+					source: 'SR5',
+					page: '311'
+				},
+				newState = reducer(state, {type: 'ADD_POWER', parameter: {newSpell, isMystic: true}});
+
+				expect(newState.powers[newState.powers.length - 1]).to.eql(newSpell);
+				expect(newState.powers.length).to.equal(state.powers.length + 1);
+				expect(newState.powerPointsKarma).to.equal(15);
+
+				expect(newState.powerPointsSpent).to.equal(2.5);
+				expect(state.powerPointsSpent).to.equal(1.5);
+				expect(state.powerPointsKarma).to.equal(10);
+			});
 		});
 
-		it('should increase the powerPowerKarma by 5 for for mystics if the power points does go above the next whole number', () => {
-			const newSpell = {
-				'id': '3f3fcdbc-c046-4a95-bd46-511a76d75b56',
-				'name': 'Traceless Walk',
-				'points': '1',
-				'adeptway': '.5',
-				'levels': 'no',
-				'limit': '1',
-				'source': 'SR5',
-				'page': '311'
-			},
-			newState = reducer(state, {type: 'ADD_POWER', parameter: {newSpell, isMystic: true}});
-
-			expect(newState.powers[newState.powers.length - 1]).to.eql(newSpell);
-			expect(newState.powers.length).to.equal(state.powers.length + 1);
-			expect(newState.powerPointsKarma).to.equal(15);
-
-			expect(newState.powerPointsSpent).to.equal(2.5);
-			expect(state.powerPointsSpent).to.equal(1.5);
-			expect(state.powerPointsKarma).to.equal(10);
-		});
 	});
 
 	describe('REMOVE_POWER', () => {
 		it('should remove power from the state.powers', () => {
-			const newState = reducer(state, {type: 'REMOVE_POWER', parameter: {powerIndex: 1}});
+			const newState = reducer(state, {type: 'REMOVE_POWER', parameter: {powerIndex: 1, isMystic: true}});
 
 			expect(newState.powers[1]).to.not.eql(state.powers[1]);
 			expect(newState.powers.length).to.equal(state.powers.length - 1);
 
 			expect(newState.powerPointsSpent).to.equal(1);
 			expect(state.powerPointsSpent).to.equal(1.5);
+		});
+
+		describe('Mystic Adepts', () => {
+			it('should not reduce the powerPowerKarma if the power points do not drop a whole point', () => {
+				const testState = Object.assign({}, state, {powers: state.powers.slice(0), powerPointsSpent: 1.75});
+				testState.powers.push({
+					id: '8caaadf4-75b4-4535-928a-5648d395c13a',
+					name: 'Adrenaline Boost',
+					points: '.25',
+					adeptway: '0',
+					levels: 'yes',
+					limit: '1',
+					source: 'SR5',
+					page: '309'
+				});
+				const newState = reducer(testState, {type: 'REMOVE_POWER', parameter: {powerIndex: 2, isMystic: true}});
+
+				expect(newState.powers[2]).to.not.eql(testState.powers[2]);
+				expect(newState.powers.length).to.equal(testState.powers.length - 1);
+				expect(newState.powerPointsKarma).to.equal(10);
+
+				expect(newState.powerPointsSpent).to.equal(1.5);
+				expect(testState.powerPointsSpent).to.equal(1.75);
+				expect(testState.powerPointsKarma).to.equal(10);
+			});
 		});
 	});
 
