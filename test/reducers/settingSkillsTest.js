@@ -66,14 +66,14 @@ describe('settingSkills', () => {
 	});
 
 	describe('DECREMENT_SKILL', () => {
-		it('should decrement a skill that\'s already defined in the state', () => {
+		it('should decrement a skill that is already defined in the state', () => {
 			let newState = reducer(state, {type: 'DECREMENT_SKILL', parameter: {name: 'palming', category: 'active', max: 6, attribute: 'agi' }});
 
 			expect(newState.active.palming.rating).to.equal(1);
 			expect(newState.skillPointsSpent).to.equal(2);
 		});
 
-		it('should delete a skill that\'s decremented to 0 in the state without a groupRating value', () => {
+		it('should delete a skill that is decremented to 0 in the state without a groupRating value', () => {
 			let newState = reducer(state, {type: 'DECREMENT_SKILL', parameter: {name: 'longarms', category: 'active', max: 6, attribute: 'agi' }});
 
 			expect(newState.active.longarms).to.be.undefined;
@@ -225,6 +225,12 @@ describe('settingSkills', () => {
 
 			//check to see if state is not mutated
 			expect(state.active.cybercombat.groupRating).to.equal(3);
+		});
+
+		it('should return state if an invalid skill group name is passed in', () => {
+			const newState = reducer(state, {type: 'DECREMENT_SKILLGROUP', parameter: {name: 'invalid', category: 'groups', skillsInGroup: {cybercombat: 'log', electronicwarfare: 'log', hacking: 'log'}}});
+
+			expect(newState).to.equal(state);
 		});
 	});
 

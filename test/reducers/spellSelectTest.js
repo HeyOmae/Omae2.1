@@ -251,11 +251,23 @@ describe('spellSelect', () => {
 
 				expect(newState.powers[2]).to.not.eql(testState.powers[2]);
 				expect(newState.powers.length).to.equal(testState.powers.length - 1);
-				expect(newState.powerPointsKarma).to.equal(10);
 
 				expect(newState.powerPointsSpent).to.equal(1.5);
 				expect(testState.powerPointsSpent).to.equal(1.75);
+				expect(newState.powerPointsKarma).to.equal(10);
 				expect(testState.powerPointsKarma).to.equal(10);
+			});
+
+			it('should reduce the powerPowerKarma if the power points does drop a whole point', () => {
+				const newState = reducer(state, {type: 'REMOVE_POWER', parameter: {powerIndex: 0, isMystic: true}});
+
+				expect(newState.powers[0]).to.not.eql(state.powers[0]);
+				expect(newState.powers.length).to.equal(state.powers.length - 1);
+
+				expect(newState.powerPointsSpent).to.equal(.5);
+				expect(state.powerPointsSpent).to.equal(1.5);
+				expect(newState.powerPointsKarma).to.equal(5);
+				expect(state.powerPointsKarma).to.equal(10);
 			});
 		});
 	});
@@ -268,6 +280,34 @@ describe('spellSelect', () => {
 			expect(newState.powers[1].levels).to.equal(3);
 			expect(state.powers[1].levels).to.equal(2);
 		});
+
+		describe('Mystic Adept', () => {
+			it('should raise the powerPowerKarma if the power points is raised to a whole point', () => {
+				const testState = Object.assign({}, state, {
+					powers: state.powers.slice(0),
+					powerPointsSpent: 2,
+					powerPointsKarma: 10
+				});
+
+				testState.powers.push({
+					id: '8caaadf4-75b4-4535-928a-5648d395c13a',
+					name: 'Adrenaline Boost',
+					points: '.25',
+					adeptway: '0',
+					levels: 2,
+					limit: '1',
+					source: 'SR5',
+					page: '309'
+				});
+
+				const newState = reducer(testState, {type: 'RAISE_POWER', parameter: {powerIndex: 1, isMystic: true}});
+				expect(newState.powerPointsKarma).to.equal(15);
+				expect(testState.powerPointsKarma).to.equal(10);
+
+				expect(newState.powers[1].levels).to.equal(3);
+				expect(testState.powers[1].levels).to.equal(2);
+			});
+		});
 	});
 
 	describe('LOWER_POWER', () => {
@@ -276,6 +316,34 @@ describe('spellSelect', () => {
 
 			expect(newState.powers[1].levels).to.equal(1);
 			expect(state.powers[1].levels).to.equal(2);
+		});
+
+		describe('Mystic Adept', () => {
+			it('should lower the powerPowerKarma if the power points is lowered to a whole point', () => {
+				const testState = Object.assign({}, state, {
+					powers: state.powers.slice(0),
+					powerPointsSpent: 2.25,
+					powerPointsKarma: 15
+				});
+
+				testState.powers.push({
+					id: '8caaadf4-75b4-4535-928a-5648d395c13a',
+					name: 'Adrenaline Boost',
+					points: '.25',
+					adeptway: '0',
+					levels: 3,
+					limit: '1',
+					source: 'SR5',
+					page: '309'
+				});
+
+				const newState = reducer(testState, {type: 'LOWER_POWER', parameter: {powerIndex: 1, isMystic: true}});
+				expect(newState.powerPointsKarma).to.equal(10);
+				expect(testState.powerPointsKarma).to.equal(15);
+
+				expect(newState.powers[1].levels).to.equal(1);
+				expect(testState.powers[1].levels).to.equal(2);
+			});
 		});
 	});
 

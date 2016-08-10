@@ -73,7 +73,7 @@ const skillReducer = (state=initialState, action) => {
 
 		DECREMENT_SKILL: () => {
 			var newState,
-				skill = state[category][name];
+				skill = state[category] && state[category][name];
 			if(!skill) {
 
 				return state;
@@ -97,8 +97,6 @@ const skillReducer = (state=initialState, action) => {
 					state.skillPointsSpent - 1
 				);
 
-			} else {
-				return state;
 			}
 			return newState;
 		},
@@ -148,7 +146,7 @@ const skillReducer = (state=initialState, action) => {
 		DECREMENT_SKILLGROUP: () => {
 			var newState,
 				skillgroup = state.groups[name],
-				newGroupRating = skillgroup.rating - 1;
+				newGroupRating = skillgroup && skillgroup.rating - 1;
 
 			if(!skillgroup) {
 				return state;
