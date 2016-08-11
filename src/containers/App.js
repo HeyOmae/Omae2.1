@@ -7,7 +7,6 @@
 require('normalize.css');
 require('styles/bootstrap-overwrite.scss');
 require('styles/App.css');
-
 import React, {
   Component,
   PropTypes
@@ -26,10 +25,9 @@ import Summary from './summary';
 /* Populated by react-webpack-redux:reducer */
 class App extends Component {
   render() {
-    const {actions, priorityTable, selectMetatype, attributes, selectMagRes, settingSkills, spellSelect, quality, karma} = this.props,
-    karmaTotal = karma - spellSelect.powerPointsKarma;
+    const {actions, priorityTable, selectMetatype, attributes, selectMagRes, settingSkills, spellSelect, quality, karma, purchaseGear} = this.props, karmaTotal = karma - spellSelect.powerPointsKarma;
     return (
-      <div className='container' >
+      <div className='container' purchaseGear={purchaseGear}>
 				<div className='row'>
 					<div className='col-md-12'>
 						<Main
@@ -80,11 +78,10 @@ class App extends Component {
               metatype={selectMetatype}
               magictype={selectMagRes}/>
             <h2>Street Gear</h2>
-            <StreetGearComponent
-              />
+            <StreetGearComponent/>
 					</div>
 					<div id='summary' className='col-md-12 col-lg-3'>
-						<Summary />
+						<Summary/>
 					</div>
 				</div>
 			</div>
@@ -106,7 +103,8 @@ App.propTypes = {
   appControl: PropTypes.object.isRequired,
   spellSelect: PropTypes.object.isRequired,
   quality: PropTypes.object.isRequired,
-  karma: PropTypes.number.isRequired
+  karma: PropTypes.number.isRequired,
+  purchaseGear: PropTypes.object.isRequired
 };
 function mapStateToProps(state) {
   /* Populated by react-webpack-redux:reducer */
@@ -119,7 +117,8 @@ function mapStateToProps(state) {
     appControl: state.appControl,
     spellSelect: state.spellSelect,
     quality: state.quality,
-    karma: state.karma
+    karma: state.karma,
+    purchaseGear: state.purchaseGear
   };
   return props;
 }
