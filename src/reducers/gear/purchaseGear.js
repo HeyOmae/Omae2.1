@@ -4,22 +4,22 @@
  * src/container/App.js accordingly.
  */
 const initialState = {
-  weapons: {}
+	weapons: {}
 };
 
 
 const purchaseGearReducer = (state=initialState, action) => {
 
-  const actionsToTake = {
-    PURCHASE: () => {
-      
-    },
-    SELL: () => {
+	const actionsToTake = {
+		PURCHASE: () => {
+			
+		},
+		SELL: () => {
 
-    },
-    DEFAULT: () => { return state; }
-  };
-  return (actionsToTake[action.type] || actionsToTake.DEFAULT)();
+		},
+		DEFAULT: () => { return state; }
+	};
+	return (actionsToTake[action.type] || actionsToTake.DEFAULT)();
 };
 
 module.exports = purchaseGearReducer;
