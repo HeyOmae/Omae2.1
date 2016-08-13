@@ -54,6 +54,10 @@ describe('purchaseGear', () => {
 			expect(newState.weapons).to.equal([weapon]);
 			expect(state.weapons).to.be.undefined;
 		});
+
+		it('should add a gear to its category if the key already exists', () => {
+			
+		});
 	});
 
 
