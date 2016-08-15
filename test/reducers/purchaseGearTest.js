@@ -1,4 +1,4 @@
-var reducer = require('../../src/reducers/purchaseGear');
+var reducer = require('../../src/reducers/gear/purchaseGear');
 
 describe('purchaseGear', () => {
 
@@ -69,7 +69,7 @@ describe('purchaseGear', () => {
 				'page': '34'
 			},
 			newState = reducer(state, {type: 'PURCHASE', parameter: {gear: weapon, category: 'weapons'} });
-			expect(newState.weapons[0]).to.equal([weapon]);
+			expect(newState.weapons[0]).to.equal(weapon);
 			expect(state.weapons).to.be.undefined;
 		});
 
@@ -93,8 +93,9 @@ describe('purchaseGear', () => {
 			},
 			newState = reducer(state, {type: 'PURCHASE', parameter: {gear: metalink, category: 'commlinks'}});
 
-			expect(newState.commlinks.length).to.be(2);
-			expect(state.commlinks.length).to.be(1);
+			expect(newState.commlinks.length).to.equal(2);
+			expect(newState.commlinks[1]).to.equal(metalink);
+			expect(state.commlinks.length).to.equal(1);
 		});
 	});
 

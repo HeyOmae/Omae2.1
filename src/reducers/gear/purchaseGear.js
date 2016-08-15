@@ -11,15 +11,32 @@ const initialState = {
 const purchaseGearReducer = (state=initialState, action) => {
 
 	const actionsToTake = {
-		PURCHASE: () => {
-			
+		PURCHASE: ({gear, category}) => {
+			if(state[category]) {
+				return Object.assign(
+					{},
+					state,
+					{[category]:
+						[
+							...state[category],
+							gear
+						]
+					}
+				);
+			} else {
+				return Object.assign(
+					{},
+					state,
+					{[category]: [gear]}
+				);
+			}
 		},
 		SELL: () => {
 
 		},
 		DEFAULT: () => { return state; }
 	};
-	return (actionsToTake[action.type] || actionsToTake.DEFAULT)();
+	return (actionsToTake[action.type] || actionsToTake.DEFAULT)(action.parameter);
 };
 
 module.exports = purchaseGearReducer;
