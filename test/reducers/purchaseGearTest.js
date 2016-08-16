@@ -99,5 +99,13 @@ describe('purchaseGear', () => {
 		});
 	});
 
+	describe('SELL', ()=>{
+		it('should should remove a piece of gear from the gear array', () => {
+			
+		});
 
+		it('should remove a key if the gear array becomes empty', () => {
+
+		});
+	});
 });
