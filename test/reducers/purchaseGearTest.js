@@ -1,25 +1,47 @@
-var reducer = require('../../src/reducers/gear/purchaseGear');
+var reducer = require('../../src/reducers/gear/purchaseGear'),
+	state;
 
 describe('purchaseGear', () => {
 
-	let state = {
-		commlinks: [{
-			'id': 'd808ba12-db93-4a7b-85a1-9e9f6229087f',
-			'name': 'Sony Emperor',
-			'category': 'Commlinks',
-			'armorcapacity': '[2]',
-			'capacity': '0',
-			'rating': '0',
-			'devicerating': '2',
-			'attack': '0',
-			'sleaze': '0',
-			'dataprocessing': '2',
-			'firewall': '2',
-			'avail': '4',
-			'cost': '700',
-			'source': 'SR5',
-			'page': '438'
-		}]
+	beforeEach(() => {
+		state = {
+			commlinks: [{
+				'id': 'd808ba12-db93-4a7b-85a1-9e9f6229087f',
+				'name': 'Sony Emperor',
+				'category': 'Commlinks',
+				'armorcapacity': '[2]',
+				'capacity': '0',
+				'rating': '0',
+				'devicerating': '2',
+				'attack': '0',
+				'sleaze': '0',
+				'dataprocessing': '2',
+				'firewall': '2',
+				'avail': '4',
+				'cost': '700',
+				'source': 'SR5',
+				'page': '438'
+			}]
+		};
+	});
+
+
+	const metalink = {
+		'id': '89a0f3c9-5ef6-41cd-981f-4ac690ee2ab3',
+		'name': 'Meta Link',
+		'category': 'Commlinks',
+		'rating': '0',
+		'capacity': '0',
+		'armorcapacity': '[2]',
+		'devicerating': '1',
+		'attack': '0',
+		'sleaze': '0',
+		'dataprocessing': '1',
+		'firewall': '1',
+		'avail': '2',
+		'cost': '100',
+		'source': 'SR5',
+		'page': '438'
 	};
 
 	it('should not change the passed state', (done) => {
@@ -74,24 +96,7 @@ describe('purchaseGear', () => {
 		});
 
 		it('should add a gear to its category if the key already exists', () => {
-			const metalink = {
-				'id': '89a0f3c9-5ef6-41cd-981f-4ac690ee2ab3',
-				'name': 'Meta Link',
-				'category': 'Commlinks',
-				'rating': '0',
-				'capacity': '0',
-				'armorcapacity': '[2]',
-				'devicerating': '1',
-				'attack': '0',
-				'sleaze': '0',
-				'dataprocessing': '1',
-				'firewall': '1',
-				'avail': '2',
-				'cost': '100',
-				'source': 'SR5',
-				'page': '438'
-			},
-			newState = reducer(state, {type: 'PURCHASE', parameter: {gear: metalink, category: 'commlinks'}});
+			const newState = reducer(state, {type: 'PURCHASE', parameter: {gear: metalink, category: 'commlinks'}});
 
 			expect(newState.commlinks.length).to.equal(2);
 			expect(newState.commlinks[1]).to.equal(metalink);
@@ -101,9 +106,11 @@ describe('purchaseGear', () => {
 
 	describe('SELL', ()=>{
 		it('should should remove a piece of gear from the gear array', () => {
+			state.commlinks.push(metalink);
 			const newState = reducer({type: 'SELL', parameter: {index: 0, category: 'commlinks'}});
 
-			expect(newState.commlinks).to.be.undefined;
+			expect(newState.commlinks.length).to.equal(1);
+			expect(state.commlinks.length).to.equal(2);
 		});
 
 		it('should remove a key if the gear array becomes empty', () => {
