@@ -31,8 +31,30 @@ const purchaseGearReducer = (state=initialState, action) => {
 				);
 			}
 		},
-		SELL: () => {
+		SELL: ({index, category}) => {
+			let gearArray = state[category];
+			if(gearArray.length > 1) {
+				return Object.assign(
+					{},
+					state,
+					{
+						[category]:
+						[
+							...gearArray.slice(0, index),
+							...gearArray.slice(index + 1)
+						]
+					}
+				);
+			} else {
+				let newState = Object.assign(
+					{},
+					state
+				);
 
+				delete newState[category];
+
+				return newState;
+			}
 		},
 		DEFAULT: () => { return state; }
 	};

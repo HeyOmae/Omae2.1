@@ -107,14 +107,14 @@ describe('purchaseGear', () => {
 	describe('SELL', ()=>{
 		it('should should remove a piece of gear from the gear array', () => {
 			state.commlinks.push(metalink);
-			const newState = reducer({type: 'SELL', parameter: {index: 0, category: 'commlinks'}});
+			const newState = reducer(state, {type: 'SELL', parameter: {index: 0, category: 'commlinks'}});
 
 			expect(newState.commlinks.length).to.equal(1);
 			expect(state.commlinks.length).to.equal(2);
 		});
 
 		it('should remove a key if the gear array becomes empty', () => {
-			const newState = reducer({type: 'SELL', parameter: {index: 0, category: 'commlinks'}});
+			const newState = reducer(state, {type: 'SELL', parameter: {index: 0, category: 'commlinks'}});
 
 			expect(newState.commlinks).to.be.undefined;
 		});
