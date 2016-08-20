@@ -21,7 +21,8 @@ describe('purchaseGear', () => {
 				'cost': '700',
 				'source': 'SR5',
 				'page': '438'
-			}]
+			}],
+			nuyen: 700
 		};
 	});
 
@@ -92,7 +93,9 @@ describe('purchaseGear', () => {
 			},
 			newState = reducer(state, {type: 'PURCHASE', parameter: {gear: weapon, category: 'weapons'} });
 			expect(newState.weapons[0]).to.equal(weapon);
+			expect(newState.nuyen).to.equal(3500);
 			expect(state.weapons).to.be.undefined;
+			expect(state.nuyen).to.equal(700);
 		});
 
 		it('should add a gear to its category if the key already exists', () => {
@@ -100,23 +103,31 @@ describe('purchaseGear', () => {
 
 			expect(newState.commlinks.length).to.equal(2);
 			expect(newState.commlinks[1]).to.equal(metalink);
+			expect(newState.nuyen).to.equal(800);
 			expect(state.commlinks.length).to.equal(1);
+			expect(state.nuyen).to.equal(700);
 		});
 	});
 
 	describe('SELL', ()=>{
 		it('should should remove a piece of gear from the gear array', () => {
 			state.commlinks.push(metalink);
+			state.nuyen += 100;
 			const newState = reducer(state, {type: 'SELL', parameter: {index: 0, category: 'commlinks'}});
 
 			expect(newState.commlinks.length).to.equal(1);
+			expect(newState.nuyen).to.equal(100);
 			expect(state.commlinks.length).to.equal(2);
+			expect(state.nuyen).to.equal(800);
 		});
 
 		it('should remove a key if the gear array becomes empty', () => {
 			const newState = reducer(state, {type: 'SELL', parameter: {index: 0, category: 'commlinks'}});
 
 			expect(newState.commlinks).to.be.undefined;
+			expect(newState.nuyen).to.equal(0);
+			expect(state.commlinks.length).to.equal(1);
+			expect(state.nuyen).to.equal(700);
 		});
 	});
 });
