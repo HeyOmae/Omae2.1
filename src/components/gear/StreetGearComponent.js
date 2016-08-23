@@ -7,9 +7,12 @@ require('styles/gear/StreetGear.scss');
 
 class StreetGearComponent extends React.Component {
 	render() {
+        const {actions, purchaseGear} = this.props;
 		return (
 			<div className="streetgear-component">
-				<WeaponsComponent />
+				<WeaponsComponent
+                    actions={actions}
+                    purchased={purchaseGear.weapons}/>
 			</div>
 		);
 	}

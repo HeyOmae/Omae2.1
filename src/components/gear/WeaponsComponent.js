@@ -12,7 +12,8 @@ class WeaponsComponent extends React.Component {
 		let weaponsTableRow = {},
 			weaponTable = [];
 
-		const skipWeapons = ['Quality', 'Natural', 'Cyberweapon', 'Bio-Weapon', 'Cyber-Weapon'];
+		const skipWeapons = ['Quality', 'Natural', 'Cyberweapon', 'Bio-Weapon', 'Cyber-Weapon'],
+			{purchaseGear} = this.props.actions;
 		weaponData.forEach((weapon) => {
 			if( skipWeapons.indexOf(weapon.category) > -1 ) {
 				return;
@@ -26,7 +27,7 @@ class WeaponsComponent extends React.Component {
 							<button
 								className="btn btn-success"
 								onClick={()=>{
-									console.log(weapon);
+									purchaseGear({gear: weapon, category: 'weapons'});
 								}}
 							>+</button>
 						</td>
@@ -60,7 +61,8 @@ class WeaponsComponent extends React.Component {
 		this.weaponTable = weaponTable;
 	}
 	render() {
-
+		const {purchased} = this.props;
+		console.log(purchased);
 		return (
 			<div className="weapons-component">
 				<h3>Weapons</h3>

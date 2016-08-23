@@ -27,7 +27,7 @@ class App extends Component {
   render() {
     const {actions, priorityTable, selectMetatype, attributes, selectMagRes, settingSkills, spellSelect, quality, karma, purchaseGear} = this.props, karmaTotal = karma - spellSelect.powerPointsKarma;
     return (
-      <div className='container' purchaseGear={purchaseGear}>
+      <div className='container'>
 				<div className='row'>
 					<div className='col-md-12'>
 						<Main
@@ -78,7 +78,9 @@ class App extends Component {
               metatype={selectMetatype}
               magictype={selectMagRes}/>
             <h2>Street Gear</h2>
-            <StreetGearComponent/>
+            <StreetGearComponent
+              actions={actions}
+              purchaseGear={purchaseGear}/>
 					</div>
 					<div id='summary' className='col-md-12 col-lg-3'>
 						<Summary/>
@@ -149,7 +151,9 @@ function mapDispatchToProps(dispatch) {
     resetAbility: require('../actions/magic/resetAbility.js'),
     selectQuality: require('../actions/quality/selectQuality.js'),
     removeQuality: require('../actions/quality/removeQuality.js'),
-    karma: require('../actions/karma.js')
+    karma: require('../actions/karma.js'),
+    purchaseGear: require('../actions/gear/purchaseGear.js'),
+    sellGear: require('../actions/gear/sellGear.js')
   };
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;
