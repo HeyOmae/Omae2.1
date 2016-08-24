@@ -4,7 +4,7 @@
  * src/container/App.js accordingly.
  */
 const initialState = {
-	weapons: {}
+	nuyen: 0
 };
 
 

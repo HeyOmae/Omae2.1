@@ -80,7 +80,8 @@ class App extends Component {
             <h2>Street Gear</h2>
             <StreetGearComponent
               actions={actions}
-              purchaseGear={purchaseGear}/>
+              purchaseGear={purchaseGear}
+              resourcesPriority={priorityTable.resources}/>
 					</div>
 					<div id='summary' className='col-md-12 col-lg-3'>
 						<Summary/>
