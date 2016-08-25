@@ -22,24 +22,10 @@ class WeaponsComponent extends React.Component {
 				weaponsTableRow[weapon.category] = [];
 			}
 			weaponsTableRow[weapon.category].push(
-					<tr key={weapon.name}>
-						<td>
-							<button
-								className="btn btn-success"
-								onClick={()=>{
-									purchaseGear({gear: weapon, category: 'weapons'});
-								}}
-							>+</button>
-						</td>
-						<td>{weapon.name}</td>
-						<td>{weapon.accuracy}</td>
-						<td>{weapon.damage}</td>
-						<td>{weapon.ap}</td>
-						<td>{weapon.type === 'Melee'? weapon.reach : weapon.rc}</td>
-						<td>{weapon.avail}</td>
-						<td>{weapon.cost}&yen;</td>
-						<td>{weapon.source} p{weapon.page}</td>
-					</tr>
+					<WeaponsTableRow
+						weapon={weapon}
+						purchaseGear={purchaseGear}
+						/>
 				);
 		});
 
@@ -71,6 +57,29 @@ class WeaponsComponent extends React.Component {
 		);
 	}
 }
+
+const WeaponsTableRow = ({weapon, purchaseGear}) => {
+	return (
+		<tr key={weapon.name}>
+			<td>
+				<button
+					className="btn btn-success"
+					onClick={()=>{
+						purchaseGear({gear: weapon, category: 'weapons'});
+					}}
+				>+</button>
+			</td>
+			<td>{weapon.name}</td>
+			<td>{weapon.accuracy}</td>
+			<td>{weapon.damage}</td>
+			<td>{weapon.ap}</td>
+			<td>{weapon.type === 'Melee'? weapon.reach : weapon.rc}</td>
+			<td>{weapon.avail}</td>
+			<td>{weapon.cost}&yen;</td>
+			<td>{weapon.source} p{weapon.page}</td>
+		</tr>
+	);
+};
 
 WeaponsComponent.displayName = 'GearWeaponsComponent';
 
