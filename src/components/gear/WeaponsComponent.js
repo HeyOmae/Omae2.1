@@ -23,6 +23,7 @@ class WeaponsComponent extends React.Component {
 			}
 			weaponsTableRow[weapon.category].push(
 					<WeaponsTableRow
+						key={weapon.name}
 						weapon={weapon}
 						purchaseGear={purchaseGear}
 						/>
@@ -30,6 +31,7 @@ class WeaponsComponent extends React.Component {
 		});
 
 		for(let category in weaponsTableRow) {
+			const reachCoil = weaponsTableRow[category][0].props.weapon.type === 'Melee'? 'Reach' : 'RC';
 			weaponTable.push(
 				<Modal
 					key={category}
@@ -37,6 +39,8 @@ class WeaponsComponent extends React.Component {
 					modalContent={
 						<div className="table-responsive">
 							<table className="table">
+								<WeaponTableHeader
+									reachCoil={reachCoil}/>
 								<tbody>{weaponsTableRow[category]}</tbody>
 							</table>
 						</div>
@@ -47,16 +51,57 @@ class WeaponsComponent extends React.Component {
 		this.weaponTable = weaponTable;
 	}
 	render() {
-		const {purchased} = this.props;
-		console.log(purchased);
+		const {purchased} = this.props,
+		{sellGear} = this.props.actions,
+		purchasedTableRow = [];
+
+		if(purchased) {
+			purchased.forEach((weapon)=>{
+				purchasedTableRow.push(
+					<WeaponsTableRow
+						key={weapon.name+'-purchased'}
+						weapon={weapon}
+						purchaseGear={sellGear}
+						/>
+					);
+			});
+		}
+
 		return (
 			<div className="weapons-component">
 				<h3>Weapons</h3>
 				{this.weaponTable}
+				<div className="table-responsive">
+					<table className="table">
+						<WeaponTableHeader
+							reachCoil="Reach/RC"/>
+						<tbody>
+							{purchasedTableRow}
+						</tbody>
+					</table>
+				</div>
 			</div>
 		);
 	}
 }
+
+const WeaponTableHeader = ({reachCoil}) => {
+	return (
+		<thead>
+			<tr>
+				<th>Buy</th>
+				<th>Name</th>
+				<th>Acc</th>
+				<th>Dam</th>
+				<th>AP</th>
+				<th>{reachCoil}</th>
+				<th>Avail</th>
+				<th>&yen;</th>
+				<th>Ref</th>
+			</tr>
+		</thead>
+	);
+};
 
 const WeaponsTableRow = ({weapon, purchaseGear}) => {
 	return (
