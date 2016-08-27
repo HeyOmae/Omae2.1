@@ -21,11 +21,19 @@ class WeaponsComponent extends React.Component {
 			if(!weaponsTableRow[weapon.category]) {
 				weaponsTableRow[weapon.category] = [];
 			}
+			const purchaseButton = (
+				<button
+					className="btn btn-success"
+					onClick={()=>{
+						purchaseGear({gear: weapon, category: 'weapons'});
+					}}
+				>+</button>
+			);
 			weaponsTableRow[weapon.category].push(
 					<WeaponsTableRow
 						key={weapon.name}
 						weapon={weapon}
-						purchaseGear={purchaseGear}
+						button={purchaseButton}
 						/>
 				);
 		});
@@ -56,12 +64,23 @@ class WeaponsComponent extends React.Component {
 		purchasedTableRow = [];
 
 		if(purchased) {
-			purchased.forEach((weapon)=>{
+			purchased.forEach((weapon, index)=>{
+				const sellButton = (
+					<button
+						className="btn btn-warning"
+						onClick={
+							() => {
+								sellGear({index, category: 'weapons'});
+							}
+						}>
+						-
+					</button>
+				);
 				purchasedTableRow.push(
 					<WeaponsTableRow
 						key={weapon.name+'-purchased'}
 						weapon={weapon}
-						purchaseGear={sellGear}
+						button={sellButton}
 						/>
 					);
 			});
@@ -71,6 +90,7 @@ class WeaponsComponent extends React.Component {
 			<div className="weapons-component">
 				<h3>Weapons</h3>
 				{this.weaponTable}
+				{purchased?
 				<div className="table-responsive">
 					<table className="table">
 						<WeaponTableHeader
@@ -79,7 +99,8 @@ class WeaponsComponent extends React.Component {
 							{purchasedTableRow}
 						</tbody>
 					</table>
-				</div>
+				</div>:
+				null}
 			</div>
 		);
 	}
@@ -103,16 +124,11 @@ const WeaponTableHeader = ({reachCoil}) => {
 	);
 };
 
-const WeaponsTableRow = ({weapon, purchaseGear}) => {
+const WeaponsTableRow = ({weapon, button}) => {
 	return (
 		<tr key={weapon.name}>
 			<td>
-				<button
-					className="btn btn-success"
-					onClick={()=>{
-						purchaseGear({gear: weapon, category: 'weapons'});
-					}}
-				>+</button>
+				{button}
 			</td>
 			<td>{weapon.name}</td>
 			<td>{weapon.accuracy}</td>
