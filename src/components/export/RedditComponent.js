@@ -5,10 +5,11 @@ import Modal from '../ModalComponent';
 
 require('styles/export/Reddit.sass');
 
-const RedditComponent = ({priority, metatype, attributes, augmentedAtt, magres, skills, spellsAndPowers, qualities, karma}) => {
+const RedditComponent = ({priority, metatype, attributes, augmentedAtt, magres, skills, spellsAndPowers, qualities, karma, purchaseGear}) => {
 	let activeSkills = '',
 		learnedSpells = '',
-		selectedQualities = '';
+		selectedQualities = '',
+		gear = '';
 
 	const totalKarma = karma > 7 ? 7 : karma;
 
@@ -94,6 +95,8 @@ const RedditComponent = ({priority, metatype, attributes, augmentedAtt, magres, 
 			});
 		}
 	}
+
+	console.log(purchaseGear);
 
 	const formate = `
 # [Character Name] – [Player Name]
@@ -181,6 +184,10 @@ ${learnedSpells}
 Name | Rating | Attribute | Spec | DP
 ----|------|---------|----|--
 ${activeSkills}
+
+##Street Gear
+
+${gear}
 `,
 		exportField = (
 		<textarea

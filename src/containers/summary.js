@@ -24,7 +24,7 @@ class summary extends Component {
     window.removeEventListener('scroll', this.handleScroll);
   }
   render() {
-    const { priorityTable, selectMetatype, attributes, selectMagRes, settingSkills, appControl, spellSelect, quality, karma } = this.props;
+    const { priorityTable, selectMetatype, attributes, selectMagRes, settingSkills, appControl, spellSelect, quality, karma, purchaseGear } = this.props;
 
     const karmaTotal = karma - spellSelect.powerPointsKarma;
 
@@ -37,7 +37,8 @@ class summary extends Component {
               skills={settingSkills}
               fixed={appControl.summaryFix}
               selectedQualities={quality}
-              karma={karmaTotal}/>;
+              karma={karmaTotal}
+              purchaseGear={purchaseGear}/>;
   }
 }
 
@@ -51,7 +52,8 @@ summary.propTypes = {
   appControl: PropTypes.object.isRequired,
   spellSelect: PropTypes.object.isRequired,
   quality: PropTypes.object.isRequired,
-  karma: PropTypes.number.isRequired
+  karma: PropTypes.number.isRequired,
+  purchaseGear: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state) {
@@ -64,7 +66,8 @@ function mapStateToProps(state) {
     appControl: state.appControl,
     spellSelect: state.spellSelect,
     quality: state.quality,
-    karma: state.karma
+    karma: state.karma,
+    purchaseGear: state.purchaseGear
   };
   return props;
 }

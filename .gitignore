@@ -31,3 +31,5 @@ bower_components/
 
 # Distribution
 dist
+
+.DS_Store

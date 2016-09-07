@@ -11,7 +11,7 @@ const TableRowHeader = () => {
 	return <tr><th>Name</th><th>Ref</th></tr>;
 };
 
-const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed, spellsAndPowers, selectedQualities, karma}) => {
+const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed, spellsAndPowers, selectedQualities, karma, purchaseGear}) => {
 	let priorityHead = [],
 		priorityData = [],
 		attributesHead = [],
@@ -223,7 +223,8 @@ const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed
 					skills={skills}
 					spellsAndPowers={spellsAndPowers}
 					qualities={selectedQualities}
-					karma={karma}/>
+					karma={karma}
+					purchaseGear={purchaseGear}/>
 			</div>
 		</div>
 	);
