@@ -9,7 +9,7 @@ const RedditComponent = ({priority, metatype, attributes, augmentedAtt, magres, 
 	let activeSkills = '',
 		learnedSpells = '',
 		selectedQualities = '',
-		gear = '';
+		gearBought = '';
 
 	const totalKarma = karma > 7 ? 7 : karma;
 
@@ -96,7 +96,15 @@ const RedditComponent = ({priority, metatype, attributes, augmentedAtt, magres, 
 		}
 	}
 
-	console.log(purchaseGear);
+	for(let gearCategoryName in purchaseGear) {
+		const category = purchaseGear[gearCategoryName];
+		if(Array.isArray(category)) {
+			category.forEach((gear) => {
+				console.log(gear);
+			});
+		}
+		
+	}
 
 	const formate = `
 # [Character Name] – [Player Name]
@@ -187,7 +195,7 @@ ${activeSkills}
 
 ##Street Gear
 
-${gear}
+${gearBought}
 `,
 		exportField = (
 		<textarea
