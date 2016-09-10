@@ -99,8 +99,15 @@ const RedditComponent = ({priority, metatype, attributes, augmentedAtt, magres, 
 	for(let gearCategoryName in purchaseGear) {
 		const category = purchaseGear[gearCategoryName];
 		if(Array.isArray(category)) {
+			gearBought += `
+
+### ${gearCategoryName}
+
+Name | Acc | Dam | AP | Reach/RC
+----|------|-----|----|--`;
 			category.forEach((gear) => {
-				console.log(gear);
+				gearBought+=`
+${gear.name} | ${gear.accuracy} | ${gear.damage} | ${gear.ap} | ${gear.type === 'Melee' ? gear.reach : gear.rc}`;
 			});
 		}
 		
@@ -193,9 +200,7 @@ Name | Rating | Attribute | Spec | DP
 ----|------|---------|----|--
 ${activeSkills}
 
-##Street Gear
-
-${gearBought}
+##Street Gear${gearBought}
 `,
 		exportField = (
 		<textarea
