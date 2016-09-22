@@ -48,7 +48,7 @@
     "karma-sourcemap-loader": "^0.3.5",
     "karma-webpack": "^1.7.0",
     "minimist": "^1.2.0",
-    "mocha": "^2.2.5",
+    "mocha": "^3.0.2",
     "node-sass": "^3.10.0",
     "null-loader": "^0.1.1",
     "open": "0.0.5",
