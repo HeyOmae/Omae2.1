@@ -30,7 +30,7 @@
     "babel-preset-react": "^6.0.15",
     "bower-webpack-plugin": "^0.1.9",
     "chai": "^3.2.0",
-    "copyfiles": "^0.2.1",
+    "copyfiles": "^1.0.0",
     "css-loader": "^0.23.0",
     "eslint": "^1.2.1",
     "eslint-loader": "^1.0.0",
