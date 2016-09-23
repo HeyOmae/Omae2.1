@@ -37,7 +37,7 @@ const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed
 	}
 
 	const generateQualityTableRow = (quality) => {
-		return(<tr><td>{quality.name}</td><td>{quality.source} p{quality.page}</td></tr>);
+		return(<tr key={'summary--' + quality.name}><td>{quality.name}</td><td>{quality.source} p{quality.page}</td></tr>);
 	};
 
 	displayQualities.Positive = selectedQualities.Positive.map(generateQualityTableRow);
