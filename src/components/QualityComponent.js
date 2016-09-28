@@ -105,8 +105,19 @@ class QualityComponent extends React.Component {
 }
 
 const QualityTable = ({tableRows, buttonText}) => {
+	let filteredTableRows = tableRows;
 	return(
 		<div className="table-responsive">
+			<input className="form-control" type="text" onChange={
+				(event)=> {
+					let expression = '(' + event.target.value + ')',
+						regExp = new RegExp(expression, 'i');
+					filteredTableRows = tableRows.filter((row)=>{
+						return row.key.match(regExp);
+					});
+					console.log(filteredTableRows);
+				}
+			}/>
 			<table className="table">
 				<thead>
 					<tr>
@@ -117,7 +128,7 @@ const QualityTable = ({tableRows, buttonText}) => {
 					</tr>
 				</thead>
 				<tbody>
-					{tableRows}
+					{filteredTableRows}
 				</tbody>
 			</table>
 		</div>
