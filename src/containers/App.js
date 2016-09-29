@@ -11,6 +11,7 @@ import React, {
   Component,
   PropTypes
 } from 'react';
+import { priorityTable, selectMetatype, incrementAttribute, decrementAttribute, incrementAugmented, decrementAugmented, selectMagictype, incrementSkill, decrementSkill, incrementSkillgroup, decrementSkillgroup, setSpec, setMagicSkills, addSpell, removeSpell, addComplexform, removeComplexform, addPower, removePower, raisePower, lowerPower, resetAbility, selectQuality, removeQuality, karma, purchaseGear, sellGear } from '../actions/';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Main from '../components/Main';
@@ -128,33 +129,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   /* Populated by react-webpack-redux:action */
   const actions = {
-    priorityTable: require('../actions/priorityTable.js'),
-    selectMetatype: require('../actions/selectMetatype.js'),
-    incrementAttribute: require('../actions/attributes/incrementAttribute.js'),
-    decrementAttribute: require('../actions/attributes/decrementAttribute.js'),
-    incrementAugmented: require('../actions/attributes/incrementAugmented.js'),
-    decrementAugmented: require('../actions/attributes/decrementAugmented.js'),
-    selectMagictype: require('../actions/selectMagictype.js'),
-    incrementSkill: require('../actions/skills/incrementSkill.js'),
-    decrementSkill: require('../actions/skills/decrementSkill.js'),
-    incrementSkillgroup: require('../actions/skills/incrementSkillgroup.js'),
-    decrementSkillgroup: require('../actions/skills/decrementSkillgroup.js'),
-    setSpec: require('../actions/skills/setSpec.js'),
-    setMagicSkills: require('../actions/skills/setMagicSkills.js'),
-    addSpell: require('../actions/magic/addSpell.js'),
-    removeSpell: require('../actions/magic/removeSpell.js'),
-    addComplexform: require('../actions/magic/addComplexform.js'),
-    removeComplexform: require('../actions/magic/removeComplexform.js'),
-    addPower: require('../actions/magic/addPower.js'),
-    removePower: require('../actions/magic/removePower.js'),
-    raisePower: require('../actions/magic/raisePower.js'),
-    lowerPower: require('../actions/magic/lowerPower.js'),
-    resetAbility: require('../actions/magic/resetAbility.js'),
-    selectQuality: require('../actions/quality/selectQuality.js'),
-    removeQuality: require('../actions/quality/removeQuality.js'),
-    karma: require('../actions/karma.js'),
-    purchaseGear: require('../actions/gear/purchaseGear.js'),
-    sellGear: require('../actions/gear/sellGear.js')
+    priorityTable, selectMetatype, incrementAttribute, decrementAttribute, incrementAugmented, decrementAugmented, selectMagictype, incrementSkill, decrementSkill, incrementSkillgroup, decrementSkillgroup, setSpec, setMagicSkills, addSpell, removeSpell, addComplexform, removeComplexform, addPower, removePower, raisePower, lowerPower, resetAbility, selectQuality, removeQuality, karma, purchaseGear, sellGear
   };
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;

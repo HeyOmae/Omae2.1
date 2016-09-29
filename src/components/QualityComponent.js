@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Modal from './ModalComponent';
+import FilterTable from './FilterableTable';
 const qualityData = require('json!./data/qualities.json');
 
 require('styles//Quality.sass');
@@ -106,8 +107,20 @@ class QualityComponent extends React.Component {
 
 const QualityTable = ({tableRows, buttonText}) => {
 	let filteredTableRows = tableRows;
+	const tableData = {
+		header: (
+			<tr>
+				<th>{buttonText}</th>
+				<th>Name</th>
+				<th>Karma</th>
+				<th>Ref</th>
+			</tr>
+		),
+		body: tableRows
+	};
 	return(
 		<div className="table-responsive">
+			<FilterTable tableData={tableData} />
 			<input className="form-control" type="text" onChange={
 				(event)=> {
 					let expression = '(' + event.target.value + ')',
@@ -120,12 +133,7 @@ const QualityTable = ({tableRows, buttonText}) => {
 			}/>
 			<table className="table">
 				<thead>
-					<tr>
-						<th>{buttonText}</th>
-						<th>Name</th>
-						<th>Karma</th>
-						<th>Ref</th>
-					</tr>
+					{tableData.header}
 				</thead>
 				<tbody>
 					{filteredTableRows}
