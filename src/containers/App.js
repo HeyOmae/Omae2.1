@@ -11,7 +11,35 @@ import React, {
   Component,
   PropTypes
 } from 'react';
-import { priorityTable, selectMetatype, incrementAttribute, decrementAttribute, incrementAugmented, decrementAugmented, selectMagictype, incrementSkill, decrementSkill, incrementSkillgroup, decrementSkillgroup, setSpec, setMagicSkills, addSpell, removeSpell, addComplexform, removeComplexform, addPower, removePower, raisePower, lowerPower, resetAbility, selectQuality, removeQuality, karma, purchaseGear, sellGear } from '../actions/';
+import {
+  priorityTable,
+  selectMetatype,
+  incrementAttribute,
+  decrementAttribute,
+  incrementAugmented,
+  decrementAugmented,
+  selectMagictype,
+  incrementSkill,
+  decrementSkill,
+  incrementSkillgroup,
+  decrementSkillgroup,
+  setSpec,
+  setMagicSkills,
+  addSpell,
+  removeSpell,
+  addComplexform,
+  removeComplexform,
+  addPower,
+  removePower,
+  raisePower,
+  lowerPower,
+  resetAbility,
+  selectQuality,
+  removeQuality,
+  karma,
+  purchaseGear,
+  sellGear
+} from '../actions/';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Main from '../components/Main';
@@ -26,7 +54,7 @@ import Summary from './summary';
 /* Populated by react-webpack-redux:reducer */
 class App extends Component {
   render() {
-    const {actions, priorityTable, selectMetatype, attributes, selectMagRes, settingSkills, spellSelect, quality, karma, purchaseGear} = this.props, karmaTotal = karma - spellSelect.powerPointsKarma;
+    const {actions, priorityTable, selectMetatype, attributes, selectMagRes, settingSkills, spellSelect, quality, karma, purchaseGear, filterTable} = this.props, karmaTotal = karma - spellSelect.powerPointsKarma;
     return (
       <div className='container'>
 				<div className='row'>
@@ -79,10 +107,7 @@ class App extends Component {
               metatype={selectMetatype}
               magictype={selectMagRes}/>
             <h2>Street Gear</h2>
-            <StreetGearComponent
-              actions={actions}
-              purchaseGear={purchaseGear}
-              resourcesPriority={priorityTable.resources}/>
+            <StreetGearComponent actions={actions} purchaseGear={purchaseGear} resourcesPriority={priorityTable.resources}/>
 					</div>
 					<div id='summary' className='col-md-12 col-lg-3'>
 						<Summary/>
@@ -108,7 +133,8 @@ App.propTypes = {
   spellSelect: PropTypes.object.isRequired,
   quality: PropTypes.object.isRequired,
   karma: PropTypes.number.isRequired,
-  purchaseGear: PropTypes.object.isRequired
+  purchaseGear: PropTypes.object.isRequired,
+  filterTable: PropTypes.object.isRequired
 };
 function mapStateToProps(state) {
   /* Populated by react-webpack-redux:reducer */
@@ -129,7 +155,33 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   /* Populated by react-webpack-redux:action */
   const actions = {
-    priorityTable, selectMetatype, incrementAttribute, decrementAttribute, incrementAugmented, decrementAugmented, selectMagictype, incrementSkill, decrementSkill, incrementSkillgroup, decrementSkillgroup, setSpec, setMagicSkills, addSpell, removeSpell, addComplexform, removeComplexform, addPower, removePower, raisePower, lowerPower, resetAbility, selectQuality, removeQuality, karma, purchaseGear, sellGear
+    priorityTable,
+    selectMetatype,
+    incrementAttribute,
+    decrementAttribute,
+    incrementAugmented,
+    decrementAugmented,
+    selectMagictype,
+    incrementSkill,
+    decrementSkill,
+    incrementSkillgroup,
+    decrementSkillgroup,
+    setSpec,
+    setMagicSkills,
+    addSpell,
+    removeSpell,
+    addComplexform,
+    removeComplexform,
+    addPower,
+    removePower,
+    raisePower,
+    lowerPower,
+    resetAbility,
+    selectQuality,
+    removeQuality,
+    karma,
+    purchaseGear,
+    sellGear
   };
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;

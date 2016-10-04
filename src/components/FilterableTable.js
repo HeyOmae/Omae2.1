@@ -5,11 +5,12 @@ import React, {
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-// import {} from '../actions/';
+import {} from '../actions/';
 
 class FilterableTable extends Component {
 	render() {
-		const { actions, tableData } = this.props;
+		const { actions, tableData, filterTable } = this.props;
+		console.log(filterTable);
 		return (
 			<div
 				className="table-responsive"
@@ -33,7 +34,9 @@ FilterableTable.propTypes = {
 };
 
 function mapStateToProps(state) {
-	const props = {};
+	const props = {
+		filterTable: state.filterTable
+	};
 	return props;
 }
 
