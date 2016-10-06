@@ -38,7 +38,8 @@ import {
   removeQuality,
   karma,
   purchaseGear,
-  sellGear
+  sellGear,
+  filterTable
 } from '../actions/';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -54,7 +55,7 @@ import Summary from './summary';
 /* Populated by react-webpack-redux:reducer */
 class App extends Component {
   render() {
-    const {actions, priorityTable, selectMetatype, attributes, selectMagRes, settingSkills, spellSelect, quality, karma, purchaseGear, filterTable} = this.props, karmaTotal = karma - spellSelect.powerPointsKarma;
+    const { actions, priorityTable, selectMetatype, attributes, selectMagRes, settingSkills, spellSelect, quality, karma, purchaseGear } = this.props, karmaTotal = karma - spellSelect.powerPointsKarma;
     return (
       <div className='container'>
 				<div className='row'>

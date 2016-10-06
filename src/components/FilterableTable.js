@@ -10,7 +10,7 @@ import {} from '../actions/';
 class FilterableTable extends Component {
 	render() {
 		const { actions, tableData, filterTable } = this.props;
-		console.log(filterTable);
+		console.log(actions, filterTable);
 		return (
 			<div
 				className="table-responsive"
@@ -41,7 +41,9 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-	const actions = {};
+	const actions = {
+		filterTable: require('../actions/filterTable.js')
+	};
 	const actionMap = { actions: bindActionCreators(actions, dispatch) };
 	return actionMap;
 }

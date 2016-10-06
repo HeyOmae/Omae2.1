@@ -5,6 +5,7 @@ Allows to import actions like so:
 import {action1, action2} from '../actions/'
 */
 /* Populated by react-webpack-redux:action */
+import filterTable from '../actions/filterTable.js';
 import priorityTable from './priorityTable.js';
 import selectMetatype from './selectMetatype.js';
 import incrementAttribute from './attributes/incrementAttribute.js';
@@ -32,6 +33,34 @@ import removeQuality from './quality/removeQuality.js';
 import karma from './karma.js';
 import purchaseGear from './gear/purchaseGear.js';
 import sellGear from './gear/sellGear.js';
-
-const actions = { priorityTable, selectMetatype, incrementAttribute, decrementAttribute, incrementAugmented, decrementAugmented, selectMagictype, incrementSkill, decrementSkill, incrementSkillgroup, decrementSkillgroup, setSpec, setMagicSkills, addSpell, removeSpell, addComplexform, removeComplexform, addPower, removePower, raisePower, lowerPower, resetAbility, selectQuality, removeQuality, karma, purchaseGear, sellGear };
+const actions = {
+  priorityTable,
+  selectMetatype,
+  incrementAttribute,
+  decrementAttribute,
+  incrementAugmented,
+  decrementAugmented,
+  selectMagictype,
+  incrementSkill,
+  decrementSkill,
+  incrementSkillgroup,
+  decrementSkillgroup,
+  setSpec,
+  setMagicSkills,
+  addSpell,
+  removeSpell,
+  addComplexform,
+  removeComplexform,
+  addPower,
+  removePower,
+  raisePower,
+  lowerPower,
+  resetAbility,
+  selectQuality,
+  removeQuality,
+  karma,
+  purchaseGear,
+  sellGear,
+  filterTable
+};
 module.exports = actions;
