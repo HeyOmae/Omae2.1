@@ -106,7 +106,6 @@ class QualityComponent extends React.Component {
 }
 
 const QualityTable = ({tableRows, buttonText}) => {
-	let filteredTableRows = tableRows;
 	const tableData = {
 		header: (
 			<tr>

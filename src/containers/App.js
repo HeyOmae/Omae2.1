@@ -38,8 +38,7 @@ import {
   removeQuality,
   karma,
   purchaseGear,
-  sellGear,
-  filterTable
+  sellGear
 } from '../actions/';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -134,8 +133,7 @@ App.propTypes = {
   spellSelect: PropTypes.object.isRequired,
   quality: PropTypes.object.isRequired,
   karma: PropTypes.number.isRequired,
-  purchaseGear: PropTypes.object.isRequired,
-  filterTable: PropTypes.object.isRequired
+  purchaseGear: PropTypes.object.isRequired
 };
 function mapStateToProps(state) {
   /* Populated by react-webpack-redux:reducer */
