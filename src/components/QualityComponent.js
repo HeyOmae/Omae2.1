@@ -121,24 +121,6 @@ const QualityTable = ({tableRows, buttonText}) => {
 	return(
 		<div className="table-responsive">
 			<FilterTable tableData={tableData} />
-			<input className="form-control" type="text" onChange={
-				(event)=> {
-					let expression = '(' + event.target.value + ')',
-						regExp = new RegExp(expression, 'i');
-					filteredTableRows = tableRows.filter((row)=>{
-						return row.key.match(regExp);
-					});
-					console.log(filteredTableRows);
-				}
-			}/>
-			<table className="table">
-				<thead>
-					{tableData.header}
-				</thead>
-				<tbody>
-					{filteredTableRows}
-				</tbody>
-			</table>
 		</div>
 	);
 };

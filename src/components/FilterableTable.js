@@ -7,22 +7,32 @@ import { bindActionCreators } from 'redux';
 
 import {setFilter} from '../actions/';
 
+// helpers
+function filtered(term, tableRows) {
+	let expression = '(' + term + ')',
+		regExp = new RegExp(expression, 'i');
+	return tableRows.filter((row)=>{
+		return row.key.match(regExp);
+	});
+}
+
 class FilterableTable extends Component {
 	render() {
-		const { actions, tableData, filterTable } = this.props;
-		console.log(actions.filterTable, filterTable);
+		const { actions, tableData, filterTable } = this.props,
+		filteredRows = filterTable ? filtered(filterTable, tableData.body) : tableData.body;
 		return (
 			<div
 				className="table-responsive">
 				<input
 					className="form-control"
 					type="text"
+					placeholder="Filter the table"
 					onChange={(event) => {
 						actions.setFilter({filterTerm: event.target.value});
 					}}/>
-				<table>
+				<table className="table">
 					<thead>{tableData.header}</thead>
-					<tbody>{tableData.body}</tbody>
+					<tbody>{filteredRows}</tbody>
 				</table>
 			</div>);
 	}
