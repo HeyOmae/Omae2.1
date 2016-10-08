@@ -30,7 +30,8 @@ class FilterableTable extends Component {
 }
 
 FilterableTable.propTypes = {
-	actions: PropTypes.object.isRequired
+	actions: PropTypes.object.isRequired,
+	filterTable: PropTypes.string.isRequired
 };
 
 function mapStateToProps(state) {
