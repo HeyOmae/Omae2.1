@@ -1,2 +1,2 @@
 /* Populated by react-webpack-redux:action */
-export const FILTER_TABLE = 'FILTER_TABLE';
+export const SET_FILTER = 'SET_FILTER';

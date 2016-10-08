@@ -5,25 +5,24 @@ import React, {
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import {} from '../actions/';
+import {setFilter} from '../actions/';
 
 class FilterableTable extends Component {
 	render() {
 		const { actions, tableData, filterTable } = this.props;
-		console.log(actions, filterTable);
+		console.log(actions.filterTable, filterTable);
 		return (
 			<div
-				className="table-responsive"
-				actions={actions}>
+				className="table-responsive">
 				<input
 					className="form-control"
 					type="text"
 					onChange={(event) => {
-						console.log(event.target.value);
+						actions.setFilter({filterTerm: event.target.value});
 					}}/>
 				<table>
 					<thead>{tableData.header}</thead>
-					<tbody>{}</tbody>
+					<tbody>{tableData.body}</tbody>
 				</table>
 			</div>);
 	}
@@ -43,7 +42,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
 	const actions = {
-		filterTable: require('../actions/filterTable.js')
+		setFilter
 	};
 	const actionMap = { actions: bindActionCreators(actions, dispatch) };
 	return actionMap;
