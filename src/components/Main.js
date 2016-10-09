@@ -1,19 +1,14 @@
 import React from 'react';
 
-class AppComponent extends React.Component {
-	render() {
-		return (
-			<div className="index">
-				<div className="program-title">
-					<h1>Omae v 2</h1>
-					<p>Shadowrun 5<sup>th</sup> Edition Character Generator</p>
-				</div>
+const AppComponent = () => {
+	return (
+		<div className="index">
+			<div className="program-title">
+				<h1>Omae v 2</h1>
+				<p>Shadowrun 5<sup>th</sup> Edition Character Generator</p>
 			</div>
-		);
-	}
-}
-
-AppComponent.defaultProps = {
+		</div>
+	);
 };
 
 export default AppComponent;
