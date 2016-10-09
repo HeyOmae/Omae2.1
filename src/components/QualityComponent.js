@@ -2,7 +2,9 @@
 
 import React from 'react';
 import Modal from './ModalComponent';
+import DisplayTable from './DisplayTableComponent';
 import FilterTable from './FilterableTable';
+
 const qualityData = require('json!./data/qualities.json');
 
 require('styles//Quality.sass');
@@ -68,7 +70,6 @@ class QualityComponent extends React.Component {
 						modalName="Positive"
 						modalContent={
 							<QualityTable
-								buttonText="Add"
 								tableRows={qualitiesTableRow.Positive} />
 						}
 						/>
@@ -77,7 +78,6 @@ class QualityComponent extends React.Component {
 						modalName="Negative"
 						modalContent={
 							<QualityTable
-								buttonText="Add"
 								tableRows={qualitiesTableRow.Negative} />
 						}
 					/>
@@ -85,18 +85,20 @@ class QualityComponent extends React.Component {
 				{selectedQualities.Positive.length > 0 ?
 					<div className="qualities-positive--seleted">
 						<h3>Positive Qualities</h3>
-						<QualityTable
-							buttonText="Remove"
-							tableRows={generateSelectedQualityTableRow(selectedQualities.Positive)} />
+						<DisplayTable
+							header={(<QualityHeader
+										buttonType="Remove"/>)}
+							body={generateSelectedQualityTableRow(selectedQualities.Positive)} />
 					</div>
 					: null
 				}
 				{selectedQualities.Negative.length > 0 ?
 					<div className="qualities-negative--seleted">
 						<h3>Negative Qualities</h3>
-						<QualityTable
-							buttonText="Remove"
-							tableRows={generateSelectedQualityTableRow(selectedQualities.Negative)} />
+						<DisplayTable
+							header={(<QualityHeader
+										buttonType="Remove"/>)}
+							body={generateSelectedQualityTableRow(selectedQualities.Negative)} />
 					</div>
 					: null
 				}
@@ -105,14 +107,21 @@ class QualityComponent extends React.Component {
 	}
 }
 
-const QualityTable = ({tableRows, buttonText}) => {
+const QualityHeader = ({buttonType}) => {
+	return (
+		<tr>
+			<th>{buttonType}</th>
+			<th>Name</th>
+			<th>Karma</th>
+			<th>Ref</th>
+		</tr>
+	);
+};
+
+const QualityTable = ({tableRows}) => {
 	const header = (
-			<tr>
-				<th>{buttonText}</th>
-				<th>Name</th>
-				<th>Karma</th>
-				<th>Ref</th>
-			</tr>
+			<QualityHeader
+				buttonType="Add"/>
 		),
 		tableData = {
 		header,
