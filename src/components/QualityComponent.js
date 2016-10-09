@@ -106,8 +106,7 @@ class QualityComponent extends React.Component {
 }
 
 const QualityTable = ({tableRows, buttonText}) => {
-	const tableData = {
-		header: (
+	const header = (
 			<tr>
 				<th>{buttonText}</th>
 				<th>Name</th>
@@ -115,6 +114,8 @@ const QualityTable = ({tableRows, buttonText}) => {
 				<th>Ref</th>
 			</tr>
 		),
+		tableData = {
+		header,
 		body: tableRows
 	};
 	return(

@@ -5,6 +5,8 @@ import React, {
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import DisplayTable from './DisplayTableComponent';
+
 import {setFilter} from '../actions/';
 
 // helpers
@@ -30,10 +32,9 @@ class FilterableTable extends Component {
 					onChange={(event) => {
 						actions.setFilter({filterTerm: event.target.value});
 					}}/>
-				<table className="table">
-					<thead>{tableData.header}</thead>
-					<tbody>{filteredRows}</tbody>
-				</table>
+				<DisplayTable
+					header={tableData.header}
+					body={filteredRows}/>
 			</div>);
 	}
 }
