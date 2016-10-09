@@ -83,7 +83,7 @@ class QualityComponent extends React.Component {
 					/>
 				</div>
 				{selectedQualities.Positive.length > 0 ?
-					<div className="qualities-positive--seleted">
+					<div className="qualities-positive--seleted col-md-6">
 						<h3>Positive Qualities</h3>
 						<DisplayTable
 							header={(<QualityHeader
@@ -93,7 +93,7 @@ class QualityComponent extends React.Component {
 					: null
 				}
 				{selectedQualities.Negative.length > 0 ?
-					<div className="qualities-negative--seleted">
+					<div className="qualities-negative--seleted col-md-6">
 						<h3>Negative Qualities</h3>
 						<DisplayTable
 							header={(<QualityHeader

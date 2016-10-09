@@ -18,6 +18,7 @@ function filtered(term, tableRows) {
 	});
 }
 
+// component
 class FilterableTable extends Component {
 	render() {
 		const { actions, tableData, filterTable } = this.props,
@@ -40,6 +41,7 @@ class FilterableTable extends Component {
 	}
 }
 
+// prop boilerplate
 FilterableTable.propTypes = {
 	actions: PropTypes.object.isRequired,
 	filterTable: PropTypes.string.isRequired
