@@ -2,25 +2,25 @@
 
 import React from 'react';
 import Modal from '../ModalComponent';
+import DisplayTable from '../DisplayTableComponent';
+import FilterTable from '../FilterableTable';
+
 const powerData = require('json!../data/powers.json');
 
 require('styles/magic/SpellSelector.sass');
 
 //helper functions
-function createPowerCategoryLabel (PowersObj) {
-		const powerLabel = 'powers-label';
-		PowersObj.push(
-			<tr key={powerLabel} className={powerLabel}>
-				<th>Learn</th>
-				<th>Levels</th>
-				<th>Power</th>
-				<th>Cost</th>
-				<th>Bonus</th>
-				<th>Ref</th>
-			</tr>
-		);
-
-	return PowersObj;
+function createPowerCategoryLabel () {
+	return(
+		<tr className='powers-label'>
+			<th>Learn</th>
+			<th>Levels</th>
+			<th>Power</th>
+			<th>Cost</th>
+			<th>Bonus</th>
+			<th>Ref</th>
+		</tr>
+	);
 }
 
 function powerBonus(boni, powerName) {
@@ -48,9 +48,9 @@ function powerBonus(boni, powerName) {
 	}
 }
 
-function createPowerIndividualRow(powerArray, powerDetails, button, powerID, levels=powerDetails.levels) {
-	powerArray.push(
-		<tr key={'power-'+ (powerID)}>
+function createPowerIndividualRow( powerDetails, button, powerID, levels=powerDetails.levels) {
+	return(
+		<tr key={'power-'+ (powerID) + powerDetails.name}>
 			{button}
 			<td>{levels}</td>
 			<td>{powerDetails.name}</td>
@@ -59,11 +59,9 @@ function createPowerIndividualRow(powerArray, powerDetails, button, powerID, lev
 			<td>{powerDetails.source + ' p' + powerDetails.page}</td>
 		</tr>
 	);
-
-	return powerArray;
 }
 
-function createSelectedPowerIndividualRow(powerArray, powerDetails, button, powerID, modifyPowers, powerIndex) {
+function createSelectedPowerIndividualRow( powerDetails, button, powerID, modifyPowers, powerIndex) {
 	function raiseLevel() {
 		function findLevelCap(name, level) {
 			const capOf = {
@@ -96,24 +94,24 @@ function createSelectedPowerIndividualRow(powerArray, powerDetails, button, powe
 		</div>
 	);
 
-	return createPowerIndividualRow(powerArray, powerDetails, button, powerID, levelButton);
+	return createPowerIndividualRow( powerDetails, button, powerID, levelButton);
 }
 
 function generatePowerDetailTablesRows(arrayOfPowers, generateBtnFn, modifyPowers) {
-	let powerTables = [],
+	let powerTables = {
+			header: createPowerCategoryLabel(),
+			body: []
+		},
 		powerID = 0;
-
-	powerTables = createPowerCategoryLabel(powerTables);
 
 	arrayOfPowers.forEach((power, powerIndex)=>{
 
 		let addPowerButton = (<td>{generateBtnFn(power, powerIndex)}</td>);
 
-		//need to make a Extended class component to make this work
 		if (modifyPowers && power.levels > 0) {
-			powerTables = createSelectedPowerIndividualRow(powerTables, power, addPowerButton, powerID++, modifyPowers, powerIndex);
+			powerTables.body.push( createSelectedPowerIndividualRow( power, addPowerButton, powerID++, modifyPowers, powerIndex) );
 		} else {
-			powerTables = createPowerIndividualRow(powerTables, power, addPowerButton, powerID++);
+			powerTables.body.push( createPowerIndividualRow( power, addPowerButton, powerID++));
 		}
 		
 	});
@@ -201,7 +199,7 @@ class PowerSelectorComponent extends React.Component {
 							modalName="Powers"
 							modalContent={
 								<PowersTables
-									powerRow={powersToSeletTableRows}/>
+									powerData={powersToSeletTableRows}/>
 							}
 						/>
 					</div>
@@ -235,20 +233,17 @@ const PowerSelectedDisplay = ({selectedPowers, removePower, modifyPowers}) => {
 	return (
 		<div className="selected-powers">
 			<h4>Powers</h4>
-			<PowersTables
-				powerRow = {powerTableData}/>
+			<DisplayTable
+				header = {powerTableData.header}
+				body={powerTableData.body}/>
 		</div>
 	);
 };
 
-const PowersTables = ({powerRow}) => {
+const PowersTables = ({powerData}) => {
 	return (
 		<div className="table-responsive">
-			<table className="table">
-				<tbody>
-					{powerRow}
-				</tbody>
-			</table>
+			<FilterTable tableData={powerData} />
 		</div>
 	);
 };
