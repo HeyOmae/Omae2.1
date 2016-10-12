@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Modal from '../ModalComponent';
+import FilterTable from '../FilterableTable';
 
 require('styles/skills/Skillgroups.sass');
 
@@ -43,21 +44,20 @@ const SkillgroupsComponent = ({skillgroups, skillgroupsData, actions, pointsLeft
 		<Modal
 			modalName="Skill Groups"
 			modalContent={
-				<div className="skillgroups-component col-xs-12 table-responsive">
-					<table className="table">
-						<thead>
-							<tr>
-								<th>Raise</th>
-								<th>Rating</th>
-								<th>Lower</th>
-								<th>Skill Group</th>
-								<th>Skills</th>
-							</tr>
-						</thead>
-						<tbody>
-							{listOfGroups}
-						</tbody>
-					</table>
+				<div className="skillgroups-component">
+					<FilterTable
+						tableData={{
+							header: (
+								<tr>
+									<th>Raise</th>
+									<th>Rating</th>
+									<th>Lower</th>
+									<th>Skill Group</th>
+									<th>Skills</th>
+								</tr>
+							),
+							body: listOfGroups
+						}}/>
 				</div>
 		} />
 	);

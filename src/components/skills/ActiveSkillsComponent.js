@@ -3,6 +3,7 @@
 import React from 'react';
 import Modal from '../ModalComponent';
 import Skillgroup from './SkillgroupsComponent';
+import FilterTable from '../FilterableTable';
 let skillsData = require('json!../data/skills.json'),
 	metatypeData = require('json!../data/metatype.json'),
 	priorityTableData = require('json!../data/priority.json');
@@ -214,12 +215,12 @@ const ActiveSkill = ({skillList, actions, skills, skillPointsLeft, attributePool
 
 		function incrementSkill(name, att, rating) {
 			if(skillPointsLeft > 0 && rating < 6){
-				actions.incrementSkill({name: name, category: 'active', max: 6, attribute: att});
+				actions.incrementSkill({ name, category: 'active', max: 6, attribute: att });
 			}
 		}
 
 		function decrementSkill(name, att) {
-			actions.decrementSkill({name: name, category: 'active', max: 6, attribute: att});
+			actions.decrementSkill({ name, category: 'active', max: 6, attribute: att });
 		}
 
 		function changeSpec(changeEvent) {
@@ -293,9 +294,9 @@ const ActiveSkill = ({skillList, actions, skills, skillPointsLeft, attributePool
 	}
 
 	return (
-		<div className="table-responsive">
-			<table className="table">
-				<thead>
+		<FilterTable
+			tableData={{
+				header: (
 					<tr>
 						<th>Raise</th>
 						<th>Rating</th>
@@ -306,12 +307,9 @@ const ActiveSkill = ({skillList, actions, skills, skillPointsLeft, attributePool
 						<th>Mods</th>
 						<th>Dice Pool</th>
 					</tr>
-				</thead>
-				<tbody>
-					{skillTableData}
-				</tbody>
-			</table>
-		</div>
+				),
+				body: skillTableData
+			}}/>
 	);
 };
 
