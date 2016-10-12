@@ -13,13 +13,16 @@ const initialState = {
 
 const priorityReducer = (state=initialState, action) => {
 	const actionsToTake = {
-		SET_PRIORITY: () => {
-			let {rating, category} = action.parameter;
-			return Object.assign({}, state, {[category]: rating});
+		SET_PRIORITY: (oldState, {rating, category} ) => {
+			return Object.assign(
+				{},
+				oldState,
+				{[category]: rating}
+			);
 		},
-		DEFAULT: () => { return state; }
+		DEFAULT: sameState => sameState
 	};
-	return (actionsToTake[action.type] || actionsToTake.DEFAULT)();
+	return (actionsToTake[action.type] || actionsToTake.DEFAULT)(state, action.parameter);
 };
 
 module.exports = priorityReducer;
