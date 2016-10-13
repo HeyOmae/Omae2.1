@@ -54,10 +54,12 @@ const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed
 	const magicPriorityData = priorityTableData[priority.magres].magic[magres];
 
 	if(magicPriorityData && magres !== 'mundane') {
-		let baseMagic = magicPriorityData.attribute.points;
-		calculatedStats.attributes.mag = baseMagic + (attributes.special || 0);
-		attributesHead.push(<th key={'summary-attribute-head-mag'}>mag</th>);
-		attributesData.push(<td key={'summary-attribute-data-mag'}>{calculatedStats.attributes.mag}</td>);
+		const baseMagic = magicPriorityData.attribute.points,
+			specialType = magres === 'Technomancer' ? 'res' : 'mag';
+
+		calculatedStats.attributes[specialType] = baseMagic + (attributes.special || 0);
+		attributesHead.push(<th key={'summary-attribute-head-mag'}>{specialType}</th>);
+		attributesData.push(<td key={'summary-attribute-data-mag'}>{calculatedStats.attributes[specialType]}</td>);
 		for(let magicCat in spellsAndPowers) {
 			let spellPowerArray = spellsAndPowers[magicCat];
 			if (Array.isArray(spellPowerArray)){
