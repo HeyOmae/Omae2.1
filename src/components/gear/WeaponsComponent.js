@@ -2,6 +2,8 @@
 
 import React from 'react';
 import Modal from '../ModalComponent';
+import FilterTable from '../FilterableTable';
+import DisplayTable from '../DisplayTableComponent';
 
 require('styles/gear/Weapons.scss');
 
@@ -12,7 +14,7 @@ class WeaponsComponent extends React.Component {
 		let weaponsTableRow = {},
 			weaponTable = [];
 
-		const skipWeapons = ['Quality', 'Natural', 'Cyberweapon', 'Bio-Weapon', 'Cyber-Weapon'],
+		const skipWeapons = ['Quality', 'Natural', 'Cyberweapon', 'Bio-Weapon', 'Cyber-Weapon', 'Underbarrel Weapons'],
 			{purchaseGear} = this.props.actions;
 		weaponData.forEach((weapon) => {
 			if( skipWeapons.indexOf(weapon.category) > -1 ) {
@@ -45,13 +47,12 @@ class WeaponsComponent extends React.Component {
 					key={category}
 					modalName={category}
 					modalContent={
-						<div className="table-responsive">
-							<table className="table">
-								<WeaponTableHeader
-									reachCoil={reachCoil}/>
-								<tbody>{weaponsTableRow[category]}</tbody>
-							</table>
-						</div>
+						<FilterTable
+							tableData={{
+								header: (<WeaponTableHeader
+									reachCoil={reachCoil}/>),
+								body: weaponsTableRow[category]
+							}}/>
 					}
 				/>
 				);
@@ -91,16 +92,11 @@ class WeaponsComponent extends React.Component {
 				<h3>Weapons</h3>
 				{this.weaponTable}
 				{purchased?
-				<div className="table-responsive">
-					<table className="table">
-						<WeaponTableHeader
-							reachCoil="Reach/RC"/>
-						<tbody>
-							{purchasedTableRow}
-						</tbody>
-					</table>
-				</div>:
-				null}
+				<DisplayTable
+				header={<WeaponTableHeader
+					reachCoil="Reach/RC"/>}
+				body={purchasedTableRow}/>
+				: null}
 			</div>
 		);
 	}
@@ -108,19 +104,17 @@ class WeaponsComponent extends React.Component {
 
 const WeaponTableHeader = ({reachCoil}) => {
 	return (
-		<thead>
-			<tr>
-				<th>Buy</th>
-				<th>Name</th>
-				<th>Acc</th>
-				<th>Dam</th>
-				<th>AP</th>
-				<th>{reachCoil}</th>
-				<th>Avail</th>
-				<th>&yen;</th>
-				<th>Ref</th>
-			</tr>
-		</thead>
+		<tr>
+			<th>Buy</th>
+			<th>Name</th>
+			<th>Acc</th>
+			<th>Dam</th>
+			<th>AP</th>
+			<th>{reachCoil}</th>
+			<th>Avail</th>
+			<th>&yen;</th>
+			<th>Ref</th>
+		</tr>
 	);
 };
 
