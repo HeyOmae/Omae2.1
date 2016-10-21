@@ -59,10 +59,11 @@ class WeaponsComponent extends React.Component {
 		}
 		this.weaponTable = weaponTable;
 	}
+
 	render() {
 		const {purchased} = this.props,
-		{sellGear} = this.props.actions,
-		purchasedTableRow = [];
+			{sellGear} = this.props.actions,
+			purchasedTableRow = [];
 
 		if(purchased) {
 			purchased.forEach((weapon, index)=>{
@@ -76,12 +77,24 @@ class WeaponsComponent extends React.Component {
 						}>
 						-
 					</button>
-				);
+				),
+				modButton = (
+					<button
+						className="btn btn-info"
+						onClick={
+							() => {
+								console.log(weapon);
+							}
+						}>
+						Mod
+					</button>
+					);
 				purchasedTableRow.push(
 					<WeaponsTableRow
 						key={weapon.name+'-purchased'}
 						weapon={weapon}
 						button={sellButton}
+						mod={modButton}
 						/>
 					);
 			});
@@ -94,7 +107,8 @@ class WeaponsComponent extends React.Component {
 				{purchased?
 				<DisplayTable
 				header={<WeaponTableHeader
-					reachCoil="Reach/RC"/>}
+					reachCoil="Reach/RC"
+					isModable={true}/>}
 				body={purchasedTableRow}/>
 				: null}
 			</div>
@@ -102,10 +116,11 @@ class WeaponsComponent extends React.Component {
 	}
 }
 
-const WeaponTableHeader = ({reachCoil}) => {
+const WeaponTableHeader = ({reachCoil, isModable}) => {
 	return (
 		<tr>
 			<th>Buy</th>
+			{isModable? <th>Mod</th> : null}
 			<th>Name</th>
 			<th>Acc</th>
 			<th>Dam</th>
@@ -118,12 +133,11 @@ const WeaponTableHeader = ({reachCoil}) => {
 	);
 };
 
-const WeaponsTableRow = ({weapon, button}) => {
+const WeaponsTableRow = ({weapon, button, mod}) => {
 	return (
 		<tr key={weapon.name}>
-			<td>
-				{button}
-			</td>
+			<td>{button}</td>
+			<td>{mod}</td>
 			<td>{weapon.name}</td>
 			<td>{weapon.accuracy}</td>
 			<td>{weapon.damage}</td>
