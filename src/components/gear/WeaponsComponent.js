@@ -79,15 +79,12 @@ class WeaponsComponent extends React.Component {
 					</button>
 				),
 				modButton = (
-					<button
-						className="btn btn-info"
-						onClick={
-							() => {
-								console.log(weapon);
-							}
-						}>
-						Mod
-					</button>
+					<Modal
+						modalName="Mod"
+						modalContent={
+							<h1>{weapon.name}</h1>
+						}
+					/>
 					);
 				purchasedTableRow.push(
 					<WeaponsTableRow
@@ -107,6 +104,7 @@ class WeaponsComponent extends React.Component {
 				{purchased?
 				<DisplayTable
 				header={<WeaponTableHeader
+					buySell="Sell"
 					reachCoil="Reach/RC"
 					isModable={true}/>}
 				body={purchasedTableRow}/>
@@ -116,10 +114,10 @@ class WeaponsComponent extends React.Component {
 	}
 }
 
-const WeaponTableHeader = ({reachCoil, isModable}) => {
+const WeaponTableHeader = ({buySell='Buy', reachCoil, isModable}) => {
 	return (
 		<tr>
-			<th>Buy</th>
+			<th>{buySell}</th>
 			{isModable? <th>Mod</th> : null}
 			<th>Name</th>
 			<th>Acc</th>
@@ -137,7 +135,7 @@ const WeaponsTableRow = ({weapon, button, mod}) => {
 	return (
 		<tr key={weapon.name}>
 			<td>{button}</td>
-			<td>{mod}</td>
+			{mod? <td>{mod}</td>: null}
 			<td>{weapon.name}</td>
 			<td>{weapon.accuracy}</td>
 			<td>{weapon.damage}</td>
