@@ -80,7 +80,7 @@ class WeaponsComponent extends React.Component {
 				),
 				modButton = (
 					<Modal
-						modalName="Mod"
+						modalName={weapon.name}
 						modalContent={
 							<h1>{weapon.name}</h1>
 						}
@@ -102,13 +102,15 @@ class WeaponsComponent extends React.Component {
 				<h3>Weapons</h3>
 				{this.weaponTable}
 				{purchased?
-				<DisplayTable
-				header={<WeaponTableHeader
-					buySell="Sell"
-					reachCoil="Reach/RC"
-					isModable={true}/>}
-				body={purchasedTableRow}/>
-				: null}
+					<div className="table-responsive">
+						<DisplayTable
+							header={<WeaponTableHeader
+								buySell="Sell"
+								reachCoil="Reach/RC"
+								isModable={true}/>}
+							body={purchasedTableRow}/>
+					</div>
+					: null}
 			</div>
 		);
 	}
@@ -118,8 +120,7 @@ const WeaponTableHeader = ({buySell='Buy', reachCoil, isModable}) => {
 	return (
 		<tr>
 			<th>{buySell}</th>
-			{isModable? <th>Mod</th> : null}
-			<th>Name</th>
+			{isModable? <th>Mod</th> : <th>Name</th>}
 			<th>Acc</th>
 			<th>Dam</th>
 			<th>AP</th>
@@ -135,8 +136,7 @@ const WeaponsTableRow = ({weapon, button, mod}) => {
 	return (
 		<tr key={weapon.name}>
 			<td>{button}</td>
-			{mod? <td>{mod}</td>: null}
-			<td>{weapon.name}</td>
+			{mod? <td>{mod}</td>: <td>{weapon.name}</td>}
 			<td>{weapon.accuracy}</td>
 			<td>{weapon.damage}</td>
 			<td>{weapon.ap}</td>
