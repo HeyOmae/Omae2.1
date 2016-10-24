@@ -81,6 +81,7 @@ class WeaponsComponent extends React.Component {
 				modButton = (
 					<Modal
 						modalName={weapon.name}
+						modalID={weapon.name.replace(/\s/g, '') + index + '-modal'}
 						modalContent={
 							<h1>{weapon.name}</h1>
 						}
@@ -88,7 +89,7 @@ class WeaponsComponent extends React.Component {
 					);
 				purchasedTableRow.push(
 					<WeaponsTableRow
-						key={weapon.name+'-purchased'}
+						key={weapon.name+ index +'-purchased'}
 						weapon={weapon}
 						button={sellButton}
 						mod={modButton}

@@ -7,11 +7,10 @@ require('styles//Modal.sass');
 
 class ModalComponent extends React.Component {
 	render() {
-		const {modalName, modalContent, modalToggle, toggleModalAction} = this.props;
-		let modalID = modalName.replace(/\s/g, '') + '-modal';
-		const toggleModal = () => {
-			toggleModalAction(modalID);
-		};
+		const {modalName, modalContent, modalToggle, toggleModalAction, modalID=modalName.replace(/\s/g, '') + '-modal' } = this.props,
+			toggleModal = () => {
+				toggleModalAction(modalID);
+			};
 
 		function closeModal(e) {
 			if(e.target.className.search(/modal-close/) > 0){
