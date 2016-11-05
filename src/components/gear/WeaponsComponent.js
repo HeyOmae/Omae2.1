@@ -103,7 +103,7 @@ class WeaponsComponent extends React.Component {
 				<h3>Weapons</h3>
 				{this.weaponTable}
 				{purchased?
-					<div className="table-responsive">
+					<div className="table-responsive purchased-weapons">
 						<DisplayTable
 							header={<WeaponTableHeader
 								buySell="Sell"
