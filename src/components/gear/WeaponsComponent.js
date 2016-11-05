@@ -83,7 +83,7 @@ class WeaponsComponent extends React.Component {
 						modalName={weapon.name}
 						modalID={weapon.name.replace(/\s/g, '') + index + '-modal'}
 						modalContent={
-							<h1>{weapon.name}</h1>
+							<WeaponModTable weapon={weapon}/>
 						}
 					/>
 					);
@@ -117,7 +117,30 @@ class WeaponsComponent extends React.Component {
 	}
 }
 
-const WeaponTableHeader = ({buySell='Buy', reachCoil, isModable}) => {
+// simple reusable components
+
+function WeaponModTable({weapon}) {
+	const {mount} = weapon.accessorymounts,
+		modHeader = mount.map((mountLocation) => {
+			return <th>{mountLocation}</th>;
+		});
+	console.log(weapon);
+
+	return(
+		<DisplayTable
+			header={<tr>
+						{modHeader}
+					</tr>}
+			body={<tr>
+						<td>
+							taco
+						</td>
+					</tr>}
+			/>
+	);
+}
+
+function WeaponTableHeader({buySell='Buy', reachCoil, isModable}) {
 	return (
 		<tr>
 			<th>{buySell}</th>
@@ -131,9 +154,9 @@ const WeaponTableHeader = ({buySell='Buy', reachCoil, isModable}) => {
 			<th>Ref</th>
 		</tr>
 	);
-};
+}
 
-const WeaponsTableRow = ({weapon, button, mod}) => {
+function WeaponsTableRow({weapon, button, mod}) {
 	return (
 		<tr key={weapon.name}>
 			<td>{button}</td>
@@ -147,7 +170,7 @@ const WeaponsTableRow = ({weapon, button, mod}) => {
 			<td>{weapon.source} p{weapon.page}</td>
 		</tr>
 	);
-};
+}
 
 WeaponsComponent.displayName = 'GearWeaponsComponent';
 
