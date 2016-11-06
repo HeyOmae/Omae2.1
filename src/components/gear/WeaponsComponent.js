@@ -122,7 +122,7 @@ class WeaponsComponent extends React.Component {
 function WeaponModTable({weapon}) {
 	const {mount} = weapon.accessorymounts,
 		modHeader = mount.map((mountLocation) => {
-			return <th>{mountLocation}</th>;
+			return <th key={weapon.name+'-'+mountLocation}>{mountLocation}</th>;
 		});
 	console.log(weapon);
 
