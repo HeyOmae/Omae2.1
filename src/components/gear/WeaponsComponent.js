@@ -7,12 +7,33 @@ import DisplayTable from '../DisplayTableComponent';
 
 require('styles/gear/Weapons.scss');
 
-let weaponData = require('json!../data/weapons.json');
+const weaponData = require('json!../data/weapons.json'),
+	weaponMods = require('json!../data/weaponAccessories.json');
 
 class WeaponsComponent extends React.Component {
 	componentWillMount() {
 		let weaponsTableRow = {},
-			weaponTable = [];
+			weaponTable = [],
+			weaponModLists = {
+				slotless: []
+			};
+
+		weaponMods.forEach((accessory)=> {
+			if(accessory.mount) {
+				let modSlots = accessory.mount.split('/');
+				modSlots.forEach((slot) => {
+					if(!weaponModLists[slot]) {
+						weaponModLists[slot] = [accessory];
+					} else {
+						weaponModLists[slot].push(accessory);
+					}
+				});
+			} else {
+				weaponModLists.slotless.push(accessory);
+			}
+		});
+
+		console.log(weaponModLists);
 
 		const skipWeapons = ['Quality', 'Natural', 'Cyberweapon', 'Bio-Weapon', 'Cyber-Weapon', 'Underbarrel Weapons'],
 			{purchaseGear} = this.props.actions;
