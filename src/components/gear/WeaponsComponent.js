@@ -146,14 +146,19 @@ function WeaponModTable({weapon, weaponModLists}) {
 	const {mount} = weapon.accessorymounts,
 		weaponModData = [],
 		modHeader = mount.map((mountLocation) => {
-			weaponModData.push(generateWeaponModOptions(weapon.name+'-mod-'+mountLocation));
+			weaponModData.push(generateWeaponModOptions(weapon.name, mountLocation, weaponModLists));
 			return <th key={weapon.name+'-'+mountLocation}>{mountLocation}</th>;
 		});
 
-	function generateWeaponModOptions(key) {
-		return (<td key={key}><select>
-					<option value="taco">taco</option>
-				</select></td>);
+	function generateWeaponModOptions(weaponName, mountLoc, weaponModLists) {
+		return (<td key={weaponName + '--' + mountLoc}>
+			<select>
+				<option value=''>&mdash;</option>
+				{weaponModLists[mountLoc].map((mod)=>{
+					return (<option key={weaponName + '--' + mountLoc + '--' + mod.name} value={mod.name}>{mod.name}</option>);
+				})}
+			</select>
+		</td>);
 	}
 
 	return(
