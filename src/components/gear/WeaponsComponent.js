@@ -33,7 +33,7 @@ class WeaponsComponent extends React.Component {
 			}
 		});
 
-		console.log(weaponModLists);
+		this.weaponModLists = weaponModLists;
 
 		const skipWeapons = ['Quality', 'Natural', 'Cyberweapon', 'Bio-Weapon', 'Cyber-Weapon', 'Underbarrel Weapons'],
 			{purchaseGear} = this.props.actions;
@@ -104,7 +104,9 @@ class WeaponsComponent extends React.Component {
 						modalName={weapon.name}
 						modalID={weapon.name.replace(/\s/g, '') + index + '-modal'}
 						modalContent={
-							<WeaponModTable weapon={weapon}/>
+							<WeaponModTable
+								weapon={weapon}
+								weaponModLists={this.weaponModLists}/>
 						}
 					/>
 					);
@@ -140,12 +142,19 @@ class WeaponsComponent extends React.Component {
 
 // simple reusable components
 
-function WeaponModTable({weapon}) {
+function WeaponModTable({weapon, weaponModLists}) {
 	const {mount} = weapon.accessorymounts,
+		weaponModData = [],
 		modHeader = mount.map((mountLocation) => {
+			weaponModData.push(generateWeaponModOptions());
 			return <th key={weapon.name+'-'+mountLocation}>{mountLocation}</th>;
 		});
-	console.log(weapon);
+
+	function generateWeaponModOptions() {
+		return (<select>
+					<option value="taco">taco</option>
+				</select>);
+	}
 
 	return(
 		<DisplayTable
@@ -154,7 +163,7 @@ function WeaponModTable({weapon}) {
 					</tr>}
 			body={<tr>
 						<td>
-							taco
+							{weaponModData}
 						</td>
 					</tr>}
 			/>
