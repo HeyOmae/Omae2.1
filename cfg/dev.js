@@ -29,7 +29,7 @@ let config = _.merge({
 // Add needed loaders
 config.module.loaders.push({
   test: /\.(js|jsx)$/,
-  loader: 'babel-loader',
+  loader: 'react-hot!babel-loader',
   include: [].concat(
     config.additionalPaths,
     [ path.join(__dirname, '/../src') ]
