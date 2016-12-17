@@ -11,7 +11,7 @@ module.exports = {
     preLoaders: [
       {
         test: /\.(js|jsx)$/,
-        loader: 'isparta-instrumenter-loader',
+        loader: 'isparta',
         include: [
           path.join(__dirname, '/../src')
         ]
