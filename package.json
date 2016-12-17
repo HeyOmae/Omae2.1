@@ -55,7 +55,7 @@
     "phantomjs-prebuilt": "^2.1.12",
     "postcss": "^5.0.11",
     "postcss-loader": "^0.13.0",
-    "react-addons-test-utils": "15.2.1",
+    "react-addons-test-utils": "^15.4.0",
     "react-hot-loader": "^3.0.0-beta.6",
     "rimraf": "^2.4.3",
     "sass-loader": "^4.0.2",
@@ -70,8 +70,8 @@
     "json-loader": "^0.5.4",
     "lodash": "^4.1.0",
     "normalize.css": "^4.2.0",
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2",
+    "react": "^15.4.0",
+    "react-dom": "^15.4.0",
     "react-redux": "^4.4.5",
     "redux": "^3.0.6"
   }

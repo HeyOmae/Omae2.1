@@ -18,6 +18,9 @@ class WeaponsComponent extends React.Component {
 				slotless: []
 			};
 
+		const skipWeapons = ['Quality', 'Natural', 'Cyberweapon', 'Bio-Weapon', 'Cyber-Weapon', 'Underbarrel Weapons'],
+			{purchaseGear} = this.props.actions;
+
 		weaponMods.forEach((accessory)=> {
 			if(accessory.mount) {
 				let modSlots = accessory.mount.split('/');
@@ -33,10 +36,6 @@ class WeaponsComponent extends React.Component {
 			}
 		});
 
-		this.weaponModLists = weaponModLists;
-
-		const skipWeapons = ['Quality', 'Natural', 'Cyberweapon', 'Bio-Weapon', 'Cyber-Weapon', 'Underbarrel Weapons'],
-			{purchaseGear} = this.props.actions;
 		weaponData.forEach((weapon) => {
 			if( skipWeapons.indexOf(weapon.category) > -1 ) {
 				return;
@@ -78,12 +77,15 @@ class WeaponsComponent extends React.Component {
 				/>
 				);
 		}
+
 		this.weaponTable = weaponTable;
+		this.weaponModLists = weaponModLists;
 	}
 
 	render() {
 		const {purchased} = this.props,
 			{sellGear} = this.props.actions,
+			{weaponModLists, weaponTable} = this,
 			purchasedTableRow = [];
 
 		if(purchased) {
@@ -106,7 +108,7 @@ class WeaponsComponent extends React.Component {
 						modalContent={
 							<WeaponModTable
 								weapon={weapon}
-								weaponModLists={this.weaponModLists}/>
+								weaponModLists={weaponModLists}/>
 						}
 					/>
 					);
@@ -124,7 +126,7 @@ class WeaponsComponent extends React.Component {
 		return (
 			<div className="weapons-component">
 				<h3>Weapons</h3>
-				{this.weaponTable}
+				{weaponTable}
 				{purchased?
 					<div className="table-responsive purchased-weapons">
 						<DisplayTable
@@ -141,7 +143,6 @@ class WeaponsComponent extends React.Component {
 }
 
 // simple reusable components
-
 function WeaponModTable({weapon, weaponModLists}) {
 	const {mount} = weapon.accessorymounts,
 		weaponModData = [],

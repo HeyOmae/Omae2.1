@@ -7,7 +7,7 @@ let _ = require('lodash');
 let baseConfig = require('./base');
 
 // Add needed plugins here
-let BowerWebpackPlugin = require('bower-webpack-plugin');
+// let BowerWebpackPlugin = require('bower-webpack-plugin');
 
 let config = _.merge({
   entry: [
@@ -20,10 +20,10 @@ let config = _.merge({
   devtool: 'eval',
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
-    new BowerWebpackPlugin({
-      searchResolveModulesDirectories: false
-    })
+    new webpack.NoErrorsPlugin()//,
+    // new BowerWebpackPlugin({
+    //   searchResolveModulesDirectories: false
+    // })
   ]
 }, baseConfig);
 
