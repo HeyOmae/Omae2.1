@@ -1,14 +1,11 @@
-'use strict';
-
 import React from 'react';
 import Modal from '../ModalComponent';
 import FilterTable from '../FilterableTable';
 import DisplayTable from '../DisplayTableComponent';
+import weaponData from '../data/weapons.json';
+import weaponMods from '../data/weaponAccessories.json';
 
-require('styles/gear/Weapons.scss');
-
-const weaponData = require('json!../data/weapons.json'),
-	weaponMods = require('json!../data/weaponAccessories.json');
+import '../../styles/gear/Weapons.scss';
 
 class WeaponsComponent extends React.Component {
 	componentWillMount() {

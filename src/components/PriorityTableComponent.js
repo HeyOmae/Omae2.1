@@ -1,10 +1,7 @@
-'use strict';
-
 import React from 'react';
 import Modal from './ModalComponent';
-let priorityData = require('json!./data/priority.json');
-
-require('styles//PriorityTable.sass');
+import priorityData from './data/priority.json';
+import 'styles/PriorityTable.sass';
 
 class PriorityTableComponent extends React.Component {
 	render() {

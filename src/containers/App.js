@@ -4,7 +4,7 @@
  *          This modifications only run once when the generator is invoked - if
  *          you edit them, they are not updated again.
  */
-require('normalize.css');
+// require('normalize.css');
 require('styles/bootstrap-overwrite.scss');
 require('styles/App.css');
 import React, {
@@ -57,27 +57,27 @@ class App extends Component {
     const { actions, priorityTable, selectMetatype, attributes, selectMagRes, settingSkills, spellSelect, quality, karma, purchaseGear } = this.props, karmaTotal = karma - spellSelect.powerPointsKarma;
     return (
       <div className='container'>
-				<div className='row'>
-					<div className='col-md-12'>
-						<Main
+        <div className='row'>
+          <div className='col-md-12'>
+            <Main
               actions={actions}
               priorityTable={priorityTable}
               selectMetatype={selectMetatype}
               attributes={attributes}/>
 
-						<PriorityTableComponent actions={actions.priorityTable} priorityTable={priorityTable}/>
-					</div>
-				</div>
+            <PriorityTableComponent actions={actions.priorityTable} priorityTable={priorityTable}/>
+          </div>
+        </div>
 
-				<div className='row'>
-					<div className='col-md-12 col-lg-9'>
-						<MetatypeSelector
+        <div className='row'>
+          <div className='col-md-12 col-lg-9'>
+            <MetatypeSelector
               priorityRating={priorityTable.metatype}
               metatype={selectMetatype}
               action={actions.selectMetatype}
               karma={actions.karma}/>
 
-						<AttributesComponent
+            <AttributesComponent
               metatypeRating={priorityTable.metatype}
               priorityRating={priorityTable.attribute}
               magicPriority={priorityTable.magres}
@@ -91,15 +91,15 @@ class App extends Component {
 
             <QualityComponent karma={karmaTotal} actions={actions} selectedQualities={quality}/>
 
-						<MagicSelectionComponent
+            <MagicSelectionComponent
               magicPriority={priorityTable.magres}
               magictype={selectMagRes}
               magicAttribute={attributes.special}
               selectedSpellsPowers={spellSelect}
               actions={actions}/>
 
-						<h2>Skills</h2>
-						<ActiveSkillsComponent
+            <h2>Skills</h2>
+            <ActiveSkillsComponent
               actions={actions}
               priority={priorityTable}
               skills={settingSkills}
@@ -108,12 +108,12 @@ class App extends Component {
               magictype={selectMagRes}/>
             <h2>Street Gear</h2>
             <StreetGearComponent actions={actions} purchaseGear={purchaseGear} resourcesPriority={priorityTable.resources}/>
-					</div>
-					<div id='summary' className='col-md-12 col-lg-3'>
-						<Summary/>
-					</div>
-				</div>
-			</div>
+          </div>
+          <div id='summary' className='col-md-12 col-lg-3'>
+            <Summary/>
+          </div>
+        </div>
+      </div>
     );
   }
 }

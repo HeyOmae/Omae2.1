@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-require('styles//DisplayTable.scss');
+import 'styles//DisplayTable.scss';
 
 const DisplayTableComponent = ({header, body}) => {
 	return (

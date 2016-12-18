@@ -1,9 +1,7 @@
-'use strict';
-
 import React from 'react';
 import Modal from '../ModalComponent';
 
-require('styles/export/Reddit.sass');
+import '../../styles/export/Reddit.sass';
 
 const RedditComponent = ({priority, metatype, attributes, augmentedAtt, magres, skills, spellsAndPowers, qualities, karma, purchaseGear}) => {
 	let activeSkills = '',

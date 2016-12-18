@@ -1,9 +1,7 @@
-'use strict';
-
 import React, {PropTypes} from 'react';
 import { connect } from 'react-redux';
 
-require('styles//Modal.sass');
+import 'styles/Modal.sass';
 
 class ModalComponent extends React.Component {
 	render() {

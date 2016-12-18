@@ -1,13 +1,11 @@
-'use strict';
-
 import React from 'react';
 import Modal from './ModalComponent';
 import DisplayTable from './DisplayTableComponent';
 import FilterTable from './FilterableTable';
 
-const qualityData = require('json!./data/qualities.json');
+import qualityData from './data/qualities.json';
 
-require('styles//Quality.sass');
+import 'styles/Quality.sass';
 
 class QualityComponent extends React.Component {
 	componentWillMount() {

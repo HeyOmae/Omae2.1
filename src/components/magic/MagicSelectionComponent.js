@@ -1,12 +1,9 @@
-'use strict';
-
 import React from 'react';
 import SpellSelector from './SpellSelectorComponent';
 import PowerSelector from './PowerSelectorComponent';
+import priorityData from '../data/priority.json';
 
-require('styles//magic/MagicSelection.sass');
-const priorityData = require('json!../data/priority.json');
-
+import '../../styles/magic/MagicSelection.sass';
 
 const MagicSelectionComponent = ({magicPriority, magictype, magicAttribute, selectedSpellsPowers, actions}) => {
 	const awakenTypes = ['Mage', 'Mystic', 'Technomancer','Adept', 'Aspected', 'mundane'],

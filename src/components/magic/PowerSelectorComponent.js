@@ -1,16 +1,13 @@
-'use strict';
-
 import React from 'react';
 import Modal from '../ModalComponent';
 import DisplayTable from '../DisplayTableComponent';
 import FilterTable from '../FilterableTable';
+import powerData from '../data/powers.json';
 
-const powerData = require('json!../data/powers.json');
-
-require('styles/magic/SpellSelector.sass');
+import 'styles/magic/SpellSelector.sass';
 
 //helper functions
-function createPowerCategoryLabel () {
+function createPowerCategoryLabel() {
 	return(
 		<tr className='powers-label'>
 			<th>Learn</th>

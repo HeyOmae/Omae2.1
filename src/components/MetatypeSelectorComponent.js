@@ -1,10 +1,7 @@
-'use strict';
-
 import React from 'react';
-let metatypeData = require('json!./data/metatype.json'),
-	priorityData = require('json!./data/priority.json');
-
-require('styles//MetatypeSelector.sass');
+import metatypeData from './data/metatype.json';
+import priorityData from './data/priority.json';
+import 'styles/MetatypeSelector.sass';
 
 class MetatypeSelectorComponent extends React.Component {
 	render() {

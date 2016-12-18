@@ -1,11 +1,8 @@
-'use strict';
-
 import React from 'react';
 import WeaponsComponent from './WeaponsComponent';
+import priorityData from '../data/priority.json';
 
-let priorityData = require('json!../data/priority.json');
-
-require('styles/gear/StreetGear.scss');
+import '../../styles/gear/StreetGear.scss';
 
 class StreetGearComponent extends React.Component {
 	render() {

@@ -1,11 +1,9 @@
-'use strict';
-
 import React from 'react';
 import SpecialComponent from './SpecialComponent';
-let metatypeData = require('json!./data/metatype.json'),
-	priorityData = require('json!./data/priority.json');
+import metatypeData from './data/metatype.json';
+import priorityData from './data/priority.json';
 
-require('styles/Attributes.sass');
+import 'styles/Attributes.sass';
 
 class AttributesComponent extends React.Component {
 	render() {

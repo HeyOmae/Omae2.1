@@ -1,8 +1,6 @@
-'use strict';
-
 import React from 'react';
 
-require('styles//Special.sass');
+import 'styles/Special.sass';
 
 class SpecialComponent extends React.Component {
 	render() {

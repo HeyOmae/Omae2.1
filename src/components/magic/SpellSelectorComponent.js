@@ -1,14 +1,12 @@
-'use strict';
-
 import React from 'react';
 import Modal from '../ModalComponent';
 import DisplayTable from '../DisplayTableComponent';
 import FilterTable from '../FilterableTable';
 
-const spellData = require('json!../data/spells.json');
-const complexformData = require('json!../data/complexforms.json');
+import spellData from '../data/spells.json';
+import complexformData from '../data/complexforms.json';
 
-require('styles/magic/SpellSelector.sass');
+import 'styles/magic/SpellSelector.sass';
 
 //helper functions
 function createSpellCategoryLabel ({category, damage}) {

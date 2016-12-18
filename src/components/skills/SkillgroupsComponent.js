@@ -1,10 +1,8 @@
-'use strict';
-
 import React from 'react';
 import Modal from '../ModalComponent';
 import FilterTable from '../FilterableTable';
 
-require('styles/skills/Skillgroups.sass');
+import 'styles/skills/Skillgroups.sass';
 
 const SkillgroupsComponent = ({skillgroups, skillgroupsData, actions, pointsLeft}) => {
 	let listOfGroups = [];

@@ -1,11 +1,9 @@
-'use strict';
-
 import React from 'react';
 import RedditExport from './export/RedditComponent';
-const metatypeData = require('json!./data/metatype.json'),
-	priorityTableData = require('json!./data/priority.json');
+import metatypeData from './data/metatype.json';
+import priorityTableData from './data/priority.json';
 
-require('styles//Summary.sass');
+import 'styles/Summary.sass';
 
 const TableRowHeader = () => {
 	return <tr><th>Name</th><th>Ref</th></tr>;

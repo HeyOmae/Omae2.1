@@ -1,14 +1,12 @@
-'use strict';
-
 import React from 'react';
 import Modal from '../ModalComponent';
 import Skillgroup from './SkillgroupsComponent';
 import FilterTable from '../FilterableTable';
-let skillsData = require('json!../data/skills.json'),
-	metatypeData = require('json!../data/metatype.json'),
-	priorityTableData = require('json!../data/priority.json');
+import skillsData from '../data/skills.json';
+import metatypeData from '../data/metatype.json';
+import priorityTableData from '../data/priority.json';
 
-require('styles/skills/ActiveSkills.sass');
+import 'styles/skills/ActiveSkills.sass';
 
 class ActiveSkillsComponent extends React.Component {
 	render() {
