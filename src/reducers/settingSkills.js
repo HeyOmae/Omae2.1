@@ -13,12 +13,18 @@ const initialState = {
 	groupPointSpent: 0
 };
 
-const skillReducer = (state=initialState, action) => {
-	if(action.parameter) {
-		var {name, category, max, attribute, skillsInGroup, spec, magicSkills} = action.parameter;
-	}
+const skillReducer = (state = initialState, action) => {
+	// if (action.parameter) {
+	// 	var {name, category, max, attribute, skillsInGroup, spec, magicSkills} = action.parameter;
+	// }
 
-	function changeSkill(skillInfoUpdated, typeSpend, spentPoints, copyState = state, skillCategory = category) {
+	function changeSkill(
+		skillInfoUpdated,
+		typeSpend,
+		spentPoints,
+		copyState = state,
+		skillCategory = action.parameter.category
+		) {
 		return Object.assign(
 			{},
 			copyState,
@@ -40,92 +46,87 @@ const skillReducer = (state=initialState, action) => {
 	}
 
 	const actionsToTake = {
-		INCREMENT_SKILL: () => {
-			var newState,
-				skill = state[category][name];
-			if(skill){
-				let nextIncrement = skill.rating + 1||1;
+		INCREMENT_SKILL: (prevState, {category, max, attribute, name}) => {
+			let newState;
+			const skill = prevState[category][name];
+
+			if (skill) {
+				const nextIncrement = skill.rating + 1 || 1;
 				if (nextIncrement > max - (skill.groupRating || 0)) {
-
-					return state;
-
-				} else {
-
-					newState = changeSkill(
-						{[name]: generateSkillObject(skill, {rating: nextIncrement})},
-						'skillPointsSpent',
-						state.skillPointsSpent + 1
-					);
-
+					return prevState;
 				}
+				newState = changeSkill(
+					{[name]: generateSkillObject(skill, {rating: nextIncrement})},
+					'skillPointsSpent',
+					prevState.skillPointsSpent + 1
+				);
 			} else {
 				newState = changeSkill(
 					{[name]: {
 						rating: 1,
-						attribute: attribute
+						attribute
 					}},
 					'skillPointsSpent',
-					state.skillPointsSpent + 1
+					prevState.skillPointsSpent + 1
 				);
 			}
 			return newState;
 		},
 
-		DECREMENT_SKILL: () => {
-			var newState,
-				skill = state[category] && state[category][name];
-			if(!skill) {
+		DECREMENT_SKILL: (prevState, {category, name}) => {
+			let newState = prevState;
+			const skill = prevState[category] && prevState[category][name];
 
-				return state;
-
-			} else if(skill.rating === 1 && Object.keys(skill).length <= 2) {
+			if (!skill) {
+				return prevState;
+			} else if (skill.rating === 1 && Object.keys(skill).length <= 2) {
 
 				newState = changeSkill(
 					{},
 					'skillPointsSpent',
-					state.skillPointsSpent - 1
+					prevState.skillPointsSpent - 1
 				);
 
 				delete newState[category][name];
 
-			} else if(skill.rating > 0) {
-				let nextDecrement = skill.rating - 1;
+			} else if (skill.rating > 0) {
+				const nextDecrement = skill.rating - 1;
 
 				newState = changeSkill(
 					{[name]: generateSkillObject(skill, {rating: nextDecrement})},
 					'skillPointsSpent',
-					state.skillPointsSpent - 1
+					prevState.skillPointsSpent - 1
 				);
 
 			}
 			return newState;
 		},
 
-		INCREMENT_SKILLGROUP: () => {
-			var newState,
-				skillgroup = state.groups[name];
+		INCREMENT_SKILLGROUP: (prevState, {skillsInGroup, name}) => {
+			let newState;
+			const skillgroup = prevState.groups[name];
 
-			if(skillgroup){
+			if (skillgroup) {
 				newState = changeSkill(
 					{[name]: {rating: skillgroup.rating + 1}},
 					'groupPointSpent',
-					state.groupPointSpent + 1);
+					prevState.groupPointSpent + 1);
 			} else {
 				newState = changeSkill(
 					{[name]: {
 						rating: 1
 					}},
 					'groupPointSpent',
-					state.groupPointSpent + 1);
+					prevState.groupPointSpent + 1);
 			}
 
-			var newGroupRating = newState.groups[name].rating;
+			const newGroupRating = newState.groups[name].rating;
 
-			for(let skillName in skillsInGroup) {
-				let skillAttibute = skillsInGroup[skillName],
+			Object.keys(skillsInGroup).forEach((skillName) => {
+				const skillAttibute = skillsInGroup[skillName],
 					skill = newState.active[skillName],
-					skillInfo = skill?
-						generateSkillObject(skill, {groupRating: newGroupRating}):
+					skillInfo = skill ?
+						generateSkillObject(skill, {groupRating: newGroupRating}) :
 						{groupRating: newGroupRating, attribute: skillAttibute};
 
 				newState = Object.assign(
@@ -138,23 +139,23 @@ const skillReducer = (state=initialState, action) => {
 							[skillName]: skillInfo
 						}
 				)});
-			}
+			});
 
 			return newState;
 		},
 
-		DECREMENT_SKILLGROUP: () => {
-			var newState,
-				skillgroup = state.groups[name],
+		DECREMENT_SKILLGROUP: (prevState, {name, skillsInGroup}) => {
+			let newState;
+			const skillgroup = prevState.groups[name],
 				newGroupRating = skillgroup && skillgroup.rating - 1;
 
-			if(!skillgroup) {
-				return state;
-			} else if(skillgroup.rating === 1) {
+			if (!skillgroup) {
+				return prevState;
+			} else if (skillgroup.rating === 1) {
 				newState = changeSkill(
 					{},
 					'groupPointSpent',
-					state.groupPointSpent - 1
+					prevState.groupPointSpent - 1
 				);
 
 				delete newState.groups[name];
@@ -162,11 +163,11 @@ const skillReducer = (state=initialState, action) => {
 				newState = changeSkill(
 					{[name]: generateSkillObject(skillgroup, {rating: newGroupRating})},
 					'groupPointSpent',
-					state.groupPointSpent - 1
+					prevState.groupPointSpent - 1
 				);
 			}
 
-			for(let skillName in skillsInGroup) {
+			Object.keys(skillsInGroup).forEach((skillName) => {
 				newState = Object.assign(
 					{},
 					newState,
@@ -183,38 +184,40 @@ const skillReducer = (state=initialState, action) => {
 					)}
 				);
 
-				let newSkill = newState.active[skillName];
+				const newSkill = newState.active[skillName];
 
-				if(!newSkill.groupRating && !newSkill.rating) {
+				if (!newSkill.groupRating && !newSkill.rating) {
 					delete newState.active[skillName];
 				} else if (!newSkill.groupRating && newSkill.rating > 0) {
 					delete newState.active[skillName].groupRating;
 				}
-			}
+			});
 
 			return newState;
 		},
 
-		SET_SPEC: () => {
-			let newState,
-				skill = state[category][name];
+		SET_SPEC: (prevState, {name, category, spec}) => {
+			let newState;
+			const skill = prevState[category][name];
 
-			if(!skill) {
-				return state;
+			if (!skill) {
+				return prevState;
 			} else if (spec === '–' || spec === '') {
-				let newSkill = generateSkillObject(skill, {spec: spec});
+				const newSkill = generateSkillObject(skill, { spec });
 
 				newState = changeSkill(
 					{[name]: newSkill},
 					'skillPointsSpent',
-					state.skillPointsSpent - 1
+					prevState.skillPointsSpent - 1
 					);
 
 				delete newState[category][name].spec;
 
 			} else if (typeof spec === 'string') {
-				let newSkill = generateSkillObject(skill, {spec: spec}),
-					skillPointChange = skill.spec ? state.skillPointsSpent : state.skillPointsSpent + 1;
+				const newSkill = generateSkillObject(skill, { spec }),
+					skillPointChange = skill.spec ?
+						prevState.skillPointsSpent :
+						prevState.skillPointsSpent + 1;
 
 				newState = changeSkill(
 					{[name]: newSkill},
@@ -222,27 +225,31 @@ const skillReducer = (state=initialState, action) => {
 					skillPointChange
 					);
 			} else {
-				return state;
+				return prevState;
 			}
 
 			return newState;
 		},
 
-		SET_MAGIC_SKILLS: () => {
-			let newState = state;
+		SET_MAGIC_SKILLS: (prevState, {magicSkills}) => {
+			let newState = prevState;
 
 			function removeMagicSkillRatingFromSkill(currentState, oldSkillName) {
-				let copyState = Object.assign({}, currentState);
-				if(currentState.active[oldSkillName] && Object.keys(currentState.active[oldSkillName]).length >= 3) {
+				const copyState = Object.assign({}, currentState);
+				if (
+						currentState.active[oldSkillName] &&
+						Object.keys(currentState.active[oldSkillName]).length >= 3
+					) {
 					copyState.active[oldSkillName] = Object.assign(
 						{},
 						currentState.active[oldSkillName]
 					);
 
 					delete copyState.active[oldSkillName].magicSkillRating;
-
-				} else if (currentState.active[oldSkillName] && Object.keys(currentState.active[oldSkillName]).length >= 2) {
-
+				} else if (
+					currentState.active[oldSkillName] &&
+					Object.keys(currentState.active[oldSkillName]).length >= 2
+					) {
 					copyState.active = Object.assign(
 						{},
 						currentState.active
@@ -254,20 +261,22 @@ const skillReducer = (state=initialState, action) => {
 				return copyState;
 			}
 
-			magicSkills.forEach((magSkill, index)=>{
-				const oldSkillName = state.magicSkills[index];
+			magicSkills.forEach((magSkill, index) => {
+				const oldSkillName = prevState.magicSkills[index];
 
-				if(!magSkill || !magSkill.name) {
+				if (!magSkill || !magSkill.name) {
 					newState = Object.assign(
 						{},
 						removeMagicSkillRatingFromSkill(newState, oldSkillName),
 						{magicSkills: newState.magicSkills.slice()}
-					) ;
+					);
 
 					newState.magicSkills[index] = '';
-				} else if(state.magicSkills[index] !== magSkill.name) {
+				} else if (prevState.magicSkills[index] !== magSkill.name) {
 					const skill = newState.active[magSkill.name],
-						newSkill = skill ? generateSkillObject(skill, {magicSkillRating: magSkill.rating}) : {[magSkill.name]: {attribute: magSkill.attribute, magicSkillRating: magSkill.rating}};
+						newSkill = skill ?
+						generateSkillObject(skill, {magicSkillRating: magSkill.rating}) :
+						{[magSkill.name]: {attribute: magSkill.attribute, magicSkillRating: magSkill.rating}};
 
 					newState = changeSkill(
 						newSkill,
@@ -287,10 +296,10 @@ const skillReducer = (state=initialState, action) => {
 			return newState;
 		},
 
-		DEFAULT: () => { return state; }
+		DEFAULT: (prevState) => { return prevState; }
 	};
 
-	return (actionsToTake[action.type] || actionsToTake.DEFAULT)();
+	return (actionsToTake[action.type] || actionsToTake.DEFAULT)(state, action.parameter);
 };
 
 module.exports = skillReducer;

@@ -146,7 +146,7 @@ const spellReducer = (state = initialState, action) => {
 					}
 				);
 
-			let newState =   Object.assign(
+			let newState = Object.assign(
 				{},
 				prevState,
 				{
