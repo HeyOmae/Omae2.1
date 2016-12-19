@@ -6,15 +6,15 @@
 
 const initialState = 25;
 
-const KarmaReducer = (state=initialState, action) => {
+const KarmaReducer = (state = initialState, action) => {
 	const actionsToTake = {
-		KARMA: () => {
-			const {karmaPoints} = action.parameter;
-			return state + karmaPoints;
+		KARMA: (prevState, {karmaPoints}) => {
+			return prevState + karmaPoints;
 		},
-		DEFAULT: () => { return state; }
+
+		DEFAULT: (prevState) => { return prevState; }
 	};
-	return (actionsToTake[action.type] || actionsToTake.DEFAULT)();
+	return (actionsToTake[action.type] || actionsToTake.DEFAULT)(state, action.parameter);
 };
 
 module.exports = KarmaReducer;

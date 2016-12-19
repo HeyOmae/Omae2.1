@@ -14,10 +14,6 @@ const initialState = {
 };
 
 const skillReducer = (state = initialState, action) => {
-	// if (action.parameter) {
-	// 	var {name, category, max, attribute, skillsInGroup, spec, magicSkills} = action.parameter;
-	// }
-
 	function changeSkill(
 		skillInfoUpdated,
 		typeSpend,

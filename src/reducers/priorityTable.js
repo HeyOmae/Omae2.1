@@ -11,16 +11,16 @@ const initialState = {
 	resources: 'E'
 };
 
-const priorityReducer = (state=initialState, action) => {
+const priorityReducer = (state = initialState, action) => {
 	const actionsToTake = {
-		SET_PRIORITY: (oldState, {rating, category} ) => {
+		SET_PRIORITY: (prevState, {rating, category}) => {
 			return Object.assign(
 				{},
-				oldState,
+				prevState,
 				{[category]: rating}
 			);
 		},
-		DEFAULT: sameState => sameState
+		DEFAULT: (sameState) => { return sameState; }
 	};
 	return (actionsToTake[action.type] || actionsToTake.DEFAULT)(state, action.parameter);
 };

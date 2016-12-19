@@ -7,19 +7,31 @@
  *          you edit them, they are not updated again.
  */
 import { combineReducers } from 'redux';  /* Populated by react-webpack-redux:reducer */
-import filterTable from '../reducers/filterTable.js';
+import priorityTable from './priorityTable';
+import selectMetatype from './selectMetatype';
+import attributes from './attributes';
+import selectMagRes from './selectMagRes';
+import settingSkills from './settingSkills';
+import appControl from './appControl';
+import spellSelect from './spellSelect';
+import quality from './quality';
+import karma from './karma';
+import modalToggle from './modalToggle';
+import purchaseGear from './gear/purchaseGear';
+import filterTable from './filterTable';
+
 const reducers = {
-  priorityTable: require('../reducers/priorityTable.js'),
-  selectMetatype: require('../reducers/selectMetatype.js'),
-  attributes: require('../reducers/attributes.js'),
-  selectMagRes: require('../reducers/selectMagRes.js'),
-  settingSkills: require('../reducers/settingSkills.js'),
-  appControl: require('../reducers/appControl.js'),
-  spellSelect: require('../reducers/spellSelect.js'),
-  quality: require('../reducers/quality.js'),
-  karma: require('../reducers/karma.js'),
-  modalToggle: require('../reducers/modalToggle.js'),
-  purchaseGear: require('../reducers/gear/purchaseGear.js'),
-  filterTable
+	priorityTable,
+	selectMetatype,
+	attributes,
+	selectMagRes,
+	settingSkills,
+	appControl,
+	spellSelect,
+	quality,
+	karma,
+	modalToggle,
+	purchaseGear,
+	filterTable
 };
 module.exports = combineReducers(reducers);

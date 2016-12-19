@@ -5,15 +5,15 @@
  */
 const initialState = '';
 
-const modalReducer = (state=initialState, action) => {
-  const actionsToTake = {
-    TOGGLE_MODAL: () => {
-      return state === action.parameter ? '' : action.parameter;
-    },
+const modalReducer = (state = initialState, action) => {
+	const actionsToTake = {
+		TOGGLE_MODAL: (prevState, modalID) => {
+			return prevState === modalID ? '' : modalID;
+		},
 
-    DEFAULT: () => { return state; }
-  };
-  return (actionsToTake[action.type] || actionsToTake.DEFAULT)();
+		DEFAULT: (prevState) => { return prevState; }
+	};
+	return (actionsToTake[action.type] || actionsToTake.DEFAULT)(state, action.parameter);
 };
 
 module.exports = modalReducer;
