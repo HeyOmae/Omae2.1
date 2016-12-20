@@ -8,15 +8,15 @@ const initialState = {
 	priority: 'A'
 };
 
-const metatypeReducer = (state=initialState, action) => {
+const metatypeReducer = (state = initialState, action) => {
 	const actionsToTake = {
-		SELECT_METATYPE: () => {
-			return action.parameter;
+		SELECT_METATYPE: (prevState, newState) => {
+			return newState;
 		},
 
-		DEFAULT: () => { return state; }
+		DEFAULT: (prevState) => { return prevState; }
 	};
-	return (actionsToTake[action.type] || actionsToTake.DEFAULT)();
+	return (actionsToTake[action.type] || actionsToTake.DEFAULT)(state, action.parameter);
 };
 
 module.exports = metatypeReducer;

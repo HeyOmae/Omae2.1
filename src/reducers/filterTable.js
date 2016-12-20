@@ -1,11 +1,11 @@
-const FilterTable = (state='', action) => {
+const FilterTable = (state = '', action) => {
 	const actionsToTake = {
-		SET_FILTER: ({filterTerm}) => {
+		SET_FILTER: (prevState, {filterTerm}) => {
 			return filterTerm;
 		},
-		DEFAULT: () => { return state; }
+		DEFAULT: (prevState) => { return prevState; }
 	};
-	return (actionsToTake[action.type] || actionsToTake.DEFAULT)(action.parameter);
+	return (actionsToTake[action.type] || actionsToTake.DEFAULT)(state, action.parameter);
 };
 
 module.exports = FilterTable;
