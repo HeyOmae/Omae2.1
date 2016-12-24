@@ -20,71 +20,60 @@ const initialState = {
 	specialSpent: 0
 };
 
-const attributesReducer = (state=initialState, action) => {
+const attributesReducer = (state = initialState, action) => {
 
 	const actionsToTake = {
-		INCREMENT_ATTRIBUTE: () => {
-			var {attribute, max, spend, maxCap} = action.parameter;
-			if(maxCap) {
-				--max;
+		INCREMENT_ATTRIBUTE: (prevState, {attribute, max, spend, maxCap}) => {
+			const nextIncrement = prevState[attribute] + 1;
+			if (nextIncrement > (maxCap ? max - 1 : max)) {
+				return prevState;
 			}
 
-			var newState,
-				nextIncrement = state[attribute] + 1;
-			if (nextIncrement > max) {
-				return state;
-			} else {
-				newState = Object.assign(
-					{},
-					state,
-					{
-						[attribute]: nextIncrement,
-						[spend]: state[spend] + 1
-					}
-				);
-			}
+			const newState = Object.assign(
+				{},
+				prevState,
+				{
+					[attribute]: nextIncrement,
+					[spend]: prevState[spend] + 1
+				}
+			);
 			return newState;
 		},
 
-		DECREMENT_ATTRIBUTE: () => {
-			var {attribute, spend} = action.parameter,
-				newState,
-				nextDecrement = state[attribute] - 1;
-			if(nextDecrement < 0) {
-				return state;
-			} else {
-				newState = Object.assign(
-					{},
-					state,
-					{
-						[attribute]: nextDecrement,
-						[spend]: state[spend] - 1
-					}
-				);
+		DECREMENT_ATTRIBUTE: (prevState, {attribute, spend}) => {
+			const nextDecrement = prevState[attribute] - 1;
+			if (nextDecrement < 0) {
+				return prevState;
 			}
+			const newState = Object.assign(
+				{},
+				prevState,
+				{
+					[attribute]: nextDecrement,
+					[spend]: prevState[spend] - 1
+				}
+			);
 			return newState;
 		},
 
-		INCREMENT_AUGMENTED: () => {
-			let {attribute} = action.parameter,
-				newState,
-				augmentedAttribute = state.augmented[attribute],
-				nextIncrement;
+		INCREMENT_AUGMENTED: (prevState, {attribute}) => {
+			const augmentedAttribute = prevState.augmented[attribute];
+			let nextIncrement;
 
-			if(augmentedAttribute){
+			if (augmentedAttribute) {
 				nextIncrement = augmentedAttribute + 1;
 			} else {
 				nextIncrement = 1;
 			}
 
-			if(nextIncrement <= 4) {
-				newState = Object.assign(
+			if (nextIncrement <= 4) {
+				const newState = Object.assign(
 					{},
-					state,
+					prevState,
 					{
 						augmented: Object.assign(
 							{},
-							state.augmented,
+							prevState.augmented,
 							{
 								[attribute]: nextIncrement
 							}
@@ -93,31 +82,30 @@ const attributesReducer = (state=initialState, action) => {
 				);
 
 				return newState;
-			} else {
-				return state;
 			}
+
+			return prevState;
 		},
 
-		DECREMENT_AUGMENTED: () => {
-			let {attribute, decreaseBy = 1} = action.parameter,
-				newState,
-				augmentedAttribute = state.augmented[attribute],
-				nextDecrement;
+		DECREMENT_AUGMENTED: (prevState, {attribute, decreaseBy = 1}) => {
+			const augmentedAttribute = prevState.augmented[attribute];
+			let nextDecrement,
+				newState;
 
-			if(augmentedAttribute) {
+			if (augmentedAttribute) {
 				nextDecrement = augmentedAttribute - decreaseBy;
 			} else {
-				return state;
+				return prevState;
 			}
 
-			if(nextDecrement > 0) {
+			if (nextDecrement > 0) {
 				newState = Object.assign(
 					{},
-					state,
+					prevState,
 					{
 						augmented: Object.assign(
 							{},
-							state.augmented,
+							prevState.augmented,
 							{
 								[attribute]: nextDecrement
 							}
@@ -127,11 +115,11 @@ const attributesReducer = (state=initialState, action) => {
 			} else {
 				newState = Object.assign(
 					{},
-					state,
+					prevState,
 					{
 						augmented: Object.assign(
 							{},
-							state.augmented
+							prevState.augmented
 						)
 					}
 				);
@@ -142,9 +130,9 @@ const attributesReducer = (state=initialState, action) => {
 			return newState;
 		},
 
-		DEFAULT: () => { return state; }
+		DEFAULT: (prevState) => { return prevState; }
 	};
-	return (actionsToTake[action.type] || actionsToTake.DEFAULT)();
+	return (actionsToTake[action.type] || actionsToTake.DEFAULT)(state, action.parameter);
 };
 
 module.exports = attributesReducer;
