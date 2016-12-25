@@ -9,6 +9,7 @@
   "rules": {
     "arrow-body-style": ["error", "always"],
     "comma-dangle": ["off"],
+    "import/no-extraneous-dependencies": ["off", {"devDependencies": true, "optionalDependencies": true, "peerDependencies": true}],
     "indent": ["error", "tab"],
     "no-bitwise": ["error", { "allow": ["~"] }],
     "no-tabs": ["off"],
@@ -19,6 +20,7 @@
     "react/jsx-closing-bracket-location": ["off"],
     "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
     "react/jsx-indent": [2, "tab"],
+    "react/jsx-indent-props": [2, "tab"],
     "react/jsx-space-before-closing": ["off"],
     "react/prefer-stateless-function": ["off"],
     "no-underscore-dangle": [ "error", { "allowAfterThis": true }],

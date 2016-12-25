@@ -8,28 +8,24 @@ const initialState = {
 };
 
 
-const attributesReducer = (state=initialState, action) => {
+const attributesReducer = (state = initialState, action) => {
 
 	const actionsToTake = {
-		FIX_SUMMARY: () => {
-			let {summaryFix} = action.parameter;
-			if(summaryFix !== state.summaryFix){
-				var newState = Object.assign(
+		FIX_SUMMARY: (pervState, {summaryFix}) => {
+			if (summaryFix !== pervState.summaryFix) {
+				const newState = Object.assign(
 						{},
-						state,
-						{
-							summaryFix: summaryFix
-						}
+						pervState,
+						{ summaryFix }
 					);
 				return newState;
-			} else {
-				return state;
 			}
-			
+			return pervState;
+
 		},
 		DEFAULT: () => { return state; }
 	};
-	return (actionsToTake[action.type] || actionsToTake.DEFAULT)();
+	return (actionsToTake[action.type] || actionsToTake.DEFAULT)(state, action.parameter);
 };
 
 module.exports = attributesReducer;

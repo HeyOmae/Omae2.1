@@ -3,21 +3,35 @@ import RedditExport from './export/RedditComponent';
 import metatypeData from './data/metatype.json';
 import priorityTableData from './data/priority.json';
 
-import 'styles/Summary.sass';
+import '../styles/Summary.sass';
 
 const TableRowHeader = () => {
 	return <tr><th>Name</th><th>Ref</th></tr>;
 };
 
-const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed, spellsAndPowers, selectedQualities, karma, purchaseGear}) => {
-	let priorityHead = [],
+const SummaryComponent = (
+	{
+		priority,
+		metatype,
+		attributes,
+		magres,
+		skills,
+		fixed,
+		spellsAndPowers,
+		selectedQualities,
+		karma,
+		purchaseGear
+	}) => {
+	const priorityHead = [],
 		priorityData = [],
 		attributesHead = [],
 		attributesData = [],
 		skillData = [],
 		points = {
 			skills: priorityTableData[priority.skills].skills.skillpoints - skills.skillPointsSpent,
-			skillGroups: (priorityTableData[priority.skills].skills.grouppoints || 0) - skills.groupPointSpent
+			skillGroups: (
+				priorityTableData[priority.skills].skills.grouppoints || 0
+				) - skills.groupPointSpent
 		},
 		calculatedStats = {
 			attributes: {}
@@ -26,73 +40,78 @@ const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed
 			<TableRowHeader key="summary-spell-header"/>
 		],
 		displayQualities = {
-			Positive: [<TableRowHeader key="summary-quality--positive--header"></TableRowHeader>],
-			Negative: [<TableRowHeader key="summary-quality--negative--header"></TableRowHeader>]
+			Positive: [<TableRowHeader key="summary-quality--positive--header" />],
+			Negative: [<TableRowHeader key="summary-quality--negative--header" />]
 		};
-	for(let pariorityCategory in priority) {
-		priorityHead.push(<th key={'summary-priority-head-' + pariorityCategory}>{pariorityCategory}</th>);
-		priorityData.push(<td key={'summary-priority-data-' + pariorityCategory}>{priority[pariorityCategory]}</td>);
-	}
+	Object.keys(priority).forEach((pariorityCategory) => {
+		priorityHead.push(<th key={`summary-priority-head-${pariorityCategory}`}>{pariorityCategory}</th>);
+		priorityData.push(<td key={`summary-priority-data-${pariorityCategory}`}>{priority[pariorityCategory]}</td>);
+	});
 
 	const generateQualityTableRow = (quality) => {
-		return(<tr key={'summary--' + quality.name}><td>{quality.name}</td><td>{quality.source} p{quality.page}</td></tr>);
+		return (
+			<tr key={`summary--${quality.name}`}>
+				<td>{quality.name}</td><td>{quality.source} p{quality.page}</td>
+			</tr>
+		);
 	};
 
 	displayQualities.Positive = selectedQualities.Positive.map(generateQualityTableRow);
 	displayQualities.Negative = selectedQualities.Negative.map(generateQualityTableRow);
 
-	for(let att in metatypeData[metatype.typeName].min) {
-		let baseAtt = metatypeData[metatype.typeName].min[att],
+	Object.keys(metatypeData[metatype.typeName].min).forEach((att) => {
+		const baseAtt = metatypeData[metatype.typeName].min[att],
 			currentAtt = baseAtt + attributes[att];
 		calculatedStats.attributes[att] = currentAtt;
-		attributesHead.push(<th key={'summary-attribute-head-' + att}>{att}</th>);
-		attributesData.push(<td key={'summary-attribute-data-' + att}>{currentAtt}{attributes.augmented[att]?`(${attributes.augmented[att]+currentAtt})`:null}</td>);
-	}
+		attributesHead.push(<th key={`summary-attribute-head-${att}`}>{att}</th>);
+		attributesData.push(<td key={`summary-attribute-data-${att}`}>{currentAtt}{attributes.augmented[att] ? `(${attributes.augmented[att] + currentAtt})` : null}</td>);
+	});
 
 	const magicPriorityData = priorityTableData[priority.magres].magic[magres];
 
-	if(magicPriorityData && magres !== 'mundane') {
+	if (magicPriorityData && magres !== 'mundane') {
 		const baseMagic = magicPriorityData.attribute.points,
 			specialType = magres === 'Technomancer' ? 'res' : 'mag';
 
 		calculatedStats.attributes[specialType] = baseMagic + (attributes.special || 0);
 		attributesHead.push(<th key={'summary-attribute-head-mag'}>{specialType}</th>);
 		attributesData.push(<td key={'summary-attribute-data-mag'}>{calculatedStats.attributes[specialType]}</td>);
-		for(let magicCat in spellsAndPowers) {
-			let spellPowerArray = spellsAndPowers[magicCat];
-			if (Array.isArray(spellPowerArray)){
-				spellPowerArray.forEach((spell, index)=>{
+		Object.keys(spellsAndPowers).forEach((magicCat) => {
+			const spellPowerArray = spellsAndPowers[magicCat];
+			if (Array.isArray(spellPowerArray)) {
+				spellPowerArray.forEach((spell, index) => {
 					displaySpellsPowers.push(
-						<tr key={'summary-' + (magicCat||'complex-form') + spell.name + index}><td>{spell.name}</td><td>{spell.source} p{spell.page}</td></tr>
+						<tr key={`summary-${(magicCat || 'complex-form')}${spell.name}${index}`}><td>{spell.name}</td><td>{spell.source} p{spell.page}</td></tr>
 					);
 				});
 			}
-		}
+		});
 	}
 
-	for(let skillName in skills.active) {
-		let currSkill = skills.active[skillName],
-			att = calculatedStats.attributes[currSkill.attribute],
-			currDP = att;
+	Object.keys(skills.active).forEach((skillName) => {
+		const currSkill = skills.active[skillName],
+			att = calculatedStats.attributes[currSkill.attribute];
+		let currDP = att;
 
-		for(let prop in currSkill) {
-			let currRating = currSkill[prop];
+		Object.keys(currSkill).forEach((prop) => {
+			const currRating = currSkill[prop];
 
-			if(typeof currRating === 'number') {
+			if (typeof currRating === 'number') {
 				currDP += currRating;
 			}
-		}
+		});
+
 
 		skillData.push(
-			<tr key={'skill-'+skillName}>
+			<tr key={`skill-${skillName}`}>
 				<td>{skillName}</td>
-				<td>{currDP}{currSkill.spec?`(${currDP + 2})`: null}</td>
+				<td>{currDP}{currSkill.spec ? `(${currDP + 2})` : null}</td>
 			</tr>
 		);
-	}
+	});
 
 	return (
-		<div className={'summary-component ' + (fixed ? 'fixed':'')}>
+		<div className={`summary-component ${(fixed ? 'fixed' : '')}`}>
 			<h1>Character Summary</h1>
 
 			<div className="table-responsive">
@@ -178,7 +197,6 @@ const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed
 				:
 					null
 				}
-				
 			</div>
 
 			<div>
@@ -228,6 +246,28 @@ const SummaryComponent = ({priority, metatype, attributes, magres, skills, fixed
 			</div>
 		</div>
 	);
+};
+
+const propTypePriorityCheck = React.PropTypes.string.isRequired;
+
+SummaryComponent.propTypes = {
+	priority: React.PropTypes.shape(
+		{
+			metatype: propTypePriorityCheck,
+			attribute: propTypePriorityCheck,
+			magres: propTypePriorityCheck,
+			skills: propTypePriorityCheck,
+			resources: propTypePriorityCheck
+		}).isRequired,
+	metatype: React.PropTypes.shape,
+	attributes: React.PropTypes.shape,
+	magres: React.PropTypes.string,
+	skills: React.PropTypes.shape,
+	fixed: React.PropTypes.shape,
+	spellsAndPowers: React.PropTypes.shape,
+	selectedQualities: React.PropTypes.shape,
+	karma: React.PropTypes.number,
+	purchaseGear: React.PropTypes.shape
 };
 
 export default SummaryComponent;
