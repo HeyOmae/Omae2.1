@@ -19,9 +19,9 @@ class SpecialComponent extends React.Component {
 					<tbody>
 						<tr>
 							{elements.incBtn}
-							<td></td>
+							<td />
 						</tr>
-						<tr className={pointsLeft < 0 ? 'table-danger':''}>
+						<tr className={pointsLeft < 0 ? 'table-danger' : ''}>
 							{elements.display}
 							<td>
 								{pointsLeft}
@@ -29,7 +29,7 @@ class SpecialComponent extends React.Component {
 						</tr>
 						<tr>
 							{elements.decBtn}
-							<td></td>
+							<td />
 						</tr>
 					</tbody>
 				</table>
@@ -41,7 +41,15 @@ class SpecialComponent extends React.Component {
 SpecialComponent.displayName = 'SpecialComponent';
 
 // Uncomment properties you need
-// SpecialComponent.propTypes = {};
+SpecialComponent.propTypes = {
+	elements: React.PropTypes.shape({
+		incBtn: React.PropTypes.array.isRequired,
+		display: React.PropTypes.array.isRequired,
+		decBtn: React.PropTypes.array.isRequired
+	}).isRequired,
+	pointsLeft: React.PropTypes.number,
+	magicName: React.PropTypes.string
+};
 // SpecialComponent.defaultProps = {};
 
 export default SpecialComponent;
