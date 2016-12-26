@@ -2,6 +2,7 @@ import React from 'react';
 import RedditExport from './export/RedditComponent';
 import metatypeData from './data/metatype.json';
 import priorityTableData from './data/priority.json';
+import PropTypeChecking from '../config/proptypeChecking';
 
 import '../styles/Summary.sass';
 
@@ -248,26 +249,17 @@ const SummaryComponent = (
 	);
 };
 
-const propTypePriorityCheck = React.PropTypes.string.isRequired;
-
 SummaryComponent.propTypes = {
-	priority: React.PropTypes.shape(
-		{
-			metatype: propTypePriorityCheck,
-			attribute: propTypePriorityCheck,
-			magres: propTypePriorityCheck,
-			skills: propTypePriorityCheck,
-			resources: propTypePriorityCheck
-		}).isRequired,
-	metatype: React.PropTypes.shape,
-	attributes: React.PropTypes.shape,
-	magres: React.PropTypes.string,
-	skills: React.PropTypes.shape,
-	fixed: React.PropTypes.shape,
-	spellsAndPowers: React.PropTypes.shape,
-	selectedQualities: React.PropTypes.shape,
-	karma: React.PropTypes.number,
-	purchaseGear: React.PropTypes.shape
+	priority: PropTypeChecking.priorityTable,
+	metatype: PropTypeChecking.selectMetatype,
+	attributes: PropTypeChecking.attributes,
+	magres: PropTypeChecking.selectMagRes,
+	skills: PropTypeChecking.settingSkills,
+	fixed: React.PropTypes.bool.isRequired,
+	spellsAndPowers: PropTypeChecking.spellSelect,
+	selectedQualities: PropTypeChecking.quality,
+	karma: PropTypeChecking.karma,
+	purchaseGear: PropTypeChecking.purchaseGear
 };
 
 export default SummaryComponent;

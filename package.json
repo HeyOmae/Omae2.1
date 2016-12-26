@@ -70,7 +70,7 @@
     "webpack-dev-server": "^2.1.0-beta"
   },
   "dependencies": {
-    "bootstrap": "^4.0.0-alpha.4",
+    "bootstrap": "^4.0.0-alpha.5",
     "cross-env": "^3.1.0",
     "react": "^15.4.0",
     "react-dom": "^15.4.0",

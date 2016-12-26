@@ -8,8 +8,7 @@
 import 'styles/bootstrap-overwrite.scss';
 import 'styles/App.css';
 import React, {
-	Component,
-	PropTypes
+	Component
 } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -51,6 +50,7 @@ import MagicSelectionComponent from '../components/magic/MagicSelectionComponent
 import ActiveSkillsComponent from '../components/skills/ActiveSkillsComponent';
 import StreetGearComponent from '../components/gear/StreetGearComponent';
 import Summary from './summary';
+import PropTypeChecking from '../config/proptypeChecking';
 /* Populated by react-webpack-redux:reducer */
 class App extends Component {
 	render() {
@@ -141,100 +141,17 @@ class App extends Component {
  * HINT: if you adjust the initial type of your reducer, you will also have to
  *       adjust it here.
  */
-const propTypePriorityCheck = PropTypes.string.isRequired;
 App.propTypes = {
-	actions: PropTypes.shape(
-		{
-			priorityTable: PropTypes.func.isRequired,
-			selectMetatype: PropTypes.func.isRequired,
-			incrementAttribute: PropTypes.func.isRequired,
-			decrementAttribute: PropTypes.func.isRequired,
-			incrementAugmented: PropTypes.func.isRequired,
-			decrementAugmented: PropTypes.func.isRequired,
-			selectMagictype: PropTypes.func.isRequired,
-			incrementSkill: PropTypes.func.isRequired,
-			decrementSkill: PropTypes.func.isRequired,
-			incrementSkillgroup: PropTypes.func.isRequired,
-			decrementSkillgroup: PropTypes.func.isRequired,
-			setSpec: PropTypes.func.isRequired,
-			setMagicSkills: PropTypes.func.isRequired,
-			addSpell: PropTypes.func.isRequired,
-			removeSpell: PropTypes.func.isRequired,
-			addComplexform: PropTypes.func.isRequired,
-			removeComplexform: PropTypes.func.isRequired,
-			addPower: PropTypes.func.isRequired,
-			removePower: PropTypes.func.isRequired,
-			raisePower: PropTypes.func.isRequired,
-			lowerPower: PropTypes.func.isRequired,
-			resetAbility: PropTypes.func.isRequired,
-			selectQuality: PropTypes.func.isRequired,
-			removeQuality: PropTypes.func.isRequired,
-			karma: PropTypes.func.isRequired,
-			purchaseGear: PropTypes.func.isRequired,
-			sellGear: PropTypes.func.isRequired,
-		}).isRequired,
-	priorityTableState: PropTypes.shape(
-		{
-			metatype: propTypePriorityCheck,
-			attribute: propTypePriorityCheck,
-			magres: propTypePriorityCheck,
-			skills: propTypePriorityCheck,
-			resources: propTypePriorityCheck
-		}).isRequired,
-	selectMetatypeState: PropTypes.shape(
-		{
-			typeName: PropTypes.string,
-			priority: propTypePriorityCheck
-		}).isRequired,
-	attributes: PropTypes.shape(
-		{
-			bod: PropTypes.number.isRequired,
-			agi: PropTypes.number.isRequired,
-			rea: PropTypes.number.isRequired,
-			str: PropTypes.number.isRequired,
-			wil: PropTypes.number.isRequired,
-			log: PropTypes.number.isRequired,
-			int: PropTypes.number.isRequired,
-			cha: PropTypes.number.isRequired,
-			edg: PropTypes.number.isRequired,
-			ess: PropTypes.number.isRequired,
-			augmented: PropTypes.object.isRequired,
-			special: PropTypes.number.isRequired,
-			baseSpent: PropTypes.number.isRequired,
-			specialSpent: PropTypes.number.isRequired
-		}).isRequired,
-	selectMagRes: PropTypes.string.isRequired,
-	settingSkills: PropTypes.shape(
-		{
-			active: PropTypes.object.isRequired,
-			knowledge: PropTypes.object.isRequired,
-			groups: PropTypes.object.isRequired,
-			magicSkills: PropTypes.array.isRequired,
-			skillPointsSpent: PropTypes.number.isRequired,
-			groupPointSpent: PropTypes.number.isRequired
-		}).isRequired,
-	spellSelect: PropTypes.shape(
-		{
-			spells: PropTypes.array.isRequired,
-			powers: PropTypes.array.isRequired,
-			powerPointsSpent: PropTypes.number.isRequired,
-			powerPointsKarma: PropTypes.number.isRequired,
-			complexforms: PropTypes.array.isRequired
-		}).isRequired,
-	quality: PropTypes.shape(
-		{
-			Positive: PropTypes.array.isRequired,
-			Negative: PropTypes.array.isRequired,
-			karma: PropTypes.shape({
-				Positive: PropTypes.number.isRequired,
-				Negative: PropTypes.number.isRequired
-			}).isRequired
-		}).isRequired,
-	karmaState: PropTypes.number.isRequired,
-	purchaseGearState: PropTypes.shape(
-		{
-			nuyen: PropTypes.number.isRequired
-		}).isRequired
+	actions: PropTypeChecking.actions,
+	priorityTableState: PropTypeChecking.priorityTable,
+	selectMetatypeState: PropTypeChecking.selectMetatype,
+	attributes: PropTypeChecking.attributes,
+	selectMagRes: PropTypeChecking.selectMagRes,
+	settingSkills: PropTypeChecking.settingSkills,
+	spellSelect: PropTypeChecking.spellSelect,
+	quality: PropTypeChecking.quality,
+	karmaState: PropTypeChecking.karma,
+	purchaseGearState: PropTypeChecking.purchaseGear
 };
 function mapStateToProps(state) {
 	/* Populated by react-webpack-redux:reducer */

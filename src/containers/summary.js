@@ -1,11 +1,11 @@
 import React, {
-	Component,
-	PropTypes
+	Component
 } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import SummaryComponent from '../components/SummaryComponent';
 import fixSummary from '../actions/app/fixSummary';
+import PropTypeChecking from '../config/proptypeChecking';
 
 class summary extends Component {
 	componentDidMount() {
@@ -61,16 +61,16 @@ class summary extends Component {
 }
 
 summary.propTypes = {
-	priorityTable: PropTypes.shape.isRequired,
-	selectMetatype: PropTypes.shape.isRequired,
-	attributes: PropTypes.shape.isRequired,
-	selectMagRes: PropTypes.string.isRequired,
-	settingSkills: PropTypes.shape.isRequired,
-	appControl: PropTypes.shape.isRequired,
-	spellSelect: PropTypes.shape.isRequired,
-	quality: PropTypes.shape.isRequired,
-	karma: PropTypes.number.isRequired,
-	purchaseGear: PropTypes.shape.isRequired
+	priorityTable: PropTypeChecking.priorityTable,
+	selectMetatype: PropTypeChecking.selectMetatype,
+	attributes: PropTypeChecking.attributes,
+	selectMagRes: PropTypeChecking.selectMagRes,
+	settingSkills: PropTypeChecking.settingSkills,
+	appControl: PropTypeChecking.appControl,
+	spellSelect: PropTypeChecking.spellSelect,
+	quality: PropTypeChecking.quality,
+	karma: PropTypeChecking.karma,
+	purchaseGear: PropTypeChecking.purchaseGear
 };
 
 function mapStateToProps(state) {
