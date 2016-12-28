@@ -47,7 +47,7 @@ import MetatypeSelector from '../components/MetatypeSelectorComponent';
 import AttributesComponent from '../components/AttributesComponent';
 import QualityComponent from '../components/QualityComponent';
 import MagicSelectionComponent from '../components/magic/MagicSelectionComponent';
-import ActiveSkillsComponent from '../components/skills/ActiveSkillsComponent';
+import SkillsComponent from '../components/skills/SkillsComponent';
 import StreetGearComponent from '../components/gear/StreetGearComponent';
 import Summary from './summary';
 import PropTypeChecking from '../config/proptypeChecking';
@@ -115,7 +115,7 @@ class App extends Component {
 							actions={actions}/>
 
 						<h2>Skills</h2>
-						<ActiveSkillsComponent
+						<SkillsComponent
 							actions={actions}
 							priority={priorityTableState}
 							skills={settingSkills}

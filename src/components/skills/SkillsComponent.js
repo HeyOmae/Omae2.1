@@ -8,7 +8,7 @@ import priorityTableData from '../data/priority.json';
 
 import 'styles/skills/ActiveSkills.sass';
 
-class ActiveSkillsComponent extends React.Component {
+class SkillsComponent extends React.Component {
 	render() {
 		const {actions, priority, skills, attributes, metatype, magictype} = this.props,
 			attAbriviation = {
@@ -311,10 +311,10 @@ const ActiveSkill = ({skillList, actions, skills, skillPointsLeft, attributePool
 	);
 };
 
-ActiveSkillsComponent.displayName = 'SkillsActiveSkillsComponent';
+SkillsComponent.displayName = 'SkillsSkillsComponent';
 
 // Uncomment properties you need
-// ActiveSkillsComponent.propTypes = {};
-// ActiveSkillsComponent.defaultProps = {};
+// SkillsComponent.propTypes = {};
+// SkillsComponent.defaultProps = {};
 
-export default ActiveSkillsComponent;
+export default SkillsComponent;
