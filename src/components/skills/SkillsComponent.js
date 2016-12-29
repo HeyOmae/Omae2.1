@@ -6,7 +6,7 @@ import skillsData from '../data/skills.json';
 import metatypeData from '../data/metatype.json';
 import priorityTableData from '../data/priority.json';
 
-import 'styles/skills/ActiveSkills.sass';
+import '../../styles/skills/ActiveSkills.sass';
 
 class SkillsComponent extends React.Component {
 	render() {
@@ -29,41 +29,41 @@ class SkillsComponent extends React.Component {
 				'Adept',
 				'Aspected'
 			],
-			skillPointsLeft = priorityTableData[priority.skills].skills.skillpoints - skills.skillPointsSpent,
-			groupPointsLeft = priorityTableData[priority.skills].skills.grouppoints - skills.groupPointSpent,
+			skillPointsLeft = priorityTableData[priority.skills].skills.skillpoints
+				- skills.skillPointsSpent,
+			groupPointsLeft = priorityTableData[priority.skills].skills.grouppoints
+				- skills.groupPointSpent,
 			priorityMagicData = priorityTableData[priority.magres].magic[magictype];
 
-			let baseMagicAttribute = 0,
-				priorityDataFreeSkills = null;
+		let baseMagicAttribute = 0,
+			priorityDataFreeSkills = null;
 
-			if (priorityMagicData) {
-				baseMagicAttribute = priorityMagicData.attribute && priorityMagicData.attribute.points || 0;
-				priorityDataFreeSkills = priorityMagicData.skills;
-			}
+		if (priorityMagicData) {
+			baseMagicAttribute = (priorityMagicData.attribute && priorityMagicData.attribute.points) || 0;
+			priorityDataFreeSkills = priorityMagicData.skills;
+		}
 
 		function allowedSkill() {
-			if(awakened.indexOf(magictype) > -1) {
+			if (awakened.indexOf(magictype) > -1) {
 				return 'Magic';
 			} else if (magictype === 'Technomancer') {
 				return 'Resonance';
-			} else {
-				return false;
 			}
+			return false;
 		}
 
-		let listOfSkills = [];
+		const listOfSkills = [];
 
-		for(let skillKey in skillsData.active) {
-			let skillinCategory = skillsData.active[skillKey];
-
-			const attributeAbriv = attAbriviation[skillKey],
+		Object.keys(skillsData.active).forEach((skillKey) => {
+			const skillinCategory = skillsData.active[skillKey],
+				attributeAbriv = attAbriviation[skillKey],
 				baseAttribute = metatypeData[metatype.typeName].min[attributeAbriv] || baseMagicAttribute,
 				attributePool = baseAttribute + attributes[attributeAbriv];
 
 
 			listOfSkills.push(
 				<Modal
-					key={'skill-'+skillKey}
+					key={`skill-${skillKey}`}
 					modalName={skillKey}
 					modalContent={
 						<ActiveSkill
@@ -73,16 +73,16 @@ class SkillsComponent extends React.Component {
 							skillPointsLeft={skillPointsLeft}
 							showSkill={skills.showSkill === skillKey}
 							attributePool={attributePool}
-							restrictedSkills={attributeAbriv === 'special' ? skillKey!==allowedSkill() : false}
+							restrictedSkills={attributeAbriv === 'special' ? skillKey !== allowedSkill() : false}
 							/>
 					}
 				/>
 			);
-		}
+		});
 
 		return (
 			<div className="activeskills-component">
-				{priorityDataFreeSkills?<h3>Free Skills</h3>:null}
+				{priorityDataFreeSkills ? <h3>Free Skills</h3> : null}
 				<FreeSkills
 					priorityDataFreeSkills={priorityDataFreeSkills}
 					magicSkills={skills.magicSkills}
@@ -95,8 +95,8 @@ class SkillsComponent extends React.Component {
 							skillgroups={skills.groups}
 							skillgroupsData={skillsData.groups}
 							actions={actions}
-							pointsLeft = {groupPointsLeft}
-							displaySkillgroups = {skills.showSkill === 'Skillgroup'}/>
+							pointsLeft={groupPointsLeft}
+							displaySkillgroups={skills.showSkill === 'Skillgroup'}/>
 					</div>
 				</div>
 
@@ -112,46 +112,56 @@ class SkillsComponent extends React.Component {
 }
 
 const FreeSkills = ({priorityDataFreeSkills, magicSkills, setMagicSkills}) => {
-	if(priorityDataFreeSkills) {
+	if (priorityDataFreeSkills) {
 		const freeAttribute = priorityDataFreeSkills.attribute,
-			freeSkills = skillsData.active[freeAttribute];
+			freeSkills = skillsData.active[freeAttribute],
+			freeSkillList = [];
 
-		var freeSkillList = [];
+		let activeSkillAttribute;
 
-		if(freeAttribute){
-			for(let freeSkillName in freeSkills) {
-				let freeSkill = freeSkills[freeSkillName].name;
+		if (freeAttribute) {
+			Object.keys(freeSkills).forEach((freeSkillName) => {
+				const freeSkill = freeSkills[freeSkillName].name;
 				freeSkillList.push(
-					<option key={'free-skill--'+freeSkill}>{freeSkill}</option>
+					<option key={`free-skill--${freeSkill}`}>{freeSkill}</option>
 					);
-			}
+			});
 		} else {
-			let listOfActiveSkills = [];
-			var activeSkillAttribute = {};
-			for(let activeSkillCat in skillsData.active) {
-				let objectOfActiveSkills = skillsData.active[activeSkillCat];
+			// TODO: I think I can remove listOfActiveSkills and
+			// replace it with a loop of activeSkillAttribute's keys
+			const listOfActiveSkills = [];
+			activeSkillAttribute = {};
 
-				for(let actSkillName in objectOfActiveSkills) {
-					let activeSkill=objectOfActiveSkills[actSkillName];
+			Object.keys(skillsData.active).forEach((activeSkillCat) => {
+				const objectOfActiveSkills = skillsData.active[activeSkillCat];
+
+				Object.keys(objectOfActiveSkills).forEach((actSkillName) => {
+					const activeSkill = objectOfActiveSkills[actSkillName];
 					listOfActiveSkills.push(activeSkill.name);
 					activeSkillAttribute[activeSkill.name] = activeSkill.stat;
-				}
-			}
-			listOfActiveSkills.forEach((activeSkillName)=>{
+				});
+			});
+
+			listOfActiveSkills.forEach((activeSkillName) => {
 				freeSkillList.push(
-					<option key={'free-skill--'+activeSkillName}>{activeSkillName}</option>
+					<option key={`free-skill--${activeSkillName}`}>{activeSkillName}</option>
 					);
 			});
 		}
 
-		var changeFreeSkill = (e) => {
+		const changeFreeSkill = (e) => {
 
 			function genFreeSkillObj(skillName) {
-				return {name: skillName, category: 'active', rating: priorityDataFreeSkills.rating, attribute: activeSkillAttribute ? activeSkillAttribute[skillName] : 'mag'};
+				return {
+					name: skillName,
+					category: 'active',
+					rating: priorityDataFreeSkills.rating,
+					attribute: activeSkillAttribute ? activeSkillAttribute[skillName] : 'mag'
+				};
 			}
 
-			let updatedIndex = e.target.id,
-				freeSkillsArr = magicSkills.map((skillName)=>{
+			const updatedIndex = e.target.id,
+				freeSkillsArr = magicSkills.map((skillName) => {
 					return genFreeSkillObj(skillName);
 				});
 
@@ -171,7 +181,7 @@ const FreeSkills = ({priorityDataFreeSkills, magicSkills, setMagicSkills}) => {
 						onChange={changeFreeSkill}
 						value={magicSkills[0]}>
 
-						<option value=""></option>
+						<option value="" />
 						{freeSkillList}
 
 					</select>
@@ -184,16 +194,15 @@ const FreeSkills = ({priorityDataFreeSkills, magicSkills, setMagicSkills}) => {
 						onChange={changeFreeSkill}
 						value={magicSkills[1]}>
 
-						<option value=""></option>
+						<option value="" />
 						{freeSkillList}
 
 					</select>
 				</div>
 			</div>);
 
-	} else {
-		return null;
 	}
+	return null;
 };
 
 const ActiveSkill = ({skillList, actions, skills, skillPointsLeft, attributePool, restrictedSkills}) => {
