@@ -9,7 +9,7 @@ import priorityTableData from '../data/priority.json';
 import '../../styles/skills/ActiveSkills.sass';
 
 class SkillsComponent extends React.Component {
-	render() {
+	componentWillMount() {
 		const {actions, priority, skills, attributes, metatype, magictype} = this.props,
 			attAbriviation = {
 				Agility: 'agi',
@@ -23,14 +23,14 @@ class SkillsComponent extends React.Component {
 				Magic: 'special',
 				Resonance: 'special'
 			},
+			skillPointsLeft = priorityTableData[priority.skills].skills.skillpoints
+				- skills.skillPointsSpent,
 			awakened = [
 				'Mage',
 				'Mystic',
 				'Adept',
 				'Aspected'
 			],
-			skillPointsLeft = priorityTableData[priority.skills].skills.skillpoints
-				- skills.skillPointsSpent,
 			groupPointsLeft = priorityTableData[priority.skills].skills.grouppoints
 				- skills.groupPointSpent,
 			priorityMagicData = priorityTableData[priority.magres].magic[magictype];
@@ -43,6 +43,7 @@ class SkillsComponent extends React.Component {
 			priorityDataFreeSkills = priorityMagicData.skills;
 		}
 
+
 		function allowedSkill() {
 			if (awakened.indexOf(magictype) > -1) {
 				return 'Magic';
@@ -52,16 +53,14 @@ class SkillsComponent extends React.Component {
 			return false;
 		}
 
-		const listOfSkills = [];
-
-		Object.keys(skillsData.active).forEach((skillKey) => {
+		const listOfSkills = Object.keys(skillsData.active).map((skillKey) => {
 			const skillinCategory = skillsData.active[skillKey],
 				attributeAbriv = attAbriviation[skillKey],
 				baseAttribute = metatypeData[metatype.typeName].min[attributeAbriv] || baseMagicAttribute,
 				attributePool = baseAttribute + attributes[attributeAbriv];
 
 
-			listOfSkills.push(
+			return (
 				<Modal
 					key={`skill-${skillKey}`}
 					modalName={skillKey}
@@ -79,6 +78,15 @@ class SkillsComponent extends React.Component {
 				/>
 			);
 		});
+
+		this.listOfSkills = listOfSkills;
+		this.priorityDataFreeSkills = priorityDataFreeSkills;
+		this.groupPointsLeft = groupPointsLeft;
+	}
+
+	render() {
+		const {actions, skills} = this.props,
+			{listOfSkills, priorityDataFreeSkills, groupPointsLeft} = this;
 
 		return (
 			<div className="activeskills-component">
@@ -150,7 +158,6 @@ const FreeSkills = ({priorityDataFreeSkills, magicSkills, setMagicSkills}) => {
 		}
 
 		const changeFreeSkill = (e) => {
-
 			function genFreeSkillObj(skillName) {
 				return {
 					name: skillName,
@@ -206,23 +213,24 @@ const FreeSkills = ({priorityDataFreeSkills, magicSkills, setMagicSkills}) => {
 };
 
 const ActiveSkill = ({skillList, actions, skills, skillPointsLeft, attributePool, restrictedSkills}) => {
-	let skillTableData = [];
+	const skillTableData = [];
 
-	for(let skillName in skillList) {
-		let skillData = skillList[skillName],
-		specilizationOptions = skillData.specializations.map((spec, i) => {
-			return <option key={spec+i} value={spec}>{spec}</option>;
-		}),
-		references = [];
-		for(let book in skillData.reference) {
-			references.push(<span key={skillName + book} className="reference">
-					{book} p{skillData.reference[book].page}
-				</span>);
-		}
+	Object.keys(skillList).forEach((skillName) => {
+		const skillData = skillList[skillName],
+			specilizationOptions = skillData.specializations.map((spec, i) => {
+				return <option key={spec + i} value={spec}>{spec}</option>;
+			}),
+			references = Object.keys(skillData.reference).map((book) => {
+				return (
+					<span key={skillName + book} className="reference">
+						{book} p{skillData.reference[book].page}
+					</span>
+				);
+			});
 
-		function incrementSkill(name, att, rating) {
-			if(skillPointsLeft > 0 && rating < 6){
-				actions.incrementSkill({ name, category: 'active', max: 6, attribute: att });
+		function incrementSkill(name, attribute, rating) {
+			if (skillPointsLeft > 0 && rating < 6) {
+				actions.incrementSkill({ name, category: 'active', max: 6, attribute });
 			}
 		}
 
@@ -231,74 +239,46 @@ const ActiveSkill = ({skillList, actions, skills, skillPointsLeft, attributePool
 		}
 
 		function changeSpec(changeEvent) {
-			if(skillPointsLeft > 0){
-				let newSpec = changeEvent.target.value;
-				actions.setSpec({name: skillData.name, category: 'active', spec: newSpec});
+			if (skillPointsLeft > 0) {
+				const spec = changeEvent.target.value;
+				actions.setSpec({name: skillData.name, category: 'active', spec});
 			}
 		}
 
 		const currSkill = skills[skillData.name],
-			currentSpec = skills[skillData.name] && skills[skillData.name].spec || '';
-			
+			currentSpec = (skills[skillData.name] && skills[skillData.name].spec) || '';
+
 		let rating = 0,
 			dicePool = attributePool;
 
-		for(let prop in currSkill) {
-			let currRating = currSkill[prop];
+		if (currSkill) {
+			Object.keys(currSkill).forEach((prop) => {
+				const currRating = currSkill[prop];
 
-			if(typeof currRating === 'number') {
-				rating += currRating;
-				dicePool += currRating;
-			}
+				if (typeof currRating === 'number') {
+					rating += currRating;
+					dicePool += currRating;
+				}
+			});
 		}
 
 		skillTableData.push(
-			<tr key={skillData.name} className={rating > 6 || restrictedSkills?'table-danger ':''}>
-				<td>
-					<button
-						className="btn btn-success"
-						onClick={incrementSkill.bind(this, skillData.name, skillData.stat, rating)}
-					>
-						+
-					</button>
-				</td>
-				<td>
-					{rating}
-				</td>
-				<td>
-					<button
-						className="btn btn-warning"
-						onClick={decrementSkill.bind(this, skillData.name, skillData.stat)}
-					>
-						-
-					</button>
-				</td>
-				<td>
-					<strong>{skillData.name}</strong>
-				</td>
-				<td>
-					{references}
-				</td>
-				<td>
-					<input
-						type="text"
-						className="form-control input-specialization"
-						placeholder="Custom Spec"
-						onChange={changeSpec}
-						value={currentSpec}/>
-					<select
-						className="form-control"
-						onChange={changeSpec}
-						value={currentSpec}>
-						<option value="">–</option>
-						{specilizationOptions}
-					</select>
-				</td>
-				<td>{currentSpec ? 2 : 0}</td>
-				<td>{dicePool}{currentSpec ? `(${dicePool+2})` : null}</td>
-			</tr>
+			<ActiveSkillTableRow
+				key={`active-skill--${skillData.name}`}
+				name={skillData.name}
+				stat={skillData.stat}
+				rating={rating}
+				restrictedSkills={restrictedSkills}
+				incrementSkill={incrementSkill}
+				decrementSkill={decrementSkill}
+				references={references}
+				changeSpec={changeSpec}
+				currentSpec={currentSpec}
+				specilizationOptions={specilizationOptions}
+				dicePool={dicePool} />
 		);
-	}
+
+	});
 
 	return (
 		<FilterTable
@@ -319,6 +299,68 @@ const ActiveSkill = ({skillList, actions, skills, skillPointsLeft, attributePool
 			}}/>
 	);
 };
+
+function ActiveSkillTableRow({
+	name,
+	stat,
+	rating,
+	restrictedSkills,
+	incrementSkill,
+	decrementSkill,
+	references,
+	changeSpec,
+	currentSpec,
+	specilizationOptions,
+	dicePool
+}) {
+	// TODO: make this into a smart component to watch it's rating
+	return (
+		<tr className={rating > 6 || restrictedSkills ? 'table-danger ' : ''}>
+			<td>
+				<button
+					className="btn btn-success"
+					onClick={() => { incrementSkill(name, stat, rating); }}
+				>
+					+
+				</button>
+			</td>
+			<td>
+				{rating}
+			</td>
+			<td>
+				<button
+					className="btn btn-warning"
+					onClick={() => { decrementSkill(name, stat); }}
+				>
+					-
+				</button>
+			</td>
+			<td>
+				<strong>{name}</strong>
+			</td>
+			<td>
+				{references}
+			</td>
+			<td>
+				<input
+					type="text"
+					className="form-control input-specialization"
+					placeholder="Custom Spec"
+					onChange={changeSpec}
+					value={currentSpec}/>
+				<select
+					className="form-control"
+					onChange={changeSpec}
+					value={currentSpec}>
+					<option value="">–</option>
+					{specilizationOptions}
+				</select>
+			</td>
+			<td>{currentSpec ? 2 : 0}</td>
+			<td>{dicePool}{currentSpec ? `(${dicePool + 2})` : null}</td>
+		</tr>
+	);
+}
 
 SkillsComponent.displayName = 'SkillsSkillsComponent';
 
