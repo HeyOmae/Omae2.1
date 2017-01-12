@@ -1,3 +1,6 @@
+import React from 'react';
+import skillsData from '../data/skills.json';
+
 const FreeSkills = ({priorityDataFreeSkills, magicSkills, setMagicSkills}) => {
 	if (priorityDataFreeSkills) {
 		const freeAttribute = priorityDataFreeSkills.attribute,
@@ -53,8 +56,7 @@ const FreeSkills = ({priorityDataFreeSkills, magicSkills, setMagicSkills}) => {
 
 			freeSkillsArr[updatedIndex] = genFreeSkillObj(e.target.value);
 
-			setMagicSkills({
-				magicSkills: freeSkillsArr});
+			setMagicSkills({magicSkills: freeSkillsArr});
 		};
 
 		return (
@@ -89,6 +91,15 @@ const FreeSkills = ({priorityDataFreeSkills, magicSkills, setMagicSkills}) => {
 
 	}
 	return null;
+};
+
+FreeSkills.propTypes = {
+	priorityDataFreeSkills: React.PropTypes.shape({
+		attribute: React.PropTypes.string,
+		rating: React.PropTypes.number
+	}),
+	magicSkills: React.PropTypes.arrayOf(React.PropTypes.string),
+	setMagicSkills: React.PropTypes.func
 };
 
 export default FreeSkills;
