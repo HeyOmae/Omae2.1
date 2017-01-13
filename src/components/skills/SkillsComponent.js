@@ -55,26 +55,25 @@ class SkillsComponent extends React.Component {
 			return false;
 		}
 
-		const listOfSkills = Object.keys(skillsData.active).map((skillKey) => {
-			const skillinCategory = skillsData.active[skillKey],
-				attributeAbriv = attAbriviation[skillKey],
+		const listOfSkills = Object.keys(skillsData.active).map((skillAttribute) => {
+			const skillinCategory = skillsData.active[skillAttribute],
+				attributeAbriv = attAbriviation[skillAttribute],
 				baseAttribute = metatypeData[metatype.typeName].min[attributeAbriv] || baseMagicAttribute,
 				attributePool = baseAttribute + attributes[attributeAbriv];
 
 
 			return (
 				<Modal
-					key={`skill-${skillKey}`}
-					modalName={skillKey}
+					key={`skill-${skillAttribute}`}
+					modalName={skillAttribute}
 					modalContent={
 						<ActiveSkill
 							skillList={skillinCategory}
 							actions={actions}
 							skills={skills.active}
 							skillPointsLeft={skillPointsLeft}
-							showSkill={skills.showSkill === skillKey}
 							attributePool={attributePool}
-							restrictedSkills={attributeAbriv === 'special' ? skillKey !== allowedSkill() : false}
+							restrictedSkills={attributeAbriv === 'special' ? skillAttribute !== allowedSkill() : false}
 							/>
 					}
 				/>
@@ -105,8 +104,7 @@ class SkillsComponent extends React.Component {
 							skillgroups={skills.groups}
 							skillgroupsData={skillsData.groups}
 							actions={actions}
-							pointsLeft={groupPointsLeft}
-							displaySkillgroups={skills.showSkill === 'Skillgroup'}/>
+							pointsLeft={groupPointsLeft} />
 					</div>
 				</div>
 
