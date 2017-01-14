@@ -10,6 +10,12 @@ import PropTypeChecking from '../../config/proptypeChecking';
 
 import '../../styles/skills/ActiveSkills.sass';
 
+// helper functions
+function calculateGroupPointsLeft(prioritySkill, groupPointSpent) {
+	return priorityTableData[prioritySkill].skills.grouppoints
+				- groupPointSpent;
+}
+
 class SkillsComponent extends React.Component {
 	componentWillMount() {
 		const {actions, priority, skills, attributes, metatype, magictype} = this.props,
@@ -33,8 +39,7 @@ class SkillsComponent extends React.Component {
 				'Adept',
 				'Aspected'
 			],
-			groupPointsLeft = priorityTableData[priority.skills].skills.grouppoints
-				- skills.groupPointSpent,
+			groupPointsLeft = calculateGroupPointsLeft(priority.skills, skills.groupPointSpent),
 			priorityMagicData = priorityTableData[priority.magres].magic[magictype];
 
 		let baseMagicAttribute = 0,
@@ -83,6 +88,21 @@ class SkillsComponent extends React.Component {
 		this.listOfSkills = listOfSkills;
 		this.priorityDataFreeSkills = priorityDataFreeSkills;
 		this.groupPointsLeft = groupPointsLeft;
+	}
+
+	componentWillUpdate(nextProps) {
+		const prevProps = this.props,
+			nextPriorityMagicData = priorityTableData[nextProps.priority.magres].magic[nextProps.magictype];
+
+		if (nextProps.priority.skills !== prevProps.priority.skills || nextProps.skills.groupPointSpent !== prevProps.skills.grouppoints) {
+			this.groupPointsLeft = calculateGroupPointsLeft(nextProps.priority.skills, nextProps.skills.groupPointSpent);
+		}
+
+		if (nextPriorityMagicData) {
+			this.priorityDataFreeSkills = nextPriorityMagicData.skills;
+		} else if (nextPriorityMagicData === undefined) {
+			this.priorityDataFreeSkills = null;
+		}
 	}
 
 	render() {

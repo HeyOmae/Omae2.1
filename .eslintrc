@@ -11,6 +11,7 @@
     "comma-dangle": ["off"],
     "import/no-extraneous-dependencies": ["off", {"devDependencies": true, "optionalDependencies": true, "peerDependencies": true}],
     "indent": ["error", "tab"],
+    "max-len": ["off"],
     "no-bitwise": ["error", { "allow": ["~"] }],
     "no-tabs": ["off"],
     "no-unused-vars": ["warn"],

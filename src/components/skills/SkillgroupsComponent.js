@@ -7,12 +7,11 @@ import PropTypeChecking from '../../config/proptypeChecking';
 import '../../styles/skills/Skillgroups.sass';
 
 const SkillgroupsComponent = ({skillgroups, skillgroupsData, actions, pointsLeft}) => {
-	const listOfGroups = [];
-	Object.keys(skillgroupsData).forEach((groupName) => {
+	const listOfGroups = Object.keys(skillgroupsData).map((groupName) => {
 		const group = skillgroupsData[groupName],
 			enoughPoints = pointsLeft > 0;
 
-		listOfGroups.push(
+		return (
 			<tr key={`skillgroup-${groupName}`}>
 				<td>
 					<ChangeSkillButton
