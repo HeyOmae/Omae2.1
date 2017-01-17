@@ -42,8 +42,44 @@ const skillReducer = (state = initialState, action) => {
 	}
 
 	const actionsToTake = {
-		INCREMENT_SKILL: (prevState, {category, max, attribute, name}) => {
-			let newState;
+		ADD_SKILL: (prevState, {category, attribute, name}) => {
+			const skill = prevState[category][name];
+
+			if (!skill) {
+				return changeSkill(
+					{[name]: {
+						rating: 1,
+						attribute
+					}},
+					'skillPointsSpent',
+					prevState.skillPointsSpent + 1
+				);
+			}
+			return prevState;
+		},
+
+		REMOVE_SKILL: (prevState, {category, name}) => {
+			let newState = prevState;
+			const skill = prevState[category][name];
+
+			if (!skill) {
+				return prevState;
+			} else if (skill.groupRating === undefined) {
+				const specCost = skill.spec ? 1 : 0;
+				newState = changeSkill(
+					{},
+					'skillPointsSpent',
+					prevState.skillPointsSpent - (skill.rating + specCost)
+				);
+
+				delete newState[category][name];
+			}
+
+			return newState;
+		},
+
+		INCREMENT_SKILL: (prevState, {category, max, name}) => {
+			let newState = prevState;
 			const skill = prevState[category][name];
 
 			if (skill) {
@@ -56,16 +92,8 @@ const skillReducer = (state = initialState, action) => {
 					'skillPointsSpent',
 					prevState.skillPointsSpent + 1
 				);
-			} else {
-				newState = changeSkill(
-					{[name]: {
-						rating: 1,
-						attribute
-					}},
-					'skillPointsSpent',
-					prevState.skillPointsSpent + 1
-				);
 			}
+
 			return newState;
 		},
 
@@ -75,16 +103,6 @@ const skillReducer = (state = initialState, action) => {
 
 			if (!skill) {
 				return prevState;
-			} else if (skill.rating === 1 && Object.keys(skill).length <= 2) {
-
-				newState = changeSkill(
-					{},
-					'skillPointsSpent',
-					prevState.skillPointsSpent - 1
-				);
-
-				delete newState[category][name];
-
 			} else if (skill.rating > 0) {
 				const nextDecrement = skill.rating - 1;
 

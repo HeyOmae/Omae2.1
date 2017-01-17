@@ -11,7 +11,8 @@
     "amd": true,
     "es6": true,
     "node": true,
-    "mocha": true
+    "mocha": true,
+    "chai": true
   },
   "rules": {
   "no-console": 0
