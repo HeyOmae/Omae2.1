@@ -39,7 +39,8 @@ import {
 	removeQuality,
 	karma,
 	purchaseGear,
-	sellGear
+	sellGear,
+	addSkill
 } from '../actions/';
 import Main from '../components/Main';
 import PriorityTableComponent from '../components/PriorityTableComponent';
@@ -197,7 +198,8 @@ function mapDispatchToProps(dispatch) {
 		removeQuality,
 		karma,
 		purchaseGear,
-		sellGear
+		sellGear,
+		addSkill
 	};
 	const actionMap = { actions: bindActionCreators(actions, dispatch) };
 	return actionMap;

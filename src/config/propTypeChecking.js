@@ -34,6 +34,7 @@ export default {
 			karma: PropTypes.func.isRequired,
 			purchaseGear: PropTypes.func.isRequired,
 			sellGear: PropTypes.func.isRequired,
+			addSkill: PropTypes.func.isRequired
 		}).isRequired,
 	appControl: PropTypes.shape(
 		{
