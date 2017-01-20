@@ -31,7 +31,7 @@ class ModalComponent extends React.Component {
 				{modalToggle === modalID ?
 					<div
 						id={modalID}
-						className='modal fade in'
+						className='modal'
 						onClick={(e)=> {
 							if(e.target.id === modalID){
 								toggleModal();
