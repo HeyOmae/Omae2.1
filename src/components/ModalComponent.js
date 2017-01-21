@@ -38,7 +38,7 @@ class ModalComponent extends React.Component {
 							}
 						}}
 					>
-						<div className="modal-dialog">
+						<div className="modal-dialog modal-lg">
 							<div className="modal-content">
 								<div className="modal-header">
 									<button

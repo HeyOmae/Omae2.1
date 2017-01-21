@@ -18,7 +18,7 @@ function calculateGroupPointsLeft(prioritySkill, groupPointSpent) {
 
 class SkillsComponent extends React.Component {
 	componentWillMount() {
-		const {actions, priority, skills, attributes, metatype, magictype} = this.props,
+		const {actions, priority, skills, magictype} = this.props,
 			attAbriviation = {
 				Agility: 'agi',
 				Body: 'bod',
@@ -42,15 +42,6 @@ class SkillsComponent extends React.Component {
 			groupPointsLeft = calculateGroupPointsLeft(priority.skills, skills.groupPointSpent),
 			priorityMagicData = priorityTableData[priority.magres].magic[magictype];
 
-		let baseMagicAttribute = 0,
-			priorityDataFreeSkills = null;
-
-		if (priorityMagicData) {
-			baseMagicAttribute = (priorityMagicData.attribute && priorityMagicData.attribute.points) || 0;
-			priorityDataFreeSkills = priorityMagicData.skills;
-		}
-
-
 		function allowedSkill() {
 			if (awakened.indexOf(magictype) > -1) {
 				return 'Magic';
@@ -62,9 +53,7 @@ class SkillsComponent extends React.Component {
 
 		const listOfSkills = Object.keys(skillsData.active).map((skillAttribute) => {
 			const skillinCategory = skillsData.active[skillAttribute],
-				attributeAbriv = attAbriviation[skillAttribute],
-				baseAttribute = metatypeData[metatype.typeName].min[attributeAbriv] || baseMagicAttribute,
-				attributePool = baseAttribute + attributes[attributeAbriv];
+				attributeAbriv = attAbriviation[skillAttribute];
 
 
 			return (
@@ -77,7 +66,6 @@ class SkillsComponent extends React.Component {
 							actions={actions}
 							skills={skills.active}
 							skillPointsLeft={skillPointsLeft}
-							attributePool={attributePool}
 							restrictedSkills={attributeAbriv === 'special' ? skillAttribute !== allowedSkill() : false}
 							/>
 					}
@@ -86,7 +74,7 @@ class SkillsComponent extends React.Component {
 		});
 
 		this.listOfSkills = listOfSkills;
-		this.priorityDataFreeSkills = priorityDataFreeSkills;
+		this.priorityDataFreeSkills = priorityMagicData ? priorityMagicData.skills : null;
 		this.groupPointsLeft = groupPointsLeft;
 	}
 
