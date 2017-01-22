@@ -2,10 +2,11 @@ import React from 'react';
 import Modal from '../ModalComponent';
 import Skillgroup from './SkillgroupsComponent';
 import skillsData from '../data/skills.json';
-import metatypeData from '../data/metatype.json';
+// import metatypeData from '../data/metatype.json';
 import priorityTableData from '../data/priority.json';
 import FreeSkills from './FreeSkills';
 import ActiveSkill from './ActiveSkill';
+import DisplayActiveSkills from './DisplayActiveSkills';
 import PropTypeChecking from '../../config/proptypeChecking';
 
 import '../../styles/skills/ActiveSkills.sass';
@@ -96,6 +97,45 @@ class SkillsComponent extends React.Component {
 	render() {
 		const {actions, skills} = this.props,
 			{listOfSkills, priorityDataFreeSkills, groupPointsLeft} = this;
+			// currentlyKnownSkills = Object.keys(skills.active).map((skillKey) => {
+			// 	const {rating, attribute} = skills.active[skillKey],
+			// 		{specializations, name} = skillsData.active[attribute][skillKey];
+			// 	return (<tr className={`knownActiveSkill-${name}`} key={`knownActiveSkill-${name}`}>
+			// 			<td>
+			// 				<button className="btn btn-success">
+			// 					+
+			// 				</button>
+			// 			</td>
+			// 			<td>
+			// 				{rating}
+			// 			</td>
+			// 			<td>
+			// 				<button
+			// 					className="btn btn-warning"
+			// 					onClick={() => { decrementSkill(name, stat); }}>
+			// 					-
+			// 				</button>
+			// 			</td>
+			// 			<td>
+			// 				<strong>{name}</strong>
+			// 			</td>
+			// 			<td>
+			// 				<input
+			// 					type="text"
+			// 					className="form-control input-specialization"
+			// 					placeholder="Custom Spec"
+			// 					onChange={changeSpec}
+			// 					value={currentSpec}/>
+			// 				<select
+			// 					className="form-control"
+			// 					onChange={changeSpec}
+			// 					value={currentSpec}>
+			// 					<option value="">–</option>
+			// 					{specilizationOptions}
+			// 				</select>
+			// 			</td>
+			// 		</tr>);
+			// });
 
 		return (
 			<div className="activeskills-component">
@@ -121,6 +161,11 @@ class SkillsComponent extends React.Component {
 					<div className="col-xs-12">
 						{listOfSkills}
 					</div>
+				</div>
+				<div>
+					<h3>Current Skills</h3>
+					<DisplayActiveSkills
+						skills={skills}/>
 				</div>
 			</div>
 		);
