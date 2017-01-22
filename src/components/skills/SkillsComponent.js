@@ -6,7 +6,7 @@ import skillsData from '../data/skills.json';
 import priorityTableData from '../data/priority.json';
 import FreeSkills from './FreeSkills';
 import ActiveSkill from './ActiveSkill';
-import DisplayActiveSkills from './DisplayActiveSkills';
+import DisplaySkills from './DisplaySkills';
 import PropTypeChecking from '../../config/proptypeChecking';
 
 import '../../styles/skills/ActiveSkills.sass';
@@ -164,8 +164,9 @@ class SkillsComponent extends React.Component {
 				</div>
 				<div>
 					<h3>Current Skills</h3>
-					<DisplayActiveSkills
-						skills={skills}/>
+					<DisplaySkills
+						skills={skills}
+						actions={actions}/>
 				</div>
 			</div>
 		);

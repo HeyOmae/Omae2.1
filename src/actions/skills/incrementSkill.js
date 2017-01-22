@@ -1,3 +1,3 @@
-module.exports = function(parameter) {
-  return { type: 'INCREMENT_SKILL', parameter };
+module.exports = (parameter) => {
+	return { type: 'INCREMENT_SKILL', parameter };
 };
