@@ -8,9 +8,9 @@ import complexformData from '../data/complexforms.json';
 
 import 'styles/magic/SpellSelector.sass';
 
-//helper functions
-function createSpellCategoryLabel ({category, damage}) {
-	const spellLabel = category + '-label',
+// helper functions
+function createSpellCategoryLabel({category, damage}) {
+	const spellLabel = `${category}-label`,
 		buildHeader = {
 			'Complex Forms': () => {
 				return (
@@ -32,7 +32,7 @@ function createSpellCategoryLabel ({category, damage}) {
 						<th>Descriptor</th>
 						<th>Type</th>
 						<th>Range</th>
-						{damage === '0' ? null: <th>Damage</th>}
+						{damage === '0' ? null : <th>Damage</th>}
 						<th>Duration</th>
 						<th>Drain</th>
 						<th>Ref</th>
@@ -46,16 +46,16 @@ function createSpellCategoryLabel ({category, damage}) {
 
 function createSpellNameWithOptions(spellName) {
 	let partsOfName = {
-		start: '',
-		end: '',
-		placeholderText: ''
-	},
-	nameWithNoOptions = spellName.replace(/\[[\s\S]*\]/g, (match, offset, string) => {
-		partsOfName.placeholderText = match;
-		partsOfName.start = offset === 0 ? '' : string.slice(0, offset);
-		partsOfName.end = string.slice(string.indexOf(']') + 1);
-		return '';
-	});
+			start: '',
+			end: '',
+			placeholderText: ''
+		},
+		nameWithNoOptions = spellName.replace(/\[[\s\S]*\]/g, (match, offset, string) => {
+			partsOfName.placeholderText = match;
+			partsOfName.start = offset === 0 ? '' : string.slice(0, offset);
+			partsOfName.end = string.slice(string.indexOf(']') + 1);
+			return '';
+		});
 	if (!partsOfName.start && !partsOfName.end) {
 		partsOfName.start = nameWithNoOptions;
 	}
@@ -64,12 +64,12 @@ function createSpellNameWithOptions(spellName) {
 }
 
 function createSpellIndividualRow(spellName, spellDetails, button, spellID) {
-	//TODO: refactor this to not be complete bulldrek
+	// TODO: refactor this to not be complete bulldrek
 
 	const buildRow = {
 		'Complex Forms': () => {
 			return (
-				<tr key={'complexform-'+ (spellID) + spellName.start + spellName.end}>
+				<tr key={`complexform-${spellID}${spellName.start}${spellName.end}`}>
 					{button}
 					<td>
 						{spellName.start}
@@ -77,22 +77,22 @@ function createSpellIndividualRow(spellName, spellDetails, button, spellID) {
 							<input
 								className="form-control spell-option"
 								type="text"
-								ref={'spellOption'+spellDetails.name}
+								ref={`spellOption${spellDetails.name}`}
 								placeholder={spellName.placeholderText}/>
-							:null
+							: null
 						}
-						{spellName.end||null}
-						</td>
+						{spellName.end || null}
+					</td>
 					<td>{spellDetails.target}</td>
 					<td>{spellDetails.duration}</td>
 					<td>{spellDetails.fv}</td>
-					<td>{spellDetails.source + ' p' + spellDetails.page}</td>
+					<td>{`${spellDetails.source} p${spellDetails.page}`}</td>
 				</tr>
 			);
 		},
 		default: () => {
 			return (
-				<tr key={'spell-'+ (spellID) + spellName.start + spellName.end}>
+				<tr key={`spell-${spellID}${spellName.start}${spellName.end}`}>
 					{button}
 					<td>
 						{spellName.start}
@@ -100,25 +100,25 @@ function createSpellIndividualRow(spellName, spellDetails, button, spellID) {
 							<input
 								className="form-control spell-option"
 								type="text"
-								ref={'spellOption'+spellDetails.name}
+								ref={`spellOption${spellDetails.name}`}
 								placeholder={spellName.placeholderText}/>
-							:null
+							: null
 						}
-						{spellName.end||null}
-						</td>
+						{spellName.end || null}
+					</td>
 					<td>{spellDetails.descriptor}</td>
 					<td>{spellDetails.type}</td>
 					<td>{spellDetails.range}</td>
-					{spellDetails.damage === '0' ? null: <td>{spellDetails.damage}</td>}
+					{spellDetails.damage === '0' ? null : <td>{spellDetails.damage}</td>}
 					<td>{spellDetails.duration}</td>
 					<td>{spellDetails.dv}</td>
-					<td>{spellDetails.source + ' p' + spellDetails.page}</td>
+					<td>{`${spellDetails.source} p${spellDetails.page}`}</td>
 				</tr>
 			);
 		}
 	};
 
-	return (buildRow[spellDetails.category]||buildRow.default)();
+	return (buildRow[spellDetails.category] || buildRow.default)();
 
 }
 
@@ -126,14 +126,14 @@ function generateSpellDetailTablesRows(arrayOfSpells, generateBtnFn, abilityType
 	let spellTables = {},
 		spellID = 0;
 
-	arrayOfSpells.forEach((spell, spellIndex)=>{
-		if(!spell.category) {
+	arrayOfSpells.forEach((spell, spellIndex) => {
+		if (!spell.category) {
 			spell.category = abilityType;
 		}
 
 		let spellTableData = spellTables[spell.category];
 
-		if(!spellTables[spell.category]) {
+		if (!spellTables[spell.category]) {
 			spellTables[spell.category] = {
 				header: {},
 				body: []
@@ -154,21 +154,21 @@ function generateSpellDetailTablesRows(arrayOfSpells, generateBtnFn, abilityType
 class SpellSelectorComponent extends React.Component {
 	render() {
 		const {abilities, addSpell, removeSpell, selectedSpells, spellMax} = this.props,
-		activeAbility = {
-			Spells: () => {
-				return spellData;
+			activeAbility = {
+				Spells: () => {
+					return spellData;
+				},
+				'Complex Forms': () => {
+					return complexformData;
+				}
 			},
-			'Complex Forms': () => {
-				return complexformData;
-			}
-		},
-		abilityData = activeAbility[abilities]();
+			abilityData = activeAbility[abilities]();
 		let spellsToSeletTables = {},
 			addSpellModals = [],
 			generateAddSpellButton = (spell, spellName) => {
-				let addSpellClick = () => {
-					if(spellMax > selectedSpells.length) {
-						let spellNameOptions = this.refs['spellOption'+spell.name] ? this.refs['spellOption'+spell.name].value : '',
+				const addSpellClick = () => {
+					if (spellMax > selectedSpells.length) {
+						let spellNameOptions = this.refs[`spellOption${spell.name}`] ? this.refs[`spellOption${spell.name}`].value : '',
 							newName = spellName.start + spellNameOptions + spellName.end,
 							spellToAdd = Object.assign(
 								{},
@@ -177,9 +177,9 @@ class SpellSelectorComponent extends React.Component {
 									name: newName
 								}
 							);
-							if (spellToAdd.bonus) {
-								spellToAdd.bonus = spellNameOptions.replace(/[()]/g, '');
-							}
+						if (spellToAdd.bonus) {
+							spellToAdd.bonus = spellNameOptions.replace(/[()]/g, '');
+						}
 						addSpell({newSpell: spellToAdd});
 					}
 				};
@@ -187,13 +187,13 @@ class SpellSelectorComponent extends React.Component {
 				return (<button className="btn btn-success" onClick={addSpellClick}>+</button>);
 			};
 
-		//generated spell details to populate addSpellModals
+		// generated spell details to populate addSpellModals
 		spellsToSeletTables = generateSpellDetailTablesRows(abilityData, generateAddSpellButton, abilities);
 
-		for(let spellCat in spellsToSeletTables) {
+		for (const spellCat in spellsToSeletTables) {
 			addSpellModals.push(
 				<Modal
-					key={'spells-' + spellCat}
+					key={`spells-${spellCat}`}
 					modalName={spellCat}
 					modalContent={
 						<SpellsTables
@@ -222,7 +222,7 @@ const SpellSelectedDisplay = ({selectedSpells, removeSpell}) => {
 	let spellTableData = {},
 		spellDisplayTables = [],
 		generateRemoveSpellButton = (spell, spellName, index) => {
-			let removeSpellClick = () => {
+			const removeSpellClick = () => {
 				removeSpell({spellIndex: index});
 			};
 			return (<button className="btn btn-warning" onClick={removeSpellClick}>-</button>);
@@ -230,14 +230,14 @@ const SpellSelectedDisplay = ({selectedSpells, removeSpell}) => {
 
 	spellTableData = generateSpellDetailTablesRows(selectedSpells, generateRemoveSpellButton);
 
-	for(let spellCat in spellTableData) {
+	for (const spellCat in spellTableData) {
 		const spellData = spellTableData[spellCat];
 		spellDisplayTables.push(
-			<div key={'selected-'+ spellCat} className={'selected-spell-in-' + spellCat}>
+			<div key={`selected-${spellCat}`} className={`selected-spell-in-${spellCat}`}>
 				<h4>{spellCat}</h4>
 				<DisplayTable
 					header={spellData.header}
-					body = {spellData.body}/>
+					body={spellData.body}/>
 			</div>
 		);
 	}

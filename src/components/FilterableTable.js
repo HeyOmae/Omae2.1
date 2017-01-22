@@ -11,9 +11,9 @@ import {setFilter} from '../actions/';
 
 // helpers
 function filtered(term, tableRows) {
-	let expression = '(' + term + ')',
+	let expression = `(${term})`,
 		regExp = new RegExp(expression, 'i');
-	return tableRows.filter((row)=>{
+	return tableRows.filter((row) => {
 		return row.key.match(regExp);
 	});
 }
@@ -22,7 +22,7 @@ function filtered(term, tableRows) {
 class FilterableTable extends Component {
 	render() {
 		const { actions, tableData, filterTable } = this.props,
-		filteredRows = filterTable ? filtered(filterTable, tableData.body) : tableData.body;
+			filteredRows = filterTable ? filtered(filterTable, tableData.body) : tableData.body;
 		return (
 			<div
 				className="table-responsive">

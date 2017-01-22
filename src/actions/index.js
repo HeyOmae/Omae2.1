@@ -5,6 +5,7 @@ Allows to import actions like so:
 import {action1, action2} from '../actions/'
 */
 /* Populated by react-webpack-redux:action */
+import removeSkill from '../actions/skills/removeSkill.js';
 import addSkill from '../actions/skills/addSkill.js';
 import setFilter from '../actions/setFilter.js';
 import priorityTable from './priorityTable.js';
@@ -35,34 +36,35 @@ import karma from './karma.js';
 import purchaseGear from './gear/purchaseGear.js';
 import sellGear from './gear/sellGear.js';
 const actions = {
-  priorityTable,
-  selectMetatype,
-  incrementAttribute,
-  decrementAttribute,
-  incrementAugmented,
-  decrementAugmented,
-  selectMagictype,
-  incrementSkill,
-  decrementSkill,
-  incrementSkillgroup,
-  decrementSkillgroup,
-  setSpec,
-  setMagicSkills,
-  addSpell,
-  removeSpell,
-  addComplexform,
-  removeComplexform,
-  addPower,
-  removePower,
-  raisePower,
-  lowerPower,
-  resetAbility,
-  selectQuality,
-  removeQuality,
-  karma,
-  purchaseGear,
-  sellGear,
-  setFilter,
-  addSkill
+	priorityTable,
+	selectMetatype,
+	incrementAttribute,
+	decrementAttribute,
+	incrementAugmented,
+	decrementAugmented,
+	selectMagictype,
+	incrementSkill,
+	decrementSkill,
+	incrementSkillgroup,
+	decrementSkillgroup,
+	setSpec,
+	setMagicSkills,
+	addSpell,
+	removeSpell,
+	addComplexform,
+	removeComplexform,
+	addPower,
+	removePower,
+	raisePower,
+	lowerPower,
+	resetAbility,
+	selectQuality,
+	removeQuality,
+	karma,
+	purchaseGear,
+	sellGear,
+	setFilter,
+	addSkill,
+	removeSkill
 };
 module.exports = actions;

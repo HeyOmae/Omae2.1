@@ -5,13 +5,13 @@ import 'styles/Modal.sass';
 
 class ModalComponent extends React.Component {
 	render() {
-		const {modalName, modalContent, modalToggle, toggleModalAction, modalID=modalName.replace(/\s/g, '') + '-modal' } = this.props,
+		const {modalName, modalContent, modalToggle, toggleModalAction, modalID = `${modalName.replace(/\s/g, '')}-modal` } = this.props,
 			toggleModal = () => {
 				toggleModalAction(modalID);
 			};
 
 		function closeModal(e) {
-			if(e.target.className.search(/modal-close/) > 0){
+			if (e.target.className.search(/modal-close/) > 0) {
 				toggleModal();
 			}
 		}
@@ -21,7 +21,7 @@ class ModalComponent extends React.Component {
 				<button
 					type="button"
 					className="btn btn-info modal-open-btn"
-					onClick={()=> {
+					onClick={() => {
 						toggleModal();
 					}}
 				>
@@ -31,9 +31,9 @@ class ModalComponent extends React.Component {
 				{modalToggle === modalID ?
 					<div
 						id={modalID}
-						className='modal'
-						onClick={(e)=> {
-							if(e.target.id === modalID){
+						className="modal"
+						onClick={(e) => {
+							if (e.target.id === modalID) {
 								toggleModal();
 							}
 						}}
@@ -44,7 +44,7 @@ class ModalComponent extends React.Component {
 									<button
 										type="button"
 										className="close modal-close"
-										onClick={ closeModal }
+										onClick={closeModal}
 									>
 										&times;
 									</button>
@@ -57,7 +57,7 @@ class ModalComponent extends React.Component {
 									<button
 										type="button"
 										className="btn btn-secondary modal-close"
-										onClick={ closeModal }>
+										onClick={closeModal}>
 										Close
 									</button>
 								</div>

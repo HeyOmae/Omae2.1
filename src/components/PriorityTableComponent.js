@@ -14,7 +14,7 @@ class PriorityTableComponent extends React.Component {
 
 const coreMetatypes = ['human', 'elf', 'dwarf', 'ork', 'troll'];
 
-//helper function
+// helper function
 function isActive(active) {
 	return active ? 'table-success' : '';
 }
@@ -38,12 +38,12 @@ const MetatypeDataCell = ({rating, active, changePriority}) => {
 	let displayMetatypes = [],
 		metaInModal = [];
 
-	for(let race in priorityData[rating].metatype) {
+	for (const race in priorityData[rating].metatype) {
 		let special = priorityData[rating].metatype[race].special,
 			karma = priorityData[rating].metatype[race].karma,
-			metatypeElement = <p key={race+rating}>{race} ({special}) {karma ? 'K: ' + karma : ''}</p>;
+			metatypeElement = <p key={race + rating}>{race} ({special}) {karma ? `K: ${karma}` : ''}</p>;
 
-		if(coreMetatypes.indexOf(race) > -1) {
+		if (coreMetatypes.indexOf(race) > -1) {
 			displayMetatypes.push(metatypeElement);
 		} else {
 			metaInModal.push(metatypeElement);
@@ -52,7 +52,7 @@ const MetatypeDataCell = ({rating, active, changePriority}) => {
 	return (
 		<td
 			className={isActive(active)}
-			onClick={()=> {
+			onClick={() => {
 				changePriority({
 					type: 'SET_PRIORITY',
 					category: 'metatype',
@@ -61,7 +61,7 @@ const MetatypeDataCell = ({rating, active, changePriority}) => {
 			}}
 		>
 			{displayMetatypes}
-			<Modal modalName={'Extra Options ' + rating} modalContent={metaInModal} />
+			<Modal modalName={`Extra Options ${rating}`} modalContent={metaInModal} />
 		</td>
 	);
 };
@@ -71,7 +71,7 @@ const AttributeDataCell = ({rating, active, changePriority}) => {
 	return (
 		<td
 			className={isActive(active)}
-			onClick={()=> {
+			onClick={() => {
 				changePriority({
 					type: 'SET_PRIORITY',
 					category: 'attribute',
@@ -85,9 +85,9 @@ const AttributeDataCell = ({rating, active, changePriority}) => {
 };
 
 const MagicDataCell = ({rating, active, changePriority}) => {
-	let magicStatBlock = [];
+	const magicStatBlock = [];
 
-	for(let magicType in priorityData[rating].magic) {
+	for (const magicType in priorityData[rating].magic) {
 		const magicStats = priorityData[rating].magic[magicType];
 
 		let skills = <span />,
@@ -97,13 +97,13 @@ const MagicDataCell = ({rating, active, changePriority}) => {
 		if (magicType === 'mundane') {
 			magicDetails = <span>Jack and Squat at the Rating of zilch.</span>;
 		} else {
-			if(magicStats.skills) {
+			if (magicStats.skills) {
 				skills = <span>, {magicStats.skills.ammount} Rating {magicStats.skills.rating} {magicStats.skills.attribute} skills</span>;
 			} else if (magicStats.skillsgroup) {
 				skills = <span>, {magicStats.skillsgroup.ammount} Rating {magicStats.skillsgroup.rating} {magicStats.skills.attribute} skillgroup</span>;
 			}
 
-			if(magicStats.spells) {
+			if (magicStats.spells) {
 				spells = <span>, {magicStats.spells.points} {magicStats.spells.type}</span>;
 			}
 
@@ -119,10 +119,10 @@ const MagicDataCell = ({rating, active, changePriority}) => {
 		);
 	}
 
-	return(
+	return (
 		<td
 			className={isActive(active)}
-			onClick={()=> {
+			onClick={() => {
 				changePriority({
 					type: 'SET_PRIORITY',
 					category: 'magres',
@@ -136,17 +136,17 @@ const MagicDataCell = ({rating, active, changePriority}) => {
 };
 
 const SkillsDataCell = ({rating, active, changePriority}) => {
-	let skillsgroupBlock = <span></span>,
+	let skillsgroupBlock = <span />,
 		skillgroups = priorityData[rating].skills.grouppoints;
 
-	if(skillgroups) {
+	if (skillgroups) {
 		skillsgroupBlock = <span>/{skillgroups}</span>;
 	}
 
-	return(
+	return (
 		<td
 			className={isActive(active)}
-			onClick={()=> {
+			onClick={() => {
 				changePriority({
 					type: 'SET_PRIORITY',
 					category: 'skills',
@@ -163,7 +163,7 @@ const ResourcesDataCell = ({rating, active, changePriority}) => {
 	return (
 		<td
 			className={isActive(active)}
-			onClick={()=> {
+			onClick={() => {
 				changePriority({
 					type: 'SET_PRIORITY',
 					category: 'resources',

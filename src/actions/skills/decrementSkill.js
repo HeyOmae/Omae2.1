@@ -1,3 +1,3 @@
-module.exports = function(parameter) {
-  return { type: 'DECREMENT_SKILL', parameter };
+module.exports = function (parameter) {
+	return { type: 'DECREMENT_SKILL', parameter };
 };

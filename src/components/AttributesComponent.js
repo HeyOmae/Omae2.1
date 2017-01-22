@@ -8,7 +8,7 @@ import 'styles/Attributes.sass';
 class AttributesComponent extends React.Component {
 	render() {
 		const {priorityRating, metatype, attributes, actions, metatypeRating, magicPriority, magictype} = this.props;
-		var attributeElements = {
+		let attributeElements = {
 				base: {
 					incBtn: [],
 					display: [],
@@ -40,7 +40,7 @@ class AttributesComponent extends React.Component {
 
 		});
 
-		for(let att in metatypeData[metatype.typeName].min) {
+		for (let att in metatypeData[metatype.typeName].min) {
 			let baseAtt = metatypeData[metatype.typeName].min[att],
 				currentAtt = baseAtt + attributes[att],
 				maxAtt = metatypeData[metatype.typeName].max[att],
@@ -51,16 +51,16 @@ class AttributesComponent extends React.Component {
 					<IncrementButton
 						attributes={attributes}
 						attName={att}
-						maxPoints={oneBaseAttAtMax && attType==='base' ? maxPoints - 1 : maxPoints}
+						maxPoints={oneBaseAttAtMax && attType === 'base' ? maxPoints - 1 : maxPoints}
 						pointsLeft={pointsLeft}
 						incrementAttribute={actions.incrementAttribute}
-						key={'incBtn-'+att}
-						attType={attType + 'Spent'}
+						key={`incBtn-${att}`}
+						attType={`${attType}Spent`}
 					/>
 				);
 				attributeElements[attType].display.push(
-					<td key={'display-'+att} className={attributes[att] > maxAtt ? 'table-danger' : ''}>
-						{currentAtt}/{maxAtt}{attributes.augmented[att]?`(${attributes.augmented[att]+currentAtt})`:null}
+					<td key={`display-${att}`} className={attributes[att] > maxAtt ? 'table-danger' : ''}>
+						{currentAtt}/{maxAtt}{attributes.augmented[att] ? `(${attributes.augmented[att] + currentAtt})` : null}
 					</td>
 				);
 				attributeElements[attType].decBtn.push(
@@ -68,23 +68,23 @@ class AttributesComponent extends React.Component {
 						attName={att}
 						decrementAttribute={actions.decrementAttribute}
 						maxPoints={maxPoints}
-						key={'decBtn-'+att}
-						attType={attType + 'Spent'}
+						key={`decBtn-${att}`}
+						attType={`${attType}Spent`}
 					/>
 				);
 			}
 
-			if(attList.indexOf(att) > -1) {
+			if (attList.indexOf(att) > -1) {
 				addingElements('base', attibutePointsLeft);
 			} else {
-				//special stats go here later
+				// special stats go here later
 				addingElements('special', specialPointsLeft);
 
-				if(magictype in priorityData[magicPriority].magic && magictype !== 'mundane') {
+				if (magictype in priorityData[magicPriority].magic && magictype !== 'mundane') {
 					att = 'special';
-					baseAtt = priorityData[magicPriority].magic[magictype].attribute.points; //find magic rating
+					baseAtt = priorityData[magicPriority].magic[magictype].attribute.points; // find magic rating
 					currentAtt = baseAtt + attributes[att];
-					maxAtt = ~~attributes.ess; //set max to essense rounded down
+					maxAtt = ~~attributes.ess; // set max to essense rounded down
 					maxPoints = maxAtt - baseAtt;
 					addingElements('special', specialPointsLeft);
 					var magicName = priorityData[magicPriority].magic[magictype].attribute.name;
@@ -114,9 +114,9 @@ class AttributesComponent extends React.Component {
 								<tbody>
 									<tr>
 										{attributeElements.base.incBtn}
-										<td></td>
+										<td />
 									</tr>
-									<tr className={attibutePointsLeft < 0 ? 'table-danger':''}>
+									<tr className={attibutePointsLeft < 0 ? 'table-danger' : ''}>
 										{attributeElements.base.display}
 										<td>
 											{attibutePointsLeft}
@@ -124,7 +124,7 @@ class AttributesComponent extends React.Component {
 									</tr>
 									<tr>
 										{attributeElements.base.decBtn}
-										<td></td>
+										<td />
 									</tr>
 								</tbody>
 							</table>
@@ -141,7 +141,7 @@ class AttributesComponent extends React.Component {
 }
 
 function activeButton(currentAtt, maxAtt) {
-	if(currentAtt > maxAtt) {
+	if (currentAtt > maxAtt) {
 		return 'disabled btn-danger';
 	} else {
 		return 'btn-success';
@@ -152,16 +152,16 @@ const IncrementButton = ({attributes, attName, maxPoints, pointsLeft, incrementA
 	return (
 		<td>
 			<button
-				className={'btn ' + activeButton(attributes[attName], maxPoints) }
+				className={`btn ${activeButton(attributes[attName], maxPoints)}`}
 				onClick={() => {
-						if(pointsLeft > 0){
-							incrementAttribute({
-								attribute: attName,
-								max: maxPoints,
-								spend: attType
-							});
-						}
-					}}
+					if (pointsLeft > 0) {
+						incrementAttribute({
+							attribute: attName,
+							max: maxPoints,
+							spend: attType
+						});
+					}
+				}}
 			>
 				+
 			</button>
@@ -170,17 +170,17 @@ const IncrementButton = ({attributes, attName, maxPoints, pointsLeft, incrementA
 };
 
 const DecrementButton = ({attName, decrementAttribute, maxPoints, attType}) => {
-	return(
+	return (
 		<td>
 			<button
 				className="btn btn-success"
 				onClick={() => {
-						decrementAttribute({
-							attribute: attName,
-							max: maxPoints,
-							spend: attType
-						});
-					}}
+					decrementAttribute({
+						attribute: attName,
+						max: maxPoints,
+						spend: attType
+					});
+				}}
 			>
 				-
 			</button>

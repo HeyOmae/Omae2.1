@@ -1,3 +1,3 @@
-module.exports = function(parameter) {
-  return { type: 'INCREMENT_AUGMENTED', parameter };
+module.exports = function (parameter) {
+	return { type: 'INCREMENT_AUGMENTED', parameter };
 };

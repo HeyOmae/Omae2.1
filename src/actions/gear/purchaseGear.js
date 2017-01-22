@@ -1,3 +1,3 @@
-module.exports = function(parameter) {
-  return { type: 'PURCHASE', parameter };
+module.exports = function (parameter) {
+	return { type: 'PURCHASE', parameter };
 };

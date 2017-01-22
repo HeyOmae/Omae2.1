@@ -7,9 +7,7 @@
 // require('normalize.css');
 import 'styles/bootstrap-overwrite.scss';
 import 'styles/App.css';
-import React, {
-	Component
-} from 'react';
+import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import {
@@ -40,7 +38,8 @@ import {
 	karma,
 	purchaseGear,
 	sellGear,
-	addSkill
+	addSkill,
+	removeSkill
 } from '../actions/';
 import Main from '../components/Main';
 import PriorityTableComponent from '../components/PriorityTableComponent';
@@ -55,31 +54,15 @@ import PropTypeChecking from '../config/proptypeChecking';
 /* Populated by react-webpack-redux:reducer */
 class App extends Component {
 	render() {
-		const {actions,
-			priorityTableState,
-			selectMetatypeState,
-			attributes,
-			selectMagRes,
-			settingSkills,
-			spellSelect,
-			quality,
-			karmaState,
-			purchaseGearState
-		} = this.props,
+		const {actions, priorityTableState, selectMetatypeState, attributes, selectMagRes, settingSkills, spellSelect, quality, karmaState, purchaseGearState} = this.props,
 			karmaTotal = karmaState - spellSelect.powerPointsKarma;
 		return (
 			<div className="container">
 				<div className="row">
 					<div className="col-md-12">
-						<Main
-							actions={actions}
-							priorityTable={priorityTableState}
-							selectMetatype={selectMetatypeState}
-							attributes={attributes}/>
+						<Main/>
 
-						<PriorityTableComponent
-							actions={actions.priorityTable}
-							priorityTable={priorityTableState}/>
+						<PriorityTableComponent actions={actions.priorityTable} priorityTable={priorityTableState}/>
 					</div>
 				</div>
 
@@ -103,10 +86,7 @@ class App extends Component {
 							}}
 							attributes={attributes}/>
 
-						<QualityComponent
-							karma={karmaTotal}
-							actions={actions}
-							selectedQualities={quality}/>
+						<QualityComponent karma={karmaTotal} actions={actions} selectedQualities={quality}/>
 
 						<MagicSelectionComponent
 							magicPriority={priorityTableState.magres}
@@ -124,10 +104,7 @@ class App extends Component {
 							metatype={selectMetatypeState}
 							magictype={selectMagRes}/>
 						<h2>Street Gear</h2>
-						<StreetGearComponent
-							actions={actions}
-							purchaseGear={purchaseGearState}
-							resourcesPriority={priorityTableState.resources}/>
+						<StreetGearComponent actions={actions} purchaseGear={purchaseGearState} resourcesPriority={priorityTableState.resources}/>
 					</div>
 					<div id="summary" className="col-md-12 col-lg-3">
 						<Summary/>
@@ -199,7 +176,8 @@ function mapDispatchToProps(dispatch) {
 		karma,
 		purchaseGear,
 		sellGear,
-		addSkill
+		addSkill,
+		removeSkill
 	};
 	const actionMap = { actions: bindActionCreators(actions, dispatch) };
 	return actionMap;

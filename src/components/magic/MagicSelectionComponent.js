@@ -6,29 +6,29 @@ import priorityData from '../data/priority.json';
 import '../../styles/magic/MagicSelection.sass';
 
 const MagicSelectionComponent = ({magicPriority, magictype, magicAttribute, selectedSpellsPowers, actions}) => {
-	const awakenTypes = ['Mage', 'Mystic', 'Technomancer','Adept', 'Aspected', 'mundane'],
+	const awakenTypes = ['Mage', 'Mystic', 'Technomancer', 'Adept', 'Aspected', 'mundane'],
 		priorityMagic = priorityData[magicPriority].magic[magictype],
-		magicAtt = (priorityMagic && priorityMagic.attribute &&  priorityMagic.attribute.points) + magicAttribute,
+		magicAtt = (priorityMagic && priorityMagic.attribute && priorityMagic.attribute.points) + magicAttribute,
 		magicPriorityStats = priorityData[magicPriority].magic,
 		toggleAbilities = {
 			Mage: () => {
-				let mageAbilities = toggleAbilities.default();
+				const mageAbilities = toggleAbilities.default();
 				mageAbilities.spells = true;
 				return mageAbilities;
 			},
 			Mystic: () => {
-				let mysticAbilities = toggleAbilities.default();
+				const mysticAbilities = toggleAbilities.default();
 				mysticAbilities.spells = true;
 				mysticAbilities.powers = true;
 				return mysticAbilities;
 			},
 			Technomancer: () => {
-				let technoAbilities = toggleAbilities.default();
+				const technoAbilities = toggleAbilities.default();
 				technoAbilities.complexforms = true;
 				return technoAbilities;
 			},
 			Adept: () => {
-				let adeptAbilities = toggleAbilities.default();
+				const adeptAbilities = toggleAbilities.default();
 				adeptAbilities.powers = true;
 				return adeptAbilities;
 			},
@@ -41,11 +41,11 @@ const MagicSelectionComponent = ({magicPriority, magictype, magicAttribute, sele
 				};
 			}
 		},
-		displayAbilities = (toggleAbilities[magictype] || toggleAbilities['default'])();
+		displayAbilities = (toggleAbilities[magictype] || toggleAbilities.default)();
 	let awakenButtons = [],
 		spellMax = 0;
 
-	if(magicPriorityStats[magictype] && magicPriorityStats[magictype].spells) {
+	if (magicPriorityStats[magictype] && magicPriorityStats[magictype].spells) {
 		spellMax = magicPriorityStats[magictype].spells.points;
 	}
 
@@ -75,7 +75,7 @@ const MagicSelectionComponent = ({magicPriority, magictype, magicAttribute, sele
 	}
 
 	awakenTypes.forEach((typeName) => {
-		let selectedMagictype = magictype === typeName;
+		const selectedMagictype = magictype === typeName;
 		awakenButtons.push(
 			<AwakenButton
 				typeName={typeName}
@@ -83,7 +83,7 @@ const MagicSelectionComponent = ({magicPriority, magictype, magicAttribute, sele
 				checked={selectedMagictype}
 				selectMagicTypeAction={changeMagicType}
 				resetFreeMagicSkills={actions.setMagicSkills}
-				key={'awaken-selection-' + typeName}
+				key={`awaken-selection-${typeName}`}
 			/>
 		);
 	});
@@ -96,47 +96,47 @@ const MagicSelectionComponent = ({magicPriority, magictype, magicAttribute, sele
 			</div>
 			{
 				displayAbilities.spells ?
-				<div>
-					<h3>Spells</h3>
-					<SpellSelector
-						abilities="Spells"
-						addSpell = {actions.addSpell}
-						removeSpell = {actions.removeSpell}
-						selectedSpells = {selectedSpellsPowers.spells}
-						spellMax={spellMax}
+					<div>
+						<h3>Spells</h3>
+						<SpellSelector
+							abilities="Spells"
+							addSpell={actions.addSpell}
+							removeSpell={actions.removeSpell}
+							selectedSpells={selectedSpellsPowers.spells}
+							spellMax={spellMax}
 						/>
-				</div>
+					</div>
 				:
 				null
 			}
 			{
 				displayAbilities.powers ?
-				<div>
-					<h3>Adept Powers</h3>
-					<PowerSelector
-						actions = {actions}
-						selectedPowers = {selectedSpellsPowers.powers}
-						pointSpent={selectedSpellsPowers.powerPointsSpent}
-						maxPointPoints={magicAtt}
-						isMystic={magictype === 'Mystic'}
-						karmaSpent = {selectedSpellsPowers.powerPointsKarma}
+					<div>
+						<h3>Adept Powers</h3>
+						<PowerSelector
+							actions={actions}
+							selectedPowers={selectedSpellsPowers.powers}
+							pointSpent={selectedSpellsPowers.powerPointsSpent}
+							maxPointPoints={magicAtt}
+							isMystic={magictype === 'Mystic'}
+							karmaSpent={selectedSpellsPowers.powerPointsKarma}
 						/>
-				</div>
+					</div>
 				:
 				null
 			}
 			{
 				displayAbilities.complexforms ?
-				<div>
-					<h3>Complex Forms</h3>
-					<SpellSelector
-						abilities="Complex Forms"
-						addSpell = {actions.addComplexform}
-						removeSpell = {actions.removeComplexform}
-						selectedSpells = {selectedSpellsPowers.complexforms}
-						spellMax={spellMax}
+					<div>
+						<h3>Complex Forms</h3>
+						<SpellSelector
+							abilities="Complex Forms"
+							addSpell={actions.addComplexform}
+							removeSpell={actions.removeComplexform}
+							selectedSpells={selectedSpellsPowers.complexforms}
+							spellMax={spellMax}
 						/>
-				</div>
+					</div>
 				:
 				null
 			}
@@ -146,7 +146,8 @@ const MagicSelectionComponent = ({magicPriority, magictype, magicAttribute, sele
 
 const AwakenButton = ({typeName, anOption, checked, selectMagicTypeAction, resetFreeMagicSkills}) => {
 	return (
-		<label className={`btn
+		<label
+			className={`btn
 			${(!anOption && checked ? 'btn-danger' : 'btn-primary')}
 			${(anOption ? '' : 'disabled')}
 			${(checked ? 'active' : '')}`
@@ -154,17 +155,17 @@ const AwakenButton = ({typeName, anOption, checked, selectMagicTypeAction, reset
 			<input
 				type="radio"
 				name="magres-selector"
-				id={'awakentype-' + typeName}
+				id={`awakentype-${typeName}`}
 				autoComplete="off"
 				checked={checked}
-				onChange={()=>{
-					if(anOption){
+				onChange={() => {
+					if (anOption) {
 						selectMagicTypeAction(typeName);
 						resetFreeMagicSkills({magicSkills: [null, null]});
 					}
 				}}
 			/>
-				{typeName}
+			{typeName}
 		</label>
 	);
 };
