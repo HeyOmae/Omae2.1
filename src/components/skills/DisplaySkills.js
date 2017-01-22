@@ -1,9 +1,9 @@
 import React from 'react';
-import skillsData from '../data/skills.json';
 import DisplayTable from '../DisplayTableComponent';
+import metatypeData from '../data/metatype.json';
 import PropTypeChecking from '../../config/proptypeChecking';
 
-const DisplaySkills = ({skills, actions}) => {
+const DisplaySkills = ({skills, actions, attributes, metatype, skillPointsLeft}) => {
 	return (
 		<DisplayTable
 			header={
@@ -11,12 +11,16 @@ const DisplaySkills = ({skills, actions}) => {
 			}
 			body={
 				Object.keys(skills.active).map((skillKey) => {
+					const skill = skills.active[skillKey],
+						currentAttribute = metatypeData[metatype.typeName].min[skill.attribute] + attributes[skill.attribute];
 					return (
 						<ActiveSkillRow
 							key={`display-activeSkill-${skillKey}`}
 							skillKey={skillKey}
-							skill={skills.active[skillKey]}
-							actions={actions}/>
+							skill={skill}
+							actions={actions}
+							attribute={currentAttribute}
+							skillPointsLeft={skillPointsLeft}/>
 					);
 				})
 			}/>
@@ -25,7 +29,10 @@ const DisplaySkills = ({skills, actions}) => {
 
 DisplaySkills.propTypes = {
 	skills: React.PropTypes.objectOf(React.PropTypes.object),
-	actions: PropTypeChecking.actions
+	actions: PropTypeChecking.actions,
+	attributes: PropTypeChecking.attributes,
+	metatype: PropTypeChecking.selectMetatype,
+	skillPointsLeft: React.PropTypes.number
 };
 
 function ActiveSkillHeader() {
@@ -52,9 +59,12 @@ function ActiveSkillHeader() {
 	);
 }
 
-function ActiveSkillRow({skillKey, skill, actions}) {
+function ActiveSkillRow({skillKey, skill, actions, attribute, skillPointsLeft}) {
+	const {rating = 0, groupRating = 0} = skill,
+		totalSkillRating = rating + groupRating,
+		dicePool = attribute + totalSkillRating;
 	return (
-		<tr>
+		<tr className={totalSkillRating > 6 ? 'table-danger ' : ''}>
 			<td>
 				<button
 					className="btn btn-danger"
@@ -68,12 +78,14 @@ function ActiveSkillRow({skillKey, skill, actions}) {
 				<button
 					className="btn btn-success"
 					onClick={() => {
-						actions.incrementSkill({category: 'active', max: 6, name: skillKey});
+						if (skillPointsLeft > 0) {
+							actions.incrementSkill({category: 'active', max: 6, name: skillKey});
+						}
 					}}>
 					+
 				</button>
 			</td>
-			<td>{skill.rating}</td>
+			<td>{totalSkillRating}</td>
 			<td>
 				<button
 					className="btn btn-warning"
@@ -85,12 +97,18 @@ function ActiveSkillRow({skillKey, skill, actions}) {
 			</td>
 			<td>{skillKey}</td>
 			<td>
-				<select className="form-control">
-					<option value="">&mdash;</option>
-				</select>
+				<input
+					type="text"
+					className="form-control input-specialization"
+					placeholder="Custom Spec"
+					onChange={(e) => {
+						actions.setSpec({name: skillKey, category: 'active', spec: e.target.value});
+					}}
+					value={skill.spec || ''}/>
 			</td>
 			<td>
-				DP
+				{dicePool}
+				{skill.spec ? `(${dicePool + 2})` : null}
 			</td>
 		</tr>
 	);
@@ -99,11 +117,13 @@ function ActiveSkillRow({skillKey, skill, actions}) {
 ActiveSkillRow.propTypes = {
 	skillKey: React.PropTypes.string,
 	skill: React.PropTypes.shape({
-		rating: React.PropTypes.number.isRequired,
+		rating: React.PropTypes.number,
 		attribute: React.PropTypes.string.isRequired,
 		spec: React.PropTypes.string
 	}),
-	actions: PropTypeChecking.actions
+	actions: PropTypeChecking.actions,
+	attribute: React.PropTypes.number,
+	skillPointsLeft: React.PropTypes.number
 };
 
 export default DisplaySkills;
