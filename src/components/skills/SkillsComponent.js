@@ -125,7 +125,7 @@ class SkillsComponent extends React.Component {
 					</div>
 				</div>
 				<div>
-					<h3>Current Skills</h3>
+					<h3>Skill List</h3>
 					<DisplaySkills
 						skills={skills}
 						actions={actions}

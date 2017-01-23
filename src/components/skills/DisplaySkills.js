@@ -28,7 +28,7 @@ const DisplaySkills = ({skills, actions, attributes, metatype, skillPointsLeft})
 };
 
 DisplaySkills.propTypes = {
-	skills: React.PropTypes.objectOf(React.PropTypes.object),
+	skills: PropTypeChecking.settingSkills,
 	actions: PropTypeChecking.actions,
 	attributes: PropTypeChecking.attributes,
 	metatype: PropTypeChecking.selectMetatype,
@@ -62,7 +62,7 @@ function ActiveSkillHeader() {
 function ActiveSkillRow({skillKey, skill, actions, attribute, skillPointsLeft}) {
 	const {rating = 0, groupRating = 0} = skill,
 		totalSkillRating = rating + groupRating,
-		dicePool = attribute + totalSkillRating;
+		dicePool = attribute + (totalSkillRating || -1);
 	return (
 		<tr className={totalSkillRating > 6 ? 'table-danger ' : ''}>
 			<td>
@@ -71,7 +71,7 @@ function ActiveSkillRow({skillKey, skill, actions, attribute, skillPointsLeft}) 
 					onClick={() => {
 						actions.removeSkill({category: 'active', name: skillKey});
 					}}>
-					-
+					&times;
 				</button>
 			</td>
 			<td>

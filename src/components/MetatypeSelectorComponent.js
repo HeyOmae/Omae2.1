@@ -1,7 +1,7 @@
 import React from 'react';
+import 'styles/MetatypeSelector.sass';
 import metatypeData from './data/metatype.json';
 import priorityData from './data/priority.json';
-import 'styles/MetatypeSelector.sass';
 
 class MetatypeSelectorComponent extends React.Component {
 	render() {
@@ -76,6 +76,7 @@ const MetatypeButton = ({typeName, anOption, checked, selectMetatypeAction, karm
 				checked={checked}
 				onChange={() => {
 					if (anOption) {
+						// TODO: This is supershit, find a way to dispatch one action to handle this
 						selectMetatypeAction({typeName, priority});
 						karma({karmaPoints: karmaOldCost});
 						karma({karmaPoints: -karmaNewCost});
