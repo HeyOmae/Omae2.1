@@ -41,16 +41,18 @@ class MetatypeSelectorComponent extends React.Component {
 		}
 		return (
 			<div className="metatypeselector-component">
-				<h2>Metatype</h2>
-				<div className="btn-group">
-					{buttonElements}
-				</div>
 				<div className="row">
-					<div className="col-xs-6">
+					<h2>Metatype</h2>
+					<div className="col-md-12">
+						<div className="btn-group">
+							{buttonElements}
+						</div>
+					</div>
+					<div className="col-sm-6">
 						<h3>Racial Traits</h3>
 						{racialDetails}
 					</div>
-					<div className="col-xs-6">
+					<div className="col-sm-6">
 						<h3>Reference</h3>
 						<strong>{currentMetaData.reference.book}</strong> p{currentMetaData.reference.page}
 					</div>

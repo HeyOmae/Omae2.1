@@ -2,9 +2,9 @@
 @import url(https://fonts.googleapis.com/css?family=Mrs+Sheppards|VT323);
 
 /* Base Application Styles */
+body, button {font-family: 'VT323', Sans-Serif;}
 body {
 	color: #fff;
-	font-family: 'VT323', Sans-Serif;
 
 	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#222222+0,7db9e8+32,7db9e8+49,faff00+72,faff00+72,f600ff+73,000032+100 */
 	background: #222222; /* Old browsers */

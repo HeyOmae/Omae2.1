@@ -206,9 +206,7 @@ class SpellSelectorComponent extends React.Component {
 		return (
 			<div className="spells">
 				<div className="spell-selector">
-					<div className="btn-group">
-						{addSpellModals}
-					</div>
+					{addSpellModals}
 				</div>
 				<SpellSelectedDisplay
 					selectedSpells={selectedSpells}

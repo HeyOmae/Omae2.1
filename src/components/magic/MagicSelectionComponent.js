@@ -89,7 +89,7 @@ const MagicSelectionComponent = ({magicPriority, magictype, magicAttribute, sele
 	});
 
 	return (
-		<div className="magicselection-component">
+		<div className="magicselection-component row">
 			<h2>Magic/Resonance</h2>
 			<div className="btn-group">
 				{awakenButtons}
