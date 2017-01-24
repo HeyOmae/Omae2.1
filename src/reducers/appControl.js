@@ -4,27 +4,35 @@
  * src/container/App.js accordingly.
  */
 const initialState = {
-	summaryFix: false
+	summaryFix: false,
+	styleTheme: ''
 };
 
 
 const attributesReducer = (state = initialState, action) => {
-
 	const actionsToTake = {
-		FIX_SUMMARY: (pervState, {summaryFix}) => {
+		FIX_SUMMARY(pervState, {summaryFix}) {
 			if (summaryFix !== pervState.summaryFix) {
-				const newState = Object.assign(
+				return Object.assign(
 						{},
 						pervState,
 						{ summaryFix }
 					);
-				return newState;
 			}
 			return pervState;
-
 		},
-		DEFAULT: () => { return state; }
+
+		STYLE(pervState, {styleTheme}) {
+			return Object.assign(
+				{},
+				pervState,
+				{ styleTheme }
+			);
+		},
+
+		DEFAULT() { return state; }
 	};
+
 	return (actionsToTake[action.type] || actionsToTake.DEFAULT)(state, action.parameter);
 };
 

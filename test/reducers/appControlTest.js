@@ -1,32 +1,40 @@
 var reducer = require('../../src/reducers/appControl');
 
 describe('appControl', () => {
-	it('should not change the passed state', () => {
+	const initState = Object.freeze({
+		summaryFix: false,
+		styleTheme: ''
+	});
 
+	it('should not change the passed state', () => {
 		const state = Object.freeze({});
 		const newState = reducer(state, {type: 'INVALID'});
 
 		expect(newState).to.equal(state);
 	});
 
-	it('change summaryFix to true if state.summaryFix is false and passed in as true', () => {
-		const initState = {
-			summaryFix: false
-		};
+	describe('FIX_SUMMARY', () => {
 
-		const newState = reducer(initState, {type: 'FIX_SUMMARY', parameter: {summaryFix: true}});
+		it('change summaryFix to true if state.summaryFix is false and passed in as true', () => {
+			const newState = reducer(initState, {type: 'FIX_SUMMARY', parameter: {summaryFix: true}});
 
-		expect(newState.summaryFix).to.equal(true);
+			expect(newState.summaryFix).to.equal(true);
+		});
+
+		it('return state if state.summaryFix is false and being set to false', () => {
+			const newState = reducer(initState, {type: 'FIX_SUMMARY', parameter: {summaryFix: false}});
+
+			expect(newState).to.equal(initState);
+		});
 	});
 
-	it('return state if state.summaryFix is false and being set to false', () => {
-		const initState = {
-			summaryFix: false
-		};
+	describe('STYLE', () => {
+		it('should change the styleTheme to what is passed in', () => {
+			const newState = reducer(initState, {type: 'STYLE', parameter: {styleTheme: 'cyber-terminal'}});
 
-		const newState = reducer(initState, {type: 'FIX_SUMMARY', parameter: {summaryFix: false}});
-
-		expect(newState).to.equal(initState);
+			expect(newState.styleTheme).to.equal('cyber-terminal');
+		});
 	});
+
 });
 

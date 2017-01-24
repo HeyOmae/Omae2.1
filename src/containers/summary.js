@@ -9,6 +9,7 @@ import PropTypeChecking from '../config/proptypeChecking';
 
 class summary extends Component {
 	componentDidMount() {
+		// TODO: replace all this junk with Bootstrap sticky-top class
 		const summaryElement = document.getElementById('summary');
 		window.addEventListener('scroll', this.handleScroll.bind(this.props, summaryElement));
 	}
