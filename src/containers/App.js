@@ -39,7 +39,8 @@ import {
 	purchaseGear,
 	sellGear,
 	addSkill,
-	removeSkill
+	removeSkill,
+	style
 } from '../actions/';
 import Main from '../components/Main';
 import PriorityTableComponent from '../components/PriorityTableComponent';
@@ -60,7 +61,8 @@ class App extends Component {
 			<div className="container">
 				<div className="row">
 					<div className="col-md-12">
-						<Main/>
+						<Main
+							style={actions.style}/>
 
 						<PriorityTableComponent actions={actions.priorityTable} priorityTable={priorityTableState}/>
 					</div>
@@ -177,7 +179,8 @@ function mapDispatchToProps(dispatch) {
 		purchaseGear,
 		sellGear,
 		addSkill,
-		removeSkill
+		removeSkill,
+		style
 	};
 	const actionMap = { actions: bindActionCreators(actions, dispatch) };
 	return actionMap;

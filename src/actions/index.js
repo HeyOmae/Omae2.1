@@ -5,6 +5,7 @@ Allows to import actions like so:
 import {action1, action2} from '../actions/'
 */
 /* Populated by react-webpack-redux:action */
+import style from '../actions/app/style.js';
 import removeSkill from '../actions/skills/removeSkill.js';
 import addSkill from '../actions/skills/addSkill.js';
 import setFilter from '../actions/setFilter.js';
@@ -65,6 +66,7 @@ const actions = {
 	sellGear,
 	setFilter,
 	addSkill,
-	removeSkill
+	removeSkill,
+	style
 };
 module.exports = actions;
