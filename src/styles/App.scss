@@ -21,22 +21,6 @@ body {
 	background-color: rgba(20, 20, 20, .75);
 }
 
-.index img {
-	margin: 40px auto;
-	border-radius: 4px;
-	background: #fff;
-	display: block;
-}
-
-.index .notice {
-	margin: 20px auto;
-	padding: 15px 0;
-	text-align: center;
-	border: 1px solid #000;
-	border-width: 1px 0;
-	background: #666;
-}
-
 h1, h2, h3, h4 {
 	padding: 0.2em 0.5em;
 	font-family: 'Mrs Sheppards', cursive;
@@ -56,6 +40,64 @@ h2 {
 .program-title h1,
 .program-title p {
 	text-align: center;
+}
+
+/******* Style Themes *******/
+.mundane {
+	font-family: Sans-Serif;
+	color: black;
+	background: none;
+
+	strong, .table-success {
+		color: black;
+		font-weight: 800;
+	}
+
+	button {
+		font-family: Sans-Serif;
+	}
+
+	.container > * {
+		background: none;
+	}
+
+	h1, h2, h3, h4 {
+		font-family: Sans-serif;
+		color: black;
+		text-shadow: none;
+	}
+}
+
+.cyber-terminal {
+	$dull: #031c04;
+	$scan: #496016;
+	$neon: #a7ff23;
+
+	color: $neon;
+	background: linear-gradient(
+		to bottom,
+		$dull,
+		$dull 50%,
+		$scan 50%,
+		$scan
+	);
+	background-size: 100% 8px;
+
+	h1, h2, h3, h4, .thead-inverse th {
+		text-shadow: rgb(190, 255, 80) 0px 0px 10px;
+		animation: glow .7s infinite alternate;
+		@keyframes glow
+		{
+			to {text-shadow: rgb(205, 255, 99) 0px 0px 15px;}
+		}
+		font-family: 'VT323', Sans-Serif;
+
+		color: $neon;
+	}
+
+	.table-bordered th, .table-bordered td, .table thead th, .table th, .table td {
+		border-color: $neon;
+	}
 }
 
 /******* Table Style ******/

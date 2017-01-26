@@ -6,7 +6,7 @@
  */
 // require('normalize.css');
 import 'styles/bootstrap-overwrite.scss';
-import 'styles/App.css';
+import 'styles/App.scss';
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -54,6 +54,11 @@ import Summary from './summary';
 import PropTypeChecking from '../config/proptypeChecking';
 /* Populated by react-webpack-redux:reducer */
 class App extends Component {
+	componentWillUpdate(newProps) {
+		if (this.props.styleTheme !== newProps.styleTheme) {
+			document.body.className = newProps.styleTheme;
+		}
+	}
 	render() {
 		const {actions, priorityTableState, selectMetatypeState, attributes, selectMagRes, settingSkills, spellSelect, quality, karmaState, purchaseGearState} = this.props,
 			karmaTotal = karmaState - spellSelect.powerPointsKarma;
@@ -131,7 +136,8 @@ App.propTypes = {
 	spellSelect: PropTypeChecking.spellSelect,
 	quality: PropTypeChecking.quality,
 	karmaState: PropTypeChecking.karma,
-	purchaseGearState: PropTypeChecking.purchaseGear
+	purchaseGearState: PropTypeChecking.purchaseGear,
+	styleTheme: React.PropTypes.string
 };
 function mapStateToProps(state) {
 	/* Populated by react-webpack-redux:reducer */
@@ -144,7 +150,8 @@ function mapStateToProps(state) {
 		spellSelect: state.spellSelect,
 		quality: state.quality,
 		karmaState: state.karma,
-		purchaseGearState: state.purchaseGear
+		purchaseGearState: state.purchaseGear,
+		styleTheme: state.appControl.styleTheme
 	};
 	return props;
 }
