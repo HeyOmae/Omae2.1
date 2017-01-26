@@ -112,7 +112,7 @@ const SummaryComponent = (
 	});
 
 	return (
-		<div className={`summary-component ${(fixed ? 'fixed' : '')}`}>
+		<div className={`summary-component sticky-top ${(fixed ? 'fixed' : '')}`}>
 			<h1>Character Summary</h1>
 
 			<div className="table-responsive">

@@ -7,25 +7,25 @@ import SummaryComponent from '../components/SummaryComponent';
 import fixSummary from '../actions/app/fixSummary';
 import PropTypeChecking from '../config/proptypeChecking';
 
+function handleScroll(summaryElement) {
+	const {actions} = this;
+	const summaryLocation = summaryElement.getBoundingClientRect().top;
+	if (summaryLocation < 0) {
+		actions.fixSummary({ summaryFix: true });
+	} else {
+		actions.fixSummary({ summaryFix: false });
+	}
+}
+
 class summary extends Component {
 	componentDidMount() {
 		// TODO: replace all this junk with Bootstrap sticky-top class
 		const summaryElement = document.getElementById('summary');
-		window.addEventListener('scroll', this.handleScroll.bind(this.props, summaryElement));
+		window.addEventListener('scroll', handleScroll.bind(this.props, summaryElement));
 	}
 
 	componentWillUnmount() {
-		window.removeEventListener('scroll', this.handleScroll);
-	}
-
-	handleScroll(summaryElement) {
-		const {actions} = this;
-		const summaryLocation = summaryElement.getBoundingClientRect().top;
-		if (summaryLocation < 0) {
-			actions.fixSummary({ summaryFix: true });
-		} else {
-			actions.fixSummary({ summaryFix: false });
-		}
+		window.removeEventListener('scroll', handleScroll);
 	}
 
 	render() {
