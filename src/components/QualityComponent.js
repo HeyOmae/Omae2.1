@@ -1,11 +1,10 @@
 import React from 'react';
+import 'styles/Quality.sass';
 import Modal from './ModalComponent';
 import DisplayTable from './DisplayTableComponent';
 import FilterTable from './FilterableTable';
-
 import qualityData from './data/qualities.json';
-
-import 'styles/Quality.sass';
+import propTypeChecking from '../config/propTypeChecking';
 
 class QualityComponent extends React.Component {
 	componentWillMount() {
@@ -36,13 +35,13 @@ class QualityComponent extends React.Component {
 			};
 		this.generateSelectedQualityTableRow = (selectQualities) => {
 			return selectQualities.map((quality, qualityIndex) => {
-				const removeButton = (<button
-					className="btn btn-warning"
-					onClick={() => {
-						actions.removeQuality({qualityIndex, category: quality.category});
-						actions.karma({karmaPoints: Number(quality.karma)});
-					}}
-					>
+				const removeButton = (
+					<button
+						className="btn btn-warning"
+						onClick={() => {
+							actions.removeQuality({qualityIndex, category: quality.category});
+							actions.karma({karmaPoints: Number(quality.karma)});
+						}}>
 						-
 					</button>);
 				return generateQualityTableRow(quality, removeButton);
@@ -117,6 +116,10 @@ const QualityHeader = ({buttonType}) => {
 	);
 };
 
+QualityHeader.propTypes = {
+	buttonType: React.PropTypes.string.isRequired
+};
+
 const QualityTable = ({tableRows}) => {
 	const header = (
 		<QualityHeader
@@ -133,11 +136,19 @@ const QualityTable = ({tableRows}) => {
 	);
 };
 
+QualityTable.propTypes = {
+	tableRows: React.PropTypes.arrayOf(React.PropTypes.element).isRequired
+};
+
 
 QualityComponent.displayName = 'QualityComponent';
 
 // Uncomment properties you need
-// QualityComponent.propTypes = {};
+QualityComponent.propTypes = {
+	actions: propTypeChecking.actions,
+	selectedQualities: propTypeChecking.quality,
+	karma: React.PropTypes.number.isRequired
+};
 // QualityComponent.defaultProps = {};
 
 export default QualityComponent;
