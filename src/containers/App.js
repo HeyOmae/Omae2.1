@@ -43,7 +43,7 @@ import {
 	style
 } from '../actions/';
 import Main from '../components/Main';
-import PriorityTableComponent from '../components/PriorityTableComponent';
+import PriorityTableComponent from '../components/priorityTable/PriorityTableComponent';
 import MetatypeSelector from '../components/MetatypeSelectorComponent';
 import AttributesComponent from '../components/AttributesComponent';
 import QualityComponent from '../components/QualityComponent';
@@ -69,7 +69,7 @@ class App extends Component {
 						<Main
 							style={actions.style}/>
 
-						<PriorityTableComponent actions={actions.priorityTable} priorityTable={priorityTableState}/>
+						<PriorityTableComponent changePriority={actions.priorityTable} priorityTable={priorityTableState}/>
 					</div>
 				</div>
 

@@ -1,18 +1,49 @@
 import React from 'react';
-import Modal from './ModalComponent';
-import priorityData from './data/priority.json';
-import 'styles/PriorityTable.sass';
+import 'styles/PriorityTable.scss';
+import priorityData from '../data/priority.json';
+import propTypeChecking from '../../config/propTypeChecking';
+import MetatypeDataCell from './MetatypeDataCell';
 
 class PriorityTableComponent extends React.Component {
 	render() {
-		const {actions, priorityTable} = this.props;
+		const {changePriority, priorityTable} = this.props;
 		return (
-			<PriorityTable className="prioritytable-component" actions={actions} priorityTableData={priorityTable} />
+			<div className="table-responsive">
+				<h2>Priority Table</h2>
+				<table className="table table-bordered priority-table">
+					<PriorityLabel />
+					<tbody>
+						<PriorityRow
+							rating="A"
+							priorityTableData={priorityTable}
+							changePriority={changePriority}
+						/>
+						<PriorityRow
+							rating="B"
+							priorityTableData={priorityTable}
+							changePriority={changePriority}
+						/>
+						<PriorityRow
+							rating="C"
+							priorityTableData={priorityTable}
+							changePriority={changePriority}
+						/>
+						<PriorityRow
+							rating="D"
+							priorityTableData={priorityTable}
+							changePriority={changePriority}
+						/>
+						<PriorityRow
+							rating="E"
+							priorityTableData={priorityTable}
+							changePriority={changePriority}
+						/>
+					</tbody>
+				</table>
+			</div>
 		);
 	}
 }
-
-const coreMetatypes = ['human', 'elf', 'dwarf', 'ork', 'troll'];
 
 // helper function
 function isActive(active) {
@@ -34,52 +65,22 @@ const PriorityLabel = () => {
 	);
 };
 
-const MetatypeDataCell = ({rating, active, changePriority}) => {
-	let displayMetatypes = [],
-		metaInModal = [];
-
-	for (const race in priorityData[rating].metatype) {
-		let special = priorityData[rating].metatype[race].special,
-			karma = priorityData[rating].metatype[race].karma,
-			metatypeElement = <p key={race + rating}>{race} ({special}) {karma ? `K: ${karma}` : ''}</p>;
-
-		if (coreMetatypes.indexOf(race) > -1) {
-			displayMetatypes.push(metatypeElement);
-		} else {
-			metaInModal.push(metatypeElement);
-		}
-	}
-	return (
-		<td
-			className={isActive(active)}
-			onClick={() => {
-				changePriority({
-					type: 'SET_PRIORITY',
-					category: 'metatype',
-					rating
-				});
-			}}
-		>
-			{displayMetatypes}
-			<Modal modalName={`Extra Options ${rating}`} modalContent={metaInModal} />
-		</td>
-	);
-};
-
 
 const AttributeDataCell = ({rating, active, changePriority}) => {
 	return (
 		<td
-			className={isActive(active)}
-			onClick={() => {
-				changePriority({
-					type: 'SET_PRIORITY',
-					category: 'attribute',
-					rating
-				});
-			}}
-		>
-			{priorityData[rating].attributes}
+			className={isActive(active)}>
+			<button
+				className="prioritytable--btn-select btn-link"
+				onClick={() => {
+					changePriority({
+						type: 'SET_PRIORITY',
+						category: 'attribute',
+						rating
+					});
+				}}>
+				{priorityData[rating].attributes}
+			</button>
 		</td>
 	);
 };
@@ -175,81 +176,53 @@ const ResourcesDataCell = ({rating, active, changePriority}) => {
 		</td>);
 };
 
-const PriorityRow = ({rating, priorityTableData, actions}) => {
+const PriorityRow = ({rating, priorityTableData, changePriority}) => {
 	return (
 		<tr>
 			<th>{rating}</th>
 			<MetatypeDataCell
 				rating={rating}
 				active={priorityTableData.metatype === rating}
-				changePriority={actions}
+				changePriority={changePriority}
 			/>
 			<AttributeDataCell
 				rating={rating}
 				active={priorityTableData.attribute === rating}
-				changePriority={actions}
+				changePriority={changePriority}
 			/>
 			<MagicDataCell
 				rating={rating}
 				active={priorityTableData.magres === rating}
-				changePriority={actions}
+				changePriority={changePriority}
 			/>
 			<SkillsDataCell
 				rating={rating}
 				active={priorityTableData.skills === rating}
-				changePriority={actions}
+				changePriority={changePriority}
 			/>
 			<ResourcesDataCell
 				rating={rating}
 				active={priorityTableData.resources === rating}
-				changePriority={actions}
+				changePriority={changePriority}
 			/>
 		</tr>
 	);
 };
 
-const PriorityTable = ({priorityTableData, actions}) => {
-	return (
-		<div className="table-responsive">
-			<h2>Priority Table</h2>
-			<table className="table table-bordered priority-table">
-				<PriorityLabel />
-				<tbody>
-					<PriorityRow
-						rating="A"
-						priorityTableData={priorityTableData}
-						actions={actions}
-					/>
-					<PriorityRow
-						rating="B"
-						priorityTableData={priorityTableData}
-						actions={actions}
-					/>
-					<PriorityRow
-						rating="C"
-						priorityTableData={priorityTableData}
-						actions={actions}
-					/>
-					<PriorityRow
-						rating="D"
-						priorityTableData={priorityTableData}
-						actions={actions}
-					/>
-					<PriorityRow
-						rating="E"
-						priorityTableData={priorityTableData}
-						actions={actions}
-					/>
-				</tbody>
-			</table>
-		</div>
-	);
+
+MagicDataCell.propTypes = AttributeDataCell.propTypes = {
+	changePriority: React.PropTypes.func.isRequired,
+	active: React.PropTypes.bool.isRequired,
+	rating: React.PropTypes.string.isRequired
 };
 
 PriorityTableComponent.displayName = 'PriorityTableComponent';
 
 // Uncomment properties you need
-// PriorityTableComponent.propTypes = {};
+PriorityTableComponent.propTypes = {
+	changePriority: propTypeChecking.changePriority,
+	priorityTable: propTypeChecking.priorityTable
+};
 // PriorityTableComponent.defaultProps = {};
 
 export default PriorityTableComponent;
