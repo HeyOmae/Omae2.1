@@ -51,7 +51,7 @@ import MagicSelectionComponent from '../components/magic/MagicSelectionComponent
 import SkillsComponent from '../components/skills/SkillsComponent';
 import StreetGearComponent from '../components/gear/StreetGearComponent';
 import Summary from './summary';
-import PropTypeChecking from '../config/proptypeChecking';
+import PropTypeChecking from '../config/propTypeChecking';
 /* Populated by react-webpack-redux:reducer */
 class App extends Component {
 	componentWillUpdate(newProps) {

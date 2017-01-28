@@ -2,7 +2,7 @@ import React from 'react';
 import Modal from '../ModalComponent';
 import FilterTable from '../FilterableTable';
 
-import PropTypeChecking from '../../config/proptypeChecking';
+import PropTypeChecking from '../../config/propTypeChecking';
 
 import '../../styles/skills/Skillgroups.sass';
 

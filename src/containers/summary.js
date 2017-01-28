@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import SummaryComponent from '../components/SummaryComponent';
 import fixSummary from '../actions/app/fixSummary';
-import PropTypeChecking from '../config/proptypeChecking';
+import PropTypeChecking from '../config/propTypeChecking';
 
 function handleScroll(summaryElement) {
 	const {actions} = this;

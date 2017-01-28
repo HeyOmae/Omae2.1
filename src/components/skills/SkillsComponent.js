@@ -6,7 +6,7 @@ import priorityTableData from '../data/priority.json';
 import FreeSkills from './FreeSkills';
 import ActiveSkill from './ActiveSkill';
 import DisplaySkills from './DisplaySkills';
-import PropTypeChecking from '../../config/proptypeChecking';
+import PropTypeChecking from '../../config/propTypeChecking';
 
 import '../../styles/skills/ActiveSkills.sass';
 

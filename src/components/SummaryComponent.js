@@ -2,7 +2,7 @@ import React from 'react';
 import RedditExport from './export/RedditComponent';
 import metatypeData from './data/metatype.json';
 import priorityTableData from './data/priority.json';
-import PropTypeChecking from '../config/proptypeChecking';
+import PropTypeChecking from '../config/propTypeChecking';
 
 import '../styles/Summary.sass';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import FilterTable from '../FilterableTable';
-import PropTypeChecking from '../../config/proptypeChecking';
+import PropTypeChecking from '../../config/propTypeChecking';
 
 function ActiveSkill({
 	skillList,
