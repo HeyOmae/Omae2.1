@@ -91,9 +91,9 @@ const MagicDataCell = ({rating, active, changePriority}) => {
 	for (const magicType in priorityData[rating].magic) {
 		const magicStats = priorityData[rating].magic[magicType];
 
-		let skills = <span />,
-			spells = <span />,
-			magicDetails = <span />;
+		let skills = null,
+			spells = null,
+			magicDetails = null;
 
 		if (magicType === 'mundane') {
 			magicDetails = <span>Jack and Squat at the Rating of zilch.</span>;
@@ -122,16 +122,18 @@ const MagicDataCell = ({rating, active, changePriority}) => {
 
 	return (
 		<td
-			className={isActive(active)}
-			onClick={() => {
-				changePriority({
-					type: 'SET_PRIORITY',
-					category: 'magres',
-					rating
-				});
-			}}
-		>
-			{magicStatBlock}
+			className={isActive(active)}>
+			<button
+				className="prioritytable--btn-select btn-link"
+				onClick={() => {
+					changePriority({
+						type: 'SET_PRIORITY',
+						category: 'magres',
+						rating
+					});
+				}}>
+				{magicStatBlock}
+			</button>
 		</td>
 	);
 };
@@ -146,16 +148,18 @@ const SkillsDataCell = ({rating, active, changePriority}) => {
 
 	return (
 		<td
-			className={isActive(active)}
-			onClick={() => {
-				changePriority({
-					type: 'SET_PRIORITY',
-					category: 'skills',
-					rating
-				});
-			}}
-		>
+			className={isActive(active)}>
+			<button
+				className="prioritytable--btn-select btn-link"
+				onClick={() => {
+					changePriority({
+						type: 'SET_PRIORITY',
+						category: 'skills',
+						rating
+					});
+				}}>
 			{priorityData[rating].skills.skillpoints}{skillsgroupBlock}
+			</button>
 		</td>
 	);
 };
