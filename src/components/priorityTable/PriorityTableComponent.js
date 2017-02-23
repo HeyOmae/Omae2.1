@@ -3,6 +3,7 @@ import 'styles/PriorityTable.scss';
 import priorityData from '../data/priority.json';
 import propTypeChecking from '../../config/propTypeChecking';
 import MetatypeDataCell from './MetatypeDataCell';
+import MagicDataCell from './MagicDataCell';
 
 class PriorityTableComponent extends React.Component {
 	render() {
@@ -85,59 +86,6 @@ const AttributeDataCell = ({rating, active, changePriority}) => {
 	);
 };
 
-const MagicDataCell = ({rating, active, changePriority}) => {
-	const magicStatBlock = [];
-
-	for (const magicType in priorityData[rating].magic) {
-		const magicStats = priorityData[rating].magic[magicType];
-
-		let skills = null,
-			spells = null,
-			magicDetails = null;
-
-		if (magicType === 'mundane') {
-			magicDetails = <span>Jack and Squat at the Rating of zilch.</span>;
-		} else {
-			if (magicStats.skills) {
-				skills = <span>, {magicStats.skills.ammount} Rating {magicStats.skills.rating} {magicStats.skills.attribute} skills</span>;
-			} else if (magicStats.skillsgroup) {
-				skills = <span>, {magicStats.skillsgroup.ammount} Rating {magicStats.skillsgroup.rating} {magicStats.skills.attribute} skillgroup</span>;
-			}
-
-			if (magicStats.spells) {
-				spells = <span>, {magicStats.spells.points} {magicStats.spells.type}</span>;
-			}
-
-			magicDetails = <span>{magicStats.attribute.name} {magicStats.attribute.points}{skills}{spells}</span>;
-		}
-
-
-		magicStatBlock.push(
-			<p key={magicType}>
-				<strong>{magicType}: </strong>
-				{magicDetails}
-			</p>
-		);
-	}
-
-	return (
-		<td
-			className={isActive(active)}>
-			<button
-				className="prioritytable--btn-select btn-link"
-				onClick={() => {
-					changePriority({
-						type: 'SET_PRIORITY',
-						category: 'magres',
-						rating
-					});
-				}}>
-				{magicStatBlock}
-			</button>
-		</td>
-	);
-};
-
 const SkillsDataCell = ({rating, active, changePriority}) => {
 	let skillsgroupBlock = <span />,
 		skillgroups = priorityData[rating].skills.grouppoints;
@@ -195,8 +143,8 @@ const PriorityRow = ({rating, priorityTableData, changePriority}) => {
 				changePriority={changePriority}
 			/>
 			<MagicDataCell
+				isActive={isActive(priorityTableData.magres === rating)}
 				rating={rating}
-				active={priorityTableData.magres === rating}
 				changePriority={changePriority}
 			/>
 			<SkillsDataCell
@@ -213,8 +161,7 @@ const PriorityRow = ({rating, priorityTableData, changePriority}) => {
 	);
 };
 
-
-MagicDataCell.propTypes = AttributeDataCell.propTypes = {
+AttributeDataCell.propTypes = {
 	changePriority: React.PropTypes.func.isRequired,
 	active: React.PropTypes.bool.isRequired,
 	rating: React.PropTypes.string.isRequired
