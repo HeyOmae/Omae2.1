@@ -176,7 +176,7 @@ PriorityTableComponent.displayName = 'PriorityTableComponent';
 
 // Uncomment properties you need
 PriorityTableComponent.propTypes = {
-	changePriority: propTypeChecking.changePriority,
+	changePriority: React.PropTypes.func.isRequired,
 	priorityTable: propTypeChecking.priorityTable
 };
 // PriorityTableComponent.defaultProps = {};

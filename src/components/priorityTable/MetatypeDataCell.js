@@ -12,7 +12,7 @@ class MetatypeDataCell extends React.Component {
 		Object.keys(priorityData[rating].metatype).forEach((race) => {
 			const special = priorityData[rating].metatype[race].special,
 				karma = priorityData[rating].metatype[race].karma,
-				metatypeElement = <p key={race + rating}>{race} ({special}) {karma ? `K: ${karma}` : ''}</p>;
+				metatypeElement = <li key={race + rating}>{race} ({special}) {karma ? `K: ${karma}` : ''}</li>;
 
 			if (coreMetatypes.indexOf(race) > -1) {
 				displayMetatypes.push(metatypeElement);
@@ -40,9 +40,11 @@ class MetatypeDataCell extends React.Component {
 							rating
 						});
 					}}>
-					{displayMetatypes}
+					<ul>
+						{displayMetatypes}
+					</ul>
 				</button>
-				<Modal modalName={`Extra Options ${rating}`} modalContent={metaInModal} />
+				<Modal modalName={`Extra Options ${rating}`} modalContent={<ul>{metaInModal}</ul>} />
 			</td>
 		);
 	}
