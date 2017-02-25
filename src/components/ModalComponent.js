@@ -2,6 +2,7 @@ import React, {PropTypes} from 'react';
 import { connect } from 'react-redux';
 
 import 'styles/Modal.sass';
+import actionToggleModal from '../actions/toggleModal';
 
 class ModalComponent extends React.Component {
 	render() {
@@ -32,7 +33,7 @@ class ModalComponent extends React.Component {
 					<div
 						id={modalID}
 						className="modal"
-						onClick={(e) => {
+						onMouseUp={(e) => {
 							if (e.target.id === modalID) {
 								toggleModal();
 							}
@@ -76,7 +77,11 @@ ModalComponent.displayName = 'ModalComponent';
 
 // Uncomment properties you need
 ModalComponent.propTypes = {
-	modalToggle: PropTypes.string.isRequired
+	modalName: PropTypes.string.isRequired,
+	modalContent: PropTypes.element.isRequired,
+	modalToggle: PropTypes.string.isRequired,
+	toggleModalAction: PropTypes.func.isRequired,
+	modalID: PropTypes.string
 };
 
 function mapStateToProps(state) {
@@ -85,4 +90,4 @@ function mapStateToProps(state) {
 
 // ModalComponent.defaultProps = {};
 
-export default connect(mapStateToProps, { toggleModalAction: require('../actions/toggleModal.js')})(ModalComponent);
+export default connect(mapStateToProps, { toggleModalAction: actionToggleModal })(ModalComponent);
