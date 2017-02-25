@@ -87,12 +87,7 @@ const AttributeDataCell = ({rating, active, changePriority}) => {
 };
 
 const SkillsDataCell = ({rating, active, changePriority}) => {
-	let skillsgroupBlock = <span />,
-		skillgroups = priorityData[rating].skills.grouppoints;
-
-	if (skillgroups) {
-		skillsgroupBlock = <span>/{skillgroups}</span>;
-	}
+	const skillgroups = priorityData[rating].skills.grouppoints;
 
 	return (
 		<td
@@ -106,7 +101,7 @@ const SkillsDataCell = ({rating, active, changePriority}) => {
 						rating
 					});
 				}}>
-			{priorityData[rating].skills.skillpoints}{skillsgroupBlock}
+				{priorityData[rating].skills.skillpoints}{skillgroups ? <span>/{skillgroups}</span> : null}
 			</button>
 		</td>
 	);
@@ -116,15 +111,19 @@ const ResourcesDataCell = ({rating, active, changePriority}) => {
 	return (
 		<td
 			className={isActive(active)}
-			onClick={() => {
-				changePriority({
-					type: 'SET_PRIORITY',
-					category: 'resources',
-					rating
-				});
-			}}
 		>
-			{priorityData[rating].resources}&yen;
+			<button
+				className="prioritytable--btn-select btn-link"
+				onClick={() => {
+					changePriority({
+						type: 'SET_PRIORITY',
+						category: 'resources',
+						rating
+					});
+				}}
+			>
+				{priorityData[rating].resources}&yen;
+			</button>
 		</td>);
 };
 
@@ -161,7 +160,13 @@ const PriorityRow = ({rating, priorityTableData, changePriority}) => {
 	);
 };
 
-AttributeDataCell.propTypes = {
+PriorityRow.propTypes = {
+	rating: React.PropTypes.string.isRequired,
+	priorityTableData: propTypeChecking.priorityTable,
+	changePriority: React.PropTypes.func.isRequired
+};
+
+ResourcesDataCell.propTypes = SkillsDataCell.propTypes = AttributeDataCell.propTypes = {
 	changePriority: React.PropTypes.func.isRequired,
 	active: React.PropTypes.bool.isRequired,
 	rating: React.PropTypes.string.isRequired
