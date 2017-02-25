@@ -3,50 +3,57 @@ import 'styles/MetatypeSelector.sass';
 import metatypeData from './data/metatype.json';
 import priorityData from './data/priority.json';
 
-class MetatypeSelectorComponent extends React.Component {
+class MetatypeSelectorComponent extends React.PureComponent {
 	render() {
-		const {priorityRating, metatype, action, karma} = this.props;
-		let buttonElements = [],
-			racialDetails = [],
-			currentMetaData = metatypeData[metatype.typeName];
+		const {priorityRating, metatype, action, karma} = this.props,
+			currentMetaData = metatypeData[metatype.typeName],
+			karmaOldCost = priorityData[metatype.priority].metatype[metatype.typeName].karma || 0,
+			priorityMetaData = priorityData[priorityRating].metatype;
 
-		for (const typeName in metatypeData) {
-			const selectedMetatype = metatype.typeName === typeName;
-			const priorityMetaData = priorityData[priorityRating].metatype;
-			buttonElements.push(
+		const buttonElements = Object.keys(metatypeData).map((typeName) => {
+			return (
 				<MetatypeButton
+					key={typeName}
 					typeName={typeName}
 					anOption={typeName in priorityMetaData}
-					checked={selectedMetatype}
-					key={typeName}
+					checked={metatype.typeName === typeName}
 					selectMetatypeAction={action}
 					priority={priorityRating}
 					karma={karma}
 					karmaNewCost={(priorityMetaData[typeName] && priorityMetaData[typeName].karma) || 0}
-					karmaOldCost={priorityData[metatype.priority].metatype[metatype.typeName].karma || 0}
+					karmaOldCost={karmaOldCost}
 				/>
 			);
+		});
 
-			if (selectedMetatype) {
-				const racials = metatypeData[typeName].racial;
-				for (const trait in racials) {
-					racialDetails.push(
-						<p key={typeName + trait}>
-							<strong>{trait}: </strong>
-							{racials[trait]}
-						</p>
-					);
-				}
-			}
-		}
+		const racial = metatypeData[metatype.typeName].racial;
+
+		const racialDetails = Object.keys(racial).map((trait) => {
+			return (
+				<p key={metatype.typeName + trait}>
+					<strong>{trait}: </strong>
+					{racial[trait]}
+				</p>
+			);
+		});
+
+
 		return (
 			<div className="metatypeselector-component">
 				<div className="row">
 					<h2>Metatype</h2>
-					<div className="col-md-12">
-						<div className="btn-group">
-							{buttonElements}
-						</div>
+					<div className="col-md-12 table-responsive">
+						<table className="table">
+							<tbody>
+								<tr>
+									<td>
+										<div className="btn-group">
+											{buttonElements}
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
 					<div className="col-sm-6">
 						<h3>Racial Traits</h3>
@@ -68,8 +75,9 @@ const MetatypeButton = ({typeName, anOption, checked, selectMetatypeAction, karm
 			className={`btn
 			${(!anOption && checked ? 'btn-danger' : 'btn-primary')}
 			${(anOption ? '' : 'disabled')}
-			${(checked ? 'active' : '')}`
-		}>
+			${(checked ? 'active' : '')}`}
+			htmlFor={`metatype-${typeName}`}
+		>
 			<input
 				type="radio"
 				name="metatype-selector"
@@ -78,10 +86,12 @@ const MetatypeButton = ({typeName, anOption, checked, selectMetatypeAction, karm
 				checked={checked}
 				onChange={() => {
 					if (anOption) {
-						// TODO: This is supershit, find a way to dispatch one action to handle this
-						selectMetatypeAction({typeName, priority});
-						karma({karmaPoints: karmaOldCost});
-						karma({karmaPoints: -karmaNewCost});
+						selectMetatypeAction({
+							typeName, 
+							priority,
+							karmaOldCost,
+							karmaNewCost
+						});
 					}
 				}}
 			/>
@@ -90,10 +100,29 @@ const MetatypeButton = ({typeName, anOption, checked, selectMetatypeAction, karm
 	);
 };
 
+MetatypeButton.propTypes = {
+	typeName: React.PropTypes.string.isRequired,
+	anOption: React.PropTypes.bool.isRequired,
+	checked: React.PropTypes.bool.isRequired,
+	selectMetatypeAction: React.PropTypes.func.isRequired,
+	karma: React.PropTypes.func.isRequired,
+	karmaNewCost: React.PropTypes.number.isRequired,
+	karmaOldCost: React.PropTypes.number.isRequired,
+	priority: React.PropTypes.string.isRequired
+};
+
 MetatypeSelectorComponent.displayName = 'MetatypeSelectorComponent';
 
 // Uncomment properties you need
-// MetatypeSelectorComponent.propTypes = {};
+MetatypeSelectorComponent.propTypes = {
+	priorityRating: React.PropTypes.string.isRequired,
+	metatype: React.PropTypes.shape({
+		typeName: React.PropTypes.string.isRequired,
+		priority: React.PropTypes.string.isRequired
+	}).isRequired,
+	action: React.PropTypes.func.isRequired,
+	karma: React.PropTypes.func.isRequired
+};
 // MetatypeSelectorComponent.defaultProps = {};
 
 export default MetatypeSelectorComponent;

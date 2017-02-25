@@ -8,11 +8,15 @@ const initialState = 25;
 
 const KarmaReducer = (state = initialState, action) => {
 	const actionsToTake = {
-		KARMA: (prevState, {karmaPoints}) => {
+		KARMA(prevState, {karmaPoints}) {
 			return prevState + karmaPoints;
 		},
 
-		DEFAULT: (prevState) => { return prevState; }
+		SELECT_METATYPE(prevState, {karmaOldCost, karmaNewCost}) {
+			return prevState + karmaOldCost - karmaNewCost;
+		},
+
+		DEFAULT(prevState) { return prevState; }
 	};
 	return (actionsToTake[action.type] || actionsToTake.DEFAULT)(state, action.parameter);
 };

@@ -10,8 +10,8 @@ const initialState = {
 
 const metatypeReducer = (state = initialState, action) => {
 	const actionsToTake = {
-		SELECT_METATYPE: (prevState, newState) => {
-			return newState;
+		SELECT_METATYPE: (prevState, {typeName, priority}) => {
+			return {typeName, priority};
 		},
 
 		DEFAULT: (prevState) => { return prevState; }
