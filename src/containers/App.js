@@ -78,8 +78,7 @@ class App extends Component {
 						<MetatypeSelector
 							priorityRating={priorityTableState.metatype}
 							metatype={selectMetatypeState}
-							action={actions.selectMetatype}
-							karma={actions.karma}/>
+							action={actions.selectMetatype}/>
 
 						<AttributesComponent
 							metatypeRating={priorityTableState.metatype}

@@ -5,7 +5,7 @@ import priorityData from './data/priority.json';
 
 class MetatypeSelectorComponent extends React.PureComponent {
 	render() {
-		const {priorityRating, metatype, action, karma} = this.props,
+		const {priorityRating, metatype, action} = this.props,
 			currentMetaData = metatypeData[metatype.typeName],
 			karmaOldCost = priorityData[metatype.priority].metatype[metatype.typeName].karma || 0,
 			priorityMetaData = priorityData[priorityRating].metatype;
@@ -19,7 +19,6 @@ class MetatypeSelectorComponent extends React.PureComponent {
 					checked={metatype.typeName === typeName}
 					selectMetatypeAction={action}
 					priority={priorityRating}
-					karma={karma}
 					karmaNewCost={(priorityMetaData[typeName] && priorityMetaData[typeName].karma) || 0}
 					karmaOldCost={karmaOldCost}
 				/>
@@ -69,7 +68,7 @@ class MetatypeSelectorComponent extends React.PureComponent {
 	}
 }
 
-const MetatypeButton = ({typeName, anOption, checked, selectMetatypeAction, karma, karmaNewCost, karmaOldCost, priority}) => {
+const MetatypeButton = ({typeName, anOption, checked, selectMetatypeAction, karmaNewCost, karmaOldCost, priority}) => {
 	return (
 		<label
 			className={`btn
@@ -87,7 +86,7 @@ const MetatypeButton = ({typeName, anOption, checked, selectMetatypeAction, karm
 				onChange={() => {
 					if (anOption) {
 						selectMetatypeAction({
-							typeName, 
+							typeName,
 							priority,
 							karmaOldCost,
 							karmaNewCost
@@ -105,7 +104,6 @@ MetatypeButton.propTypes = {
 	anOption: React.PropTypes.bool.isRequired,
 	checked: React.PropTypes.bool.isRequired,
 	selectMetatypeAction: React.PropTypes.func.isRequired,
-	karma: React.PropTypes.func.isRequired,
 	karmaNewCost: React.PropTypes.number.isRequired,
 	karmaOldCost: React.PropTypes.number.isRequired,
 	priority: React.PropTypes.string.isRequired
@@ -120,8 +118,7 @@ MetatypeSelectorComponent.propTypes = {
 		typeName: React.PropTypes.string.isRequired,
 		priority: React.PropTypes.string.isRequired
 	}).isRequired,
-	action: React.PropTypes.func.isRequired,
-	karma: React.PropTypes.func.isRequired
+	action: React.PropTypes.func.isRequired
 };
 // MetatypeSelectorComponent.defaultProps = {};
 
