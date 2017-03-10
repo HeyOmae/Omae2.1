@@ -1,4 +1,5 @@
 import React from 'react';
+import 'styles/magic/SpellSelector.sass';
 import Modal from '../ModalComponent';
 import DisplayTable from '../DisplayTableComponent';
 import FilterTable from '../FilterableTable';
@@ -6,10 +7,9 @@ import FilterTable from '../FilterableTable';
 import spellData from '../data/spells.json';
 import complexformData from '../data/complexforms.json';
 
-import 'styles/magic/SpellSelector.sass';
 
 // helper functions
-function createSpellCategoryLabel({category, damage}) {
+function createSpellCategoryLabel(damage, category) {
 	const spellLabel = `${category}-label`,
 		buildHeader = {
 			'Complex Forms': () => {
@@ -45,7 +45,7 @@ function createSpellCategoryLabel({category, damage}) {
 }
 
 function createSpellNameWithOptions(spellName) {
-	let partsOfName = {
+	const partsOfName = {
 			start: '',
 			end: '',
 			placeholderText: ''
@@ -64,87 +64,72 @@ function createSpellNameWithOptions(spellName) {
 }
 
 function createSpellIndividualRow(spellName, spellDetails, button, spellID) {
-	// TODO: refactor this to not be complete bulldrek
-
-	const buildRow = {
-		'Complex Forms': () => {
-			return (
-				<tr key={`complexform-${spellID}${spellName.start}${spellName.end}`}>
-					{button}
-					<td>
-						{spellName.start}
-						{spellName.placeholderText ?
-							<input
-								className="form-control spell-option"
-								type="text"
-								ref={`spellOption${spellDetails.name}`}
-								placeholder={spellName.placeholderText}/>
-							: null
-						}
-						{spellName.end || null}
-					</td>
-					<td>{spellDetails.target}</td>
-					<td>{spellDetails.duration}</td>
-					<td>{spellDetails.fv}</td>
-					<td>{`${spellDetails.source} p${spellDetails.page}`}</td>
-				</tr>
-			);
-		},
-		default: () => {
-			return (
-				<tr key={`spell-${spellID}${spellName.start}${spellName.end}`}>
-					{button}
-					<td>
-						{spellName.start}
-						{spellName.placeholderText ?
-							<input
-								className="form-control spell-option"
-								type="text"
-								ref={`spellOption${spellDetails.name}`}
-								placeholder={spellName.placeholderText}/>
-							: null
-						}
-						{spellName.end || null}
-					</td>
-					<td>{spellDetails.descriptor}</td>
-					<td>{spellDetails.type}</td>
-					<td>{spellDetails.range}</td>
-					{spellDetails.damage === '0' ? null : <td>{spellDetails.damage}</td>}
-					<td>{spellDetails.duration}</td>
-					<td>{spellDetails.dv}</td>
-					<td>{`${spellDetails.source} p${spellDetails.page}`}</td>
-				</tr>
-			);
-		}
-	};
-
-	return (buildRow[spellDetails.category] || buildRow.default)();
-
+	return spellDetails.category === 'Complex Forms' ? (
+		<tr key={`complexform-${spellID}${spellName.start}${spellName.end}`}>
+			{button}
+			<td>
+				{spellName.start}
+				{spellName.placeholderText ?
+					<input
+						className="form-control spell-option"
+						type="text"
+						ref={`spellOption${spellDetails.name}`}
+						placeholder={spellName.placeholderText}/>
+					: null
+				}
+				{spellName.end || null}
+			</td>
+			<td>{spellDetails.target}</td>
+			<td>{spellDetails.duration}</td>
+			<td>{spellDetails.fv}</td>
+			<td>{`${spellDetails.source} p${spellDetails.page}`}</td>
+		</tr>)
+			:
+		(<tr key={`spell-${spellID}${spellName.start}${spellName.end}`}>
+			{button}
+			<td>
+				{spellName.start}
+				{spellName.placeholderText ?
+					<input
+						className="form-control spell-option"
+						type="text"
+						ref={`spellOption${spellDetails.name}`}
+						placeholder={spellName.placeholderText}/>
+					: null
+				}
+				{spellName.end || null}
+			</td>
+			<td>{spellDetails.descriptor}</td>
+			<td>{spellDetails.type}</td>
+			<td>{spellDetails.range}</td>
+			{spellDetails.damage === '0' ? null : <td>{spellDetails.damage}</td>}
+			<td>{spellDetails.duration}</td>
+			<td>{spellDetails.dv}</td>
+			<td>{`${spellDetails.source} p${spellDetails.page}`}</td>
+		</tr>
+	);
 }
 
 function generateSpellDetailTablesRows(arrayOfSpells, generateBtnFn, abilityType) {
-	let spellTables = {},
-		spellID = 0;
+	const spellTables = {};
+	let spellID = 0;
 
 	arrayOfSpells.forEach((spell, spellIndex) => {
-		if (!spell.category) {
-			spell.category = abilityType;
-		}
+		const {category = abilityType} = spell;
+		let spellTableData = spellTables[category];
 
-		let spellTableData = spellTables[spell.category];
-
-		if (!spellTables[spell.category]) {
-			spellTables[spell.category] = {
-				header: {},
+		if (!spellTableData) {
+			spellTables[category] = {
+				header: createSpellCategoryLabel(spell.damage, category),
 				body: []
 			};
-			spellTableData = spellTables[spell.category];
-			spellTableData.header = createSpellCategoryLabel(spell);
+			spellTableData = spellTables[category];
 		}
 
-		let spellName = createSpellNameWithOptions(spell.name),
+		const spellName = createSpellNameWithOptions(spell.name),
 			addSpellButton = (<td>{generateBtnFn(spell, spellName, spellIndex)}</td>);
 
+		// eslint-disable-next-line no-plusplus
 		spellTableData.body.push(createSpellIndividualRow(spellName, spell, addSpellButton, spellID++));
 	});
 
@@ -162,13 +147,11 @@ class SpellSelectorComponent extends React.Component {
 					return complexformData;
 				}
 			},
-			abilityData = activeAbility[abilities]();
-		let spellsToSeletTables = {},
-			addSpellModals = [],
+			abilityData = activeAbility[abilities](),
 			generateAddSpellButton = (spell, spellName) => {
 				const addSpellClick = () => {
 					if (spellMax > selectedSpells.length) {
-						let spellNameOptions = this.refs[`spellOption${spell.name}`] ? this.refs[`spellOption${spell.name}`].value : '',
+						const spellNameOptions = this.refs[`spellOption${spell.name}`] ? this.refs[`spellOption${spell.name}`].value : '',
 							newName = spellName.start + spellNameOptions + spellName.end,
 							spellToAdd = Object.assign(
 								{},
@@ -185,23 +168,20 @@ class SpellSelectorComponent extends React.Component {
 				};
 
 				return (<button className="btn btn-success" onClick={addSpellClick}>+</button>);
-			};
-
-		// generated spell details to populate addSpellModals
-		spellsToSeletTables = generateSpellDetailTablesRows(abilityData, generateAddSpellButton, abilities);
-
-		for (const spellCat in spellsToSeletTables) {
-			addSpellModals.push(
-				<Modal
-					key={`spells-${spellCat}`}
-					modalName={spellCat}
-					modalContent={
-						<SpellsTables
-							spellData={spellsToSeletTables[spellCat]}/>
-					}
-				/>
-			);
-		}
+			},
+			spellsToSeletTables = generateSpellDetailTablesRows(abilityData, generateAddSpellButton, abilities),
+			addSpellModals = Object.keys(spellsToSeletTables).map((spellCat) => {
+				return (
+					<Modal
+						key={`spells-${spellCat}`}
+						modalName={spellCat}
+						modalContent={
+							<SpellsTables
+								spellData={spellsToSeletTables[spellCat]}/>
+						}
+					/>
+				);
+			});
 
 		return (
 			<div className="spells">
@@ -215,6 +195,16 @@ class SpellSelectorComponent extends React.Component {
 		);
 	}
 }
+
+SpellSelectorComponent.propTypes = {
+	abilities: React.PropTypes.string.isRequired,
+	addSpell: React.PropTypes.func.isRequired,
+	removeSpell: React.PropTypes.func.isRequired,
+	selectedSpells: React.PropTypes.arrayOf(
+			React.PropTypes.object.isRequired
+		).isRequired,
+	spellMax: React.PropTypes.number.isRequired
+};
 
 const SpellSelectedDisplay = ({selectedSpells, removeSpell}) => {
 	let spellTableData = {},
