@@ -1,10 +1,10 @@
 import React from 'react';
+import 'styles/magic/SpellSelector.sass';
 import Modal from '../ModalComponent';
 import DisplayTable from '../DisplayTableComponent';
 import FilterTable from '../FilterableTable';
 import powerData from '../data/powers.json';
 
-import 'styles/magic/SpellSelector.sass';
 
 // helper functions
 function createPowerCategoryLabel() {
@@ -23,13 +23,12 @@ function createPowerCategoryLabel() {
 function powerBonus(boni, powerName) {
 	const powerBoni = {
 		selectattribute: (attributes) => {
-			const options = [];
-			attributes.attribute.forEach((attName) => {
+			const options = attributes.attribute.map((attName) => {
 				const loweCase = attName.toLowerCase();
-				options.push(<option key={`${powerName}-${attName}`}> ({loweCase}) </option>);
+				return (<option key={`${powerName}-${attName}`}> ({loweCase}) </option>);
 			});
 
-			return (<select className="form-control" ref={`powerOption${powerName}`}>{options}</select>);
+			return (<select key={`${powerName}-select-attribute`} className="form-control" ref={`powerOption${powerName}`}>{options}</select>);
 		},
 		default: (thing) => {
 			return Object.keys(thing).join(', ');
@@ -37,12 +36,11 @@ function powerBonus(boni, powerName) {
 	};
 
 	if (typeof boni === 'object') {
-		for (const effect in boni) {
+		return Object.keys(boni).map((effect) => {
 			return (powerBoni[effect] || powerBoni.default)(boni[effect]);
-		}
-	} else {
-		return boni;
+		});
 	}
+	return boni;
 }
 
 function createPowerIndividualRow(powerDetails, button, powerID, levels = powerDetails.levels) {
@@ -95,23 +93,18 @@ function createSelectedPowerIndividualRow(powerDetails, button, powerID, modifyP
 }
 
 function generatePowerDetailTablesRows(arrayOfPowers, generateBtnFn, modifyPowers) {
-	let powerTables = {
-			header: createPowerCategoryLabel(),
-			body: []
-		},
-		powerID = 0;
+	let powerID = 0;
+	const powerTables = {
+		header: createPowerCategoryLabel(),
+		body: arrayOfPowers.map((power, powerIndex) => {
+			const addPowerButton = (<td>{generateBtnFn(power, powerIndex)}</td>);
 
-	arrayOfPowers.forEach((power, powerIndex) => {
-
-		const addPowerButton = (<td>{generateBtnFn(power, powerIndex)}</td>);
-
-		if (modifyPowers && power.levels > 0) {
-			powerTables.body.push(createSelectedPowerIndividualRow(power, addPowerButton, powerID++, modifyPowers, powerIndex));
-		} else {
-			powerTables.body.push(createPowerIndividualRow(power, addPowerButton, powerID++));
-		}
-
-	});
+			if (modifyPowers && power.levels > 0) {
+				return (createSelectedPowerIndividualRow(power, addPowerButton, powerID++, modifyPowers, powerIndex));
+			}
+			return (createPowerIndividualRow(power, addPowerButton, powerID++));
+		})
+	};
 
 	return powerTables;
 }
