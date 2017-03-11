@@ -63,22 +63,34 @@ function createSpellNameWithOptions(spellName) {
 	return partsOfName;
 }
 
+function spellNameTableData({start, end, placeholderText}, name) {
+	return (
+		<td>
+			{start}
+			{placeholderText ?
+				<input
+					className="form-control spell-option"
+					type="text"
+					ref={`spellOption${name}`}
+					placeholder={placeholderText}/>
+				: null
+			}
+			{end || null}
+		</td>
+	);
+}
+
+spellNameTableData.propTypes = {
+	start: React.PropTypes.string.isRequired,
+	end: React.PropTypes.string.isRequired,
+	placeholderText: React.PropTypes.string
+};
+
 function createSpellIndividualRow(spellName, spellDetails, button, spellID) {
 	return spellDetails.category === 'Complex Forms' ? (
 		<tr key={`complexform-${spellID}${spellName.start}${spellName.end}`}>
 			{button}
-			<td>
-				{spellName.start}
-				{spellName.placeholderText ?
-					<input
-						className="form-control spell-option"
-						type="text"
-						ref={`spellOption${spellDetails.name}`}
-						placeholder={spellName.placeholderText}/>
-					: null
-				}
-				{spellName.end || null}
-			</td>
+			{spellNameTableData(spellName, spellDetails.name)}
 			<td>{spellDetails.target}</td>
 			<td>{spellDetails.duration}</td>
 			<td>{spellDetails.fv}</td>
@@ -87,18 +99,7 @@ function createSpellIndividualRow(spellName, spellDetails, button, spellID) {
 			:
 		(<tr key={`spell-${spellID}${spellName.start}${spellName.end}`}>
 			{button}
-			<td>
-				{spellName.start}
-				{spellName.placeholderText ?
-					<input
-						className="form-control spell-option"
-						type="text"
-						ref={`spellOption${spellDetails.name}`}
-						placeholder={spellName.placeholderText}/>
-					: null
-				}
-				{spellName.end || null}
-			</td>
+			{spellNameTableData(spellName, spellDetails.name)}
 			<td>{spellDetails.descriptor}</td>
 			<td>{spellDetails.type}</td>
 			<td>{spellDetails.range}</td>
