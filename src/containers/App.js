@@ -59,6 +59,7 @@ class App extends Component {
 			document.body.className = newProps.styleTheme;
 		}
 	}
+
 	render() {
 		const {actions, priorityTableState, selectMetatypeState, attributes, selectMagRes, settingSkills, spellSelect, quality, karmaState, purchaseGearState} = this.props,
 			karmaTotal = karmaState - spellSelect.powerPointsKarma;

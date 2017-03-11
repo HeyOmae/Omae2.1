@@ -152,6 +152,7 @@ class SpellSelectorComponent extends React.Component {
 			generateAddSpellButton = (spell, spellName) => {
 				const addSpellClick = () => {
 					if (spellMax > selectedSpells.length) {
+						// eslint-disable-next-line react/no-string-refs
 						const spellNameOptions = this.refs[`spellOption${spell.name}`] ? this.refs[`spellOption${spell.name}`].value : '',
 							newName = spellName.start + spellNameOptions + spellName.end,
 							spellToAdd = Object.assign(
@@ -178,7 +179,7 @@ class SpellSelectorComponent extends React.Component {
 						modalName={spellCat}
 						modalContent={
 							<SpellsTables
-								spellData={spellsToSeletTables[spellCat]}/>
+								spellRowData={spellsToSeletTables[spellCat]}/>
 						}
 					/>
 				);
@@ -186,8 +187,10 @@ class SpellSelectorComponent extends React.Component {
 
 		return (
 			<div className="spells">
-				<div className="spell-selector">
-					{addSpellModals}
+				<div className="spell-selector row">
+					<div className="col">
+						{addSpellModals}
+					</div>
 				</div>
 				<SpellSelectedDisplay
 					selectedSpells={selectedSpells}
@@ -208,42 +211,54 @@ SpellSelectorComponent.propTypes = {
 };
 
 const SpellSelectedDisplay = ({selectedSpells, removeSpell}) => {
-	let spellTableData = {},
-		spellDisplayTables = [],
-		generateRemoveSpellButton = (spell, spellName, index) => {
+	const generateRemoveSpellButton = (spell, spellName, index) => {
 			const removeSpellClick = () => {
 				removeSpell({spellIndex: index});
 			};
 			return (<button className="btn btn-warning" onClick={removeSpellClick}>-</button>);
-		};
-
-	spellTableData = generateSpellDetailTablesRows(selectedSpells, generateRemoveSpellButton);
-
-	for (const spellCat in spellTableData) {
-		const spellData = spellTableData[spellCat];
-		spellDisplayTables.push(
-			<div key={`selected-${spellCat}`} className={`selected-spell-in-${spellCat}`}>
-				<h4>{spellCat}</h4>
-				<DisplayTable
-					header={spellData.header}
-					body={spellData.body}/>
-			</div>
-		);
-	}
+		},
+		spellTableData = generateSpellDetailTablesRows(selectedSpells, generateRemoveSpellButton),
+		spellDisplayTables = Object.keys(spellTableData).map((spellCat) => {
+			const spellCatagoryData = spellTableData[spellCat];
+			return (
+				<div key={`selected-${spellCat}`} className={`selected-spell-in-${spellCat} table-responsive`}>
+					<h4>{spellCat}</h4>
+					<DisplayTable
+						header={spellCatagoryData.header}
+						body={spellCatagoryData.body}/>
+				</div>
+			);
+		});
 
 	return (
-		<div className="selected-spells">
-			{spellDisplayTables}
+		<div className="selected-spells row">
+			<div className="col">
+				{spellDisplayTables}
+			</div>
 		</div>
 	);
 };
 
-const SpellsTables = ({spellData}) => {
+SpellSelectedDisplay.propTypes = {
+	selectedSpells: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
+	removeSpell: React.PropTypes.func.isRequired
+};
+
+const SpellsTables = ({spellRowData}) => {
 	return (
 		<div className="table-responsive">
-			<FilterTable tableData={spellData} />
+			<FilterTable tableData={spellRowData} />
 		</div>
 	);
+};
+
+SpellsTables.propTypes = {
+	spellRowData: React.PropTypes.shape({
+		header: React.PropTypes.element.isRequired,
+		body: React.PropTypes.arrayOf(
+			React.PropTypes.element.isRequired
+		)
+	}).isRequired
 };
 
 export default SpellSelectorComponent;
