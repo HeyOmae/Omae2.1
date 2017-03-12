@@ -1,9 +1,10 @@
 import React from 'react';
+import 'styles/magic/MagicSelection.sass';
 import SpellSelector from './SpellSelectorComponent';
 import PowerSelector from './PowerSelectorComponent';
 import priorityData from '../data/priority.json';
+import PropTypeChecking from '../../config/propTypeChecking';
 
-import '../../styles/magic/MagicSelection.sass';
 
 const MagicSelectionComponent = ({magicPriority, magictype, magicAttribute, selectedSpellsPowers, actions}) => {
 	const awakenTypes = ['Mage', 'Mystic', 'Technomancer', 'Adept', 'Aspected', 'mundane'],
@@ -42,15 +43,15 @@ const MagicSelectionComponent = ({magicPriority, magictype, magicAttribute, sele
 			}
 		},
 		displayAbilities = (toggleAbilities[magictype] || toggleAbilities.default)();
-	let awakenButtons = [],
-		spellMax = 0;
+	const awakenButtons = [];
+	let spellMax = 0;
 
 	if (magicPriorityStats[magictype] && magicPriorityStats[magictype].spells) {
 		spellMax = magicPriorityStats[magictype].spells.points;
 	}
 
-	function changeMagicType(magictype) {
-		actions.selectMagictype(magictype);
+	function changeMagicType(magicTypeName) {
+		actions.selectMagictype(magicTypeName);
 		const reset = {
 			Mage: () => {
 				actions.resetAbility({ability: 'complexforms'});
@@ -71,7 +72,7 @@ const MagicSelectionComponent = ({magicPriority, magictype, magicAttribute, sele
 				actions.resetAbility({ability: 'complexforms'});
 			}
 		};
-		(reset[magictype] || reset.default)();
+		(reset[magicTypeName] || reset.default)();
 	}
 
 	awakenTypes.forEach((typeName) => {
@@ -151,7 +152,9 @@ const AwakenButton = ({typeName, anOption, checked, selectMagicTypeAction, reset
 			${(!anOption && checked ? 'btn-danger' : 'btn-primary')}
 			${(anOption ? '' : 'disabled')}
 			${(checked ? 'active' : '')}`
-		}>
+			}
+			htmlFor={`awakentype-${typeName}`}
+		>
 			<input
 				type="radio"
 				name="magres-selector"
@@ -170,10 +173,24 @@ const AwakenButton = ({typeName, anOption, checked, selectMagicTypeAction, reset
 	);
 };
 
+AwakenButton.propTypes = {
+	typeName: React.PropTypes.string.isRequired,
+	anOption: React.PropTypes.bool.isRequired,
+	checked: React.PropTypes.bool.isRequired,
+	selectMagicTypeAction: React.PropTypes.func.isRequired,
+	resetFreeMagicSkills: React.PropTypes.func.isRequired
+};
+
 MagicSelectionComponent.displayName = 'MagicMagicSelectionComponent';
 
 // Uncomment properties you need
-// MagicSelectionComponent.propTypes = {};
+MagicSelectionComponent.propTypes = {
+	magicPriority: React.PropTypes.string.isRequired,
+	magictype: PropTypeChecking.selectMagRes,
+	magicAttribute: React.PropTypes.number.isRequired,
+	selectedSpellsPowers: PropTypeChecking.spellSelect,
+	actions: PropTypeChecking.actions
+};
 // MagicSelectionComponent.defaultProps = {};
 
 export default MagicSelectionComponent;
