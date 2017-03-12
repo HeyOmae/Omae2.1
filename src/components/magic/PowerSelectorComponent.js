@@ -4,6 +4,7 @@ import Modal from '../ModalComponent';
 import DisplayTable from '../DisplayTableComponent';
 import FilterTable from '../FilterableTable';
 import powerData from '../data/powers.json';
+import PropTypeChecking from '../../config/propTypeChecking';
 
 
 // helper functions
@@ -98,11 +99,13 @@ function generatePowerDetailTablesRows(arrayOfPowers, generateBtnFn, modifyPower
 		header: createPowerCategoryLabel(),
 		body: arrayOfPowers.map((power, powerIndex) => {
 			const addPowerButton = (<td>{generateBtnFn(power, powerIndex)}</td>);
+			// eslint-disable-next-line no-plusplus
+			++powerID;
 
 			if (modifyPowers && power.levels > 0) {
-				return (createSelectedPowerIndividualRow(power, addPowerButton, powerID++, modifyPowers, powerIndex));
+				return (createSelectedPowerIndividualRow(power, addPowerButton, powerID, modifyPowers, powerIndex));
 			}
-			return (createPowerIndividualRow(power, addPowerButton, powerID++));
+			return (createPowerIndividualRow(power, addPowerButton, powerID));
 		})
 	};
 
@@ -140,11 +143,11 @@ class PowerSelectorComponent extends React.Component {
 			(bonusAction[name] || bonusAction.default)();
 		}
 
-		let powersToSeletTableRows = [],
-			generateAddPowerButton = (power) => {
+		const generateAddPowerButton = (power) => {
 				const addPowerClick = () => {
 					if (pointSpent + Number(power.points) <= maxPointPoints) {
-						let powerNameOptions = this.refs[`powerOption${power.name}`] ? this.refs[`powerOption${power.name}`].value : '',
+						// eslint-disable-next-line react/no-string-refs
+						const powerNameOptions = this.refs[`powerOption${power.name}`] ? this.refs[`powerOption${power.name}`].value : '',
 							newName = power.name + powerNameOptions,
 							powerToAdd = Object.assign(
 							{},
@@ -169,10 +172,9 @@ class PowerSelectorComponent extends React.Component {
 				};
 
 				return (<button className="btn btn-success" onClick={addPowerClick}>+</button>);
-			};
-
-		// generated power details to populate addPowerModals
-		powersToSeletTableRows = generatePowerDetailTablesRows(powerData, generateAddPowerButton);
+			},
+			// generated power details to populate addPowerModals
+			powersToSeletTableRows = generatePowerDetailTablesRows(powerData, generateAddPowerButton);
 
 		return (
 			<div className="powers">
@@ -189,7 +191,7 @@ class PowerSelectorComponent extends React.Component {
 							modalName="Powers"
 							modalContent={
 								<PowersTables
-									powerData={powersToSeletTableRows}/>
+									powerRowData={powersToSeletTableRows}/>
 							}
 						/>
 					</div>
@@ -206,9 +208,17 @@ class PowerSelectorComponent extends React.Component {
 	}
 }
 
+PowerSelectorComponent.propTypes = {
+	actions: PropTypeChecking.actions,
+	selectedPowers: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
+	pointSpent: React.PropTypes.number.isRequired,
+	maxPointPoints: React.PropTypes.number.isRequired,
+	isMystic: React.PropTypes.bool.isRequired,
+	karmaSpent: React.PropTypes.number.isRequired
+};
+
 const PowerSelectedDisplay = ({selectedPowers, removePower, modifyPowers}) => {
-	let powerTableData = [],
-		generateRemovePowerButton = (power, index) => {
+	const generateRemovePowerButton = (power, index) => {
 			const removePowerClick = () => {
 				if (power.bonus !== 'N/A') {
 					modifyPowers.bonusDown(power.name.match(/.+?(?=\()/g), power.bonus, power.levels);
@@ -216,9 +226,8 @@ const PowerSelectedDisplay = ({selectedPowers, removePower, modifyPowers}) => {
 				removePower({powerIndex: index, isMystic: modifyPowers.isMystic});
 			};
 			return (<button className="btn btn-warning" onClick={removePowerClick}>-</button>);
-		};
-
-	powerTableData = generatePowerDetailTablesRows(selectedPowers, generateRemovePowerButton, modifyPowers);
+		},
+		powerTableData = generatePowerDetailTablesRows(selectedPowers, generateRemovePowerButton, modifyPowers);
 
 	return (
 		<div className="selected-powers">
@@ -230,12 +239,36 @@ const PowerSelectedDisplay = ({selectedPowers, removePower, modifyPowers}) => {
 	);
 };
 
-const PowersTables = ({powerData}) => {
+PowerSelectedDisplay.propTypes = {
+	selectedPowers: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
+	removePower: React.PropTypes.func.isRequired,
+	modifyPowers: React.PropTypes.shape({
+		raisePower: React.PropTypes.func.isRequired,
+		lowerPower: React.PropTypes.func.isRequired,
+		pointSpent: React.PropTypes.number.isRequired,
+		maxPointPoints: React.PropTypes.number.isRequired,
+		bonusUp: React.PropTypes.func.isRequired,
+		bonusDown: React.PropTypes.func.isRequired,
+		isMystic: React.PropTypes.bool.isRequired
+	}).isRequired
+};
+
+const PowersTables = ({powerRowData}) => {
 	return (
 		<div className="table-responsive">
-			<FilterTable tableData={powerData} />
+			<FilterTable tableData={powerRowData} />
 		</div>
 	);
+};
+
+
+PowersTables.propTypes = {
+	powerRowData: React.PropTypes.shape({
+		header: React.PropTypes.element.isRequired,
+		body: React.PropTypes.arrayOf(
+			React.PropTypes.element.isRequired
+		)
+	}).isRequired
 };
 
 export default PowerSelectorComponent;
