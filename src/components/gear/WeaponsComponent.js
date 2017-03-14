@@ -4,13 +4,13 @@ import FilterTable from '../FilterableTable';
 import DisplayTable from '../DisplayTableComponent';
 import weaponData from '../data/weapons.json';
 import weaponMods from '../data/weaponAccessories.json';
+import PropTypeChecking from '../../config/propTypeChecking';
 
 import '../../styles/gear/Weapons.scss';
 
 class WeaponsComponent extends React.Component {
 	componentWillMount() {
-		let weaponsTableRow = {},
-			weaponTable = [],
+		const weaponsTableRow = {},
 			weaponModLists = {
 				slotless: []
 			};
@@ -57,9 +57,9 @@ class WeaponsComponent extends React.Component {
 				);
 		});
 
-		for (const category in weaponsTableRow) {
+		const weaponTable = Object.keys(weaponsTableRow).map((category) => {
 			const reachCoil = weaponsTableRow[category][0].props.weapon.type === 'Melee' ? 'Reach' : 'RC';
-			weaponTable.push(
+			return (
 				<Modal
 					key={category}
 					modalName={category}
@@ -72,8 +72,8 @@ class WeaponsComponent extends React.Component {
 							}}/>
 					}
 				/>
-				);
-		}
+			);
+		});
 
 		this.weaponTable = weaponTable;
 		this.weaponModLists = weaponModLists;
@@ -139,6 +139,23 @@ class WeaponsComponent extends React.Component {
 	}
 }
 
+WeaponsComponent.propTypes = {
+	purchased: React.PropTypes.arrayOf(React.PropTypes.object),
+	actions: PropTypeChecking.actions
+};
+
+// Helper function
+function generateWeaponModOptions(weaponName, mountLoc, weaponModLists) {
+	return (<td key={`${weaponName}--${mountLoc}`}>
+		<select>
+			<option value="">&mdash;</option>
+			{weaponModLists[mountLoc].map((mod) => {
+				return (<option key={`${weaponName}--${mountLoc}--${mod.name}`} value={mod.name}>{mod.name}</option>);
+			})}
+		</select>
+	</td>);
+}
+
 // simple reusable components
 function WeaponModTable({weapon, weaponModLists}) {
 	const {mount} = weapon.accessorymounts,
@@ -147,17 +164,6 @@ function WeaponModTable({weapon, weaponModLists}) {
 			weaponModData.push(generateWeaponModOptions(weapon.name, mountLocation, weaponModLists));
 			return <th key={`${weapon.name}-${mountLocation}`}>{mountLocation}</th>;
 		});
-
-	function generateWeaponModOptions(weaponName, mountLoc, weaponModLists) {
-		return (<td key={`${weaponName}--${mountLoc}`}>
-			<select>
-				<option value="">&mdash;</option>
-				{weaponModLists[mountLoc].map((mod) => {
-					return (<option key={`${weaponName}--${mountLoc}--${mod.name}`} value={mod.name}>{mod.name}</option>);
-				})}
-			</select>
-		</td>);
-	}
 
 	return (
 		<DisplayTable
@@ -170,6 +176,16 @@ function WeaponModTable({weapon, weaponModLists}) {
 			/>
 	);
 }
+
+WeaponModTable.propTypes = {
+	weapon: React.PropTypes.shape({
+		name: React.PropTypes.string.isRequired,
+		accessorymounts: React.PropTypes.objectOf(React.PropTypes.arrayOf(React.PropTypes.string))
+	}),
+	weaponModLists: React.PropTypes.objectOf(
+		React.PropTypes.arrayOf(React.PropTypes.object)
+	)
+};
 
 function WeaponTableHeader({buySell = 'Buy', reachCoil, isModable}) {
 	return (
@@ -206,7 +222,6 @@ function WeaponsTableRow({weapon, button, mod}) {
 WeaponsComponent.displayName = 'GearWeaponsComponent';
 
 // Uncomment properties you need
-// WeaponsComponent.propTypes = {};
 // WeaponsComponent.defaultProps = {};
 
 export default WeaponsComponent;
