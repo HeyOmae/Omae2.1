@@ -203,6 +203,12 @@ function WeaponTableHeader({buySell = 'Buy', reachCoil, isModable}) {
 	);
 }
 
+WeaponTableHeader.propTypes = {
+	buySell: React.PropTypes.string,
+	reachCoil: React.PropTypes.string.isRequired,
+	isModable: React.PropTypes.bool
+};
+
 function WeaponsTableRow({weapon, button, mod}) {
 	return (
 		<tr key={weapon.name}>
@@ -218,6 +224,24 @@ function WeaponsTableRow({weapon, button, mod}) {
 		</tr>
 	);
 }
+
+WeaponsTableRow.propTypes = {
+	weapon: React.PropTypes.shape({
+		name: React.PropTypes.string.isRequired,
+		accuracy: React.PropTypes.string.isRequired,
+		damage: React.PropTypes.string.isRequired,
+		ap: React.PropTypes.string,
+		type: React.PropTypes.string.isRequired,
+		reach: React.PropTypes.string,
+		rc: React.PropTypes.string,
+		avail: React.PropTypes.string.isRequired,
+		cost: React.PropTypes.string.isRequired,
+		source: React.PropTypes.string.isRequired,
+		page: React.PropTypes.string.isRequired
+	}).isRequired,
+	button: React.PropTypes.element.isRequired,
+	mod: React.PropTypes.element
+};
 
 WeaponsComponent.displayName = 'GearWeaponsComponent';
 
