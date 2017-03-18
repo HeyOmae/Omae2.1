@@ -99,7 +99,6 @@ function generatePowerDetailTablesRows(arrayOfPowers, generateBtnFn, modifyPower
 		header: createPowerCategoryLabel(),
 		body: arrayOfPowers.map((power, powerIndex) => {
 			const addPowerButton = (<td>{generateBtnFn(power, powerIndex)}</td>);
-			// eslint-disable-next-line no-plusplus
 			++powerID;
 
 			if (modifyPowers && power.levels > 0) {

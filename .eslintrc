@@ -14,6 +14,7 @@
     "max-len": ["off"],
     "no-bitwise": ["error", { "allow": ["~"] }],
     "no-mixed-operators": ["error", {"allowSamePrecedence": true}],
+    "no-plusplus": ["off"],
     "no-tabs": ["off"],
     "no-unused-vars": ["warn"],
     "object-curly-spacing": ["off"],

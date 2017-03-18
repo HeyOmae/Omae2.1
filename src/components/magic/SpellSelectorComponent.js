@@ -130,7 +130,6 @@ function generateSpellDetailTablesRows(arrayOfSpells, generateBtnFn, abilityType
 		const spellName = createSpellNameWithOptions(spell.name),
 			addSpellButton = (<td>{generateBtnFn(spell, spellName, spellIndex)}</td>);
 
-		// eslint-disable-next-line no-plusplus
 		spellTableData.body.push(createSpellIndividualRow(spellName, spell, addSpellButton, spellID++));
 	});
 
