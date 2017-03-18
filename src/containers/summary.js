@@ -50,8 +50,8 @@ class summary extends Component {
 				metatype={selectMetatype}
 				attributes={attributes}
 				magres={selectMagRes}
-				spellsAndPowers={spellSelect}
 				skills={settingSkills}
+				spellsAndPowers={spellSelect}
 				fixed={appControl.summaryFix}
 				selectedQualities={quality}
 				karma={karmaTotal}

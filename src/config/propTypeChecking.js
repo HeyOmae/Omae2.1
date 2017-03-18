@@ -65,7 +65,7 @@ export default {
 			cha: PropTypes.number.isRequired,
 			edg: PropTypes.number.isRequired,
 			ess: PropTypes.number.isRequired,
-			augmented: PropTypes.object.isRequired,
+			augmented: PropTypes.objectOf(PropTypes.number),
 			special: PropTypes.number.isRequired,
 			baseSpent: PropTypes.number.isRequired,
 			specialSpent: PropTypes.number.isRequired

@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from '../ModalComponent';
+import PropTypeChecking from '../../config/propTypeChecking';
 
 import '../../styles/export/Reddit.sass';
 
@@ -11,7 +12,7 @@ const RedditComponent = ({priority, metatype, attributes, augmentedAtt, magres, 
 
 	const totalKarma = karma > 7 ? 7 : karma;
 
-	for (const qualityKey in qualities) {
+	Object.keys(qualities).forEach((qualityKey) => {
 		const qualityArray = qualities[qualityKey];
 
 		if (Array.isArray(qualityArray)) {
@@ -20,81 +21,71 @@ const RedditComponent = ({priority, metatype, attributes, augmentedAtt, magres, 
 `;
 			});
 		}
-	}
+	});
 
-	for (const name in skills.active) {
-		let skill = skills.active[name],
-			rating = 0,
+	Object.keys(skills.active).forEach((name) => {
+		const skill = skills.active[name];
+
+		let rating = 0,
 			dp = attributes[skill.attribute];
 
-		for (const prop in skill) {
+		Object.keys(skill).forEach((prop) => {
 			const currRating = skill[prop];
 
 			if (typeof currRating === 'number') {
-				rating = currRating;
+				rating += currRating;
 				dp += currRating;
 			}
-		}
+		});
 
 		activeSkills += `${name} | ${rating} | ${attributes[skill.attribute]} | ${skill.spec || '–'} | ${dp} ${skill.spec ? `(${dp + 2})` : ''}
 `;
-	}
 
-	function generateSpellHeader(spell, detailsToIgnore) {
+	});
+
+	const propsToIgnore = ['id', 'limit', 'adeptway'];
+
+	function generateSpellHeader(spell) {
 		let header = '',
 			tableBreak = '';
-		for (const detailName in spell) {
-			if (detailsToIgnore.indexOf(detailName) > -1 || typeof spell[detailName] === 'object') {
-				continue;
-			} else if (!header) {
-				header += `\n${detailName}`;
-				tableBreak += '\n---';
-			} else {
-				header += ` | ${detailName}`;
-				tableBreak += '|---';
-			}
-		}
 
+		Object.keys(spell).forEach((detailName) => {
+			if (propsToIgnore.indexOf(detailName) === -1 && typeof spell[detailName] !== 'object') {
+				if (!header) {
+					header += `\n${detailName}`;
+					tableBreak += '\n---';
+				} else {
+					header += ` | ${detailName}`;
+					tableBreak += '|---';
+				}
+			}
+		});
 		return `${header + tableBreak}\n`;
 	}
 
-	const detailsToIgnore = ['id', 'limit', 'adeptway'];
-
-	for (const magicCat in spellsAndPowers) {
-		let magicAbility = spellsAndPowers[magicCat],
+	// TODO: This doesn't work very well, refactor
+	Object.keys(spellsAndPowers).forEach((magicCat) => {
+		const magicAbility = spellsAndPowers[magicCat],
 			header = {};
 		if (Array.isArray(magicAbility)) {
 			magicAbility.forEach((spell) => {
-				if (magicCat === 'spells' && !spell.description) {
-					spell.description = '';
-				}
-
 				if (!header[magicCat]) {
-					header[magicCat] = generateSpellHeader(spell, detailsToIgnore);
+					header[magicCat] = generateSpellHeader(spell);
 					learnedSpells += header[magicCat];
 				}
 
-				const spellDetails = Object.keys(spell);
-
-				for (let i = 0, len = spellDetails.length - 1; i <= len; ++i) {
-					const detailName = spellDetails[i];
-					if (detailsToIgnore.indexOf(detailName) < 0 && typeof spell[detailName] !== 'object') {
+				Object.keys(spell).forEach((detailName, i) => {
+					if (propsToIgnore.indexOf(detailName) < 0 && typeof spell[detailName] !== 'object') {
 						const detail = spell[detailName];
-						if (i !== len) {
-							learnedSpells += `${detail} | `;
-						} else {
-							learnedSpells += `${detail}\n`;
-						}
-
-					} else {
-						continue;
+						learnedSpells += i === 1 ? detail : ` | ${detail}`;
 					}
-				}
+				});
+				learnedSpells += '\n';
 			});
 		}
-	}
+	});
 
-	for (const gearCategoryName in purchaseGear) {
+	Object.keys(purchaseGear).forEach((gearCategoryName) => {
 		const category = purchaseGear[gearCategoryName];
 		if (Array.isArray(category)) {
 			gearBought += `
@@ -108,8 +99,7 @@ Name | Acc | Dam | AP | Reach/RC
 ${gear.name} | ${gear.accuracy} | ${gear.damage} | ${gear.ap} | ${gear.type === 'Melee' ? gear.reach : gear.rc}`;
 			});
 		}
-
-	}
+	});
 
 	const formate = `
 # [Character Name] – [Player Name]
@@ -174,7 +164,7 @@ ${
 
 Physical | Mental | Social
 --------|------|------
-${Math.ceil((attributes.str * 2 + attributes.bod + attributes.rea) / 3)} | ${Math.ceil((attributes.log * 2 + attributes.int + attributes.wil) / 3)} | ${Math.ceil((attributes.cha * 2 + attributes.wil + (attributes.ess || 6)) / 3)}
+${Math.ceil(((attributes.str * 2) + attributes.bod + attributes.rea) / 3)} | ${Math.ceil(((attributes.log * 2) + attributes.int + attributes.wil) / 3)} | ${Math.ceil(((attributes.cha * 2) + attributes.wil + (attributes.ess || 6)) / 3)}
 
 ##Qualities
 
@@ -213,6 +203,19 @@ ${activeSkills}
 				modalContent={exportField}/>
 		</div>
 	);
+};
+
+RedditComponent.propTypes = {
+	priority: PropTypeChecking.priorityTable,
+	metatype: React.PropTypes.string.isRequired,
+	attributes: React.PropTypes.objectOf(React.PropTypes.number),
+	augmentedAtt: React.PropTypes.objectOf(React.PropTypes.number),
+	magres: PropTypeChecking.selectMagRes,
+	skills: PropTypeChecking.settingSkills,
+	spellsAndPowers: PropTypeChecking.spellSelect,
+	qualities: PropTypeChecking.quality,
+	karma: PropTypeChecking.karma,
+	purchaseGear: PropTypeChecking.purchaseGear
 };
 
 export default RedditComponent;
