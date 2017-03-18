@@ -1,6 +1,7 @@
 import React from 'react';
 import WeaponsComponent from './WeaponsComponent';
 import priorityData from '../data/priority.json';
+import PropTypeChecking from '../../config/propTypeChecking';
 
 import '../../styles/gear/StreetGear.scss';
 
@@ -22,7 +23,11 @@ class StreetGearComponent extends React.Component {
 StreetGearComponent.displayName = 'StreetGearComponent';
 
 // Uncomment properties you need
-// StreetGearComponent.propTypes = {};
+StreetGearComponent.propTypes = {
+	actions: PropTypeChecking.actions,
+	purchaseGear: PropTypeChecking.purchaseGear,
+	resourcesPriority: React.PropTypes.string.isRequired
+};
 // StreetGearComponent.defaultProps = {};
 
 export default StreetGearComponent;
