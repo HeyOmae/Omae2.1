@@ -1,17 +1,14 @@
 import React, {
-	Component,
-	PropTypes
+	Component
 } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-
 import DisplayTable from './DisplayTableComponent';
 
 import {setFilter} from '../actions/';
 
 // helpers
 function filtered(term, tableRows) {
-	let expression = `(${term})`,
+	const expression = `(${term})`,
 		regExp = new RegExp(expression, 'i');
 	return tableRows.filter((row) => {
 		return row.key.match(regExp);
@@ -21,7 +18,7 @@ function filtered(term, tableRows) {
 // component
 class FilterableTable extends Component {
 	render() {
-		const { actions, tableData, filterTable } = this.props,
+		const { setFilterAction, tableData, filterTable } = this.props,
 			filteredRows = filterTable ? filtered(filterTable, tableData.body) : tableData.body;
 		return (
 			<div
@@ -31,7 +28,7 @@ class FilterableTable extends Component {
 					type="text"
 					placeholder="Filter the table"
 					onChange={(event) => {
-						actions.setFilter({filterTerm: event.target.value});
+						setFilterAction({filterTerm: event.target.value});
 					}}
 					value={filterTable}/>
 				<DisplayTable
@@ -43,8 +40,12 @@ class FilterableTable extends Component {
 
 // prop boilerplate
 FilterableTable.propTypes = {
-	actions: PropTypes.object.isRequired,
-	filterTable: PropTypes.string.isRequired
+	setFilterAction: React.PropTypes.func.isRequired,
+	tableData: React.PropTypes.shape({
+		header: React.PropTypes.element.isRequired,
+		body: React.PropTypes.any
+	}).isRequired,
+	filterTable: React.PropTypes.string.isRequired
 };
 
 function mapStateToProps(state) {
@@ -55,11 +56,11 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-	const actions = {
-		setFilter
+	return {
+		setFilterAction: (filterTerm) => {
+			return dispatch(setFilter(filterTerm));
+		}
 	};
-	const actionMap = { actions: bindActionCreators(actions, dispatch) };
-	return actionMap;
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(FilterableTable);
