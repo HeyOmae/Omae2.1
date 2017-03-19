@@ -42,23 +42,26 @@ const skillReducer = (state = initialState, action) => {
 	}
 
 	const actionsToTake = {
-		ADD_SKILL: (prevState, {category, attribute, name}) => {
+		ADD_SKILL(prevState, {category, attribute, name}) {
 			const skill = prevState[category][name];
 
 			if (!skill) {
-				return changeSkill(
-					{[name]: {
-						rating: 1,
-						attribute
-					}},
-					'skillPointsSpent',
-					prevState.skillPointsSpent + 1
-				);
+				return {
+					...prevState,
+					active: {
+						...prevState.active,
+						[name]: {
+							rating: 1,
+							attribute
+						}
+					},
+					skillPointsSpent: prevState.skillPointsSpent + 1
+				};
 			}
 			return prevState;
 		},
 
-		REMOVE_SKILL: (prevState, {category, name}) => {
+		REMOVE_SKILL(prevState, {category, name}) {
 			let newState = prevState;
 			const skill = prevState[category][name];
 
@@ -66,19 +69,26 @@ const skillReducer = (state = initialState, action) => {
 				return prevState;
 			} else if (skill.groupRating === undefined) {
 				const specCost = skill.spec ? 1 : 0;
-				newState = changeSkill(
-					{},
-					'skillPointsSpent',
-					prevState.skillPointsSpent - (skill.rating + specCost)
-				);
 
-				delete newState[category][name];
+				const { [name]: omit, ...remainingSkills } = prevState[category];
+
+				const removeMagicSkillIndex = prevState.magicSkills.indexOf(name);
+
+				newState = {
+					...prevState,
+					[category]: remainingSkills,
+					magicSkills: [
+						...prevState.magicSkills.slice(0, removeMagicSkillIndex),
+						...prevState.magicSkills.slice(removeMagicSkillIndex + 1),
+					],
+					skillPointsSpent: prevState.skillPointsSpent - (skill.rating + specCost)
+				};
 			}
 
 			return newState;
 		},
 
-		INCREMENT_SKILL: (prevState, {category, max, name}) => {
+		INCREMENT_SKILL(prevState, {category, max, name}) {
 			let newState = prevState;
 			const skill = prevState[category][name];
 
@@ -97,7 +107,7 @@ const skillReducer = (state = initialState, action) => {
 			return newState;
 		},
 
-		DECREMENT_SKILL: (prevState, {category, name}) => {
+		DECREMENT_SKILL(prevState, {category, name}) {
 			let newState = prevState;
 			const skill = prevState[category] && prevState[category][name];
 
@@ -116,7 +126,7 @@ const skillReducer = (state = initialState, action) => {
 			return newState;
 		},
 
-		INCREMENT_SKILLGROUP: (prevState, {skillsInGroup, name}) => {
+		INCREMENT_SKILLGROUP(prevState, {skillsInGroup, name}) {
 			let newState;
 			const skillgroup = prevState.groups[name];
 
@@ -158,7 +168,7 @@ const skillReducer = (state = initialState, action) => {
 			return newState;
 		},
 
-		DECREMENT_SKILLGROUP: (prevState, {name, skillsInGroup}) => {
+		DECREMENT_SKILLGROUP(prevState, {name, skillsInGroup}) {
 			let newState;
 			const skillgroup = prevState.groups[name],
 				newGroupRating = skillgroup && skillgroup.rating - 1;
@@ -210,7 +220,7 @@ const skillReducer = (state = initialState, action) => {
 			return newState;
 		},
 
-		SET_SPEC: (prevState, {name, category, spec}) => {
+		SET_SPEC(prevState, {name, category, spec}) {
 			let newState;
 			const skill = prevState[category][name];
 
@@ -245,7 +255,7 @@ const skillReducer = (state = initialState, action) => {
 			return newState;
 		},
 
-		SET_MAGIC_SKILLS: (prevState, {magicSkills}) => {
+		SET_MAGIC_SKILLS(prevState, {magicSkills}) {
 			let newState = prevState;
 
 			function removeMagicSkillRatingFromSkill(currentState, oldSkillName) {
@@ -310,7 +320,7 @@ const skillReducer = (state = initialState, action) => {
 			return newState;
 		},
 
-		DEFAULT: (prevState) => { return prevState; }
+		DEFAULT(prevState) { return prevState; }
 	};
 
 	return (actionsToTake[action.type] || actionsToTake.DEFAULT)(state, action.parameter);

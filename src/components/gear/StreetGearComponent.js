@@ -12,6 +12,7 @@ class StreetGearComponent extends React.Component {
 		return (
 			<div className="streetgear-component">
 				<p>Nuyen: <strong>{nuyen - (purchaseGear.nuyen)}&yen;</strong></p>
+				<h3>Weapons</h3>
 				<WeaponsComponent
 					actions={actions}
 					purchased={purchaseGear.weapons}/>

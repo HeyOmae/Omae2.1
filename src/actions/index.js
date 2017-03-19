@@ -5,37 +5,38 @@ Allows to import actions like so:
 import {action1, action2} from '../actions/'
 */
 /* Populated by react-webpack-redux:action */
-import style from '../actions/app/style.js';
-import removeSkill from '../actions/skills/removeSkill.js';
-import addSkill from '../actions/skills/addSkill.js';
-import setFilter from '../actions/setFilter.js';
-import priorityTable from './priorityTable.js';
-import selectMetatype from './selectMetatype.js';
-import incrementAttribute from './attributes/incrementAttribute.js';
-import decrementAttribute from './attributes/decrementAttribute.js';
-import incrementAugmented from './attributes/incrementAugmented.js';
-import decrementAugmented from './attributes/decrementAugmented.js';
-import selectMagictype from './selectMagictype.js';
-import incrementSkill from './skills/incrementSkill.js';
-import decrementSkill from './skills/decrementSkill.js';
-import incrementSkillgroup from './skills/incrementSkillgroup.js';
-import decrementSkillgroup from './skills/decrementSkillgroup.js';
-import setSpec from './skills/setSpec.js';
-import setMagicSkills from './skills/setMagicSkills.js';
-import addSpell from './magic/addSpell.js';
-import removeSpell from './magic/removeSpell.js';
-import addComplexform from './magic/addComplexform.js';
-import removeComplexform from './magic/removeComplexform.js';
-import addPower from './magic/addPower.js';
-import removePower from './magic/removePower.js';
-import raisePower from './magic/raisePower.js';
-import lowerPower from './magic/lowerPower.js';
-import resetAbility from './magic/resetAbility.js';
-import selectQuality from './quality/selectQuality.js';
-import removeQuality from './quality/removeQuality.js';
-import karma from './karma.js';
-import purchaseGear from './gear/purchaseGear.js';
-import sellGear from './gear/sellGear.js';
+import style from '../actions/app/style';
+import removeSkill from '../actions/skills/removeSkill';
+import addSkill from '../actions/skills/addSkill';
+import setFilter from '../actions/setFilter';
+import priorityTable from './priorityTable';
+import selectMetatype from './selectMetatype';
+import incrementAttribute from './attributes/incrementAttribute';
+import decrementAttribute from './attributes/decrementAttribute';
+import incrementAugmented from './attributes/incrementAugmented';
+import decrementAugmented from './attributes/decrementAugmented';
+import selectMagictype from './selectMagictype';
+import incrementSkill from './skills/incrementSkill';
+import decrementSkill from './skills/decrementSkill';
+import incrementSkillgroup from './skills/incrementSkillgroup';
+import decrementSkillgroup from './skills/decrementSkillgroup';
+import setSpec from './skills/setSpec';
+import setMagicSkills from './skills/setMagicSkills';
+import addSpell from './magic/addSpell';
+import removeSpell from './magic/removeSpell';
+import addComplexform from './magic/addComplexform';
+import removeComplexform from './magic/removeComplexform';
+import addPower from './magic/addPower';
+import removePower from './magic/removePower';
+import raisePower from './magic/raisePower';
+import lowerPower from './magic/lowerPower';
+import resetAbility from './magic/resetAbility';
+import selectQuality from './quality/selectQuality';
+import removeQuality from './quality/removeQuality';
+import karma from './karma';
+import purchaseGear from './gear/purchaseGear';
+import sellGear from './gear/sellGear';
+
 const actions = {
 	priorityTable,
 	selectMetatype,
@@ -69,4 +70,5 @@ const actions = {
 	removeSkill,
 	style
 };
+
 module.exports = actions;

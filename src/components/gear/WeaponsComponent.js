@@ -98,17 +98,17 @@ class WeaponsComponent extends React.Component {
 						-
 					</button>
 				),
-					modButton = (
-						<Modal
+					modButton = weapon.accessorymounts ?
+						(<Modal
 							modalName={weapon.name}
 							modalID={`${weapon.name.replace(/\s/g, '') + index}-modal`}
 							modalContent={
 								<WeaponModTable
 									weapon={weapon}
 									weaponModLists={weaponModLists}/>
-						}
-					/>
-					);
+							}
+						/>)
+						: null;
 				purchasedTableRow.push(
 					<WeaponsTableRow
 						key={`${weapon.name + index}-purchased`}
@@ -121,8 +121,7 @@ class WeaponsComponent extends React.Component {
 		}
 
 		return (
-			<div className="weapons-component">
-				<h3>Weapons</h3>
+			<div className="weapons-component row">
 				{weaponTable}
 				{purchased ?
 					<div className="table-responsive purchased-weapons">

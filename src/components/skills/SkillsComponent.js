@@ -124,15 +124,18 @@ class SkillsComponent extends React.Component {
 						{listOfSkills}
 					</div>
 				</div>
-				<div>
-					<h3>Skill List</h3>
-					<DisplaySkills
-						skills={skills}
-						actions={actions}
-						attributes={attributes}
-						metatype={metatype}
-						skillPointsLeft={skillPointsLeft}/>
-				</div>
+				{Object.keys(skills.active).length > 0 ?
+					(<div>
+						<h3>Skill List</h3>
+						<DisplaySkills
+							skills={skills}
+							actions={actions}
+							attributes={attributes}
+							metatype={metatype}
+							skillPointsLeft={skillPointsLeft}/>
+					</div>)
+					: null
+				}
 			</div>
 		);
 	}

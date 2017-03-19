@@ -61,7 +61,7 @@ describe('settingSkills', () => {
 				expect(state.active.longarms.rating).to.equal(1);
 			});
 
-			it('refund the skillPointsSpent based off skill rating and specalization', () => {
+			it('refund the skillPointsSpent based off skill rating and specialization', () => {
 				const newState = reducer(state, {type: 'REMOVE_SKILL', parameter: {name: 'palming', category: 'active', max: 6, attribute: 'agi' }});
 
 				expect(newState.active.palming).to.be.undefined;
@@ -87,7 +87,15 @@ describe('settingSkills', () => {
 			expect(newState).to.equal(state);
 			expect(newState.skillPointsSpent).to.equal(3);
 		});
-	})
+
+		it('should remove a free skill', () => {
+			const newState = reducer(state, {type: 'REMOVE_SKILL', parameter: {name: 'binding', category: 'active', max: 6, attribute: 'mag' }});
+
+			expect(newState.magicSkills).to.deep.equal(['summoning']);
+			expect(state.magicSkills).to.deep.equal(['summoning', 'binding']);
+			expect(newState.skillPointsSpent).to.equal(2);
+		});
+	});
 
 	describe('INCREMENT_SKILL', () => {
 		it('should increment a skill that\'s already defined in the state', () => {

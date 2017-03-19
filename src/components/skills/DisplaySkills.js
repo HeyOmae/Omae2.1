@@ -60,8 +60,8 @@ function ActiveSkillHeader() {
 }
 
 function ActiveSkillRow({skillKey, skill, actions, attribute, skillPointsLeft}) {
-	const {rating = 0, groupRating = 0} = skill,
-		totalSkillRating = rating + groupRating,
+	const {rating = 0, groupRating = 0, magicSkillRating = 0} = skill,
+		totalSkillRating = rating + groupRating + magicSkillRating,
 		dicePool = attribute + (totalSkillRating || -1);
 	return (
 		<tr className={totalSkillRating > 6 ? 'table-danger ' : ''}>
@@ -78,7 +78,7 @@ function ActiveSkillRow({skillKey, skill, actions, attribute, skillPointsLeft}) 
 				<button
 					className="btn btn-success"
 					onClick={() => {
-						if (skillPointsLeft > 0) {
+						if (skillPointsLeft > 0 && totalSkillRating < 6) {
 							actions.incrementSkill({category: 'active', max: 6, name: skillKey});
 						}
 					}}>
