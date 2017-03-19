@@ -16,8 +16,7 @@
     "no-mixed-operators": ["error", {"allowSamePrecedence": true}],
     "no-plusplus": ["off"],
     "no-tabs": ["off"],
-    "no-unused-vars": ["off"],
-    "no-unused-vars-rest/no-unused-vars": ["error", {"ignoreDestructuredVarsWithRest": true}]
+    "no-unused-vars": ["warn"],
     "object-curly-spacing": ["off"],
     "one-var": ["off"],
     "padded-blocks": ["off"],

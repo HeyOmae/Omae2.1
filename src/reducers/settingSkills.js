@@ -70,6 +70,7 @@ const skillReducer = (state = initialState, action) => {
 			} else if (skill.groupRating === undefined) {
 				const specCost = skill.spec ? 1 : 0;
 
+				// eslint-disable-next-line no-unused-vars
 				const { [name]: omit, ...remainingSkills } = prevState[category];
 
 				const removeMagicSkillIndex = prevState.magicSkills.indexOf(name);
