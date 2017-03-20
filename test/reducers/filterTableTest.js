@@ -16,4 +16,12 @@ describe('filterTable', () => {
 				expect(newState).to.equal('testing');
 		});
 	});
+
+	describe('TOGGLE_MODAL', () => {
+		it('should remove the filter options when a modal is closed', () => {
+				const newState = reducer(state, {type: 'TOGGLE_MODAL'});
+
+				expect(newState).to.equal('');
+		});
+	});
 });
