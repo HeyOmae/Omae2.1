@@ -15,7 +15,8 @@ describe('settingSkills', () => {
 			electronicwarfare: {rating: 1, attribute: 'log', groupRating: 3},
 			hacking: {rating: 1, attribute: 'log', groupRating: 3},
 			summoning: {magicSkillRating: 4, attribute: 'mag'},
-			binding: {rating: 1, magicSkillRating: 4, attribute: 'mag'}
+			binding: {rating: 1, magicSkillRating: 4, attribute: 'mag'},
+			banishing: {rating: 1, attribute: 'mag'}
 		},
 		groups: {
 			acting: {rating: 1},
@@ -159,6 +160,21 @@ describe('settingSkills', () => {
 			expect(state.magicSkills).to.eql(['summoning', 'binding']);
 		});
 
+		it('should add magicPoints to a skill that already exists', () => {
+			const newState = reducer(state, {type: 'SET_MAGIC_SKILLS', parameter: {magicSkills: [
+				{name: 'summoning', category: 'active', rating: 4, attribute: 'mag'},
+				{name: 'banishing', category: 'active', rating: 4, attribute: 'mag'}
+				]}});
+
+			expect(newState.active.banishing.magicSkillRating).to.equal(4);
+			expect(newState.active.banishing.attribute).to.equal('mag');
+			expect(newState.magicSkills).to.eql(['summoning', 'banishing']);
+
+			expect(state.active.banishing).to.deep.equal({rating: 1, attribute: 'mag'});
+			expect(state.magicSkills).to.eql(['summoning', 'binding'])
+
+		});
+
 		it('should delete a skill with no rating or skill group rating', () => {
 			const newState = reducer(state, {type: 'SET_MAGIC_SKILLS', parameter: {magicSkills: [
 				{name: 'counterspelling', category: 'active', rating: 4, attribute: 'mag'},
@@ -191,16 +207,33 @@ describe('settingSkills', () => {
 			expect(state.magicSkills).to.eql(['summoning', 'binding']);
 		});
 
-		it('should delete the magicSkillRating or the skill if none are selected', () => {
+		it('should delete skills if passing in a skill with no name', () => {
+			const newState = reducer(state, {type: 'SET_MAGIC_SKILLS', parameter: {magicSkills: [
+				{name: '', category: 'active', rating: 4, attribute: undefined},
+				{name: 'binding', category: 'active', rating: 4, attribute: 'mag'}
+				]}});
+
+			expect(newState.active.binding.magicSkillRating).to.equal(4);
+			expect(newState.active.binding.rating).to.equal(1);
+			expect(newState.active.summoning).to.equal(undefined);
+			expect(newState.magicSkills).to.eql(['', 'binding']);
+
+			expect(state.active.binding.rating).to.equal(1);
+			expect(state.active.binding.magicSkillRating).to.equal(4);
+			expect(state.active.summoning.magicSkillRating).to.equal(4);
+			expect(state.magicSkills).to.eql(['summoning', 'binding']);
+		});
+
+		it('should reset the magicSkills if passed in null', () => {
 			const newState = reducer(state, {type: 'SET_MAGIC_SKILLS', parameter: {magicSkills: [
 				null,
-				{name: '', category: 'active', rating: 0, attribute: ''}
+				null
 				]}});
 
 			expect(newState.active.binding.magicSkillRating).to.equal(undefined);
 			expect(newState.active.binding.rating).to.equal(1);
-			expect(newState.active.summoning).to.equal(undefined);
 			expect(newState.magicSkills).to.eql(['', '']);
+			expect(newState.active.summoning).to.equal(undefined);
 
 			expect(state.active.binding.rating).to.equal(1);
 			expect(state.active.binding.magicSkillRating).to.equal(4);

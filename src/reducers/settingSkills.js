@@ -8,7 +8,7 @@ const initialState = {
 	active: {},
 	knowledge: {},
 	groups: {},
-	magicSkills: [],
+	magicSkills: ['', ''],
 	skillPointsSpent: 0,
 	groupPointSpent: 0
 };
@@ -259,63 +259,48 @@ const skillReducer = (state = initialState, action) => {
 		SET_MAGIC_SKILLS(prevState, {magicSkills}) {
 			let newState = prevState;
 
-			function removeMagicSkillRatingFromSkill(currentState, oldSkillName) {
-				const copyState = Object.assign({}, currentState);
-				if (
-						currentState.active[oldSkillName] &&
-						Object.keys(currentState.active[oldSkillName]).length >= 3
-					) {
-					copyState.active[oldSkillName] = Object.assign(
-						{},
-						currentState.active[oldSkillName]
-					);
-
-					delete copyState.active[oldSkillName].magicSkillRating;
-				} else if (
-					currentState.active[oldSkillName] &&
-					Object.keys(currentState.active[oldSkillName]).length >= 2
-					) {
-					copyState.active = Object.assign(
-						{},
-						currentState.active
-					);
-
-					delete copyState.active[oldSkillName];
-				}
-
-				return copyState;
-			}
-
 			magicSkills.forEach((magSkill, index) => {
 				const oldSkillName = prevState.magicSkills[index];
 
-				if (!magSkill || !magSkill.name) {
-					newState = Object.assign(
-						{},
-						removeMagicSkillRatingFromSkill(newState, oldSkillName),
-						{magicSkills: newState.magicSkills.slice()}
-					);
+				const {[oldSkillName]: skillToUpdate, ...activeSkills} = newState.active;
+				let newActiveskills = activeSkills;
 
-					newState.magicSkills[index] = '';
-				} else if (prevState.magicSkills[index] !== magSkill.name) {
-					const skill = newState.active[magSkill.name],
-						newSkill = skill ?
-						generateSkillObject(skill, {magicSkillRating: magSkill.rating}) :
-						{[magSkill.name]: {attribute: magSkill.attribute, magicSkillRating: magSkill.rating}};
-
-					newState = changeSkill(
-						newSkill,
-						'magicSkills',
-						newState.magicSkills.slice(),
-						newState,
-						'active'
-					);
-
-					newState = removeMagicSkillRatingFromSkill(newState, oldSkillName);
-
-					newState.magicSkills[index] = magSkill.name;
+				if (skillToUpdate && (skillToUpdate.rating || skillToUpdate.groupRating)) {
+					// eslint-disable-next-line no-unused-vars
+					const { magicSkillRating: omit, ...updatedSkill } = skillToUpdate;
+					newActiveskills = {...activeSkills, [oldSkillName]: updatedSkill};
 				}
 
+				if (!magSkill || !magSkill.name) {
+					newState = {
+						...newState,
+						active: {
+							...newActiveskills
+						},
+						magicSkills: [
+							...newState.magicSkills.slice(0, index),
+							'',
+							...newState.magicSkills.slice(index + 1)
+						]
+					};
+				} else if (prevState.magicSkills[index] !== magSkill.name) {
+					newState = {
+						...newState,
+						active: {
+							...newActiveskills,
+							[magSkill.name]: {
+								...newState.active[oldSkillName],
+								attribute: magSkill.attribute,
+								magicSkillRating: magSkill.rating
+							}
+						},
+						magicSkills: [
+							...newState.magicSkills.slice(0, index),
+							magSkill.name,
+							...newState.magicSkills.slice(index + 1)
+						]
+					};
+				}
 			});
 
 			return newState;

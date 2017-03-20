@@ -12,29 +12,29 @@ const MagicSelectionComponent = ({magicPriority, magictype, magicAttribute, sele
 		magicAtt = (priorityMagic && priorityMagic.attribute && priorityMagic.attribute.points) + magicAttribute,
 		magicPriorityStats = priorityData[magicPriority].magic,
 		toggleAbilities = {
-			Mage: () => {
+			Mage() {
 				const mageAbilities = toggleAbilities.default();
 				mageAbilities.spells = true;
 				return mageAbilities;
 			},
-			Mystic: () => {
+			Mystic() {
 				const mysticAbilities = toggleAbilities.default();
 				mysticAbilities.spells = true;
 				mysticAbilities.powers = true;
 				return mysticAbilities;
 			},
-			Technomancer: () => {
+			Technomancer() {
 				const technoAbilities = toggleAbilities.default();
 				technoAbilities.complexforms = true;
 				return technoAbilities;
 			},
-			Adept: () => {
+			Adept() {
 				const adeptAbilities = toggleAbilities.default();
 				adeptAbilities.powers = true;
 				return adeptAbilities;
 			},
-			Aspected: () => { return toggleAbilities.Mage(); },
-			default: () => {
+			Aspected() { return toggleAbilities.Mage(); },
+			default() {
 				return {
 					spells: false,
 					powers: false,
@@ -53,20 +53,20 @@ const MagicSelectionComponent = ({magicPriority, magictype, magicAttribute, sele
 	function changeMagicType(magicTypeName) {
 		actions.selectMagictype(magicTypeName);
 		const reset = {
-			Mage: () => {
+			Mage() {
 				actions.resetAbility({ability: 'complexforms'});
 				actions.resetAbility({ability: 'powers'});
 			},
-			Mystic: () => {
+			Mystic() {
 				actions.resetAbility({ability: 'complexforms'});
 				actions.resetAbility({ability: 'powers'});
 			},
-			Technomancer: () => {
+			Technomancer() {
 				actions.resetAbility({ability: 'powers'});
 				actions.resetAbility({ability: 'spells'});
 			},
-			Aspected: () => { return reset.Mage(); },
-			default: () => {
+			Aspected() { return reset.Mage(); },
+			default() {
 				actions.resetAbility({ability: 'powers'});
 				actions.resetAbility({ability: 'spells'});
 				actions.resetAbility({ability: 'complexforms'});
