@@ -92,8 +92,10 @@ const MagicSelectionComponent = ({magicPriority, magictype, magicAttribute, sele
 	return (
 		<div className="magicselection-component">
 			<h2>Magic/Resonance</h2>
-			<div className="btn-group">
-				{awakenButtons}
+			<div className="table-responsive">
+				<div className="btn-group">
+					{awakenButtons}
+				</div>
 			</div>
 			{
 				displayAbilities.spells ?

@@ -125,7 +125,7 @@ class SkillsComponent extends React.Component {
 					</div>
 				</div>
 				{Object.keys(skills.active).length > 0 ?
-					(<div>
+					(<div className="table-responsive">
 						<h3>Skill List</h3>
 						<DisplaySkills
 							skills={skills}

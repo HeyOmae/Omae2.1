@@ -42,17 +42,9 @@ class MetatypeSelectorComponent extends React.PureComponent {
 				<div className="row">
 					<h2>Metatype</h2>
 					<div className="col-md-12 table-responsive">
-						<table className="table">
-							<tbody>
-								<tr>
-									<td>
-										<div className="btn-group">
-											{buttonElements}
-										</div>
-									</td>
-								</tr>
-							</tbody>
-						</table>
+						<div className="btn-group">
+							{buttonElements}
+						</div>
 					</div>
 					<div className="col-sm-6">
 						<h3>Racial Traits</h3>
