@@ -23,7 +23,7 @@ const initialState = {
 const attributesReducer = (state = initialState, action) => {
 
 	const actionsToTake = {
-		INCREMENT_ATTRIBUTE: (prevState, {attribute, max, spend, maxCap}) => {
+		INCREMENT_ATTRIBUTE(prevState, {attribute, max, spend, maxCap}) {
 			const nextIncrement = prevState[attribute] + 1;
 			if (nextIncrement > (maxCap ? max - 1 : max)) {
 				return prevState;
@@ -40,7 +40,7 @@ const attributesReducer = (state = initialState, action) => {
 			return newState;
 		},
 
-		DECREMENT_ATTRIBUTE: (prevState, {attribute, spend}) => {
+		DECREMENT_ATTRIBUTE(prevState, {attribute, spend}) {
 			const nextDecrement = prevState[attribute] - 1;
 			if (nextDecrement < 0) {
 				return prevState;
@@ -56,7 +56,7 @@ const attributesReducer = (state = initialState, action) => {
 			return newState;
 		},
 
-		INCREMENT_AUGMENTED: (prevState, {attribute}) => {
+		INCREMENT_AUGMENTED(prevState, {attribute}) {
 			const augmentedAttribute = prevState.augmented[attribute];
 			let nextIncrement;
 
@@ -87,7 +87,7 @@ const attributesReducer = (state = initialState, action) => {
 			return prevState;
 		},
 
-		DECREMENT_AUGMENTED: (prevState, {attribute, decreaseBy = 1}) => {
+		DECREMENT_AUGMENTED(prevState, {attribute, decreaseBy = 1}) {
 			const augmentedAttribute = prevState.augmented[attribute];
 			let nextDecrement,
 				newState;
@@ -130,7 +130,7 @@ const attributesReducer = (state = initialState, action) => {
 			return newState;
 		},
 
-		DEFAULT: (prevState) => { return prevState; }
+		DEFAULT(prevState) { return prevState; }
 	};
 	return (actionsToTake[action.type] || actionsToTake.DEFAULT)(state, action.parameter);
 };
