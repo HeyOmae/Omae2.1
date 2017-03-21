@@ -298,7 +298,7 @@ const skillReducer = (state = initialState, action) => {
 						active: {
 							...newActiveskills,
 							[magSkill.name]: {
-								...newState.active[oldSkillName],
+								...newState.active[magSkill.name],
 								attribute: magSkill.attribute,
 								magicSkillRating: magSkill.rating
 							}

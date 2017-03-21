@@ -267,7 +267,18 @@ describe('settingSkills', () => {
 			expect(newState).to.equal(state);
 		});
 
-		it('should not copy the previous skill when changing');
+		it('should not copy the previous skill when changing', () => {
+
+			const newState = reducer(state, {type: 'SET_MAGIC_SKILLS', parameter: {magicSkills: [
+				{name: 'summoning', category: 'active', rating: 4, attribute: 'mag'},
+				{name: 'alchemy', category: 'active', rating: 4, attribute: 'mag'}
+				]}});
+
+			expect(newState.active.alchemy.rating).to.equal(undefined);
+			expect(newState.active.alchemy.magicSkillRating).to.equal(4);
+
+			expect(state.active.alchemy).to.equal(undefined);
+		});
 	});
 
 	describe('INCREMENT_SKILLGROUP', () => {
@@ -315,7 +326,6 @@ describe('settingSkills', () => {
 			expect(newState.active.performance).to.equal(undefined);
 			expect(newState.groupPointSpent).to.equal(0);
 
-			//check to see if state is not mutated
 			expect(state.active.con.groupRating).to.equal(1);
 		});
 
