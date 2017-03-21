@@ -257,6 +257,15 @@ const skillReducer = (state = initialState, action) => {
 		},
 
 		SET_MAGIC_SKILLS(prevState, {magicSkills}) {
+			if ((magicSkills[0] && magicSkills[1]) && (
+				magicSkills[0].name
+			) === (
+				magicSkills[1].name
+			) && magicSkills[0].name !== ''
+			&& magicSkills[1].name !== '') {
+				return prevState;
+			}
+
 			let newState = prevState;
 
 			magicSkills.forEach((magSkill, index) => {

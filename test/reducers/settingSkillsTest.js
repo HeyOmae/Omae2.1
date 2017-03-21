@@ -224,6 +224,23 @@ describe('settingSkills', () => {
 			expect(state.magicSkills).to.eql(['summoning', 'binding']);
 		});
 
+		it('should delete both skills if passing in both skills with no name', () => {
+			const newState = reducer(state, {type: 'SET_MAGIC_SKILLS', parameter: {magicSkills: [
+				{name: '', category: 'active', rating: 4, attribute: undefined},
+				{name: '', category: 'active', rating: 4, attribute: undefined}
+				]}});
+
+			expect(newState.active.binding.magicSkillRating).to.equal(undefined);
+			expect(newState.active.binding.rating).to.equal(1);
+			expect(newState.active.summoning).to.equal(undefined);
+			expect(newState.magicSkills).to.eql(['', '']);
+
+			expect(state.active.binding.rating).to.equal(1);
+			expect(state.active.binding.magicSkillRating).to.equal(4);
+			expect(state.active.summoning.magicSkillRating).to.equal(4);
+			expect(state.magicSkills).to.eql(['summoning', 'binding']);
+		});
+
 		it('should reset the magicSkills if passed in null', () => {
 			const newState = reducer(state, {type: 'SET_MAGIC_SKILLS', parameter: {magicSkills: [
 				null,
@@ -240,6 +257,17 @@ describe('settingSkills', () => {
 			expect(state.active.summoning.magicSkillRating).to.equal(4);
 			expect(state.magicSkills).to.eql(['summoning', 'binding']);
 		});
+
+		it('should not be able to set both free skills to the same skill', () => {
+			const newState = reducer(state, {type: 'SET_MAGIC_SKILLS', parameter: {magicSkills: [
+				{name: 'binding', category: 'active', rating: 4, attribute: 'mag'},
+				{name: 'binding', category: 'active', rating: 4, attribute: 'mag'}
+				]}});
+
+			expect(newState).to.equal(state);
+		});
+
+		it('should not copy the previous skill when changing');
 	});
 
 	describe('INCREMENT_SKILLGROUP', () => {
