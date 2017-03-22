@@ -80,6 +80,7 @@ const skillReducer = (state = initialState, action) => {
 					[category]: remainingSkills,
 					magicSkills: [
 						...prevState.magicSkills.slice(0, removeMagicSkillIndex),
+						'',
 						...prevState.magicSkills.slice(removeMagicSkillIndex + 1),
 					],
 					skillPointsSpent: prevState.skillPointsSpent - (skill.rating + specCost)
@@ -257,12 +258,9 @@ const skillReducer = (state = initialState, action) => {
 		},
 
 		SET_MAGIC_SKILLS(prevState, {magicSkills}) {
-			if ((magicSkills[0] && magicSkills[1]) && (
-				magicSkills[0].name
-			) === (
-				magicSkills[1].name
-			) && magicSkills[0].name !== ''
-			&& magicSkills[1].name !== '') {
+			if ((magicSkills[0] && magicSkills[1])
+			&& (magicSkills[0].name === magicSkills[1].name)
+			&& magicSkills[0].name !== '') {
 				return prevState;
 			}
 
