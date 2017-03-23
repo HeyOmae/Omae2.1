@@ -2,7 +2,7 @@ import {
 	PropTypes
 } from 'react';
 
-const propTypePriorityCheck = PropTypes.oneOf(['A', 'B', 'C', 'D', 'E']).isRequired;
+const propTypePriorityCheck = PropTypes.oneOf(['A', 'B', 'C', 'D', 'E']);
 
 export default {
 	actions: PropTypes.shape(
@@ -35,24 +35,25 @@ export default {
 			purchaseGear: PropTypes.func.isRequired,
 			sellGear: PropTypes.func.isRequired,
 			addSkill: PropTypes.func.isRequired
-		}).isRequired,
+		}),
 	appControl: PropTypes.shape(
 		{
 			summaryFix: PropTypes.bool.isRequired,
-		}).isRequired,
+		}),
 	priorityTable: PropTypes.shape(
 		{
-			metatype: propTypePriorityCheck,
-			attribute: propTypePriorityCheck,
-			magres: propTypePriorityCheck,
-			skills: propTypePriorityCheck,
-			resources: propTypePriorityCheck
-		}).isRequired,
+			metatype: propTypePriorityCheck.isRequired,
+			attribute: propTypePriorityCheck.isRequired,
+			magres: propTypePriorityCheck.isRequired,
+			skills: propTypePriorityCheck.isRequired,
+			resources: propTypePriorityCheck.isRequired
+		}),
+	propTypePriorityCheck,
 	selectMetatype: PropTypes.shape(
 		{
 			typeName: PropTypes.string,
 			priority: propTypePriorityCheck
-		}).isRequired,
+		}),
 	attributes: PropTypes.shape(
 		{
 			bod: PropTypes.number.isRequired,
@@ -69,7 +70,7 @@ export default {
 			special: PropTypes.number.isRequired,
 			baseSpent: PropTypes.number.isRequired,
 			specialSpent: PropTypes.number.isRequired
-		}).isRequired,
+		}),
 	selectMagRes: PropTypes.string.isRequired,
 	settingSkills: PropTypes.shape(
 		{
@@ -79,7 +80,7 @@ export default {
 			magicSkills: PropTypes.array.isRequired,
 			skillPointsSpent: PropTypes.number.isRequired,
 			groupPointSpent: PropTypes.number.isRequired
-		}).isRequired,
+		}),
 	spellSelect: PropTypes.shape(
 		{
 			spells: PropTypes.array.isRequired,
@@ -87,7 +88,7 @@ export default {
 			powerPointsSpent: PropTypes.number.isRequired,
 			powerPointsKarma: PropTypes.number.isRequired,
 			complexforms: PropTypes.array.isRequired
-		}).isRequired,
+		}),
 	quality: PropTypes.shape(
 		{
 			Positive: PropTypes.array.isRequired,
@@ -96,10 +97,10 @@ export default {
 				Positive: PropTypes.number.isRequired,
 				Negative: PropTypes.number.isRequired
 			}).isRequired
-		}).isRequired,
+		}),
 	karma: PropTypes.number.isRequired,
 	purchaseGear: PropTypes.shape(
 		{
 			nuyen: PropTypes.number.isRequired
-		}).isRequired
+		})
 };

@@ -68,9 +68,9 @@ class App extends Component {
 				<div className="row">
 					<div className="col-md-12">
 						<Main
-							style={actions.style}/>
+							style={actions.style} />
 
-						<PriorityTableComponent changePriority={actions.priorityTable} priorityTable={priorityTableState}/>
+						<PriorityTableComponent changePriority={actions.priorityTable} priorityTable={priorityTableState} />
 					</div>
 				</div>
 
@@ -79,7 +79,7 @@ class App extends Component {
 						<MetatypeSelector
 							priorityRating={priorityTableState.metatype}
 							metatype={selectMetatypeState}
-							action={actions.selectMetatype}/>
+							action={actions.selectMetatype} />
 
 						<AttributesComponent
 							metatypeRating={priorityTableState.metatype}
@@ -91,16 +91,16 @@ class App extends Component {
 								incrementAttribute: actions.incrementAttribute,
 								decrementAttribute: actions.decrementAttribute
 							}}
-							attributes={attributes}/>
+							attributes={attributes} />
 
-						<QualityComponent karma={karmaTotal} actions={actions} selectedQualities={quality}/>
+						<QualityComponent karma={karmaTotal} actions={actions} selectedQualities={quality} />
 
 						<MagicSelectionComponent
 							magicPriority={priorityTableState.magres}
 							magictype={selectMagRes}
 							magicAttribute={attributes.special}
 							selectedSpellsPowers={spellSelect}
-							actions={actions}/>
+							actions={actions} />
 
 						<h2>Skills</h2>
 						<SkillsComponent
@@ -109,12 +109,12 @@ class App extends Component {
 							skills={settingSkills}
 							attributes={attributes}
 							metatype={selectMetatypeState}
-							magictype={selectMagRes}/>
+							magictype={selectMagRes} />
 						<h2>Street Gear</h2>
-						<StreetGearComponent actions={actions} purchaseGear={purchaseGearState} resourcesPriority={priorityTableState.resources}/>
+						<StreetGearComponent actions={actions} purchaseGear={purchaseGearState} resourcesPriority={priorityTableState.resources} />
 					</div>
 					<div id="summary" className="col-md-12 col-lg-3">
-						<Summary/>
+						<Summary />
 					</div>
 				</div>
 			</div>
@@ -127,17 +127,17 @@ class App extends Component {
  *       adjust it here.
  */
 App.propTypes = {
-	actions: PropTypeChecking.actions,
-	priorityTableState: PropTypeChecking.priorityTable,
-	selectMetatypeState: PropTypeChecking.selectMetatype,
-	attributes: PropTypeChecking.attributes,
-	selectMagRes: PropTypeChecking.selectMagRes,
-	settingSkills: PropTypeChecking.settingSkills,
-	spellSelect: PropTypeChecking.spellSelect,
-	quality: PropTypeChecking.quality,
-	karmaState: PropTypeChecking.karma,
-	purchaseGearState: PropTypeChecking.purchaseGear,
-	styleTheme: React.PropTypes.string
+	actions: PropTypeChecking.actions.isRequired,
+	priorityTableState: PropTypeChecking.priorityTable.isRequired,
+	selectMetatypeState: PropTypeChecking.selectMetatype.isRequired,
+	attributes: PropTypeChecking.attributes.isRequired,
+	selectMagRes: PropTypeChecking.selectMagRes.isRequired,
+	settingSkills: PropTypeChecking.settingSkills.isRequired,
+	spellSelect: PropTypeChecking.spellSelect.isRequired,
+	quality: PropTypeChecking.quality.isRequired,
+	karmaState: PropTypeChecking.karma.isRequired,
+	purchaseGearState: PropTypeChecking.purchaseGear.isRequired,
+	styleTheme: React.PropTypes.string.isRequired
 };
 function mapStateToProps(state) {
 	/* Populated by react-webpack-redux:reducer */

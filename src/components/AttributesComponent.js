@@ -3,7 +3,7 @@ import 'styles/Attributes.sass';
 import SpecialComponent from './SpecialComponent';
 import metatypeData from './data/metatype.json';
 import priorityData from './data/priority.json';
-
+import PropTypeChecking from '../config/propTypeChecking';
 
 
 class AttributesComponent extends React.Component {
@@ -43,11 +43,12 @@ class AttributesComponent extends React.Component {
 
 		// helper function
 		function addingElements(attType, pointsLeft, att, maxPoints, maxAtt, currentAtt) {
+			const maxCanRaiseTo = oneBaseAttAtMax && attType === 'base' ? maxPoints - 1 : maxPoints;
 			attributeElements[attType].incBtn.push(
 				<IncrementButton
-					attributes={attributes}
+					attributesAtMax={attributes[att] > maxCanRaiseTo}
 					attName={att}
-					maxPoints={oneBaseAttAtMax && attType === 'base' ? maxPoints - 1 : maxPoints}
+					maxPoints={maxCanRaiseTo}
 					pointsLeft={pointsLeft}
 					incrementAttribute={actions.incrementAttribute}
 					key={`incBtn-${att}`}
@@ -135,22 +136,34 @@ class AttributesComponent extends React.Component {
 					<SpecialComponent
 						elements={attributeElements.special}
 						pointsLeft={specialPointsLeft}
-						magicName={magicName}/>
+						magicName={magicName} />
 				</div>
 			</div>
 		);
 	}
 }
 
-function activeButton(currentAtt, maxAtt) {
-	return currentAtt > maxAtt ? 'disabled btn-danger' : 'btn-success';
-}
+AttributesComponent.propTypes = {
+	magictype: PropTypeChecking.selectMagRes.isRequired,
+	metatype: PropTypeChecking.selectMetatype.isRequired,
+	attributes: PropTypeChecking.attributes.isRequired,
+	priorityRating: PropTypeChecking.propTypePriorityCheck.isRequired,
+	metatypeRating: PropTypeChecking.propTypePriorityCheck.isRequired,
+	magicPriority: PropTypeChecking.propTypePriorityCheck.isRequired,
+	actions: React.PropTypes.shape({
+		incrementAttribute: React.PropTypes.func.isRequired,
+		decrementAttribute: React.PropTypes.func.isRequired
+	}).isRequired
+};
 
-const IncrementButton = ({attributes, attName, maxPoints, pointsLeft, incrementAttribute, attType}) => {
+const IncrementButton = ({attributesAtMax, attName, maxPoints, pointsLeft, incrementAttribute, attType}) => {
 	return (
 		<td>
 			<button
-				className={`btn ${activeButton(attributes[attName], maxPoints)}`}
+				className={`btn ${
+					attributesAtMax ?
+					'disabled btn-danger' : 'btn-success'
+				}`}
 				onClick={() => {
 					if (pointsLeft > 0) {
 						incrementAttribute({
@@ -167,11 +180,20 @@ const IncrementButton = ({attributes, attName, maxPoints, pointsLeft, incrementA
 	);
 };
 
+IncrementButton.propTypes = {
+	attributesAtMax: React.PropTypes.number.isRequired,
+	attName: React.PropTypes.string.isRequired,
+	maxPoints: React.PropTypes.number.isRequired,
+	pointsLeft: React.PropTypes.number.isRequired,
+	incrementAttribute: React.PropTypes.func.isRequired,
+	attType: React.PropTypes.string.isRequired
+};
+
 const DecrementButton = ({attName, decrementAttribute, maxPoints, attType}) => {
 	return (
 		<td>
 			<button
-				className="btn btn-success"
+				className="btn btn-warning"
 				onClick={() => {
 					decrementAttribute({
 						attribute: attName,
@@ -186,10 +208,13 @@ const DecrementButton = ({attName, decrementAttribute, maxPoints, attType}) => {
 	);
 };
 
-AttributesComponent.displayName = 'AttributesComponent';
+DecrementButton.propTypes = {
+	attName: React.PropTypes.string.isRequired,
+	decrementAttribute: React.PropTypes.func.isRequired,
+	maxPoints: React.PropTypes.number.isRequired,
+	attType: React.PropTypes.string.isRequired
+};
 
-// Uncomment properties you need
-// AttributesComponent.propTypes = {};
-// AttributesComponent.defaultProps = {};
+AttributesComponent.displayName = 'AttributesComponent';
 
 export default AttributesComponent;
