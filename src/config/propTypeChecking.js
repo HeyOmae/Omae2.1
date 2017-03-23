@@ -71,7 +71,7 @@ export default {
 			baseSpent: PropTypes.number.isRequired,
 			specialSpent: PropTypes.number.isRequired
 		}),
-	selectMagRes: PropTypes.string.isRequired,
+	selectMagRes: PropTypes.string,
 	settingSkills: PropTypes.shape(
 		{
 			active: PropTypes.object.isRequired,
@@ -98,7 +98,7 @@ export default {
 				Negative: PropTypes.number.isRequired
 			}).isRequired
 		}),
-	karma: PropTypes.number.isRequired,
+	karma: PropTypes.number,
 	purchaseGear: PropTypes.shape(
 		{
 			nuyen: PropTypes.number.isRequired

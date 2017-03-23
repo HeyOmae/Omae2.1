@@ -181,7 +181,7 @@ const IncrementButton = ({attributesAtMax, attName, maxPoints, pointsLeft, incre
 };
 
 IncrementButton.propTypes = {
-	attributesAtMax: React.PropTypes.number.isRequired,
+	attributesAtMax: React.PropTypes.bool.isRequired,
 	attName: React.PropTypes.string.isRequired,
 	maxPoints: React.PropTypes.number.isRequired,
 	pointsLeft: React.PropTypes.number.isRequired,
