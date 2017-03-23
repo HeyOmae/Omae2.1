@@ -15,7 +15,7 @@ class StreetGearComponent extends React.Component {
 				<h3>Weapons</h3>
 				<WeaponsComponent
 					actions={actions}
-					purchased={purchaseGear.weapons}/>
+					purchased={purchaseGear.weapons} />
 			</div>
 		);
 	}

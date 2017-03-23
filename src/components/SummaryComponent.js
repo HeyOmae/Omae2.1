@@ -38,7 +38,7 @@ const SummaryComponent = (
 			attributes: {}
 		},
 		displaySpellsPowers = [
-			<TableRowHeader key="summary-spell-header"/>
+			<TableRowHeader key="summary-spell-header" />
 		],
 		displayQualities = {
 			Positive: [<TableRowHeader key="summary-quality--positive--header" />],
@@ -80,9 +80,9 @@ const SummaryComponent = (
 		Object.keys(spellsAndPowers).forEach((magicCat) => {
 			const spellPowerArray = spellsAndPowers[magicCat];
 			if (Array.isArray(spellPowerArray)) {
-				spellPowerArray.forEach((spell, index) => {
+				spellPowerArray.forEach((spell) => {
 					displaySpellsPowers.push(
-						<tr key={`summary-${(magicCat || 'complex-form')}${spell.name}${index}`}><td>{spell.name}</td><td>{spell.source} p{spell.page}</td></tr>
+						<tr key={`summary-${(magicCat || 'complex-form')}${spell.name}`}><td>{spell.name}</td><td>{spell.source} p{spell.page}</td></tr>
 					);
 				});
 			}
@@ -243,23 +243,23 @@ const SummaryComponent = (
 					spellsAndPowers={spellsAndPowers}
 					qualities={selectedQualities}
 					karma={karma}
-					purchaseGear={purchaseGear}/>
+					purchaseGear={purchaseGear} />
 			</div>
 		</div>
 	);
 };
 
 SummaryComponent.propTypes = {
-	priority: PropTypeChecking.priorityTable,
-	metatype: PropTypeChecking.selectMetatype,
-	attributes: PropTypeChecking.attributes,
-	magres: PropTypeChecking.selectMagRes,
-	skills: PropTypeChecking.settingSkills,
+	priority: PropTypeChecking.priorityTable.isRequired,
+	metatype: PropTypeChecking.selectMetatype.isRequired,
+	attributes: PropTypeChecking.attributes.isRequired,
+	magres: PropTypeChecking.selectMagRes.isRequired,
+	skills: PropTypeChecking.settingSkills.isRequired,
 	fixed: React.PropTypes.bool.isRequired,
-	spellsAndPowers: PropTypeChecking.spellSelect,
-	selectedQualities: PropTypeChecking.quality,
-	karma: PropTypeChecking.karma,
-	purchaseGear: PropTypeChecking.purchaseGear
+	spellsAndPowers: PropTypeChecking.spellSelect.isRequired,
+	selectedQualities: PropTypeChecking.quality.isRequired,
+	karma: PropTypeChecking.karma.isRequired,
+	purchaseGear: PropTypeChecking.purchaseGear.isRequired
 };
 
 export default SummaryComponent;

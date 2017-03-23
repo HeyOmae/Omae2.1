@@ -62,16 +62,16 @@ class summary extends Component {
 }
 
 summary.propTypes = {
-	priorityTable: PropTypeChecking.priorityTable,
-	selectMetatype: PropTypeChecking.selectMetatype,
-	attributes: PropTypeChecking.attributes,
-	selectMagRes: PropTypeChecking.selectMagRes,
-	settingSkills: PropTypeChecking.settingSkills,
-	appControl: PropTypeChecking.appControl,
-	spellSelect: PropTypeChecking.spellSelect,
-	quality: PropTypeChecking.quality,
-	karma: PropTypeChecking.karma,
-	purchaseGear: PropTypeChecking.purchaseGear
+	priorityTable: PropTypeChecking.priorityTable.isRequired,
+	selectMetatype: PropTypeChecking.selectMetatype.isRequired,
+	attributes: PropTypeChecking.attributes.isRequired,
+	selectMagRes: PropTypeChecking.selectMagRes.isRequired,
+	settingSkills: PropTypeChecking.settingSkills.isRequired,
+	appControl: PropTypeChecking.appControl.isRequired,
+	spellSelect: PropTypeChecking.spellSelect.isRequired,
+	quality: PropTypeChecking.quality.isRequired,
+	karma: PropTypeChecking.karma.isRequired,
+	purchaseGear: PropTypeChecking.purchaseGear.isRequired
 };
 
 function mapStateToProps(state) {

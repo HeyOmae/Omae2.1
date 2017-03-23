@@ -67,9 +67,9 @@ class WeaponsComponent extends React.Component {
 						<FilterTable
 							tableData={{
 								header: (<WeaponTableHeader
-									reachCoil={reachCoil}/>),
+									reachCoil={reachCoil} />),
 								body: weaponsTableRow[category]
-							}}/>
+							}} />
 					}
 				/>
 			);
@@ -105,7 +105,7 @@ class WeaponsComponent extends React.Component {
 							modalContent={
 								<WeaponModTable
 									weapon={weapon}
-									weaponModLists={weaponModLists}/>
+									weaponModLists={weaponModLists} />
 							}
 						/>)
 						: null;
@@ -129,8 +129,8 @@ class WeaponsComponent extends React.Component {
 							header={<WeaponTableHeader
 								buySell="Sell"
 								reachCoil="Reach/RC"
-								isModable/>}
-							body={purchasedTableRow}/>
+								isModable />}
+							body={purchasedTableRow} />
 					</div>
 					: null}
 			</div>

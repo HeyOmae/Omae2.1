@@ -64,13 +64,21 @@ const spellReducer = (state = initialState, action) => {
 
 	const actionsToTake = {
 		ADD_SPELL: (prevState, {newSpell}) => {
-			return Object.assign(
-				{},
-				prevState,
-				{
-					spells: addingSpellToList(prevState.spells, newSpell)
-				}
-			);
+			const spellAlreadyExists = prevState.spells.find((spell) => {
+				return spell.name === newSpell.name;
+			});
+
+			if (spellAlreadyExists) {
+				return prevState;
+			}
+
+			return {
+				...prevState,
+				spells: [
+					...prevState.spells,
+					newSpell
+				]
+			};
 		},
 
 		REMOVE_SPELL: (prevState, {spellIndex}) => {

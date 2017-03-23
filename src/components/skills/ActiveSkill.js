@@ -39,7 +39,7 @@ function ActiveSkill({
 				defaultable={skillData.defaultable}
 				restrictedSkills={restrictedSkills}
 				addSkill={addSkill}
-				references={references}/>
+				references={references} />
 		);
 	});
 
@@ -55,7 +55,7 @@ function ActiveSkill({
 					</tr>
 				),
 				body: skillTableData
-			}}/>
+			}} />
 	);
 }
 

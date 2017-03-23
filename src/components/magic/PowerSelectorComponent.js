@@ -190,7 +190,7 @@ class PowerSelectorComponent extends React.Component {
 							modalName="Powers"
 							modalContent={
 								<PowersTables
-									powerRowData={powersToSeletTableRows}/>
+									powerRowData={powersToSeletTableRows} />
 							}
 						/>
 					</div>
@@ -199,7 +199,7 @@ class PowerSelectorComponent extends React.Component {
 					<PowerSelectedDisplay
 						selectedPowers={selectedPowers}
 						removePower={removePower}
-						modifyPowers={{raisePower, lowerPower, pointSpent, maxPointPoints, bonusUp, bonusDown, isMystic}}/>
+						modifyPowers={{raisePower, lowerPower, pointSpent, maxPointPoints, bonusUp, bonusDown, isMystic}} />
 					: null
 				}
 			</div>
@@ -233,7 +233,7 @@ const PowerSelectedDisplay = ({selectedPowers, removePower, modifyPowers}) => {
 			<h4>Powers</h4>
 			<DisplayTable
 				header={powerTableData.header}
-				body={powerTableData.body}/>
+				body={powerTableData.body} />
 		</div>
 	);
 };

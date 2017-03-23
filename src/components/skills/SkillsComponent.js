@@ -132,7 +132,7 @@ class SkillsComponent extends React.Component {
 							actions={actions}
 							attributes={attributes}
 							metatype={metatype}
-							skillPointsLeft={skillPointsLeft}/>
+							skillPointsLeft={skillPointsLeft} />
 					</div>)
 					: null
 				}

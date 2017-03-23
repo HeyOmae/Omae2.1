@@ -61,7 +61,7 @@ const SkillgroupsComponent = ({skillgroups, skillgroupsData, actions, pointsLeft
 								</tr>
 							),
 							body: listOfGroups
-						}}/>
+						}} />
 				</div>
 		} />
 	);

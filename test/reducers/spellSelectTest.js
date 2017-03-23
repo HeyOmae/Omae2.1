@@ -113,6 +113,25 @@ describe('spellSelect', () => {
 			expect(newState.spells[newState.spells.length - 1]).to.eql(newSpell);
 			expect(newState.spells.length).to.eql(state.spells.length + 1);
 		});
+
+		it('should return state if the spell is already in the spells state', () => {
+			const newSpell = {
+				id: '87cb3685-22e8-46fa-890f-f3cfef10a71f',
+				name: 'Toxic Wave',
+				descriptor: 'Indirect, Elemental, Area',
+				category: 'Combat',
+				type: 'P',
+				range: 'LOS (A)',
+				damage: 'P',
+				duration: 'I',
+				dv: 'F-1',
+				source: 'SR5',
+				page: '283'
+			},
+			newState = reducer(state, {type: 'ADD_SPELL', parameter: {newSpell}});
+
+			expect(newState).to.eql(state);
+		});
 	});
 
 	describe('REMOVE_SPELL', () => {

@@ -7,7 +7,7 @@ const DisplaySkills = ({skills, actions, attributes, metatype, skillPointsLeft})
 	return (
 		<DisplayTable
 			header={
-				<ActiveSkillHeader/>
+				<ActiveSkillHeader />
 			}
 			body={
 				Object.keys(skills.active).map((skillKey) => {
@@ -20,10 +20,10 @@ const DisplaySkills = ({skills, actions, attributes, metatype, skillPointsLeft})
 							skill={skill}
 							actions={actions}
 							attribute={currentAttribute}
-							skillPointsLeft={skillPointsLeft}/>
+							skillPointsLeft={skillPointsLeft} />
 					);
 				})
-			}/>
+			} />
 	);
 };
 
@@ -104,7 +104,7 @@ function ActiveSkillRow({skillKey, skill, actions, attribute, skillPointsLeft}) 
 					onChange={(e) => {
 						actions.setSpec({name: skillKey, category: 'active', spec: e.target.value});
 					}}
-					value={skill.spec || ''}/>
+					value={skill.spec || ''} />
 			</td>
 			<td>
 				{dicePool}

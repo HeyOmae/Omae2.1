@@ -85,7 +85,7 @@ class QualityComponent extends React.Component {
 						<h3>Positive Qualities</h3>
 						<DisplayTable
 							header={(<QualityHeader
-								buttonType="Remove"/>)}
+								buttonType="Remove" />)}
 							body={generateSelectedQualityTableRow(selectedQualities.Positive)} />
 					</div>
 					: null
@@ -95,7 +95,7 @@ class QualityComponent extends React.Component {
 						<h3>Negative Qualities</h3>
 						<DisplayTable
 							header={(<QualityHeader
-								buttonType="Remove"/>)}
+								buttonType="Remove" />)}
 							body={generateSelectedQualityTableRow(selectedQualities.Negative)} />
 					</div>
 					: null
@@ -123,7 +123,7 @@ QualityHeader.propTypes = {
 const QualityTable = ({tableRows}) => {
 	const header = (
 		<QualityHeader
-			buttonType="Add"/>
+			buttonType="Add" />
 		),
 		tableData = {
 			header,

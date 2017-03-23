@@ -72,7 +72,7 @@ function spellNameTableData({start, end, placeholderText}, name) {
 					className="form-control spell-option"
 					type="text"
 					ref={`spellOption${name}`}
-					placeholder={placeholderText}/>
+					placeholder={placeholderText} />
 				: null
 			}
 			{end || null}
@@ -178,7 +178,7 @@ class SpellSelectorComponent extends React.Component {
 						modalName={spellCat}
 						modalContent={
 							<SpellsTables
-								spellRowData={spellsToSeletTables[spellCat]}/>
+								spellRowData={spellsToSeletTables[spellCat]} />
 						}
 					/>
 				);
@@ -193,7 +193,7 @@ class SpellSelectorComponent extends React.Component {
 				</div>
 				<SpellSelectedDisplay
 					selectedSpells={selectedSpells}
-					removeSpell={removeSpell}/>
+					removeSpell={removeSpell} />
 			</div>
 		);
 	}
@@ -224,7 +224,7 @@ const SpellSelectedDisplay = ({selectedSpells, removeSpell}) => {
 					<h4>{spellCat}</h4>
 					<DisplayTable
 						header={spellCatagoryData.header}
-						body={spellCatagoryData.body}/>
+						body={spellCatagoryData.body} />
 				</div>
 			);
 		});

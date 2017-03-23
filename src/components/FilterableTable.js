@@ -30,10 +30,10 @@ class FilterableTable extends Component {
 					onChange={(event) => {
 						setFilterAction({filterTerm: event.target.value});
 					}}
-					value={filterTable}/>
+					value={filterTable} />
 				<DisplayTable
 					header={tableData.header}
-					body={filteredRows}/>
+					body={filteredRows} />
 			</div>);
 	}
 }

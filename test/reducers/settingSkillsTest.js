@@ -92,7 +92,7 @@ describe('settingSkills', () => {
 		it('should remove a free skill', () => {
 			const newState = reducer(state, {type: 'REMOVE_SKILL', parameter: {name: 'binding', category: 'active', max: 6, attribute: 'mag' }});
 
-			expect(newState.magicSkills).to.deep.equal(['summoning']);
+			expect(newState.magicSkills).to.deep.equal(['summoning', '']);
 			expect(state.magicSkills).to.deep.equal(['summoning', 'binding']);
 			expect(newState.skillPointsSpent).to.equal(2);
 		});

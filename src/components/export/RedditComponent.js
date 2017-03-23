@@ -194,13 +194,13 @@ ${activeSkills}
 			<textarea
 				className="form-control export-modal"
 				value={formate}
-				readOnly/>
+				readOnly />
 	);
 	return (
 		<div className="reddit-component">
 			<Modal
 				modalName="Export.reddit"
-				modalContent={exportField}/>
+				modalContent={exportField} />
 		</div>
 	);
 };
