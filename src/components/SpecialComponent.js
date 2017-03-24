@@ -40,16 +40,18 @@ class SpecialComponent extends React.Component {
 
 SpecialComponent.displayName = 'SpecialComponent';
 
-// Uncomment properties you need
 SpecialComponent.propTypes = {
 	elements: React.PropTypes.shape({
 		incBtn: React.PropTypes.array.isRequired,
 		display: React.PropTypes.array.isRequired,
 		decBtn: React.PropTypes.array.isRequired
 	}).isRequired,
-	pointsLeft: React.PropTypes.number,
+	pointsLeft: React.PropTypes.number.isRequired,
 	magicName: React.PropTypes.string
 };
-// SpecialComponent.defaultProps = {};
+
+SpecialComponent.defaultProps = {
+	magicName: ''
+};
 
 export default SpecialComponent;

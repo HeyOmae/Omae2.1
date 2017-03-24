@@ -145,12 +145,12 @@ SkillsComponent.displayName = 'SkillsSkillsComponent';
 
 // Uncomment properties you need
 SkillsComponent.propTypes = {
-	actions: PropTypeChecking.actions,
-	priority: PropTypeChecking.priorityTable,
-	skills: PropTypeChecking.settingSkills,
-	attributes: PropTypeChecking.attributes,
-	metatype: PropTypeChecking.selectMetatype,
-	magictype: PropTypeChecking.selectMagRes
+	actions: PropTypeChecking.actions.isRequired,
+	priority: PropTypeChecking.priorityTable.isRequired,
+	skills: PropTypeChecking.settingSkills.isRequired,
+	attributes: PropTypeChecking.attributes.isRequired,
+	metatype: PropTypeChecking.selectMetatype.isRequired,
+	magictype: PropTypeChecking.selectMagRes.isRequired
 };
 // SkillsComponent.defaultProps = {};
 
