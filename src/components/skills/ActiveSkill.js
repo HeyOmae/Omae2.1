@@ -61,7 +61,7 @@ function ActiveSkill({
 
 ActiveSkill.propTypes = {
 	skillList: React.PropTypes.objectOf(React.PropTypes.object).isRequired,
-	actions: PropTypeChecking.actions,
+	actions: PropTypeChecking.actions.isRequired,
 	skillPointsLeft: React.PropTypes.number.isRequired,
 	restrictedSkills: React.PropTypes.bool.isRequired
 };

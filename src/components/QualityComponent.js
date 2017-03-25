@@ -145,8 +145,8 @@ QualityComponent.displayName = 'QualityComponent';
 
 // Uncomment properties you need
 QualityComponent.propTypes = {
-	actions: propTypeChecking.actions,
-	selectedQualities: propTypeChecking.quality,
+	actions: propTypeChecking.actions.isRequired,
+	selectedQualities: propTypeChecking.quality.isRequired,
 	karma: React.PropTypes.number.isRequired
 };
 // QualityComponent.defaultProps = {};

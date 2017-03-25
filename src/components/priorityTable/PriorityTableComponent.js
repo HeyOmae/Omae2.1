@@ -166,19 +166,20 @@ PriorityRow.propTypes = {
 	changePriority: React.PropTypes.func.isRequired
 };
 
-ResourcesDataCell.propTypes = SkillsDataCell.propTypes = AttributeDataCell.propTypes = {
+const PropsToChangePriority = {
 	changePriority: React.PropTypes.func.isRequired,
 	active: React.PropTypes.bool.isRequired,
 	rating: React.PropTypes.string.isRequired
 };
+ResourcesDataCell.propTypes = PropsToChangePriority;
+SkillsDataCell.propTypes = PropsToChangePriority;
+AttributeDataCell.propTypes = PropsToChangePriority;
 
 PriorityTableComponent.displayName = 'PriorityTableComponent';
 
-// Uncomment properties you need
 PriorityTableComponent.propTypes = {
 	changePriority: React.PropTypes.func.isRequired,
-	priorityTable: propTypeChecking.priorityTable
+	priorityTable: propTypeChecking.priorityTable.isRequired
 };
-// PriorityTableComponent.defaultProps = {};
 
 export default PriorityTableComponent;
