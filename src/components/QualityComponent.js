@@ -6,7 +6,7 @@ import FilterTable from './FilterableTable';
 import qualityData from './data/qualities.json';
 import propTypeChecking from '../config/propTypeChecking';
 
-class QualityComponent extends React.Component {
+class QualityComponent extends React.PureComponent {
 	componentWillMount() {
 		const {actions} = this.props;
 

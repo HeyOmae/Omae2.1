@@ -5,7 +5,7 @@ import propTypeChecking from '../../config/propTypeChecking';
 import MetatypeDataCell from './MetatypeDataCell';
 import MagicDataCell from './MagicDataCell';
 
-class PriorityTableComponent extends React.Component {
+class PriorityTableComponent extends React.PureComponent {
 	render() {
 		const {changePriority, priorityTable} = this.props;
 		return (

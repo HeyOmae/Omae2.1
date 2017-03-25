@@ -87,10 +87,7 @@ class App extends Component {
 							magicPriority={priorityTableState.magres}
 							magictype={selectMagRes}
 							metatype={selectMetatypeState}
-							actions={{
-								incrementAttribute: actions.incrementAttribute,
-								decrementAttribute: actions.decrementAttribute
-							}}
+							actions={actions}
 							attributes={attributes} />
 
 						<QualityComponent karma={karmaTotal} actions={actions} selectedQualities={quality} />

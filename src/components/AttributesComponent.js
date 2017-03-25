@@ -6,7 +6,7 @@ import priorityData from './data/priority.json';
 import PropTypeChecking from '../config/propTypeChecking';
 
 
-class AttributesComponent extends React.Component {
+class AttributesComponent extends React.PureComponent {
 	render() {
 		const {priorityRating, metatype, attributes, actions, metatypeRating, magicPriority, magictype} = this.props;
 		const attributeElements = {
@@ -150,10 +150,7 @@ AttributesComponent.propTypes = {
 	priorityRating: PropTypeChecking.propTypePriorityCheck.isRequired,
 	metatypeRating: PropTypeChecking.propTypePriorityCheck.isRequired,
 	magicPriority: PropTypeChecking.propTypePriorityCheck.isRequired,
-	actions: React.PropTypes.shape({
-		incrementAttribute: React.PropTypes.func.isRequired,
-		decrementAttribute: React.PropTypes.func.isRequired
-	}).isRequired
+	actions: PropTypeChecking.actions.isRequired
 };
 
 const IncrementButton = ({attributesAtMax, attName, maxPoints, pointsLeft, incrementAttribute, attType}) => {

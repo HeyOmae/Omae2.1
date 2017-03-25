@@ -5,7 +5,7 @@ import PropTypeChecking from '../../config/propTypeChecking';
 
 import '../../styles/gear/StreetGear.scss';
 
-class StreetGearComponent extends React.Component {
+class StreetGearComponent extends React.PureComponent {
 	render() {
 		const {actions, purchaseGear, resourcesPriority} = this.props;
 		const nuyen = priorityData[resourcesPriority].resources;

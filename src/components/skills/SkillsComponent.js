@@ -16,7 +16,7 @@ function calculateGroupPointsLeft(prioritySkill, groupPointSpent) {
 				- groupPointSpent;
 }
 
-class SkillsComponent extends React.Component {
+class SkillsComponent extends React.PureComponent {
 	componentWillMount() {
 		const {actions, priority, skills, magictype} = this.props,
 			attAbriviation = {
