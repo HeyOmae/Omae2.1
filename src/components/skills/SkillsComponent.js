@@ -128,7 +128,7 @@ class SkillsComponent extends React.PureComponent {
 					(<div className="table-responsive">
 						<h3>Skill List</h3>
 						<DisplaySkills
-							skills={skills}
+							activeSkills={skills.active}
 							actions={actions}
 							attributes={attributes}
 							metatype={metatype}

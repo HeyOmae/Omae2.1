@@ -102,4 +102,10 @@ FreeSkills.propTypes = {
 	setMagicSkills: React.PropTypes.func
 };
 
+FreeSkills.defaultProps = {
+	priorityDataFreeSkills: null,
+	magicSkills: null,
+	setMagicSkills: null
+};
+
 export default FreeSkills;

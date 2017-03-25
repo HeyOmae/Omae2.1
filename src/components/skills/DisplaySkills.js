@@ -3,15 +3,15 @@ import DisplayTable from '../DisplayTableComponent';
 import metatypeData from '../data/metatype.json';
 import PropTypeChecking from '../../config/propTypeChecking';
 
-const DisplaySkills = ({skills, actions, attributes, metatype, skillPointsLeft}) => {
+const DisplaySkills = ({activeSkills, actions, attributes, metatype, skillPointsLeft}) => {
 	return (
 		<DisplayTable
 			header={
 				<ActiveSkillHeader />
 			}
 			body={
-				Object.keys(skills.active).map((skillKey) => {
-					const skill = skills.active[skillKey],
+				Object.keys(activeSkills).map((skillKey) => {
+					const skill = activeSkills[skillKey],
 						currentAttribute = metatypeData[metatype.typeName].min[skill.attribute] + attributes[skill.attribute];
 					return (
 						<ActiveSkillRow
@@ -28,11 +28,13 @@ const DisplaySkills = ({skills, actions, attributes, metatype, skillPointsLeft})
 };
 
 DisplaySkills.propTypes = {
-	skills: PropTypeChecking.settingSkills,
-	actions: PropTypeChecking.actions,
-	attributes: PropTypeChecking.attributes,
-	metatype: PropTypeChecking.selectMetatype,
-	skillPointsLeft: React.PropTypes.number
+	activeSkills: React.PropTypes.objectOf(
+		React.PropTypes.object
+	).isRequired,
+	actions: PropTypeChecking.actions.isRequired,
+	attributes: PropTypeChecking.attributes.isRequired,
+	metatype: PropTypeChecking.selectMetatype.isRequired,
+	skillPointsLeft: React.PropTypes.number.isRequired
 };
 
 function ActiveSkillHeader() {
@@ -115,15 +117,15 @@ function ActiveSkillRow({skillKey, skill, actions, attribute, skillPointsLeft}) 
 }
 
 ActiveSkillRow.propTypes = {
-	skillKey: React.PropTypes.string,
+	skillKey: React.PropTypes.string.isRequired,
 	skill: React.PropTypes.shape({
 		rating: React.PropTypes.number,
 		attribute: React.PropTypes.string.isRequired,
 		spec: React.PropTypes.string
-	}),
-	actions: PropTypeChecking.actions,
-	attribute: React.PropTypes.number,
-	skillPointsLeft: React.PropTypes.number
+	}).isRequired,
+	actions: PropTypeChecking.actions.isRequired,
+	attribute: React.PropTypes.number.isRequired,
+	skillPointsLeft: React.PropTypes.number.isRequired
 };
 
 export default DisplaySkills;
