@@ -109,7 +109,7 @@ class SkillsComponent extends React.PureComponent {
 					/>
 				<h3>Skill Groups</h3>
 				<div className="row">
-					<div className="col-xs-12">
+					<div className="col">
 						<Skillgroup
 							skillgroups={skills.groups}
 							skillgroupsData={skillsData.groups}
@@ -120,7 +120,7 @@ class SkillsComponent extends React.PureComponent {
 
 				<h3>Active Skills</h3>
 				<div className="row">
-					<div className="col-xs-12">
+					<div className="col">
 						{listOfSkills}
 					</div>
 				</div>
