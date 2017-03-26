@@ -1,3 +1,3 @@
-module.exports = function (parameter) {
+module.exports = (parameter) => {
 	return { type: 'RESET_ABILITY', parameter };
 };

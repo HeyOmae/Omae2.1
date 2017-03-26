@@ -13,7 +13,7 @@ const DisplayTableComponent = ({header, body}) => {
 
 DisplayTableComponent.propTypes = {
 	header: React.PropTypes.element.isRequired,
-	body: React.PropTypes.arrayOf(React.PropTypes.element)
+	body: React.PropTypes.arrayOf(React.PropTypes.element).isRequired
 };
 
 
