@@ -143,7 +143,7 @@ WeaponsComponent.propTypes = {
 	actions: PropTypeChecking.actions.isRequired
 };
 WeaponsComponent.defaultProps = {
-	purchased: []
+	purchased: null
 };
 
 // Helper function

@@ -4,10 +4,12 @@ import 'styles//DisplayTable.scss';
 
 const DisplayTableComponent = ({header, body}) => {
 	return (
-		<table className="table">
-			<thead>{header}</thead>
-			<tbody>{body}</tbody>
-		</table>
+		<div className="table-responsive">
+			<table className="table">
+				<thead>{header}</thead>
+				<tbody>{body}</tbody>
+			</table>
+		</div>
 	);
 };
 

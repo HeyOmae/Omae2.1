@@ -22,7 +22,7 @@ class FilterableTable extends Component {
 			filteredRows = filterTable ? filtered(filterTable, tableData.body) : tableData.body;
 		return (
 			<div
-				className="table-responsive">
+				className="filter-table--wrapper">
 				<input
 					className="form-control"
 					type="text"
