@@ -206,16 +206,16 @@ ${activeSkills}
 };
 
 RedditComponent.propTypes = {
-	priority: PropTypeChecking.priorityTable,
+	priority: PropTypeChecking.priorityTable.isRequired,
 	metatype: React.PropTypes.string.isRequired,
-	attributes: React.PropTypes.objectOf(React.PropTypes.number),
-	augmentedAtt: React.PropTypes.objectOf(React.PropTypes.number),
-	magres: PropTypeChecking.selectMagRes,
-	skills: PropTypeChecking.settingSkills,
-	spellsAndPowers: PropTypeChecking.spellSelect,
-	qualities: PropTypeChecking.quality,
-	karma: PropTypeChecking.karma,
-	purchaseGear: PropTypeChecking.purchaseGear
+	attributes: React.PropTypes.objectOf(React.PropTypes.number).isRequired,
+	augmentedAtt: React.PropTypes.objectOf(React.PropTypes.number).isRequired,
+	magres: PropTypeChecking.selectMagRes.isRequired,
+	skills: PropTypeChecking.settingSkills.isRequired,
+	spellsAndPowers: PropTypeChecking.spellSelect.isRequired,
+	qualities: PropTypeChecking.quality.isRequired,
+	karma: PropTypeChecking.karma.isRequired,
+	purchaseGear: PropTypeChecking.purchaseGear.isRequired
 };
 
 export default RedditComponent;

@@ -192,10 +192,10 @@ MagicSelectionComponent.displayName = 'MagicMagicSelectionComponent';
 // Uncomment properties you need
 MagicSelectionComponent.propTypes = {
 	magicPriority: React.PropTypes.string.isRequired,
-	magictype: PropTypeChecking.selectMagRes,
+	magictype: PropTypeChecking.selectMagRes.isRequired,
 	magicAttribute: React.PropTypes.number.isRequired,
-	selectedSpellsPowers: PropTypeChecking.spellSelect,
-	actions: PropTypeChecking.actions
+	selectedSpellsPowers: PropTypeChecking.spellSelect.isRequired,
+	actions: PropTypeChecking.actions.isRequired
 };
 // MagicSelectionComponent.defaultProps = {};
 

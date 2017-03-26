@@ -25,10 +25,12 @@ StreetGearComponent.displayName = 'StreetGearComponent';
 
 // Uncomment properties you need
 StreetGearComponent.propTypes = {
-	actions: PropTypeChecking.actions,
+	actions: PropTypeChecking.actions.isRequired,
 	purchaseGear: PropTypeChecking.purchaseGear,
 	resourcesPriority: React.PropTypes.string.isRequired
 };
-// StreetGearComponent.defaultProps = {};
+StreetGearComponent.defaultProps = {
+	purchaseGear: null
+};
 
 export default StreetGearComponent;

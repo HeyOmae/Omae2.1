@@ -5,8 +5,18 @@ import 'styles/Modal.sass';
 import actionToggleModal from '../actions/toggleModal';
 
 class ModalComponent extends React.Component {
+	componentWillMount() {
+		const {modalName, modalID} = this.props;
+		this.modalID = modalID || `${modalName.replace(/\s/g, '')}-modal`;
+	}
+
+	shouldComponentUpdate(nextProps) {
+		return (nextProps.modalToggle === this.modalID) || (nextProps.modalToggle === '' && this.props.modalToggle === this.modalID);
+	}
+
 	render() {
-		const {modalName, modalContent, modalToggle, toggleModalAction, modalID = `${modalName.replace(/\s/g, '')}-modal` } = this.props,
+		const {modalName, modalContent, modalToggle, toggleModalAction} = this.props,
+			{modalID} = this,
 			toggleModal = () => {
 				toggleModalAction(modalID);
 			};
@@ -83,11 +93,14 @@ ModalComponent.propTypes = {
 	toggleModalAction: PropTypes.func.isRequired,
 	modalID: PropTypes.string
 };
+// TODO: think about refactoring, unexpected behavior when set to empty string or null
+ModalComponent.defaultProps = {
+	modalID: undefined
+};
 
 function mapStateToProps(state) {
 	return { modalToggle: state.modalToggle };
 }
 
-// ModalComponent.defaultProps = {};
 
 export default connect(mapStateToProps, { toggleModalAction: actionToggleModal })(ModalComponent);

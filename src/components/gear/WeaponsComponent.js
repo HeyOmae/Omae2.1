@@ -140,7 +140,10 @@ class WeaponsComponent extends React.Component {
 
 WeaponsComponent.propTypes = {
 	purchased: React.PropTypes.arrayOf(React.PropTypes.object),
-	actions: PropTypeChecking.actions
+	actions: PropTypeChecking.actions.isRequired
+};
+WeaponsComponent.defaultProps = {
+	purchased: []
 };
 
 // Helper function
@@ -243,8 +246,5 @@ WeaponsTableRow.propTypes = {
 };
 
 WeaponsComponent.displayName = 'GearWeaponsComponent';
-
-// Uncomment properties you need
-// WeaponsComponent.defaultProps = {};
 
 export default WeaponsComponent;
