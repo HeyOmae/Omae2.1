@@ -13,28 +13,21 @@ const purchaseGearReducer = (state = initialState, action) => {
 	const actionsToTake = {
 		PURCHASE: (prevState, {gear, category}) => {
 			if (prevState[category]) {
-				return Object.assign(
-					{},
-					prevState,
-					{
-						[category]:
-						[
-							...prevState[category],
-							gear
-						],
-						nuyen: prevState.nuyen + Number(gear.cost)
-					}
-				);
+				return {
+					...prevState,
+					[category]: [
+						...prevState[category],
+						gear
+					],
+					nuyen: prevState.nuyen + Number(gear.cost)
+				};
 			}
 
-			return Object.assign(
-				{},
-				prevState,
-				{
-					[category]: [gear],
-					nuyen: prevState.nuyen + Number(gear.cost)
-				}
-			);
+			return {
+				...prevState,
+				[category]: [gear],
+				nuyen: prevState.nuyen + Number(gear.cost)
+			};
 		},
 		SELL: (prevState, {index, category}) => {
 			const gearArray = prevState[category];
@@ -53,13 +46,10 @@ const purchaseGearReducer = (state = initialState, action) => {
 				);
 			}
 
-			const newState = Object.assign(
-				{},
-				prevState,
-				{
-					nuyen: prevState.nuyen - Number(gearArray[index].cost)
-				}
-			);
+			const newState = {
+				...prevState,
+				nuyen: prevState.nuyen - Number(gearArray[index].cost)
+			};
 
 			delete newState[category];
 
