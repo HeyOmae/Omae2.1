@@ -11,22 +11,35 @@ const initialState = {
 const purchaseGearReducer = (state = initialState, action) => {
 
 	const actionsToTake = {
-		PURCHASE: (prevState, {gear, category}) => {
+		PURCHASE: (prevState, {gear, category, Rating}) => {
+			let { cost } = gear,
+				gearToAdd = gear;
+
+			if (Rating && cost.search('Rating') > -1) {
+				const evil = eval;
+				cost = evil(cost.replace('Rating', Rating));
+				gearToAdd = {
+					...gear,
+					currentRating: Rating,
+					currentCost: cost
+				};
+			}
+
 			if (prevState[category]) {
 				return {
 					...prevState,
 					[category]: [
 						...prevState[category],
-						gear
+						gearToAdd
 					],
-					nuyen: prevState.nuyen + Number(gear.cost)
+					nuyen: prevState.nuyen + Number(cost)
 				};
 			}
 
 			return {
 				...prevState,
-				[category]: [gear],
-				nuyen: prevState.nuyen + Number(gear.cost)
+				[category]: [gearToAdd],
+				nuyen: prevState.nuyen + Number(cost)
 			};
 		},
 		SELL: (prevState, {index, category}) => {

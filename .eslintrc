@@ -13,6 +13,7 @@
     "indent": ["error", "tab"],
     "max-len": ["off"],
     "no-bitwise": ["error", { "allow": ["~"] }],
+    "no-eval": ["error", {"allowIndirect": true}],
     "no-mixed-operators": ["error", {"allowSamePrecedence": true}],
     "no-plusplus": ["off"],
     "no-tabs": ["off"],

@@ -40,7 +40,8 @@ import {
 	sellGear,
 	addSkill,
 	removeSkill,
-	style
+	style,
+	modding
 } from '../actions/';
 import Main from '../components/Main';
 import PriorityTableComponent from '../components/priorityTable/PriorityTableComponent';
@@ -59,7 +60,6 @@ class App extends Component {
 			document.body.className = newProps.styleTheme;
 		}
 	}
-
 	render() {
 		const {actions, priorityTableState, selectMetatypeState, attributes, selectMagRes, settingSkills, spellSelect, quality, karmaState, purchaseGearState} = this.props,
 			karmaTotal = karmaState - spellSelect.powerPointsKarma;
@@ -67,8 +67,7 @@ class App extends Component {
 			<div className="container">
 				<div className="row">
 					<div className="col-md-12">
-						<Main
-							style={actions.style} />
+						<Main style={actions.style} />
 
 						<PriorityTableComponent changePriority={actions.priorityTable} priorityTable={priorityTableState} />
 					</div>
@@ -76,10 +75,7 @@ class App extends Component {
 
 				<div className="row">
 					<div className="col-md-12 col-lg-9">
-						<MetatypeSelector
-							priorityRating={priorityTableState.metatype}
-							metatype={selectMetatypeState}
-							action={actions.selectMetatype} />
+						<MetatypeSelector priorityRating={priorityTableState.metatype} metatype={selectMetatypeState} action={actions.selectMetatype} />
 
 						<AttributesComponent
 							metatypeRating={priorityTableState.metatype}
@@ -184,7 +180,8 @@ function mapDispatchToProps(dispatch) {
 		sellGear,
 		addSkill,
 		removeSkill,
-		style
+		style,
+		modding
 	};
 	const actionMap = { actions: bindActionCreators(actions, dispatch) };
 	return actionMap;
