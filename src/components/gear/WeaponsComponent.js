@@ -202,7 +202,7 @@ WeaponModsComponent.propTypes = {
 	).isRequired
 };
 
-function WeaponTableHeader({buySell = 'Buy', reachCoil, isModable}) {
+function WeaponTableHeader({buySell, reachCoil, isModable}) {
 	return (
 		<tr>
 			<th>{buySell}</th>
@@ -222,6 +222,10 @@ WeaponTableHeader.propTypes = {
 	buySell: React.PropTypes.string,
 	reachCoil: React.PropTypes.string.isRequired,
 	isModable: React.PropTypes.bool
+};
+WeaponTableHeader.defaultProps = {
+	buySell: 'Buy',
+	isModable: false
 };
 
 function WeaponsTableRow({weapon, button, mod}) {
@@ -256,6 +260,9 @@ WeaponsTableRow.propTypes = {
 	}).isRequired,
 	button: React.PropTypes.element.isRequired,
 	mod: React.PropTypes.element
+};
+WeaponsTableRow.defaultProps = {
+	mod: null
 };
 
 WeaponsComponent.displayName = 'GearWeaponsComponent';

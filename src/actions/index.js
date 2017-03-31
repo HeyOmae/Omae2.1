@@ -5,7 +5,7 @@ Allows to import actions like so:
 import {action1, action2} from '../actions/'
 */
 /* Populated by react-webpack-redux:action */
-import modding from '../actions/gear/modding.js';
+import modding from '../actions/gear/modding';
 import style from '../actions/app/style';
 import removeSkill from '../actions/skills/removeSkill';
 import addSkill from '../actions/skills/addSkill';
