@@ -11,7 +11,7 @@ const initialState = {
 const purchaseGearReducer = (state = initialState, action) => {
 
 	const actionsToTake = {
-		PURCHASE: (prevState, {gear, category, Rating}) => {
+		PURCHASE(prevState, {gear, category, Rating}) {
 			let { cost } = gear,
 				gearToAdd = gear;
 
@@ -25,24 +25,16 @@ const purchaseGearReducer = (state = initialState, action) => {
 				};
 			}
 
-			if (prevState[category]) {
-				return {
-					...prevState,
-					[category]: [
-						...prevState[category],
-						gearToAdd
-					],
-					nuyen: prevState.nuyen + Number(cost)
-				};
-			}
-
 			return {
 				...prevState,
-				[category]: [gearToAdd],
+				[category]: [
+					...prevState[category] || {},
+					gearToAdd
+				],
 				nuyen: prevState.nuyen + Number(cost)
 			};
 		},
-		SELL: (prevState, {index, category}) => {
+		SELL(prevState, {index, category}) {
 			const gearArray = prevState[category];
 			if (gearArray.length > 1) {
 				return Object.assign(
@@ -68,7 +60,30 @@ const purchaseGearReducer = (state = initialState, action) => {
 
 			return newState;
 		},
-		DEFAULT: (prevState) => { return prevState; }
+
+		WEAPON_MODDING(prevState, {index, category, slot, mod}) {
+			const modPrice = Number(mod.cost),
+				weaponsArray = prevState[category],
+				gearBeingModded = weaponsArray[index];
+
+			return {
+				...prevState,
+				[category]: [
+					...weaponsArray.slice(0, index),
+					{
+						...gearBeingModded,
+						mods: {
+							...gearBeingModded.mods || {},
+							[slot]: mod
+						},
+						currentCost: Number(gearBeingModded.cost) + modPrice
+					},
+					...weaponsArray.slice(index + 1)
+				],
+				nuyen: prevState.nuyen + modPrice
+			};
+		},
+		DEFAULT(prevState) { return prevState; }
 	};
 	return (actionsToTake[action.type] || actionsToTake.DEFAULT)(state, action.parameter);
 };

@@ -167,7 +167,34 @@ describe('purchaseGear', () => {
 		});
 	});
 
-	describe('MODDING', () => {
+	describe('WEAPON_MODDING', () => {
+		const stockMod = {
+			id: '71a37dd2-d162-4829-a233-5afdd954691d',
+			name: 'Hip Pad Bracing System',
+			mount: 'Stock',
+			rating: '0',
+			avail: '4',
+			cost: '250',
+			rc: '1',
+			rcgroup: '2',
+			source: 'RG',
+			page: '52'
+		};
 
+		it('should add a mod key to a weapon and populate it with the mod', () => {
+			const newState = reducer(state, {type: 'WEAPON_MODDING', parameter: {index: 0, category: 'weapons', slot: 'stock', mod: stockMod}});
+
+			expect(newState.weapons[0].mods.stock).to.equal(stockMod);
+			expect(newState.weapons[0].currentCost).to.equal(2900);
+			expect(newState.nuyen).to.equal(3600);
+
+			expect(state.weapons[0].mods).to.be.undefined;
+			expect(state.weapons[0].currentCost).to.be.undefined;
+			expect(state.nuyen).to.equal(3350);
+		});
+
+		it('should add or subtract the difference of a weapon mod being changed out', () => {
+			
+		});
 	});
 });
