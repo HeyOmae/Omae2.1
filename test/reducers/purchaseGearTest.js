@@ -193,8 +193,33 @@ describe('purchaseGear', () => {
 			expect(state.nuyen).to.equal(3350);
 		});
 
-		it('should add or subtract the difference of a weapon mod being changed out', () => {
-			
+		it('should add or subtract the difference of a weapon mod\'s cost being changed out', () => {
+			const stockMod2 = {
+				id: '88d0e08b-1ac2-442e-8f2f-dfaeb9cda9ab',
+				name: 'Stock Removal',
+				mount: 'Stock',
+				conceal: '-1',
+				rating: '0',
+				avail: '2',
+				cost: '20',
+				source: 'HT',
+				page: '182'
+			};
+			const newState = reducer(state, {type: 'WEAPON_MODDING', parameter: {index: 0, category: 'weapons', slot: 'stock', mod: stockMod}});
+			expect(newState.weapons[0].currentCost).to.equal(2900);
+			expect(newState.nuyen).to.equal(3600);
+			expect(state.weapons[0].currentCost).to.be.undefined;
+			expect(state.nuyen).to.equal(3350);
+
+			const newState2 = reducer(newState, {type: 'WEAPON_MODDING', parameter: {index: 0, category: 'weapons', slot: 'stock', mod: stockMod2}});
+			expect(newState2.weapons[0].mods.stock).to.equal(stockMod2);
+			expect(newState2.weapons[0].currentCost).to.equal(2670);
+			expect(newState2.nuyen).to.equal(3370);
+			expect(newState.weapons[0].currentCost).to.equal(2900);
+			expect(newState.nuyen).to.equal(3600);
+			expect(state.weapons[0].currentCost).to.be.undefined;
+			expect(state.nuyen).to.equal(3350);
+
 		});
 	});
 });
