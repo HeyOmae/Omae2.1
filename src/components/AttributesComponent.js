@@ -85,7 +85,7 @@ class AttributesComponent extends React.PureComponent {
 
 				if (magictype in priorityData[magicPriority].magic && magictype !== 'mundane') {
 					baseAtt = priorityData[magicPriority].magic[magictype].attribute.points; // find magic rating
-					currentAtt = baseAtt + attributes[att];
+					currentAtt = baseAtt + attributes.special;
 					maxAtt = ~~attributes.ess; // set max to essense rounded down
 					maxPoints = maxAtt - baseAtt;
 					addingElements('special', specialPointsLeft, 'special', maxPoints, maxAtt, currentAtt);

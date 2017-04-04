@@ -219,7 +219,10 @@ describe('purchaseGear', () => {
 			expect(newState.nuyen).to.equal(3600);
 			expect(state.weapons[0].currentCost).to.be.undefined;
 			expect(state.nuyen).to.equal(3350);
+		});
 
+		it('should do reset remove the slot if there is no mod given', () => {
+			
 		});
 	});
 });
