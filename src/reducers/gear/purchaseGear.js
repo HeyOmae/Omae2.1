@@ -64,8 +64,31 @@ const purchaseGearReducer = (state = initialState, action) => {
 		WEAPON_MODDING(prevState, {index, category, slot, mod}) {
 			const weaponsArray = prevState[category],
 				gearBeingModded = weaponsArray[index],
-				currentSlotBeingModded = gearBeingModded.mods && gearBeingModded.mods[slot],
-				modPrice = currentSlotBeingModded ? mod.cost - Number(currentSlotBeingModded.cost) : Number(mod.cost);
+				currentSlotBeingModded = gearBeingModded.mods && gearBeingModded.mods[slot];
+
+			if (!mod && currentSlotBeingModded) {
+				const {[slot]: discard, ...remainingMods} = gearBeingModded.mods,
+					nuyenRefund = Number(currentSlotBeingModded.cost);
+				return {
+					...prevState,
+					[category]: [
+						...weaponsArray.slice(0, index),
+						{
+							...gearBeingModded,
+							mods: {
+								...remainingMods
+							},
+							currentCost: Number(gearBeingModded.cost) + Number(mod.cost)
+						},
+						...weaponsArray.slice(index + 1)
+					],
+					nuyen: prevState.nuyen - nuyenRefund
+				};
+			} else if (!mod) {
+				return prevState;
+			}
+
+			const modPrice = currentSlotBeingModded ? mod.cost - Number(currentSlotBeingModded.cost) : Number(mod.cost);
 
 			return {
 				...prevState,

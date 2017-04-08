@@ -222,7 +222,24 @@ describe('purchaseGear', () => {
 		});
 
 		it('should do reset remove the slot if there is no mod given', () => {
-			
+			const newState = reducer(state, {type: 'WEAPON_MODDING', parameter: {index: 0, category: 'weapons', slot: 'stock', mod: stockMod}});
+			expect(newState.weapons[0].currentCost).to.equal(2900);
+			expect(newState.nuyen).to.equal(3600);
+			expect(state.weapons[0].currentCost).to.be.undefined;
+			expect(state.nuyen).to.equal(3350);
+
+			const newState2 = reducer(newState, {type: 'WEAPON_MODDING', parameter: {index: 0, category: 'weapons', slot: 'stock', mod: ''}});
+
+			expect(newState2.weapons[0].mods.stock).to.be.undefined;
+			expect(newState2.nuyen).to.equal(3350);
+			expect(newState.weapons[0].currentCost).to.equal(2900);
+			expect(newState.nuyen).to.equal(3600);
 		});
+
+		it('should return state if no mod is passed in to an empty mod slot', () => {
+			const newState = reducer(state, {type: 'WEAPON_MODDING', parameter: {index: 0, category: 'weapons', slot: 'stock', mod: ''}});
+
+			expect(newState).to.equal(state);
+		})
 	});
 });
