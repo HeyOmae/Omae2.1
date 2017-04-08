@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import 'styles/magic/SpellSelector.sass';
 import Modal from '../ModalComponent';
 import DisplayTable from '../DisplayTableComponent';
@@ -81,9 +82,9 @@ function spellNameTableData({start, end, placeholderText}, name) {
 }
 
 spellNameTableData.propTypes = {
-	start: React.PropTypes.string.isRequired,
-	end: React.PropTypes.string.isRequired,
-	placeholderText: React.PropTypes.string
+	start: PropTypes.string.isRequired,
+	end: PropTypes.string.isRequired,
+	placeholderText: PropTypes.string
 };
 
 function createSpellIndividualRow(spellName, spellDetails, button, spellID) {
@@ -200,13 +201,13 @@ class SpellSelectorComponent extends React.Component {
 }
 
 SpellSelectorComponent.propTypes = {
-	abilities: React.PropTypes.string.isRequired,
-	addSpell: React.PropTypes.func.isRequired,
-	removeSpell: React.PropTypes.func.isRequired,
-	selectedSpells: React.PropTypes.arrayOf(
-			React.PropTypes.object.isRequired
+	abilities: PropTypes.string.isRequired,
+	addSpell: PropTypes.func.isRequired,
+	removeSpell: PropTypes.func.isRequired,
+	selectedSpells: PropTypes.arrayOf(
+			PropTypes.object.isRequired
 		).isRequired,
-	spellMax: React.PropTypes.number.isRequired
+	spellMax: PropTypes.number.isRequired
 };
 
 const SpellSelectedDisplay = ({selectedSpells, removeSpell}) => {
@@ -239,8 +240,8 @@ const SpellSelectedDisplay = ({selectedSpells, removeSpell}) => {
 };
 
 SpellSelectedDisplay.propTypes = {
-	selectedSpells: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
-	removeSpell: React.PropTypes.func.isRequired
+	selectedSpells: PropTypes.arrayOf(PropTypes.object).isRequired,
+	removeSpell: PropTypes.func.isRequired
 };
 
 const SpellsTables = ({spellRowData}) => {
@@ -252,10 +253,10 @@ const SpellsTables = ({spellRowData}) => {
 };
 
 SpellsTables.propTypes = {
-	spellRowData: React.PropTypes.shape({
-		header: React.PropTypes.element.isRequired,
-		body: React.PropTypes.arrayOf(
-			React.PropTypes.element.isRequired
+	spellRowData: PropTypes.shape({
+		header: PropTypes.element.isRequired,
+		body: PropTypes.arrayOf(
+			PropTypes.element.isRequired
 		)
 	}).isRequired
 };

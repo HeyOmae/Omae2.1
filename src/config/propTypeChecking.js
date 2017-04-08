@@ -1,6 +1,4 @@
-import {
-	PropTypes
-} from 'react';
+import PropTypes from 'prop-types';
 
 const propTypePriorityCheck = PropTypes.oneOf(['A', 'B', 'C', 'D', 'E']);
 

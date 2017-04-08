@@ -8,6 +8,7 @@
 import 'styles/bootstrap-overwrite.scss';
 import 'styles/App.scss';
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import {
@@ -130,7 +131,7 @@ App.propTypes = {
 	quality: PropTypeChecking.quality.isRequired,
 	karmaState: PropTypeChecking.karma.isRequired,
 	purchaseGearState: PropTypeChecking.purchaseGear.isRequired,
-	styleTheme: React.PropTypes.string.isRequired
+	styleTheme: PropTypes.string.isRequired
 };
 function mapStateToProps(state) {
 	/* Populated by react-webpack-redux:reducer */

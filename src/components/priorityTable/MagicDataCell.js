@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import priorityData from '../data/priority.json';
 
 class MagicDataCell extends React.Component {
@@ -61,9 +62,9 @@ class MagicDataCell extends React.Component {
 }
 
 MagicDataCell.propTypes = {
-	changePriority: React.PropTypes.func.isRequired,
-	isActive: React.PropTypes.string.isRequired,
-	rating: React.PropTypes.string.isRequired
+	changePriority: PropTypes.func.isRequired,
+	isActive: PropTypes.string.isRequired,
+	rating: PropTypes.string.isRequired
 };
 
 export default MagicDataCell;

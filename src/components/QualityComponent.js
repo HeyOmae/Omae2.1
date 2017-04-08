@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import 'styles/Quality.sass';
 import Modal from './ModalComponent';
 import DisplayTable from './DisplayTableComponent';
@@ -117,7 +118,7 @@ const QualityHeader = ({buttonType}) => {
 };
 
 QualityHeader.propTypes = {
-	buttonType: React.PropTypes.string.isRequired
+	buttonType: PropTypes.string.isRequired
 };
 
 const QualityTable = ({tableRows}) => {
@@ -137,7 +138,7 @@ const QualityTable = ({tableRows}) => {
 };
 
 QualityTable.propTypes = {
-	tableRows: React.PropTypes.arrayOf(React.PropTypes.element).isRequired
+	tableRows: PropTypes.arrayOf(PropTypes.element).isRequired
 };
 
 
@@ -147,7 +148,7 @@ QualityComponent.displayName = 'QualityComponent';
 QualityComponent.propTypes = {
 	actions: propTypeChecking.actions.isRequired,
 	selectedQualities: propTypeChecking.quality.isRequired,
-	karma: React.PropTypes.number.isRequired
+	karma: PropTypes.number.isRequired
 };
 // QualityComponent.defaultProps = {};
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import DisplayTable from '../DisplayTableComponent';
 import metatypeData from '../data/metatype.json';
 import PropTypeChecking from '../../config/propTypeChecking';
@@ -28,13 +29,13 @@ const DisplaySkills = ({activeSkills, actions, attributes, metatype, skillPoints
 };
 
 DisplaySkills.propTypes = {
-	activeSkills: React.PropTypes.objectOf(
-		React.PropTypes.object
+	activeSkills: PropTypes.objectOf(
+		PropTypes.object
 	).isRequired,
 	actions: PropTypeChecking.actions.isRequired,
 	attributes: PropTypeChecking.attributes.isRequired,
 	metatype: PropTypeChecking.selectMetatype.isRequired,
-	skillPointsLeft: React.PropTypes.number.isRequired
+	skillPointsLeft: PropTypes.number.isRequired
 };
 
 function ActiveSkillHeader() {
@@ -117,15 +118,15 @@ function ActiveSkillRow({skillKey, skill, actions, attribute, skillPointsLeft}) 
 }
 
 ActiveSkillRow.propTypes = {
-	skillKey: React.PropTypes.string.isRequired,
-	skill: React.PropTypes.shape({
-		rating: React.PropTypes.number,
-		attribute: React.PropTypes.string.isRequired,
-		spec: React.PropTypes.string
+	skillKey: PropTypes.string.isRequired,
+	skill: PropTypes.shape({
+		rating: PropTypes.number,
+		attribute: PropTypes.string.isRequired,
+		spec: PropTypes.string
 	}).isRequired,
 	actions: PropTypeChecking.actions.isRequired,
-	attribute: React.PropTypes.number.isRequired,
-	skillPointsLeft: React.PropTypes.number.isRequired
+	attribute: PropTypes.number.isRequired,
+	skillPointsLeft: PropTypes.number.isRequired
 };
 
 export default DisplaySkills;

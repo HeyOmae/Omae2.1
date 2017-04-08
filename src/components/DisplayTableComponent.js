@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import 'styles//DisplayTable.scss';
 
@@ -14,8 +15,8 @@ const DisplayTableComponent = ({header, body}) => {
 };
 
 DisplayTableComponent.propTypes = {
-	header: React.PropTypes.element.isRequired,
-	body: React.PropTypes.arrayOf(React.PropTypes.element).isRequired
+	header: PropTypes.element.isRequired,
+	body: PropTypes.arrayOf(PropTypes.element).isRequired
 };
 
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import skillsData from '../data/skills.json';
 
 const FreeSkills = ({priorityDataFreeSkills, magicSkills, setMagicSkills}) => {
@@ -94,12 +95,12 @@ const FreeSkills = ({priorityDataFreeSkills, magicSkills, setMagicSkills}) => {
 };
 
 FreeSkills.propTypes = {
-	priorityDataFreeSkills: React.PropTypes.shape({
-		attribute: React.PropTypes.string,
-		rating: React.PropTypes.number
+	priorityDataFreeSkills: PropTypes.shape({
+		attribute: PropTypes.string,
+		rating: PropTypes.number
 	}),
-	magicSkills: React.PropTypes.arrayOf(React.PropTypes.string),
-	setMagicSkills: React.PropTypes.func
+	magicSkills: PropTypes.arrayOf(PropTypes.string),
+	setMagicSkills: PropTypes.func
 };
 
 FreeSkills.defaultProps = {

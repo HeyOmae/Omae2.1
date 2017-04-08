@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Modal from '../ModalComponent';
 import FilterTable from '../FilterableTable';
 import DisplayTable from '../DisplayTableComponent';
@@ -139,7 +140,7 @@ class WeaponsComponent extends React.Component {
 }
 
 WeaponsComponent.propTypes = {
-	purchased: React.PropTypes.arrayOf(React.PropTypes.object),
+	purchased: PropTypes.arrayOf(PropTypes.object),
 	actions: PropTypeChecking.actions.isRequired
 };
 WeaponsComponent.defaultProps = {
@@ -159,11 +160,11 @@ function WeaponModOptionsSelect({weaponName, mountLocation, weaponModLists}) {
 }
 
 WeaponModOptionsSelect.propTypes = {
-	weaponName: React.PropTypes.string.isRequired,
-	mountLocation: React.PropTypes.string.isRequired,
-	weaponModLists: React.PropTypes.objectOf(
-		React.PropTypes.arrayOf(
-			React.PropTypes.object.isRequired
+	weaponName: PropTypes.string.isRequired,
+	mountLocation: PropTypes.string.isRequired,
+	weaponModLists: PropTypes.objectOf(
+		PropTypes.arrayOf(
+			PropTypes.object.isRequired
 		).isRequired
 	).isRequired
 };
@@ -193,12 +194,12 @@ function WeaponModsComponent({weapon, weaponModLists}) {
 }
 
 WeaponModsComponent.propTypes = {
-	weapon: React.PropTypes.shape({
-		name: React.PropTypes.string.isRequired,
-		accessorymounts: React.PropTypes.objectOf(React.PropTypes.arrayOf(React.PropTypes.string))
+	weapon: PropTypes.shape({
+		name: PropTypes.string.isRequired,
+		accessorymounts: PropTypes.objectOf(PropTypes.arrayOf(PropTypes.string))
 	}).isRequired,
-	weaponModLists: React.PropTypes.objectOf(
-		React.PropTypes.arrayOf(React.PropTypes.object)
+	weaponModLists: PropTypes.objectOf(
+		PropTypes.arrayOf(PropTypes.object)
 	).isRequired
 };
 
@@ -219,9 +220,9 @@ function WeaponTableHeader({buySell, reachCoil, isModable}) {
 }
 
 WeaponTableHeader.propTypes = {
-	buySell: React.PropTypes.string,
-	reachCoil: React.PropTypes.string.isRequired,
-	isModable: React.PropTypes.bool
+	buySell: PropTypes.string,
+	reachCoil: PropTypes.string.isRequired,
+	isModable: PropTypes.bool
 };
 WeaponTableHeader.defaultProps = {
 	buySell: 'Buy',
@@ -245,21 +246,21 @@ function WeaponsTableRow({weapon, button, mod}) {
 }
 
 WeaponsTableRow.propTypes = {
-	weapon: React.PropTypes.shape({
-		name: React.PropTypes.string.isRequired,
-		accuracy: React.PropTypes.string.isRequired,
-		damage: React.PropTypes.string.isRequired,
-		ap: React.PropTypes.string,
-		type: React.PropTypes.string.isRequired,
-		reach: React.PropTypes.string,
-		rc: React.PropTypes.string,
-		avail: React.PropTypes.string.isRequired,
-		cost: React.PropTypes.string.isRequired,
-		source: React.PropTypes.string.isRequired,
-		page: React.PropTypes.string.isRequired
+	weapon: PropTypes.shape({
+		name: PropTypes.string.isRequired,
+		accuracy: PropTypes.string.isRequired,
+		damage: PropTypes.string.isRequired,
+		ap: PropTypes.string,
+		type: PropTypes.string.isRequired,
+		reach: PropTypes.string,
+		rc: PropTypes.string,
+		avail: PropTypes.string.isRequired,
+		cost: PropTypes.string.isRequired,
+		source: PropTypes.string.isRequired,
+		page: PropTypes.string.isRequired
 	}).isRequired,
-	button: React.PropTypes.element.isRequired,
-	mod: React.PropTypes.element
+	button: PropTypes.element.isRequired,
+	mod: PropTypes.element
 };
 WeaponsTableRow.defaultProps = {
 	mod: null

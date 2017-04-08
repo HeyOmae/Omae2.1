@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import RedditExport from './export/RedditComponent';
 import metatypeData from './data/metatype.json';
 import priorityTableData from './data/priority.json';
@@ -255,7 +256,7 @@ SummaryComponent.propTypes = {
 	attributes: PropTypeChecking.attributes.isRequired,
 	magres: PropTypeChecking.selectMagRes.isRequired,
 	skills: PropTypeChecking.settingSkills.isRequired,
-	fixed: React.PropTypes.bool.isRequired,
+	fixed: PropTypes.bool.isRequired,
 	spellsAndPowers: PropTypeChecking.spellSelect.isRequired,
 	selectedQualities: PropTypeChecking.quality.isRequired,
 	karma: PropTypeChecking.karma.isRequired,

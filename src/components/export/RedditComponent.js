@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Modal from '../ModalComponent';
 import PropTypeChecking from '../../config/propTypeChecking';
 
@@ -207,9 +208,9 @@ ${activeSkills}
 
 RedditComponent.propTypes = {
 	priority: PropTypeChecking.priorityTable.isRequired,
-	metatype: React.PropTypes.string.isRequired,
-	attributes: React.PropTypes.objectOf(React.PropTypes.number).isRequired,
-	augmentedAtt: React.PropTypes.objectOf(React.PropTypes.number).isRequired,
+	metatype: PropTypes.string.isRequired,
+	attributes: PropTypes.objectOf(PropTypes.number).isRequired,
+	augmentedAtt: PropTypes.objectOf(PropTypes.number).isRequired,
 	magres: PropTypeChecking.selectMagRes.isRequired,
 	skills: PropTypeChecking.settingSkills.isRequired,
 	spellsAndPowers: PropTypeChecking.spellSelect.isRequired,

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import 'styles/Special.sass';
 
@@ -41,13 +42,13 @@ class SpecialComponent extends React.Component {
 SpecialComponent.displayName = 'SpecialComponent';
 
 SpecialComponent.propTypes = {
-	elements: React.PropTypes.shape({
-		incBtn: React.PropTypes.array.isRequired,
-		display: React.PropTypes.array.isRequired,
-		decBtn: React.PropTypes.array.isRequired
+	elements: PropTypes.shape({
+		incBtn: PropTypes.array.isRequired,
+		display: PropTypes.array.isRequired,
+		decBtn: PropTypes.array.isRequired
 	}).isRequired,
-	pointsLeft: React.PropTypes.number.isRequired,
-	magicName: React.PropTypes.string
+	pointsLeft: PropTypes.number.isRequired,
+	magicName: PropTypes.string
 };
 
 SpecialComponent.defaultProps = {

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Modal from '../ModalComponent';
 import priorityData from '../data/priority.json';
 
@@ -51,9 +52,9 @@ class MetatypeDataCell extends React.Component {
 }
 
 MetatypeDataCell.propTypes = {
-	changePriority: React.PropTypes.func.isRequired,
-	active: React.PropTypes.bool.isRequired,
-	rating: React.PropTypes.string.isRequired
+	changePriority: PropTypes.func.isRequired,
+	active: PropTypes.bool.isRequired,
+	rating: PropTypes.string.isRequired
 };
 
 export default MetatypeDataCell;

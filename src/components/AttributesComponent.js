@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import 'styles/Attributes.sass';
 import SpecialComponent from './SpecialComponent';
 import metatypeData from './data/metatype.json';
@@ -178,12 +179,12 @@ const IncrementButton = ({attributesAtMax, attName, maxPoints, pointsLeft, incre
 };
 
 IncrementButton.propTypes = {
-	attributesAtMax: React.PropTypes.bool.isRequired,
-	attName: React.PropTypes.string.isRequired,
-	maxPoints: React.PropTypes.number.isRequired,
-	pointsLeft: React.PropTypes.number.isRequired,
-	incrementAttribute: React.PropTypes.func.isRequired,
-	attType: React.PropTypes.string.isRequired
+	attributesAtMax: PropTypes.bool.isRequired,
+	attName: PropTypes.string.isRequired,
+	maxPoints: PropTypes.number.isRequired,
+	pointsLeft: PropTypes.number.isRequired,
+	incrementAttribute: PropTypes.func.isRequired,
+	attType: PropTypes.string.isRequired
 };
 
 const DecrementButton = ({attName, decrementAttribute, maxPoints, attType}) => {
@@ -206,10 +207,10 @@ const DecrementButton = ({attName, decrementAttribute, maxPoints, attType}) => {
 };
 
 DecrementButton.propTypes = {
-	attName: React.PropTypes.string.isRequired,
-	decrementAttribute: React.PropTypes.func.isRequired,
-	maxPoints: React.PropTypes.number.isRequired,
-	attType: React.PropTypes.string.isRequired
+	attName: PropTypes.string.isRequired,
+	decrementAttribute: PropTypes.func.isRequired,
+	maxPoints: PropTypes.number.isRequired,
+	attType: PropTypes.string.isRequired
 };
 
 AttributesComponent.displayName = 'AttributesComponent';

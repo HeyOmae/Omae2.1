@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import 'styles/magic/MagicSelection.sass';
 import SpellSelector from './SpellSelectorComponent';
 import PowerSelector from './PowerSelectorComponent';
@@ -180,20 +181,20 @@ const AwakenButton = ({typeName, anOption, checked, selectMagicTypeAction, reset
 };
 
 AwakenButton.propTypes = {
-	typeName: React.PropTypes.string.isRequired,
-	anOption: React.PropTypes.bool.isRequired,
-	checked: React.PropTypes.bool.isRequired,
-	selectMagicTypeAction: React.PropTypes.func.isRequired,
-	resetFreeMagicSkills: React.PropTypes.func.isRequired
+	typeName: PropTypes.string.isRequired,
+	anOption: PropTypes.bool.isRequired,
+	checked: PropTypes.bool.isRequired,
+	selectMagicTypeAction: PropTypes.func.isRequired,
+	resetFreeMagicSkills: PropTypes.func.isRequired
 };
 
 MagicSelectionComponent.displayName = 'MagicMagicSelectionComponent';
 
 // Uncomment properties you need
 MagicSelectionComponent.propTypes = {
-	magicPriority: React.PropTypes.string.isRequired,
+	magicPriority: PropTypes.string.isRequired,
 	magictype: PropTypeChecking.selectMagRes.isRequired,
-	magicAttribute: React.PropTypes.number.isRequired,
+	magicAttribute: PropTypes.number.isRequired,
 	selectedSpellsPowers: PropTypeChecking.spellSelect.isRequired,
 	actions: PropTypeChecking.actions.isRequired
 };

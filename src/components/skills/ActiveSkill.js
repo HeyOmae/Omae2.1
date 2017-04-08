@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import FilterTable from '../FilterableTable';
 import PropTypeChecking from '../../config/propTypeChecking';
 
@@ -60,10 +61,10 @@ function ActiveSkill({
 }
 
 ActiveSkill.propTypes = {
-	skillList: React.PropTypes.objectOf(React.PropTypes.object).isRequired,
+	skillList: PropTypes.objectOf(PropTypes.object).isRequired,
 	actions: PropTypeChecking.actions.isRequired,
-	skillPointsLeft: React.PropTypes.number.isRequired,
-	restrictedSkills: React.PropTypes.bool.isRequired
+	skillPointsLeft: PropTypes.number.isRequired,
+	restrictedSkills: PropTypes.bool.isRequired
 };
 
 function ActiveSkillTableRow({
@@ -97,12 +98,12 @@ function ActiveSkillTableRow({
 }
 
 ActiveSkillTableRow.propTypes = {
-	name: React.PropTypes.string.isRequired,
-	stat: React.PropTypes.string.isRequired,
-	defaultable: React.PropTypes.bool.isRequired,
-	restrictedSkills: React.PropTypes.bool.isRequired,
-	addSkill: React.PropTypes.func.isRequired,
-	references: React.PropTypes.arrayOf(React.PropTypes.element).isRequired,
+	name: PropTypes.string.isRequired,
+	stat: PropTypes.string.isRequired,
+	defaultable: PropTypes.bool.isRequired,
+	restrictedSkills: PropTypes.bool.isRequired,
+	addSkill: PropTypes.func.isRequired,
+	references: PropTypes.arrayOf(PropTypes.element).isRequired,
 };
 
 export default ActiveSkill;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import 'styles/PriorityTable.scss';
 import priorityData from '../data/priority.json';
 import propTypeChecking from '../../config/propTypeChecking';
@@ -161,15 +162,15 @@ const PriorityRow = ({rating, priorityTableData, changePriority}) => {
 };
 
 PriorityRow.propTypes = {
-	rating: React.PropTypes.string.isRequired,
+	rating: PropTypes.string.isRequired,
 	priorityTableData: propTypeChecking.priorityTable,
-	changePriority: React.PropTypes.func.isRequired
+	changePriority: PropTypes.func.isRequired
 };
 
 const PropsToChangePriority = {
-	changePriority: React.PropTypes.func.isRequired,
-	active: React.PropTypes.bool.isRequired,
-	rating: React.PropTypes.string.isRequired
+	changePriority: PropTypes.func.isRequired,
+	active: PropTypes.bool.isRequired,
+	rating: PropTypes.string.isRequired
 };
 ResourcesDataCell.propTypes = PropsToChangePriority;
 SkillsDataCell.propTypes = PropsToChangePriority;
@@ -178,7 +179,7 @@ AttributeDataCell.propTypes = PropsToChangePriority;
 PriorityTableComponent.displayName = 'PriorityTableComponent';
 
 PriorityTableComponent.propTypes = {
-	changePriority: React.PropTypes.func.isRequired,
+	changePriority: PropTypes.func.isRequired,
 	priorityTable: propTypeChecking.priorityTable.isRequired
 };
 

@@ -1,6 +1,7 @@
 import React, {
 	Component
 } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import DisplayTable from './DisplayTableComponent';
 
@@ -40,12 +41,12 @@ class FilterableTable extends Component {
 
 // prop boilerplate
 FilterableTable.propTypes = {
-	setFilterAction: React.PropTypes.func.isRequired,
-	tableData: React.PropTypes.shape({
-		header: React.PropTypes.element.isRequired,
-		body: React.PropTypes.any
+	setFilterAction: PropTypes.func.isRequired,
+	tableData: PropTypes.shape({
+		header: PropTypes.element.isRequired,
+		body: PropTypes.any
 	}).isRequired,
-	filterTable: React.PropTypes.string.isRequired
+	filterTable: PropTypes.string.isRequired
 };
 
 function mapStateToProps(state) {

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import 'styles/magic/SpellSelector.sass';
 import Modal from '../ModalComponent';
 import DisplayTable from '../DisplayTableComponent';
@@ -209,11 +210,11 @@ class PowerSelectorComponent extends React.Component {
 
 PowerSelectorComponent.propTypes = {
 	actions: PropTypeChecking.actions,
-	selectedPowers: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
-	pointSpent: React.PropTypes.number.isRequired,
-	maxPointPoints: React.PropTypes.number.isRequired,
-	isMystic: React.PropTypes.bool.isRequired,
-	karmaSpent: React.PropTypes.number.isRequired
+	selectedPowers: PropTypes.arrayOf(PropTypes.object).isRequired,
+	pointSpent: PropTypes.number.isRequired,
+	maxPointPoints: PropTypes.number.isRequired,
+	isMystic: PropTypes.bool.isRequired,
+	karmaSpent: PropTypes.number.isRequired
 };
 
 const PowerSelectedDisplay = ({selectedPowers, removePower, modifyPowers}) => {
@@ -239,16 +240,16 @@ const PowerSelectedDisplay = ({selectedPowers, removePower, modifyPowers}) => {
 };
 
 PowerSelectedDisplay.propTypes = {
-	selectedPowers: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
-	removePower: React.PropTypes.func.isRequired,
-	modifyPowers: React.PropTypes.shape({
-		raisePower: React.PropTypes.func.isRequired,
-		lowerPower: React.PropTypes.func.isRequired,
-		pointSpent: React.PropTypes.number.isRequired,
-		maxPointPoints: React.PropTypes.number.isRequired,
-		bonusUp: React.PropTypes.func.isRequired,
-		bonusDown: React.PropTypes.func.isRequired,
-		isMystic: React.PropTypes.bool.isRequired
+	selectedPowers: PropTypes.arrayOf(PropTypes.object).isRequired,
+	removePower: PropTypes.func.isRequired,
+	modifyPowers: PropTypes.shape({
+		raisePower: PropTypes.func.isRequired,
+		lowerPower: PropTypes.func.isRequired,
+		pointSpent: PropTypes.number.isRequired,
+		maxPointPoints: PropTypes.number.isRequired,
+		bonusUp: PropTypes.func.isRequired,
+		bonusDown: PropTypes.func.isRequired,
+		isMystic: PropTypes.bool.isRequired
 	}).isRequired
 };
 
@@ -262,10 +263,10 @@ const PowersTables = ({powerRowData}) => {
 
 
 PowersTables.propTypes = {
-	powerRowData: React.PropTypes.shape({
-		header: React.PropTypes.element.isRequired,
-		body: React.PropTypes.arrayOf(
-			React.PropTypes.element.isRequired
+	powerRowData: PropTypes.shape({
+		header: PropTypes.element.isRequired,
+		body: PropTypes.arrayOf(
+			PropTypes.element.isRequired
 		)
 	}).isRequired
 };

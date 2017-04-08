@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Modal from '../ModalComponent';
 import FilterTable from '../FilterableTable';
 
@@ -72,28 +73,28 @@ class SkillgroupsComponent extends React.Component {
 }
 
 SkillgroupsComponent.propTypes = {
-	skillgroups: React.PropTypes.objectOf(
-		React.PropTypes.object
+	skillgroups: PropTypes.objectOf(
+		PropTypes.object
 	).isRequired,
-	skillgroupsData: React.PropTypes.shape({
-		acting: React.PropTypes.object.isRequired,
-		athletics: React.PropTypes.object.isRequired,
-		biotech: React.PropTypes.object.isRequired,
-		closecombat: React.PropTypes.object.isRequired,
-		conjuring: React.PropTypes.object.isRequired,
-		cracking: React.PropTypes.object.isRequired,
-		electronics: React.PropTypes.object.isRequired,
-		enchanting: React.PropTypes.object.isRequired,
-		firearms: React.PropTypes.object.isRequired,
-		influence: React.PropTypes.object.isRequired,
-		engineering: React.PropTypes.object.isRequired,
-		outdoors: React.PropTypes.object.isRequired,
-		sorcery: React.PropTypes.object.isRequired,
-		stealth: React.PropTypes.object.isRequired,
-		tasking: React.PropTypes.object.isRequired
+	skillgroupsData: PropTypes.shape({
+		acting: PropTypes.object.isRequired,
+		athletics: PropTypes.object.isRequired,
+		biotech: PropTypes.object.isRequired,
+		closecombat: PropTypes.object.isRequired,
+		conjuring: PropTypes.object.isRequired,
+		cracking: PropTypes.object.isRequired,
+		electronics: PropTypes.object.isRequired,
+		enchanting: PropTypes.object.isRequired,
+		firearms: PropTypes.object.isRequired,
+		influence: PropTypes.object.isRequired,
+		engineering: PropTypes.object.isRequired,
+		outdoors: PropTypes.object.isRequired,
+		sorcery: PropTypes.object.isRequired,
+		stealth: PropTypes.object.isRequired,
+		tasking: PropTypes.object.isRequired
 	}).isRequired,
 	actions: PropTypeChecking.actions.isRequired,
-	pointsLeft: React.PropTypes.number.isRequired
+	pointsLeft: PropTypes.number.isRequired
 };
 
 SkillgroupsComponent.displayName = 'SkillgroupsComponent';
@@ -116,14 +117,14 @@ const ChangeSkillButton = ({action, groupName, skillsInGroup, condition, btnType
 };
 
 ChangeSkillButton.propTypes = {
-	action: React.PropTypes.func.isRequired,
-	groupName: React.PropTypes.string.isRequired,
-	skillsInGroup: React.PropTypes.objectOf(
-		React.PropTypes.string
+	action: PropTypes.func.isRequired,
+	groupName: PropTypes.string.isRequired,
+	skillsInGroup: PropTypes.objectOf(
+		PropTypes.string
 	).isRequired,
-	condition: React.PropTypes.bool,
-	btnType: React.PropTypes.string.isRequired,
-	children: React.PropTypes.string.isRequired
+	condition: PropTypes.bool,
+	btnType: PropTypes.string.isRequired,
+	children: PropTypes.string.isRequired
 };
 ChangeSkillButton.defaultProps = {
 	condition: false

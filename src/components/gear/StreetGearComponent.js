@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import WeaponsComponent from './WeaponsComponent';
 import priorityData from '../data/priority.json';
 import PropTypeChecking from '../../config/propTypeChecking';
@@ -27,7 +28,7 @@ StreetGearComponent.displayName = 'StreetGearComponent';
 StreetGearComponent.propTypes = {
 	actions: PropTypeChecking.actions.isRequired,
 	purchaseGear: PropTypeChecking.purchaseGear,
-	resourcesPriority: React.PropTypes.string.isRequired
+	resourcesPriority: PropTypes.string.isRequired
 };
 StreetGearComponent.defaultProps = {
 	purchaseGear: null

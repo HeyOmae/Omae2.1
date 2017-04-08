@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const AppComponent = ({style}) => {
 	return (
@@ -22,7 +23,7 @@ const AppComponent = ({style}) => {
 };
 
 AppComponent.propTypes = {
-	style: React.PropTypes.func.isRequired
+	style: PropTypes.func.isRequired
 };
 
 export default AppComponent;

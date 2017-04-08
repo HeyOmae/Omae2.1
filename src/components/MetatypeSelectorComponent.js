@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import 'styles/MetatypeSelector.sass';
 import metatypeData from './data/metatype.json';
 import priorityData from './data/priority.json';
@@ -92,25 +93,25 @@ const MetatypeButton = ({typeName, anOption, checked, selectMetatypeAction, karm
 };
 
 MetatypeButton.propTypes = {
-	typeName: React.PropTypes.string.isRequired,
-	anOption: React.PropTypes.bool.isRequired,
-	checked: React.PropTypes.bool.isRequired,
-	selectMetatypeAction: React.PropTypes.func.isRequired,
-	karmaNewCost: React.PropTypes.number.isRequired,
-	karmaOldCost: React.PropTypes.number.isRequired,
-	priority: React.PropTypes.string.isRequired
+	typeName: PropTypes.string.isRequired,
+	anOption: PropTypes.bool.isRequired,
+	checked: PropTypes.bool.isRequired,
+	selectMetatypeAction: PropTypes.func.isRequired,
+	karmaNewCost: PropTypes.number.isRequired,
+	karmaOldCost: PropTypes.number.isRequired,
+	priority: PropTypes.string.isRequired
 };
 
 MetatypeSelectorComponent.displayName = 'MetatypeSelectorComponent';
 
 // Uncomment properties you need
 MetatypeSelectorComponent.propTypes = {
-	priorityRating: React.PropTypes.string.isRequired,
-	metatype: React.PropTypes.shape({
-		typeName: React.PropTypes.string.isRequired,
-		priority: React.PropTypes.string.isRequired
+	priorityRating: PropTypes.string.isRequired,
+	metatype: PropTypes.shape({
+		typeName: PropTypes.string.isRequired,
+		priority: PropTypes.string.isRequired
 	}).isRequired,
-	action: React.PropTypes.func.isRequired
+	action: PropTypes.func.isRequired
 };
 // MetatypeSelectorComponent.defaultProps = {};
 
