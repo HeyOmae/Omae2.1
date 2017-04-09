@@ -78,7 +78,7 @@ const purchaseGearReducer = (state = initialState, action) => {
 							mods: {
 								...remainingMods
 							},
-							currentCost: Number(gearBeingModded.cost) + Number(mod.cost)
+							currentCost: Number(gearBeingModded.cost)
 						},
 						...weaponsArray.slice(index + 1)
 					],

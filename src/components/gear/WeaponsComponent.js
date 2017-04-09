@@ -83,7 +83,7 @@ class WeaponsComponent extends React.Component {
 
 	render() {
 		const {purchased} = this.props,
-			{sellGear} = this.props.actions,
+			{sellGear, weaponModding} = this.props.actions,
 			{weaponModLists, weaponTable} = this,
 			purchasedTableRow = [];
 
@@ -106,8 +106,10 @@ class WeaponsComponent extends React.Component {
 							modalID={`${weapon.name.replace(/\s/g, '') + index}-modal`}
 							modalContent={
 								<WeaponModsComponent
+									index={index}
 									weapon={weapon}
-									weaponModLists={weaponModLists} />
+									weaponModLists={weaponModLists}
+									weaponModding={weaponModding} />
 							}
 						/>)
 						: null;
