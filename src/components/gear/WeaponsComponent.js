@@ -186,7 +186,7 @@ function WeaponsTableRow({weapon, button, mod}) {
 			<td>{weapon.ap}</td>
 			<td>{weapon.type === 'Melee' ? weapon.reach : weapon.rc}</td>
 			<td>{weapon.avail}</td>
-			<td>{weapon.cost}&yen;</td>
+			<td>{weapon.currentCost || weapon.cost}&yen;</td>
 			<td>{weapon.source} p{weapon.page}</td>
 		</tr>
 	);

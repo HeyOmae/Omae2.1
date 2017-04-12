@@ -24,7 +24,7 @@ function WeaponModsComponent({index, weapon, weaponModLists, weaponModding}) {
 				);
 			})
 			}
-			<div className="col-xs-12 col-md-4">
+			<div className="col-md-12">
 				<p><strong>Slotless</strong></p>
 				<WeaponModOptionsSelect
 					index={index}
@@ -74,7 +74,7 @@ function WeaponModOptionsSelect({index, weaponName, mountLocation, weaponModList
 		>
 			<option value="">&mdash;</option>
 			{weaponModLists[mountLocation].map((mod) => {
-				return (<option key={`${weaponName}--${mountLocation}--${mod.name}`} value={mod.name}>{mod.name}</option>);
+				return (<option key={`${weaponName}--${mountLocation}--${mod.name}`} value={mod.name}>{mod.name} {mod.cost}&yen;</option>);
 			})}
 		</select>
 	);
