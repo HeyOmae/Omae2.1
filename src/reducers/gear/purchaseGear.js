@@ -107,6 +107,11 @@ const purchaseGearReducer = (state = initialState, action) => {
 				nuyen: prevState.nuyen + modPrice
 			};
 		},
+
+		MODDING_MULTI(prevState) {
+			return prevState;
+		},
+
 		DEFAULT(prevState) { return prevState; }
 	};
 	return (actionsToTake[action.type] || actionsToTake.DEFAULT)(state, action.parameter);
