@@ -270,7 +270,28 @@ describe('purchaseGear', () => {
 			const newState = reducer(state, {type: 'MODDING_MULTI', parameter: {index: 0, category: 'weapons', slot: 'slotless', mods: arrayOfMods}});
 
 			expect(newState.weapons[0].mods.slotless).to.equal(arrayOfMods);
-			expect(state.weapons[0].mods.slotless).to.be.undefined;
+			expect(state.weapons[0].mods).to.be.undefined;
 		});
+
+		it('should add to the weapon\'s current cost', () => {
+			const arrayOfMods = [
+				{
+					id: 'f2eee4ed-d0cb-4163-84d9-91e537cd13d9',
+					name: 'Trigger Removal',
+					rating: '0',
+					accuracy: '1',
+					avail: '2',
+					cost: '50',
+					source: 'HT',
+					page: '182'
+				}
+			];
+
+			const newState = reducer(state, {type: 'MODDING_MULTI', parameter: {index: 0, category: 'weapons', slot: 'slotless', mods: arrayOfMods}});
+
+			expect(newState.weapons[0].currentCost).to.equal(2700);
+			expect(state.weapons[0].currentCost).to.be.undefined;
+
+		})
 	});
 });

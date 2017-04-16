@@ -108,8 +108,25 @@ const purchaseGearReducer = (state = initialState, action) => {
 			};
 		},
 
-		MODDING_MULTI(prevState) {
-			return prevState;
+		MODDING_MULTI(prevState, {index, category, slot, mods}) {
+			const weaponsArray = prevState[category],
+				gearBeingModded = weaponsArray[index];
+
+			return {
+				...prevState,
+				[category]: [
+					...weaponsArray.slice(0, index),
+					{
+						...gearBeingModded,
+						mods: {
+							...gearBeingModded.mods,
+							[slot]: mods
+						},
+						currentCost: Number(gearBeingModded.cost) + mods.reduce((acc, {cost}) => { return acc + Number(cost); }, 0)
+					},
+					...weaponsArray.slice(index + 1)
+				]
+			};
 		},
 
 		DEFAULT(prevState) { return prevState; }

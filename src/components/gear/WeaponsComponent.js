@@ -83,7 +83,7 @@ class WeaponsComponent extends React.Component {
 
 	render() {
 		const {purchased} = this.props,
-			{sellGear, weaponModding} = this.props.actions,
+			{sellGear, weaponModding, moddingMulti} = this.props.actions,
 			{weaponModLists, weaponTable} = this,
 			purchasedTableRow = [];
 
@@ -109,7 +109,9 @@ class WeaponsComponent extends React.Component {
 									index={index}
 									weapon={weapon}
 									weaponModLists={weaponModLists}
-									weaponModding={weaponModding} />
+									weaponModding={weaponModding}
+									moddingMulti={moddingMulti}
+								/>
 							}
 						/>)
 						: null;
