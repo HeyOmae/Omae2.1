@@ -35,40 +35,29 @@ function WeaponModsComponent({index, weapon, weaponModLists, weaponModding, modd
 			})
 			}
 			<div className="col-md-12">
-				<p><strong>Slotless <em>Cmd/Ctrl Click</em></strong></p>
-				<WeaponMultiModOptionsSelect
-					mods={weapon.mods}
-					weaponModdingAction={(e) => {
-						const { options } = e.target,
-							mods = Array.from(options).reduce((acc, {value, selected}) => {
-								if (selected) {
-									if (value === '') {
-										return [
-											...acc,
-											{ name: '', cost: 0 }
-										];
-									}
-									return [...acc,
-										weaponModLists.slotless.find((searchMod) => {
-											// TODO: find a better way
-											return searchMod.name === value;
-										})
-									];
-								}
-								return acc;
-							}, []);
+				<p><strong>Slotless</strong></p>
+				{
+					weaponModLists.slotless.map((mod) => {
+						return (
+							<WeaponMultiModOptionsSelect
+								key={`slotless-mod-${mod.name}`}
+								mods={weapon.mods && weapon.mods.slotless}
+								weaponModdingAction={(e) => {
+									console.error(e.target.name, e.target.checked);
 
-						moddingMulti({
-							index,
-							category: 'weapons',
-							slot: 'slotless',
-							mods
-						});
-					}}
-					weaponName={weapon.name}
-					weaponModLists={weaponModLists}
-					multiple
-				/>
+									// moddingMulti({
+									// 	index,
+									// 	category: 'weapons',
+									// 	slot: 'slotless',
+									// 	mods
+									// });
+								}}
+								weaponName={weapon.name}
+								mod={mod}
+								multiple
+							/>);
+					})
+				}
 			</div>
 		</div>
 	);
@@ -88,32 +77,34 @@ WeaponModsComponent.propTypes = {
 };
 
 // Helper function
-function WeaponMultiModOptionsSelect({ weaponName, weaponModLists, mods, weaponModdingAction}) {
+function WeaponMultiModOptionsSelect({ weaponName, mod, mods, weaponModdingAction}) {
 	return (
-		<select
-			className="form-control"
-			onChange={weaponModdingAction}
-			value={(mods.slotless && mods.slotless.map((selectedMod) => {
-				return selectedMod.name;
-			}))
-			|| []}
-			multiple
-		>
-			<option value="">&mdash;</option>
-			{weaponModLists.slotless.map((mod) => {
-				return (<option key={`${weaponName}--slotless--${mod.name}`} value={mod.name}>{mod.name} &mdash; {mod.cost}&yen;</option>);
-			})}
-		</select>
+		<div className="input-group">
+			<span className="input-group-addon">
+				<input
+					type="checkbox"
+					className="form-control"
+					checked={mods[mod.name]}
+					name={mod.name}
+					id={`${weaponName}-${mod.name}`}
+					onChange={weaponModdingAction}
+				/>
+			</span>
+			<label
+				htmlFor={`${weaponName}-${mod.name}`}
+			>
+				{mod.name} &mdash; {mod.cost}&yen;
+			</label>
+		</div>
 	);
 }
 
 WeaponMultiModOptionsSelect.propTypes = {
 	weaponName: PropTypes.string.isRequired,
-	weaponModLists: PropTypes.objectOf(
-		PropTypes.arrayOf(
-			PropTypes.object.isRequired
-		).isRequired
-	).isRequired,
+	mod: PropTypes.shape({
+		name: PropTypes.string,
+		cost: PropTypes.string
+	}).isRequired,
 	mods: PropTypes.objectOf(PropTypes.object),
 	weaponModdingAction: PropTypes.func.isRequired
 };

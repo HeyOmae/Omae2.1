@@ -245,53 +245,24 @@ describe('purchaseGear', () => {
 
 	describe('MODDING_MULTI', () => {
 		it('should add an array of mods to slotless', () => {
-			const arrayOfMods = [
-				{
-					id: 'f2eee4ed-d0cb-4163-84d9-91e537cd13d9',
-					name: 'Trigger Removal',
-					rating: '0',
-					accuracy: '1',
-					avail: '2',
-					cost: '50',
-					source: 'HT',
-					page: '182'
-				}, {
-					id: '85b01b5c-c788-4b43-8190-9e0c18391436',
-					name: 'Personalized Grip',
-					rating: '0',
-					accuracy: '1',
-					avail: '2',
-					cost: '100',
-					source: 'HT',
-					page: '182'
-				}
-			];
+			const newSlotlessMod = {
+				id: 'f2eee4ed-d0cb-4163-84d9-91e537cd13d9',
+				name: 'Trigger Removal',
+				rating: '0',
+				accuracy: '1',
+				avail: '2',
+				cost: '50',
+				source: 'HT',
+				page: '182'
+			};
 
-			const newState = reducer(state, {type: 'MODDING_MULTI', parameter: {index: 0, category: 'weapons', slot: 'slotless', mods: arrayOfMods}});
+			const newState = reducer(state, {type: 'MODDING_MULTI', parameter: {index: 0, category: 'weapons', slot: 'slotless', mod: newSlotlessMod}});
 
-			expect(newState.weapons[0].mods.slotless).to.equal(arrayOfMods);
-			expect(state.weapons[0].mods).to.be.undefined;
-		});
-
-		it('should add to the weapon\'s current cost', () => {
-			const arrayOfMods = [
-				{
-					id: 'f2eee4ed-d0cb-4163-84d9-91e537cd13d9',
-					name: 'Trigger Removal',
-					rating: '0',
-					accuracy: '1',
-					avail: '2',
-					cost: '50',
-					source: 'HT',
-					page: '182'
-				}
-			];
-
-			const newState = reducer(state, {type: 'MODDING_MULTI', parameter: {index: 0, category: 'weapons', slot: 'slotless', mods: arrayOfMods}});
-
+			expect(newState.weapons[0].mods.slotless['Trigger Removal']).to.equal(newSlotlessMod);
 			expect(newState.weapons[0].currentCost).to.equal(2700);
-			expect(state.weapons[0].currentCost).to.be.undefined;
 
-		})
+			expect(state.weapons[0].mods).to.be.undefined;
+			expect(state.weapons[0].currentCost).to.be.undefined;
+		});
 	});
 });
