@@ -131,7 +131,29 @@ const purchaseGearReducer = (state = initialState, action) => {
 								...updatedMods
 							}
 						},
-						currentCost: Number(gearBeingModded.cost) + Number(mod.cost)
+						currentCost: (gearBeingModded.currentCost || Number(gearBeingModded.cost)) + Number(mod.cost)
+					},
+					...weaponsArray.slice(index + 1)
+				]
+			};
+		},
+
+		DEMODDING_MULTI(prevState, {index, category, slot, demodName}) {
+			const weaponsArray = prevState[category],
+				gearBeingDemodded = weaponsArray[index],
+				{[demodName]: discard, ...updatedMods} = gearBeingDemodded.mods[slot];
+
+			return {
+				...prevState,
+				[category]: [
+					...weaponsArray.slice(0, index),
+					{
+						...gearBeingDemodded,
+						mods: {
+							...gearBeingDemodded.mods,
+							[slot]: updatedMods
+						},
+						currentCost: (gearBeingDemodded.currentCost) - Number(discard.cost)
 					},
 					...weaponsArray.slice(index + 1)
 				]

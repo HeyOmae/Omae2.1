@@ -244,8 +244,54 @@ describe('purchaseGear', () => {
 	});
 
 	describe('MODDING_MULTI', () => {
-		it('should add an array of mods to slotless', () => {
-			const newSlotlessMod = {
+		const triggerMod = {
+			id: 'f2eee4ed-d0cb-4163-84d9-91e537cd13d9',
+			name: 'Trigger Removal',
+			rating: '0',
+			accuracy: '1',
+			avail: '2',
+			cost: '50',
+			source: 'HT',
+			page: '182'
+		};
+		it('should add an item to a slot that takes mutliple mods', () => {
+
+			const newState = reducer(state, {type: 'MODDING_MULTI', parameter: {index: 0, category: 'weapons', slot: 'slotless', mod: triggerMod}});
+
+			expect(newState.weapons[0].mods.slotless['Trigger Removal']).to.equal(triggerMod);
+			expect(newState.weapons[0].currentCost).to.equal(2700);
+
+			expect(state.weapons[0].mods).to.be.undefined;
+			expect(state.weapons[0].currentCost).to.be.undefined;
+		});
+
+		it('should add another item to the slot', () => {
+			const newState1 = reducer(state, {type: 'MODDING_MULTI', parameter: {index: 0, category: 'weapons', slot: 'slotless', mod: triggerMod}});
+
+			const geckoGrip = {
+				id: '627f212a-ac15-4739-afbc-f44676dfe508',
+				name: 'Gecko Grip',
+				rating: '0',
+				avail: '6',
+				cost: '100',
+				source: 'RG',
+				page: '52'
+			};
+
+			const newState2 = reducer(newState1, {type: 'MODDING_MULTI', parameter: {index: 0, category: 'weapons', slot: 'slotless', mod: geckoGrip}});
+
+			expect(newState2.weapons[0].mods.slotless['Trigger Removal']).to.equal(triggerMod);
+			expect(newState2.weapons[0].mods.slotless['Gecko Grip']).to.equal(geckoGrip);
+			expect(newState2.weapons[0].currentCost).to.equal(2800);
+
+			expect(state.weapons[0].mods).to.be.undefined;
+			expect(state.weapons[0].currentCost).to.be.undefined;
+		});
+	});
+
+	describe('DEMODDING_MULTI', () => {
+		it('should remove an item from a slot that takes mutliple mods', () => {
+			const triggerMod = {
 				id: 'f2eee4ed-d0cb-4163-84d9-91e537cd13d9',
 				name: 'Trigger Removal',
 				rating: '0',
@@ -256,10 +302,37 @@ describe('purchaseGear', () => {
 				page: '182'
 			};
 
-			const newState = reducer(state, {type: 'MODDING_MULTI', parameter: {index: 0, category: 'weapons', slot: 'slotless', mod: newSlotlessMod}});
+			const newState1 = reducer(state, {type: 'MODDING_MULTI', parameter: {index: 0, category: 'weapons', slot: 'slotless', mod: triggerMod}});
 
-			expect(newState.weapons[0].mods.slotless['Trigger Removal']).to.equal(newSlotlessMod);
-			expect(newState.weapons[0].currentCost).to.equal(2700);
+			const geckoGrip = {
+				id: '627f212a-ac15-4739-afbc-f44676dfe508',
+				name: 'Gecko Grip',
+				rating: '0',
+				avail: '6',
+				cost: '100',
+				source: 'RG',
+				page: '52'
+			};
+
+			const newState2 = reducer(newState1, {type: 'MODDING_MULTI', parameter: {index: 0, category: 'weapons', slot: 'slotless', mod: geckoGrip}});
+
+			expect(newState2.weapons[0].mods.slotless['Trigger Removal']).to.equal(triggerMod);
+			expect(newState2.weapons[0].mods.slotless['Gecko Grip']).to.equal(geckoGrip);
+			expect(newState2.weapons[0].currentCost).to.equal(2800);
+
+			expect(state.weapons[0].mods).to.be.undefined;
+			expect(state.weapons[0].currentCost).to.be.undefined;
+
+			const newState3 = reducer(newState2, {type: 'DEMODDING_MULTI', parameter: {index: 0, category: 'weapons', slot: 'slotless', demodName: 'Trigger Removal'}});
+
+			expect(newState3.weapons[0].mods.slotless['Trigger Removal']).to.be.undefined;
+			expect(newState3.weapons[0].mods.slotless['Gecko Grip']).to.equal(geckoGrip);
+			expect(newState3.weapons[0].currentCost).to.equal(2750);
+
+
+			expect(newState2.weapons[0].mods.slotless['Trigger Removal']).to.equal(triggerMod);
+			expect(newState2.weapons[0].mods.slotless['Gecko Grip']).to.equal(geckoGrip);
+			expect(newState2.weapons[0].currentCost).to.equal(2800);
 
 			expect(state.weapons[0].mods).to.be.undefined;
 			expect(state.weapons[0].currentCost).to.be.undefined;
