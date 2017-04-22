@@ -5,3 +5,4 @@ export const REMOVE_SKILL = 'REMOVE_SKILL';
 export const STYLE = 'STYLE';
 export const WEAPON_MODDING = 'WEAPON_MODDING';
 export const MODDING_MULTI = 'MODDING_MULTI';
+export const DEMODDING_MULTI = 'DEMODDING_MULTI';
