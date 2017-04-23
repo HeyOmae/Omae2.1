@@ -60,7 +60,8 @@ class WeaponsComponent extends React.Component {
 		});
 
 		const weaponTable = Object.keys(weaponsTableRow).map((category) => {
-			const reachCoil = weaponsTableRow[category][0].props.weapon.type === 'Melee' ? 'Reach' : 'RC';
+			const {weapon} = weaponsTableRow[category][0].props,
+				reachCoil = weapon.type === 'Melee' ? 'Reach' : 'RC';
 			return (
 				<Modal
 					key={category}
@@ -69,7 +70,8 @@ class WeaponsComponent extends React.Component {
 						<FilterTable
 							tableData={{
 								header: (<WeaponTableHeader
-									reachCoil={reachCoil} />),
+									reachCoil={reachCoil}
+									hadModes={!!weapon.mode} />),
 								body: weaponsTableRow[category]
 							}} />
 					}
@@ -136,7 +138,8 @@ class WeaponsComponent extends React.Component {
 							header={<WeaponTableHeader
 								buySell="Sell"
 								reachCoil="Reach/RC"
-								isModable />}
+								isModable
+								hadModes />}
 							body={purchasedTableRow} />
 					</div>
 					: null}
@@ -153,7 +156,7 @@ WeaponsComponent.defaultProps = {
 	purchased: null
 };
 
-function WeaponTableHeader({buySell, reachCoil, isModable}) {
+function WeaponTableHeader({buySell, reachCoil, isModable, hadModes}) {
 	return (
 		<tr>
 			<th>{buySell}</th>
@@ -161,6 +164,7 @@ function WeaponTableHeader({buySell, reachCoil, isModable}) {
 			<th>Acc</th>
 			<th>Dam</th>
 			<th>AP</th>
+			{hadModes ? <th>Mode</th> : null}
 			<th>{reachCoil}</th>
 			<th>Avail</th>
 			<th>&yen;</th>
@@ -172,11 +176,13 @@ function WeaponTableHeader({buySell, reachCoil, isModable}) {
 WeaponTableHeader.propTypes = {
 	buySell: PropTypes.string,
 	reachCoil: PropTypes.string.isRequired,
-	isModable: PropTypes.bool
+	isModable: PropTypes.bool,
+	hadModes: PropTypes.bool
 };
 WeaponTableHeader.defaultProps = {
 	buySell: 'Buy',
-	isModable: false
+	isModable: false,
+	hadModes: false
 };
 
 function WeaponsTableRow({weapon, button, mod}) {
@@ -187,6 +193,7 @@ function WeaponsTableRow({weapon, button, mod}) {
 			<td>{weapon.accuracy}</td>
 			<td>{weapon.damage}</td>
 			<td>{weapon.ap}</td>
+			{weapon.mode ? <td>{weapon.mode}</td> : null}
 			<td>{weapon.type === 'Melee' ? weapon.reach : weapon.rc}</td>
 			<td>{weapon.avail}</td>
 			<td>{weapon.currentCost || weapon.cost}&yen;</td>
@@ -201,6 +208,7 @@ WeaponsTableRow.propTypes = {
 		accuracy: PropTypes.string.isRequired,
 		damage: PropTypes.string.isRequired,
 		ap: PropTypes.string,
+		mode: PropTypes.string,
 		type: PropTypes.string.isRequired,
 		reach: PropTypes.string,
 		rc: PropTypes.string,
