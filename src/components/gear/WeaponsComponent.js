@@ -70,8 +70,7 @@ class WeaponsComponent extends React.Component {
 						<FilterTable
 							tableData={{
 								header: (<WeaponTableHeader
-									reachCoil={reachCoil}
-									hadModes={!!weapon.mode} />),
+									reachCoil={reachCoil} />),
 								body: weaponsTableRow[category]
 							}} />
 					}
@@ -138,8 +137,7 @@ class WeaponsComponent extends React.Component {
 							header={<WeaponTableHeader
 								buySell="Sell"
 								reachCoil="Reach/RC"
-								isModable
-								hadModes />}
+								isModable/>}
 							body={purchasedTableRow} />
 					</div>
 					: null}
@@ -156,7 +154,7 @@ WeaponsComponent.defaultProps = {
 	purchased: null
 };
 
-function WeaponTableHeader({buySell, reachCoil, isModable, hadModes}) {
+function WeaponTableHeader({buySell, reachCoil, isModable}) {
 	return (
 		<tr>
 			<th>{buySell}</th>
@@ -164,7 +162,7 @@ function WeaponTableHeader({buySell, reachCoil, isModable, hadModes}) {
 			<th>Acc</th>
 			<th>Dam</th>
 			<th>AP</th>
-			{hadModes ? <th>Mode</th> : null}
+			<th>Mode</th>
 			<th>{reachCoil}</th>
 			<th>Avail</th>
 			<th>&yen;</th>
@@ -176,13 +174,11 @@ function WeaponTableHeader({buySell, reachCoil, isModable, hadModes}) {
 WeaponTableHeader.propTypes = {
 	buySell: PropTypes.string,
 	reachCoil: PropTypes.string.isRequired,
-	isModable: PropTypes.bool,
-	hadModes: PropTypes.bool
+	isModable: PropTypes.bool
 };
 WeaponTableHeader.defaultProps = {
 	buySell: 'Buy',
-	isModable: false,
-	hadModes: false
+	isModable: false
 };
 
 function WeaponsTableRow({weapon, button, mod}) {
@@ -193,7 +189,7 @@ function WeaponsTableRow({weapon, button, mod}) {
 			<td>{weapon.accuracy}</td>
 			<td>{weapon.damage}</td>
 			<td>{weapon.ap}</td>
-			{weapon.mode ? <td>{weapon.mode}</td> : null}
+			<td>{weapon.mode === '0' ? 'N/A' : weapon.mode}</td>
 			<td>{weapon.type === 'Melee' ? weapon.reach : weapon.rc}</td>
 			<td>{weapon.avail}</td>
 			<td>{weapon.currentCost || weapon.cost}&yen;</td>
