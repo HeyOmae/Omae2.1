@@ -225,6 +225,15 @@ describe('purchaseGear', () => {
 			expect(state.commlinks.length).to.equal(1);
 			expect(state.nuyen).to.equal(3350);
 		});
+
+		it('should refund the cost of a modded weapon cost', () => {
+			const newState = reducer(state, {type: 'SELL', parameter: {index: 1, category: 'weapons'}});
+
+			expect(newState.weapons.length).to.equal(1);
+			expect(newState.nuyen).to.equal(2400);
+			expect(state.weapons.length).to.equal(2);
+			expect(state.nuyen).to.equal(3350);
+		});
 	});
 
 	describe('WEAPON_MODDING', () => {
@@ -321,9 +330,11 @@ describe('purchaseGear', () => {
 
 			expect(newState.weapons[0].mods.slotless['Trigger Removal']).to.equal(triggerMod);
 			expect(newState.weapons[0].currentCost).to.equal(2700);
+			expect(newState.nuyen).to.equal(3400);
 
 			expect(state.weapons[0].mods).to.be.undefined;
 			expect(state.weapons[0].currentCost).to.be.undefined;
+			expect(state.nuyen).to.equal(3350);
 		});
 
 		it('should add another item to the slot', () => {
@@ -344,9 +355,11 @@ describe('purchaseGear', () => {
 			expect(newState2.weapons[0].mods.slotless['Trigger Removal']).to.equal(triggerMod);
 			expect(newState2.weapons[0].mods.slotless['Gecko Grip']).to.equal(geckoGrip);
 			expect(newState2.weapons[0].currentCost).to.equal(2800);
+			expect(newState2.nuyen).to.equal(3500);
 
 			expect(state.weapons[0].mods).to.be.undefined;
 			expect(state.weapons[0].currentCost).to.be.undefined;
+			expect(state.nuyen).to.equal(3350);
 		});
 	});
 
@@ -366,11 +379,13 @@ describe('purchaseGear', () => {
 			expect(newState.weapons[1].mods.slotless['Trigger Removal']).to.be.undefined;
 			expect(newState.weapons[1].mods.slotless['Gecko Grip']).to.deep.equal(geckoGrip);
 			expect(newState.weapons[1].currentCost).to.equal(900);
+			expect(newState.nuyen).to.equal(3300);
 
 
 			expect(state.weapons[1].mods.slotless['Trigger Removal']).to.deep.equal(triggerMod);
 			expect(state.weapons[1].mods.slotless['Gecko Grip']).to.deep.equal(geckoGrip);
 			expect(state.weapons[1].currentCost).to.equal(950);
+			expect(state.nuyen).to.equal(3350);
 		});
 	});
 });

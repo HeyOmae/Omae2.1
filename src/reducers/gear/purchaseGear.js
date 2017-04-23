@@ -35,7 +35,9 @@ const purchaseGearReducer = (state = initialState, action) => {
 			};
 		},
 		SELL(prevState, {index, category}) {
-			const gearArray = prevState[category];
+			const gearArray = prevState[category],
+				gearBeingSold = gearArray[index],
+				newCost = prevState.nuyen - Number(gearBeingSold.currentCost || gearBeingSold.cost);
 			if (gearArray.length > 1) {
 				return Object.assign(
 					{},
@@ -46,19 +48,17 @@ const purchaseGearReducer = (state = initialState, action) => {
 							...gearArray.slice(0, index),
 							...gearArray.slice(index + 1)
 						],
-						nuyen: prevState.nuyen - Number(gearArray[index].cost)
+						nuyen: newCost
 					}
 				);
 			}
 
-			const newState = {
-				...prevState,
-				nuyen: prevState.nuyen - Number(gearArray[index].cost)
+			const {[category]: discard, ...newState} = prevState;
+
+			return {
+				...newState,
+				nuyen: newCost
 			};
-
-			delete newState[category];
-
-			return newState;
 		},
 
 		WEAPON_MODDING(prevState, {index, category, slot, mod}) {
@@ -117,7 +117,8 @@ const purchaseGearReducer = (state = initialState, action) => {
 				}
 				: {
 					[mod.name]: mod
-				};
+				},
+				modCost = Number(mod.cost);
 
 			return {
 				...prevState,
@@ -131,17 +132,19 @@ const purchaseGearReducer = (state = initialState, action) => {
 								...updatedMods
 							}
 						},
-						currentCost: (gearBeingModded.currentCost || Number(gearBeingModded.cost)) + Number(mod.cost)
+						currentCost: (gearBeingModded.currentCost || Number(gearBeingModded.cost)) + modCost
 					},
 					...weaponsArray.slice(index + 1)
-				]
+				],
+				nuyen: prevState.nuyen + modCost
 			};
 		},
 
 		DEMODDING_MULTI(prevState, {index, category, slot, demodName}) {
 			const weaponsArray = prevState[category],
 				gearBeingDemodded = weaponsArray[index],
-				{[demodName]: discard, ...updatedMods} = gearBeingDemodded.mods[slot];
+				{[demodName]: discard, ...updatedMods} = gearBeingDemodded.mods[slot],
+				modCost = Number(discard.cost);
 
 			return {
 				...prevState,
@@ -153,10 +156,11 @@ const purchaseGearReducer = (state = initialState, action) => {
 							...gearBeingDemodded.mods,
 							[slot]: updatedMods
 						},
-						currentCost: (gearBeingDemodded.currentCost) - Number(discard.cost)
+						currentCost: (gearBeingDemodded.currentCost) - modCost
 					},
 					...weaponsArray.slice(index + 1)
-				]
+				],
+				nuyen: prevState.nuyen - modCost
 			};
 		},
 
