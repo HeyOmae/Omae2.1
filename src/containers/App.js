@@ -43,7 +43,8 @@ import {
   removeSkill,
   style,
   weaponModding,
-  moddingMulti
+  moddingMulti,
+  demoddingMulti
 } from '../actions/';
 import Main from '../components/Main';
 import PriorityTableComponent from '../components/priorityTable/PriorityTableComponent';
@@ -184,7 +185,8 @@ function mapDispatchToProps(dispatch) {
 		removeSkill,
 		style,
 		weaponModding,
-		moddingMulti
+		moddingMulti,
+		demoddingMulti
 	};
 	const actionMap = { actions: bindActionCreators(actions, dispatch) };
 	return actionMap;
