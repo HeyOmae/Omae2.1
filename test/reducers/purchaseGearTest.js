@@ -2,7 +2,6 @@ var reducer = require('../../src/reducers/gear/purchaseGear'),
 	state;
 
 describe('purchaseGear', () => {
-
 	beforeEach(() => {
 		state = {
 			commlinks: [{
@@ -56,6 +55,67 @@ describe('purchaseGear', () => {
 				},
 				source: 'SR5',
 				page: '428'
+			},
+			{
+				id: '67474de7-d29b-4b31-a6ae-1e2e981fa5d2',
+				name: 'Ares Light Fire 70',
+				category: 'Light Pistols',
+				type: 'Ranged',
+				spec: 'Semi-Automatics',
+				conceal: '-2',
+				accuracy: '7',
+				reach: '0',
+				damage: '6P',
+				ap: '-',
+				mode: 'SA',
+				rc: '0',
+				ammo: '16(c)',
+				avail: '3R',
+				cost: '200',
+				allowaccessory: 'true',
+				accessorymounts: {
+					mount: [
+						'Barrel',
+						'Top'
+					]
+				},
+				source: 'SR5',
+				page: '425',
+				mods: {
+					Barrel: {
+						id: '6b06cf52-04fa-4034-bb10-2bcdd58c4bfb',
+						name: 'Gas-Vent 3 System',
+						mount: 'Barrel',
+						rating: '0',
+						rc: '3',
+						avail: '9R',
+						cost: '600',
+						source: 'SR5',
+						page: '431'
+					},
+					slotless: {
+						'Trigger Removal': {
+							id: 'f2eee4ed-d0cb-4163-84d9-91e537cd13d9',
+							name: 'Trigger Removal',
+							rating: '0',
+							accuracy: '1',
+							avail: '2',
+							cost: '50',
+							source: 'HT',
+							page: '182'
+						},
+						'Gecko Grip': {
+							id: '627f212a-ac15-4739-afbc-f44676dfe508',
+							name: 'Gecko Grip',
+							rating: '0',
+							avail: '6',
+							cost: '100',
+							source: 'RG',
+							page: '52'
+						}
+					}
+				},
+				currentCost: 950
 			}],
 			nuyen: 3350
 		};
@@ -243,17 +303,18 @@ describe('purchaseGear', () => {
 		})
 	});
 
+	const triggerMod = {
+		id: 'f2eee4ed-d0cb-4163-84d9-91e537cd13d9',
+		name: 'Trigger Removal',
+		rating: '0',
+		accuracy: '1',
+		avail: '2',
+		cost: '50',
+		source: 'HT',
+		page: '182'
+	};
+
 	describe('MODDING_MULTI', () => {
-		const triggerMod = {
-			id: 'f2eee4ed-d0cb-4163-84d9-91e537cd13d9',
-			name: 'Trigger Removal',
-			rating: '0',
-			accuracy: '1',
-			avail: '2',
-			cost: '50',
-			source: 'HT',
-			page: '182'
-		};
 		it('should add an item to a slot that takes mutliple mods', () => {
 
 			const newState = reducer(state, {type: 'MODDING_MULTI', parameter: {index: 0, category: 'weapons', slot: 'slotless', mod: triggerMod}});
@@ -291,19 +352,6 @@ describe('purchaseGear', () => {
 
 	describe('DEMODDING_MULTI', () => {
 		it('should remove an item from a slot that takes mutliple mods', () => {
-			const triggerMod = {
-				id: 'f2eee4ed-d0cb-4163-84d9-91e537cd13d9',
-				name: 'Trigger Removal',
-				rating: '0',
-				accuracy: '1',
-				avail: '2',
-				cost: '50',
-				source: 'HT',
-				page: '182'
-			};
-
-			const newState1 = reducer(state, {type: 'MODDING_MULTI', parameter: {index: 0, category: 'weapons', slot: 'slotless', mod: triggerMod}});
-
 			const geckoGrip = {
 				id: '627f212a-ac15-4739-afbc-f44676dfe508',
 				name: 'Gecko Grip',
@@ -313,29 +361,16 @@ describe('purchaseGear', () => {
 				source: 'RG',
 				page: '52'
 			};
+			const newState = reducer(state, {type: 'DEMODDING_MULTI', parameter: {index: 1, category: 'weapons', slot: 'slotless', demodName: 'Trigger Removal'}});
 
-			const newState2 = reducer(newState1, {type: 'MODDING_MULTI', parameter: {index: 0, category: 'weapons', slot: 'slotless', mod: geckoGrip}});
-
-			expect(newState2.weapons[0].mods.slotless['Trigger Removal']).to.equal(triggerMod);
-			expect(newState2.weapons[0].mods.slotless['Gecko Grip']).to.equal(geckoGrip);
-			expect(newState2.weapons[0].currentCost).to.equal(2800);
-
-			expect(state.weapons[0].mods).to.be.undefined;
-			expect(state.weapons[0].currentCost).to.be.undefined;
-
-			const newState3 = reducer(newState2, {type: 'DEMODDING_MULTI', parameter: {index: 0, category: 'weapons', slot: 'slotless', demodName: 'Trigger Removal'}});
-
-			expect(newState3.weapons[0].mods.slotless['Trigger Removal']).to.be.undefined;
-			expect(newState3.weapons[0].mods.slotless['Gecko Grip']).to.equal(geckoGrip);
-			expect(newState3.weapons[0].currentCost).to.equal(2750);
+			expect(newState.weapons[1].mods.slotless['Trigger Removal']).to.be.undefined;
+			expect(newState.weapons[1].mods.slotless['Gecko Grip']).to.deep.equal(geckoGrip);
+			expect(newState.weapons[1].currentCost).to.equal(900);
 
 
-			expect(newState2.weapons[0].mods.slotless['Trigger Removal']).to.equal(triggerMod);
-			expect(newState2.weapons[0].mods.slotless['Gecko Grip']).to.equal(geckoGrip);
-			expect(newState2.weapons[0].currentCost).to.equal(2800);
-
-			expect(state.weapons[0].mods).to.be.undefined;
-			expect(state.weapons[0].currentCost).to.be.undefined;
+			expect(state.weapons[1].mods.slotless['Trigger Removal']).to.deep.equal(triggerMod);
+			expect(state.weapons[1].mods.slotless['Gecko Grip']).to.deep.equal(geckoGrip);
+			expect(state.weapons[1].currentCost).to.equal(950);
 		});
 	});
 });
