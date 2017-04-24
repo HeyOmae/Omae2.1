@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import priorityData from '../data/priority.json';
+import priorityData from '../../data/priority.json';
 
 class MagicDataCell extends React.Component {
 	componentWillMount() {

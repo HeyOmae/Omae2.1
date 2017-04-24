@@ -4,7 +4,7 @@ import 'styles/Quality.sass';
 import Modal from './ModalComponent';
 import DisplayTable from './DisplayTableComponent';
 import FilterTable from './FilterableTable';
-import qualityData from './data/qualities.json';
+import qualityData from '../data/qualities.json';
 import propTypeChecking from '../config/propTypeChecking';
 
 class QualityComponent extends React.PureComponent {

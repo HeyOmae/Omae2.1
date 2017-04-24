@@ -5,8 +5,8 @@ import Modal from '../ModalComponent';
 import DisplayTable from '../DisplayTableComponent';
 import FilterTable from '../FilterableTable';
 
-import spellData from '../data/spells.json';
-import complexformData from '../data/complexforms.json';
+import spellData from '../../data/spells.json';
+import complexformData from '../../data/complexforms.json';
 
 
 // helper functions

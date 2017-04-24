@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Modal from '../ModalComponent';
-import priorityData from '../data/priority.json';
+import priorityData from '../../data/priority.json';
 
 const coreMetatypes = ['human', 'elf', 'dwarf', 'ork', 'troll'];
 

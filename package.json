@@ -8,7 +8,7 @@
     "clean": "rimraf dist/*",
     "copy": "copyfiles -f ./src/index.html ./dist && copyfiles -u 1 \"./src/static/**\" ./dist",
     "deploy": "git subtree push --prefix=dist git@github.com:HeyOmae/HeyOmae.github.io.git master",
-    "dist": "npm run clean && npm run copy && webpack --progress --bail --env dist -p && npm run deploy",
+    "dist": "npm run clean && npm run copy && webpack --progress --bail --env dist -p",
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix",
     "posttest": "npm run lint",

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import skillsData from '../data/skills.json';
+import skillsData from '../../data/skills.json';
 
 const FreeSkills = ({priorityDataFreeSkills, magicSkills, setMagicSkills}) => {
 	if (priorityDataFreeSkills) {

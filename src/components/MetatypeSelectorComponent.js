@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import 'styles/MetatypeSelector.sass';
-import metatypeData from './data/metatype.json';
-import priorityData from './data/priority.json';
+import metatypeData from '../data/metatype.json';
+import priorityData from '../data/priority.json';
 
 class MetatypeSelectorComponent extends React.PureComponent {
 	render() {

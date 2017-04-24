@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import 'styles/Attributes.sass';
 import SpecialComponent from './SpecialComponent';
-import metatypeData from './data/metatype.json';
-import priorityData from './data/priority.json';
+import metatypeData from '../data/metatype.json';
+import priorityData from '../data/priority.json';
 import PropTypeChecking from '../config/propTypeChecking';
 
 

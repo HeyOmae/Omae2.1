@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import DisplayTable from '../DisplayTableComponent';
-import metatypeData from '../data/metatype.json';
+import metatypeData from '../../data/metatype.json';
 import PropTypeChecking from '../../config/propTypeChecking';
 
 const DisplaySkills = ({activeSkills, actions, attributes, metatype, skillPointsLeft}) => {

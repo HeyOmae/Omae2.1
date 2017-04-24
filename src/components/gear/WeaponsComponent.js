@@ -4,8 +4,8 @@ import WeaponModsComponent from './WeaponModsComponent';
 import Modal from '../ModalComponent';
 import FilterTable from '../FilterableTable';
 import DisplayTable from '../DisplayTableComponent';
-import weaponData from '../data/weapons.json';
-import weaponMods from '../data/weaponAccessories.json';
+import weaponData from '../../data/weapons.json';
+import weaponMods from '../../data/weaponAccessories.json';
 import PropTypeChecking from '../../config/propTypeChecking';
 
 import '../../styles/gear/Weapons.scss';
@@ -137,7 +137,7 @@ class WeaponsComponent extends React.Component {
 							header={<WeaponTableHeader
 								buySell="Sell"
 								reachCoil="Reach/RC"
-								isModable/>}
+								isModable />}
 							body={purchasedTableRow} />
 					</div>
 					: null}

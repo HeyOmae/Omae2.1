@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import 'styles/PriorityTable.scss';
-import priorityData from '../data/priority.json';
+import priorityData from '../../data/priority.json';
 import propTypeChecking from '../../config/propTypeChecking';
 import MetatypeDataCell from './MetatypeDataCell';
 import MagicDataCell from './MagicDataCell';

@@ -4,7 +4,7 @@ import 'styles/magic/SpellSelector.sass';
 import Modal from '../ModalComponent';
 import DisplayTable from '../DisplayTableComponent';
 import FilterTable from '../FilterableTable';
-import powerData from '../data/powers.json';
+import powerData from '../../data/powers.json';
 import PropTypeChecking from '../../config/propTypeChecking';
 
 

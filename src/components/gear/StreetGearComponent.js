@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import WeaponsComponent from './WeaponsComponent';
-import priorityData from '../data/priority.json';
+import priorityData from '../../data/priority.json';
 import PropTypeChecking from '../../config/propTypeChecking';
 
 import '../../styles/gear/StreetGear.scss';
