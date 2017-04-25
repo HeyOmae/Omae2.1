@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import WeaponsComponent from './WeaponsComponent';
+import ArmorsComponent from './ArmorsComponent';
 import priorityData from '../../data/priority.json';
 import PropTypeChecking from '../../config/propTypeChecking';
 
@@ -17,6 +18,9 @@ class StreetGearComponent extends React.PureComponent {
 				<WeaponsComponent
 					actions={actions}
 					purchased={purchaseGear.weapons} />
+				<h3>Armors</h3>
+				<ArmorsComponent 
+				actions={actions}/>
 			</div>
 		);
 	}
