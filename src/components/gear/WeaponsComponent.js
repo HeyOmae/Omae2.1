@@ -12,10 +12,9 @@ import '../../styles/gear/Weapons.scss';
 
 class WeaponsComponent extends React.Component {
 	componentWillMount() {
-		const weaponsTableRow = {},
-			weaponModLists = {
-				slotless: []
-			};
+		const weaponModLists = {
+			slotless: []
+		};
 
 		const skipWeapons = ['Quality', 'Natural', 'Cyberweapon', 'Bio-Weapon', 'Cyber-Weapon', 'Underbarrel Weapons'],
 			{purchaseGear} = this.props.actions;
@@ -35,29 +34,30 @@ class WeaponsComponent extends React.Component {
 			}
 		});
 
-		weaponData.forEach((weapon) => {
-			if (skipWeapons.indexOf(weapon.category) > -1) {
-				return;
-			}
-			if (!weaponsTableRow[weapon.category]) {
-				weaponsTableRow[weapon.category] = [];
-			}
-			const purchaseButton = (
-				<button
-					className="btn btn-success"
-					onClick={() => {
-						purchaseGear({gear: weapon, category: 'weapons'});
-					}}
-				>+</button>
-			);
-			weaponsTableRow[weapon.category].push(
-				<WeaponsTableRow
-					key={weapon.name}
-					weapon={weapon}
-					button={purchaseButton}
-						/>
+		const weaponsTableRow = weaponData.reduce((tableRow, weapon) => {
+			if (skipWeapons.indexOf(weapon.category) === -1) {
+				const purchaseButton = (
+					<button
+						className="btn btn-success"
+						onClick={() => {
+							purchaseGear({gear: weapon, category: 'weapons'});
+						}}
+					>+</button>
 				);
-		});
+				return {
+					...tableRow,
+					[weapon.category]: [
+						...(tableRow[weapon.category] || []),
+						<WeaponsTableRow
+							key={weapon.name}
+							weapon={weapon}
+							button={purchaseButton}
+								/>
+					]
+				};
+			}
+			return tableRow;
+		}, {});
 
 		const weaponTable = Object.keys(weaponsTableRow).map((category) => {
 			const {weapon} = weaponsTableRow[category][0].props,
