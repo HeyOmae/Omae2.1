@@ -9,7 +9,7 @@ import PropTypeChecking from '../../config/propTypeChecking';
 class ArmorsComponent extends React.Component {
 	componentWillMount() {
 		const { purchaseGear } = this.props.actions;
-		this.armorRows = armorData.map((armor) => {
+		const armorRows = armorData.map((armor) => {
 			return (
 				<tr>
 					<td>
@@ -30,27 +30,36 @@ class ArmorsComponent extends React.Component {
 				</tr>
 			);
 		});
+
+		this.armorModal = (
+			<Modal
+				modalName="Armor"
+				modalContent={
+					<FilterTable
+						tableData={{
+							header: (
+								<tr>
+									<th>Buy</th>
+									<th>Name</th>
+									<th>Armor</th>
+									<th>Capacity</th>
+									<th>Avail</th>
+									<th>&yen;</th>
+									<th>Ref</th>
+								</tr>
+							),
+							body: armorRows
+						}} />
+				} />
+		);
 	}
 
 	render() {
-		const {armorRows} = this;
+		const {armorModal} = this;
 		return (
-			<table>
-				<thead>
-					<tr>
-						<th>Buy</th>
-						<th>Name</th>
-						<th>Armor</th>
-						<th>Capacity</th>
-						<th>Avail</th>
-						<th>&yen;</th>
-						<th>Ref</th>
-					</tr>
-				</thead>
-				<tbody>
-					{armorRows}
-				</tbody>
-			</table>
+			<div className="armor-component row">
+				{armorModal}
+			</div>
 		);
 	}
 }
