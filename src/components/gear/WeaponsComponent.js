@@ -85,11 +85,11 @@ class WeaponsComponent extends React.Component {
 	render() {
 		const {purchased} = this.props,
 			{sellGear, weaponModding, moddingMulti, demoddingMulti} = this.props.actions,
-			{weaponModLists, weaponTable} = this,
-			purchasedTableRow = [];
+			{weaponModLists, weaponTable} = this;
+		let purchasedTableRow = [];
 
 		if (purchased) {
-			purchased.forEach((weapon, index) => {
+			purchasedTableRow = purchased.map((weapon, index) => {
 				const sellButton = (
 					<button
 						className="btn btn-warning"
@@ -117,14 +117,14 @@ class WeaponsComponent extends React.Component {
 							}
 						/>)
 						: null;
-				purchasedTableRow.push(
+				return (
 					<WeaponsTableRow
 						key={`${weapon.name + index}-purchased`}
 						weapon={weapon}
 						button={sellButton}
 						mod={modButton}
 						/>
-					);
+				);
 			});
 		}
 

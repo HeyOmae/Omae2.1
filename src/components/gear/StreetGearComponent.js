@@ -19,8 +19,9 @@ class StreetGearComponent extends React.PureComponent {
 					actions={actions}
 					purchased={purchaseGear.weapons} />
 				<h3>Armors</h3>
-				<ArmorsComponent 
-				actions={actions}/>
+				<ArmorsComponent
+					actions={actions}
+					purchased={purchaseGear.armors} />
 			</div>
 		);
 	}
