@@ -11,23 +11,18 @@ class ArmorsComponent extends React.Component {
 		const { purchaseGear } = this.props.actions;
 		const armorRows = armorData.map((armor) => {
 			return (
-				<tr>
-					<td>
+				<ArmorTableRow
+					armor={armor}
+					button={
 						<button
 							className="btn btn-success"
 							onClick={() => {
 								purchaseGear({gear: armor, category: 'armors'});
 							}}
-						>+
+						>
+							+
 						</button>
-					</td>
-					<td>{armor.name}</td>
-					<td>{armor.armor}</td>
-					<td>{armor.armorcapacity}</td>
-					<td>{armor.avail}</td>
-					<td>{armor.cost} &yen;</td>
-					<td>{armor.source} p{armor.page}</td>
-				</tr>
+				} />
 			);
 		});
 
@@ -66,6 +61,33 @@ class ArmorsComponent extends React.Component {
 
 ArmorsComponent.propTypes = {
 	actions: PropTypeChecking.actions.isRequired
+};
+
+function ArmorTableRow({armor, button}) {
+	return (
+		<tr>
+			<td>{button}</td>
+			<td>{armor.name}</td>
+			<td>{armor.armor}</td>
+			<td>{armor.armorcapacity}</td>
+			<td>{armor.avail}</td>
+			<td>{armor.cost} &yen;</td>
+			<td>{armor.source} p{armor.page}</td>
+		</tr>
+	);
+}
+
+ArmorTableRow.propTypes = {
+	armor: PropTypes.shape({
+		name: PropTypes.string.isRequired,
+		armor: PropTypes.string.isRequired,
+		armorcapacity: PropTypes.string.isRequired,
+		avail: PropTypes.string.isRequired,
+		cost: PropTypes.string.isRequired,
+		source: PropTypes.string.isRequired,
+		page: PropTypes.string.isRequired
+	}).isRequired,
+	button: PropTypes.element.isRequired
 };
 
 export default ArmorsComponent;
