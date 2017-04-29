@@ -25,13 +25,14 @@ class ArmorClass {
 	updateCost(cost) {
 		this.armor = {
 			...this.armor,
-			cost
+			cost: Math.ceil(cost)
 		};
 	}
 	updateRating(rating) {
+		const ratingNum = Number(rating);
 		this.armor = {
 			...this.armor,
-			currentRating: rating > 0 && rating < this.armor.rating ? rating : 1
+			currentRating: ratingNum > 0 && ratingNum < this.armor.rating ? Math.floor(ratingNum) : 1
 		};
 	}
 	getArmor() {
@@ -150,7 +151,7 @@ function ArmorTableRow({armor, button, armorGear}) {
 			<td>{button}</td>
 			<td>{armor.name}</td>
 			<td>{armor.armor}</td>
-			<td><GearRatingComponent armorGear={armorGear} defaultValue={armor.currentRating || armor.armorcapacity} /></td>
+			<td><GearRatingComponent armorGear={armorGear} defaultValue={`${armor.currentRating || armor.armorcapacity}`} /></td>
 			<td>{armor.avail}</td>
 			<td><GearCostComponent cost={armor.cost} currentCost={armor.currentCost} armorGear={armorGear} /></td>
 			<td>{armor.source} p{armor.page}</td>
