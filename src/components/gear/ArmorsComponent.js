@@ -5,42 +5,10 @@ import Modal from '../ModalComponent';
 import FilterTable from '../FilterableTable';
 import DisplayTable from '../DisplayTableComponent';
 import PropTypeChecking from '../../config/propTypeChecking';
+import ArmorClass from './GearCreator';
+import {GearRatingComponent, GearCostComponent} from './displayComponents';
 
-class ArmorClass {
-	constructor(armor) {
-		if (armor.cost.search('Variable') > -1) {
-			this.armor = {
-				...armor,
-				cost: armor.cost.match(/\d+/g)[0]
-			};
-		} else if (armor.cost.search('Rating') > -1) {
-			this.armor = {
-				...armor,
-				currentRating: 1
-			};
-		} else {
-			this.armor = armor;
-		}
-	}
-	updateCost(cost) {
-		this.armor = {
-			...this.armor,
-			cost: Math.ceil(cost)
-		};
-	}
-	updateRating(rating) {
-		const ratingNum = Number(rating);
-		this.armor = {
-			...this.armor,
-			currentRating: ratingNum > 0 && ratingNum < this.armor.rating ? Math.floor(ratingNum) : 1
-		};
-	}
-	getArmor() {
-		return this.armor;
-	}
-}
-
-class ArmorsComponent extends React.Component {
+class ArmorsComponent extends React.PureComponent {
 	componentWillMount() {
 		const { purchaseGear } = this.props.actions;
 		const armorRows = armorData.map((armor) => {
@@ -54,7 +22,7 @@ class ArmorsComponent extends React.Component {
 						<button
 							className="btn btn-success"
 							onClick={() => {
-								purchaseGear({gear: armorGear.getArmor(), category: 'armors', Rating: armorGear.getArmor().currentRating});
+								purchaseGear({gear: armorGear.getGear(), category: 'armors', Rating: armorGear.getGear().currentRating});
 							}}
 						>
 							+
@@ -151,9 +119,9 @@ function ArmorTableRow({armor, button, armorGear}) {
 			<td>{button}</td>
 			<td>{armor.name}</td>
 			<td>{armor.armor}</td>
-			<td><GearRatingComponent armorGear={armorGear} defaultValue={`${armor.currentRating || armor.armorcapacity}`} /></td>
+			<td><GearRatingComponent gear={armorGear} defaultValue={`${armor.currentRating || armor.armorcapacity}`} /></td>
 			<td>{armor.avail}</td>
-			<td><GearCostComponent cost={armor.cost} currentCost={armor.currentCost} armorGear={armorGear} /></td>
+			<td><GearCostComponent cost={armor.cost} currentCost={armor.currentCost} gear={armorGear} /></td>
 			<td>{armor.source} p{armor.page}</td>
 		</tr>
 	);
@@ -170,80 +138,13 @@ ArmorTableRow.propTypes = {
 		page: PropTypes.string.isRequired
 	}).isRequired,
 	armorGear: PropTypes.shape({
-		armor: PropTypes.object.isRequired,
+		gear: PropTypes.object.isRequired,
 		updateCost: PropTypes.func.isRequired
 	}),
 	button: PropTypes.element.isRequired
 };
 
 ArmorTableRow.defaultProps = {
-	armorGear: null
-};
-
-function GearRatingComponent({armorGear, defaultValue}) {
-	if (armorGear && armorGear.getArmor().currentRating) {
-		const armor = armorGear.getArmor();
-		return (
-			<input
-				type="number"
-				className="form-control"
-				min={1}
-				max={armor.rating}
-				onChange={(e) => {
-					armorGear.updateRating(e.target.value);
-				}}
-				placeholder={`1-${armor.rating}`} />
-		);
-	}
-
-	return (
-		<span>{defaultValue}</span>
-	);
-}
-
-GearRatingComponent.propTypes = {
-	armorGear: PropTypes.shape({
-		armor: PropTypes.object.isRequired,
-		updateRating: PropTypes.func.isRequired
-	}),
-	defaultValue: PropTypes.string.isRequired
-};
-
-GearRatingComponent.defaultProps = {
-	armorGear: null
-};
-
-function GearCostComponent({cost, currentCost, armorGear}) {
-	if (cost.search('Variable') > -1 && !currentCost) {
-		const costRange = cost.match(/\d+/g);
-		return (
-			<input
-				type="number"
-				className="form-control"
-				min={costRange[0]}
-				max={costRange[1]}
-				onChange={(e) => {
-					armorGear.updateCost(e.target.value);
-				}}
-				placeholder={`${costRange[0]}-${costRange[1]}`} />
-		);
-	}
-	return (
-		<span>{currentCost || cost}&yen;</span>
-	);
-}
-
-GearCostComponent.propTypes = {
-	cost: PropTypes.string.isRequired,
-	currentCost: PropTypes.number,
-	armorGear: PropTypes.shape({
-		armor: PropTypes.object.isRequired,
-		updateCost: PropTypes.func.isRequired
-	})
-};
-
-GearCostComponent.defaultProps = {
-	currentCost: 0,
 	armorGear: null
 };
 
