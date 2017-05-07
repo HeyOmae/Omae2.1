@@ -164,6 +164,31 @@ const purchaseGearReducer = (state = initialState, action) => {
 			};
 		},
 
+		MODDING_CAPACITY(prevState, {index, category, mod}) {
+			const gearArray = prevState[category],
+				gearBeingModded = prevState[category][index];
+			return {
+				...prevState,
+				[category]: [
+					...gearArray.slice(0, index),
+					{
+						...gearBeingModded,
+						mods: {
+							[mod.name]: mod
+						},
+						currentCost: Number(gearBeingModded.cost) + Number(mod.cost),
+						capacity: (gearBeingModded.capacity || 0) + Number(mod.armorcapacity.match(/\d+/)[0])
+					},
+					...gearArray.slice(index + 1)
+				],
+				nuyen: prevState.nuyen + Number(mod.cost)
+			};
+		},
+
+		DEMODDING_CAPACITY(prevState) {
+			return prevState;
+		},
+
 		DEFAULT(prevState) { return prevState; }
 	};
 	return (actionsToTake[action.type] || actionsToTake.DEFAULT)(state, action.parameter);

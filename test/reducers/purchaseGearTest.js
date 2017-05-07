@@ -117,6 +117,47 @@ describe('purchaseGear', () => {
 				},
 				currentCost: 950
 			}],
+			armors: [{
+				id: '5a650844-8f24-48e7-829f-0443d9ff5cf7',
+				name: 'Actioneer Business Clothes',
+				category: 'Armor',
+				armor: '8',
+				armorcapacity: '8',
+				avail: '8',
+				cost: '1500',
+				source: 'SR5',
+				page: '437'
+			},
+			{
+				id: "40826eaa-c22a-43da-8730-bc1867ea65a1",
+				name: "Armor Clothing",
+				category: "Armor",
+				armor: "6",
+				armorcapacity: "6",
+				avail: "2",
+				cost: "450",
+				source: "SR5",
+				page: "437",
+				currentCost: 1950,
+				mods: {
+					capacity: 6,
+					Nonconductivity: {
+						id: "0cfb049a-a1bd-4daa-96be-9468c37d9c3c",
+						name: "Nonconductivity",
+						category: "General",
+						armor: "0",
+						maxrating: "6",
+						armorcapacity: "FixedValues([1],[2],[3],[4],[5],[6])",
+						avail: "6",
+						cost: "Rating * 250",
+						source: "SR5",
+						page: "438",
+						rating: 6,
+						currentCost: 1500
+					}
+				}
+			}
+			],
 			nuyen: 3350
 		};
 	});
@@ -387,5 +428,40 @@ describe('purchaseGear', () => {
 			expect(state.weapons[1].currentCost).to.equal(950);
 			expect(state.nuyen).to.equal(3350);
 		});
+	});
+
+	describe('MODDING_CAPACITY', () => {
+		const shockFrills = {
+			id: "dbdaf817-9bfa-4938-a195-b53c63b53e7c",
+			name: "Shock Frills",
+			category: "General",
+			armor: "0",
+			maxrating: "1",
+			armorcapacity: "[2]",
+			avail: "6R",
+			cost: "250",
+			source: "SR5",
+			page: "438"
+		};
+
+		it('should add a mod and add capacity based off of the mod', () => {
+			const newState = reducer(state, {type: 'MODDING_CAPACITY', parameter: {index: 0, category: 'armors', mod: shockFrills}});
+
+			expect(newState.armors[0].mods['Shock Frills']).to.equal(shockFrills);
+			expect(newState.armors[0].currentCost).to.equal(1750);
+			expect(newState.nuyen).to.equal(3600);
+			expect(newState.armors[0].capacity).to.equal(2);
+
+			expect(state.armors[0].mods).to.be.undefined;
+			expect(state.armors[0].currentCost).to.be.undefined;
+		});
+
+		it('should not add a mod if it will be more then the capacity limit of the gear');
+
+		it('should add a mod with a rating and calculate the currentCost based off of the rating');
+	});
+
+	describe('DEMODDING_CAPACITY', () => {
+		
 	});
 });
