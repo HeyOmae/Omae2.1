@@ -129,29 +129,30 @@ describe('purchaseGear', () => {
 				page: '437'
 			},
 			{
-				id: "40826eaa-c22a-43da-8730-bc1867ea65a1",
-				name: "Armor Clothing",
-				category: "Armor",
-				armor: "6",
-				armorcapacity: "6",
-				avail: "2",
-				cost: "450",
-				source: "SR5",
-				page: "437",
+				id: '40826eaa-c22a-43da-8730-bc1867ea65a1',
+				name: 'Armor Clothing',
+				category: 'Armor',
+				armor: '6',
+				armorcapacity: '6',
+				avail: '2',
+				cost: '450',
+				source: 'SR5',
+				page: '437',
 				currentCost: 1950,
+				capacity: 6,
 				mods: {
 					capacity: 6,
 					Nonconductivity: {
-						id: "0cfb049a-a1bd-4daa-96be-9468c37d9c3c",
-						name: "Nonconductivity",
-						category: "General",
-						armor: "0",
-						maxrating: "6",
-						armorcapacity: "FixedValues([1],[2],[3],[4],[5],[6])",
-						avail: "6",
-						cost: "Rating * 250",
-						source: "SR5",
-						page: "438",
+						id: '0cfb049a-a1bd-4daa-96be-9468c37d9c3c',
+						name: 'Nonconductivity',
+						category: 'General',
+						armor: '0',
+						maxrating: '6',
+						armorcapacity: 'FixedValues([1],[2],[3],[4],[5],[6])',
+						avail: '6',
+						cost: 'Rating * 250',
+						source: 'SR5',
+						page: '438',
 						rating: 6,
 						currentCost: 1500
 					}
@@ -432,16 +433,28 @@ describe('purchaseGear', () => {
 
 	describe('MODDING_CAPACITY', () => {
 		const shockFrills = {
-			id: "dbdaf817-9bfa-4938-a195-b53c63b53e7c",
-			name: "Shock Frills",
-			category: "General",
-			armor: "0",
-			maxrating: "1",
-			armorcapacity: "[2]",
-			avail: "6R",
-			cost: "250",
-			source: "SR5",
-			page: "438"
+			id: 'dbdaf817-9bfa-4938-a195-b53c63b53e7c',
+			name: 'Shock Frills',
+			category: 'General',
+			armor: '0',
+			maxrating: '1',
+			armorcapacity: '[2]',
+			avail: '6R',
+			cost: '250',
+			source: 'SR5',
+			page: '438'
+		},
+			thermalDamp = {
+			id: 'ba32a6e9-4e6f-47fe-8fd7-c3194a5174d6',
+			name: 'Thermal Damping',
+			category: 'General',
+			armor: '0',
+			maxrating: '6',
+			armorcapacity: 'FixedValues([1],[2],[3],[4],[5],[6])',
+			avail: '10R',
+			cost: 'Rating * 500',
+			source: 'SR5',
+			page: '438'
 		};
 
 		it('should add a mod and add capacity based off of the mod', () => {
@@ -454,11 +467,34 @@ describe('purchaseGear', () => {
 
 			expect(state.armors[0].mods).to.be.undefined;
 			expect(state.armors[0].currentCost).to.be.undefined;
+			expect(state.nuyen).to.equal(3350);
 		});
 
-		it('should not add a mod if it will be more then the capacity limit of the gear');
+		it('should not add a mod if it will be more then the capacity limit of the gear', () => {
+			const newState = reducer(state, {type: 'MODDING_CAPACITY', parameter: {index: 1, category: 'armors', mod: shockFrills}});
 
-		it('should add a mod with a rating and calculate the currentCost based off of the rating');
+			expect(newState.armors[1].mods['Shock Frills']).to.be.undefined;
+			expect(newState.armors[1].currentCost).to.equal(1950);
+			expect(newState.nuyen).to.equal(3350);
+			expect(newState.armors[1].capacity).to.equal(6);
+
+			expect(state.armors[1]).to.equal(newState.armors[1]);
+			expect(state.nuyen).to.equal(3350);
+		});
+
+		it('should add a mod with a rating and calculate the currentCost based off of the rating', () => {
+			const newState = reducer(state, {type: 'MODDING_CAPACITY', parameter: {index: 0, category: 'armors', mod: thermalDamp, Rating: 3}});
+
+			expect(newState.armors[0].mods['Thermal Damping'].currentCost).to.equal(1500);
+			expect(newState.armors[0].mods['Thermal Damping'].currentRating).to.equal(3);
+			expect(newState.armors[0].currentCost).to.equal(3000);
+			expect(newState.armors[0].capacity).to.equal(3);
+			expect(newState.nuyen).to.equal(4850);
+
+			expect(state.armors[0].mods).to.be.undefined;
+			expect(state.armors[0].currentCost).to.be.undefined;
+			expect(state.nuyen).to.equal(3350);
+		});
 	});
 
 	describe('DEMODDING_CAPACITY', () => {

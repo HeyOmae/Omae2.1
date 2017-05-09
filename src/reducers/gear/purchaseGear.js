@@ -164,9 +164,28 @@ const purchaseGearReducer = (state = initialState, action) => {
 			};
 		},
 
-		MODDING_CAPACITY(prevState, {index, category, mod}) {
+		MODDING_CAPACITY(prevState, {index, category, mod, Rating}) {
 			const gearArray = prevState[category],
-				gearBeingModded = prevState[category][index];
+				gearBeingModded = prevState[category][index],
+				capacity = (gearBeingModded.capacity || 0) + (Rating || Number(mod.armorcapacity.match(/\d+/)[0]));
+
+			if (capacity > gearBeingModded.armorcapacity) {
+				return prevState;
+			}
+
+			let modtoAdd = mod,
+				cost = mod.cost;
+
+			if (Rating) {
+				const evil = eval;
+				cost = evil(cost.replace('Rating', Rating));
+				modtoAdd = {
+					...mod,
+					currentRating: Rating,
+					currentCost: cost
+				};
+			}
+
 			return {
 				...prevState,
 				[category]: [
@@ -174,14 +193,14 @@ const purchaseGearReducer = (state = initialState, action) => {
 					{
 						...gearBeingModded,
 						mods: {
-							[mod.name]: mod
+							[mod.name]: modtoAdd
 						},
-						currentCost: Number(gearBeingModded.cost) + Number(mod.cost),
-						capacity: (gearBeingModded.capacity || 0) + Number(mod.armorcapacity.match(/\d+/)[0])
+						currentCost: Number(gearBeingModded.cost) + Number(cost),
+						capacity
 					},
 					...gearArray.slice(index + 1)
 				],
-				nuyen: prevState.nuyen + Number(mod.cost)
+				nuyen: prevState.nuyen + Number(cost)
 			};
 		},
 
