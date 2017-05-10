@@ -138,7 +138,7 @@ describe('purchaseGear', () => {
 				cost: '450',
 				source: 'SR5',
 				page: '437',
-				currentCost: 1950,
+				currentCost: 1750,
 				capacity: 6,
 				mods: {
 					capacity: 6,
@@ -153,8 +153,20 @@ describe('purchaseGear', () => {
 						cost: 'Rating * 250',
 						source: 'SR5',
 						page: '438',
-						rating: 6,
-						currentCost: 1500
+						rating: 5,
+						currentCost: 1250
+					},
+					'Faraday Pocket': {
+						id: "c3ea670b-45e7-4b75-a85d-1801c91d1c8c",
+						name: "Faraday Pocket",
+						category: "General",
+						armor: "0",
+						maxrating: "1",
+						armorcapacity: "[1]",
+						avail: "7R",
+						cost: "50",
+						source: "HT",
+						page: "185"
 					}
 				}
 			}
@@ -474,7 +486,7 @@ describe('purchaseGear', () => {
 			const newState = reducer(state, {type: 'MODDING_CAPACITY', parameter: {index: 1, category: 'armors', mod: shockFrills}});
 
 			expect(newState.armors[1].mods['Shock Frills']).to.be.undefined;
-			expect(newState.armors[1].currentCost).to.equal(1950);
+			expect(newState.armors[1].currentCost).to.equal(1750);
 			expect(newState.nuyen).to.equal(3350);
 			expect(newState.armors[1].capacity).to.equal(6);
 
@@ -498,6 +510,18 @@ describe('purchaseGear', () => {
 	});
 
 	describe('DEMODDING_CAPACITY', () => {
-		
+		it('should remove a mod and lower capacity', () => {
+			const newState = reducer(state, {type: 'DEMODDING_CAPACITY', parameter: {index: 1, category: 'armors', demodName: 'Faraday Pocket'}});
+
+			expect(newState.armors[1].mods['Faraday Pocket']).to.be.undefined;
+			expect(newState.armors[1].mods.capacity).to.equal(5);
+			expect(newState.armors[1].currentCost).to.equal(1700);
+			expect(newState.nuyen).to.equal(3300);
+
+			expect(state.armors[1].mods['Faraday Pocket']).to.be.defined;
+			expect(state.armors[1].mods.capacity).to.equal(6);
+			expect(state.armors[1].currentCost).to.equal(1750);
+			expect(state.nuyen).to.equal(3350);
+		});
 	});
 });
