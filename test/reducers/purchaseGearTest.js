@@ -500,6 +500,7 @@ describe('purchaseGear', () => {
 			expect(newState.armors[0].mods['Thermal Damping'].currentCost).to.equal(1500);
 			expect(newState.armors[0].mods['Thermal Damping'].currentRating).to.equal(3);
 			expect(newState.armors[0].currentCost).to.equal(3000);
+			expect(newState.armors[0].rating).to.equal(3);
 			expect(newState.armors[0].capacity).to.equal(3);
 			expect(newState.nuyen).to.equal(4850);
 
@@ -517,6 +518,20 @@ describe('purchaseGear', () => {
 			expect(newState.armors[1].mods.capacity).to.equal(5);
 			expect(newState.armors[1].currentCost).to.equal(1700);
 			expect(newState.nuyen).to.equal(3300);
+
+			expect(state.armors[1].mods['Faraday Pocket']).to.be.defined;
+			expect(state.armors[1].mods.capacity).to.equal(6);
+			expect(state.armors[1].currentCost).to.equal(1750);
+			expect(state.nuyen).to.equal(3350);
+		});
+
+		it('should remove a mod and lower capacity by rating', () => {
+			const newState = reducer(state, {type: 'DEMODDING_CAPACITY', parameter: {index: 1, category: 'armors', demodName: 'Nonconductivity'}});
+
+			expect(newState.armors[1].mods['Nonconductivity']).to.be.undefined;
+			expect(newState.armors[1].mods.capacity).to.equal(1);
+			expect(newState.armors[1].currentCost).to.equal(500);
+			expect(newState.nuyen).to.equal(2100);
 
 			expect(state.armors[1].mods['Faraday Pocket']).to.be.defined;
 			expect(state.armors[1].mods.capacity).to.equal(6);
