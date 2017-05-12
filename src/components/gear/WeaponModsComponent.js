@@ -31,9 +31,8 @@ function WeaponModsComponent({index, weapon, weaponModLists, weaponModding, modd
 						{
 						weaponModLists.slotless.map((mod) => {
 							return (
-								<tr>
+								<tr key={`slotless-mod-${mod.name}`}>
 									<WeaponMultiModding
-										key={`slotless-mod-${mod.name}`}
 										mods={weapon.mods && weapon.mods.slotless}
 										weaponName={weapon.name}
 										weaponCost={weapon.cost}

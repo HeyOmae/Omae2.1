@@ -44,7 +44,9 @@ import {
   style,
   weaponModding,
   moddingMulti,
-  demoddingMulti
+  demoddingMulti,
+  moddingCapacity,
+  demoddingCapacity
 } from '../actions/';
 import Main from '../components/Main';
 import PriorityTableComponent from '../components/priorityTable/PriorityTableComponent';
@@ -186,7 +188,9 @@ function mapDispatchToProps(dispatch) {
 		style,
 		weaponModding,
 		moddingMulti,
-		demoddingMulti
+		demoddingMulti,
+		moddingCapacity,
+		demoddingCapacity
 	};
 	const actionMap = { actions: bindActionCreators(actions, dispatch) };
 	return actionMap;
