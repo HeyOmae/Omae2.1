@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import armorData from '../../data/armor.json';
 import Modal from '../ModalComponent';
+import ArmorMods from './ArmorModsComponent';
 import FilterTable from '../FilterableTable';
 import DisplayTable from '../DisplayTableComponent';
 import PropTypeChecking from '../../config/propTypeChecking';
@@ -54,6 +55,13 @@ class ArmorsComponent extends React.PureComponent {
 					<ArmorTableRow
 						key={`${armor.name + index}-purchased`}
 						armor={armor}
+						mod={
+							<Modal
+								modalName={armor.name}
+								modalContent={
+									<ArmorMods armorName={armor.name} />
+								} />
+						}
 						button={
 							<button
 								className="btn btn-warning"
@@ -113,11 +121,11 @@ function ArmorTableHeader() {
 	);
 }
 
-function ArmorTableRow({armor, button, armorGear}) {
+function ArmorTableRow({armor, button, armorGear, mod}) {
 	return (
 		<tr>
 			<td>{button}</td>
-			<td>{armor.name}</td>
+			<td>{mod || armor.name}</td>
 			<td>{armor.armor}</td>
 			<td><GearRatingComponent gear={armorGear} defaultValue={`${armor.currentRating || armor.armorcapacity}`} /></td>
 			<td>{armor.avail}</td>
@@ -141,11 +149,13 @@ ArmorTableRow.propTypes = {
 		gear: PropTypes.object.isRequired,
 		updateCost: PropTypes.func.isRequired
 	}),
-	button: PropTypes.element.isRequired
+	button: PropTypes.element.isRequired,
+	mod: PropTypes.element
 };
 
 ArmorTableRow.defaultProps = {
-	armorGear: null
+	armorGear: null,
+	mod: null
 };
 
 export default ArmorsComponent;

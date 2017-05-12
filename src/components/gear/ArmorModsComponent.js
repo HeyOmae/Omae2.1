@@ -8,11 +8,11 @@ function ArmorModsComponent({armorName}) {
 			<p><strong>Capacity:</strong> {0}</p>
 			<table className="table table-striped">
 				<tbody>
-					<tr>
-						{
-						armorMods.map((mod) => {
-							return (
-								<td key={`${armorName}-mod-${mod.name}`}>
+					{
+					armorMods.map((mod) => {
+						return (
+							<tr>
+								<td className="input-group" key={`${armorName}-mod-${mod.name}`}>
 									<input
 										id={`${armorName}-mod-${mod.name}`}
 										type="checkbox"
@@ -21,13 +21,13 @@ function ArmorModsComponent({armorName}) {
 									<label
 										htmlFor={`${armorName}-mod-${mod.name}`}
 									>
-										{mod.name}
+										{mod.name} &mdash; {mod.cost}&yen;
 									</label>
 								</td>
-							);
-						})
-						}
-					</tr>
+							</tr>
+						);
+					})
+					}
 				</tbody>
 			</table>
 		</div>
