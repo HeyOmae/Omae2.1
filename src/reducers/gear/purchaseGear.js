@@ -190,19 +190,15 @@ const purchaseGearReducer = (state = initialState, action) => {
 				...prevState,
 				[category]: [
 					...gearArray.slice(0, index),
-					Object.assign({},
-						gearBeingModded,
-						{
-							mods: {
-								[mod.name]: modtoAdd
-							},
-							currentCost: Number(gearBeingModded.cost) + Number(cost),
-							capacity
+					{
+						...gearBeingModded,
+						mods: {
+							[mod.name]: modtoAdd
 						},
-						Rating && {
-							rating: Rating
-						}
-					),
+						...(Rating ? {rating: Rating} : null),
+						currentCost: Number(gearBeingModded.cost) + Number(cost),
+						capacity
+					},
 					...gearArray.slice(index + 1)
 				],
 				nuyen: prevState.nuyen + Number(cost)
