@@ -7,6 +7,14 @@ function ArmorModsComponent({armorName, usedCapacity, index, modArmor, demodArmo
 		<div className="col">
 			<p><strong>Capacity:</strong> {usedCapacity}</p>
 			<table className="table table-striped">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Rating</th>
+						<th>Avail</th>
+						<th>Cost</th>
+					</tr>
+				</thead>
 				<tbody>
 					{
 					armorMods.map((mod) => {
@@ -37,8 +45,24 @@ function ArmorModsComponent({armorName, usedCapacity, index, modArmor, demodArmo
 									<label
 										htmlFor={`${armorName}-mod-${mod.name}`}
 									>
-										{mod.name} &mdash; {mod.cost}&yen;
+										{mod.name}
 									</label>
+								</td>
+								<td>
+									{isNaN(mod.cost) ?
+										<input
+											className="form-control"
+											type="number"
+											placeholder={`1-${mod.maxrating}`}
+										/>
+										: 'N/A'
+									}
+								</td>
+								<td>
+									{mod.avail}
+								</td>
+								<td>
+									{mod.cost}&yen;
 								</td>
 							</tr>
 						);
