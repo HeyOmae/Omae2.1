@@ -11,26 +11,26 @@ import {GearRatingComponent, GearCostComponent} from './displayComponents';
 
 class ArmorsComponent extends React.PureComponent {
 	componentWillMount() {
-		const { purchaseGear } = this.props.actions;
-		const armorRows = armorData.map((armor) => {
-			const armorGear = new ArmorClass(armor);
-			return (
-				<ArmorTableRow
-					key={`armor-to-buy--${armor.name}`}
-					armor={armor}
-					armorGear={armorGear}
-					button={
-						<button
-							className="btn btn-success"
-							onClick={() => {
-								purchaseGear({gear: armorGear.getGear(), category: 'armors', Rating: armorGear.getGear().currentRating});
-							}}
-						>
-							+
-						</button>
-				} />
-			);
-		});
+		const { purchaseGear } = this.props.actions,
+			armorRows = armorData.map((armor) => {
+				const armorGear = new ArmorClass(armor);
+				return (
+					<ArmorTableRow
+						key={`armor-to-buy--${armor.name}`}
+						armor={armor}
+						armorGear={armorGear}
+						button={
+							<button
+								className="btn btn-success"
+								onClick={() => {
+									purchaseGear({gear: armorGear.getGear(), category: 'armors', Rating: armorGear.getGear().currentRating});
+								}}
+							>
+								+
+							</button>
+					} />
+				);
+			});
 
 		this.armorModal = (
 			<Modal

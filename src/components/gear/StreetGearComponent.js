@@ -3,11 +3,24 @@ import PropTypes from 'prop-types';
 import WeaponsComponent from './WeaponsComponent';
 import ArmorsComponent from './ArmorsComponent';
 import priorityData from '../../data/priority.json';
+import gearData from '../../data/gear.json';
 import PropTypeChecking from '../../config/propTypeChecking';
 
 import '../../styles/gear/StreetGear.scss';
 
 class StreetGearComponent extends React.PureComponent {
+	componentWillMount() {
+		this.organizedGear = gearData.reduce((gearMemo, gear) => {
+			return {
+				...gearMemo,
+				[gear.category]: [
+					...(gearMemo[gear.category] || []),
+					gear
+				]
+			};
+		}, {});
+	}
+
 	render() {
 		const {actions, purchaseGear, resourcesPriority} = this.props;
 		const nuyen = priorityData[resourcesPriority].resources;
@@ -22,6 +35,17 @@ class StreetGearComponent extends React.PureComponent {
 				<ArmorsComponent
 					actions={actions}
 					purchased={purchaseGear.armors} />
+				{
+					Object.keys(this.organizedGear).map((gearName) => {
+						const gear = this.organizedGear[gearName];
+
+						return (
+							<div>
+								<h3>{gearName}</h3>
+							</div>
+						);
+					})
+				}
 			</div>
 		);
 	}
