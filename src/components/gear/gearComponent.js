@@ -9,19 +9,56 @@ import {GearRatingComponent, GearCostComponent} from './displayComponents';
 
 class GearComponent extends React.Component {
 	componentWillMount() {
-		const { purchaseGear } = this.props.actions,
-			{gearData} = this.props;
+		const {gearData, category, purchaseGear} = this.props;
 
-		const gearRows = gearData.map((gear) => {
+		const gearRows = Object.keys(gearData).map((gearName) => {
+			const gear = gearData[gearName],
+				gearState = new GearClass(gear);
 			return (
-
+				<GearTableRow
+					key={`gear-to-buy--${gear.name}`}
+					gear={gear}
+					gearState={gearState}
+					button={
+						<button
+							className="btn btn-success"
+							onClick={() => {
+								purchaseGear({
+									gear: gearState.getGear(),
+									category,
+									Rating: gearState.getGear().currentRating
+								});
+							}}
+						>
+							+
+						</button>
+					}
+				/>
 			);
 		});
+
+		this.gearModal = (
+			<Modal
+				modalName={category}
+				modalContent={
+					<FilterTable
+						tableData={{
+							header: <GearTableHeader />,
+							body: gearRows
+						}}
+					/>
+				}
+			/>
+		);
+	}
+
+	render() {
+		
 	}
 }
 
 GearComponent.propTypes = {
-	geatData: PropTypes.ObjectOf(
+	gearData: PropTypes.ObjectOf(
 		PropTypes.shape({
 			name: PropTypes.string.isRequired,
 			category: PropTypes.string.isRequired,
@@ -30,18 +67,32 @@ GearComponent.propTypes = {
 			source: PropTypes.string.isRequired,
 			page: PropTypes.string.isRequired,
 		}).isRequired
-	).isRequired
+	).isRequired,
+	category: PropTypes.string.isRequired,
+	purchaseGear: PropTypes.func.isRequired
 };
 
-function GearTableRow({gear, button, gearGear, mod}) {
+function GearTableHeader() {
+	return (
+		<tr>
+			<th>Buy</th>
+			<th>Name</th>
+			<th>Rating</th>
+			<th>Avail</th>
+			<th>&yen;</th>
+			<th>Ref</th>
+		</tr>
+	);
+}
+
+function GearTableRow({gear, button, gearState}) {
 	return (
 		<tr>
 			<td>{button}</td>
 			<td>{gear.name}</td>
-			<td>{gear.gear}</td>
-			<td><GearRatingComponent gear={gearGear} defaultValue={`${gear.currentRating || gear.gearcapacity}`} /></td>
+			<td><GearRatingComponent gear={gearState} defaultValue={`${gear.currentRating || gear.gearcapacity}`} /></td>
 			<td>{gear.avail}</td>
-			<td><GearCostComponent cost={gear.cost} currentCost={gear.currentCost} gear={gearGear} /></td>
+			<td><GearCostComponent cost={gear.cost} currentCost={gear.currentCost} gear={gearState} /></td>
 			<td>{gear.source} p{gear.page}</td>
 		</tr>
 	);
@@ -57,12 +108,11 @@ GearTableRow.propTypes = {
 		source: PropTypes.string.isRequired,
 		page: PropTypes.string.isRequired
 	}).isRequired,
-	gearGear: PropTypes.shape({
+	gearState: PropTypes.shape({
 		gear: PropTypes.object.isRequired,
 		updateCost: PropTypes.func.isRequired
 	}),
-	button: PropTypes.element.isRequired,
-	mod: PropTypes.element
+	button: PropTypes.element.isRequired
 };
 
 
