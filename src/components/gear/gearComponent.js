@@ -53,12 +53,46 @@ class GearComponent extends React.Component {
 	}
 
 	render() {
-		
+		const {gearModal} = this,
+			{purchased, sellGear} = this.props;
+
+		const gearTableRow = purchased ?
+			purchased.map((gear, index) => {
+				return (
+					<GearTableRow
+						key={`${gear.name}-purchased`}
+						gear={gear}
+						button={
+							<button
+								className="btn btn-warning"
+								onClick={() => {
+									sellGear({index, category: gear.category});
+								}}
+							>
+								-
+							</button>
+					} />
+				);
+			}) : null;
+
+		return (
+			<div className="gear-component row">
+				{gearModal}
+				{purchased ?
+					<div className="table-responsive purchased-gear">
+						<DisplayTable
+							header={<GearTableHeader />}
+							body={gearTableRow} />
+					</div>
+					: null
+				}
+			</div>
+		);
 	}
 }
 
 GearComponent.propTypes = {
-	gearData: PropTypes.ObjectOf(
+	gearData: PropTypes.objectOf(
 		PropTypes.shape({
 			name: PropTypes.string.isRequired,
 			category: PropTypes.string.isRequired,
@@ -69,7 +103,13 @@ GearComponent.propTypes = {
 		}).isRequired
 	).isRequired,
 	category: PropTypes.string.isRequired,
-	purchaseGear: PropTypes.func.isRequired
+	purchaseGear: PropTypes.func.isRequired,
+	sellGear: PropTypes.func.isRequired,
+	purchased: PropTypes.arrayOf(PropTypes.object.isRequired)
+};
+
+GearComponent.defaultProps = {
+	purchased: null
 };
 
 function GearTableHeader() {
@@ -90,7 +130,7 @@ function GearTableRow({gear, button, gearState}) {
 		<tr>
 			<td>{button}</td>
 			<td>{gear.name}</td>
-			<td><GearRatingComponent gear={gearState} defaultValue={`${gear.currentRating || gear.gearcapacity}`} /></td>
+			<td><GearRatingComponent gear={gearState} defaultValue={`${gear.currentRating || gear.gearcapacity || 'N/A'}`} /></td>
 			<td>{gear.avail}</td>
 			<td><GearCostComponent cost={gear.cost} currentCost={gear.currentCost} gear={gearState} /></td>
 			<td>{gear.source} p{gear.page}</td>
@@ -101,7 +141,6 @@ function GearTableRow({gear, button, gearState}) {
 GearTableRow.propTypes = {
 	gear: PropTypes.shape({
 		name: PropTypes.string.isRequired,
-		gear: PropTypes.string.isRequired,
 		gearcapacity: PropTypes.string.isRequired,
 		avail: PropTypes.string.isRequired,
 		cost: PropTypes.string.isRequired,

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import WeaponsComponent from './WeaponsComponent';
 import ArmorsComponent from './ArmorsComponent';
+import GearComponent from './GearComponent';
 import priorityData from '../../data/priority.json';
 import gearData from '../../data/gear.json';
 import PropTypeChecking from '../../config/propTypeChecking';
@@ -35,14 +36,19 @@ class StreetGearComponent extends React.PureComponent {
 				<ArmorsComponent
 					actions={actions}
 					purchased={purchaseGear.armors} />
+				<h3>Other Gear</h3>
 				{
-					Object.keys(this.organizedGear).map((gearName) => {
-						const gear = this.organizedGear[gearName];
+					Object.keys(this.organizedGear).map((gearCategory) => {
+						const gear = this.organizedGear[gearCategory];
 
 						return (
-							<div>
-								<h3>{gearName}</h3>
-							</div>
+							<GearComponent
+								gearData={gear}
+								category={gearCategory}
+								purchaseGear={actions.purchaseGear}
+								sellGear={actions.sellGear}
+								purchased={purchaseGear[gearCategory]}
+							/>
 						);
 					})
 				}
