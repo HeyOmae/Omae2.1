@@ -11,9 +11,8 @@ class GearComponent extends React.Component {
 	componentWillMount() {
 		const {gearData, category, purchaseGear} = this.props;
 
-		const gearRows = Object.keys(gearData).map((gearName) => {
-			const gear = gearData[gearName],
-				gearState = new GearClass(gear);
+		const gearRows = gearData.map((gear) => {
+			const gearState = new GearClass(gear);
 			return (
 				<GearTableRow
 					key={`gear-to-buy--${gear.name}`}
@@ -56,34 +55,14 @@ class GearComponent extends React.Component {
 		const {gearModal} = this,
 			{purchased, sellGear} = this.props;
 
-		const gearTableRow = purchased ?
-			purchased.map((gear, index) => {
-				return (
-					<GearTableRow
-						key={`${gear.name}-purchased`}
-						gear={gear}
-						button={
-							<button
-								className="btn btn-warning"
-								onClick={() => {
-									sellGear({index, category: gear.category});
-								}}
-							>
-								-
-							</button>
-					} />
-				);
-			}) : null;
-
 		return (
 			<div className="gear-component row">
 				{gearModal}
 				{purchased ?
-					<div className="table-responsive purchased-gear">
-						<DisplayTable
-							header={<GearTableHeader />}
-							body={gearTableRow} />
-					</div>
+					<PurchasedGear
+						purchased={purchased}
+						sellGear={sellGear}
+					/>
 					: null
 				}
 			</div>
@@ -92,7 +71,7 @@ class GearComponent extends React.Component {
 }
 
 GearComponent.propTypes = {
-	gearData: PropTypes.objectOf(
+	gearData: PropTypes.arrayOf(
 		PropTypes.shape({
 			name: PropTypes.string.isRequired,
 			category: PropTypes.string.isRequired,
@@ -130,7 +109,7 @@ function GearTableRow({gear, button, gearState}) {
 		<tr>
 			<td>{button}</td>
 			<td>{gear.name}</td>
-			<td><GearRatingComponent gear={gearState} defaultValue={`${gear.currentRating || gear.gearcapacity || 'N/A'}`} /></td>
+			<td><GearRatingComponent gear={gearState} defaultValue={`${gear.currentRating || 'N/A'}`} /></td>
 			<td>{gear.avail}</td>
 			<td><GearCostComponent cost={gear.cost} currentCost={gear.currentCost} gear={gearState} /></td>
 			<td>{gear.source} p{gear.page}</td>
@@ -141,7 +120,6 @@ function GearTableRow({gear, button, gearState}) {
 GearTableRow.propTypes = {
 	gear: PropTypes.shape({
 		name: PropTypes.string.isRequired,
-		gearcapacity: PropTypes.string.isRequired,
 		avail: PropTypes.string.isRequired,
 		cost: PropTypes.string.isRequired,
 		source: PropTypes.string.isRequired,
@@ -152,6 +130,40 @@ GearTableRow.propTypes = {
 		updateCost: PropTypes.func.isRequired
 	}),
 	button: PropTypes.element.isRequired
+};
+
+function PurchasedGear({purchased, sellGear}) {
+	const gearTableRow = purchased ?
+		purchased.map((gear, index) => {
+			return (
+				<GearTableRow
+					key={`${gear.name}-purchased`}
+					gear={gear}
+					button={
+						<button
+							className="btn btn-warning"
+							onClick={() => {
+								sellGear({index, category: gear.category});
+							}}
+						>
+							-
+						</button>
+				} />
+			);
+		}) : null;
+
+	return (
+		<div className="table-responsive purchased-gear">
+			<DisplayTable
+				header={<GearTableHeader />}
+				body={gearTableRow} />
+		</div>
+	);
+}
+
+PurchasedGear.propTypes = {
+	sellGear: PropTypes.func.isRequired,
+	purchased: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired
 };
 
 

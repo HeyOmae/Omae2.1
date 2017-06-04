@@ -43,6 +43,7 @@ class StreetGearComponent extends React.PureComponent {
 
 						return (
 							<GearComponent
+								key={`gear-modal-${gearCategory}`}
 								gearData={gear}
 								category={gearCategory}
 								purchaseGear={actions.purchaseGear}
