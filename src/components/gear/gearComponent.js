@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Modal from '../ModalComponent';
 import FilterTable from '../FilterableTable';
 import DisplayTable from '../DisplayTableComponent';
-import PropTypeChecking from '../../config/propTypeChecking';
 import GearClass from './GearCreator';
 import {GearRatingComponent, GearCostComponent} from './displayComponents';
 
@@ -133,24 +132,23 @@ GearTableRow.propTypes = {
 };
 
 function PurchasedGear({purchased, sellGear}) {
-	const gearTableRow = purchased ?
-		purchased.map((gear, index) => {
-			return (
-				<GearTableRow
-					key={`${gear.name}-purchased`}
-					gear={gear}
-					button={
-						<button
-							className="btn btn-warning"
-							onClick={() => {
-								sellGear({index, category: gear.category});
-							}}
-						>
-							-
-						</button>
-				} />
-			);
-		}) : null;
+	const gearTableRow = purchased.map((gear, index) => {
+		return (
+			<GearTableRow
+				key={`${gear.name}-purchased`}
+				gear={gear}
+				button={
+					<button
+						className="btn btn-warning"
+						onClick={() => {
+							sellGear({index, category: gear.category});
+						}}
+					>
+						-
+					</button>
+			} />
+		);
+	});
 
 	return (
 		<div className="table-responsive purchased-gear">
