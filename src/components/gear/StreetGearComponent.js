@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import WeaponsComponent from './WeaponsComponent';
 import ArmorsComponent from './ArmorsComponent';
-import GearComponent from './GearComponent';
+import GearComponent, { PurchasedGear } from './GearComponent';
 import priorityData from '../../data/priority.json';
 import gearData from '../../data/gear.json';
 import PropTypeChecking from '../../config/propTypeChecking';
@@ -23,8 +23,9 @@ class StreetGearComponent extends React.PureComponent {
 	}
 
 	render() {
-		const {actions, purchaseGear, resourcesPriority} = this.props;
-		const nuyen = priorityData[resourcesPriority].resources;
+		const {actions, purchaseGear, resourcesPriority} = this.props,
+			nuyen = priorityData[resourcesPriority].resources,
+			purchasedGearComponents = [];
 		return (
 			<div className="streetgear-component">
 				<p>Nuyen: <strong>{nuyen - (purchaseGear.nuyen)}&yen;</strong></p>
@@ -38,8 +39,19 @@ class StreetGearComponent extends React.PureComponent {
 					purchased={purchaseGear.armors} />
 				<h3>Other Gear</h3>
 				{
-					Object.keys(this.organizedGear).map((gearCategory) => {
+					Object.keys(this.organizedGear).sort().map((gearCategory) => {
 						const gear = this.organizedGear[gearCategory];
+
+						if (purchaseGear[gearCategory]) {
+							purchasedGearComponents.push(
+								<PurchasedGear
+									key={`purchased-gear-${gearCategory}`}
+									purchased={purchaseGear[gearCategory]}
+									sellGear={actions.sellGear}
+									category={gearCategory}
+								/>
+							);
+						}
 
 						return (
 							<GearComponent
@@ -47,12 +59,11 @@ class StreetGearComponent extends React.PureComponent {
 								gearData={gear}
 								category={gearCategory}
 								purchaseGear={actions.purchaseGear}
-								sellGear={actions.sellGear}
-								purchased={purchaseGear[gearCategory]}
 							/>
 						);
 					})
 				}
+				{purchasedGearComponents}
 			</div>
 		);
 	}

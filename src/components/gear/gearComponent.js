@@ -51,21 +51,7 @@ class GearComponent extends React.Component {
 	}
 
 	render() {
-		const {gearModal} = this,
-			{purchased, sellGear} = this.props;
-
-		return (
-			<div className="gear-component row">
-				{gearModal}
-				{purchased ?
-					<PurchasedGear
-						purchased={purchased}
-						sellGear={sellGear}
-					/>
-					: null
-				}
-			</div>
-		);
+		return this.gearModal;
 	}
 }
 
@@ -81,9 +67,7 @@ GearComponent.propTypes = {
 		}).isRequired
 	).isRequired,
 	category: PropTypes.string.isRequired,
-	purchaseGear: PropTypes.func.isRequired,
-	sellGear: PropTypes.func.isRequired,
-	purchased: PropTypes.arrayOf(PropTypes.object.isRequired)
+	purchaseGear: PropTypes.func.isRequired
 };
 
 GearComponent.defaultProps = {
@@ -131,7 +115,7 @@ GearTableRow.propTypes = {
 	button: PropTypes.element.isRequired
 };
 
-function PurchasedGear({purchased, sellGear}) {
+function PurchasedGear({purchased, sellGear, category}) {
 	const gearTableRow = purchased.map((gear, index) => {
 		return (
 			<GearTableRow
@@ -152,6 +136,7 @@ function PurchasedGear({purchased, sellGear}) {
 
 	return (
 		<div className="table-responsive purchased-gear">
+			<h4>{category}</h4>
 			<DisplayTable
 				header={<GearTableHeader />}
 				body={gearTableRow} />
@@ -161,8 +146,14 @@ function PurchasedGear({purchased, sellGear}) {
 
 PurchasedGear.propTypes = {
 	sellGear: PropTypes.func.isRequired,
-	purchased: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired
+	category: PropTypes.string.isRequired,
+	purchased: PropTypes.arrayOf(PropTypes.object.isRequired)
 };
 
+PurchasedGear.defaultProps = {
+	purchased: []
+};
+
+export {PurchasedGear};
 
 export default GearComponent;
