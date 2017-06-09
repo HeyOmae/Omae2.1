@@ -38,31 +38,33 @@ class StreetGearComponent extends React.PureComponent {
 					actions={actions}
 					purchased={purchaseGear.armors} />
 				<h3>Other Gear</h3>
-				{
-					Object.keys(this.organizedGear).sort().map((gearCategory) => {
-						const gear = this.organizedGear[gearCategory];
+				<div className="modal-thirds row">
+					{
+						Object.keys(this.organizedGear).sort().map((gearCategory) => {
+							const gear = this.organizedGear[gearCategory];
 
-						if (purchaseGear[gearCategory]) {
-							purchasedGearComponents.push(
-								<PurchasedGear
-									key={`purchased-gear-${gearCategory}`}
-									purchased={purchaseGear[gearCategory]}
-									sellGear={actions.sellGear}
+							if (purchaseGear[gearCategory]) {
+								purchasedGearComponents.push(
+									<PurchasedGear
+										key={`purchased-gear-${gearCategory}`}
+										purchased={purchaseGear[gearCategory]}
+										sellGear={actions.sellGear}
+										category={gearCategory}
+									/>
+								);
+							}
+
+							return (
+								<GearComponent
+									key={`gear-modal-${gearCategory}`}
+									gearData={gear}
 									category={gearCategory}
+									purchaseGear={actions.purchaseGear}
 								/>
 							);
-						}
-
-						return (
-							<GearComponent
-								key={`gear-modal-${gearCategory}`}
-								gearData={gear}
-								category={gearCategory}
-								purchaseGear={actions.purchaseGear}
-							/>
-						);
-					})
-				}
+						})
+					}
+				</div>
 				{purchasedGearComponents}
 			</div>
 		);

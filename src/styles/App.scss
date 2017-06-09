@@ -140,3 +140,10 @@ input[type="radio"] {
 	clip: rect(0,0,0,0);
 	pointer-events: none;
 }
+
+.modal-thirds {
+	.modal-component {
+		flex: 1;
+		flex-basis: 30%;
+	}
+}

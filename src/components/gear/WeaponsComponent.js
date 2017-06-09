@@ -129,7 +129,7 @@ class WeaponsComponent extends React.Component {
 		}
 
 		return (
-			<div className="weapons-component row">
+			<div className="weapons-component modal-thirds row">
 				{weaponTable}
 				{purchased ?
 					<div className="table-responsive purchased-weapons">
