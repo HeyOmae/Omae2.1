@@ -7,8 +7,8 @@ import PropTypeChecking from '../config/propTypeChecking';
 
 import '../styles/Summary.sass';
 
-const TableRowHeader = () => {
-	return <tr><th>Name</th><th>Ref</th></tr>;
+const TableHeader = () => {
+	return <thead><tr><th>Name</th><th>Ref</th></tr></thead>;
 };
 
 const SummaryComponent = (
@@ -38,13 +38,12 @@ const SummaryComponent = (
 		calculatedStats = {
 			attributes: {}
 		},
-		displaySpellsPowers = [
-			<TableRowHeader key="summary-spell-header" />
-		],
+		displaySpellsPowers = [],
 		displayQualities = {
-			Positive: [<TableRowHeader key="summary-quality--positive--header" />],
-			Negative: [<TableRowHeader key="summary-quality--negative--header" />]
+			Positive: [],
+			Negative: []
 		};
+
 	Object.keys(priority).forEach((pariorityCategory) => {
 		priorityHead.push(<th key={`summary-priority-head-${pariorityCategory}`}>{pariorityCategory}</th>);
 		priorityData.push(<td key={`summary-priority-data-${pariorityCategory}`}>{priority[pariorityCategory]}</td>);
@@ -164,6 +163,7 @@ const SummaryComponent = (
 					<div className="table-responsive">
 						<h3>Positive</h3>
 						<table className="table">
+							<TableHeader />
 							<tbody>
 								{displayQualities.Positive}
 							</tbody>
@@ -175,6 +175,7 @@ const SummaryComponent = (
 					<div className="table-responsive">
 						<h3>Negative</h3>
 						<table className="table">
+							<TableHeader />
 							<tbody>
 								{displayQualities.Negative}
 							</tbody>
@@ -191,6 +192,7 @@ const SummaryComponent = (
 					<div className="table-responsive">
 						<h3>Spells/Powers</h3>
 						<table className="table">
+							<TableHeader />
 							<tbody>
 								{displaySpellsPowers}
 							</tbody>
@@ -229,6 +231,15 @@ const SummaryComponent = (
 					<tbody>
 						{skillData}
 					</tbody>
+				</table>
+			</div>
+
+			<div>
+				<h2>Gear</h2>
+				<p>Nuyen: <strong>{priorityTableData[priority.resources].resources - (purchaseGear.nuyen)}&yen;</strong></p>
+				<table className="table">
+					<TableHeader />
+					<tbody>{}</tbody>
 				</table>
 			</div>
 

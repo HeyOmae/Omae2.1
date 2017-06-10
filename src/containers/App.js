@@ -109,7 +109,7 @@ class App extends Component {
 							metatype={selectMetatypeState}
 							magictype={selectMagRes} />
 						<h2>Street Gear</h2>
-						<StreetGearComponent actions={actions} purchaseGear={purchaseGearState} resourcesPriority={priorityTableState.resources} />
+						<StreetGearComponent actions={actions} purchaseGear={purchaseGearState} />
 					</div>
 					<div id="summary" className="col-md-12 col-lg-3">
 						<Summary />
