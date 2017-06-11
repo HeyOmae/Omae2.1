@@ -111,6 +111,25 @@ const SummaryComponent = (
 		);
 	});
 
+	const PurchasedGearRows = Object.keys(purchaseGear).reduce((rows, gearCategory) => {
+		const gearArray = purchaseGear[gearCategory];
+		if (Array.isArray(gearArray)) {
+			return [
+				...rows,
+				gearArray.map((gear) => {
+					return (
+						<tr>
+							<td>{gear.name}</td>
+							<td>{gear.source} p{gear.page}</td>
+						</tr>
+					);
+				})
+			];
+		}
+
+		return rows;
+	}, []);
+
 	return (
 		<div className={`summary-component sticky-top ${(fixed ? 'fixed' : '')}`}>
 			<h1>Character Summary</h1>
@@ -236,11 +255,14 @@ const SummaryComponent = (
 
 			<div>
 				<h2>Gear</h2>
-				<p>Nuyen: <strong>{priorityTableData[priority.resources].resources - (purchaseGear.nuyen)}&yen;</strong></p>
-				<table className="table">
-					<TableHeader />
-					<tbody>{}</tbody>
-				</table>
+				<p>Nuyen Left: <strong>{priorityTableData[priority.resources].resources - (purchaseGear.nuyen)}&yen;</strong></p>
+				{PurchasedGearRows.length > 0 ?
+					<table className="table">
+						<TableHeader />
+						<tbody>{PurchasedGearRows}</tbody>
+					</table>
+					: null
+				}
 			</div>
 
 			<div>
