@@ -26,7 +26,7 @@ export default class GearClass {
 		const ratingNum = Number(rating);
 		this.gear = {
 			...this.gear,
-			currentRating: ratingNum > 1 && ratingNum < this.gear.rating ? Math.floor(ratingNum) : 1
+			currentRating: ratingNum > 1 && ratingNum <= this.gear.rating ? Math.floor(ratingNum) : 1
 		};
 	}
 
