@@ -86,19 +86,46 @@ const RedditComponent = ({priority, metatype, attributes, augmentedAtt, magres, 
 		}
 	});
 
-	Object.keys(purchaseGear).forEach((gearCategoryName) => {
-		const category = purchaseGear[gearCategoryName];
-		if (Array.isArray(category)) {
-			gearBought += `
+	const gearTypes = {
+		weapons(category, gearCategoryName) {
+			let gearString = '';
+			gearString += `
 
 ### ${gearCategoryName}
 
-Name | Acc | Dam | AP | Reach/RC
-----|------|-----|----|--`;
+Name | Acc | Dam | AP | Reach/RC | Ref
+----|------|-----|----|----------|--`;
+
 			category.forEach((gear) => {
-				gearBought += `
-${gear.name} | ${gear.accuracy} | ${gear.damage} | ${gear.ap} | ${gear.type === 'Melee' ? gear.reach : gear.rc}`;
+				gearString += `
+${gear.name} | ${gear.accuracy} | ${gear.damage} | ${gear.ap} | ${gear.type === 'Melee' ? gear.reach : gear.rc} | ${gear.source} p${gear.page}`;
 			});
+
+			return gearString;
+		},
+
+		default(category, gearCategoryName) {
+			let gearString = '';
+			gearString += `
+
+### ${gearCategoryName}
+
+Name | Rating | Ref
+-----|--------|--`;
+
+			category.forEach((gear) => {
+				gearString += `
+${gear.name} | ${gear.currentRating || 'N/A'} | ${gear.source} p${gear.page}`;
+			});
+
+			return gearString;
+		}
+	};
+
+	Object.keys(purchaseGear).forEach((gearCategoryName) => {
+		const category = purchaseGear[gearCategoryName];
+		if (Array.isArray(category)) {
+			gearBought += (gearTypes[gearCategoryName] || gearTypes.default)(category, gearCategoryName);
 		}
 	});
 
