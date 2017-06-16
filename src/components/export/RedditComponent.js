@@ -88,37 +88,39 @@ const RedditComponent = ({priority, metatype, attributes, augmentedAtt, magres, 
 
 	const gearTypes = {
 		weapons(category, gearCategoryName) {
-			let gearString = '';
-			gearString += `
+			return `
 
 ### ${gearCategoryName}
 
 Name | Acc | Dam | AP | Reach/RC | Ref
-----|------|-----|----|----------|--`;
+----|------|-----|----|----------|--${category.map((weapon) => {
+	return `
+${weapon.name} | ${weapon.accuracy} | ${weapon.damage} | ${weapon.ap} | ${weapon.type === 'Melee' ? weapon.reach : weapon.rc} | ${weapon.source} p${weapon.page}`;
+}).join()}`;
+		},
 
-			category.forEach((gear) => {
-				gearString += `
-${gear.name} | ${gear.accuracy} | ${gear.damage} | ${gear.ap} | ${gear.type === 'Melee' ? gear.reach : gear.rc} | ${gear.source} p${gear.page}`;
-			});
+		armors(category, gearCategoryName) {
+			return `
 
-			return gearString;
+### ${gearCategoryName}
+
+Name | Armor | Capacity | Ref
+----|--------|----------|--${category.map((armor) => {
+	return `
+${armor.name} | ${armor.armor} | ${armor.capacity}/${armor.armorcapacity} | ${armor.source} p${armor.page}`;
+}).join()}`;
 		},
 
 		default(category, gearCategoryName) {
-			let gearString = '';
-			gearString += `
+			return `
 
 ### ${gearCategoryName}
 
 Name | Rating | Ref
------|--------|--`;
-
-			category.forEach((gear) => {
-				gearString += `
+-----|--------|--${category.map((gear) => {
+	return `
 ${gear.name} | ${gear.currentRating || 'N/A'} | ${gear.source} p${gear.page}`;
-			});
-
-			return gearString;
+}).join()}`;
 		}
 	};
 
