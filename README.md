@@ -70,10 +70,16 @@ Install Yeoman and the React-Webpack-Redux generator. You can skip this if you d
 
 ## Things that needs to get done
 
-* Finish adding the Gear
+* Make Gear able to be modded, like vision gear, commlinks, etc
+* Have different tables to display elecontric gear stats
+* Add Knowledge skills
 * Make qualities and adept powers actually effect stats
+* Add Mentor Spirits
+* Add Tradisions
 * Fix the styling I broke on iPhone
 * Update the stats for metatypes from Run Faster errata
-* Add more to this read me
+* Update project dependencies
+* Add more to this README
 * Actually write unit tests for the react components
 * Look in to integration/end-to-end testing
+* Figure out how to mark AIs and Shapeshifters work
