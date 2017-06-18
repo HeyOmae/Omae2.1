@@ -1,0 +1,2716 @@
+[{
+        "id": "ae0bb365-e40c-4aa2-9c30-0be902d992ac",
+        "name": "Adrenaline Pump",
+        "category": "Basic",
+        "ess": "Rating * 0.75",
+        "capacity": "0",
+        "avail": "(Rating * 6)F",
+        "cost": "Rating * 55000",
+        "rating": "3",
+        "source": "SR5",
+        "page": "459"
+    },
+    {
+        "id": "b04871a1-6b7b-4a78-89fc-af8ec69bdd3d",
+        "name": "Bone Density Augmentation",
+        "category": "Basic",
+        "ess": "Rating * 0.3",
+        "capacity": "0",
+        "avail": "(Rating * 4)",
+        "cost": "Rating * 5000",
+        "bonus": {
+            "damageresistance": "Rating",
+            "unarmeddv": "Rating-1"
+        },
+        "forbidden": {
+            "oneof": {
+                "cyberware": [
+                    "Bone Lacing (Titanium)",
+                    "Bone Lacing (Aluminum)",
+                    "Bone Lacing (Plastic)"
+                ]
+            }
+        },
+        "rating": "4",
+        "source": "SR5",
+        "page": "459"
+    },
+    {
+        "id": "f038260b-f2de-4a9a-9507-5602d0e64a22",
+        "name": "Cat's Eyes",
+        "category": "Basic",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "4",
+        "cost": "4000",
+        "source": "SR5",
+        "page": "459"
+    },
+    {
+        "id": "81b40aa8-98d1-4a5d-89d6-9b6d438006da",
+        "name": "Cerebral Booster",
+        "category": "Cultured",
+        "ess": "Rating * 0.2",
+        "capacity": "0",
+        "avail": "Rating * 6",
+        "cost": "Rating * 31500",
+        "bonus": {
+            "specificattribute": {
+                "name": "LOG",
+                "val": "Rating"
+            }
+        },
+        "rating": "3",
+        "source": "SR5",
+        "page": "460"
+    },
+    {
+        "id": "c46fbaba-d941-44b5-9bdc-643c5c6f4b24",
+        "name": "Damage Compensators",
+        "category": "Cultured",
+        "ess": "Rating * 0.1",
+        "capacity": "0",
+        "avail": "(Rating * 3)F",
+        "cost": "Rating * 2000",
+        "bonus": {
+            "conditionmonitor": {
+                "thresholdoffset": "Rating"
+            }
+        },
+        "rating": "12",
+        "source": "SR5",
+        "page": "460"
+    },
+    {
+        "id": "dfada66f-73f7-4648-aff4-6b6bce25f84c",
+        "name": "Enhanced Articulation",
+        "category": "Basic",
+        "ess": "0.3",
+        "capacity": "0",
+        "avail": "12",
+        "cost": "24000",
+        "bonus": {
+            "limitmodifier": {
+                "limit": "Physical",
+                "value": "1",
+                "condition": "Only for Escape Artist"
+            },
+            "specificskill": {
+                "name": "Escape Artist",
+                "bonus": "1",
+                "applytorating": "no"
+            }
+        },
+        "source": "SR5",
+        "page": "459"
+    },
+    {
+        "id": "b2289ebe-4bb0-49d0-a151-38fc1261bba8",
+        "name": "Mnemonic Enhancer",
+        "category": "Cultured",
+        "ess": "Rating * 0.1",
+        "capacity": "0",
+        "avail": "Rating * 5",
+        "cost": "Rating * 9000",
+        "bonus": {
+            "memory": "Rating",
+            "mentallimit": "Rating",
+            "skillcategory": [{
+                    "name": "Academic",
+                    "bonus": "Rating"
+                },
+                {
+                    "name": "Interest",
+                    "bonus": "Rating"
+                },
+                {
+                    "name": "Language",
+                    "bonus": "Rating"
+                },
+                {
+                    "name": "Professional",
+                    "bonus": "Rating"
+                },
+                {
+                    "name": "Street",
+                    "bonus": "Rating"
+                }
+            ]
+        },
+        "rating": "3",
+        "source": "SR5",
+        "page": "460"
+    },
+    {
+        "id": "841572d6-0785-4a8d-acd3-e106fb464781",
+        "name": "Muscle Augmentation",
+        "category": "Basic",
+        "ess": "Rating * 0.2",
+        "capacity": "0",
+        "avail": "(Rating * 5)R",
+        "cost": "Rating * 31000",
+        "bonus": {
+            "specificattribute": {
+                "name": {
+                    "-precedence": "0",
+                    "#text": "STR"
+                },
+                "val": "Rating"
+            }
+        },
+        "rating": "4",
+        "source": "SR5",
+        "page": "459"
+    },
+    {
+        "id": "69ab0255-a76b-4190-a8be-0473fed231ef",
+        "name": "Muscle Toner",
+        "category": "Basic",
+        "ess": "Rating * 0.2",
+        "capacity": "0",
+        "avail": "(Rating * 5)R",
+        "cost": "Rating * 32000",
+        "bonus": {
+            "specificattribute": {
+                "name": {
+                    "-precedence": "0",
+                    "#text": "AGI"
+                },
+                "val": "Rating"
+            }
+        },
+        "rating": "4",
+        "source": "SR5",
+        "page": "459"
+    },
+    {
+        "id": "96e4809a-71e6-4b98-9740-c6c44bc33aa9",
+        "name": "Orthoskin",
+        "category": "Basic",
+        "ess": "Rating * 0.25",
+        "capacity": "0",
+        "avail": "(Rating * 4)R",
+        "cost": "Rating * 6000",
+        "bonus": {
+            "armor": {
+                "-group": "0",
+                "#text": "Rating"
+            }
+        },
+        "forbidden": {
+            "oneof": {
+                "cyberware": "Dermal Plating"
+            }
+        },
+        "rating": "4",
+        "source": "SR5",
+        "page": "459"
+    },
+    {
+        "id": "add913d1-6174-41d6-8021-b8bf35345e7a",
+        "name": "Pain Editor",
+        "category": "Cultured",
+        "ess": "0.3",
+        "capacity": "0",
+        "avail": "18F",
+        "cost": "48000",
+        "source": "SR5",
+        "page": "460"
+    },
+    {
+        "id": "5bd98093-6620-4b0a-8f2c-61727d5c38a6",
+        "name": "Pathogenic Defense",
+        "category": "Basic",
+        "ess": "Rating * 0.1",
+        "capacity": "0",
+        "avail": "(Rating * 2)",
+        "cost": "Rating * 4500",
+        "rating": "6",
+        "source": "SR5",
+        "page": "459"
+    },
+    {
+        "id": "8c75648c-19d2-4734-b107-c04bb0e1904a",
+        "name": "Platelet Factories",
+        "category": "Basic",
+        "ess": "0.2",
+        "capacity": "0",
+        "avail": "12",
+        "cost": "17000",
+        "source": "SR5",
+        "page": "459"
+    },
+    {
+        "id": "17a6ba49-c21c-461b-9830-3beae8a237fc",
+        "name": "Reflex Recorder (Skill)",
+        "category": "Cultured",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "10",
+        "cost": "14000",
+        "bonus": {
+            "selectskill": {
+                "-limittoattribute": "BOD,AGI,REA,STR",
+                "val": "1",
+                "applytorating": "yes"
+            }
+        },
+        "source": "SR5",
+        "page": "460"
+    },
+    {
+        "id": "3fd172b8-0ff5-46ee-a468-91edd4cdc448",
+        "name": "Skin Pocket",
+        "category": "Basic",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "4",
+        "cost": "12000",
+        "source": "SR5",
+        "page": "459"
+    },
+    {
+        "id": "5ffb0e03-c281-4aee-bc13-639576d932ab",
+        "name": "Sleep Regulator",
+        "category": "Cultured",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "6",
+        "cost": "12000",
+        "source": "SR5",
+        "page": "460"
+    },
+    {
+        "id": "d1a314d9-3b83-4d62-854d-90e3788eea83",
+        "name": "Suprathyroid Gland",
+        "category": "Basic",
+        "ess": "0.7",
+        "capacity": "0",
+        "avail": "20R",
+        "cost": "140000",
+        "bonus": {
+            "lifestylecost": "25",
+            "specificattribute": [{
+                    "name": "BOD",
+                    "val": "1"
+                },
+                {
+                    "name": "AGI",
+                    "val": "1"
+                },
+                {
+                    "name": {
+                        "-precedence": "0",
+                        "#text": "REA"
+                    },
+                    "val": "1"
+                },
+                {
+                    "name": {
+                        "-precedence": "0",
+                        "#text": "STR"
+                    },
+                    "val": "1"
+                }
+            ]
+        },
+        "source": "SR5",
+        "page": "459"
+    },
+    {
+        "id": "a08ce525-4788-42d8-b5d6-35a378f71776",
+        "name": "Symbiotes",
+        "category": "Basic",
+        "ess": "Rating * 0.2",
+        "capacity": "0",
+        "avail": "Rating * 5",
+        "cost": "Rating * 3500",
+        "rating": "4",
+        "source": "SR5",
+        "page": "459"
+    },
+    {
+        "id": "4a4e1079-5872-4f3f-a450-48c30a5504f3",
+        "name": "Synaptic Booster",
+        "category": "Cultured",
+        "ess": "Rating * 0.5",
+        "capacity": "0",
+        "avail": "(Rating * 6)R",
+        "cost": "Rating * 95000",
+        "bonus": {
+            "initiativepass": {
+                "-precedence": "0",
+                "#text": "Rating"
+            },
+            "specificattribute": {
+                "name": {
+                    "-precedence": "0",
+                    "#text": "REA"
+                },
+                "val": "Rating"
+            }
+        },
+        "rating": "3",
+        "source": "SR5",
+        "page": "461"
+    },
+    {
+        "id": "109b0a32-320f-41c5-9acb-c49308525ce0",
+        "name": "Synthacardium",
+        "category": "Basic",
+        "ess": "Rating * 0.1",
+        "capacity": "0",
+        "avail": "Rating * 4",
+        "cost": "Rating * 30000",
+        "bonus": {
+            "skillgroup": {
+                "name": "Athletics",
+                "bonus": "Rating"
+            }
+        },
+        "rating": "3",
+        "source": "SR5",
+        "page": "460"
+    },
+    {
+        "id": "2faac78a-ab32-4541-ad9c-3ef6c1b2cd84",
+        "name": "Tailored Pheromones",
+        "category": "Basic",
+        "ess": "Rating * 0.2",
+        "capacity": "0",
+        "avail": "(Rating * 4)R",
+        "cost": "Rating * 31000",
+        "bonus": {
+            "sociallimit": "Rating"
+        },
+        "rating": "3",
+        "source": "SR5",
+        "page": "460"
+    },
+    {
+        "id": "4acd62c6-fe89-44f3-a880-2751b1cf5512",
+        "name": "Toxin Extractor",
+        "category": "Basic",
+        "ess": "Rating * 0.2",
+        "capacity": "0",
+        "avail": "Rating * 3",
+        "cost": "Rating * 4800",
+        "rating": "6",
+        "source": "SR5",
+        "page": "460"
+    },
+    {
+        "id": "988cf8a6-cfa0-4a62-8f64-b2065feffc02",
+        "name": "Tracheal Filter",
+        "category": "Basic",
+        "ess": "Rating * 0.1",
+        "capacity": "0",
+        "avail": "Rating * 3",
+        "cost": "Rating * 4500",
+        "rating": "6",
+        "source": "SR5",
+        "page": "460"
+    },
+    {
+        "id": "abdbc210-c1fa-45f1-9840-4f78d9eb8867",
+        "name": "Chemical Gland",
+        "category": "Basic",
+        "ess": "0.1",
+        "capacity": "[0]",
+        "avail": "12R",
+        "cost": "20000",
+        "allowsubsystems": {
+            "category": "Chemical Gland Modifications"
+        },
+        "bonus": {
+
+        },
+        "source": "CF",
+        "page": "112"
+    },
+    {
+        "id": "87453396-197f-4f7a-a6a3-6087d299bbd7",
+        "name": "Chemical Gland Exhalation Sprayer",
+        "category": "Chemical Gland Modifications",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "12R",
+        "cost": "6000",
+        "source": "CF",
+        "page": "112"
+    },
+    {
+        "id": "47608117-a4af-4dfe-81bb-0dc8c6c5122d",
+        "name": "Chemical Gland Spitter",
+        "category": "Chemical Gland Modifications",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "12R",
+        "cost": "6000",
+        "source": "CF",
+        "page": "112"
+    },
+    {
+        "id": "ce9a6ed6-1307-4565-a6c9-c8fabde5255f",
+        "name": "Chemical Repulsion",
+        "category": "Orthoskin Upgrades",
+        "ess": "0.25",
+        "capacity": "0",
+        "avail": "12R",
+        "cost": "20000",
+        "source": "CF",
+        "page": "116"
+    },
+    {
+        "id": "8aa2590f-1fc5-4706-a7b9-9eec3db4fab9",
+        "name": "Dragon Hide",
+        "category": "Orthoskin Upgrades",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "4",
+        "cost": "2000",
+        "source": "CF",
+        "page": "116"
+    },
+    {
+        "id": "857bbf66-3fab-466b-9c2c-f302340e3788",
+        "name": "Insulation",
+        "category": "Orthoskin Upgrades",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "8",
+        "cost": "8000",
+        "source": "CF",
+        "page": "116"
+    },
+    {
+        "id": "b4ac7427-8d1d-4da7-b8dc-fd3f6cb0d433",
+        "name": "Electroshock",
+        "category": "Orthoskin Upgrades",
+        "ess": "0.25",
+        "capacity": "0",
+        "avail": "8",
+        "cost": "8000",
+        "source": "CF",
+        "page": "116"
+    },
+    {
+        "id": "33f7ea1c-1f3a-4b32-a0b4-5ffa48735bfa",
+        "name": "Penguin Blubber",
+        "category": "Orthoskin Upgrades",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "4",
+        "cost": "2000",
+        "source": "CF",
+        "page": "116"
+    },
+    {
+        "id": "927e5c2b-fd62-4aa7-8911-d5f4468a9ff8",
+        "name": "Sealskin",
+        "category": "Orthoskin Upgrades",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "4",
+        "cost": "2000",
+        "source": "CF",
+        "page": "116"
+    },
+    {
+        "id": "f84dc64d-a158-45bd-b81c-0a8c98f77415",
+        "name": "Sharkskin",
+        "category": "Orthoskin Upgrades",
+        "ess": "0.25",
+        "capacity": "0",
+        "avail": "8",
+        "cost": "8000",
+        "source": "CF",
+        "page": "116"
+    },
+    {
+        "id": "915b1458-e33c-4010-a093-47d40cfa11de",
+        "name": "Chemical Gland Weapon Reservoir",
+        "category": "Chemical Gland Modifications",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "12F",
+        "cost": "4000",
+        "source": "CF",
+        "page": "112"
+    },
+    {
+        "id": "d2064cf2-e9f7-479f-92cc-7da7c6024121",
+        "name": "Chemical Gland Expanded Reservoir",
+        "category": "Chemical Gland Modifications",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "12",
+        "cost": "2000",
+        "source": "CF",
+        "page": "112"
+    },
+    {
+        "id": "6423d6b2-fcea-4eb0-b1cf-ea343cfc2f93",
+        "name": "Elastic Joints",
+        "category": "Basic",
+        "ess": "0.2",
+        "capacity": "0",
+        "avail": "8",
+        "cost": "8000",
+        "bonus": {
+            "limitmodifier": {
+                "limit": "Physical",
+                "value": "1",
+                "condition": "Only for Escape Artist"
+            }
+        },
+        "source": "CF",
+        "page": "112"
+    },
+    {
+        "id": "0958e1d4-36d0-4246-b955-541a4993ec91",
+        "name": "Gills",
+        "category": "Basic",
+        "ess": "0.2",
+        "capacity": "0",
+        "avail": "8",
+        "cost": "8000",
+        "source": "CF",
+        "page": "113"
+    },
+    {
+        "id": "4a939488-bd12-42f9-847f-1034fc3b4154",
+        "name": "Hand and Foot Webbing",
+        "category": "Basic",
+        "ess": "0.05",
+        "capacity": "0",
+        "avail": "8",
+        "cost": "1000",
+        "bonus": {
+            "limitmodifier": {
+                "limit": "Physical",
+                "value": "1",
+                "condition": "Only for Swimming"
+            }
+        },
+        "source": "CF",
+        "page": "113"
+    },
+    {
+        "id": "e9c07c59-96c8-4ac7-955b-2474ff81381e",
+        "name": "Hearing Enhancement",
+        "category": "Basic",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "4",
+        "cost": "4000",
+        "source": "CF",
+        "page": "113"
+    },
+    {
+        "id": "0f6391e3-cf60-4ac0-91b8-44a990753120",
+        "name": "Hearing Expansion",
+        "category": "Basic",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "8",
+        "cost": "4000",
+        "source": "CF",
+        "page": "113"
+    },
+    {
+        "id": "8b57132f-507f-4624-a892-2ec4b14b7be8",
+        "name": "Joint Replacement",
+        "category": "Basic",
+        "ess": "0.05",
+        "capacity": "0",
+        "avail": "2",
+        "cost": "1000",
+        "source": "CF",
+        "page": "113"
+    },
+    {
+        "id": "02e4af5e-22a6-4ebc-a3dd-05d71448be64",
+        "name": "Spidersilk Gland",
+        "category": "Basic",
+        "ess": "0.3",
+        "capacity": "0",
+        "avail": "10",
+        "cost": "35000",
+        "source": "CF",
+        "page": "114"
+    },
+    {
+        "id": "c5069f19-dae1-45f3-a1d4-b57d02534efa",
+        "name": "Spinal Realignment",
+        "category": "Basic",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "8",
+        "cost": "4000",
+        "source": "CF",
+        "page": "114"
+    },
+    {
+        "id": "1f843110-0f53-4675-918f-855b1379181b",
+        "name": "Tactile Sensitivity",
+        "category": "Basic",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "12",
+        "cost": "8000",
+        "source": "CF",
+        "page": "114"
+    },
+    {
+        "id": "bac3eaa6-c1d3-457e-a319-1ce141baef37",
+        "name": "Tail",
+        "category": "Basic",
+        "ess": "0.25",
+        "capacity": "0",
+        "avail": "4",
+        "cost": "2000",
+        "source": "CF",
+        "page": "115"
+    },
+    {
+        "id": "ada5468c-e350-4323-be31-29d0fe545c9e",
+        "name": "Tail, Prehensile",
+        "category": "Basic",
+        "ess": "0.5",
+        "capacity": "0",
+        "avail": "8",
+        "cost": "8000",
+        "source": "CF",
+        "page": "115"
+    },
+    {
+        "id": "11e000de-eaef-445f-88fb-6b679b5e57ab",
+        "name": "Troll Eyes",
+        "category": "Basic",
+        "ess": "0.2",
+        "capacity": "0",
+        "avail": "8",
+        "cost": "10000",
+        "source": "CF",
+        "page": "115"
+    },
+    {
+        "id": "a923c0c8-1ac8-455a-9674-9af0072673ac",
+        "name": "Vocal Range Enhancer",
+        "category": "Basic",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "8",
+        "cost": "10000",
+        "bonus": {
+            "limitmodifier": [{
+                    "limit": "Social",
+                    "value": "1",
+                    "condition": "Only for test involving speaking"
+                },
+                {
+                    "limit": "Social",
+                    "value": "2",
+                    "condition": "Only for Perform (Singing)"
+                }
+            ]
+        },
+        "source": "CF",
+        "page": "115"
+    },
+    {
+        "id": "70bd2c89-3432-4270-8e4c-d8d979114148",
+        "name": "Vocal Range Expander",
+        "category": "Basic",
+        "ess": "0.2",
+        "capacity": "0",
+        "avail": "12R",
+        "cost": "30000",
+        "bonus": {
+            "limitmodifier": [{
+                    "limit": "Social",
+                    "value": "1",
+                    "condition": "Only for test involving speaking"
+                },
+                {
+                    "limit": "Social",
+                    "value": "2",
+                    "condition": "Only for Perform (Singing)"
+                }
+            ]
+        },
+        "source": "CF",
+        "page": "115"
+    },
+    {
+        "id": "4f3f0651-6e1b-4dc3-b25a-33f62874cba8",
+        "name": "Nephritic screen",
+        "category": "Basic",
+        "ess": "Rating * 0.05",
+        "capacity": "0",
+        "avail": "Rating * 2",
+        "cost": "Rating * 4000",
+        "rating": "6",
+        "source": "CF",
+        "page": "113"
+    },
+    {
+        "id": "3d9e763c-fcda-4fcd-96cc-4f02e4e6661a",
+        "name": "Nictitating Membranes",
+        "category": "Basic",
+        "ess": "0.05",
+        "capacity": "0",
+        "avail": "6",
+        "cost": "1000",
+        "source": "CF",
+        "page": "113"
+    },
+    {
+        "id": "8f12d662-9fc6-475f-8435-a11829c14956",
+        "name": "Tailored Critter Pheremones",
+        "category": "Basic",
+        "ess": "Rating * 0.1",
+        "capacity": "0",
+        "avail": "Rating * 4",
+        "cost": "Rating * 2000",
+        "bonus": {
+
+        },
+        "rating": "3",
+        "source": "CF",
+        "page": "115"
+    },
+    {
+        "id": "c75c8286-2673-48a0-8e9b-cbfeec5c6bc1",
+        "name": "Expanded Volume",
+        "category": "Basic",
+        "ess": "Rating * 0.1",
+        "capacity": "0",
+        "avail": "Rating * 4",
+        "cost": "Rating * 2000",
+        "rating": "4",
+        "source": "CF",
+        "page": "112"
+    },
+    {
+        "id": "82636229-f784-489d-8981-6a1479f0056c",
+        "name": "Amplified Immune System",
+        "category": "Basic",
+        "ess": "Rating * 0.1",
+        "capacity": "0",
+        "avail": "Rating * 7",
+        "cost": "Rating * 4000",
+        "rating": "4",
+        "source": "CF",
+        "page": "111"
+    },
+    {
+        "id": "3645B67A-F19E-4566-B257-4056D2848B2C",
+        "name": "Minor Biosculpting Modification",
+        "category": "Biosculpting",
+        "ess": "0",
+        "capacity": "0",
+        "avail": "2",
+        "cost": "Variable(50-500)",
+        "bonus": {
+
+        },
+        "source": "CF",
+        "page": "108"
+    },
+    {
+        "id": "0e54ccda-6ba9-4668-b100-0442efd56221",
+        "name": "Moderate Biosculpting Modification",
+        "category": "Biosculpting",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "4",
+        "cost": "Variable(500-2000)",
+        "bonus": {
+
+        },
+        "source": "CF",
+        "page": "108"
+    },
+    {
+        "id": "a4ca355b-6188-42c1-88c7-93947f233314",
+        "name": "Severe Biosculpting Modification",
+        "category": "Biosculpting",
+        "ess": "0.25",
+        "capacity": "0",
+        "avail": "8",
+        "cost": "Variable(2000-10000)",
+        "bonus": {
+
+        },
+        "source": "CF",
+        "page": "108"
+    },
+    {
+        "id": "aa347008-38f1-4cb4-a919-bc705a8efe71",
+        "name": "Troll Reduction",
+        "category": "Biosculpting",
+        "ess": "FixedValues(0.2,0.5)",
+        "capacity": "0",
+        "avail": "FixedValues(8,12)",
+        "cost": "FixedValues(15000,25000)",
+        "bonus": {
+            "armor": "-1",
+            "specificattribute": {
+                "name": "CHA",
+                "max": "Rating"
+            }
+        },
+        "rating": "2",
+        "required": {
+            "oneof": {
+                "metatype": "Troll"
+            }
+        },
+        "source": "CF",
+        "page": "108"
+    },
+    {
+        "id": "C24D24C6-5F00-41F2-A6AC-0289A0BC5DF7",
+        "name": "Troll Reduction (Ork)",
+        "category": "Biosculpting",
+        "ess": "0.2",
+        "capacity": "0",
+        "avail": "8",
+        "cost": "15000",
+        "bonus": {
+            "specificattribute": {
+                "name": "CHA",
+                "max": "1"
+            }
+        },
+        "required": {
+            "oneof": {
+                "metatype": "Ork"
+            }
+        },
+        "source": "CF",
+        "page": "108"
+    },
+    {
+        "id": "af01e25f-1e95-4c1a-a937-8cbe922529ca",
+        "name": "Ethnicity/Sex Change",
+        "category": "Biosculpting",
+        "ess": "0",
+        "capacity": "0",
+        "avail": "4",
+        "cost": "10000",
+        "bonus": {
+
+        },
+        "source": "CF",
+        "page": "108"
+    },
+    {
+        "id": "4c6458ec-082e-423c-b3df-ed57a62561f4",
+        "name": "Metatype Modification",
+        "category": "Biosculpting",
+        "ess": "0",
+        "capacity": "0",
+        "avail": "8",
+        "cost": "20000",
+        "bonus": {
+
+        },
+        "source": "CF",
+        "page": "108"
+    },
+    {
+        "id": "dfd48ff5-3ecf-47b4-81fd-62b1ff3f74e4",
+        "name": "Claws",
+        "category": "Bio-Weapons",
+        "ess": "0.1*Rating",
+        "capacity": "0",
+        "avail": "4R",
+        "cost": "500",
+        "addweapon": "Claws (Bio-Weapon)",
+        "notes": "Rating is used to indicate number of claws.",
+        "rating": "2",
+        "source": "CF",
+        "page": "120"
+    },
+    {
+        "id": "885aa282-e624-4f8d-94e6-afafe672b3af",
+        "name": "Claws (Retractable)",
+        "category": "Bio-Weapons",
+        "ess": "0.15*Rating",
+        "capacity": "0",
+        "avail": "6R",
+        "cost": "Rating * 1000",
+        "addweapon": "Retractable Claws (Bio-Weapon)",
+        "notes": "Rating is used to indicate number of claws.",
+        "rating": "2",
+        "source": "CF",
+        "page": "120"
+    },
+    {
+        "id": "787ff755-16f5-4dfa-9cf8-49b8399103e6",
+        "name": "Electrical Discharge",
+        "category": "Bio-Weapons",
+        "ess": "0.3",
+        "capacity": "0",
+        "avail": "8",
+        "cost": "10000",
+        "addweapon": "Electrical Discharge",
+        "source": "CF",
+        "page": "120"
+    },
+    {
+        "id": "82780b5b-41dd-49ae-964f-c14ca91a0f14",
+        "name": "Fangs",
+        "category": "Bio-Weapons",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "4",
+        "cost": "500",
+        "addweapon": "Fangs (Bio-Weapon)",
+        "source": "CF",
+        "page": "120"
+    },
+    {
+        "id": "3f0fda69-a098-4c9a-855e-5dd2d46ae3da",
+        "name": "Fangs (Retractable)",
+        "category": "Bio-Weapons",
+        "ess": "0.15",
+        "capacity": "0",
+        "avail": "6",
+        "cost": "1000",
+        "addweapon": "Retractable Fangs (Bio-Weapon)",
+        "source": "CF",
+        "page": "120"
+    },
+    {
+        "id": "cbe09df9-556d-44d4-9d68-073415850deb",
+        "name": "Horns",
+        "category": "Bio-Weapons",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "4",
+        "cost": "500",
+        "addweapon": "Horns (Bio-Weapon)",
+        "source": "CF",
+        "page": "120"
+    },
+    {
+        "id": "605b82f9-9f12-4a14-b567-091dd5fcde80",
+        "name": "Muzzle",
+        "category": "Bio-Weapons",
+        "ess": "0.3",
+        "capacity": "0",
+        "avail": "8R",
+        "cost": "2000",
+        "source": "CF",
+        "page": "121"
+    },
+    {
+        "id": "828ca5e9-4409-42aa-a6df-87fc907fede2",
+        "name": "Sprayer",
+        "category": "Bio-Weapons",
+        "ess": "0.25",
+        "capacity": "0",
+        "avail": "8",
+        "cost": "4000",
+        "source": "CF",
+        "page": "121"
+    },
+    {
+        "id": "b9085cbe-8e67-4205-8e49-603e31f9d6f7",
+        "name": "Stinger, Tiny",
+        "category": "Bio-Weapons",
+        "ess": "0.05",
+        "capacity": "0",
+        "avail": "8",
+        "cost": "100",
+        "source": "CF",
+        "page": "121"
+    },
+    {
+        "id": "77bcbea4-fc69-42e6-b4e3-0debe6c08596",
+        "name": "Stinger, Medium",
+        "category": "Bio-Weapons",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "8R",
+        "cost": "2000",
+        "addweapon": "Medium Stinger",
+        "source": "CF",
+        "page": "121"
+    },
+    {
+        "id": "c466a6cf-bf31-4300-b53e-0f83af141342",
+        "name": "Stinger, Large",
+        "category": "Bio-Weapons",
+        "ess": "0.2",
+        "capacity": "0",
+        "avail": "12F",
+        "cost": "8000",
+        "addweapon": "Large Stinger",
+        "source": "CF",
+        "page": "121"
+    },
+    {
+        "id": "8832f6ac-0082-4b9b-9e1c-7f90874a23a1",
+        "name": "Striking Callus",
+        "category": "Bio-Weapons",
+        "ess": "0.05*Rating",
+        "capacity": "0",
+        "avail": "2",
+        "cost": "Rating*250",
+        "bonus": {
+            "unarmeddv": "Rating*0.5"
+        },
+        "notes": "Rating is used to represent hands and feet. Every 2 Rating will grant +1 Unarmed damage.",
+        "rating": "4",
+        "source": "CF",
+        "page": "121"
+    },
+    {
+        "id": "f56ee63d-7ed3-4b5f-bde9-5b581eca9220",
+        "name": "Tusk(s), Small",
+        "category": "Bio-Weapons",
+        "ess": "0",
+        "capacity": "0",
+        "avail": "2",
+        "cost": "Rating*100",
+        "notes": "Rating is used to indicate number of tusks.",
+        "rating": "2",
+        "source": "CF",
+        "page": "121"
+    },
+    {
+        "id": "3caa7752-63ee-40c9-ba3f-d11aef038812",
+        "name": "Tusk(s), Medium",
+        "category": "Bio-Weapons",
+        "ess": "0.1*Rating",
+        "capacity": "0",
+        "avail": "2",
+        "cost": "Rating*500",
+        "addweapon": "Medium Tusk(s)",
+        "notes": "Rating is used to indicate number of tusks.",
+        "rating": "2",
+        "source": "CF",
+        "page": "121"
+    },
+    {
+        "id": "d5e4c407-58e4-4b24-ba11-65c45d256f97",
+        "name": "Tusk(s), Large",
+        "category": "Bio-Weapons",
+        "ess": "0.2*Rating",
+        "capacity": "0",
+        "avail": "8R",
+        "cost": "Rating*1000",
+        "addweapon": "Large Tusk(s)",
+        "notes": "Rating is used to indicate number of tusks.",
+        "rating": "2",
+        "source": "CF",
+        "page": "121"
+    },
+    {
+        "id": "f8195e35-fed4-463a-bd09-b559a6e05803",
+        "name": "Bio-Tattoos",
+        "category": "Cosmetic Bioware",
+        "ess": "FixedValues(0,0.01,0.02)",
+        "capacity": "0",
+        "avail": "FixedValues(4,5,6)",
+        "cost": "FixedValues(500,1000,1500)",
+        "bonus": {
+
+        },
+        "rating": "3",
+        "source": "CF",
+        "page": "111"
+    },
+    {
+        "id": "ebf3f1ed-700f-4b37-b61a-0b262937dea6",
+        "name": "Chameleon Skin",
+        "category": "Cosmetic Bioware",
+        "ess": "0.2",
+        "capacity": "0",
+        "avail": "6",
+        "cost": "2000",
+        "bonus": {
+            "limitmodifier": {
+                "limit": "Physical",
+                "value": "1",
+                "condition": "only for Stealth skills, Must be completely naked"
+            }
+        },
+        "source": "CF",
+        "page": "108"
+    },
+    {
+        "id": "98ae7b28-33ab-47ab-aa7b-5e1f4a90b8ce",
+        "name": "Chameleon Skin (Dynamic)",
+        "category": "Cosmetic Bioware",
+        "ess": "0.3",
+        "capacity": "0",
+        "avail": "8",
+        "cost": "4000",
+        "bonus": {
+            "limitmodifier": {
+                "limit": "Physical",
+                "value": "2",
+                "condition": "Only for Stealth skills, Must be completely naked"
+            }
+        },
+        "source": "CF",
+        "page": "108"
+    },
+    {
+        "id": "e3897bf8-0961-4b77-863a-4fbc4c0860f2",
+        "name": "Clean Metabolism",
+        "category": "Cosmetic Bioware",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "4",
+        "cost": "1000",
+        "source": "CF",
+        "page": "108"
+    },
+    {
+        "id": "a2ff0680-3083-40c4-9f8b-5677aacdeaa8",
+        "name": "Chloroplast Skin",
+        "category": "Cosmetic Bioware",
+        "ess": "0.2",
+        "capacity": "0",
+        "avail": "4",
+        "cost": "2000",
+        "source": "CF",
+        "page": "108"
+    },
+    {
+        "id": "458010b9-f07f-4976-bd5b-7053c4837b79",
+        "name": "Dietware",
+        "category": "Cosmetic Bioware",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "4",
+        "cost": "1000",
+        "source": "CF",
+        "page": "108"
+    },
+    {
+        "id": "89137e94-5bf3-4c6d-93d9-571c96fc5b2f",
+        "name": "Hair Growth",
+        "category": "Cosmetic Bioware",
+        "ess": "0",
+        "capacity": "0",
+        "avail": "4",
+        "cost": "200",
+        "bonus": {
+
+        },
+        "source": "CF",
+        "page": "108"
+    },
+    {
+        "id": "a3e4a944-6463-4cd9-b3bc-6b940c6427f3",
+        "name": "Hair Growth (Full-Body)",
+        "category": "Cosmetic Bioware",
+        "ess": "0",
+        "capacity": "0",
+        "avail": "5",
+        "cost": "500",
+        "source": "CF",
+        "page": "108"
+    },
+    {
+        "id": "9f86544d-da24-4312-b4d5-6ab47956b7fa",
+        "name": "Perfect Eyes",
+        "category": "Cosmetic Bioware",
+        "ess": "0",
+        "capacity": "0",
+        "avail": "4",
+        "cost": "1000",
+        "source": "CF",
+        "page": "108"
+    },
+    {
+        "id": "e53383b8-ed64-4840-a2bf-baaa8885c61b",
+        "name": "Sensitive Skin",
+        "category": "Cosmetic Bioware",
+        "ess": "0",
+        "capacity": "0",
+        "avail": "4",
+        "cost": "Rating * 500",
+        "bonus": {
+
+        },
+        "rating": "20",
+        "source": "CF",
+        "page": "108"
+    },
+    {
+        "id": "98e8f46f-e742-4456-95b7-f6f3eaa7d795",
+        "name": "Silky Skin",
+        "category": "Cosmetic Bioware",
+        "ess": "0",
+        "capacity": "0",
+        "avail": "4",
+        "cost": "500",
+        "source": "CF",
+        "page": "110"
+    },
+    {
+        "id": "487ba675-b689-48e0-bd45-e6729d671a51",
+        "name": "Skin Pigmentation",
+        "category": "Cosmetic Bioware",
+        "ess": "0",
+        "capacity": "0",
+        "avail": "8",
+        "cost": "200",
+        "bonus": {
+
+        },
+        "source": "CF",
+        "page": "111"
+    },
+    {
+        "id": "9cd588c4-c93f-4fef-b216-9da2707066f7",
+        "name": "Skin Pigmentation (Permanent)",
+        "category": "Cosmetic Bioware",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "4",
+        "cost": "1000",
+        "bonus": {
+
+        },
+        "source": "CF",
+        "page": "111"
+    },
+    {
+        "id": "afbf823f-3116-4967-93d2-0e334bb35d3a",
+        "name": "Cerebellum Booster",
+        "category": "Cultured",
+        "ess": "Rating * 0.2",
+        "capacity": "0",
+        "avail": "Rating * 8",
+        "cost": "Rating * 50000",
+        "bonus": {
+            "specificattribute": {
+                "name": "INT",
+                "val": "Rating"
+            }
+        },
+        "rating": "2",
+        "source": "CF",
+        "page": "118"
+    },
+    {
+        "id": "1abeac7c-79c5-4774-ad45-cd355ebc1476",
+        "name": "Boosted Reflexes",
+        "category": "Cultured",
+        "ess": "1",
+        "capacity": "0",
+        "avail": "8R",
+        "cost": "10000",
+        "bonus": {
+            "initiativepass": {
+                "-precedence": "0",
+                "#text": "1"
+            }
+        },
+        "source": "CF",
+        "page": "118"
+    },
+    {
+        "id": "aece83ad-cec8-4117-adbd-3ec5e2049372",
+        "name": "Knowledge Infusion",
+        "category": "Cultured",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "12",
+        "cost": "2000",
+        "source": "CF",
+        "page": "118"
+    },
+    {
+        "id": "19000eeb-099e-4d63-9e1f-39a321569abe",
+        "name": "Limb replacement (Finger/Toe)",
+        "category": "Cultured",
+        "ess": "0.02",
+        "capacity": "0",
+        "avail": "4",
+        "cost": "2000",
+        "bonus": {
+
+        },
+        "source": "CF",
+        "page": "118"
+    },
+    {
+        "id": "7346dc96-af61-48f4-a98c-3bbe5fa64005",
+        "name": "Limb replacement (Hand/foot)",
+        "category": "Cultured",
+        "ess": "0.02",
+        "capacity": "0",
+        "avail": "8",
+        "cost": "20000",
+        "bonus": {
+
+        },
+        "source": "CF",
+        "page": "118"
+    },
+    {
+        "id": "4a61e7db-b4e2-48e3-8744-6a44bff453a7",
+        "name": "Limb replacement (Half arm/leg)",
+        "category": "Cultured",
+        "ess": "0.02",
+        "capacity": "0",
+        "avail": "12",
+        "cost": "40000",
+        "bonus": {
+
+        },
+        "source": "CF",
+        "page": "118"
+    },
+    {
+        "id": "67be6b07-11e4-49e6-8f6f-6931a3f8bf1f",
+        "name": "Limb replacement (Full arm/leg)",
+        "category": "Cultured",
+        "ess": "0.02",
+        "capacity": "0",
+        "avail": "12",
+        "cost": "80000",
+        "bonus": {
+
+        },
+        "source": "CF",
+        "page": "118"
+    },
+    {
+        "id": "f0aa87d0-2d86-482c-808d-667f1078f357",
+        "name": "Neuro Retention Amplification",
+        "category": "Cultured",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "4",
+        "cost": "10000",
+        "bonus": {
+            "addqualities": {
+                "addquality": "Photographic Memory"
+            }
+        },
+        "source": "CF",
+        "page": "118"
+    },
+    {
+        "id": "0dc21074-6b2c-446a-aadc-e8304c9c124f",
+        "name": "Reproductive Replacement, Male",
+        "category": "Cultured",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "8",
+        "cost": "8000",
+        "source": "CF",
+        "page": "118"
+    },
+    {
+        "id": "31b609ee-6856-44bb-b1f5-19066c0a74c0",
+        "name": "Reproductive Replacement, Female",
+        "category": "Cultured",
+        "ess": "0.3",
+        "capacity": "0",
+        "avail": "4",
+        "cost": "20000",
+        "source": "CF",
+        "page": "118"
+    },
+    {
+        "id": "e99097a1-84d5-4038-8525-761d199c58a7",
+        "name": "Trauma Damper",
+        "category": "Cultured",
+        "ess": "Rating * 0.1",
+        "capacity": "0",
+        "avail": "(Rating * 4)R",
+        "cost": "Rating * 4000",
+        "rating": "4",
+        "source": "CF",
+        "page": "119"
+    },
+    {
+        "id": "e78a9465-d399-4e94-bea8-7e98c8fc960d",
+        "name": "Tremor Reducer",
+        "category": "Cultured",
+        "ess": "Rating * 0.1",
+        "capacity": "0",
+        "avail": "Rating * 6",
+        "cost": "Rating * 10000",
+        "rating": "3",
+        "source": "CF",
+        "page": "119"
+    },
+    {
+        "id": "5f2c33a4-3472-4643-a0bb-9a6e52554c2f",
+        "name": "Reception Enhancer",
+        "category": "Cultured",
+        "ess": "0.2",
+        "capacity": "0",
+        "avail": "4",
+        "cost": "10000",
+        "source": "CF",
+        "page": "118"
+    },
+    {
+        "id": "4e9c11ed-730a-478f-a53d-d36220040506",
+        "name": "Genewipe",
+        "category": "Genemods",
+        "ess": "0.2",
+        "capacity": "0",
+        "avail": "16F",
+        "cost": "57000",
+        "source": "CF",
+        "page": "157"
+    },
+    {
+        "id": "163a1d28-9f0d-414f-8b8f-473f78a3740d",
+        "name": "Masque",
+        "category": "Genemods",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "10F",
+        "cost": "40000",
+        "source": "CF",
+        "page": "157"
+    },
+    {
+        "id": "5f3da0ce-261f-4d1a-87a7-1e0614d65ef0",
+        "name": "Reprint",
+        "category": "Genemods",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "12F",
+        "cost": "30000",
+        "source": "CF",
+        "page": "157"
+    },
+    {
+        "id": "0f9ebf2e-d949-49f2-8f30-4e8413e92e39",
+        "name": "Shuffle",
+        "category": "Genemods",
+        "ess": "0.2",
+        "capacity": "0",
+        "avail": "12F",
+        "cost": "20000",
+        "source": "CF",
+        "page": "157"
+    },
+    {
+        "id": "6bd96ba6-1e0c-4de1-89e7-01b6973e1115",
+        "name": "Elastic Stomach",
+        "category": "Genemods",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "6",
+        "cost": "10000",
+        "source": "CF",
+        "page": "159"
+    },
+    {
+        "id": "4a529d50-45cd-4f2d-8766-4ecd7c15f292",
+        "name": "Hyperthymesia",
+        "category": "Genemods",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "10",
+        "cost": "15000",
+        "bonus": {
+            "memory": "2"
+        },
+        "source": "CF",
+        "page": "159"
+    },
+    {
+        "id": "f3e1922e-cd73-4567-983c-7409e755f30a",
+        "name": "Lung Expansion",
+        "category": "Genemods",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "6",
+        "cost": "16500",
+        "source": "CF",
+        "page": "159"
+    },
+    {
+        "id": "b111b7c3-d44f-40b5-bba2-7d805cf9fd4c",
+        "name": "Increased Myelination",
+        "category": "Genemods",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "8",
+        "cost": "12000",
+        "source": "CF",
+        "page": "159"
+    },
+    {
+        "id": "1b6713f7-f5b6-49fb-a89a-68322c06f38d",
+        "name": "Myostatin Inhibitor",
+        "category": "Genemods",
+        "ess": "0.3",
+        "capacity": "0",
+        "avail": "10",
+        "cost": "30500",
+        "bonus": {
+            "specificattribute": {
+                "name": "STR",
+                "val": "1"
+            }
+        },
+        "source": "CF",
+        "page": "159"
+    },
+    {
+        "id": "92a00ca4-7e2b-47ca-ac02-1d58e4932d0a",
+        "name": "Narco",
+        "category": "Genemods",
+        "ess": "0.2",
+        "capacity": "0",
+        "avail": "12F",
+        "cost": "16420",
+        "source": "CF",
+        "page": "159"
+    },
+    {
+        "id": "8d57009b-86c8-4fde-b8b5-1cf64942f517",
+        "name": "Selective Hearing",
+        "category": "Genemods",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "6",
+        "cost": "17000",
+        "source": "CF",
+        "page": "160"
+    },
+    {
+        "id": "a2acbc5a-187c-4e6f-95e5-c015f1aab56b",
+        "name": "Thickened Digestive Tract Lining",
+        "category": "Genemods",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "6",
+        "cost": "8000",
+        "bonus": {
+            "lifestylecost": "-10"
+        },
+        "source": "CF",
+        "page": "160"
+    },
+    {
+        "id": "3f8b9030-662e-4212-8f30-5aa394a41568",
+        "name": "Adapsin",
+        "category": "Genemods",
+        "ess": "0.2",
+        "capacity": "0",
+        "avail": "16",
+        "cost": "30000",
+        "bonus": {
+
+        },
+        "source": "CF",
+        "page": "160"
+    },
+    {
+        "id": "6a62e21f-f291-4e93-b109-df9c56c938f9",
+        "name": "Dareadrenaline",
+        "category": "Genemods",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "6",
+        "cost": "61000",
+        "addqualities": {
+            "addquality": "Poor Self Control (Thrill Seeker)"
+        },
+        "bonus": {
+            "specificattribute": {
+                "name": "WIL",
+                "val": "1",
+                "affectbase": "no"
+            }
+        },
+        "source": "CF",
+        "page": "160"
+    },
+    {
+        "id": "04bea47c-85f3-4efa-b058-72def7d0d73b",
+        "name": "Double Elastin",
+        "category": "Genemods",
+        "ess": "0.2",
+        "capacity": "0",
+        "avail": "12",
+        "cost": "18000",
+        "source": "CF",
+        "page": "160"
+    },
+    {
+        "id": "cd0d68d6-34e5-440e-9d78-5400008a5f71",
+        "name": "Hyper Glucagon",
+        "category": "Genemods",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "6",
+        "cost": "8000",
+        "bonus": {
+            "lifestylecost": "10"
+        },
+        "source": "CF",
+        "page": "160"
+    },
+    {
+        "id": "ef4a3bfe-5698-43ae-a4ff-8056aec4095d",
+        "name": "Magnasense",
+        "category": "Genemods",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "8",
+        "cost": "7000",
+        "bonus": {
+            "specificskill": {
+                "name": "Navigation",
+                "bonus": "1",
+                "applytorating": "no"
+            }
+        },
+        "source": "CF",
+        "page": "160"
+    },
+    {
+        "id": "bd4aade6-a0f2-40af-8073-f1e62ae4b3f9",
+        "name": "Neo-EPO",
+        "category": "Genemods",
+        "ess": "0.2",
+        "capacity": "0",
+        "avail": "6",
+        "cost": "38000",
+        "bonus": {
+            "physicallimit": "1",
+            "skillgroup": {
+                "name": "Athletics",
+                "bonus": "1"
+            }
+        },
+        "source": "CF",
+        "page": "160"
+    },
+    {
+        "id": "2c988cbe-e6e6-4c22-ae3c-14ad6e1fff1f",
+        "name": "PuSHed",
+        "category": "Genemods",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "14",
+        "cost": "62000",
+        "bonus": {
+            "skillattribute": {
+                "name": "LOG",
+                "bonus": "1"
+            }
+        },
+        "source": "CF",
+        "page": "160"
+    },
+    {
+        "id": "b110516e-36e8-4c69-a682-066e91c02351",
+        "name": "Qualia",
+        "category": "Genemods",
+        "ess": "0.4",
+        "capacity": "0",
+        "avail": "14",
+        "cost": "65000",
+        "bonus": {
+            "skillattribute": {
+                "name": "INT",
+                "bonus": "1"
+            }
+        },
+        "source": "CF",
+        "page": "161"
+    },
+    {
+        "id": "eb25dd41-2649-4e75-b0fb-dc47df3a7daa",
+        "name": "Reakt",
+        "category": "Genemods",
+        "ess": "0.4",
+        "capacity": "0",
+        "avail": "10",
+        "cost": "75000",
+        "source": "CF",
+        "page": "161"
+    },
+    {
+        "id": "afea1a35-d8ca-4cab-9555-7a7d5df1390d",
+        "name": "Skeletal Pneumaticity",
+        "category": "Genemods",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "5",
+        "cost": "9000",
+        "bonus": {
+            "specificskill": {
+                "name": "Gymnastics",
+                "bonus": "2",
+                "applytorating": "no"
+            }
+        },
+        "source": "CF",
+        "page": "161"
+    },
+    {
+        "id": "e1cf23c7-9c79-4007-a2e8-ff872ee212e2",
+        "name": "Solus",
+        "category": "Genemods",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "8",
+        "cost": "8000",
+        "bonus": {
+            "lifestylecost": "-10"
+        },
+        "source": "CF",
+        "page": "161"
+    },
+    {
+        "id": "92b4c2a4-10a3-486a-8ab6-1e00d40dd69a",
+        "name": "Synaptic Acceleration",
+        "category": "Genemods",
+        "ess": "0.4",
+        "capacity": "0",
+        "avail": "8",
+        "cost": "78000",
+        "bonus": {
+            "initiative": {
+                "-precedence": "0",
+                "#text": "1"
+            },
+            "initiativepass": {
+                "-precedence": "0",
+                "#text": "1"
+            }
+        },
+        "source": "CF",
+        "page": "162"
+    },
+    {
+        "id": "89d6f0e2-f618-4a5f-b24f-e42603100fc3",
+        "name": "Synch",
+        "category": "Genemods",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "8",
+        "cost": "14000",
+        "bonus": {
+            "specificskill": {
+                "name": "Perception",
+                "bonus": "1",
+                "applytorating": "no"
+            }
+        },
+        "source": "CF",
+        "page": "162"
+    },
+    {
+        "id": "6aa86a49-d947-47ac-bf04-e1578c029333",
+        "name": "Tetrachromatic Vision",
+        "category": "Genemods",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "10",
+        "cost": "8000",
+        "source": "CF",
+        "page": "161"
+    },
+    {
+        "id": "ae1d7612-7805-4962-8f9a-beb17619762d",
+        "name": "Vasocon",
+        "category": "Genemods",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "6",
+        "cost": "15000",
+        "source": "CF",
+        "page": "161"
+    },
+    {
+        "id": "7aad79ff-7722-440d-a9c6-5b33b4ad7440",
+        "name": "Allergen Tolerance",
+        "category": "Genemods",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "6",
+        "cost": "20000",
+        "source": "CF",
+        "page": "163"
+    },
+    {
+        "id": "d4f12de1-29bc-4d6e-9ef2-d395b446c9e4",
+        "name": "Cold Adaptation",
+        "category": "Genemods",
+        "ess": "0.5",
+        "capacity": "0",
+        "avail": "5",
+        "cost": "8000",
+        "source": "CF",
+        "page": "163"
+    },
+    {
+        "id": "f5b67712-1609-4f76-bb61-ad83d3d3e926",
+        "name": "Cryo Tolerance",
+        "category": "Genemods",
+        "ess": "0.5",
+        "capacity": "0",
+        "avail": "18",
+        "cost": "50000",
+        "source": "CF",
+        "page": "163"
+    },
+    {
+        "id": "7b5bfe60-c7f6-4df2-9e53-56a76a4e8a8e",
+        "name": "Heat Adaptation",
+        "category": "Genemods",
+        "ess": "0.5",
+        "capacity": "0",
+        "avail": "5",
+        "cost": "8000",
+        "source": "CF",
+        "page": "163"
+    },
+    {
+        "id": "0453cf1e-3224-46ce-82bb-fde03ef6e451",
+        "name": "Low Oxygen Adaptation",
+        "category": "Genemods",
+        "ess": "0.5",
+        "capacity": "0",
+        "avail": "4",
+        "cost": "8000",
+        "source": "CF",
+        "page": "163"
+    },
+    {
+        "id": "4c67dc6a-eafb-40c7-88a1-b32518800db2",
+        "name": "Microgravity Adaptation",
+        "category": "Genemods",
+        "ess": "0.5",
+        "capacity": "0",
+        "avail": "4",
+        "cost": "30000",
+        "source": "CF",
+        "page": "163"
+    },
+    {
+        "id": "5b3d3dce-2cd2-4720-84ae-4445092a4245",
+        "name": "Pollution Tolerance",
+        "category": "Genemods",
+        "ess": "0.5",
+        "capacity": "0",
+        "avail": "5",
+        "cost": "15000",
+        "source": "CF",
+        "page": "163"
+    },
+    {
+        "id": "3550fe0d-453d-431f-bd84-d9cd50581f39",
+        "name": "Radiation Tolerance",
+        "category": "Genemods",
+        "ess": "0.5",
+        "capacity": "0",
+        "avail": "6",
+        "cost": "15000",
+        "source": "CF",
+        "page": "164"
+    },
+    {
+        "id": "5c277258-ea34-46a3-b10a-323e0eed4dfa",
+        "name": "Control Rig Optimization",
+        "category": "Genemods",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "7",
+        "cost": "4600",
+        "source": "CF",
+        "page": "165"
+    },
+    {
+        "id": "dc3dbcd5-dc86-44db-8b99-ae69a8b60a1d",
+        "name": "Reaction Optimization",
+        "category": "Genemods",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "6",
+        "cost": "6600",
+        "bonus": {
+            "initiative": "1"
+        },
+        "required": {
+            "oneof": {
+                "cyberware": "Reaction Enhancers"
+            }
+        },
+        "source": "CF",
+        "page": "165"
+    },
+    {
+        "id": "afe25e41-8d6c-4476-9d18-ecd23219207c",
+        "name": "Reflex Recorder Optimization",
+        "category": "Genemods",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "11",
+        "cost": "3800",
+        "bonus": {
+
+        },
+        "source": "CF",
+        "page": "165"
+    },
+    {
+        "id": "99c04ae8-e1c0-4455-8f76-ff77edfb790f",
+        "name": "Wired Reflex Optimization",
+        "category": "Genemods",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "9R",
+        "cost": "9000",
+        "source": "CF",
+        "page": "165"
+    },
+    {
+        "id": "b6682632-5566-4156-8dab-4187e13901d8",
+        "name": "Adrenaline Pump Optimization",
+        "category": "Genemods",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "7F",
+        "cost": "6000",
+        "source": "CF",
+        "page": "165"
+    },
+    {
+        "id": "f0a72240-00e0-4b4f-b25f-b38f19e51a38",
+        "name": "Enhanced Symbiosis",
+        "category": "Genemods",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "6",
+        "cost": "4000",
+        "source": "CF",
+        "page": "165"
+    },
+    {
+        "id": "1aa7863d-a8f3-461e-8ce8-88c3b8e98ced",
+        "name": "Genetic Optimization",
+        "category": "Genemods",
+        "ess": "0.3",
+        "capacity": "0",
+        "avail": "10",
+        "cost": "47000",
+        "bonus": {
+            "selectattribute": {
+                "excludeattribute": [
+                    "EDG",
+                    "MAG",
+                    "RES",
+                    "DEP"
+                ],
+                "max": "1"
+            }
+        },
+        "source": "CF",
+        "page": "157"
+    },
+    {
+        "id": "da62e249-cb11-4907-98d3-edc50e7efc2a",
+        "name": "Cosmetic Alteration",
+        "category": "Genemods",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "8",
+        "cost": "35000",
+        "source": "CF",
+        "page": "158"
+    },
+    {
+        "id": "cd268d9e-52c7-4f02-913c-ff37bdd14e6e",
+        "name": "Print Removal",
+        "category": "Genemods",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "10F",
+        "cost": "18000",
+        "source": "CF",
+        "page": "158"
+    },
+    {
+        "id": "d23aac11-8e3c-4739-9da5-b8322f81d64c",
+        "name": "Metaposeur",
+        "category": "Genemods",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "8",
+        "cost": "38000",
+        "source": "CF",
+        "page": "158"
+    },
+    {
+        "id": "181f09c2-af17-4676-bb6a-62706c4fc521",
+        "name": "Immunization",
+        "category": "Genemods",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "8",
+        "cost": "20000",
+        "bonus": {
+
+        },
+        "source": "CF",
+        "page": "164"
+    },
+    {
+        "id": "9a3cf302-b2bb-402f-93e2-7872eca63d31",
+        "name": "Therapeutic Genetics",
+        "category": "Genetic Restoration",
+        "ess": "0.2",
+        "capacity": "0",
+        "avail": "10",
+        "cost": "90000",
+        "bonus": {
+
+        },
+        "source": "CF",
+        "page": "156"
+    },
+    {
+        "id": "669926ea-55ec-4365-adcf-f8028a464124",
+        "name": "Leónization",
+        "category": "Genetic Restoration",
+        "ess": "1",
+        "capacity": "0",
+        "avail": "15",
+        "cost": "2000000",
+        "source": "CF",
+        "page": "156"
+    },
+    {
+        "id": "78797e7f-020d-4e4a-a08b-207890f73fc5",
+        "name": "Lifespan Extension",
+        "category": "Genetic Restoration",
+        "ess": "0.5",
+        "capacity": "0",
+        "avail": "12",
+        "cost": "300000",
+        "source": "CF",
+        "page": "157"
+    },
+    {
+        "id": "11e5627e-aeff-4910-bf06-b8817b46f786",
+        "name": "Physical Vigor",
+        "category": "Genetic Restoration",
+        "ess": "0.5",
+        "capacity": "0",
+        "avail": "13",
+        "cost": "250000",
+        "source": "CF",
+        "page": "156"
+    },
+    {
+        "id": "aa42b990-04db-4cae-81e3-a93bce93616f",
+        "name": "Augmented Healing",
+        "category": "Genetic Restoration",
+        "ess": "0",
+        "capacity": "0",
+        "avail": "10",
+        "cost": "35000",
+        "source": "CF",
+        "page": "156"
+    },
+    {
+        "id": "3af9942f-6e6c-4c0d-a962-a6cf30504a00",
+        "name": "Cellular Repair",
+        "category": "Genetic Restoration",
+        "ess": "0",
+        "capacity": "0",
+        "avail": "10",
+        "cost": "65000",
+        "source": "CF",
+        "page": "156"
+    },
+    {
+        "id": "b69a23aa-4543-4e8a-95a1-4a0f9f5250e9",
+        "name": "Revitilization",
+        "category": "Genetic Restoration",
+        "ess": "0",
+        "capacity": "0",
+        "avail": "14",
+        "cost": "110000",
+        "source": "CF",
+        "page": "157"
+    },
+    {
+        "id": "738c15f8-49ea-417e-9728-b4c78bc72c18",
+        "name": "Cleaner Leech",
+        "category": "Symbionts",
+        "ess": "0",
+        "capacity": "0",
+        "avail": "4",
+        "cost": "100",
+        "source": "CF",
+        "page": "123"
+    },
+    {
+        "id": "573b2541-9e9a-4b9d-b219-27fb6c808d40",
+        "name": "Booster Endosont",
+        "category": "Symbionts",
+        "ess": "0.2",
+        "capacity": "0",
+        "avail": "12",
+        "cost": "10000",
+        "source": "CF",
+        "page": "123"
+    },
+    {
+        "id": "f829a2e5-ab36-499a-8c7d-9bd44a7284f3",
+        "name": "Digester Endosont",
+        "category": "Symbionts",
+        "ess": "0.2",
+        "capacity": "0",
+        "avail": "12",
+        "cost": "10000",
+        "source": "CF",
+        "page": "123"
+    },
+    {
+        "id": "5025417f-2a14-4b6f-8d53-52445bc16c31",
+        "name": "Electroreceptor Endosont",
+        "category": "Symbionts",
+        "ess": "0.2",
+        "capacity": "0",
+        "avail": "12",
+        "cost": "10000",
+        "source": "CF",
+        "page": "123"
+    },
+    {
+        "id": "c2700f31-a361-4ea2-974e-dd5bde62913a",
+        "name": "Mild Allergy Resistance",
+        "category": "Symbionts",
+        "ess": "0.2",
+        "capacity": "0",
+        "avail": "8",
+        "cost": "10000",
+        "source": "CF",
+        "page": "123"
+    },
+    {
+        "id": "982290e5-2c21-41c0-9847-e47eb455c2f7",
+        "name": "Moderate Allergy Resistance",
+        "category": "Symbionts",
+        "ess": "0.2",
+        "capacity": "0",
+        "avail": "12",
+        "cost": "30000",
+        "source": "CF",
+        "page": "123"
+    },
+    {
+        "id": "3d2ee994-be0c-4e07-a2ce-b616a37d8ee8",
+        "name": "Severe Allergy Resistance",
+        "category": "Symbionts",
+        "ess": "0.2",
+        "capacity": "0",
+        "avail": "16",
+        "cost": "50000",
+        "source": "CF",
+        "page": "123"
+    },
+    {
+        "id": "6207437b-a8f9-420b-81de-970d832cba6d",
+        "name": "Lactose Tolerance",
+        "category": "Symbionts",
+        "ess": "0",
+        "capacity": "0",
+        "avail": "2",
+        "cost": "50",
+        "source": "CF",
+        "page": "123"
+    },
+    {
+        "id": "ac744186-59f6-4105-a08a-0e8c7fd3c847",
+        "name": "Mender Endosont",
+        "category": "Symbionts",
+        "ess": "0.2",
+        "capacity": "0",
+        "avail": "12",
+        "cost": "30000",
+        "source": "CF",
+        "page": "124"
+    },
+    {
+        "id": "91031d35-50e6-4b67-8dea-8c2ceda5278b",
+        "name": "Slimworm",
+        "category": "Symbionts",
+        "ess": "0.2",
+        "capacity": "0",
+        "avail": "4",
+        "cost": "1000",
+        "source": "CF",
+        "page": "124"
+    },
+    {
+        "id": "81396157-9981-42f2-bee9-540c6a175648",
+        "name": "Stalwart Endosont",
+        "category": "Symbionts",
+        "ess": "0.2",
+        "capacity": "0",
+        "avail": "12",
+        "cost": "10000",
+        "source": "CF",
+        "page": "124"
+    },
+    {
+        "id": "6289a426-e381-4ed6-a69d-3b94430efb2c",
+        "name": "Bilateral Coordination Co-processor",
+        "category": "Basic",
+        "ess": "0.2",
+        "capacity": "0",
+        "avail": "6",
+        "cost": "4500",
+        "bonus": {
+
+        },
+        "source": "HT",
+        "page": "185"
+    },
+    {
+        "id": "5b2c4c5d-a037-4970-8fcb-b6d47b9e819a",
+        "name": "Bone Spike (No Bone Density)",
+        "category": "Bio-Weapons",
+        "ess": "0.2",
+        "capacity": "0",
+        "avail": "14F",
+        "cost": "20000",
+        "addweapon": "Bone Spike I",
+        "forbidden": {
+            "oneof": {
+                "bioware": "Bone Density Augmentation"
+            }
+        },
+        "source": "HT",
+        "page": "185"
+    },
+    {
+        "id": "53d0d6b1-f5cd-4816-b772-7f50af81356a",
+        "name": "Bone Spike (Bone Density 2-3)",
+        "category": "Bio-Weapons",
+        "ess": "0.2",
+        "capacity": "0",
+        "avail": "14F",
+        "cost": "20000",
+        "addweapon": "Bone Spike II",
+        "required": {
+            "oneof": {
+                "bioware": "Bone Density Augmentation"
+            }
+        },
+        "source": "HT",
+        "page": "185"
+    },
+    {
+        "id": "f994b8ac-0314-43ad-969a-f07d2d3fc0d8",
+        "name": "Bone Spike (Bone Density 4)",
+        "category": "Bio-Weapons",
+        "ess": "0.2",
+        "capacity": "0",
+        "avail": "14F",
+        "cost": "20000",
+        "addweapon": "Bone Spike III",
+        "required": {
+            "oneof": {
+                "bioware": "Bone Density Augmentation"
+            }
+        },
+        "source": "HT",
+        "page": "185"
+    },
+    {
+        "id": "0f5b811f-a761-410a-b675-fca5c5821b31",
+        "name": "Spur Pocket",
+        "category": "Cultured",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "6",
+        "cost": "8000",
+        "source": "HT",
+        "page": "185"
+    },
+    {
+        "id": "9343f6b7-6d02-4706-aa7d-6c357b22c947",
+        "name": "Adrenaline Pump (2050)",
+        "category": "Basic",
+        "ess": "Rating * 0.75",
+        "capacity": "0",
+        "avail": "10F",
+        "cost": "Rating * 50000",
+        "rating": "3",
+        "source": "2050",
+        "page": "205"
+    },
+    {
+        "id": "b843eb04-8234-4fb4-a33d-87bd369cc8dc",
+        "name": "Enhanced Articulation (2050)",
+        "category": "Basic",
+        "ess": "0.3",
+        "capacity": "0",
+        "avail": "5",
+        "cost": "40000",
+        "bonus": {
+            "limitmodifier": {
+                "limit": "Physical",
+                "value": "1",
+                "condition": "Only for Escape Artist"
+            },
+            "specificskill": {
+                "name": "Escape Artist",
+                "bonus": "1",
+                "applytorating": "no"
+            }
+        },
+        "source": "2050",
+        "page": "205"
+    },
+    {
+        "id": "29711788-69f5-4b7a-8dd9-2ed615a448e3",
+        "name": "Suprathyroid Gland (2050)",
+        "category": "Basic",
+        "ess": "0.7",
+        "capacity": "0",
+        "avail": "8F",
+        "cost": "50000",
+        "bonus": {
+            "lifestylecost": "25",
+            "specificattribute": [{
+                    "name": "BOD",
+                    "val": "1"
+                },
+                {
+                    "name": "AGI",
+                    "val": "1"
+                },
+                {
+                    "name": {
+                        "-precedence": "0",
+                        "#text": "REA"
+                    },
+                    "val": "1"
+                },
+                {
+                    "name": {
+                        "-precedence": "0",
+                        "#text": "STR"
+                    },
+                    "val": "1"
+                }
+            ]
+        },
+        "source": "2050",
+        "page": "205"
+    },
+    {
+        "id": "bebdde65-cd72-4690-8436-945312c507ab",
+        "name": "Tracheal Filter (2050)",
+        "category": "Basic",
+        "ess": "Rating * 0.1",
+        "capacity": "0",
+        "avail": "4",
+        "cost": "Rating * 30000",
+        "rating": "6",
+        "source": "2050",
+        "page": "205"
+    },
+    {
+        "id": "9c66557a-5757-42ee-ac00-a875b7013ad8",
+        "name": "Tailored Pheromones (2050)",
+        "category": "Basic",
+        "ess": "Rating * 0.2",
+        "capacity": "0",
+        "avail": "12",
+        "cost": "Rating * 22000",
+        "bonus": {
+            "sociallimit": "Rating"
+        },
+        "rating": "3",
+        "source": "2050",
+        "page": "205"
+    },
+    {
+        "id": "aa992c89-3fc0-47bf-9275-f31acf83a615",
+        "name": "Mnemonic Enhancer (2050)",
+        "category": "Cultured",
+        "ess": "Rating * 0.1",
+        "capacity": "0",
+        "avail": "6",
+        "cost": "Rating * 15000",
+        "bonus": {
+            "memory": "Rating",
+            "mentallimit": "Rating",
+            "skillcategory": [{
+                    "name": "Academic",
+                    "bonus": "Rating"
+                },
+                {
+                    "name": "Interest",
+                    "bonus": "Rating"
+                },
+                {
+                    "name": "Language",
+                    "bonus": "Rating"
+                },
+                {
+                    "name": "Professional",
+                    "bonus": "Rating"
+                },
+                {
+                    "name": "Street",
+                    "bonus": "Rating"
+                }
+            ]
+        },
+        "rating": "3",
+        "source": "2050",
+        "page": "205"
+    },
+    {
+        "id": "0603401c-183d-43e6-902e-fbdcc5a20fc4",
+        "name": "Muscle Toner (2050)",
+        "category": "Basic",
+        "ess": "Rating * 0.2",
+        "capacity": "0",
+        "avail": "(Rating * 5)R",
+        "cost": "Rating * 25000",
+        "bonus": {
+            "specificattribute": {
+                "name": {
+                    "-precedence": "0",
+                    "#text": "AGI"
+                },
+                "val": "Rating"
+            }
+        },
+        "rating": "4",
+        "source": "2050",
+        "page": "205"
+    },
+    {
+        "id": "d563a110-b8d8-460c-8fb2-da7d87d033a0",
+        "name": "Muscle Augmentation (2050)",
+        "category": "Basic",
+        "ess": "Rating * 0.2",
+        "capacity": "0",
+        "avail": "(Rating * 5)R",
+        "cost": "Rating * 20000",
+        "bonus": {
+            "specificattribute": {
+                "name": {
+                    "-precedence": "0",
+                    "#text": "STR"
+                },
+                "val": "Rating"
+            }
+        },
+        "rating": "4",
+        "source": "2050",
+        "page": "205"
+    },
+    {
+        "id": "fd8d10ee-4a08-4e0d-a9a4-eec8f4633467",
+        "name": "Nephritic Screen (2050)",
+        "category": "Basic",
+        "ess": "Rating * 0.2",
+        "capacity": "0",
+        "avail": "4",
+        "cost": "Rating * 24000",
+        "bonus": {
+            "specificattribute": {
+                "name": {
+                    "-precedence": "0",
+                    "#text": "STR"
+                },
+                "val": "Rating"
+            }
+        },
+        "rating": "6",
+        "source": "2050",
+        "page": "205"
+    },
+    {
+        "id": "d52e5797-416f-414a-ba7f-8ba3c6aef35a",
+        "name": "Orthoskin (2050)",
+        "category": "Basic",
+        "ess": "Rating * 0.25",
+        "capacity": "0",
+        "avail": "8R",
+        "cost": "Rating * 30000",
+        "bonus": {
+            "armor": {
+                "-group": "0",
+                "#text": "Rating"
+            }
+        },
+        "forbidden": {
+            "oneof": {
+                "bioware": "Bone Density Augmentation"
+            }
+        },
+        "rating": "3",
+        "source": "2050",
+        "page": "205"
+    },
+    {
+        "id": "0dcfb784-e30b-4d29-b8a9-46786770c5d0",
+        "name": "Pathogenic Defense (2050)",
+        "category": "Basic",
+        "ess": "Rating * 0.1",
+        "capacity": "0",
+        "avail": "8",
+        "cost": "Rating * 10000",
+        "rating": "6",
+        "source": "2050",
+        "page": "205"
+    },
+    {
+        "id": "20658b19-28c0-4e38-8523-768636510c7b",
+        "name": "Reflex Recorder (2050)",
+        "category": "Cultured",
+        "ess": "0.1",
+        "capacity": "0",
+        "avail": "5",
+        "cost": "10000",
+        "bonus": {
+            "selectskill": {
+                "-limittoattribute": "BOD,AGI,REA,STR",
+                "val": "1",
+                "applytorating": "yes"
+            }
+        },
+        "source": "2050",
+        "page": "205"
+    },
+    {
+        "id": "9300c974-1591-4dca-95d4-53755c27126e",
+        "name": "Damage Compensators (2050)",
+        "category": "Cultured",
+        "ess": "Rating * 0.1",
+        "capacity": "0",
+        "avail": "10F",
+        "cost": "Rating * 50000",
+        "bonus": {
+            "conditionmonitor": {
+                "thresholdoffset": "Rating"
+            }
+        },
+        "rating": "12",
+        "source": "2050",
+        "page": "205"
+    },
+    {
+        "id": "93325d96-77fd-4914-ad9d-e3fb4f5ba4db",
+        "name": "Pain Editor (2050)",
+        "category": "Cultured",
+        "ess": "0.3",
+        "capacity": "0",
+        "avail": "6F",
+        "cost": "60000",
+        "source": "2050",
+        "page": "205"
+    },
+    {
+        "id": "596c2f2c-e76e-49db-996b-d05fb56d994d",
+        "name": "Symbiotes (2050)",
+        "category": "Basic",
+        "ess": "Rating * 0.2",
+        "capacity": "0",
+        "avail": "5",
+        "cost": "Rating * 20000",
+        "rating": "3",
+        "source": "2050",
+        "page": "205"
+    },
+    {
+        "id": "418fc791-2ae8-4457-80ec-e89244f1497b",
+        "name": "Synaptic Accelerator (2050)",
+        "category": "Cultured",
+        "ess": "Rating * 0.5",
+        "capacity": "0",
+        "avail": "6R",
+        "cost": "Rating * 100000",
+        "bonus": {
+            "initiativepass": {
+                "-precedence": "0",
+                "#text": "Rating"
+            },
+            "specificattribute": {
+                "name": {
+                    "-precedence": "0",
+                    "#text": "REA"
+                },
+                "val": "Rating"
+            }
+        },
+        "rating": "3",
+        "source": "2050",
+        "page": "205"
+    },
+    {
+        "id": "7ec6348a-2edd-4629-a984-e88f258e8599",
+        "name": "Synthacardium (2050)",
+        "category": "Basic",
+        "ess": "Rating * 0.1",
+        "capacity": "0",
+        "avail": "4",
+        "cost": "Rating * 10000",
+        "bonus": {
+            "skillgroup": {
+                "name": "Athletics",
+                "bonus": "Rating"
+            }
+        },
+        "rating": "3",
+        "source": "2050",
+        "page": "205"
+    },
+    {
+        "id": "8cf8dfaa-64b1-4b46-90a1-7fe01a43ad74",
+        "name": "Platelet Factories (2050)",
+        "category": "Basic",
+        "ess": "0.2",
+        "capacity": "0",
+        "avail": "5",
+        "cost": "30000",
+        "source": "2050",
+        "page": "205"
+    },
+    {
+        "id": "773956b3-427b-4ed0-9510-8db622f01b66",
+        "name": "Cerebral Booster (2050)",
+        "category": "Cultured",
+        "ess": "Rating * 0.2",
+        "capacity": "0",
+        "avail": "6",
+        "cost": "Rating * 55000",
+        "bonus": {
+            "specificattribute": {
+                "name": "LOG",
+                "val": "Rating"
+            }
+        },
+        "rating": "3",
+        "source": "2050",
+        "page": "205"
+    }
+]
