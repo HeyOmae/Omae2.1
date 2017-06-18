@@ -1,6 +1,7 @@
 import React from 'react';
 import WeaponsComponent from './WeaponsComponent';
 import ArmorsComponent from './ArmorsComponent';
+import AugmentationComponent from './AugmentationComponent';
 import GearComponent, { PurchasedGear } from './GearComponent';
 import gearData from '../../data/gear.json';
 import PropTypeChecking from '../../config/propTypeChecking';
@@ -62,6 +63,9 @@ class StreetGearComponent extends React.PureComponent {
 					}
 				</div>
 				{purchasedGearComponents}
+
+				<h3>Augmentations</h3>
+				<AugmentationComponent />
 			</div>
 		);
 	}
