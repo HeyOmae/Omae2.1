@@ -17,7 +17,20 @@ class AugmentationComponent extends React.PureComponent {
 	}
 
 	render() {
-		return null;
+		return (
+			<div className="augs row">
+				<div className="augs--head col-md-12">
+					<div className="btn-group-vertical">
+						<label htmlFor="augs-head-partial" className="btn btn-primary active">
+							<input type="radio" name="Partial Cyberskull" id="augs-head-partial" checked /> Partial
+						</label>
+						<label htmlFor="augs-head-full" className="btn btn-primary active">
+							<input type="radio" name="Obvious Skull" id="augs-head-full" checked /> Full
+						</label>
+					</div>
+				</div>
+			</div>
+		);
 	}
 }
 
