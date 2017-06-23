@@ -43,6 +43,8 @@ class AugmentationComponent extends React.PureComponent {
 					</div>
 				</div>
 			</div>
+
+
 			<div className="augs--body row">
 				<div className="augs--right__right-arm col-md-4">
 					<div className="btn-group">
@@ -57,6 +59,17 @@ class AugmentationComponent extends React.PureComponent {
 						</label>
 						<label htmlFor="augs-right-arm" className="btn btn-primary btn-block">
 							<input type="radio" name="Arm" id="augs-right-arm" checked /> Arm
+						</label>
+					</div>
+				</div>
+
+				<div className="augs--body__torso col-md-2">
+					<div className="btn-group-vertical">
+						<label htmlFor="augs-body-no-torso" className="btn btn-primary btn-block ">
+							<input type="radio" name="" id="augs-body-no-torso" checked /> None
+						</label>
+						<label htmlFor="augs-body-full" className="btn btn-primary btn-block">
+							<input type="radio" name="Torso" id="augs-body-torso" checked /> Torso
 						</label>
 					</div>
 				</div>
