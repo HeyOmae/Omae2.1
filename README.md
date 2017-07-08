@@ -75,11 +75,11 @@ Install Yeoman and the React-Webpack-Redux generator. You can skip this if you d
 * Add Knowledge skills
 * Make qualities and adept powers actually effect stats
 * Add Mentor Spirits
-* Add Tradisions
+* Add Traditions
 * Fix the styling I broke on iPhone
 * Update the stats for metatypes from Run Faster errata
 * Update project dependencies
 * Add more to this README
 * Actually write unit tests for the react components
 * Look in to integration/end-to-end testing
-* Figure out how to mark AIs and Shapeshifters work
+* Figure out how to make AIs and Shapeshifters work
