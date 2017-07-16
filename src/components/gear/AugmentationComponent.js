@@ -24,6 +24,8 @@ class AugmentationComponent extends React.PureComponent {
 					return 'prosthetic';
 				case /Synthetic/.test(name):
 					return 'synthetic';
+				case /Liminal/.test(name):
+					return 'liminal';
 				default:
 					return 'obvious';
 				}
