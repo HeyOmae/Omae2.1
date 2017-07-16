@@ -3,7 +3,7 @@ import cyberwareData from '../../data/cyberware.json';
 
 class AugmentationComponent extends React.PureComponent {
 	componentWillMount() {
-		const checkCyberlimbType = (name) => {
+		const checkCyberlimbLocation = (name) => {
 				switch (true) {
 				case /Leg|Foot|Liminal/.test(name):
 					return 'leg';
@@ -18,15 +18,36 @@ class AugmentationComponent extends React.PureComponent {
 				}
 			},
 
+			checkCyberlimbType = (name) => {
+				switch (true) {
+				case /Prosthetic/.test(name):
+					return 'prosthetic';
+				case /Synthetic/.test(name):
+					return 'synthetic';
+				default:
+					return 'obvious';
+				}
+			},
+
 			organizeCyberlimbs = (cyberlimbObject, limb) => {
-				const limbtype = checkCyberlimbType(limb.name);
+				const limbLocation = checkCyberlimbLocation(limb.name),
+					limbType = checkCyberlimbType(limb.name);
 
 				return {
 					...cyberlimbObject,
-					[limbtype]: [
-						...(cyberlimbObject[limbtype] || []),
-						limb
-					]
+					[limbLocation]: {
+						...(cyberlimbObject[limbLocation] || {}),
+						[limbType]: [
+							...(
+								(
+									cyberlimbObject[limbLocation]
+									&& cyberlimbObject[limbLocation][limbType]
+								)
+								|| []
+								),
+							limb
+						]
+					}
 				};
 			};
 
