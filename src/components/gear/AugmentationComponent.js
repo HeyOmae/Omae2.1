@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import cyberwareData from '../../data/cyberware.json';
 
 class AugmentationComponent extends React.PureComponent {
@@ -6,13 +7,13 @@ class AugmentationComponent extends React.PureComponent {
 		const checkCyberlimbLocation = (name) => {
 				switch (true) {
 				case /Leg|Foot|Liminal/.test(name):
-					return 'leg';
+					return 'Legs';
 				case /Arm|Hand/.test(name):
-					return 'arm';
+					return 'Arms';
 				case /Torso/.test(name):
-					return 'torso';
+					return 'Torso';
 				case /[S|s]kull/.test(name):
-					return 'skull';
+					return 'Skull';
 				default:
 					return 'default';
 				}
@@ -21,13 +22,13 @@ class AugmentationComponent extends React.PureComponent {
 			checkCyberlimbType = (name) => {
 				switch (true) {
 				case /Prosthetic/.test(name):
-					return 'prosthetic';
+					return 'Prosthetic';
 				case /Synthetic/.test(name):
-					return 'synthetic';
+					return 'Synthetic';
 				case /Liminal/.test(name):
-					return 'liminal';
+					return 'Liminal';
 				default:
-					return 'obvious';
+					return 'Obvious';
 				}
 			},
 
@@ -72,12 +73,42 @@ class AugmentationComponent extends React.PureComponent {
 	}
 
 	render() {
+		const {Cyberlimb} = this.cyberware;
 		return (
 			<div className="augs">
-				augs
+				{Object.keys(Cyberlimb).map((location) => {
+					return (
+						<CyberlimbComponent
+							location={location}
+							cyberlimbsByType={Cyberlimb[location]}
+						/>
+					);
+				})}
 			</div>
 		);
 	}
 }
+
+const CyberlimbComponent = ({location, cyberlimbsByType}) => {
+	return (
+		<div>
+			<h4>{location}</h4>
+			{Object.keys(cyberlimbsByType).map((type) => {
+				return (<button>{type}</button>);
+			})}
+		</div>
+	);
+};
+
+CyberlimbComponent.propTypes = {
+	location: PropTypes.string.isRequired,
+	cyberlimbsByType: PropTypes.arrayOf(
+		PropTypes.arrayOf(
+			PropTypes.shape({
+				name: PropTypes.string.isRequired
+			}).isRequired
+		).isRequired
+	).isRequired
+};
 
 export default AugmentationComponent;
