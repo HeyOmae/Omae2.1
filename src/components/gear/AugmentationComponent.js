@@ -90,12 +90,27 @@ class AugmentationComponent extends React.PureComponent {
 }
 
 const CyberlimbComponent = ({location, cyberlimbsByType}) => {
+	const stuff = Object.keys(cyberlimbsByType).reduce((memo, type) => {
+		return [
+			[
+				...memo[0],
+				<button>{type}</button>
+			],
+			[
+				...memo[1],
+				...cyberlimbsByType[type].map((cyberlimb) => {
+					return (
+						<div>{cyberlimb.name}</div>
+					);
+				})
+			]
+		];
+	}, [[], []]);
+
 	return (
 		<div>
-			<h4>{location}</h4>
-			{Object.keys(cyberlimbsByType).map((type) => {
-				return (<button>{type}</button>);
-			})}
+			<div>{stuff[0]}</div>
+			<div>{stuff[1]}</div>
 		</div>
 	);
 };
