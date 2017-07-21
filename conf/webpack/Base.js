@@ -207,7 +207,10 @@ class WebpackBaseConfig {
 					images: `${this.srcPathAbsolute}/images/`,
 					sources: `${this.srcPathAbsolute}/sources/`,
 					stores: `${this.srcPathAbsolute}/stores/`,
-					styles: `${this.srcPathAbsolute}/styles/`
+					styles: `${this.srcPathAbsolute}/styles/`,
+					'~': `${this.srcPathAbsolute}/`,
+                    data: `${this.srcPathAbsolute}/data/`
+
 				},
 				extensions: ['.js', '.jsx'],
 				modules: [

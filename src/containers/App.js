@@ -51,7 +51,7 @@ import {
 import Main from '../components/Main';
 import PriorityTableComponent from '../components/priorityTable/PriorityTableComponent';
 import MetatypeSelector from '../components/MetatypeSelectorComponent';
-import AttributesComponent from '../components/AttributesComponent';
+import AttributesComponent from '../components/attributes/AttributesComponent';
 import QualityComponent from '../components/QualityComponent';
 import MagicSelectionComponent from '../components/magic/MagicSelectionComponent';
 import SkillsComponent from '../components/skills/SkillsComponent';
