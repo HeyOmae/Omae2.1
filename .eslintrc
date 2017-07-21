@@ -37,7 +37,9 @@
           "actions/",
           "sources/",
           "styles/",
-          "images/"
+          "images/",
+          "~",
+          "data"
         ]
     }]
   }

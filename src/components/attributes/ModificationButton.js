@@ -5,9 +5,8 @@ const ModificationButton = ({ attName = '', buttonClass, maxPoints = 6, pointsLe
 	return (
 		<td>
 			<button
-				className={`btn ${buttonClass ? buttonClass: ''}`}
+				className={`btn ${buttonClass}`}
 				onClick={() => {
-					console.log(pointsLeft);
 					if (pointsLeft === undefined || pointsLeft > 0) {
 						modificationFunction({
 							attribute: attName,
@@ -16,7 +15,7 @@ const ModificationButton = ({ attName = '', buttonClass, maxPoints = 6, pointsLe
 						});
 					}
 				}}
-            >
+			>
 				{symbol}
 			</button>
 		</td>
@@ -35,7 +34,8 @@ ModificationButton.propTypes = {
 
 ModificationButton.defaultProps = {
 	pointsLeft: undefined,
-	symbol: ''
+	symbol: '',
+	buttonClass: ''
 };
 
 export default ModificationButton;

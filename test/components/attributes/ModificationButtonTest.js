@@ -1,8 +1,3 @@
-/*eslint-env node, mocha */
-/*global expect */
-/*eslint no-console: 0*/
-'use strict';
-
 import React from 'react';
 import { shallow } from 'enzyme';
 

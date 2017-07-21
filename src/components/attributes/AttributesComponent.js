@@ -1,10 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import 'styles/Attributes.sass';
-import metatypeData from '~/data/metatype.json';
-import priorityData from '~/data/priority.json';
-import PropTypeChecking from '~/config/propTypeChecking';
+import metatypeData from 'data/metatype.json';
+import priorityData from 'data/priority.json';
+// TODO: figure out how to make the lint used propTypesChecking with an alias
+import PropTypeChecking from '../../config/propTypeChecking';
 import ModificationButton from './ModificationButton';
 import SpecialComponent from '../SpecialComponent';
 
