@@ -1,6 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import cyberwareData from '../../data/cyberware.json';
+import CyberlimbComponent from './cyberware/CyberlimbComponent';
 
 class AugmentationComponent extends React.PureComponent {
 	componentWillMount() {
@@ -88,42 +88,5 @@ class AugmentationComponent extends React.PureComponent {
 		);
 	}
 }
-
-const CyberlimbComponent = ({location, cyberlimbsByType}) => {
-	const stuff = Object.keys(cyberlimbsByType).reduce((memo, type) => {
-		return [
-			[
-				...memo[0],
-				<button>{type}</button>
-			],
-			[
-				...memo[1],
-				...cyberlimbsByType[type].map((cyberlimb) => {
-					return (
-						<div>{cyberlimb.name}</div>
-					);
-				})
-			]
-		];
-	}, [[], []]);
-
-	return (
-		<div>
-			<div>{stuff[0]}</div>
-			<div>{stuff[1]}</div>
-		</div>
-	);
-};
-
-CyberlimbComponent.propTypes = {
-	location: PropTypes.string.isRequired,
-	cyberlimbsByType: PropTypes.arrayOf(
-		PropTypes.arrayOf(
-			PropTypes.shape({
-				name: PropTypes.string.isRequired
-			}).isRequired
-		).isRequired
-	).isRequired
-};
 
 export default AugmentationComponent;
