@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import DisplayTable from '../../DisplayTableComponent';
 
 class CyberlimbComponent extends React.PureComponent {
 	constructor(props) {
@@ -19,11 +20,10 @@ class CyberlimbComponent extends React.PureComponent {
 				...memo,
 				[type]: cyberlimbsByType[type].map((cyberlimb) => {
 					return (
-						<div
+						<CyberlimbRows
 							key={`cyberlimb-${location}-${cyberlimb.name}`}
-						>
-							{cyberlimb.name}
-						</div>
+							{...cyberlimb}
+						/>
 					);
 				})
 			};
@@ -43,6 +43,7 @@ class CyberlimbComponent extends React.PureComponent {
 					{Object.keys(cyberlimbsByType).map((type) => {
 						return (
 							<CyberlimbRadioSelect
+								key={`cyberlimb-${location}-${type}`}
 								isTypeActive={this.state.activeType === type}
 								location={location}
 								type={type}
@@ -52,12 +53,51 @@ class CyberlimbComponent extends React.PureComponent {
 					})}
 				</div>
 				<div>
-					{this.cyberlimbData[this.state.activeType]}
+					<div>
+						<DisplayTable
+							header={
+								<tr>
+									<th>Buy</th>
+									<th>Name</th>
+									<th>Essense</th>
+									<th>Capcaity</th>
+									<th>Avail</th>
+									<th>Cost</th>
+									<th>Ref</th>
+								</tr>
+							}
+							body={this.cyberlimbData[this.state.activeType]}
+						/>
+					</div>
 				</div>
 			</div>
 		);
 	}
 }
+
+const CyberlimbRows = ({name, ess, capacity, avail, cost, source, page}) => {
+	return (
+		<tr>
+			<td><button>+</button></td>
+			<td>{name}</td>
+			<td>{ess}</td>
+			<td>{capacity}</td>
+			<td>{avail}</td>
+			<td>{cost}&yen;</td>
+			<td>{source} {page}p</td>
+		</tr>
+	);
+};
+
+CyberlimbRows.propTypes = {
+	name: PropTypes.string.isRequired,
+	ess: PropTypes.string.isRequired,
+	capacity: PropTypes.string.isRequired,
+	avail: PropTypes.string.isRequired,
+	cost: PropTypes.string.isRequired,
+	source: PropTypes.string.isRequired,
+	page: PropTypes.string.isRequired
+};
 
 CyberlimbComponent.propTypes = {
 	location: PropTypes.string.isRequired,
@@ -74,7 +114,6 @@ const CyberlimbRadioSelect = ({isTypeActive, location, type, changeActiveType}) 
 	return (
 		<label
 			className={`btn btn-primary ${isTypeActive ? 'active' : ''}`}
-			key={`cyberlimb-${location}-${type}`}
 			htmlFor={`cyberlimb-${location}-${type}`}
 		>
 			<input
