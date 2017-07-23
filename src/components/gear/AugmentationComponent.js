@@ -79,6 +79,7 @@ class AugmentationComponent extends React.PureComponent {
 				{Object.keys(Cyberlimb).map((location) => {
 					return (
 						<CyberlimbComponent
+							key={`cyber-${location}`}
 							location={location}
 							cyberlimbsByType={Cyberlimb[location]}
 						/>
