@@ -2773,36 +2773,6 @@
         }
     },
     {
-        "id": "8af5027d-a504-484e-8089-c542a95d4831",
-        "name": "Centaur Full Leg",
-        "category": "Cyberlimb",
-        "ess": "3",
-        "capacity": "20",
-        "avail": "12",
-        "cost": "0",
-        "source": "CF",
-        "page": "87",
-        "allowgear": {
-            "gearcategory": "Sensors"
-        },
-        "allowsubsystems": {
-            "category": [
-                "Bodyware",
-                "Cosmetic Enhancement",
-                "Cyberlimb Enhancement",
-                "Cyberlimb Accessory",
-                "Cyber Implant Weapon",
-                "Headware"
-            ]
-        },
-        "bonus": {
-            "conditionmonitor": {
-                "physical": "1"
-            }
-        },
-        "limbslot": "leg"
-    },
-    {
         "id": "6ea02e91-9787-4a9d-ad6f-5e1af6b54bdb",
         "name": "Liminal Body, Wheeled (Full)",
         "category": "Cyberlimb",
