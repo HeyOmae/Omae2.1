@@ -39,18 +39,25 @@ class CyberlimbComponent extends React.PureComponent {
 		return (
 			<div>
 				<h4>Cyber {location}</h4>
-				<div className="btn-group">
-					{Object.keys(cyberlimbsByType).map((type) => {
-						return (
-							<CyberlimbRadioSelect
-								key={`cyberlimb-${location}-${type}`}
-								isTypeActive={this.state.activeType === type}
-								location={location}
-								type={type}
-								changeActiveType={this.changeActiveType}
-							/>
-						);
-					})}
+				<div className="row">
+					<div className="col-md-6">
+						<div className="btn-group">
+							{Object.keys(cyberlimbsByType).map((type) => {
+								return (
+									<CyberlimbRadioSelect
+										key={`cyberlimb-${location}-${type}`}
+										isTypeActive={this.state.activeType === type}
+										location={location}
+										type={type}
+										changeActiveType={this.changeActiveType}
+									/>
+								);
+							})}
+						</div>
+					</div>
+					<div className="col">
+						<WareGradeComponent />
+					</div>
 				</div>
 				<div>
 					<div>
@@ -136,6 +143,24 @@ CyberlimbRadioSelect.propTypes = {
 	location: PropTypes.string.isRequired,
 	type: PropTypes.string.isRequired,
 	changeActiveType: PropTypes.func.isRequired
+};
+
+const WareGradeComponent = () => {
+	return (
+		<div>
+			<label
+				htmlFor="ware-grade"
+			>
+				Grade
+			</label>
+			<select
+				id="ware-grade"
+				className="custom-select"
+			>
+				<option value="standard">Standard</option>
+			</select>
+		</div>
+	);
 };
 
 export default CyberlimbComponent;
