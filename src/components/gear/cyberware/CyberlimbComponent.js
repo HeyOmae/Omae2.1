@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import DisplayTable from '../../DisplayTableComponent';
 
-class CyberlimbComponent extends React.PureComponent {
+class CyberlimbComponent extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -39,8 +39,8 @@ class CyberlimbComponent extends React.PureComponent {
 		return (
 			<div>
 				<h4>Cyber {location}</h4>
-				<div className="row">
-					<div className="col-md-6">
+				<div className="row justify-content-between">
+					<div className="col-xs-12 col-md-4">
 						<div className="btn-group">
 							{Object.keys(cyberlimbsByType).map((type) => {
 								return (
@@ -55,7 +55,7 @@ class CyberlimbComponent extends React.PureComponent {
 							})}
 						</div>
 					</div>
-					<div className="col">
+					<div className="col-xs-12 col-md-4">
 						<WareGradeComponent />
 					</div>
 				</div>
@@ -147,7 +147,7 @@ CyberlimbRadioSelect.propTypes = {
 
 const WareGradeComponent = () => {
 	return (
-		<div>
+		<div className="form-group">
 			<label
 				htmlFor="ware-grade"
 			>
@@ -155,7 +155,7 @@ const WareGradeComponent = () => {
 			</label>
 			<select
 				id="ware-grade"
-				className="custom-select"
+				className="form-control custom-select"
 			>
 				<option value="standard">Standard</option>
 			</select>
