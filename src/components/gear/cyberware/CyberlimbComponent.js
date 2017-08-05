@@ -1,9 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import DisplayTable from '../../DisplayTableComponent';
 import waregrades from '../../../data/waregrade.json';
+import { purchaseGear } from '../../../actions';
 
-class CyberlimbComponent extends React.Component {
+class CyberlimbComponent extends React.PureComponent {
 	constructor(props) {
 		super(props);
 
@@ -84,10 +87,21 @@ class CyberlimbComponent extends React.Component {
 	}
 }
 
+CyberlimbComponent.propTypes = {
+	location: PropTypes.string.isRequired,
+	cyberlimbsByType: PropTypes.objectOf(
+		PropTypes.arrayOf(
+			PropTypes.shape({
+				name: PropTypes.string.isRequired
+			}).isRequired
+		).isRequired
+	).isRequired
+};
+
 const CyberlimbRows = ({name, ess, capacity, avail, cost, source, page}) => {
 	return (
 		<tr>
-			<td><button>+</button></td>
+			<td><button className="btn btn-success">+</button></td>
 			<td>{name}</td>
 			<td>{ess}</td>
 			<td>{capacity}</td>
@@ -106,17 +120,6 @@ CyberlimbRows.propTypes = {
 	cost: PropTypes.string.isRequired,
 	source: PropTypes.string.isRequired,
 	page: PropTypes.string.isRequired
-};
-
-CyberlimbComponent.propTypes = {
-	location: PropTypes.string.isRequired,
-	cyberlimbsByType: PropTypes.objectOf(
-		PropTypes.arrayOf(
-			PropTypes.shape({
-				name: PropTypes.string.isRequired
-			}).isRequired
-		).isRequired
-	).isRequired
 };
 
 const CyberlimbRadioSelect = ({isTypeActive, location, type, changeActiveType}) => {
@@ -161,7 +164,12 @@ const WareGradeComponent = () => {
 			>
 				{waregrades.map((grade) => {
 					return (
-						<option value={grade.name}>{grade.name}</option>
+						<option
+							value={grade.name}
+							key={`cyber-${grade.name}`}
+						>
+							{grade.name}
+						</option>
 					);
 				})
 				}
@@ -170,4 +178,17 @@ const WareGradeComponent = () => {
 	);
 };
 
-export default CyberlimbComponent;
+const mapStateToProps = (state) => {
+	return {
+		cyberlimbs: state.purchaseGear.cyberlimbs
+	};
+};
+
+const mapDispatchToProps = (dispatch) => {
+	const actions = {
+		purchaseGear
+	};
+	return bindActionCreators(actions, dispatch);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CyberlimbComponent);
