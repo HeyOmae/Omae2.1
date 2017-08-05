@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import DisplayTable from '../../DisplayTableComponent';
+import waregrades from '../../../data/waregrade.json';
 
 class CyberlimbComponent extends React.Component {
 	constructor(props) {
@@ -41,6 +42,7 @@ class CyberlimbComponent extends React.Component {
 				<h4>Cyber {location}</h4>
 				<div className="row justify-content-between">
 					<div className="col-xs-12 col-md-4">
+						<h5>Types</h5>
 						<div className="btn-group">
 							{Object.keys(cyberlimbsByType).map((type) => {
 								return (
@@ -157,7 +159,12 @@ const WareGradeComponent = () => {
 				id="ware-grade"
 				className="form-control custom-select"
 			>
-				<option value="standard">Standard</option>
+				{waregrades.map((grade) => {
+					return (
+						<option value={grade.name}>{grade.name}</option>
+					);
+				})
+				}
 			</select>
 		</div>
 	);
