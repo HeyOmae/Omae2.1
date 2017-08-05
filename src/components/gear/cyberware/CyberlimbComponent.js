@@ -18,7 +18,7 @@ class CyberlimbComponent extends React.PureComponent {
 	}
 
 	componentWillMount() {
-		const {cyberlimbsByType, location} = this.props;
+		const {cyberlimbsByType, location, purchase} = this.props;
 		this.cyberlimbData = Object.keys(cyberlimbsByType).reduce((memo, type) => {
 			return {
 				...memo,
@@ -26,7 +26,8 @@ class CyberlimbComponent extends React.PureComponent {
 					return (
 						<CyberlimbRows
 							key={`cyberlimb-${location}-${cyberlimb.name}`}
-							{...cyberlimb}
+							cyberlimb={cyberlimb}
+							purchase={purchase}
 						/>
 					);
 				})
@@ -95,13 +96,29 @@ CyberlimbComponent.propTypes = {
 				name: PropTypes.string.isRequired
 			}).isRequired
 		).isRequired
-	).isRequired
+	).isRequired,
+	purchase: PropTypes.func.isRequired
 };
 
-const CyberlimbRows = ({name, ess, capacity, avail, cost, source, page}) => {
+const CyberlimbRows = ({purchase, cyberlimb}) => {
+	const {name, ess, capacity, avail, cost, source, page} = cyberlimb;
 	return (
 		<tr>
-			<td><button className="btn btn-success">+</button></td>
+			<td>
+				<button
+					className="btn btn-success"
+					onClick={
+						() => {
+							purchase({
+								gear: cyberlimb,
+								category: 'augmentations'
+							});
+						}
+					}
+				>
+					+
+				</button>
+			</td>
 			<td>{name}</td>
 			<td>{ess}</td>
 			<td>{capacity}</td>
@@ -113,13 +130,16 @@ const CyberlimbRows = ({name, ess, capacity, avail, cost, source, page}) => {
 };
 
 CyberlimbRows.propTypes = {
-	name: PropTypes.string.isRequired,
-	ess: PropTypes.string.isRequired,
-	capacity: PropTypes.string.isRequired,
-	avail: PropTypes.string.isRequired,
-	cost: PropTypes.string.isRequired,
-	source: PropTypes.string.isRequired,
-	page: PropTypes.string.isRequired
+	cyberlimb: PropTypes.shape({
+		name: PropTypes.string.isRequired,
+		ess: PropTypes.string.isRequired,
+		capacity: PropTypes.string.isRequired,
+		avail: PropTypes.string.isRequired,
+		cost: PropTypes.string.isRequired,
+		source: PropTypes.string.isRequired,
+		page: PropTypes.string.isRequired,
+	}).isRequired,
+	purchase: PropTypes.func.isRequired
 };
 
 const CyberlimbRadioSelect = ({isTypeActive, location, type, changeActiveType}) => {
@@ -178,17 +198,11 @@ const WareGradeComponent = () => {
 	);
 };
 
-const mapStateToProps = (state) => {
-	return {
-		cyberlimbs: state.purchaseGear.cyberlimbs
-	};
-};
-
 const mapDispatchToProps = (dispatch) => {
 	const actions = {
-		purchaseGear
+		purchase: purchaseGear
 	};
 	return bindActionCreators(actions, dispatch);
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CyberlimbComponent);
+export default connect(null, mapDispatchToProps)(CyberlimbComponent);

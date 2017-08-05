@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import cyberwareData from '../../data/cyberware.json';
 import CyberlimbComponent from './cyberware/CyberlimbComponent';
 
@@ -74,6 +75,7 @@ class AugmentationComponent extends React.PureComponent {
 
 	render() {
 		const {Cyberlimb} = this.cyberware;
+		const {augmentations} = this.props;
 		return (
 			<div className="augs">
 				{Object.keys(Cyberlimb).map((location) => {
@@ -85,9 +87,25 @@ class AugmentationComponent extends React.PureComponent {
 						/>
 					);
 				})}
+
+				<div className="purchased-augs">
+					{augmentations.map((aug) => {
+						return (aug.name);
+					})}
+				</div>
 			</div>
 		);
 	}
 }
+
+AugmentationComponent.propTypes = {
+	augmentations: PropTypes.arrayOf(
+		PropTypes.object.isRequired
+	)
+};
+
+AugmentationComponent.defaultProps = {
+	augmentations: []
+};
 
 export default AugmentationComponent;
