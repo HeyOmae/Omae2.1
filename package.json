@@ -76,8 +76,8 @@
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.6",
     "cross-env": "^5.0.1",
-    "react": "^16.0.0-beta.2",
-    "react-dom": "^16.0.0-beta.2",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
     "react-hot-loader": "^3.0.0-beta.7",
     "react-redux": "^5.0.5",
     "redux": "^3.7.2"
