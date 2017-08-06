@@ -41,6 +41,7 @@ import removeQuality from './quality/removeQuality';
 import karma from './karma';
 import purchaseGear from './gear/purchaseGear';
 import sellGear from './gear/sellGear';
+import selectGrade from './gear/selectGrade';
 
 const actions = {
 	priorityTable,
@@ -78,7 +79,8 @@ const actions = {
 	moddingMulti,
 	demoddingMulti,
 	moddingCapacity,
-	demoddingCapacity
+	demoddingCapacity,
+	selectGrade
 };
 
 module.exports = actions;
