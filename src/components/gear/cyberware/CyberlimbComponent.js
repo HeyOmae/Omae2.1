@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import DisplayTable from '../../DisplayTableComponent';
 import waregrades from '../../../data/waregrade.json';
-import { purchaseGear } from '../../../actions';
+import { purchaseGear, selectGrade } from '../../../actions';
 
 class CyberlimbComponent extends React.PureComponent {
 	constructor(props) {
@@ -17,9 +17,13 @@ class CyberlimbComponent extends React.PureComponent {
 		};
 	}
 
-	componentWillMount() {
-		const {cyberlimbsByType, location, purchase} = this.props;
-		this.cyberlimbData = Object.keys(cyberlimbsByType).reduce((memo, type) => {
+	changeActiveType(activeType) {
+		this.setState({activeType});
+	}
+
+	generateCyberlimbRows() {
+		const {cyberlimbsByType, location, purchase, currentGrade} = this.props;
+		return Object.keys(cyberlimbsByType).reduce((memo, type) => {
 			return {
 				...memo,
 				[type]: cyberlimbsByType[type].map((cyberlimb) => {
@@ -28,6 +32,7 @@ class CyberlimbComponent extends React.PureComponent {
 							key={`cyberlimb-${location}-${cyberlimb.name}`}
 							cyberlimb={cyberlimb}
 							purchase={purchase}
+							currentGrade={currentGrade}
 						/>
 					);
 				})
@@ -35,12 +40,8 @@ class CyberlimbComponent extends React.PureComponent {
 		}, {});
 	}
 
-	changeActiveType(activeType) {
-		this.setState({activeType});
-	}
-
 	render() {
-		const {cyberlimbsByType, location} = this.props;
+		const {cyberlimbsByType, location, changeGrade} = this.props;
 		return (
 			<div>
 				<h4>Cyber {location}</h4>
@@ -62,7 +63,7 @@ class CyberlimbComponent extends React.PureComponent {
 						</div>
 					</div>
 					<div className="col-xs-12 col-md-4">
-						<WareGradeComponent />
+						<WareGradeComponent changeGrade={changeGrade} />
 					</div>
 				</div>
 				<div>
@@ -79,7 +80,7 @@ class CyberlimbComponent extends React.PureComponent {
 									<th>Ref</th>
 								</tr>
 							}
-							body={this.cyberlimbData[this.state.activeType]}
+							body={this.generateCyberlimbRows()[this.state.activeType]}
 						/>
 					</div>
 				</div>
@@ -97,10 +98,11 @@ CyberlimbComponent.propTypes = {
 			}).isRequired
 		).isRequired
 	).isRequired,
-	purchase: PropTypes.func.isRequired
+	purchase: PropTypes.func.isRequired,
+	changeGrade: PropTypes.func.isRequired
 };
 
-const CyberlimbRows = ({purchase, cyberlimb}) => {
+const CyberlimbRows = ({purchase, cyberlimb, currentGrade}) => {
 	const {name, ess, capacity, avail, cost, source, page} = cyberlimb;
 	return (
 		<tr>
@@ -120,10 +122,10 @@ const CyberlimbRows = ({purchase, cyberlimb}) => {
 				</button>
 			</td>
 			<td>{name}</td>
-			<td>{ess}</td>
+			<td>{ess * Number(currentGrade.ess)}</td>
 			<td>{capacity}</td>
-			<td>{avail}</td>
-			<td>{cost}&yen;</td>
+			<td>{Number(avail) + Number(currentGrade.avail)}</td>
+			<td>{cost * Number(currentGrade.cost)}&yen;</td>
 			<td>{source} {page}p</td>
 		</tr>
 	);
@@ -139,7 +141,10 @@ CyberlimbRows.propTypes = {
 		source: PropTypes.string.isRequired,
 		page: PropTypes.string.isRequired,
 	}).isRequired,
-	purchase: PropTypes.func.isRequired
+	purchase: PropTypes.func.isRequired,
+	currentGrade: PropTypes.objectOf(
+		PropTypes.string.isRequired
+	).isRequired
 };
 
 const CyberlimbRadioSelect = ({isTypeActive, location, type, changeActiveType}) => {
@@ -170,7 +175,7 @@ CyberlimbRadioSelect.propTypes = {
 	changeActiveType: PropTypes.func.isRequired
 };
 
-const WareGradeComponent = () => {
+const WareGradeComponent = ({changeGrade}) => {
 	return (
 		<div className="form-group">
 			<label
@@ -181,11 +186,14 @@ const WareGradeComponent = () => {
 			<select
 				id="ware-grade"
 				className="form-control custom-select"
+				onChange={(e) => {
+					changeGrade({grade: waregrades[e.target.value]});
+				}}
 			>
-				{waregrades.map((grade) => {
+				{waregrades.map((grade, index) => {
 					return (
 						<option
-							value={grade.name}
+							value={index}
 							key={`cyber-${grade.name}`}
 						>
 							{grade.name}
@@ -198,11 +206,22 @@ const WareGradeComponent = () => {
 	);
 };
 
+WareGradeComponent.propTypes = {
+	changeGrade: PropTypes.func.isRequired
+};
+
+const mapStateToProps = (state) => {
+	return {
+		currentGrade: state.augmentation.grade
+	};
+};
+
 const mapDispatchToProps = (dispatch) => {
 	const actions = {
-		purchase: purchaseGear
+		purchase: purchaseGear,
+		changeGrade: selectGrade
 	};
 	return bindActionCreators(actions, dispatch);
 };
 
-export default connect(null, mapDispatchToProps)(CyberlimbComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(CyberlimbComponent);

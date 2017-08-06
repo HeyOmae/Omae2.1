@@ -19,6 +19,7 @@ import karma from './karma';
 import modalToggle from './modalToggle';
 import purchaseGear from './gear/purchaseGear';
 import filterTable from './filterTable';
+import augmentation from './gear/augmentation';
 
 const reducers = {
 	priorityTable,
@@ -32,6 +33,7 @@ const reducers = {
 	karma,
 	modalToggle,
 	purchaseGear,
-	filterTable
+	filterTable,
+	augmentation
 };
 module.exports = combineReducers(reducers);
