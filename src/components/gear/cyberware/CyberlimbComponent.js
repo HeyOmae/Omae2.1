@@ -41,7 +41,7 @@ class CyberlimbComponent extends React.PureComponent {
 	}
 
 	render() {
-		const {cyberlimbsByType, location, changeGrade} = this.props;
+		const {cyberlimbsByType, location, changeGrade, currentGrade} = this.props;
 		return (
 			<div>
 				<h4>Cyber {location}</h4>
@@ -63,7 +63,10 @@ class CyberlimbComponent extends React.PureComponent {
 						</div>
 					</div>
 					<div className="col-xs-12 col-md-4">
-						<WareGradeComponent changeGrade={changeGrade} />
+						<WareGradeComponent
+							changeGrade={changeGrade}
+							currentGrade={currentGrade}
+						/>
 					</div>
 				</div>
 				<div>
@@ -99,11 +102,13 @@ CyberlimbComponent.propTypes = {
 		).isRequired
 	).isRequired,
 	purchase: PropTypes.func.isRequired,
-	changeGrade: PropTypes.func.isRequired
+	changeGrade: PropTypes.func.isRequired,
+	currentGrade: PropTypes.number.isRequired
 };
 
 const CyberlimbRows = ({purchase, cyberlimb, currentGrade}) => {
-	const {name, ess, capacity, avail, cost, source, page} = cyberlimb;
+	const {name, ess, capacity, avail, cost, source, page} = cyberlimb,
+		grade = waregrades[currentGrade];
 	return (
 		<tr>
 			<td>
@@ -122,10 +127,10 @@ const CyberlimbRows = ({purchase, cyberlimb, currentGrade}) => {
 				</button>
 			</td>
 			<td>{name}</td>
-			<td>{ess * Number(currentGrade.ess)}</td>
+			<td>{ess * Number(grade.ess)}</td>
 			<td>{capacity}</td>
-			<td>{Number(avail) + Number(currentGrade.avail)}</td>
-			<td>{cost * Number(currentGrade.cost)}&yen;</td>
+			<td>{Number(avail) + Number(grade.avail)}</td>
+			<td>{cost * Number(grade.cost)}&yen;</td>
 			<td>{source} {page}p</td>
 		</tr>
 	);
@@ -142,9 +147,7 @@ CyberlimbRows.propTypes = {
 		page: PropTypes.string.isRequired,
 	}).isRequired,
 	purchase: PropTypes.func.isRequired,
-	currentGrade: PropTypes.objectOf(
-		PropTypes.string.isRequired
-	).isRequired
+	currentGrade: PropTypes.number.isRequired
 };
 
 const CyberlimbRadioSelect = ({isTypeActive, location, type, changeActiveType}) => {
@@ -175,7 +178,7 @@ CyberlimbRadioSelect.propTypes = {
 	changeActiveType: PropTypes.func.isRequired
 };
 
-const WareGradeComponent = ({changeGrade}) => {
+const WareGradeComponent = ({changeGrade, currentGrade}) => {
 	return (
 		<div className="form-group">
 			<label
@@ -187,8 +190,9 @@ const WareGradeComponent = ({changeGrade}) => {
 				id="ware-grade"
 				className="form-control custom-select"
 				onChange={(e) => {
-					changeGrade({grade: waregrades[e.target.value]});
+					changeGrade({grade: Number(e.target.value)});
 				}}
+				value={currentGrade}
 			>
 				{waregrades.map((grade, index) => {
 					return (
@@ -207,7 +211,8 @@ const WareGradeComponent = ({changeGrade}) => {
 };
 
 WareGradeComponent.propTypes = {
-	changeGrade: PropTypes.func.isRequired
+	changeGrade: PropTypes.func.isRequired,
+	currentGrade: PropTypes.number.isRequired
 };
 
 const mapStateToProps = (state) => {
