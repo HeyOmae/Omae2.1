@@ -13,12 +13,30 @@ class CyberlimbComponent extends React.PureComponent {
 		this.changeActiveType = this.changeActiveType.bind(this);
 
 		this.state = {
-			activeType: 'Obvious'
+			activeType: 'Obvious',
+			agi: 3,
+			str: 3
 		};
 	}
 
 	changeActiveType(activeType) {
 		this.setState({activeType});
+	}
+
+	incrementAttribute(attribute) {
+		this.setState((prevState) => {
+			return {
+				[attribute]: prevState[attribute] + 1
+			};
+		});
+	}
+
+	decrementAttribute(attribute) {
+		this.setState((prevState) => {
+			return {
+				[attribute]: prevState[attribute] - 1
+			};
+		});
 	}
 
 	generateCyberlimbRows() {
@@ -108,7 +126,8 @@ CyberlimbComponent.propTypes = {
 
 const CyberlimbRows = ({purchase, cyberlimb, currentGrade}) => {
 	const {name, ess, capacity, avail, cost, source, page} = cyberlimb,
-		grade = waregrades[currentGrade];
+		grade = waregrades[currentGrade],
+		currentAvail = Number(avail) + Number(grade.avail);
 	return (
 		<tr>
 			<td>
@@ -129,7 +148,7 @@ const CyberlimbRows = ({purchase, cyberlimb, currentGrade}) => {
 			<td>{name}</td>
 			<td>{ess * Number(grade.ess)}</td>
 			<td>{capacity}</td>
-			<td>{Number(avail) + Number(grade.avail)}</td>
+			<td>{currentAvail > 0 ? currentAvail : 0}</td>
 			<td>{cost * Number(grade.cost)}&yen;</td>
 			<td>{source} {page}p</td>
 		</tr>
