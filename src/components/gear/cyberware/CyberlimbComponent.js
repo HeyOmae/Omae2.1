@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
+import metatypeData from 'data/metatype.json';
 import DisplayTable from '../../DisplayTableComponent';
 import waregrades from '../../../data/waregrade.json';
 import { purchaseGear, selectGrade } from '../../../actions';
@@ -24,9 +25,13 @@ class CyberlimbComponent extends React.PureComponent {
 	}
 
 	incrementAttribute(attribute) {
+		const { metatype } = this.props,
+			maxAttribute = metatypeData[metatype].max[attribute];
+
 		this.setState((prevState) => {
+			const currentCyberAttribute = prevState[attribute];
 			return {
-				[attribute]: prevState[attribute] + 1
+				[attribute]: currentCyberAttribute === maxAttribute ? currentCyberAttribute : currentCyberAttribute + 1
 			};
 		});
 	}
@@ -34,7 +39,7 @@ class CyberlimbComponent extends React.PureComponent {
 	decrementAttribute(attribute) {
 		this.setState((prevState) => {
 			return {
-				[attribute]: prevState[attribute] - 1
+				[attribute]: prevState[attribute] === 3 ? 3 : prevState[attribute] - 1
 			};
 		});
 	}
@@ -81,6 +86,42 @@ class CyberlimbComponent extends React.PureComponent {
 						</div>
 					</div>
 					<div className="col-xs-12 col-md-4">
+						<div className="row justify-content-between">
+							<div className="col">
+								<h5>Agi</h5>
+								<button
+									className="btn btn-success"
+									onClick={() => { this.incrementAttribute('agi'); }}
+								>
+									+
+								</button>
+								{this.state.agi}
+								<button
+									className="btn btn-warning"
+									onClick={() => { this.decrementAttribute('agi'); }}
+								>
+									-
+								</button>
+							</div>
+							<div className="col">
+								<h5>Str</h5>
+								<button
+									className="btn btn-success"
+									onClick={() => { this.incrementAttribute('str'); }}
+								>
+									+
+								</button>
+								{this.state.str}
+								<button
+									className="btn btn-warning"
+									onClick={() => { this.decrementAttribute('str'); }}
+								>
+									-
+								</button>
+							</div>
+						</div>
+					</div>
+					<div className="col-xs-12 col-md-4">
 						<WareGradeComponent
 							changeGrade={changeGrade}
 							currentGrade={currentGrade}
@@ -121,7 +162,8 @@ CyberlimbComponent.propTypes = {
 	).isRequired,
 	purchase: PropTypes.func.isRequired,
 	changeGrade: PropTypes.func.isRequired,
-	currentGrade: PropTypes.number.isRequired
+	currentGrade: PropTypes.number.isRequired,
+	metatype: PropTypes.string.isRequired
 };
 
 const CyberlimbRows = ({purchase, cyberlimb, currentGrade}) => {
@@ -236,7 +278,8 @@ WareGradeComponent.propTypes = {
 
 const mapStateToProps = (state) => {
 	return {
-		currentGrade: state.augmentation.grade
+		currentGrade: state.augmentation.grade,
+		metatype: state.selectMetatype.typeName
 	};
 };
 
