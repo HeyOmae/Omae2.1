@@ -4,6 +4,7 @@ import 'styles/Attributes.sass';
 import metatypeData from 'data/metatype.json';
 import priorityData from 'data/priority.json';
 // TODO: figure out how to make the lint used propTypesChecking with an alias
+import DisplayTableComponent from '../DisplayTableComponent';
 import PropTypeChecking from '../../config/propTypeChecking';
 import ModificationButton from './ModificationButton';
 import SpecialComponent from '../SpecialComponent';
@@ -107,8 +108,8 @@ class AttributesComponent extends React.PureComponent {
 					<div className="col-lg-12 col-xl-9">
 						<div className="table-responsive">
 							<h2>Attributes</h2>
-							<table className="table">
-								<thead>
+							<DisplayTableComponent
+								header={(
 									<tr>
 										<th>Bod</th>
 										<th>Agi</th>
@@ -120,22 +121,24 @@ class AttributesComponent extends React.PureComponent {
 										<th>Cha</th>
 										<th>Points</th>
 									</tr>
-								</thead>
+								)}
+							>
+								<tr>
+									{attributeElements.base.incBtn}
+									<td />
+								</tr>
+								<tr className={attibutePointsLeft < 0 ? 'table-danger' : ''}>
+									{attributeElements.base.display}
+									<td>
+										{attibutePointsLeft}
+									</td>
+								</tr>
+								<tr>
+									{attributeElements.base.decBtn}
+									<td />
+								</tr>
+							</DisplayTableComponent>
 								<tbody>
-									<tr>
-										{attributeElements.base.incBtn}
-										<td />
-									</tr>
-									<tr className={attibutePointsLeft < 0 ? 'table-danger' : ''}>
-										{attributeElements.base.display}
-										<td>
-											{attibutePointsLeft}
-										</td>
-									</tr>
-									<tr>
-										{attributeElements.base.decBtn}
-										<td />
-									</tr>
 								</tbody>
 							</table>
 						</div>

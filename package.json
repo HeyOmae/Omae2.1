@@ -74,7 +74,7 @@
     "webpack-dev-server": "^2.6.1"
   },
   "dependencies": {
-    "bootstrap": "^4.0.0-alpha.6",
+    "bootstrap": "^4.0.0-beta",
     "cross-env": "^5.0.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
