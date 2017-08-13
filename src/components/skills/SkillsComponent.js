@@ -1,5 +1,5 @@
 import React from 'react';
-import Modal from '../ModalComponent';
+import Modal from '../ModalButtonComponent';
 import Skillgroup from './SkillgroupsComponent';
 import skillsData from '../../data/skills.json';
 import priorityTableData from '../../data/priority.json';

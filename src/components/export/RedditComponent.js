@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Modal from '../ModalComponent';
+import Modal from '../ModalButtonComponent';
 import PropTypeChecking from '../../config/propTypeChecking';
 
 import '../../styles/export/Reddit.sass';

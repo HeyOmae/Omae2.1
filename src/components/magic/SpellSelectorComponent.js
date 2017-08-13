@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import 'styles/magic/SpellSelector.sass';
-import Modal from '../ModalComponent';
+import Modal from '../ModalButtonComponent';
 import DisplayTable from '../DisplayTableComponent';
 import FilterTable from '../FilterableTable';
 

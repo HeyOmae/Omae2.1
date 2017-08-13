@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import 'styles/Modal.sass';
 import actionToggleModal from '../actions/toggleModal';
 
-class ModalComponent extends React.Component {
+class ModalButtonComponent extends React.Component {
 	componentWillMount() {
 		const {modalName, modalID} = this.props;
 		this.modalID = modalID || `${modalName.replace(/\s/g, '')}-modal`;
@@ -84,10 +84,10 @@ class ModalComponent extends React.Component {
 	}
 }
 
-ModalComponent.displayName = 'ModalComponent';
+ModalButtonComponent.displayName = 'ModalButtonComponent';
 
 // Uncomment properties you need
-ModalComponent.propTypes = {
+ModalButtonComponent.propTypes = {
 	modalName: PropTypes.string.isRequired,
 	modalContent: PropTypes.element.isRequired,
 	modalToggle: PropTypes.string.isRequired,
@@ -95,7 +95,7 @@ ModalComponent.propTypes = {
 	modalID: PropTypes.string
 };
 // TODO: think about refactoring, unexpected behavior when set to empty string or null
-ModalComponent.defaultProps = {
+ModalButtonComponent.defaultProps = {
 	modalID: undefined
 };
 
@@ -104,4 +104,4 @@ function mapStateToProps(state) {
 }
 
 
-export default connect(mapStateToProps, { toggleModalAction: actionToggleModal })(ModalComponent);
+export default connect(mapStateToProps, { toggleModalAction: actionToggleModal })(ModalButtonComponent);
