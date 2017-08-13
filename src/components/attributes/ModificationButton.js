@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const ModificationButton = ({ attName, buttonClass, maxPoints, pointsLeft, modificationFunction, attType, symbol }) => {
-	console.error(buttonClass);
 	return (
 		<td>
 			<button
