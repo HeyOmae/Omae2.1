@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import GearClass from './GearCreator';
 import DisplayTableComponent from '../DisplayTableComponent';
 import armorMods from '../../data/armorAccessories.json';
@@ -124,4 +125,8 @@ ArmorModRow.propTypes = {
 	demodArmor: PropTypes.func.isRequired
 };
 
-export default ArmorModsComponent;
+const mapStateToProps = (state) => {
+	return {armors: state.purchaseGearState.armors};
+};
+
+export default connect(mapStateToProps)(ArmorModsComponent);

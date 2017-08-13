@@ -24,6 +24,7 @@ class ModalComponent extends React.PureComponent {
 				<div className="modal-dialog modal-lg">
 					<div className="modal-content">
 						<div className="modal-header">
+							<h4 className="modal-title">{modalName}</h4>
 							<button
 								type="button"
 								className="close modal-close"
@@ -31,7 +32,6 @@ class ModalComponent extends React.PureComponent {
 							>
 								&times;
 							</button>
-							<h4 className="modal-title">{modalName}</h4>
 						</div>
 						<div className="modal-body">
 							{modalContent}

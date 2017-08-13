@@ -28,7 +28,7 @@ const purchaseGearReducer = (state = initialState, action) => {
 			return {
 				...prevState,
 				[category]: [
-					...prevState[category] || {},
+					...prevState[category] || [],
 					gearToAdd
 				],
 				nuyen: prevState.nuyen + Number(cost)
