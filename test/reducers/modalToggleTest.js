@@ -1,30 +1,40 @@
-var reducer = require('../../src/reducers/modalToggle');
+import React from 'react';
+import reducer from '../../src/reducers/modalToggle';
 
 describe('modalToggle', () => {
-	let state = '';
+	const state = {
+			modalName: '',
+			modalContent: null
+		},
+		testModal = {
+			modalName: 'test',
+			modalContent: (<div>I'm a Modal</div>)
+		};
 
 	it('should not change the passed state', (done) => {
-
 		const state = Object.freeze({});
 		reducer(state, {type: 'INVALID'});
 
 		done();
 	});
 
-	describe('TOGGLE_MODAL', () => {
-		it('should make a new state that changes the selected modal', () => {
-			let newState = reducer(state, {type: 'TOGGLE_MODAL', parameter: 'TestingModal' });
+	describe('MODAL_OPEN', () => {
 
-			expect(newState).to.equal('TestingModal');
-			expect(state).to.equal('');
+		it('should set a <Modal/> to state', () => {
+			const newState = reducer(state, {type: 'MODAL_OPEN', parameter: testModal });
+
+			expect(newState).to.equal(testModal);
+			expect(state).to.equal(state);
 		});
+	});
 
-		it('should make a new state that clears the selected modal', () => {
-			state = 'TestingModal';
-			let newState = reducer(state, {type: 'TOGGLE_MODAL', parameter: 'TestingModal' });
+	describe('MODAL_CLOSE', () => {
+		it('should set the modal state to null', () => {
+			const testState = testModal;
+			let newState = reducer(testState, {type: 'MODAL_CLOSE'});
 
-			expect(newState).to.equal('');
-			expect(state).to.equal('TestingModal');
+			expect(newState).to.deep.equal(state);
+			expect(testState).to.equal(testModal);
 		});
 	});
 });

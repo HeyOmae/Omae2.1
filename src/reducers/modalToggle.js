@@ -3,12 +3,19 @@
  * If you change the type from object to something else, do not forget to update
  * src/container/App.js accordingly.
  */
-const initialState = '';
+const initialState = {
+	modalName: '',
+	modalContent: null
+};
 
 const modalReducer = (state = initialState, action) => {
 	const actionsToTake = {
-		TOGGLE_MODAL: (prevState, modalID) => {
-			return prevState === modalID ? '' : modalID;
+		MODAL_OPEN: (prevState, modal) => {
+			return modal;
+		},
+
+		MODAL_CLOSE: () => {
+			return initialState;
 		},
 
 		DEFAULT: (prevState) => { return prevState; }
