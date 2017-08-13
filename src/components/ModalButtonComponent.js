@@ -8,11 +8,12 @@ import { modalOpen } from '../actions';
 class ModalButtonComponent extends React.PureComponent {
 	constructor(props) {
 		super(props);
-		// TODO: can't seem to get openModal method on class to bind(this), might be bug investigate later
-		this.openModal = () => {
-			const { modalName, modalContent, openModalAction } = this.props;
-			openModalAction({modalName, modalContent});
-		};
+		this.openModal = this.openModal.bind(this);
+	}
+
+	openModal() {
+		const { modalName, modalContent, openModalAction } = this.props;
+		openModalAction({modalName, modalContent});
 	}
 
 	render() {

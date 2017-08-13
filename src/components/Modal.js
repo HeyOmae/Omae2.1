@@ -4,12 +4,22 @@ import PropTypes from 'prop-types';
 import 'styles/Modal.sass';
 
 class ModalComponent extends React.PureComponent {
+	constructor(props) {
+		super(props);
+		this.dismissModal = this.dismissModal.bind(this);
+	}
+	dismissModal(e) {
+		// TODO: this seems really hacker, figure out a better solution
+		if (e.target.className === 'modal') {
+			this.props.closeModal();
+		}
+	}
 	render() {
 		const {modalName, modalContent, closeModal} = this.props;
 		return modalContent && (
 			<div
 				className="modal"
-				onMouseUp={closeModal}
+				onMouseUp={this.dismissModal}
 			>
 				<div className="modal-dialog modal-lg">
 					<div className="modal-content">
