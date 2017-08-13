@@ -138,15 +138,13 @@ class AttributesComponent extends React.PureComponent {
 									<td />
 								</tr>
 							</DisplayTableComponent>
-								<tbody>
-								</tbody>
-							</table>
 						</div>
 					</div>
 					<SpecialComponent
 						elements={attributeElements.special}
 						pointsLeft={specialPointsLeft}
-						magicName={magicName} />
+						magicName={magicName}
+					/>
 				</div>
 			</div>
 		);

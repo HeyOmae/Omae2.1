@@ -1,23 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import GearClass from './GearCreator';
+import DisplayTableComponent from '../DisplayTableComponent';
 import armorMods from '../../data/armorAccessories.json';
 
 function ArmorModsComponent({armorName, usedCapacity, installedMods, index, modArmor, demodArmor}) {
 	return (
 		<div className="col">
 			<p><strong>Capacity:</strong> {usedCapacity}</p>
-			<table className="table table-striped">
-				<thead>
+			<DisplayTableComponent
+				striped
+				invert
+				header={
 					<tr>
 						<th>Name</th>
 						<th>Rating</th>
 						<th>Avail</th>
 						<th>Cost</th>
 					</tr>
-				</thead>
-				<tbody>
-					{
+				}
+			>
+				{
 					armorMods.map((mod) => {
 						return (
 							<ArmorModRow
@@ -31,9 +34,8 @@ function ArmorModsComponent({armorName, usedCapacity, installedMods, index, modA
 							/>
 						);
 					})
-					}
-				</tbody>
-			</table>
+				}
+			</DisplayTableComponent>
 		</div>
 	);
 }

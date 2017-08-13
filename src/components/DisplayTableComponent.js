@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 import 'styles//DisplayTable.scss';
 
-const DisplayTableComponent = ({header, body, children}) => {
+const DisplayTableComponent = ({header, body, children, striped, invert}) => {
 	return (
-		<table className="table table-responsive">
+		<table className={`table table-responsive ${striped && 'table-striped'} ${invert && 'table-inverse'}`}>
 			<thead>{header}</thead>
 			<tbody>{body || children}</tbody>
 		</table>
@@ -15,12 +15,16 @@ const DisplayTableComponent = ({header, body, children}) => {
 DisplayTableComponent.propTypes = {
 	header: PropTypes.element.isRequired,
 	body: PropTypes.arrayOf(PropTypes.element),
-	children: PropTypes.node
+	children: PropTypes.node,
+	striped: PropTypes.bool,
+	invert: PropTypes.bool
 };
 
 DisplayTableComponent.defaultProps = {
 	body: null,
-	children: null
+	children: null,
+	striped: false,
+	invert: false
 };
 
 
