@@ -60,12 +60,7 @@ class ArmorsComponent extends React.PureComponent {
 								modalName={armor.name}
 								modalContent={
 									<ArmorMods
-										armorName={armor.name}
-										usedCapacity={Number(armor.armorcapacity) - (armor.capacity || 0)}
-										installedMods={armor.mods}
 										index={index}
-										modArmor={actions.moddingCapacity}
-										demodArmor={actions.demoddingCapacity}
 									/>
 								} />
 						}

@@ -1,57 +1,63 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { moddingCapacity, demoddingCapacity } from '../../actions';
 import GearClass from './GearCreator';
 import DisplayTableComponent from '../DisplayTableComponent';
 import armorMods from '../../data/armorAccessories.json';
 
-function ArmorModsComponent({armorName, usedCapacity, installedMods, index, modArmor, demodArmor}) {
-	return (
-		<div className="col">
-			<p><strong>Capacity:</strong> {usedCapacity}</p>
-			<DisplayTableComponent
-				striped
-				invert
-				header={
-					<tr>
-						<th>Name</th>
-						<th>Rating</th>
-						<th>Avail</th>
-						<th>Cost</th>
-					</tr>
-				}
-			>
-				{
-					armorMods.map((mod) => {
-						return (
-							<ArmorModRow
-								key={`${armorName}-mod-${mod.name}`}
-								armorName={armorName}
-								mod={mod}
-								selectedMod={!!installedMods[mod.name]}
-								index={index}
-								modArmor={modArmor}
-								demodArmor={demodArmor}
-							/>
-						);
-					})
-				}
-			</DisplayTableComponent>
-		</div>
-	);
+class ArmorModsComponent extends React.PureComponent {
+	render() {
+		const {index, modArmor, demodArmor, armors} = this.props,
+			armor = armors[index],
+			{name, mods = {}} = armor;
+
+		return (
+			<div className="col">
+				<p>
+					<strong>Capacity: </strong>
+					<span className="capacity">
+						{Number(armor.armorcapacity) - (armor.capacity || 0)}
+					</span>
+				</p>
+				<DisplayTableComponent
+					striped
+					invert
+					header={
+						<tr>
+							<th>Name</th>
+							<th>Rating</th>
+							<th>Avail</th>
+							<th>Cost</th>
+						</tr>
+					}
+				>
+					{
+						armorMods.map((mod) => {
+							return (
+								<ArmorModRow
+									key={`${name}-mod-${mod.name}`}
+									armorName={name}
+									mod={mod}
+									selectedMod={!!mods[mod.name]}
+									index={index}
+									modArmor={modArmor}
+									demodArmor={demodArmor}
+								/>
+							);
+						})
+					}
+				</DisplayTableComponent>
+			</div>
+		);
+	}
 }
 
 ArmorModsComponent.propTypes = {
-	armorName: PropTypes.string.isRequired,
-	usedCapacity: PropTypes.number.isRequired,
-	installedMods: PropTypes.objectOf(PropTypes.object),
 	index: PropTypes.number.isRequired,
 	modArmor: PropTypes.func.isRequired,
-	demodArmor: PropTypes.func.isRequired
-};
-
-ArmorModsComponent.defaultProps = {
-	installedMods: {}
+	demodArmor: PropTypes.func.isRequired,
+	armors: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
 const ArmorModRow = ({armorName, mod, selectedMod, index, modArmor, demodArmor}) => {
@@ -67,6 +73,7 @@ const ArmorModRow = ({armorName, mod, selectedMod, index, modArmor, demodArmor})
 					checked={selectedMod}
 					onChange={(e) => {
 						const {name, checked} = e.target;
+						console.log(name);
 						if (checked) {
 							modArmor({
 								index,
@@ -122,11 +129,13 @@ ArmorModRow.propTypes = {
 	selectedMod: PropTypes.bool.isRequired,
 	index: PropTypes.number.isRequired,
 	modArmor: PropTypes.func.isRequired,
-	demodArmor: PropTypes.func.isRequired
+	demodArmor: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => {
-	return {armors: state.purchaseGearState.armors};
+	return {armors: state.purchaseGear.armors};
 };
 
-export default connect(mapStateToProps)(ArmorModsComponent);
+export { ArmorModsComponent, ArmorModRow };
+
+export default connect(mapStateToProps, { modArmor: moddingCapacity, demodArmor: demoddingCapacity })(ArmorModsComponent);

@@ -209,7 +209,7 @@ class WebpackBaseConfig {
 					stores: `${this.srcPathAbsolute}/stores/`,
 					styles: `${this.srcPathAbsolute}/styles/`,
 					'~': `${this.srcPathAbsolute}/`,
-                    data: `${this.srcPathAbsolute}/data/`
+					data: `${this.srcPathAbsolute}/data/`
 
 				},
 				extensions: ['.js', '.jsx'],
