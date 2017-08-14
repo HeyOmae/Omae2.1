@@ -141,7 +141,6 @@ describe('purchaseGear', () => {
 				currentCost: 1750,
 				capacity: 6,
 				mods: {
-					capacity: 6,
 					Nonconductivity: {
 						id: '0cfb049a-a1bd-4daa-96be-9468c37d9c3c',
 						name: 'Nonconductivity',
@@ -515,12 +514,12 @@ describe('purchaseGear', () => {
 			const newState = reducer(state, {type: 'DEMODDING_CAPACITY', parameter: {index: 1, category: 'armors', demodName: 'Faraday Pocket'}});
 
 			expect(newState.armors[1].mods['Faraday Pocket']).to.be.undefined;
-			expect(newState.armors[1].mods.capacity).to.equal(5);
+			expect(newState.armors[1].capacity).to.equal(5);
 			expect(newState.armors[1].currentCost).to.equal(1700);
 			expect(newState.nuyen).to.equal(3300);
 
 			expect(state.armors[1].mods['Faraday Pocket']).to.be.defined;
-			expect(state.armors[1].mods.capacity).to.equal(6);
+			expect(state.armors[1].capacity).to.equal(6);
 			expect(state.armors[1].currentCost).to.equal(1750);
 			expect(state.nuyen).to.equal(3350);
 		});
@@ -529,12 +528,12 @@ describe('purchaseGear', () => {
 			const newState = reducer(state, {type: 'DEMODDING_CAPACITY', parameter: {index: 1, category: 'armors', demodName: 'Nonconductivity'}});
 
 			expect(newState.armors[1].mods['Nonconductivity']).to.be.undefined;
-			expect(newState.armors[1].mods.capacity).to.equal(1);
+			expect(newState.armors[1].capacity).to.equal(1);
 			expect(newState.armors[1].currentCost).to.equal(500);
 			expect(newState.nuyen).to.equal(2100);
 
 			expect(state.armors[1].mods['Faraday Pocket']).to.be.defined;
-			expect(state.armors[1].mods.capacity).to.equal(6);
+			expect(state.armors[1].capacity).to.equal(6);
 			expect(state.armors[1].currentCost).to.equal(1750);
 			expect(state.nuyen).to.equal(3350);
 		});

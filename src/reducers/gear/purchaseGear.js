@@ -219,9 +219,9 @@ const purchaseGearReducer = (state = initialState, action) => {
 					{
 						...gearBeingModded,
 						mods: {
-							...remainingMods,
-							capacity: remainingMods.capacity - capacityToRemove
+							...remainingMods
 						},
+						capacity: gearBeingModded.capacity - capacityToRemove,
 						currentCost: gearBeingModded.currentCost - cost
 					},
 					...gearArray.slice(index + 1)

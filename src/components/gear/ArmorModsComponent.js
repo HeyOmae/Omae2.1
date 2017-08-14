@@ -73,7 +73,6 @@ const ArmorModRow = ({armorName, mod, selectedMod, index, modArmor, demodArmor})
 					checked={selectedMod}
 					onChange={(e) => {
 						const {name, checked} = e.target;
-						console.log(name);
 						if (checked) {
 							modArmor({
 								index,
