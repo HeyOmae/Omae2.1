@@ -168,8 +168,36 @@ describe('purchaseGear', () => {
 						page: "185"
 					}
 				}
-			}
-			],
+			},
+			{
+				id: '4ad1eeab-daf3-4495-a73d-fbb0ce89be5b',
+				name: 'Armor Vest',
+				category: 'Armor',
+				armor: '9',
+				armorcapacity: '9',
+				avail: '4',
+				cost: '500',
+				source: 'SR5',
+				page: '437',
+				currentCost: 1000,
+				capacity: 2,
+				mods: {
+					Nonconductivity: {
+						id: '0cfb049a-a1bd-4daa-96be-9468c37d9c3c',
+						name: 'Nonconductivity',
+						category: 'General',
+						armor: '0',
+						maxrating: '6',
+						armorcapacity: 'FixedValues([1],[2],[3],[4],[5],[6])',
+						avail: '6',
+						cost: 'Rating * 250',
+						source: 'SR5',
+						page: '438',
+						rating: 2,
+						currentCost: 500
+					}
+				}
+			}],
 			nuyen: 3350
 		};
 	});
@@ -478,6 +506,20 @@ describe('purchaseGear', () => {
 
 			expect(state.armors[0].mods).to.be.undefined;
 			expect(state.armors[0].currentCost).to.be.undefined;
+			expect(state.nuyen).to.equal(3350);
+		});
+
+		it('should add not reset mods that have previously been added', () => {
+			const newState = reducer(state, {type: 'MODDING_CAPACITY', parameter: {index: 2, category: 'armors', mod: shockFrills}});
+
+			expect(Object.keys(newState.armors[2].mods).length).to.equal(2);
+			expect(newState.armors[2].mods['Shock Frills']).to.equal(shockFrills);
+			expect(newState.armors[2].currentCost).to.equal(1250);
+			expect(newState.nuyen).to.equal(3600);
+			expect(newState.armors[2].capacity).to.equal(4);
+
+			expect(Object.keys(state.armors[2].mods).length).to.equal(1);
+			expect(state.armors[2].currentCost).to.equal(1000);
 			expect(state.nuyen).to.equal(3350);
 		});
 

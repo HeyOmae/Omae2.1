@@ -193,10 +193,11 @@ const purchaseGearReducer = (state = initialState, action) => {
 					{
 						...gearBeingModded,
 						mods: {
+							...gearBeingModded.mods,
 							[mod.name]: modtoAdd
 						},
 						...(Rating ? {rating: Rating} : null),
-						currentCost: Number(gearBeingModded.cost) + Number(cost),
+						currentCost: Number(gearBeingModded.currentCost || gearBeingModded.cost) + Number(cost),
 						capacity
 					},
 					...gearArray.slice(index + 1)
