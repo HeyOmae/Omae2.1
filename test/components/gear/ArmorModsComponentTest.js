@@ -2,7 +2,8 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import armorMods from 'data/armorAccessories.json';
 
-import { ArmorModsComponent, ArmorModRow } from 'components/gear/ArmorModsComponent';
+import { ArmorModsComponent } from 'components/gear/armor/ArmorModsComponent';
+import ArmorModRow from 'components/gear/armor/ArmorModRow';
 
 const unmoddedGear = {
 		armor: '9',
@@ -102,5 +103,29 @@ describe('<ArmorModsComponent/>', () => {
 			const activeModName = row.props().mod.name;
 			expect(activeModName).to.equal(moddedGear.mods[activeModName].name);
 		});
+	});
+});
+
+describe('<ArmorModRow/>', () => {
+	const setup = () => {
+		const props = {
+			armorName: 'Blue Suede Shoes',
+			mod: {
+				name: 'Rock',
+				maxrating: 6,
+				avail: 12,
+				cost: 200
+			},
+			selectedMod: true,
+			index: 0,
+			modArmor: sinon.spy(),
+			demodArmor: sinon.spy()
+		},
+			armorModRow = shallow(<ArmorModRow {...props} />);
+		return {armorModRow, props};
+	};
+	it('should display "N/A" if the mod does not have a rating', () => {
+		const {armorModRow} = setup();
+		expect(armorModRow.find('.armor-mod--rating').text()).to.equal('N/A');
 	});
 });

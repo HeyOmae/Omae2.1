@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import armorData from '../../data/armor.json';
-import Modal from '../ModalButtonComponent';
+import Modal from '../../ModalButtonComponent';
 import ArmorMods from './ArmorModsComponent';
-import FilterTable from '../FilterableTable';
-import DisplayTable from '../DisplayTableComponent';
-import PropTypeChecking from '../../config/propTypeChecking';
-import ArmorClass from './GearCreator';
-import {GearRatingComponent, GearCostComponent} from './displayComponents';
+import FilterTable from '../../FilterableTable';
+import DisplayTable from '../../DisplayTableComponent';
+import PropTypeChecking from '../../../config/propTypeChecking';
+import ArmorClass from '../GearCreator';
+import {GearRatingComponent, GearCostComponent} from '../displayComponents';
 
 class ArmorsComponent extends React.PureComponent {
 	componentWillMount() {
