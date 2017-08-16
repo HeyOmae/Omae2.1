@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import armorData from '../../data/armor.json';
+import armorData from 'data/armor.json';
 import Modal from '../../ModalButtonComponent';
 import ArmorMods from './ArmorModsComponent';
 import FilterTable from '../../FilterableTable';

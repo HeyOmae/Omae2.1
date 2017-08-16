@@ -105,27 +105,3 @@ describe('<ArmorModsComponent/>', () => {
 		});
 	});
 });
-
-describe('<ArmorModRow/>', () => {
-	const setup = () => {
-		const props = {
-			armorName: 'Blue Suede Shoes',
-			mod: {
-				name: 'Rock',
-				maxrating: 6,
-				avail: 12,
-				cost: 200
-			},
-			selectedMod: true,
-			index: 0,
-			modArmor: sinon.spy(),
-			demodArmor: sinon.spy()
-		},
-			armorModRow = shallow(<ArmorModRow {...props} />);
-		return {armorModRow, props};
-	};
-	it('should display "N/A" if the mod does not have a rating', () => {
-		const {armorModRow} = setup();
-		expect(armorModRow.find('.armor-mod--rating').text()).to.equal('N/A');
-	});
-});
