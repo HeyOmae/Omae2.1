@@ -22,6 +22,11 @@ describe('<ArmorModRow/>', () => {
 		return {armorModRow, props};
 	};
 
+	it('should set mod to state', () => {
+		const {armorModRow, props} = setup();
+		expect(armorModRow.state().mod).to.equal(props.mod);
+	});
+
 	it('should display "N/A" if the mod does not have a rating', () => {
 		const {armorModRow} = setup();
 		expect(armorModRow.find('.armor-mod--rating').text()).to.equal('N/A');

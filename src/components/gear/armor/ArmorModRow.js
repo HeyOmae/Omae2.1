@@ -2,6 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class ArmorModRow extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			mod: props.mod
+		};
+	}
+
 	render() {
 		const {armorName, mod, selectedMod, index, modArmor, demodArmor} = this.props,
 			oneWordArmorName = armorName.replace(/\s/g, '');
@@ -21,7 +28,7 @@ class ArmorModRow extends React.Component {
 								modArmor({
 									index,
 									category: 'armors',
-									mod: mod
+									mod
 								});
 							} else {
 								demodArmor({
