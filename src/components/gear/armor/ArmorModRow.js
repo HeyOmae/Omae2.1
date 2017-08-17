@@ -3,12 +3,14 @@ import PropTypes from 'prop-types';
 
 class ArmorModRow extends React.Component {
 	render() {
-		const {armorName, mod, selectedMod, index, modArmor, demodArmor} = this.props;
+		const {armorName, mod, selectedMod, index, modArmor, demodArmor} = this.props,
+			oneWordArmorName = armorName.replace(/\s/g, '');
+
 		return (
 			<tr>
 				<td className="input-group">
 					<input
-						id={`${armorName}-mod-${mod.name}`}
+						id={`${oneWordArmorName}-mod-${mod.name}`}
 						name={mod.name}
 						type="checkbox"
 						className="form-control"
@@ -19,7 +21,7 @@ class ArmorModRow extends React.Component {
 								modArmor({
 									index,
 									category: 'armors',
-									mod: this.state.mod
+									mod: mod
 								});
 							} else {
 								demodArmor({
@@ -31,7 +33,8 @@ class ArmorModRow extends React.Component {
 						}}
 					/>
 					<label
-						htmlFor={`${armorName}-mod-${mod.name}`}
+						className="armor-mod--name"
+						htmlFor={`${oneWordArmorName}-mod-${mod.name}`}
 					>
 						{mod.name}
 					</label>
@@ -47,10 +50,10 @@ class ArmorModRow extends React.Component {
 						: 'N/A'
 					}
 				</td>
-				<td>
+				<td className="armor-mod--avail">
 					{mod.avail}
 				</td>
-				<td>
+				<td className="armor-mod--cost">
 					{mod.cost}&yen;
 				</td>
 			</tr>
