@@ -7,6 +7,20 @@ class ArmorModRow extends React.Component {
 		this.state = {
 			mod: props.mod
 		};
+
+		this.updateRating = this.updateRating.bind(this);
+	}
+
+	updateRating(e) {
+		const { value } = e.target;
+		this.setState((prevState) => {
+			return {
+				mod: {
+					...prevState.mod,
+					rating: value
+				}
+			};
+		});
 	}
 
 	render() {
@@ -28,7 +42,7 @@ class ArmorModRow extends React.Component {
 								modArmor({
 									index,
 									category: 'armors',
-									mod
+									mod: this.state.mod
 								});
 							} else {
 								demodArmor({

@@ -12,7 +12,8 @@ module.exports = function karmaConfig(config) {
 		frameworks: [
 			'mocha',
 			'chai',
-			'sinon'
+			'sinon',
+			'sinon-chai'
 		],
 		client: {
 			captureConsole: true,
