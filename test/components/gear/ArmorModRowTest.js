@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import ArmorModRow from 'components/gear/armor/ArmorModRow';
 
 describe('<ArmorModRow/>', () => {
-	const setup = (cost = '200', selectedMod = true) => {
+	const setup = (cost = '200', selectedMod = true, currentRating) => {
 		const props = {
 			armorName: 'Blue Suede Shoes',
 			mod: {
@@ -15,6 +15,7 @@ describe('<ArmorModRow/>', () => {
 			},
 			selectedMod,
 			index: 0,
+			currentRating,
 			modArmor: sinon.spy(),
 			demodArmor: sinon.spy()
 		},
@@ -28,11 +29,6 @@ describe('<ArmorModRow/>', () => {
 		expect(armorModRow.find('label').text()).to.equal('Rock');
 		expect(armorModRow.find('.armor-mod--avail').text()).to.equal('12');
 		expect(armorModRow.find('.armor-mod--cost').text()).to.equal('200¥');
-	});
-
-	it('should set mod to state', () => {
-		const {armorModRow, props} = setup();
-		expect(armorModRow.state().mod).to.equal(props.mod);
 	});
 
 	describe('mod rating input', () => {
@@ -49,12 +45,18 @@ describe('<ArmorModRow/>', () => {
 			expect(ratingInput.props().placeholder).to.equal('1-6');
 		});
 
+		it('should display the currentRating of the mod if supplied', () => {
+			const {armorModRow} = setup('Rating * 100', true, 6);
+
+			expect(armorModRow.find('.armor-mod--rating input').props().value).to.equal(6);
+		})
+
 		it('should set the rating of the state.mod on change', () => {
 			const { armorModRow } = setup('Rating * 100'),
 				ratingInput = armorModRow.find('.armor-mod--rating input');
 			ratingInput.simulate('change', {target: {value: '2'}});
 
-			expect(armorModRow.state().mod.rating).to.equal('2');
+			expect(armorModRow.state().Rating).to.equal('2');
 		});
 	});
 
@@ -88,19 +90,35 @@ describe('<ArmorModRow/>', () => {
 			expect(props.demodArmor.calledOnce).to.be.true;
 		});
 
-		it('should send mod from state with updated rating', () => {
-			const {armorModRow, props} = setup(undefined, false),
+		it('should fire modArmor with index, category, mod, and Rating', () => {
+			const {armorModRow, props} = setup('Rating * 100', false),
 				checkbox = armorModRow.find('#BlueSuedeShoes-mod-Rock'),
-				moddedMod = { ...props.mod, rating: '3' };
+				Rating = '3';
 
-
-			armorModRow.setState({mod: moddedMod});
+			armorModRow.find('.armor-mod--rating input').simulate('change', {target: {value: Rating}});
 
 			checkbox.simulate('change', {target: {name: 'Rock', checked: true}});
 			expect(props.modArmor).to.have.been.calledWith({
 				index: 0,
 				category: 'armors',
-				mod: moddedMod
+				mod: props.mod,
+				Rating
+			});
+		});
+
+		it('should fire modArmor with Rating 1 if none is selected', () => {
+			const {armorModRow, props} = setup('Rating * 100', false),
+				checkbox = armorModRow.find('#BlueSuedeShoes-mod-Rock'),
+				Rating = '';
+
+			armorModRow.find('.armor-mod--rating input').simulate('change', {target: {value: Rating}});
+
+			checkbox.simulate('change', {target: {name: 'Rock', checked: true}});
+			expect(props.modArmor).to.have.been.calledWith({
+				index: 0,
+				category: 'armors',
+				mod: props.mod,
+				Rating: 1
 			});
 		});
 	});

@@ -43,6 +43,7 @@ class ArmorModsComponent extends React.PureComponent {
 									index={index}
 									modArmor={modArmor}
 									demodArmor={demodArmor}
+									currentRating={mods[mod.name] && mods[mod.name].currentRating}
 								/>
 							);
 						})

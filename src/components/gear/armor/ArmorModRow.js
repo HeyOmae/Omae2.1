@@ -4,27 +4,42 @@ import PropTypes from 'prop-types';
 class ArmorModRow extends React.Component {
 	constructor(props) {
 		super(props);
+
 		this.state = {
-			mod: props.mod
+			Rating: props.currentRating
 		};
 
 		this.updateRating = this.updateRating.bind(this);
+		this.modifying = this.modifying.bind(this);
 	}
 
 	updateRating(e) {
 		const { value } = e.target;
-		this.setState((prevState) => {
-			return {
-				mod: {
-					...prevState.mod,
-					rating: value
-				}
-			};
-		});
+		this.setState({Rating: value});
+	}
+
+	modifying(e) {
+		const {mod, index, modArmor, demodArmor} = this.props,
+			{name, checked} = e.target;
+
+		if (checked) {
+			modArmor({
+				index,
+				category: 'armors',
+				mod,
+				Rating: isNaN(mod.cost) && (this.state.Rating || 1)
+			});
+		} else {
+			demodArmor({
+				index,
+				category: 'armors',
+				demodName: name
+			});
+		}
 	}
 
 	render() {
-		const {armorName, mod, selectedMod, index, modArmor, demodArmor} = this.props,
+		const {armorName, mod, selectedMod} = this.props,
 			oneWordArmorName = armorName.replace(/\s/g, '');
 
 		return (
@@ -36,22 +51,7 @@ class ArmorModRow extends React.Component {
 						type="checkbox"
 						className="form-control"
 						checked={selectedMod}
-						onChange={(e) => {
-							const {name, checked} = e.target;
-							if (checked) {
-								modArmor({
-									index,
-									category: 'armors',
-									mod: this.state.mod
-								});
-							} else {
-								demodArmor({
-									index,
-									category: 'armors',
-									demodName: name
-								});
-							}
-						}}
+						onChange={this.modifying}
 					/>
 					<label
 						className="armor-mod--name"
@@ -67,6 +67,7 @@ class ArmorModRow extends React.Component {
 							type="number"
 							placeholder={`1-${mod.maxrating}`}
 							onChange={this.updateRating}
+							value={this.state.Rating}
 						/>
 						: 'N/A'
 					}
@@ -94,6 +95,11 @@ ArmorModRow.propTypes = {
 	index: PropTypes.number.isRequired,
 	modArmor: PropTypes.func.isRequired,
 	demodArmor: PropTypes.func.isRequired,
+	currentRating: PropTypes.string
+};
+
+ArmorModRow.defaultProps = {
+	currentRating: undefined
 };
 
 export default ArmorModRow;

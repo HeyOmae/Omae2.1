@@ -152,7 +152,7 @@ describe('purchaseGear', () => {
 						cost: 'Rating * 250',
 						source: 'SR5',
 						page: '438',
-						rating: 5,
+						currentRating: 5,
 						currentCost: 1250
 					},
 					'Faraday Pocket': {
@@ -193,7 +193,7 @@ describe('purchaseGear', () => {
 						cost: 'Rating * 250',
 						source: 'SR5',
 						page: '438',
-						rating: 2,
+						currentRating: 2,
 						currentCost: 500
 					}
 				}
