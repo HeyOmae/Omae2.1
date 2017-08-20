@@ -15,6 +15,7 @@ const AppComponent = ({style}) => {
 					onChange={(e) => { style({styleTheme: e.target.value}); }}>
 					<option value="">OutRun</option>
 					<option value="mundane">Mundane</option>
+					<option value="night-watch">Night Watch</option>
 					<option value="cyber-terminal">CyberTerminal</option>
 				</select>
 			</div>

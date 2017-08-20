@@ -42,15 +42,9 @@ h2 {
 }
 
 /******* Style Themes *******/
-.mundane {
-	font-family: Sans-Serif;
-	color: black;
-	background: none;
 
-	strong, .table-success {
-		color: black;
-		font-weight: 800;
-	}
+.night-watch, .mundane {
+	font-family: Sans-Serif;
 
 	button {
 		font-family: Sans-Serif;
@@ -62,8 +56,32 @@ h2 {
 
 	h1, h2, h3, h4 {
 		font-family: Sans-serif;
-		color: black;
+		color: inherit;
 		text-shadow: none;
+	}
+}
+
+.mundane {
+	color: black;
+	background: none;
+
+	strong, .table-success {
+		color: inherit;
+		font-weight: 800;
+	}
+}
+
+.night-watch {
+	color: ghostwhite;
+	background: black;
+
+	strong {
+		color: inherit;
+	}
+
+	.table-success {
+		color: black;
+		font-weight: 800;
 	}
 }
 
