@@ -83,25 +83,40 @@ describe('<ArmorModsComponent/>', () => {
 		expect(armorModsComponent.find('.capacity').text()).to.equal('7');
 	});
 
-	it('should pass the correct props to <ArmorModRow/>', () => {
-		const { armorModsComponent, props } = setup();
+	describe('<ArmorModRow/>', () => {
+		it('should get the correct props passed down', () => {
+			const { armorModsComponent, props } = setup();
 
-		armorModsComponent.find(ArmorModRow).forEach((row) => {
-			expect(row.props().armorName).to.equal('Armor Vest');
-			expect(row.props().index).to.equal(0);
-			expect(row.props().modArmor).to.equal(props.modArmor);
-			expect(row.props().demodArmor).to.equal(props.demodArmor);
+			armorModsComponent.find(ArmorModRow).forEach((row) => {
+				expect(row.props().armorName).to.equal('Armor Vest');
+				expect(row.props().index).to.equal(0);
+				expect(row.props().modArmor).to.equal(props.modArmor);
+				expect(row.props().demodArmor).to.equal(props.demodArmor);
+			});
 		});
-	});
 
-	it('should set the <ArmorModRow/> selectedMod to true if the mod is in the armor mods object', () => {
-		const {armorModsComponent, props} = setup(1);
+		it('should set selectedMod to true if the mod is in the armor mods object', () => {
+			const {armorModsComponent, props} = setup(1);
 
-		const activeModRows = armorModsComponent.find({selectedMod: true});
+			const activeModRows = armorModsComponent.find({selectedMod: true});
 
-		activeModRows.forEach((row) => {
-			const activeModName = row.props().mod.name;
-			expect(activeModName).to.equal(moddedGear.mods[activeModName].name);
+			activeModRows.forEach((row) => {
+				const activeModName = row.props().mod.name;
+				expect(activeModName).to.equal(moddedGear.mods[activeModName].name);
+			});
 		});
+
+		it('should pass the currentRating of the mod if it is selected with a rating', () => {
+			const {armorModsComponent, props} = setup(1);
+
+			const activeModRows = armorModsComponent.find({selectedMod: true});
+
+			activeModRows.forEach((row) => {
+				const activeModName = row.props().mod.name;
+				const activeModRating = row.props().currentRating;
+				expect(activeModRating).to.equal(moddedGear.mods[activeModName].currentRating);
+			});
+		});
+
 	});
 });
