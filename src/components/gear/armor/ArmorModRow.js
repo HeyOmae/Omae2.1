@@ -14,7 +14,16 @@ class ArmorModRow extends React.Component {
 	}
 
 	updateRating(e) {
-		this.setState({Rating: e.target.value});
+		let value = Number(e.target.value);
+		const {mod} = this.props;
+
+		if (value > mod.maxrating) {
+			value = mod.maxrating;
+		} else if (value < 1) {
+			value = '';
+		}
+
+		this.setState({Rating: value});
 	}
 
 	modifying(e) {

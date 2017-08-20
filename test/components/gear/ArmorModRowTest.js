@@ -58,6 +58,22 @@ describe('<ArmorModRow/>', () => {
 
 			expect(armorModRow.state().Rating).to.equal('2');
 		});
+
+		it('should set any number over the maxrating to the maxrating', () => {
+			const { armorModRow } = setup('Rating * 100'),
+				ratingInput = armorModRow.find('.armor-mod--rating input');
+			ratingInput.simulate('change', {target: {value: '7'}});
+
+			expect(armorModRow.state().Rating).to.equal('6');
+		});
+
+		it('should set number lower then 1 to empty string', () => {
+			const { armorModRow } = setup('Rating * 100'),
+				ratingInput = armorModRow.find('.armor-mod--rating input');
+			ratingInput.simulate('change', {target: {value: '-1'}});
+
+			expect(armorModRow.state().Rating).to.equal('');
+		});
 	});
 
 	describe('checkbox', () => {
