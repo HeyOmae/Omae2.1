@@ -6,7 +6,7 @@ class ArmorModRow extends React.Component {
 		super(props);
 
 		this.state = {
-			Rating: props.currentRating
+			Rating: (props.currentRating || '')
 		};
 
 		this.updateRating = this.updateRating.bind(this);
@@ -94,11 +94,11 @@ ArmorModRow.propTypes = {
 	index: PropTypes.number.isRequired,
 	modArmor: PropTypes.func.isRequired,
 	demodArmor: PropTypes.func.isRequired,
-	currentRating: PropTypes.string
+	currentRating: PropTypes.number
 };
 
 ArmorModRow.defaultProps = {
-	currentRating: undefined
+	currentRating: 0
 };
 
 export default ArmorModRow;

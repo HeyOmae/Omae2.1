@@ -536,17 +536,30 @@ describe('purchaseGear', () => {
 		});
 
 		it('should add a mod with a rating and calculate the currentCost based off of the rating', () => {
-			const newState = reducer(state, {type: 'MODDING_CAPACITY', parameter: {index: 0, category: 'armors', mod: thermalDamp, Rating: 3}});
+			const newState = reducer(state, {type: 'MODDING_CAPACITY', parameter: {index: 0, category: 'armors', mod: thermalDamp, Rating: '3'}});
 
 			expect(newState.armors[0].mods['Thermal Damping'].currentCost).to.equal(1500);
 			expect(newState.armors[0].mods['Thermal Damping'].currentRating).to.equal(3);
 			expect(newState.armors[0].currentCost).to.equal(3000);
-			expect(newState.armors[0].rating).to.equal(3);
 			expect(newState.armors[0].capacity).to.equal(3);
 			expect(newState.nuyen).to.equal(4850);
 
 			expect(state.armors[0].mods).to.be.undefined;
 			expect(state.armors[0].currentCost).to.be.undefined;
+			expect(state.nuyen).to.equal(3350);
+		});
+
+		it('should calculate the capacity when adding a mod with rating to gear that has been modded', () => {
+			const newState = reducer(state, {type: 'MODDING_CAPACITY', parameter: {index: 2, category: 'armors', mod: thermalDamp, Rating: '3'}});
+
+			expect(newState.armors[2].mods['Thermal Damping'].currentCost).to.equal(1500);
+			expect(newState.armors[2].mods['Thermal Damping'].currentRating).to.equal(3);
+			expect(newState.armors[2].currentCost).to.equal(2500);
+			expect(newState.armors[2].capacity).to.equal(5);
+			expect(newState.nuyen).to.equal(4850);
+
+			expect(Object.keys(state.armors[2].mods).length).to.equal(1);
+			expect(state.armors[2].currentCost).to.equal(1000);
 			expect(state.nuyen).to.equal(3350);
 		});
 	});

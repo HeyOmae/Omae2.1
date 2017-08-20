@@ -3,18 +3,21 @@ import PropTypes from 'prop-types';
 
 import {GearRatingComponent, GearCostComponent} from '../displayComponents';
 
-function ArmorTableRow({armor, button, armorGear, mod}) {
-	return (
-		<tr>
-			<td>{button}</td>
-			<td>{mod || armor.name}</td>
-			<td>{armor.armor}</td>
-			<td><GearRatingComponent gear={armorGear} defaultValue={`${armor.currentRating || armor.armorcapacity}`} /></td>
-			<td>{armor.avail}</td>
-			<td><GearCostComponent cost={armor.cost} currentCost={armor.currentCost} gear={armorGear} /></td>
-			<td>{armor.source} p{armor.page}</td>
-		</tr>
-	);
+class ArmorTableRow extends React.PureComponent {
+	render() {
+		const {armor, button, armorGear, mod} = this.props;
+		return (
+			<tr>
+				<td>{button}</td>
+				<td>{mod || armor.name}</td>
+				<td>{armor.armor}</td>
+				<td><GearRatingComponent gear={armorGear} defaultValue={`${armor.currentRating || armor.armorcapacity}`} /></td>
+				<td>{armor.avail}</td>
+				<td><GearCostComponent cost={armor.cost} currentCost={armor.currentCost} gear={armorGear} /></td>
+				<td>{armor.source} p{armor.page}</td>
+			</tr>
+		);
+	}
 }
 
 ArmorTableRow.propTypes = {
