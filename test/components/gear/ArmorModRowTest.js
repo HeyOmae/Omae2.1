@@ -56,7 +56,7 @@ describe('<ArmorModRow/>', () => {
 				ratingInput = armorModRow.find('.armor-mod--rating input');
 			ratingInput.simulate('change', {target: {value: '2'}});
 
-			expect(armorModRow.state().Rating).to.equal('2');
+			expect(armorModRow.state().Rating).to.equal(2);
 		});
 
 		it('should set any number over the maxrating to the maxrating', () => {
@@ -118,7 +118,7 @@ describe('<ArmorModRow/>', () => {
 				index: 0,
 				category: 'armors',
 				mod: props.mod,
-				Rating
+				Rating: 3
 			});
 		});
 
