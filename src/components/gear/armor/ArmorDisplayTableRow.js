@@ -1,20 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {GearRatingComponent, GearCostComponent} from '../displayComponents';
-
 class ArmorTableRow extends React.PureComponent {
 	render() {
-		const {armor, button, armorGear, mod} = this.props;
+		const {armor, button, mod} = this.props;
 		return (
 			<tr>
-				<td>{button}</td>
-				<td>{mod || armor.name}</td>
-				<td>{armor.armor}</td>
-				<td><GearRatingComponent gear={armorGear} defaultValue={`${armor.currentRating || armor.armorcapacity}`} /></td>
-				<td>{armor.avail}</td>
-				<td><GearCostComponent cost={armor.cost} currentCost={armor.currentCost} gear={armorGear} /></td>
-				<td>{armor.source} p{armor.page}</td>
+				<td className="armor-button">{button}</td>
+				<td className="armor-name">{mod || armor.name}</td>
+				<td className="armor-value">{armor.armor}</td>
+				<td className="armor-capacity">{`${armor.currentRating || armor.armorcapacity}`}</td>
+				<td className="armor-avail">{armor.avail}</td>
+				<td className="armor-cost">{armor.currentCost || armor.cost}</td>
+				<td className="armor-ref">{armor.source} p{armor.page}</td>
 			</tr>
 		);
 	}
@@ -28,12 +26,10 @@ ArmorTableRow.propTypes = {
 		avail: PropTypes.string.isRequired,
 		cost: PropTypes.string.isRequired,
 		source: PropTypes.string.isRequired,
-		page: PropTypes.string.isRequired
+		page: PropTypes.string.isRequired,
+		currentCost: PropTypes.string,
+		currentRating: PropTypes.string
 	}).isRequired,
-	armorGear: PropTypes.shape({
-		gear: PropTypes.object.isRequired,
-		updateCost: PropTypes.func.isRequired
-	}),
 	button: PropTypes.element.isRequired,
 	mod: PropTypes.element
 };
