@@ -4,17 +4,19 @@ import { shallow } from 'enzyme';
 import ArmorDisplayTableRow from 'components/gear/armor/ArmorDisplayTableRow';
 
 describe('<ArmorDisplayTableRow />', () => {
-	const setup = ({mod, currentRating, currentCost} = {}) => {
+	const setup = ({mod, currentRating, currentCost, rating} = {}, cost = '1000') => {
 		const props = {
 			armor: {
 				name: 'Zoot suit',
 				armor: '9',
 				armorcapacity: '8',
 				avail: '10',
-				cost: '1000',
+				cost,
 				source: 'FAKE',
 				page: '40',
-				currentRating, currentCost
+				rating,
+				currentRating,
+				currentCost
 			},
 			button: <button>+</button>,
 			mod
@@ -43,10 +45,25 @@ describe('<ArmorDisplayTableRow />', () => {
 	});
 
 	it('should display the currentRating and currentCost instead', () => {
-		const { armorDisplayTableRow, props } = setup({currentRating: '5', currentCost: '1500'});
+		const { armorDisplayTableRow, props } = setup({currentRating: 5, currentCost: 1500});
 
-		expect(armorDisplayTableRow.find('.armor-capacity').text()).to.equal(props.armor.currentRating);
-		expect(armorDisplayTableRow.find('.armor-cost').text()).to.equal(props.armor.currentCost);
+		expect(armorDisplayTableRow.find('.armor-capacity').text()).to.equal(props.armor.currentRating.toString());
+		expect(armorDisplayTableRow.find('.armor-cost').text()).to.equal(props.armor.currentCost.toString());
+	});
 
+	describe('armor rating', () => {
+		it('should be set to state if cost isNaN', () => {
+			const { armorDisplayTableRow } = setup({rating: '6'}, '400 * Rating');
+
+			expect(armorDisplayTableRow.state().Rating).to.equal('');
+		});
+
+		it('should display an input field instead of capacity', () => {
+			const { armorDisplayTableRow } = setup({rating: '6'}, '400 * Rating');
+
+			const capacity = armorDisplayTableRow.find('.armor-capacity');
+
+			expect(capacity.find('input')).to.have.lengthOf(1);
+		});
 	});
 });
