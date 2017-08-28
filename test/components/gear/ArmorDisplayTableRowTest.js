@@ -34,7 +34,7 @@ describe('<ArmorDisplayTableRow />', () => {
 		expect(armorDisplayTableRow.find('.armor-value').text()).to.equal(props.armor.armor);
 		expect(armorDisplayTableRow.find('.armor-capacity').text()).to.equal(props.armor.armorcapacity);
 		expect(armorDisplayTableRow.find('.armor-avail').text()).to.equal(props.armor.avail);
-		expect(armorDisplayTableRow.find('.armor-cost').text()).to.equal(props.armor.cost);
+		expect(armorDisplayTableRow.find('.armor-cost').text()).to.equal(`${props.armor.cost}¥`);
 		expect(armorDisplayTableRow.find('.armor-ref').text()).to.equal(`${props.armor.source} p${props.armor.page}`);
 	});
 
@@ -48,7 +48,7 @@ describe('<ArmorDisplayTableRow />', () => {
 		const { armorDisplayTableRow, props } = setup({currentRating: 5, currentCost: 1500});
 
 		expect(armorDisplayTableRow.find('.armor-capacity').text()).to.equal(props.armor.currentRating.toString());
-		expect(armorDisplayTableRow.find('.armor-cost').text()).to.equal(props.armor.currentCost.toString());
+		expect(armorDisplayTableRow.find('.armor-cost').text()).to.equal(`${props.armor.currentCost.toString()}¥`);
 	});
 
 	describe('armor rating', () => {

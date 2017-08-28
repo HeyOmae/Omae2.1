@@ -32,7 +32,7 @@ class ArmorTableRow extends React.PureComponent {
 					}
 				</td>
 				<td className="armor-avail">{armor.avail}</td>
-				<td className="armor-cost">{armor.currentCost || armor.cost}</td>
+				<td className="armor-cost">{armor.currentCost || armor.cost}&yen;</td>
 				<td className="armor-ref">{armor.source} p{armor.page}</td>
 			</tr>
 		);
