@@ -6,8 +6,16 @@ class ArmorTableRow extends React.PureComponent {
 		super(props);
 
 		this.state = {
-			Rating: isNaN(props.armor.cost) ? '' : null
+			Rating: (props.armor.rating) ? '' : null
 		};
+
+		this.updateRating = this.updateRating.bind(this);
+	}
+
+	updateRating({ target }) {
+		this.setState({
+			Rating: target.value
+		});
 	}
 
 	render() {
@@ -28,6 +36,7 @@ class ArmorTableRow extends React.PureComponent {
 							min="1"
 							max={armor.rating}
 							placeholder={`1-${armor.rating}`}
+							onChange={this.updateRating}
 						/>
 					}
 				</td>

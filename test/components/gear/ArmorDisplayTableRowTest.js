@@ -52,7 +52,7 @@ describe('<ArmorDisplayTableRow />', () => {
 	});
 
 	describe('armor rating', () => {
-		it('should be set to state if cost isNaN', () => {
+		it('should be set to state if the armor has rating', () => {
 			const { armorDisplayTableRow } = setup({rating: '6'}, '400 * Rating');
 
 			expect(armorDisplayTableRow.state().Rating).to.equal('');
@@ -64,6 +64,14 @@ describe('<ArmorDisplayTableRow />', () => {
 			const capacity = armorDisplayTableRow.find('.armor-capacity');
 
 			expect(capacity.find('input')).to.have.lengthOf(1);
+		});
+
+		describe('onChange', () => {
+			const { armorDisplayTableRow } = setup({rating: '6'}, '400 * Rating');
+
+			armorDisplayTableRow.find('input').simulate('change', { target: { value: '3' } });
+
+			expect(armorDisplayTableRow.state('Rating')).to.equal('3');
 		});
 	});
 });
