@@ -13,8 +13,17 @@ class ArmorTableRow extends React.PureComponent {
 	}
 
 	updateRating({ target }) {
+		const { rating } = this.props.armor;
+		let { value } = target;
+
+		if (value > rating) {
+			value = rating;
+		} else if (value < 1) {
+			value = '';
+		}
+
 		this.setState({
-			Rating: target.value
+			Rating: value
 		});
 	}
 
@@ -37,6 +46,7 @@ class ArmorTableRow extends React.PureComponent {
 							max={armor.rating}
 							placeholder={`1-${armor.rating}`}
 							onChange={this.updateRating}
+							value={this.state.Rating}
 						/>
 					}
 				</td>

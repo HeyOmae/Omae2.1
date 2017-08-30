@@ -66,12 +66,44 @@ describe('<ArmorDisplayTableRow />', () => {
 			expect(capacity.find('input')).to.have.lengthOf(1);
 		});
 
-		describe('onChange', () => {
+		it('should set the value of the input field to the state.Rating', () => {
 			const { armorDisplayTableRow } = setup({rating: '6'}, '400 * Rating');
 
-			armorDisplayTableRow.find('input').simulate('change', { target: { value: '3' } });
+			expect(armorDisplayTableRow.find('input').props().value).to.equal('');
+		});
 
-			expect(armorDisplayTableRow.state('Rating')).to.equal('3');
+		describe('onChange', () => {
+			it('should update the Rating on state', () => {
+				const { armorDisplayTableRow } = setup({rating: '6'}, '400 * Rating');
+
+				armorDisplayTableRow.find('input').simulate('change', { target: { value: '3' } });
+
+				expect(armorDisplayTableRow.state('Rating')).to.equal('3');
+			});
+			
+			it('should update the value of the input field', () => {
+				const { armorDisplayTableRow } = setup({rating: '6'}, '400 * Rating');
+
+				armorDisplayTableRow.find('input').simulate('change', { target: { value: '1' } });
+
+				expect(armorDisplayTableRow.find('input').props().value).to.equal('1');
+			});
+
+			it('should update the value to the max rating if given a number over', () => {
+				const { armorDisplayTableRow } = setup({rating: '6'}, '400 * Rating');
+
+				armorDisplayTableRow.find('input').simulate('change', { target: { value: '7' } });
+
+				expect(armorDisplayTableRow.state('Rating')).to.equal('6');
+			});
+
+			it('should set the value to empty string if less then 1', () => {
+				const { armorDisplayTableRow } = setup({rating: '6'}, '400 * Rating');
+
+				armorDisplayTableRow.find('input').simulate('change', { target: { value: '0' } });
+
+				expect(armorDisplayTableRow.state('Rating')).to.equal('');
+			});
 		});
 	});
 });
