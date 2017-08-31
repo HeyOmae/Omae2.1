@@ -4,7 +4,13 @@ import { shallow } from 'enzyme';
 import ArmorDisplayTableRow from 'components/gear/armor/ArmorDisplayTableRow';
 
 describe('<ArmorDisplayTableRow />', () => {
-	const setup = ({mod, currentRating, currentCost, rating} = {}, cost = '1000') => {
+	const setup = (
+		{ mod, currentRating, currentCost, rating } = {},
+		cost = '1000',
+		btnAction = () => {
+			return sinon.spy();
+		}
+	) => {
 		const props = {
 			armor: {
 				name: 'Zoot suit',
@@ -18,8 +24,10 @@ describe('<ArmorDisplayTableRow />', () => {
 				currentRating,
 				currentCost
 			},
-			button: <button>+</button>,
-			mod
+			btnClass: 'btn-success',
+			btnAction,
+			mod,
+			index: 1
 		},
 			armorDisplayTableRow = shallow(<ArmorDisplayTableRow {...props} />);
 
@@ -49,6 +57,21 @@ describe('<ArmorDisplayTableRow />', () => {
 
 		expect(armorDisplayTableRow.find('.armor-capacity').text()).to.equal(props.armor.currentRating.toString());
 		expect(armorDisplayTableRow.find('.armor-cost').text()).to.equal(`${props.armor.currentCost.toString()}¥`);
+	});
+
+	describe('button', () => {
+		it('should set class based off props', () => {
+			const { armorDisplayTableRow } = setup();
+
+			expect(armorDisplayTableRow.find('button').props().className).to.equal('btn btn-success');
+		});
+
+		it('should set the onClick event of the button to the callback value of btnAction', () => {
+			const testCallback = sinon.spy();
+			const { armorDisplayTableRow, props } = setup({}, '1000', testCallback);
+
+			expect(testCallback).to.have.been.calledWith({armor: props.armor, state: {Rating: null}, index: 1});
+		});
 	});
 
 	describe('armor rating', () => {

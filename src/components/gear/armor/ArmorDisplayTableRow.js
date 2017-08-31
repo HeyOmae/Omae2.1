@@ -28,10 +28,17 @@ class ArmorTableRow extends React.PureComponent {
 	}
 
 	render() {
-		const {armor, button, mod} = this.props;
+		const {armor, btnClass, btnAction, mod, index} = this.props;
 		return (
 			<tr>
-				<td className="armor-button">{button}</td>
+				<td className="armor-button">
+					<button
+						className={`btn ${btnClass}`}
+						onClick={btnAction({armor, index, state: this.state})}
+					>
+						+
+					</button>
+				</td>
 				<td className="armor-name">{mod || armor.name}</td>
 				<td className="armor-value">{armor.armor}</td>
 				<td className="armor-capacity">
@@ -71,13 +78,15 @@ ArmorTableRow.propTypes = {
 		currentCost: PropTypes.number,
 		currentRating: PropTypes.number
 	}).isRequired,
-	button: PropTypes.element.isRequired,
-	mod: PropTypes.element
+	btnClass: PropTypes.string.isRequired,
+	btnAction: PropTypes.func.isRequired,
+	mod: PropTypes.element,
+	index: PropTypes.number.isRequired
 };
 
 ArmorTableRow.defaultProps = {
 	armorGear: null,
-	mod: null
+	mod: null,
 };
 
 export default ArmorTableRow;
