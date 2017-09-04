@@ -72,6 +72,22 @@ describe('<ArmorDisplayTableRow />', () => {
 
 			expect(testCallback).to.have.been.calledWith({armor: props.armor, state: {Rating: null}, index: 1});
 		});
+
+		it('should fire the purchanseGear action with armor and state correctly on click', () => {
+			const action = sinon.spy(),
+				buyActionGenerator = ({armor, state}) => {
+					return () => {
+
+						action({gear: armor, category: 'armors', Rating: state.Rating});
+					}
+				};
+			const { armorDisplayTableRow, props } = setup({}, '1000', buyActionGenerator);
+
+			armorDisplayTableRow.find('button').simulate('click');
+
+			expect(action).to.have.been.calledWith({gear: props.armor, category: 
+				'armors', Rating: null});
+		});
 	});
 
 	describe('armor rating', () => {
@@ -127,6 +143,23 @@ describe('<ArmorDisplayTableRow />', () => {
 
 				expect(armorDisplayTableRow.state('Rating')).to.equal('');
 			});
+		});
+
+		it('should fire the purchanseGear action with armor and state correctly on click', () => {
+			const action = sinon.spy(),
+				buyActionGenerator = ({armor, state}) => {
+					return () => {
+
+						action({gear: armor, category: 'armors', Rating: state.Rating});
+					}
+				};
+			const { armorDisplayTableRow, props } = setup({rating: '6'}, '400 * Rating', buyActionGenerator);
+
+			armorDisplayTableRow.find('input').simulate('change', { target: { value: '3' } });
+			armorDisplayTableRow.find('button').simulate('click');
+
+			expect(action).to.have.been.calledWith({gear: props.armor, category: 
+				'armors', Rating: '3'});
 		});
 	});
 });
