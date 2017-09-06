@@ -535,6 +535,31 @@ describe('purchaseGear', () => {
 			expect(state.nuyen).to.equal(3350);
 		});
 
+		it('should add a mod that beings the capacity to it the limit', () => {
+			const ruleBreaker = {
+			id: 'ba32a6e9-4e6f-47fe-8fd7-c3194a5174d6',
+			name: 'Breaker',
+			category: 'General',
+			armor: '0',
+			maxrating: '8',
+			armorcapacity: 'FixedValues([1],[2],[3],[4],[5],[6])',
+			avail: '10R',
+			cost: 'Rating * 100',
+			source: 'SR5',
+			page: '438'
+		};
+			const newState = reducer(state, {type: 'MODDING_CAPACITY', parameter: {index: 0, category: 'armors', mod: ruleBreaker, Rating: 8}});
+
+			expect(newState.armors[0].mods.Breaker.name).to.equal('Breaker');
+			expect(newState.armors[0].currentCost).to.equal(2300);
+			expect(newState.nuyen).to.equal(4150);
+			expect(newState.armors[0].capacity).to.equal(8);
+
+			expect(state.armors[0].mods).to.be.undefined;
+			expect(state.armors[0].currentCost).to.be.undefined;
+			expect(state.nuyen).to.equal(3350);
+		});
+
 		it('should add a mod with a rating and calculate the currentCost based off of the rating', () => {
 			const newState = reducer(state, {type: 'MODDING_CAPACITY', parameter: {index: 0, category: 'armors', mod: thermalDamp, Rating: 3}});
 
