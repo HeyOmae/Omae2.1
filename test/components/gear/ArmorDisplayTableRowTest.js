@@ -25,6 +25,7 @@ describe('<ArmorDisplayTableRow />', () => {
 				currentCost
 			},
 			btnClass: 'btn-success',
+			btnSymbol: '-',
 			btnAction,
 			mod,
 			index: 1
@@ -66,6 +67,12 @@ describe('<ArmorDisplayTableRow />', () => {
 			expect(armorDisplayTableRow.find('button').props().className).to.equal('btn btn-success');
 		});
 
+		it('should render a symbol passed off props', () => {
+			const { armorDisplayTableRow } = setup();
+
+			expect(armorDisplayTableRow.find('button').text()).to.equal('-');
+		});
+
 		it('should set the onClick event of the button to the callback value of btnAction', () => {
 			const testCallback = sinon.spy();
 			const { armorDisplayTableRow, props } = setup({}, '1000', testCallback);
@@ -87,6 +94,21 @@ describe('<ArmorDisplayTableRow />', () => {
 
 			expect(action).to.have.been.calledWith({gear: props.armor, category: 
 				'armors', Rating: null});
+		});
+
+		it('should fire the sellGear action with armor and state correctly on click', () => {
+			const action = sinon.spy(),
+				buyActionGenerator = ({index}) => {
+					return () => {
+
+						action({index, category: 'armors'});
+					}
+				};
+			const { armorDisplayTableRow, props } = setup({}, '1000', buyActionGenerator);
+
+			armorDisplayTableRow.find('button').simulate('click');
+
+			expect(action).to.have.been.calledWith({index: 1, category: 'armors'});
 		});
 	});
 

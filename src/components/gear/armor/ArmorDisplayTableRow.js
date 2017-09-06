@@ -28,7 +28,7 @@ class ArmorTableRow extends React.PureComponent {
 	}
 
 	render() {
-		const {armor, btnClass, btnAction, mod, index} = this.props;
+		const {armor, btnClass, btnAction, btnSymbol, mod, index} = this.props;
 		return (
 			<tr>
 				<td className="armor-button">
@@ -36,7 +36,7 @@ class ArmorTableRow extends React.PureComponent {
 						className={`btn ${btnClass}`}
 						onClick={btnAction({armor, index, state: this.state})}
 					>
-						+
+						{btnSymbol}
 					</button>
 				</td>
 				<td className="armor-name">{mod || armor.name}</td>
@@ -80,13 +80,15 @@ ArmorTableRow.propTypes = {
 	}).isRequired,
 	btnClass: PropTypes.string.isRequired,
 	btnAction: PropTypes.func.isRequired,
+	btnSymbol: PropTypes.oneOf(['+', '-']).isRequired,
 	mod: PropTypes.element,
-	index: PropTypes.number.isRequired
+	index: PropTypes.number
 };
 
 ArmorTableRow.defaultProps = {
 	armorGear: null,
 	mod: null,
+	index: undefined
 };
 
 export default ArmorTableRow;

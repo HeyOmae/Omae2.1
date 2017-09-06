@@ -6,29 +6,24 @@ import ArmorMods from './ArmorModsComponent';
 import FilterTable from '../../FilterableTable';
 import DisplayTable from '../../DisplayTableComponent';
 import PropTypeChecking from '../../../config/propTypeChecking';
-import ArmorClass from '../GearCreator';
 import ArmorTableRow from './ArmorDisplayTableRow';
 
 class ArmorsComponent extends React.PureComponent {
 	componentWillMount() {
 		const { purchaseGear } = this.props.actions,
 			armorRows = armorData.map((armor) => {
-				const armorGear = new ArmorClass(armor);
 				return (
 					<ArmorTableRow
 						key={`armor-to-buy--${armor.name}`}
 						armor={armor}
-						armorGear={armorGear}
-						button={
-							<button
-								className="btn btn-success"
-								onClick={() => {
-									purchaseGear({gear: armorGear.getGear(), category: 'armors', Rating: armorGear.getGear().currentRating});
-								}}
-							>
-								+
-							</button>
-					} />
+						btnClass="btn-success"
+						btnSymbol="+"
+						btnAction={({armor: gear, state}) => {
+							return () => {
+								purchaseGear({gear, category: 'armors', Rating: state.Rating});
+							};
+						}}
+					/>
 				);
 			});
 
@@ -64,16 +59,15 @@ class ArmorsComponent extends React.PureComponent {
 									/>
 								} />
 						}
-						button={
-							<button
-								className="btn btn-warning"
-								onClick={() => {
-									actions.sellGear({index, category: 'armors'});
-								}}
-							>
-								-
-							</button>
-					} />
+						btnClass="btn-warning"
+						btnSymbol="-"
+						btnAction={() => {
+							return () => {
+								actions.sellGear({index, category: 'armors'});
+							};
+						}}
+						index={index}
+					/>
 				);
 			})
 			: null;
