@@ -5,10 +5,20 @@ class ArmorTableRow extends React.PureComponent {
 	constructor(props) {
 		super(props);
 
+		const isCostVariable = (props.armor.cost.search('Variable') > -1);
+
 		this.state = {
 			Rating: (props.armor.rating) ? '' : null,
-			cost: (props.armor.cost.search('Variable') > -1) ? '' : null
+			cost: isCostVariable ? '' : null
 		};
+
+		if (isCostVariable) {
+			const range = props.armor.cost.match(/\d+/g);
+			this.gearCost = {
+				max: range[1],
+				min: range[0]
+			};
+		}
 
 		this.updateRating = this.updateRating.bind(this);
 	}
@@ -59,7 +69,21 @@ class ArmorTableRow extends React.PureComponent {
 					}
 				</td>
 				<td className="armor-avail">{armor.avail}</td>
-				<td className="armor-cost">{armor.currentCost || armor.cost}&yen;</td>
+				<td className="armor-cost">
+					{
+						this.state.cost === null ?
+						(<span>{armor.currentCost || armor.cost}&yen;</span>)
+						:
+						<input
+							type="number"
+							min="1"
+							max={this.gearCost.max}
+							placeholder={`${this.gearCost.min}-${this.gearCost.max}`}
+							onChange={this.updateCost}
+							value={this.state.cost}
+						/>
+					}
+				</td>
 				<td className="armor-ref">{armor.source} p{armor.page}</td>
 			</tr>
 		);

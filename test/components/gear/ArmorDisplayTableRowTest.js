@@ -191,5 +191,24 @@ describe('<ArmorDisplayTableRow />', () => {
 
 			expect(armorDisplayTableRow.state('cost')).to.equal('');
 		});
+
+		it('should have an input field if the cost is variable', () => {
+			const { armorDisplayTableRow } = setup({}, 'Variable(20-100000)');
+
+			expect(armorDisplayTableRow.find('.armor-cost').find('input')).to.have.lengthOf(1);
+		});
+
+		it('should set the max and min for the input', () => {
+			const { armorDisplayTableRow } = setup({}, 'Variable(20-100000)');
+
+			expect(armorDisplayTableRow.find('input').props().max).to.equal('100000');
+			expect(armorDisplayTableRow.find('input').props().placeholder).to.equal('20-100000');
+		});
+
+		it('should set the value of the input field to the state.cost', () => {
+			const { armorDisplayTableRow } = setup({}, 'Variable(20-100000)');
+
+			expect(armorDisplayTableRow.find('input').props().value).to.equal('');
+		});
 	});
 });
