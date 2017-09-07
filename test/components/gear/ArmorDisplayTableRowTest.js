@@ -19,7 +19,7 @@ describe('<ArmorDisplayTableRow />', () => {
 				avail: '10',
 				cost,
 				source: 'FAKE',
-				page: '40',
+				page: '404',
 				rating,
 				currentRating,
 				currentCost
@@ -77,7 +77,7 @@ describe('<ArmorDisplayTableRow />', () => {
 			const testCallback = sinon.spy();
 			const { armorDisplayTableRow, props } = setup({}, '1000', testCallback);
 
-			expect(testCallback).to.have.been.calledWith({armor: props.armor, state: {Rating: null}, index: 1});
+			expect(testCallback).to.have.been.calledWith({armor: props.armor, state: armorDisplayTableRow.state(), index: 1});
 		});
 
 		it('should fire the purchanseGear action with armor and state correctly on click', () => {
@@ -182,6 +182,14 @@ describe('<ArmorDisplayTableRow />', () => {
 
 			expect(action).to.have.been.calledWith({gear: props.armor, category: 
 				'armors', Rating: '3'});
+		});
+	});
+
+	describe('Variable cost', () => {
+		it('should set the state of cost to empty string if Variable', () => {
+			const { armorDisplayTableRow } = setup({}, 'Variable(20-100000)');
+
+			expect(armorDisplayTableRow.state('cost')).to.equal('');
 		});
 	});
 });

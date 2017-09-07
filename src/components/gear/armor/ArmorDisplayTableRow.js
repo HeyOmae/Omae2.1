@@ -6,7 +6,8 @@ class ArmorTableRow extends React.PureComponent {
 		super(props);
 
 		this.state = {
-			Rating: (props.armor.rating) ? '' : null
+			Rating: (props.armor.rating) ? '' : null,
+			cost: (props.armor.cost.search('Variable') > -1) ? '' : null
 		};
 
 		this.updateRating = this.updateRating.bind(this);
