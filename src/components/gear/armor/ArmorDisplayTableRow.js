@@ -9,7 +9,7 @@ class ArmorTableRow extends React.PureComponent {
 
 		this.state = {
 			Rating: (props.armor.rating) ? '' : null,
-			cost: isCostVariable ? '' : null
+			currentCost: isCostVariable ? '' : null
 		};
 
 		if (isCostVariable) {
@@ -21,6 +21,7 @@ class ArmorTableRow extends React.PureComponent {
 		}
 
 		this.updateRating = this.updateRating.bind(this);
+		this.updateCost = this.updateCost.bind(this);
 	}
 
 	updateRating({ target }) {
@@ -35,6 +36,12 @@ class ArmorTableRow extends React.PureComponent {
 
 		this.setState({
 			Rating: value
+		});
+	}
+
+	updateCost({target}) {
+		this.setState({
+			currentCost: isNaN(target.value) ? '0' : target.value
 		});
 	}
 
@@ -54,7 +61,7 @@ class ArmorTableRow extends React.PureComponent {
 				<td className="armor-value">{armor.armor}</td>
 				<td className="armor-capacity">
 					{
-						this.state.Rating === null ?
+						this.state.Rating === null || armor.currentRating ?
 						(armor.currentRating || armor.armorcapacity)
 						:
 						<input
@@ -71,7 +78,7 @@ class ArmorTableRow extends React.PureComponent {
 				<td className="armor-avail">{armor.avail}</td>
 				<td className="armor-cost">
 					{
-						this.state.cost === null ?
+						this.state.currentCost === null ?
 						(<span>{armor.currentCost || armor.cost}&yen;</span>)
 						:
 						<input
@@ -80,7 +87,7 @@ class ArmorTableRow extends React.PureComponent {
 							max={this.gearCost.max}
 							placeholder={`${this.gearCost.min}-${this.gearCost.max}`}
 							onChange={this.updateCost}
-							value={this.state.cost}
+							value={this.state.currentCost}
 						/>
 					}
 				</td>

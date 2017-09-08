@@ -167,6 +167,13 @@ describe('<ArmorDisplayTableRow />', () => {
 			});
 		});
 
+		it('should not display the rating input if there is a current rating', () => {
+			const { armorDisplayTableRow, props } = setup({rating: '6', currentRating: '3'}, '400 * Rating');
+
+			expect(armorDisplayTableRow.find('input')).to.have.lengthOf(0);
+			expect(armorDisplayTableRow.find('.armor-capacity').text()).to.equal('3');
+		});
+
 		it('should fire the purchanseGear action with armor and state correctly on click', () => {
 			const action = sinon.spy(),
 				buyActionGenerator = ({armor, state}) => {
@@ -189,7 +196,7 @@ describe('<ArmorDisplayTableRow />', () => {
 		it('should set the state of cost to empty string if Variable', () => {
 			const { armorDisplayTableRow } = setup({}, 'Variable(20-100000)');
 
-			expect(armorDisplayTableRow.state('cost')).to.equal('');
+			expect(armorDisplayTableRow.state('currentCost')).to.equal('');
 		});
 
 		it('should have an input field if the cost is variable', () => {
@@ -205,10 +212,53 @@ describe('<ArmorDisplayTableRow />', () => {
 			expect(armorDisplayTableRow.find('input').props().placeholder).to.equal('20-100000');
 		});
 
-		it('should set the value of the input field to the state.cost', () => {
+		it('should set the value of the input field to the state.currentCost', () => {
 			const { armorDisplayTableRow } = setup({}, 'Variable(20-100000)');
 
 			expect(armorDisplayTableRow.find('input').props().value).to.equal('');
+		});
+
+		describe('input onChange', () => {
+			it('should update the currentCost on state', () => {
+				const { armorDisplayTableRow } = setup({}, 'Variable(20-100000)');
+				armorDisplayTableRow.find('input').simulate('change', {target: { value: '500' } });
+
+				expect(armorDisplayTableRow.state('currentCost')).to.equal('500');
+			});
+
+			it('should not allow a NaN', () => {
+				const { armorDisplayTableRow } = setup({}, 'Variable(20-100000)');
+				armorDisplayTableRow.find('input').simulate('change', {target: { value: 'e' } });
+
+				expect(armorDisplayTableRow.state('currentCost')).to.equal('0');
+			});
+
+			// I don't care to enforce a min and a max on cost as this is designed to be a nuyen sink
+		});
+
+		it('purchased gear should use state.cost', () => {
+			const action = sinon.spy(),
+				buyActionGenerator = ({armor, state}) => {
+					return () => {
+						action({
+							gear: (state.currentCost === null) ? armor: { ...armor, cost: state.currentCost },
+							category: 'armors',
+							Rating: state.Rating
+						});
+					}
+				};
+			const { armorDisplayTableRow, props } = setup({}, 'Variable(20-100000)', buyActionGenerator);
+
+			armorDisplayTableRow.find('input').simulate('change', {target: { value: '500' } });
+
+			armorDisplayTableRow.find('button').simulate('click');
+
+			const gear = {
+				...props.armor,
+				cost: '500'
+			}
+
+			expect(action).to.have.been.calledWith({gear, category: 'armors', Rating: null});
 		});
 	});
 });

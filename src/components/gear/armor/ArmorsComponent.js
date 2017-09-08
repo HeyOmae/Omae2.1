@@ -20,7 +20,11 @@ class ArmorsComponent extends React.PureComponent {
 						btnSymbol="+"
 						btnAction={({armor: gear, state}) => {
 							return () => {
-								purchaseGear({gear, category: 'armors', Rating: state.Rating});
+								purchaseGear({
+									gear: (state.currentCost === null) ? gear : { ...gear, cost: (state.currentCost || '1')},
+									category: 'armors',
+									Rating: state.Rating
+								});
 							};
 						}}
 					/>
