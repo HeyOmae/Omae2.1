@@ -8,6 +8,22 @@ import DisplayTable from '../../DisplayTableComponent';
 import PropTypeChecking from '../../../config/propTypeChecking';
 import ArmorTableRow from './ArmorDisplayTableRow';
 
+// TODO: move this somewhere else, and give it a better name
+export function modifyGear(armor, rating, cost) {
+	if (cost !== null) {
+		return {
+			...armor,
+			cost
+		};
+	} else if (rating !== null) {
+		return {
+			...armor,
+			armorcapacity: rating
+		};
+	}
+	return armor;
+}
+
 class ArmorsComponent extends React.PureComponent {
 	componentWillMount() {
 		const { purchaseGear } = this.props.actions,
@@ -18,12 +34,14 @@ class ArmorsComponent extends React.PureComponent {
 						armor={armor}
 						btnClass="btn-success"
 						btnSymbol="+"
-						btnAction={({armor: gear, state}) => {
+						btnAction={({armor: armorPurchase, state}) => {
 							return () => {
+								const Rating = (state.Rating === null) ? null : state.Rating || 1,
+									gear = modifyGear(armorPurchase, Rating, state.currentCost);
 								purchaseGear({
-									gear: (state.currentCost === null) ? gear : { ...gear, cost: (state.currentCost || '1')},
+									gear,
 									category: 'armors',
-									Rating: state.Rating
+									Rating
 								});
 							};
 						}}

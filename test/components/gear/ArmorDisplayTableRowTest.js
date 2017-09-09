@@ -168,7 +168,7 @@ describe('<ArmorDisplayTableRow />', () => {
 		});
 
 		it('should not display the rating input if there is a current rating', () => {
-			const { armorDisplayTableRow, props } = setup({rating: '6', currentRating: '3'}, '400 * Rating');
+			const { armorDisplayTableRow, props } = setup({rating: '6', currentRating: 3}, '400 * Rating');
 
 			expect(armorDisplayTableRow.find('input')).to.have.lengthOf(0);
 			expect(armorDisplayTableRow.find('.armor-capacity').text()).to.equal('3');
@@ -256,6 +256,30 @@ describe('<ArmorDisplayTableRow />', () => {
 			const gear = {
 				...props.armor,
 				cost: '500'
+			}
+
+			expect(action).to.have.been.calledWith({gear, category: 'armors', Rating: null});
+		});
+
+		// This test should actually not be here...
+		it('purchased gear should default to cost 1', () => {
+			const action = sinon.spy(),
+				buyActionGenerator = ({armor, state}) => {
+					return () => {
+						action({
+							gear: (state.currentCost === null) ? armor: { ...armor, cost: (state.currentCost || '1') },
+							category: 'armors',
+							Rating: state.Rating
+						});
+					}
+				};
+			const { armorDisplayTableRow, props } = setup({}, 'Variable(20-100000)', buyActionGenerator);
+
+			armorDisplayTableRow.find('button').simulate('click');
+
+			const gear = {
+				...props.armor,
+				cost: '1'
 			}
 
 			expect(action).to.have.been.calledWith({gear, category: 'armors', Rating: null});
