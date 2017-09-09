@@ -1,5 +1,5 @@
 import React from 'react';
-import WeaponsComponent from './WeaponsComponent';
+import WeaponsComponent from './weapon/WeaponsComponent';
 import ArmorsComponent from './armor/ArmorsComponent';
 import AugmentationComponent from './AugmentationComponent';
 import GearComponent, { PurchasedGear } from './GearComponent';
