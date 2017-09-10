@@ -14,10 +14,11 @@ import WeaponsTableRow from './WeaponDisplayTableRow';
 class WeaponsComponent extends React.Component {
 	componentWillMount() {
 		const weaponModLists = {
-			slotless: []
-		};
+				slotless: []
+			},
 
-		const skipWeapons = ['Quality', 'Natural', 'Cyberweapon', 'Bio-Weapon', 'Cyber-Weapon', 'Underbarrel Weapons'],
+			skipWeapons = ['Quality', 'Natural', 'Cyberweapon', 'Bio-Weapon', 'Cyber-Weapon', 'Underbarrel Weapons'],
+
 			{purchaseGear} = this.props.actions;
 
 		weaponMods.forEach((accessory) => {
@@ -34,6 +35,8 @@ class WeaponsComponent extends React.Component {
 				weaponModLists.slotless.push(accessory);
 			}
 		});
+
+		this.weaponModLists = weaponModLists;
 
 		const weaponsTableRow = weaponData.reduce((tableRow, weapon) => {
 			if (skipWeapons.indexOf(weapon.category) === -1) {
@@ -60,7 +63,7 @@ class WeaponsComponent extends React.Component {
 			return tableRow;
 		}, {});
 
-		const weaponTable = Object.keys(weaponsTableRow).map((category) => {
+		this.weaponTable = Object.keys(weaponsTableRow).map((category) => {
 			const {weapon} = weaponsTableRow[category][0].props,
 				reachCoil = weapon.type === 'Melee' ? 'Reach' : 'RC';
 			return (
@@ -78,9 +81,6 @@ class WeaponsComponent extends React.Component {
 				/>
 			);
 		});
-
-		this.weaponTable = weaponTable;
-		this.weaponModLists = weaponModLists;
 	}
 
 	render() {

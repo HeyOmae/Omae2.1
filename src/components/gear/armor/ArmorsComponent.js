@@ -66,7 +66,7 @@ class ArmorsComponent extends React.PureComponent {
 		const {armorModal} = this,
 			{ purchased, actions } = this.props;
 
-		const purchasedTableRow = purchased ?
+		const purchasedTableRow = purchased &&
 			purchased.map((armor, index) => {
 				return (
 					<ArmorTableRow
@@ -91,18 +91,17 @@ class ArmorsComponent extends React.PureComponent {
 						index={index}
 					/>
 				);
-			})
-			: null;
+			});
 		return (
 			<div className="armor-component row">
 				{armorModal}
-				{purchased ?
+				{purchased &&
 					<div className="table-responsive purchased-armors">
 						<DisplayTable
 							header={<ArmorTableHeader />}
 							body={purchasedTableRow} />
 					</div>
-					: null}
+				}
 			</div>
 		);
 	}
