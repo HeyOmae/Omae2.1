@@ -86,11 +86,9 @@ class WeaponsComponent extends React.Component {
 	render() {
 		const {purchased} = this.props,
 			{sellGear, weaponModding, moddingMulti, demoddingMulti} = this.props.actions,
-			{weaponModLists, weaponTable} = this;
-		let purchasedTableRow = [];
+			{weaponModLists, weaponTable} = this,
 
-		if (purchased) {
-			purchasedTableRow = purchased.map((weapon, index) => {
+			purchasedTableRow = purchased && purchased.map((weapon, index) => {
 				const sellButton = (
 					<button
 						className="btn btn-warning"
@@ -127,7 +125,6 @@ class WeaponsComponent extends React.Component {
 						/>
 				);
 			});
-		}
 
 		return (
 			<div className="weapons-component modal-thirds row">

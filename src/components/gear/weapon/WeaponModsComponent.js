@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import { connect } from 'react-redux';
 
 function WeaponModsComponent({index, weapon, weaponModLists, weaponModding, moddingMulti, demoddingMulti}) {
 	const {mount} = weapon.accessorymounts;
@@ -169,4 +169,12 @@ WeaponModOptionsSelect.defaultProps = {
 	multiple: false
 };
 
-export default WeaponModsComponent;
+const mapStateToProps = (state) => {
+	return {
+		weapons: state.purchaseGear.weapons
+	};
+};
+
+export { WeaponModsComponent };
+
+export default connect(mapStateToProps, {})(WeaponModsComponent);

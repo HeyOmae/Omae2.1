@@ -64,10 +64,9 @@ class ArmorsComponent extends React.PureComponent {
 
 	render() {
 		const {armorModal} = this,
-			{ purchased, actions } = this.props;
+			{ purchased, actions } = this.props,
 
-		const purchasedTableRow = purchased &&
-			purchased.map((armor, index) => {
+			purchasedTableRow = purchased && purchased.map((armor, index) => {
 				return (
 					<ArmorTableRow
 						key={`${armor.name + index}-purchased`}
@@ -98,7 +97,7 @@ class ArmorsComponent extends React.PureComponent {
 				{purchased &&
 					<div className="table-responsive purchased-armors">
 						<DisplayTable
-							header={<ArmorTableHeader />}
+							header={<ArmorTableHeader sell />}
 							body={purchasedTableRow} />
 					</div>
 				}
@@ -124,10 +123,10 @@ ArmorsComponent.defaultProps = {
 	purchased: null
 };
 
-function ArmorTableHeader() {
+function ArmorTableHeader({sell}) {
 	return (
 		<tr>
-			<th>Buy</th>
+			<th>{sell ? 'Sell' : 'Buy'}</th>
 			<th>Name</th>
 			<th>Armor</th>
 			<th>Capacity</th>
@@ -137,5 +136,13 @@ function ArmorTableHeader() {
 		</tr>
 	);
 }
+
+ArmorTableHeader.propTypes = {
+	sell: PropTypes.bool
+};
+
+ArmorTableHeader.defaultProps = {
+	sell: false
+};
 
 export default ArmorsComponent;
