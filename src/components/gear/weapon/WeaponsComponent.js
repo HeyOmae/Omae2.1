@@ -10,7 +10,6 @@ import DisplayTable from '../../DisplayTableComponent';
 import PropTypeChecking from '../../../config/propTypeChecking';
 import WeaponsTableRow from './WeaponDisplayTableRow';
 
-
 class WeaponsComponent extends React.Component {
 	componentWillMount() {
 		const weaponModLists = {
