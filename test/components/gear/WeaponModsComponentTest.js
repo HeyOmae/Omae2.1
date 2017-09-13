@@ -93,24 +93,38 @@ const unmoddedLightPistol = {
 		}
 	},
 	source: "SR5",
-	page: "426"
+	page: "426",
+	mods: {
+		slottless: {
+			'Concealable Holster': {
+				id: "7f66a669-917a-4423-bd83-cf0e0a1fb2a8",
+				name: "Concealable Holster",
+				rating: "0",
+				conceal: "-1",
+				avail: "2",
+				cost: "150",
+				source: "SR5",
+				page: "431"
+			}
+		}
+	}
 },
 	moddedLongarms = {
-	id: "5d366d23-c0cd-4613-a035-f5a5378dcfa9",
-	name: "HK XM30 Sniper",
+	id: "fd7f400f-c8d5-4e8c-94aa-001109635f19",
+	name: "Nissan Optimum II",
 	category: "Assault Rifles",
-	spec: "Sniper Rifles",
 	type: "Ranged",
 	conceal: "6",
-	accuracy: "7",
+	accuracy: "5",
 	reach: "0",
 	damage: "9P",
 	ap: "-2",
-	mode: "SA",
-	rc: "2",
-	ammo: "10(c)",
-	avail: "0",
-	cost: "0",
+	mode: "SA/BF/FA",
+	rc: "1",
+	ammo: "30(c)",
+	avail: "10F",
+	cost: "2300",
+	underbarrel: "Nissan Optiumum II Shotgun",
 	allowaccessory: "true",
 	accessorymounts: {
 		mount: [
@@ -126,14 +140,36 @@ const unmoddedLightPistol = {
 		accessory: [{
 			name: "Shock Pad"
 		}, {
-			name: "Imaging Scope"
-		}, {
 			name: "Smartgun System, Internal"
 		}]
 	},
-	range: "Sniper Rifles",
-	useskill: "Longarms",
 	source: "RG",
-	page: "37"
+	page: "38"
+	mods: {
+		Barrel: {
+			avail: '9R',
+			cost: '600',
+			id: '6b06cf52-04fa-4034-bb10-2bcdd58c4bfb',
+			mount: 'Barrel',
+			name: 'Gas-Vent 3 System',
+			page: '431',
+			rating: '0',
+			rc: '3',
+			source: 'SR5'
+		},
+		Under: {
+			id: "6e06df00-95b8-450f-9f2a-4a86c582d342",
+			name: "Bipod",
+			mount: "Under",
+			rating: "0",
+			rc: "2",
+			rcgroup: "1",
+			avail: "2",
+			cost: "200",
+			source: "SR5",
+			page: "431"
+		}
+	},
+	currentCost: 3100
 };
 
