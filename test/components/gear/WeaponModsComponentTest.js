@@ -107,7 +107,8 @@ const unmoddedLightPistol = {
 				page: "431"
 			}
 		}
-	}
+	},
+	currentCost: 875
 },
 	moddedLongarms = {
 	id: "fd7f400f-c8d5-4e8c-94aa-001109635f19",
@@ -173,3 +174,19 @@ const unmoddedLightPistol = {
 	currentCost: 3100
 };
 
+const setup = ({}) => {
+	const props = {},
+	weaponModsComponent = shallow(<WeaponModsComponent {...props} />);
+
+	return { props, weaponModsComponent };
+};
+
+describe('<WeaponModsComponent>', () => {
+	it('should render a WeaponModOptionSelect for each mount', () => {
+
+	});
+
+	it('should render a WeaponMultiModding for each slotless mod', () => {
+
+	});
+});
