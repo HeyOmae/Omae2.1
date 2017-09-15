@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import weaponModLists from 'data/weaponAccessories.json';
 
-function WeaponModsComponent({index, weapon, weaponModLists, weaponModding, moddingMulti, demoddingMulti}) {
+function WeaponModsComponent({index, weapon, weaponModding, moddingMulti, demoddingMulti}) {
 	const {mount} = weapon.accessorymounts;
 
 	return (
@@ -18,7 +19,6 @@ function WeaponModsComponent({index, weapon, weaponModLists, weaponModding, modd
 							index={index}
 							weaponName={weapon.name}
 							mountLocation={mountLocation}
-							weaponModLists={weaponModLists}
 						/>
 					</div>
 				);
@@ -60,9 +60,6 @@ WeaponModsComponent.propTypes = {
 		accessorymounts: PropTypes.objectOf(PropTypes.arrayOf(PropTypes.string)),
 		cost: PropTypes.string.isRequired
 	}).isRequired,
-	weaponModLists: PropTypes.objectOf(
-		PropTypes.arrayOf(PropTypes.object)
-	).isRequired,
 	weaponModding: PropTypes.func.isRequired,
 	moddingMulti: PropTypes.func.isRequired,
 	demoddingMulti: PropTypes.func.isRequired
@@ -126,7 +123,7 @@ WeaponMultiModding.defaultProps = {
 	mods: {}
 };
 
-function WeaponModOptionsSelect({ weaponName, mountLocation, weaponModLists, mods, weaponModding, index}) {
+function WeaponModOptionsSelect({ weaponName, mountLocation, mods, weaponModding, index}) {
 	return (
 		<select
 			className="form-control"
@@ -155,11 +152,6 @@ function WeaponModOptionsSelect({ weaponName, mountLocation, weaponModLists, mod
 WeaponModOptionsSelect.propTypes = {
 	weaponName: PropTypes.string.isRequired,
 	mountLocation: PropTypes.string.isRequired,
-	weaponModLists: PropTypes.objectOf(
-		PropTypes.arrayOf(
-			PropTypes.object.isRequired
-		).isRequired
-	).isRequired,
 	mods: PropTypes.objectOf(PropTypes.object),
 	weaponModding: PropTypes.func.isRequired,
 	index: PropTypes.number.isRequired
