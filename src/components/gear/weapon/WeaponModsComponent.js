@@ -2,71 +2,78 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import weaponModLists from 'data/weaponAccessories.json';
+import { weaponModding, moddingMulti, demoddingMulti } from '../../../actions';
 
-function WeaponModsComponent({index, weapon, weaponModding, moddingMulti, demoddingMulti}) {
-	const {mount} = weapon.accessorymounts;
+class WeaponModsComponent extends React.PureComponent {
+	render() {
+		const {index, weapons, weaponSlotModding, slotlessModding, slotlessDemodding} = this.props,
+			weapon = weapons[index],
+			{mount} = weapon.accessorymounts;
 
-	return (
-		<div className="row">
-			{
-			mount.map((mountLocation) => {
-				return (
-					<div className="col-xs-12 col-md-4" key={`weapon-mods-${weapon.name}-${mountLocation}`}>
-						<p><strong>{mountLocation}</strong></p>
-						<WeaponModOptionsSelect
-							mods={weapon.mods}
-							weaponModding={weaponModding}
-							index={index}
-							weaponName={weapon.name}
-							mountLocation={mountLocation}
-						/>
-					</div>
-				);
-			})
-			}
-			<div className="col-md-12">
-				<p><strong>Slotless</strong></p>
-				<table className="table table-striped">
-					<tbody>
-						{
-						weaponModLists.slotless.map((mod) => {
-							return (
-								<tr key={`slotless-mod-${mod.name}`}>
-									<WeaponMultiModding
-										mods={weapon.mods && weapon.mods.slotless}
-										weaponName={weapon.name}
-										weaponCost={weapon.cost}
-										mod={mod}
-										multiple
-										moddingMulti={moddingMulti}
-										demoddingMulti={demoddingMulti}
-										index={index}
-									/>
-								</tr>
-							);
-						})
-						}
-					</tbody>
-				</table>
+		return (
+			<div className="row">
+				{
+				mount.map((mountLocation) => {
+					return (
+						<div className="col-xs-12 col-md-4" key={`weapon-mods-${weapon.name}-${mountLocation}`}>
+							<p><strong>{mountLocation}</strong></p>
+							<WeaponModOptionsSelect
+								mods={weapon.mods}
+								weaponSlotModding={weaponSlotModding}
+								index={index}
+								weaponName={weapon.name}
+								mountLocation={mountLocation}
+							/>
+						</div>
+					);
+				})
+				}
+				<div className="col-md-12">
+					<p><strong>Slotless</strong></p>
+					<table className="table table-striped">
+						<tbody>
+							{
+							weaponModLists.slotless.map((mod) => {
+								return (
+									<tr key={`slotless-mod-${mod.name}`}>
+										<WeaponMultiModding
+											mods={weapon.mods && weapon.mods.slotless}
+											weaponName={weapon.name}
+											weaponCost={weapon.cost}
+											mod={mod}
+											multiple
+											slotlessModding={slotlessModding}
+											slotlessDemodding={slotlessDemodding}
+											index={index}
+										/>
+									</tr>
+								);
+							})
+							}
+						</tbody>
+					</table>
+				</div>
 			</div>
-		</div>
-	);
+		);
+	}
 }
 
 WeaponModsComponent.propTypes = {
 	index: PropTypes.number.isRequired,
-	weapon: PropTypes.shape({
-		name: PropTypes.string.isRequired,
-		accessorymounts: PropTypes.objectOf(PropTypes.arrayOf(PropTypes.string)),
-		cost: PropTypes.string.isRequired
-	}).isRequired,
-	weaponModding: PropTypes.func.isRequired,
-	moddingMulti: PropTypes.func.isRequired,
-	demoddingMulti: PropTypes.func.isRequired
+	weapons: PropTypes.arrayOf(
+		PropTypes.shape({
+			name: PropTypes.string.isRequired,
+			accessorymounts: PropTypes.objectOf(PropTypes.arrayOf(PropTypes.string)),
+			cost: PropTypes.string.isRequired
+		})
+	).isRequired,
+	weaponSlotModding: PropTypes.func.isRequired,
+	slotlessModding: PropTypes.func.isRequired,
+	slotlessDemodding: PropTypes.func.isRequired
 };
 
 // Helper function
-function WeaponMultiModding({ weaponName, weaponCost, mod, mods, moddingMulti, demoddingMulti, index}) {
+function WeaponMultiModding({ weaponName, weaponCost, mod, mods, slotlessModding, slotlessDemodding, index}) {
 	const modCost = isNaN(mod.cost) ? weaponCost : mod.cost;
 	return (
 		<td className="input-group">
@@ -79,7 +86,7 @@ function WeaponMultiModding({ weaponName, weaponCost, mod, mods, moddingMulti, d
 				onChange={(e) => {
 					const {name, checked} = e.target;
 					if (checked) {
-						moddingMulti({
+						slotlessModding({
 							index,
 							category: 'weapons',
 							slot: 'slotless',
@@ -89,7 +96,7 @@ function WeaponMultiModding({ weaponName, weaponCost, mod, mods, moddingMulti, d
 							}
 						});
 					} else {
-						demoddingMulti({
+						slotlessDemodding({
 							index,
 							category: 'weapons',
 							slot: 'slotless',
@@ -115,15 +122,15 @@ WeaponMultiModding.propTypes = {
 		cost: PropTypes.string
 	}).isRequired,
 	mods: PropTypes.objectOf(PropTypes.object),
-	moddingMulti: PropTypes.func.isRequired,
-	demoddingMulti: PropTypes.func.isRequired,
+	slotlessModding: PropTypes.func.isRequired,
+	slotlessDemodding: PropTypes.func.isRequired,
 	index: PropTypes.number.isRequired
 };
 WeaponMultiModding.defaultProps = {
 	mods: {}
 };
 
-function WeaponModOptionsSelect({ weaponName, mountLocation, mods, weaponModding, index}) {
+function WeaponModOptionsSelect({ weaponName, mountLocation, mods, weaponSlotModding, index}) {
 	return (
 		<select
 			className="form-control"
@@ -132,7 +139,7 @@ function WeaponModOptionsSelect({ weaponName, mountLocation, mods, weaponModding
 					mod = weaponModLists[mountLocation].find((searchMod) => {
 						return searchMod.name === selectedMod;
 					});
-				weaponModding({
+				weaponSlotModding({
 					index,
 					category: 'weapons',
 					slot: mountLocation,
@@ -153,7 +160,7 @@ WeaponModOptionsSelect.propTypes = {
 	weaponName: PropTypes.string.isRequired,
 	mountLocation: PropTypes.string.isRequired,
 	mods: PropTypes.objectOf(PropTypes.object),
-	weaponModding: PropTypes.func.isRequired,
+	weaponSlotModding: PropTypes.func.isRequired,
 	index: PropTypes.number.isRequired
 };
 WeaponModOptionsSelect.defaultProps = {
@@ -169,4 +176,4 @@ const mapStateToProps = (state) => {
 
 export { WeaponModsComponent };
 
-export default connect(mapStateToProps, {})(WeaponModsComponent);
+export default connect(mapStateToProps, { weaponSlotModding: weaponModding, slotlessModding: moddingMulti, slotlessDemodding: demoddingMulti })(WeaponModsComponent);

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import weaponData from 'data/weapons.json';
 import weaponMods from 'data/weaponAccessories.json';
 import 'styles/gear/Weapons.scss';
-import WeaponModsComponent from './WeaponModsComponent';
+import WeaponMods from './WeaponModsComponent';
 import Modal from '../../ModalButtonComponent';
 import FilterTable from '../../FilterableTable';
 import DisplayTable from '../../DisplayTableComponent';
@@ -84,7 +84,7 @@ class WeaponsComponent extends React.Component {
 
 	render() {
 		const {purchased} = this.props,
-			{sellGear, weaponModding, moddingMulti, demoddingMulti} = this.props.actions,
+			{sellGear} = this.props.actions,
 			{weaponModLists, weaponTable} = this,
 
 			purchasedTableRow = purchased && purchased.map((weapon, index) => {
@@ -104,13 +104,9 @@ class WeaponsComponent extends React.Component {
 							modalName={weapon.name}
 							modalID={`${weapon.name.replace(/\s/g, '') + index}-modal`}
 							modalContent={
-								<WeaponModsComponent
+								<WeaponMods
 									index={index}
-									weapon={weapon}
 									weaponModLists={weaponModLists}
-									weaponModding={weaponModding}
-									moddingMulti={moddingMulti}
-									demoddingMulti={demoddingMulti}
 								/>
 							}
 						/>)
@@ -128,7 +124,7 @@ class WeaponsComponent extends React.Component {
 		return (
 			<div className="weapons-component modal-thirds row">
 				{weaponTable}
-				{purchased ?
+				{purchased &&
 					<div className="table-responsive purchased-weapons">
 						<DisplayTable
 							header={<WeaponTableHeader
@@ -137,7 +133,7 @@ class WeaponsComponent extends React.Component {
 								isModable />}
 							body={purchasedTableRow} />
 					</div>
-					: null}
+				}
 			</div>
 		);
 	}
