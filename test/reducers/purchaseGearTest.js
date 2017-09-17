@@ -390,6 +390,27 @@ describe('purchaseGear', () => {
 			const newState = reducer(state, {type: 'WEAPON_MODDING', parameter: {index: 0, category: 'weapons', slot: 'stock', mod: ''}});
 
 			expect(newState).to.equal(state);
+		});
+
+		it('should add to the currentCost if already modded', () => {
+			const topMod = {
+				id: '2905095e-937e-4dbc-aa56-3b66676e1559',
+				name: 'Imaging Scope',
+				mount: 'Top',
+				avail: '2',
+				rating: '0',
+				cost: '300',
+				allowgear: {
+					gearcategory: 'Vision Enhancements'
+				},
+				source: 'SR5',
+				page: '432'
+			};
+
+			const newState = reducer(state, {type: 'WEAPON_MODDING', parameter: {index: 1, category: 'weapons', slot: 'top', mod: topMod}});
+
+			expect(newState.weapons[1].currentCost).to.equal(1250);
+			expect(state.weapons[1].currentCost).to.equal(950);
 		})
 	});
 

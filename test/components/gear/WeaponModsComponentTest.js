@@ -145,7 +145,7 @@ const unmoddedLightPistol = {
 		}]
 	},
 	source: "RG",
-	page: "38"
+	page: "38",
 	mods: {
 		Barrel: {
 			avail: '9R',

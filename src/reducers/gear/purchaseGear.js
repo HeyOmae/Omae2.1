@@ -100,7 +100,7 @@ const purchaseGearReducer = (state = initialState, action) => {
 							...gearBeingModded.mods || {},
 							[slot]: mod
 						},
-						currentCost: Number(gearBeingModded.cost) + Number(mod.cost)
+						currentCost: Number(gearBeingModded.currentCost || gearBeingModded.cost) + Number(modPrice)
 					},
 					...weaponsArray.slice(index + 1)
 				],
