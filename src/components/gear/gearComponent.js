@@ -4,9 +4,9 @@ import Modal from '../ModalButtonComponent';
 import FilterTable from '../FilterableTable';
 import DisplayTable from '../DisplayTableComponent';
 import GearClass from './GearCreator';
-import {GearRatingComponent, GearCostComponent} from './displayComponents';
+import GearTableRow from './GearTableDisplayRow';
 
-class GearComponent extends React.Component {
+class GearComponent extends React.PureComponent {
 	componentWillMount() {
 		const {gearData, category, purchaseGear} = this.props;
 
@@ -86,34 +86,6 @@ function GearTableHeader() {
 		</tr>
 	);
 }
-
-function GearTableRow({gear, button, gearState}) {
-	return (
-		<tr>
-			<td>{button}</td>
-			<td>{gear.name}</td>
-			<td><GearRatingComponent gear={gearState} defaultValue={`${gear.currentRating || 'N/A'}`} /></td>
-			<td>{gear.avail}</td>
-			<td><GearCostComponent cost={gear.cost} currentCost={gear.currentCost} gear={gearState} /></td>
-			<td>{gear.source} p{gear.page}</td>
-		</tr>
-	);
-}
-
-GearTableRow.propTypes = {
-	gear: PropTypes.shape({
-		name: PropTypes.string.isRequired,
-		avail: PropTypes.string.isRequired,
-		cost: PropTypes.string.isRequired,
-		source: PropTypes.string.isRequired,
-		page: PropTypes.string.isRequired
-	}).isRequired,
-	gearState: PropTypes.shape({
-		gear: PropTypes.object.isRequired,
-		updateCost: PropTypes.func.isRequired
-	}),
-	button: PropTypes.element.isRequired
-};
 
 function PurchasedGear({purchased, sellGear, category}) {
 	const gearTableRow = purchased.map((gear, index) => {
