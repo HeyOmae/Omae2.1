@@ -14,8 +14,9 @@
     "mocha": true,
     "chai": true
   },
+  "extends": "airbnb",
   "rules": {
-  "no-console": 0
+    "no-console": 0
   },
   "globals": {
     "expect": true

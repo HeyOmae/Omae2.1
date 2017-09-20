@@ -9,11 +9,11 @@ class GearTableRow extends React.Component {
 		return (
 			<tr>
 				<td>{button}</td>
-				<td>{gear.name}</td>
-				<td><GearRatingComponent gear={gearState} defaultValue={`${gear.currentRating || 'N/A'}`} /></td>
-				<td>{gear.avail}</td>
-				<td><GearCostComponent cost={gear.cost} currentCost={gear.currentCost} gear={gearState} /></td>
-				<td>{gear.source} p{gear.page}</td>
+				<td className="gear-name">{gear.name}</td>
+				<td className="gear-rating"><GearRatingComponent gear={gearState} defaultValue={`${gear.currentRating || 'N/A'}`} /></td>
+				<td className="gear-avail">{gear.avail}</td>
+				<td className="gear-cost"><GearCostComponent cost={gear.cost} currentCost={gear.currentCost} gear={gearState} /></td>
+				<td className="gear-ref">{gear.source} p{gear.page}</td>
 			</tr>
 		);
 	}
