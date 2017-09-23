@@ -10,6 +10,7 @@ describe('<GearTableDisplayRow />', () => {
 				name: 'Banana',
 				avail: '3R',
 				source: 'BK',
+				cost: '5',
 				page: '1337'
 			}
 		},
@@ -21,8 +22,10 @@ describe('<GearTableDisplayRow />', () => {
 	it('should display gear stats', () => {
 		const { gearTableDislayRow, props } = setup();
 
-		expect(gearTableDislayRow.find('.gear-name').text()).to.equal('Banana');
-		expect(gearTableDislayRow.find('.gear-avail').text()).to.equal('3R');
-		expect(gearTableDislayRow.find('.gear-ref').text()).to.equal('BK p1337');
+		expect(gearTableDislayRow.find('.gear-name').text()).to.equal(props.gear.name);
+		expect(gearTableDislayRow.find('.gear-rating').text()).to.equal('N/A');
+		expect(gearTableDislayRow.find('.gear-avail').text()).to.equal(props.gear.avail);
+		expect(gearTableDislayRow.find('.gear-cost').text()).to.equal(`${props.gear.cost}¥`);
+		expect(gearTableDislayRow.find('.gear-ref').text()).to.equal(`${props.gear.source} p${props.gear.page}`);
 	});
 });
