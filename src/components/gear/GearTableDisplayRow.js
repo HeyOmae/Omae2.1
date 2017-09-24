@@ -2,6 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class GearTableRow extends React.Component {
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			rating: props.gear.rating > 0 ? '' : null
+		};
+	}
+
 	render() {
 		const {gear, button} = this.props;
 		return (
@@ -9,7 +17,7 @@ class GearTableRow extends React.Component {
 				<td>{button}</td>
 				<td className="gear-name">{gear.name}</td>
 				<td className="gear-rating">
-					{gear.rating ?
+					{gear.rating > 0 ?
 						<input />
 						:
 						'N/A'
@@ -28,6 +36,7 @@ class GearTableRow extends React.Component {
 GearTableRow.propTypes = {
 	gear: PropTypes.shape({
 		name: PropTypes.string.isRequired,
+		rating: PropTypes.string.isRequired,
 		avail: PropTypes.string.isRequired,
 		cost: PropTypes.string.isRequired,
 		source: PropTypes.string.isRequired,

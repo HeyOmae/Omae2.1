@@ -4,7 +4,7 @@ import {shallow} from 'enzyme';
 import GearTableDislayRow from 'components/gear/GearTableDisplayRow';
 
 describe('<GearTableDisplayRow />', () => {
-	const setup = ({rating} = {}) => {
+	const setup = ({} = {}, rating = '0') => {
 		const props = {
 			gear: {
 				name: 'Banana',
@@ -32,9 +32,21 @@ describe('<GearTableDisplayRow />', () => {
 
 	describe('Rating', () => {
 		it('should display input to select gear rating', () => {
-			const { gearTableDislayRow, props } = setup({rating: 6});
+			const { gearTableDislayRow, props } = setup({}, '6');
 
 			expect(gearTableDislayRow.find('.gear-rating').find('input')).to.have.length(1);
+		});
+
+		it('should set state.rating to empty string if gear.rating is over 0', () => {
+			const { gearTableDislayRow, props } = setup({}, '6');
+
+			expect(gearTableDislayRow.state('rating')).to.equal('');
+		});
+
+		it('should set state.rating to null if gear.rating is 0', () => {
+			const { gearTableDislayRow, props } = setup();
+
+			expect(gearTableDislayRow.state('rating')).to.equal(null);
 		});
 	});
 });
