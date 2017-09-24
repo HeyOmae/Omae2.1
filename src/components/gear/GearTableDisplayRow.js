@@ -9,7 +9,11 @@ class GearTableRow extends React.Component {
 				<td>{button}</td>
 				<td className="gear-name">{gear.name}</td>
 				<td className="gear-rating">
-					{gear.rating || 'N/A'}
+					{gear.rating ?
+						<input />
+						:
+						'N/A'
+					}
 				</td>
 				<td className="gear-avail">{gear.avail}</td>
 				<td className="gear-cost">

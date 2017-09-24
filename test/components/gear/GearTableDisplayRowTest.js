@@ -4,14 +4,15 @@ import {shallow} from 'enzyme';
 import GearTableDislayRow from 'components/gear/GearTableDisplayRow';
 
 describe('<GearTableDisplayRow />', () => {
-	const setup = () => {
+	const setup = ({rating} = {}) => {
 		const props = {
 			gear: {
 				name: 'Banana',
 				avail: '3R',
 				source: 'BK',
 				cost: '5',
-				page: '1337'
+				page: '1337',
+				rating
 			}
 		},
 			gearTableDislayRow = shallow(<GearTableDislayRow {...props} />);
@@ -27,5 +28,13 @@ describe('<GearTableDisplayRow />', () => {
 		expect(gearTableDislayRow.find('.gear-avail').text()).to.equal(props.gear.avail);
 		expect(gearTableDislayRow.find('.gear-cost').text()).to.equal(`${props.gear.cost}¥`);
 		expect(gearTableDislayRow.find('.gear-ref').text()).to.equal(`${props.gear.source} p${props.gear.page}`);
+	});
+
+	describe('Rating', () => {
+		it('should display input to select gear rating', () => {
+			const { gearTableDislayRow, props } = setup({rating: 6});
+
+			expect(gearTableDislayRow.find('.gear-rating').find('input')).to.have.length(1);
+		});
 	});
 });
