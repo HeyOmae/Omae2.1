@@ -10,6 +10,8 @@ class GearTableRow extends React.Component {
 		};
 	}
 
+	updateRating() {}
+
 	render() {
 		const {gear, button} = this.props;
 		return (
@@ -18,7 +20,15 @@ class GearTableRow extends React.Component {
 				<td className="gear-name">{gear.name}</td>
 				<td className="gear-rating">
 					{gear.rating > 0 ?
-						<input />
+						<input
+							type="number"
+							className="form-control"
+							min="1"
+							max={gear.rating}
+							placeholder={`1-${gear.rating}`}
+							onChange={this.updateRating}
+							value={this.state.rating}
+						/>
 						:
 						'N/A'
 					}

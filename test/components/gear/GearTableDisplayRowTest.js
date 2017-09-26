@@ -31,10 +31,10 @@ describe('<GearTableDisplayRow />', () => {
 	});
 
 	describe('Rating', () => {
-		it('should display input to select gear rating', () => {
-			const { gearTableDislayRow, props } = setup({}, '6');
+		it('should set state.rating to null if gear.rating is 0', () => {
+			const { gearTableDislayRow, props } = setup();
 
-			expect(gearTableDislayRow.find('.gear-rating').find('input')).to.have.length(1);
+			expect(gearTableDislayRow.state('rating')).to.equal(null);
 		});
 
 		it('should set state.rating to empty string if gear.rating is over 0', () => {
@@ -43,10 +43,18 @@ describe('<GearTableDisplayRow />', () => {
 			expect(gearTableDislayRow.state('rating')).to.equal('');
 		});
 
-		it('should set state.rating to null if gear.rating is 0', () => {
-			const { gearTableDislayRow, props } = setup();
+		it('should display input to select gear rating', () => {
+			const { gearTableDislayRow, props } = setup({}, '6');
 
-			expect(gearTableDislayRow.state('rating')).to.equal(null);
+			expect(gearTableDislayRow.find('.gear-rating').find('input')).to.have.length(1);
+		});
+
+		it('should set the input to the state.rating', () => {
+			const { gearTableDislayRow, props } = setup({}, '6');
+
+			gearTableDislayRow.setState({rating: '6'});
+
+			expect(gearTableDislayRow.find('.gear-rating input').props().value).to.equal('6');
 		});
 	});
 });
