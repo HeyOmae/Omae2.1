@@ -56,5 +56,16 @@ describe('<GearTableDisplayRow />', () => {
 
 			expect(gearTableDislayRow.find('.gear-rating input').props().value).to.equal('6');
 		});
+
+		describe('onChange', () => {
+			it('should update the rating on state and in the field', () => {
+				const { gearTableDislayRow } = setup({}, '6');
+
+				gearTableDislayRow.find('input').simulate('change', { target: { value: '3' } });
+
+				expect(gearTableDislayRow.state('rating')).to.equal('3');
+				expect(gearTableDislayRow.find('input').props().value).to.equal('3');
+			});
+		});
 	});
 });

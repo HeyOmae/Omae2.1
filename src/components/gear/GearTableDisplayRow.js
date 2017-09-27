@@ -8,9 +8,15 @@ class GearTableRow extends React.Component {
 		this.state = {
 			rating: props.gear.rating > 0 ? '' : null
 		};
+
+		this.updateRating = this.updateRating.bind(this);
 	}
 
-	updateRating() {}
+	updateRating({ target }) {
+		this.setState({
+			rating: target.value
+		});
+	}
 
 	render() {
 		const {gear, button} = this.props;
