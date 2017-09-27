@@ -62,8 +62,8 @@
     "mocha": "^3.4.2",
     "node-sass": "^4.5.3",
     "null-loader": "^0.1.1",
-    "prop-types": "^15.5.10",
-    "react-addons-test-utils": "^15.6.0",
+    "prop-types": "^15.6.0",
+    "react-addons-test-utils": "^15.6.2",
     "react-test-renderer": "^15.6.1",
     "rimraf": "^2.4.3",
     "sass-loader": "^6.0.6",
@@ -78,8 +78,8 @@
   "dependencies": {
     "bootstrap": "^4.0.0-beta",
     "cross-env": "^5.0.1",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
+    "react": "^15.6.2",
+    "react-dom": "^15.6.2",
     "react-hot-loader": "^3.0.0-beta.7",
     "react-redux": "^5.0.5",
     "redux": "^3.7.2"
