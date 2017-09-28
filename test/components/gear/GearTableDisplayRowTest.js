@@ -58,13 +58,31 @@ describe('<GearTableDisplayRow />', () => {
 		});
 
 		describe('onChange', () => {
-			it('should update the rating on state and in the field', () => {
+			it('should update the rating on state and in the field and turn string into a number', () => {
 				const { gearTableDislayRow } = setup({}, '6');
 
 				gearTableDislayRow.find('input').simulate('change', { target: { value: '3' } });
 
-				expect(gearTableDislayRow.state('rating')).to.equal('3');
-				expect(gearTableDislayRow.find('input').props().value).to.equal('3');
+				expect(gearTableDislayRow.state('rating')).to.equal(3);
+				expect(gearTableDislayRow.find('input').props().value).to.equal(3);
+			});
+
+			it('should set the rating to the max rating if given a number over', () => {
+				const { gearTableDislayRow } = setup({}, '6');
+
+				gearTableDislayRow.find('input').simulate('change', { target: { value: '10' } });
+
+				expect(gearTableDislayRow.state('rating')).to.equal(6);
+				expect(gearTableDislayRow.find('input').props().value).to.equal(6);
+			});
+
+			it('should set any number lower then 1 to empty string', () => {
+				const { gearTableDislayRow } = setup({}, '6');
+
+				gearTableDislayRow.find('input').simulate('change', { target: { value: '0' } });
+
+				expect(gearTableDislayRow.state('rating')).to.equal('');
+				expect(gearTableDislayRow.find('input').props().value).to.equal('');
 			});
 		});
 	});

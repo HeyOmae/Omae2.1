@@ -13,8 +13,17 @@ class GearTableRow extends React.Component {
 	}
 
 	updateRating({ target }) {
+		const maxRating = Number(this.props.gear.rating);
+		let rating = Number(target.value);
+
+		if (rating > maxRating) {
+			rating = maxRating;
+		} else if (rating < 1) {
+			rating = '';
+		}
+
 		this.setState({
-			rating: target.value
+			rating
 		});
 	}
 
