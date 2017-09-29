@@ -4,7 +4,7 @@ import {shallow} from 'enzyme';
 import GearTableDislayRow from 'components/gear/GearTableDisplayRow';
 
 describe('<GearTableDisplayRow />', () => {
-	const setup = ({} = {}, rating = '0') => {
+	const setup = ({currentRating} = {}, rating = '0') => {
 		const props = {
 			gear: {
 				name: 'Banana',
@@ -12,7 +12,8 @@ describe('<GearTableDisplayRow />', () => {
 				source: 'BK',
 				cost: '5',
 				page: '1337',
-				rating
+				rating,
+				currentRating
 			}
 		},
 			gearTableDislayRow = shallow(<GearTableDislayRow {...props} />);
@@ -31,22 +32,19 @@ describe('<GearTableDisplayRow />', () => {
 	});
 
 	describe('Rating', () => {
-		it('should set state.rating to null if gear.rating is 0', () => {
+		it('should set state.rating to null if gear.rating is 0 and not display an input', () => {
 			const { gearTableDislayRow, props } = setup();
 
 			expect(gearTableDislayRow.state('rating')).to.equal(null);
+			expect(gearTableDislayRow.find('.gear-rating').find('input')).to.have.length(0);
 		});
 
-		it('should set state.rating to empty string if gear.rating is over 0', () => {
+		it('should set state.rating to empty string if gear.rating is over 0 and display an input', () => {
 			const { gearTableDislayRow, props } = setup({}, '6');
 
 			expect(gearTableDislayRow.state('rating')).to.equal('');
-		});
-
-		it('should display input to select gear rating', () => {
-			const { gearTableDislayRow, props } = setup({}, '6');
-
 			expect(gearTableDislayRow.find('.gear-rating').find('input')).to.have.length(1);
+			expect(gearTableDislayRow.find('.gear-rating').find('input').props().value).to.equal('');
 		});
 
 		it('should set the input to the state.rating', () => {
@@ -84,6 +82,13 @@ describe('<GearTableDisplayRow />', () => {
 				expect(gearTableDislayRow.state('rating')).to.equal('');
 				expect(gearTableDislayRow.find('input').props().value).to.equal('');
 			});
+		});
+
+		it('should display the current rating and not display input', () => {
+			const { gearTableDislayRow } = setup({currentRating: 3}, '6');
+
+			expect(gearTableDislayRow.find('.gear-rating').find('input')).to.have.length(0);
+			expect(gearTableDislayRow.find('.gear-rating').text()).to.equal('3');
 		});
 	});
 });

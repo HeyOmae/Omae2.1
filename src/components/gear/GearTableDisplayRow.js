@@ -34,7 +34,7 @@ class GearTableRow extends React.Component {
 				<td>{button}</td>
 				<td className="gear-name">{gear.name}</td>
 				<td className="gear-rating">
-					{gear.rating > 0 ?
+					{gear.rating > 0 && !gear.currentRating ?
 						<input
 							type="number"
 							className="form-control"
@@ -45,7 +45,7 @@ class GearTableRow extends React.Component {
 							value={this.state.rating}
 						/>
 						:
-						'N/A'
+						(gear.currentRating || 'N/A')
 					}
 				</td>
 				<td className="gear-avail">{gear.avail}</td>
@@ -65,7 +65,8 @@ GearTableRow.propTypes = {
 		avail: PropTypes.string.isRequired,
 		cost: PropTypes.string.isRequired,
 		source: PropTypes.string.isRequired,
-		page: PropTypes.string.isRequired
+		page: PropTypes.string.isRequired,
+		currentRating: PropTypes.number
 	}).isRequired,
 	button: PropTypes.element.isRequired
 };
