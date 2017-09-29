@@ -4,13 +4,13 @@ import {shallow} from 'enzyme';
 import GearTableDislayRow from 'components/gear/GearTableDisplayRow';
 
 describe('<GearTableDisplayRow />', () => {
-	const setup = ({currentRating} = {}, rating = '0') => {
+	const setup = ({currentRating} = {}, rating = '0', cost = '5') => {
 		const props = {
 			gear: {
 				name: 'Banana',
 				avail: '3R',
 				source: 'BK',
-				cost: '5',
+				cost,
 				page: '1337',
 				rating,
 				currentRating
@@ -89,6 +89,14 @@ describe('<GearTableDisplayRow />', () => {
 
 			expect(gearTableDislayRow.find('.gear-rating').find('input')).to.have.length(0);
 			expect(gearTableDislayRow.find('.gear-rating').text()).to.equal('3');
+		});
+	});
+
+	describe('Variable cost', () => {
+		it('should set the state of the cost to empty string if variable', () => {
+			const { gearTableDislayRow } = setup({}, undefined, 'Variable(20-100000)');
+
+			expect(gearTableDislayRow.state('currentCost')).to.equal('');
 		});
 	});
 });

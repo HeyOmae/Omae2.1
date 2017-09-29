@@ -6,7 +6,8 @@ class GearTableRow extends React.Component {
 		super(props);
 
 		this.state = {
-			rating: props.gear.rating > 0 ? '' : null
+			rating: props.gear.rating > 0 ? '' : null,
+			currentCost: isNaN(props.gear.cost) ? '' : null
 		};
 
 		this.updateRating = this.updateRating.bind(this);
