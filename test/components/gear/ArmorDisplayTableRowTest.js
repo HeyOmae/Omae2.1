@@ -84,7 +84,6 @@ describe('<ArmorDisplayTableRow />', () => {
 			const action = sinon.spy(),
 				buyActionGenerator = ({armor, state}) => {
 					return () => {
-
 						action({gear: armor, category: 'armors', Rating: state.Rating});
 					}
 				};
@@ -92,8 +91,7 @@ describe('<ArmorDisplayTableRow />', () => {
 
 			armorDisplayTableRow.find('button').simulate('click');
 
-			expect(action).to.have.been.calledWith({gear: props.armor, category: 
-				'armors', Rating: null});
+			expect(action).to.have.been.calledWith({gear: props.armor, category: 'armors', Rating: null});
 		});
 
 		it('should fire the sellGear action with armor and state correctly on click', () => {

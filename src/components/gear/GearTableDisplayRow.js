@@ -46,10 +46,17 @@ class GearTableRow extends React.Component {
 	}
 
 	render() {
-		const {gear, button} = this.props;
+		const { gear, btnAction, btnClass, btnSymbol, index } = this.props;
 		return (
 			<tr>
-				<td>{button}</td>
+				<td>
+					<button
+						className={`btn ${btnClass}`}
+						onClick={btnAction({gear, index, state: this.state})}
+					>
+						{btnSymbol}
+					</button>
+				</td>
 				<td className="gear-name">{gear.name}</td>
 				<td className="gear-rating">
 					{gear.rating > 0 && !gear.currentRating ?
@@ -98,11 +105,14 @@ GearTableRow.propTypes = {
 		page: PropTypes.string.isRequired,
 		currentRating: PropTypes.number
 	}).isRequired,
-	button: PropTypes.element.isRequired
+	btnClass: PropTypes.string.isRequired,
+	btnAction: PropTypes.func.isRequired,
+	btnSymbol: PropTypes.oneOf(['+', '-']).isRequired,
+	index: PropTypes.number
 };
 
 GearTableRow.defaultProps = {
-	gearState: null
+	index: undefined
 };
 
 export default GearTableRow;

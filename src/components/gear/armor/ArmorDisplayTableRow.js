@@ -118,7 +118,6 @@ ArmorTableRow.propTypes = {
 };
 
 ArmorTableRow.defaultProps = {
-	armorGear: null,
 	mod: null,
 	index: undefined
 };

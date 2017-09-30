@@ -4,7 +4,14 @@ import {shallow} from 'enzyme';
 import GearTableDislayRow from 'components/gear/GearTableDisplayRow';
 
 describe('<GearTableDisplayRow />', () => {
-	const setup = ({currentRating} = {}, rating = '0', cost = '5') => {
+	const setup = (
+			{currentRating} = {},
+			rating = '0',
+			cost = '5',
+			btnAction = () => {
+				return sinon.spy();
+			}
+		) => {
 		const props = {
 			gear: {
 				name: 'Banana',
@@ -14,7 +21,11 @@ describe('<GearTableDisplayRow />', () => {
 				page: '1337',
 				rating,
 				currentRating
-			}
+			},
+			btnClass: 'btn-success',
+			btnSymbol: '+',
+			btnAction,
+			index: 1
 		},
 			gearTableDislayRow = shallow(<GearTableDislayRow {...props} />);
 
@@ -29,6 +40,50 @@ describe('<GearTableDisplayRow />', () => {
 		expect(gearTableDislayRow.find('.gear-avail').text()).to.equal(props.gear.avail);
 		expect(gearTableDislayRow.find('.gear-cost').text()).to.equal(`${props.gear.cost}¥`);
 		expect(gearTableDislayRow.find('.gear-ref').text()).to.equal(`${props.gear.source} p${props.gear.page}`);
+	});
+
+	describe('button', () => {
+		it('should set class and symbol based off props', () => {
+			const { gearTableDislayRow } = setup();
+
+			expect(gearTableDislayRow.find('button').props().className).to.equal('btn btn-success');
+			expect(gearTableDislayRow.find('button').text()).to.equal('+');
+		});
+
+		it('should set the onClick event of the button to the vallback value of the btnAction', () => {
+			const testCallback = sinon.spy();
+			const { gearTableDislayRow, props } = setup({}, undefined, undefined, testCallback);
+
+			expect(testCallback).to.have.been.calledWith({gear: props.gear, state: gearTableDislayRow.state(), index: 1});
+		});
+
+		it('should fire the purchanseGear action with gear and state correctly on click', () => {
+			const action = sinon.spy(),
+				buyActionGenerator = ({gear, state}) => {
+					return () => {
+						action({gear, category: 'gears', Rating: state.rating});
+					}
+				};
+			const { gearTableDislayRow, props } = setup({}, undefined, undefined, buyActionGenerator);
+
+			gearTableDislayRow.find('button').simulate('click');
+
+			expect(action).to.have.been.calledWith({gear: props.gear, category: 'gears', Rating: null});
+		});
+
+		it('should fire the sellGear action with gear and state correctly on click', () => {
+			const action = sinon.spy(),
+				buyActionGenerator = ({index}) => {
+					return () => {
+						action({index, category: 'gears'});
+					}
+				};
+			const { gearTableDislayRow, props } = setup({}, undefined, undefined, buyActionGenerator);
+
+			gearTableDislayRow.find('button').simulate('click');
+
+			expect(action).to.have.been.calledWith({index: 1, category: 'gears'});
+		});
 	});
 
 	describe('Rating', () => {
