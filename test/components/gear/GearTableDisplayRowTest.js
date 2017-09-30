@@ -100,8 +100,28 @@ describe('<GearTableDisplayRow />', () => {
 
 			expect(gearTableDislayRow.state('currentCost')).to.equal('');
 			expect(input).to.have.lengthOf(1);
+			expect(input.props().value).to.equal('');
 			expect(input.props().max).to.equal('100000');
 			expect(input.props().placeholder).to.equal('20-100000');
+		});
+
+		describe('onChange', () => {
+			it('should update the currentCost in state and on the input', () => {
+				const { gearTableDislayRow } = setup({}, undefined, 'Variable(20-100000)');
+
+				gearTableDislayRow.find('input').simulate('change', { target: { value: '300' } });
+
+				expect(gearTableDislayRow.state('currentCost')).to.equal(300);
+				expect(gearTableDislayRow.find('input').props().value).to.equal(300);
+			});
+
+			it('should not allow a NaN', () => {
+				const { gearTableDislayRow } = setup({}, undefined, 'Variable(20-100000)');
+
+				gearTableDislayRow.find('input').simulate('change', { target: { value: 'e' } });
+				expect(gearTableDislayRow.state('currentCost')).to.equal(0);
+				expect(gearTableDislayRow.find('input').props().value).to.equal(0);
+			});
 		});
 	});
 });

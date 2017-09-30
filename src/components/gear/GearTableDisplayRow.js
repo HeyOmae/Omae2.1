@@ -21,6 +21,7 @@ class GearTableRow extends React.Component {
 		}
 
 		this.updateRating = this.updateRating.bind(this);
+		this.updateCost = this.updateCost.bind(this);
 	}
 
 	updateRating({ target }) {
@@ -35,6 +36,12 @@ class GearTableRow extends React.Component {
 
 		this.setState({
 			rating
+		});
+	}
+
+	updateCost({target}) {
+		this.setState({
+			currentCost: isNaN(target.value) ? 0 : Number(target.value)
 		});
 	}
 
