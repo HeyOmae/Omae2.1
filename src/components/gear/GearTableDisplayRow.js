@@ -5,10 +5,20 @@ class GearTableRow extends React.Component {
 	constructor(props) {
 		super(props);
 
+		const isCostVariable = (props.gear.cost.search('Variable') > -1);
+
 		this.state = {
 			rating: props.gear.rating > 0 ? '' : null,
 			currentCost: isNaN(props.gear.cost) ? '' : null
 		};
+
+		if (isCostVariable) {
+			const range = props.gear.cost.match(/\d+/g);
+			this.gearCost = {
+				max: range[1],
+				min: range[0]
+			};
+		}
 
 		this.updateRating = this.updateRating.bind(this);
 	}
@@ -51,7 +61,19 @@ class GearTableRow extends React.Component {
 				</td>
 				<td className="gear-avail">{gear.avail}</td>
 				<td className="gear-cost">
-					{gear.cost}&yen;
+					{
+						this.state.currentCost === null ?
+						(<span>{gear.cost}&yen;</span>)
+						:
+						<input
+							type="number"
+							min="1"
+							max={this.gearCost.max}
+							placeholder={`${this.gearCost.min}-${this.gearCost.max}`}
+							onChange={this.updateCost}
+							value={this.state.currentCost}
+						/>
+					}
 				</td>
 				<td className="gear-ref">{gear.source} p{gear.page}</td>
 			</tr>

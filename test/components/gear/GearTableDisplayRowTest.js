@@ -93,10 +93,15 @@ describe('<GearTableDisplayRow />', () => {
 	});
 
 	describe('Variable cost', () => {
-		it('should set the state of the cost to empty string if variable', () => {
+		it('should set the state of the cost to empty string if variable and display input', () => {
 			const { gearTableDislayRow } = setup({}, undefined, 'Variable(20-100000)');
 
+			const input = gearTableDislayRow.find('.gear-cost').find('input');
+
 			expect(gearTableDislayRow.state('currentCost')).to.equal('');
+			expect(input).to.have.lengthOf(1);
+			expect(input.props().max).to.equal('100000');
+			expect(input.props().placeholder).to.equal('20-100000');
 		});
 	});
 });
