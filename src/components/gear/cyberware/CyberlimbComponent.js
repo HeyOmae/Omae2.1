@@ -69,7 +69,7 @@ class CyberlimbComponent extends React.PureComponent {
 			<div>
 				<h4>Cyber {location}</h4>
 				<div className="row justify-content-between">
-					<div className="col-xs-12 col-md-4">
+					<div className="col-12 col-md-4">
 						<h5>Types</h5>
 						<div className="btn-group">
 							{Object.keys(cyberlimbsByType).map((type) => {
@@ -85,7 +85,7 @@ class CyberlimbComponent extends React.PureComponent {
 							})}
 						</div>
 					</div>
-					<div className="col-xs-12 col-md-4">
+					<div className="col-12 col-md-4">
 						<div className="row justify-content-between">
 							<div className="col">
 								<h5>Agi</h5>
@@ -121,7 +121,7 @@ class CyberlimbComponent extends React.PureComponent {
 							</div>
 						</div>
 					</div>
-					<div className="col-xs-12 col-md-4">
+					<div className="col-12 col-md-4">
 						<WareGradeComponent
 							changeGrade={changeGrade}
 							currentGrade={currentGrade}

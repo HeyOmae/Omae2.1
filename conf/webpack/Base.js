@@ -82,7 +82,6 @@ class WebpackBaseConfig {
 				publicPath: '/assets/',
 				historyApiFallback: true,
 				hot: true,
-				inline: true,
 				port: 8000
 			},
 			entry: './index.js',
@@ -92,9 +91,10 @@ class WebpackBaseConfig {
 						enforce: 'pre',
 						test: /\.js?$/,
 						include: this.srcPathAbsolute,
+						exclude: /node_modules/,
 						loader: 'babel-loader',
-						query: {
-							presets: ['es2015']
+						options: {
+							presets: ['env']
 						}
 					},
 					{
@@ -114,22 +114,6 @@ class WebpackBaseConfig {
 							{ loader: 'style-loader' },
 							{ loader: 'css-loader' },
 							{ loader: 'sass-loader' }
-						]
-					},
-					{
-						test: /^.((?!cssmodule).)*\.less$/,
-						loaders: [
-							{ loader: 'style-loader' },
-							{ loader: 'css-loader' },
-							{ loader: 'less-loader' }
-						]
-					},
-					{
-						test: /^.((?!cssmodule).)*\.styl$/,
-						loaders: [
-							{ loader: 'style-loader' },
-							{ loader: 'css-loader' },
-							{ loader: 'stylus-loader' }
 						]
 					},
 					{
@@ -168,28 +152,6 @@ class WebpackBaseConfig {
 							}
 						]
 					},
-					{
-						test: /\.cssmodule\.less$/,
-						loaders: [
-							{ loader: 'style-loader' },
-							{
-								loader: 'css-loader',
-								query: cssModulesQuery
-							},
-							{ loader: 'less-loader' }
-						]
-					},
-					{
-						test: /\.cssmodule\.styl$/,
-						loaders: [
-							{ loader: 'style-loader' },
-							{
-								loader: 'css-loader',
-								query: cssModulesQuery
-							},
-							{ loader: 'stylus-loader' }
-						]
-					}
 				]
 			},
 			output: {

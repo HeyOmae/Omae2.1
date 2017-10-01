@@ -117,7 +117,7 @@ class WeaponsComponent extends React.Component {
 						weapon={weapon}
 						button={sellButton}
 						mod={modButton}
-						/>
+					/>
 				);
 			});
 

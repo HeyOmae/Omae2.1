@@ -1,19 +1,22 @@
 {
   "presets": [
-    ["es2015", { "modules": false }],
+    ["env", {
+      "targets": {
+        "browsers": "> 5%"
+      },
+      "modules": false,
+      "useBuiltIns": true,
+      "debug": true,
+    }],
     "react",
     "airbnb"
   ],
   "plugins": [
-    "transform-decorators-legacy",
-    "transform-object-rest-spread",
     "react-hot-loader/babel"
   ],
   "env": {
     "test": {
       "plugins": [
-        "transform-decorators-legacy",
-        "transform-object-rest-spread",
         "istanbul"
       ]
     }

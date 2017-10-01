@@ -11,13 +11,14 @@ class WebpackDevConfig extends WebpackBaseConfig {
 		this.config = {
 			devtool: 'cheap-module-source-map',
 			entry: [
+				'react-hot-loader/patch',
 				'webpack-dev-server/client?http://0.0.0.0:8000/',
 				'webpack/hot/only-dev-server',
-				'react-hot-loader/patch',
 				'./client.js'
 			],
 			plugins: [
 				new webpack.HotModuleReplacementPlugin(),
+				new webpack.NamedModulesPlugin(),
 				new webpack.NoEmitOnErrorsPlugin()
 			]
 		};

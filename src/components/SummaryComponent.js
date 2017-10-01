@@ -116,9 +116,9 @@ const SummaryComponent = (
 		if (Array.isArray(gearArray)) {
 			return [
 				...rows,
-				gearArray.map((gear) => {
+				gearArray.map((gear, index) => {
 					return (
-						<tr>
+						<tr key={`${gear.name + index}-summary-purchase`}>
 							<td>{gear.name}</td>
 							<td>{gear.source} p{gear.page}</td>
 						</tr>
@@ -152,7 +152,7 @@ const SummaryComponent = (
 
 			<div>
 				<h2>Metatype</h2>
-				<div className="col-xs-12">{metatype.typeName}</div>
+				<div className="col-12">{metatype.typeName}</div>
 			</div>
 
 			<div className="scroll-overflow">

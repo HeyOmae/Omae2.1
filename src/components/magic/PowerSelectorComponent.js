@@ -85,9 +85,9 @@ function createSelectedPowerIndividualRow(powerDetails, button, powerID, modifyP
 
 	const levelButton = (
 		<div>
-			<button className="btn btn-success col-xs-12 col-sm-4" onClick={raiseLevel}>+</button>
-			<span className="col-xs-12 col-sm-4">{powerDetails.levels}</span>
-			<button className="btn btn-warning col-xs-12 col-sm-4" onClick={lowerLevel}>-</button>
+			<button className="btn btn-success col-12 col-sm-4" onClick={raiseLevel}>+</button>
+			<span className="col-12 col-sm-4">{powerDetails.levels}</span>
+			<button className="btn btn-warning col-12 col-sm-4" onClick={lowerLevel}>-</button>
 		</div>
 	);
 

@@ -14,7 +14,7 @@ class WeaponModsComponent extends React.PureComponent {
 				{
 				mount.map((mountLocation) => {
 					return (
-						<div className="col-xs-12 col-md-4" key={`weapon-mods-${weapon.name}-${mountLocation}`}>
+						<div className="col-12 col-md-4" key={`weapon-mods-${weapon.name}-${mountLocation}`}>
 							<p><strong>{mountLocation}</strong></p>
 							<WeaponModOptionsSelect
 								mods={weapon.mods}
