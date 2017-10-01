@@ -641,7 +641,7 @@ describe('purchaseGear', () => {
 			expect(newState.armors[1].currentCost).to.equal(1700);
 			expect(newState.nuyen).to.equal(3300);
 
-			expect(state.armors[1].mods['Faraday Pocket']).to.be.defined;
+			expect(state.armors[1].mods['Faraday Pocket']).to.not.be.undefined;
 			expect(state.armors[1].capacity).to.equal(6);
 			expect(state.armors[1].currentCost).to.equal(1750);
 			expect(state.nuyen).to.equal(3350);
@@ -655,7 +655,7 @@ describe('purchaseGear', () => {
 			expect(newState.armors[1].currentCost).to.equal(500);
 			expect(newState.nuyen).to.equal(2100);
 
-			expect(state.armors[1].mods['Faraday Pocket']).to.be.defined;
+			expect(state.armors[1].mods['Faraday Pocket']).to.not.be.undefined;
 			expect(state.armors[1].capacity).to.equal(6);
 			expect(state.armors[1].currentCost).to.equal(1750);
 			expect(state.nuyen).to.equal(3350);
