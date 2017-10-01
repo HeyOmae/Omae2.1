@@ -1,23 +1,12 @@
 /**
  * Webpack configuration base class
  */
-const fs = require('fs');
 const path = require('path');
-
-const npmBase = path.join(__dirname, '../../node_modules');
 
 class WebpackBaseConfig {
 
 	constructor() {
 		this._config = {};
-	}
-
-	/**
-	 * Get the list of included packages
-	 * @return {Array} List of included packages
-	 */
-	get includedPackages() {
-		return [].map((pkg) => fs.realpathSync(path.join(npmBase, pkg)));
 	}
 
 	/**
@@ -68,12 +57,6 @@ class WebpackBaseConfig {
 	 * @return {Object}
 	 */
 	get defaultSettings() {
-		const cssModulesQuery = {
-			modules: true,
-			importLoaders: 1,
-			localIdentName: '[name]-[local]-[hash:base64:5]'
-		};
-
 		return {
 			context: this.srcPathAbsolute,
 			devtool: 'eval',
@@ -98,13 +81,6 @@ class WebpackBaseConfig {
 						}
 					},
 					{
-						test: /^.((?!cssmodule).)*\.css$/,
-						loaders: [
-							{ loader: 'style-loader' },
-							{ loader: 'css-loader' }
-						]
-					},
-					{
 						test: /\.(png|jpg|gif|mp4|ogg|svg|woff|woff2)$/,
 						loader: 'file-loader'
 					},
@@ -119,38 +95,6 @@ class WebpackBaseConfig {
 					{
 						test: /\.json$/,
 						loader: 'json-loader'
-					},
-					{
-						test: /\.(js|jsx)$/,
-						include: [].concat(
-							this.includedPackages,
-							[this.srcPathAbsolute]
-						),
-						loaders: [
-							// Note: Moved this to .babelrc
-							{ loader: 'babel-loader' }
-						]
-					},
-					{
-						test: /\.cssmodule\.(sass|scss)$/,
-						loaders: [
-							{ loader: 'style-loader' },
-							{
-								loader: 'css-loader',
-								query: cssModulesQuery
-							},
-							{ loader: 'sass-loader' }
-						]
-					},
-					{
-						test: /\.cssmodule\.css$/,
-						loaders: [
-							{ loader: 'style-loader' },
-							{
-								loader: 'css-loader',
-								query: cssModulesQuery
-							}
-						]
 					},
 				]
 			},
