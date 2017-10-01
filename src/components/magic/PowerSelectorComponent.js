@@ -255,7 +255,7 @@ PowerSelectedDisplay.propTypes = {
 
 const PowersTables = ({powerRowData}) => {
 	return (
-		<div className="table-responsive">
+		<div className="col">
 			<FilterTable tableData={powerRowData} />
 		</div>
 	);

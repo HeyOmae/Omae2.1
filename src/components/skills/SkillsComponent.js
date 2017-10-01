@@ -125,7 +125,7 @@ class SkillsComponent extends React.PureComponent {
 					</div>
 				</div>
 				{Object.keys(skills.active).length > 0 ?
-					(<div className="table-responsive">
+					(<div className="col">
 						<h3>Skill List</h3>
 						<DisplaySkills
 							activeSkills={skills.active}

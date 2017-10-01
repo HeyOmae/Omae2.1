@@ -125,7 +125,7 @@ class WeaponsComponent extends React.Component {
 			<div className="weapons-component modal-thirds row">
 				{weaponTable}
 				{purchased &&
-					<div className="table-responsive purchased-weapons">
+					<div className="col purchased-weapons">
 						<DisplayTable
 							header={<WeaponTableHeader
 								buySell="Sell"

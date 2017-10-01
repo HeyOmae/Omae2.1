@@ -95,7 +95,7 @@ class MagicSelectionComponent extends React.PureComponent {
 		return (
 			<div className="magicselection-component">
 				<h2>Magic/Resonance</h2>
-				<div className="table-responsive">
+				<div className="scroll-overflow">
 					<div className="btn-group">
 						{awakenButtons}
 					</div>

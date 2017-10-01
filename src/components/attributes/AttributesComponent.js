@@ -106,39 +106,37 @@ class AttributesComponent extends React.PureComponent {
 			<div className="attributes-component ">
 				<div className="row">
 					<div className="col-lg-12 col-xl-9">
-						<div className="table-responsive">
-							<h2>Attributes</h2>
-							<DisplayTableComponent
-								header={(
-									<tr>
-										<th>Bod</th>
-										<th>Agi</th>
-										<th>Rea</th>
-										<th>Str</th>
-										<th>Wil</th>
-										<th>Log</th>
-										<th>Int</th>
-										<th>Cha</th>
-										<th>Points</th>
-									</tr>
-								)}
-							>
+						<h2>Attributes</h2>
+						<DisplayTableComponent
+							header={(
 								<tr>
-									{attributeElements.base.incBtn}
-									<td />
+									<th>Bod</th>
+									<th>Agi</th>
+									<th>Rea</th>
+									<th>Str</th>
+									<th>Wil</th>
+									<th>Log</th>
+									<th>Int</th>
+									<th>Cha</th>
+									<th>Points</th>
 								</tr>
-								<tr className={attibutePointsLeft < 0 ? 'table-danger' : ''}>
-									{attributeElements.base.display}
-									<td>
-										{attibutePointsLeft}
-									</td>
-								</tr>
-								<tr>
-									{attributeElements.base.decBtn}
-									<td />
-								</tr>
-							</DisplayTableComponent>
-						</div>
+							)}
+						>
+							<tr>
+								{attributeElements.base.incBtn}
+								<td />
+							</tr>
+							<tr className={attibutePointsLeft < 0 ? 'table-danger' : ''}>
+								{attributeElements.base.display}
+								<td>
+									{attibutePointsLeft}
+								</td>
+							</tr>
+							<tr>
+								{attributeElements.base.decBtn}
+								<td />
+							</tr>
+						</DisplayTableComponent>
 					</div>
 					<SpecialComponent
 						elements={attributeElements.special}

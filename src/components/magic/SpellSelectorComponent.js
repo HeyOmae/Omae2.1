@@ -221,7 +221,7 @@ const SpellSelectedDisplay = ({selectedSpells, removeSpell}) => {
 		spellDisplayTables = Object.keys(spellTableData).map((spellCat) => {
 			const spellCatagoryData = spellTableData[spellCat];
 			return (
-				<div key={`selected-${spellCat}`} className={`selected-spell-in-${spellCat} table-responsive`}>
+				<div key={`selected-${spellCat}`} className={`selected-spell-in-${spellCat} col`}>
 					<h4>{spellCat}</h4>
 					<DisplayTable
 						header={spellCatagoryData.header}
@@ -246,7 +246,7 @@ SpellSelectedDisplay.propTypes = {
 
 const SpellsTables = ({spellRowData}) => {
 	return (
-		<div className="table-responsive">
+		<div className="col">
 			<FilterTable tableData={spellRowData} />
 		</div>
 	);

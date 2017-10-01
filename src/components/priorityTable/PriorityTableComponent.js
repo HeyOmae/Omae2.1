@@ -10,7 +10,7 @@ class PriorityTableComponent extends React.PureComponent {
 	render() {
 		const {changePriority, priorityTable} = this.props;
 		return (
-			<div className="table-responsive">
+			<div className="col">
 				<h2>Priority Table</h2>
 				<table className="table table-bordered priority-table">
 					<PriorityLabel />

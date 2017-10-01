@@ -2,7 +2,8 @@ import React from 'react';
 import WeaponsComponent from './weapon/WeaponsComponent';
 import ArmorsComponent from './armor/ArmorsComponent';
 import AugmentationComponent from './AugmentationComponent';
-import GearComponent, { PurchasedGear } from './GearComponent';
+import GearComponent from './GearComponent';
+import PurchasedGear from './PurchasedGearComponent';
 import gearData from '../../data/gear.json';
 import PropTypeChecking from '../../config/propTypeChecking';
 

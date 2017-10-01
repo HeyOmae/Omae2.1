@@ -131,7 +131,7 @@ const QualityTable = ({tableRows}) => {
 			body: tableRows
 		};
 	return (
-		<div className="table-responsive">
+		<div className="col">
 			<FilterTable tableData={tableData} />
 		</div>
 	);

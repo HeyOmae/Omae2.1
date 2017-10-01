@@ -95,7 +95,7 @@ class ArmorsComponent extends React.PureComponent {
 			<div className="armor-component row">
 				{armorModal}
 				{purchased &&
-					<div className="table-responsive purchased-armors">
+					<div className="purchased-armors col">
 						<DisplayTable
 							header={<ArmorTableHeader sell />}
 							body={purchasedTableRow} />
