@@ -24,8 +24,7 @@ describe('<GearTableDisplayRow />', () => {
 			},
 			btnClass: 'btn-success',
 			btnSymbol: '+',
-			btnAction,
-			index: 1
+			btnAction
 		},
 			gearTableDislayRow = shallow(<GearTableDislayRow {...props} />);
 
@@ -50,11 +49,11 @@ describe('<GearTableDisplayRow />', () => {
 			expect(gearTableDislayRow.find('button').text()).to.equal('+');
 		});
 
-		it('should set the onClick event of the button to the vallback value of the btnAction', () => {
+		it('should set the onClick event of the button to the callback value of the btnAction', () => {
 			const testCallback = sinon.spy();
 			const { gearTableDislayRow, props } = setup({}, undefined, undefined, testCallback);
 
-			expect(testCallback).to.have.been.calledWith({gear: props.gear, state: gearTableDislayRow.state(), index: 1});
+			expect(testCallback).to.have.been.calledWith({gear: props.gear, state: gearTableDislayRow.state()});
 		});
 
 		it('should fire the purchanseGear action with gear and state correctly on click', () => {
@@ -73,16 +72,57 @@ describe('<GearTableDisplayRow />', () => {
 
 		it('should fire the sellGear action with gear and state correctly on click', () => {
 			const action = sinon.spy(),
-				buyActionGenerator = ({index}) => {
+				buyActionGenerator = () => {
 					return () => {
-						action({index, category: 'gears'});
+						action();
 					}
 				};
 			const { gearTableDislayRow, props } = setup({}, undefined, undefined, buyActionGenerator);
 
 			gearTableDislayRow.find('button').simulate('click');
 
-			expect(action).to.have.been.calledWith({index: 1, category: 'gears'});
+			expect(action).to.have.been.callCount(1);
+		});
+
+		it('should fire purchaseGear action with gear rating', () => {
+			const action = sinon.spy(),
+				buyActionGenerator = ({gear, state}) => {
+					return () => {
+						action({gear, category: gear.category, Rating: state.rating});
+					}
+				};
+			const { gearTableDislayRow, props } = setup({}, '6', '400 * Rating', buyActionGenerator);
+
+			gearTableDislayRow.find('input').simulate('change', { target: { value: '3' } });
+			gearTableDislayRow.find('button').simulate('click');
+
+			expect(action).to.have.been.calledWith({gear: props.gear, category: 
+				props.gear.category, Rating: 3});
+		});
+
+		it('should fire purchaseGear action with currentCost from state', () => {
+			const action = sinon.spy(),
+				buyActionGenerator = ({gear, state}) => {
+					return () => {
+						action({
+							gear: (state.currentCost === null) ? gear : { ...gear, cost: state.currentCost },
+							category: 'gears',
+							Rating: state.rating
+						});
+					}
+				};
+			const { gearTableDislayRow, props } = setup({}, undefined, 'Variable(20-100000)', buyActionGenerator);
+
+			gearTableDislayRow.find('input').simulate('change', {target: { value: '500' } });
+
+			gearTableDislayRow.find('button').simulate('click');
+
+			const gear = {
+				...props.gear,
+				cost: 500
+			}
+
+			expect(action).to.have.been.calledWith({gear, category: 'gears', Rating: null});
 		});
 	});
 

@@ -240,10 +240,10 @@ describe('purchaseGear', () => {
 				source: 'SR5',
 				page: '449'
 			},
-			newState = reducer(state, {type: 'PURCHASE', parameter: {gear: gear, category: 'gears', Rating: 3} });
-			expect(newState.gears[0]).to.equal(gear);
+			newState = reducer(state, {type: 'PURCHASE', parameter: {gear: gear, category: gear.category} });
+			expect(newState['Survival Gear'][0]).to.equal(gear);
 			expect(newState.nuyen).to.equal(3550);
-			expect(state.gears).to.be.undefined;
+			expect(state['Survival Gear']).to.be.undefined;
 			expect(state.nuyen).to.equal(3350);
 		});
 
@@ -282,6 +282,28 @@ describe('purchaseGear', () => {
 			expect(newState.commlinks[1]).to.equal(metalink);
 			expect(newState.nuyen).to.equal(3450);
 			expect(state.commlinks.length).to.equal(1);
+			expect(state.nuyen).to.equal(3350);
+		});
+
+		it('should add gear with current rating for gear with static costs', () => {
+			const dynomite = {
+				id: "df3efeef-661f-41fd-9007-01ba7db42dee",
+				name: "Dynamite",
+				category: "Explosives",
+				rating: "3",
+				minrating: "3",
+				avail: "8R",
+				cost: "350",
+				source: "RG",
+				page: "190"
+			};
+
+			const newState = reducer(state, {type: 'PURCHASE', parameter: {gear: dynomite, category: 'Explosives', Rating: 3}});
+
+			expect(newState.Explosives[0].currentRating).to.equal(3);
+			expect(newState.nuyen).to.equal(3700);
+
+			expect(state.Explosives).to.be.undefined;
 			expect(state.nuyen).to.equal(3350);
 		});
 	});

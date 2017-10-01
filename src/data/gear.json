@@ -7070,10 +7070,7 @@
     "id": "c4e5d594-f578-4b9f-bd36-422135d13208",
     "name": "Naga Venom",
     "category": "Toxins",
-    "rating": [
-      "99",
-      "0"
-    ],
+    "rating": "30",
     "avail": "(Rating * 3)F",
     "cost": "100 * Rating",
     "source": "HT",
@@ -7083,10 +7080,7 @@
     "id": "dc06bc78-8b18-439b-9a24-fa5a04139ec0",
     "name": "Nova Scorpion Venom",
     "category": "Toxins",
-    "rating": [
-      "0",
-      "0"
-    ],
+    "rating": "0",
     "avail": "14F",
     "cost": "600",
     "source": "HT",
@@ -7096,10 +7090,7 @@
     "id": "27d1ca7b-c51c-4368-878d-688ed456c7cf",
     "name": "Tetrodotoxin",
     "category": "Toxins",
-    "rating": [
-      "0",
-      "0"
-    ],
+    "rating": "0",
     "avail": "18F",
     "cost": "1000",
     "source": "HT",

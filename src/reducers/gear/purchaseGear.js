@@ -13,14 +13,13 @@ const purchaseGearReducer = (state = initialState, action) => {
 	const actionsToTake = {
 		PURCHASE(prevState, {gear, category, Rating}) {
 			let { cost } = gear,
-				gearToAdd = gear;
+				gearToAdd = Rating ? {...gear, currentRating: Rating} : gear;
 
 			if (Rating && cost.search('Rating') > -1) {
 				const evil = eval;
 				cost = evil(cost.replace('Rating', Rating));
 				gearToAdd = {
-					...gear,
-					currentRating: Rating,
+					...gearToAdd,
 					currentCost: cost
 				};
 			}

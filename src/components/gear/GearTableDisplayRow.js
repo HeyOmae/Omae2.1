@@ -5,11 +5,11 @@ class GearTableRow extends React.Component {
 	constructor(props) {
 		super(props);
 
-		const isCostVariable = (props.gear.cost.search('Variable') > -1);
+		const isCostVariable = (typeof props.gear.cost === 'string' && props.gear.cost.search('Variable') > -1);
 
 		this.state = {
-			rating: props.gear.rating > 0 ? '' : null,
-			currentCost: isNaN(props.gear.cost) ? '' : null
+			rating: (props.gear.rating > 0) ? '' : null,
+			currentCost: isCostVariable ? '' : null
 		};
 
 		if (isCostVariable) {
@@ -46,20 +46,22 @@ class GearTableRow extends React.Component {
 	}
 
 	render() {
-		const { gear, btnAction, btnClass, btnSymbol, index } = this.props;
+		const { gear, btnAction, btnClass, btnSymbol, } = this.props;
 		return (
 			<tr>
 				<td>
 					<button
 						className={`btn ${btnClass}`}
-						onClick={btnAction({gear, index, state: this.state})}
+						onClick={btnAction({gear, state: this.state})}
 					>
 						{btnSymbol}
 					</button>
 				</td>
 				<td className="gear-name">{gear.name}</td>
 				<td className="gear-rating">
-					{gear.rating > 0 && !gear.currentRating ?
+					{this.state.rating === null || gear.currentRating ?
+						(gear.currentRating || 'N/A')
+						:
 						<input
 							type="number"
 							className="form-control"
@@ -69,15 +71,13 @@ class GearTableRow extends React.Component {
 							onChange={this.updateRating}
 							value={this.state.rating}
 						/>
-						:
-						(gear.currentRating || 'N/A')
 					}
 				</td>
 				<td className="gear-avail">{gear.avail}</td>
 				<td className="gear-cost">
 					{
 						this.state.currentCost === null ?
-						(<span>{gear.cost}&yen;</span>)
+						(<span>{gear.currentCost || gear.cost}&yen;</span>)
 						:
 						<input
 							type="number"
@@ -100,7 +100,10 @@ GearTableRow.propTypes = {
 		name: PropTypes.string.isRequired,
 		rating: PropTypes.string.isRequired,
 		avail: PropTypes.string.isRequired,
-		cost: PropTypes.string.isRequired,
+		cost: PropTypes.oneOfType([
+			PropTypes.string,
+			PropTypes.number
+		]).isRequired,
 		source: PropTypes.string.isRequired,
 		page: PropTypes.string.isRequired,
 		currentRating: PropTypes.number
@@ -108,11 +111,6 @@ GearTableRow.propTypes = {
 	btnClass: PropTypes.string.isRequired,
 	btnAction: PropTypes.func.isRequired,
 	btnSymbol: PropTypes.oneOf(['+', '-']).isRequired,
-	index: PropTypes.number
-};
-
-GearTableRow.defaultProps = {
-	index: undefined
 };
 
 export default GearTableRow;

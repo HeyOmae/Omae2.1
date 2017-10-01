@@ -3,37 +3,27 @@ import PropTypes from 'prop-types';
 import Modal from '../ModalButtonComponent';
 import FilterTable from '../FilterableTable';
 import DisplayTable from '../DisplayTableComponent';
-import GearClass from './GearCreator';
 import GearTableRow from './GearTableDisplayRow';
 
 class GearComponent extends React.PureComponent {
-	componentWillMount() {
-		const {gearData, category, purchaseGear} = this.props;
+	constructor(props) {
+		super(props);
 
-		const gearRows = gearData.map((gear) => {
-			const gearState = new GearClass(gear);
-			return (
-				<GearTableRow
-					key={`gear-to-buy--${gear.name}`}
-					gear={gear}
-					gearState={gearState}
-					button={
-						<button
-							className="btn btn-success"
-							onClick={() => {
-								purchaseGear({
-									gear: gearState.getGear(),
-									category,
-									Rating: gearState.getGear().currentRating
-								});
-							}}
-						>
-							+
-						</button>
-					}
-				/>
-			);
-		});
+		this.purchaseGearAction = this.purchaseGearAction.bind(this);
+	}
+	componentWillMount() {
+		const {gearData, category} = this.props,
+			gearRows = gearData.map((gear) => {
+				return (
+					<GearTableRow
+						key={`gear-to-buy--${gear.name}`}
+						gear={gear}
+						btnClass="btn-success"
+						btnSymbol="+"
+						btnAction={this.purchaseGearAction}
+					/>
+				);
+			});
 
 		this.gearModal = (
 			<Modal
@@ -48,6 +38,18 @@ class GearComponent extends React.PureComponent {
 				}
 			/>
 		);
+	}
+
+	purchaseGearAction({gear, state}) {
+		return () => {
+			const Rating = (state.rating === null) ? null : state.rating || 1;
+
+			this.props.purchaseGear({
+				gear: (state.currentCost === null) ? gear : {...gear, cost: state.currentCost},
+				category: gear.category,
+				Rating
+			});
+		};
 	}
 
 	render() {
@@ -91,18 +93,16 @@ function PurchasedGear({purchased, sellGear, category}) {
 	const gearTableRow = purchased.map((gear, index) => {
 		return (
 			<GearTableRow
-				key={`${gear.name}-purchased`}
+				key={`${gear.name + index}-purchased`}
 				gear={gear}
-				button={
-					<button
-						className="btn btn-warning"
-						onClick={() => {
-							sellGear({index, category: gear.category});
-						}}
-					>
-						-
-					</button>
-			} />
+				btnClass="btn-warning"
+				btnSymbol="-"
+				btnAction={() => {
+					return () => {
+						sellGear({index, category});
+					};
+				}}
+			/>
 		);
 	});
 
