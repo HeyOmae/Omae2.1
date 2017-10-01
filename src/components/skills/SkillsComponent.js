@@ -67,7 +67,7 @@ class SkillsComponent extends React.PureComponent {
 							skills={skills.active}
 							skillPointsLeft={skillPointsLeft}
 							restrictedSkills={attributeAbriv === 'special' ? skillAttribute !== allowedSkill() : false}
-							/>
+						/>
 					}
 				/>
 			);
@@ -106,7 +106,7 @@ class SkillsComponent extends React.PureComponent {
 					priorityDataFreeSkills={priorityDataFreeSkills}
 					magicSkills={skills.magicSkills}
 					setMagicSkills={actions.setMagicSkills}
-					/>
+				/>
 				<h3>Skill Groups</h3>
 				<div className="row">
 					<div className="col">

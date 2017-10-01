@@ -6,7 +6,7 @@
  *          This modifications only run once when the generator is invoked - if
  *          you edit them, they are not updated again.
  */
-import { combineReducers } from 'redux';  /* Populated by react-webpack-redux:reducer */
+import { combineReducers } from 'redux'; /* Populated by react-webpack-redux:reducer */
 import priorityTable from './priorityTable';
 import selectMetatype from './selectMetatype';
 import attributes from './attributes';

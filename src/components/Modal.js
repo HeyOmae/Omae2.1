@@ -19,8 +19,10 @@ class ModalComponent extends React.PureComponent {
 		return modalContent && (
 			<div
 				className="modal"
-				onMouseUp={this.dismissModal}
-			>
+				onClick={this.dismissModal}
+				role="button"
+				tabIndex="0"
+				>
 				<div className="modal-dialog modal-lg">
 					<div className="modal-content">
 						<div className="modal-header">

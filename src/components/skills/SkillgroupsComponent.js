@@ -10,7 +10,7 @@ import '../../styles/skills/Skillgroups.sass';
 class SkillgroupsComponent extends React.Component {
 	render() {
 		const {skillgroups, skillgroupsData, actions, pointsLeft} = this.props,
-		// TODO: refactor skill groups to work like skills so this setup stuff can be in componentWillMount
+			// TODO: refactor skill groups to work like skills so this setup stuff can be in componentWillMount
 			listOfGroups = Object.keys(skillgroupsData).map((groupName) => {
 				const group = skillgroupsData[groupName],
 					enoughPoints = pointsLeft > 0;
@@ -67,7 +67,7 @@ class SkillgroupsComponent extends React.Component {
 								body: listOfGroups
 							}} />
 					</div>
-			} />
+				} />
 		);
 	}
 }

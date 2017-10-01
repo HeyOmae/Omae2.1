@@ -77,16 +77,16 @@ class GearTableRow extends React.Component {
 				<td className="gear-cost">
 					{
 						this.state.currentCost === null ?
-						(<span>{gear.currentCost || gear.cost}&yen;</span>)
-						:
-						<input
-							type="number"
-							min="1"
-							max={this.gearCost.max}
-							placeholder={`${this.gearCost.min}-${this.gearCost.max}`}
-							onChange={this.updateCost}
-							value={this.state.currentCost}
-						/>
+							(<span>{gear.currentCost || gear.cost}&yen;</span>)
+							:
+							<input
+								type="number"
+								min="1"
+								max={this.gearCost.max}
+								placeholder={`${this.gearCost.min}-${this.gearCost.max}`}
+								onChange={this.updateCost}
+								value={this.state.currentCost}
+							/>
 					}
 				</td>
 				<td className="gear-ref">{gear.source} p{gear.page}</td>

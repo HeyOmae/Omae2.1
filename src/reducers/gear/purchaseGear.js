@@ -114,9 +114,9 @@ const purchaseGearReducer = (state = initialState, action) => {
 					...gearBeingModded.mods[slot],
 					[mod.name]: mod
 				}
-				: {
-					[mod.name]: mod
-				},
+					: {
+						[mod.name]: mod
+					},
 				modCost = Number(mod.cost);
 
 			return {

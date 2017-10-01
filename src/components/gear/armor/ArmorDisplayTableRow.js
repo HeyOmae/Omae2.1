@@ -62,33 +62,33 @@ class ArmorTableRow extends React.PureComponent {
 				<td className="armor-capacity">
 					{
 						this.state.Rating === null || armor.currentRating ?
-						(armor.currentRating || armor.armorcapacity)
-						:
-						<input
-							type="number"
-							className="form-control"
-							min="1"
-							max={armor.rating}
-							placeholder={`1-${armor.rating}`}
-							onChange={this.updateRating}
-							value={this.state.Rating}
-						/>
+							(armor.currentRating || armor.armorcapacity)
+							:
+							<input
+								type="number"
+								className="form-control"
+								min="1"
+								max={armor.rating}
+								placeholder={`1-${armor.rating}`}
+								onChange={this.updateRating}
+								value={this.state.Rating}
+							/>
 					}
 				</td>
 				<td className="armor-avail">{armor.avail}</td>
 				<td className="armor-cost">
 					{
 						this.state.currentCost === null ?
-						(<span>{armor.currentCost || armor.cost}&yen;</span>)
-						:
-						<input
-							type="number"
-							min="1"
-							max={this.gearCost.max}
-							placeholder={`${this.gearCost.min}-${this.gearCost.max}`}
-							onChange={this.updateCost}
-							value={this.state.currentCost}
-						/>
+							(<span>{armor.currentCost || armor.cost}&yen;</span>)
+							:
+							<input
+								type="number"
+								min="1"
+								max={this.gearCost.max}
+								placeholder={`${this.gearCost.min}-${this.gearCost.max}`}
+								onChange={this.updateCost}
+								value={this.state.currentCost}
+							/>
 					}
 				</td>
 				<td className="armor-ref">{armor.source} p{armor.page}</td>

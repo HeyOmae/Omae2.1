@@ -33,7 +33,7 @@ const SummaryComponent = (
 			skills: priorityTableData[priority.skills].skills.skillpoints - skills.skillPointsSpent,
 			skillGroups: (
 				priorityTableData[priority.skills].skills.grouppoints || 0
-				) - skills.groupPointSpent
+			) - skills.groupPointSpent
 		},
 		calculatedStats = {
 			attributes: {}

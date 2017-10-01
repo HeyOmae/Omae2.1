@@ -216,7 +216,7 @@ const CyberlimbRadioSelect = ({isTypeActive, location, type, changeActiveType}) 
 		<label
 			className={`btn btn-primary ${isTypeActive ? 'active' : ''}`}
 			htmlFor={`cyberlimb-${location}-${type}`}
-		>
+			>
 			<input
 				type="radio"
 				name="cyberlimb-type"

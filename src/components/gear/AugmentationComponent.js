@@ -48,7 +48,7 @@ class AugmentationComponent extends React.PureComponent {
 									&& cyberlimbObject[limbLocation][limbType]
 								)
 								|| []
-								),
+							),
 							limb
 						]
 					}
@@ -60,12 +60,12 @@ class AugmentationComponent extends React.PureComponent {
 				...memo,
 				[ware.category]: (
 					ware.category === 'Cyberlimb' ?
-					organizeCyberlimbs((memo.Cyberlimb || {}), ware)
-					:
-					[
-						...(memo[ware.category] || []),
-						ware
-					]
+						organizeCyberlimbs((memo.Cyberlimb || {}), ware)
+						:
+						[
+							...(memo[ware.category] || []),
+							ware
+						]
 				)
 			};
 		}, {});

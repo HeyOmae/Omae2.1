@@ -68,15 +68,15 @@ function spellNameTableData({start, end, placeholderText}, name) {
 	return (
 		<td>
 			{start}
-			{placeholderText ?
+			{placeholderText &&
 				<input
 					className="form-control spell-option"
 					type="text"
 					ref={`spellOption${name}`}
-					placeholder={placeholderText} />
-				: null
+					placeholder={placeholderText}
+				/>
 			}
-			{end || null}
+			{end}
 		</td>
 	);
 }
@@ -84,7 +84,7 @@ function spellNameTableData({start, end, placeholderText}, name) {
 spellNameTableData.propTypes = {
 	start: PropTypes.string.isRequired,
 	end: PropTypes.string.isRequired,
-	placeholderText: PropTypes.string
+	placeholderText: PropTypes.string.isRequired
 };
 
 function createSpellIndividualRow(spellName, spellDetails, button, spellID) {
@@ -97,7 +97,7 @@ function createSpellIndividualRow(spellName, spellDetails, button, spellID) {
 			<td>{spellDetails.fv}</td>
 			<td>{`${spellDetails.source} p${spellDetails.page}`}</td>
 		</tr>)
-			:
+		:
 		(<tr key={`spell-${spellID}${spellName.start}${spellName.end}`}>
 			{button}
 			{spellNameTableData(spellName, spellDetails.name)}
@@ -109,7 +109,7 @@ function createSpellIndividualRow(spellName, spellDetails, button, spellID) {
 			<td>{spellDetails.dv}</td>
 			<td>{`${spellDetails.source} p${spellDetails.page}`}</td>
 		</tr>
-	);
+		);
 }
 
 function generateSpellDetailTablesRows(arrayOfSpells, generateBtnFn, abilityType) {
@@ -205,8 +205,8 @@ SpellSelectorComponent.propTypes = {
 	addSpell: PropTypes.func.isRequired,
 	removeSpell: PropTypes.func.isRequired,
 	selectedSpells: PropTypes.arrayOf(
-			PropTypes.object.isRequired
-		).isRequired,
+		PropTypes.object.isRequired
+	).isRequired,
 	spellMax: PropTypes.number.isRequired
 };
 

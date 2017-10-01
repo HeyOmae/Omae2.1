@@ -28,7 +28,8 @@ class QualityComponent extends React.PureComponent {
 			},
 			generatePurchaseableQualityTableRow = (quality) => {
 				const addButton = (<button
-					className="btn btn-success" onClick={() => {
+					className="btn btn-success"
+					onClick={() => {
 						actions.selectQuality({newQuality: quality});
 						actions.karma({karmaPoints: -Number(quality.karma)});
 					}}>+</button>);
@@ -71,7 +72,7 @@ class QualityComponent extends React.PureComponent {
 							<QualityTable
 								tableRows={qualitiesTableRow.Positive} />
 						}
-						/>
+					/>
 
 					<Modal
 						modalName="Negative"
@@ -124,7 +125,8 @@ QualityHeader.propTypes = {
 const QualityTable = ({tableRows}) => {
 	const header = (
 		<QualityHeader
-			buttonType="Add" />
+			buttonType="Add"
+			/>
 		),
 		tableData = {
 			header,

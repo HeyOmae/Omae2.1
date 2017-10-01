@@ -112,7 +112,7 @@ const ResourcesDataCell = ({rating, active, changePriority}) => {
 	return (
 		<td
 			className={isActive(active)}
-		>
+			>
 			<button
 				className="prioritytable--btn-select btn-link"
 				onClick={() => {
@@ -163,7 +163,7 @@ const PriorityRow = ({rating, priorityTableData, changePriority}) => {
 
 PriorityRow.propTypes = {
 	rating: PropTypes.string.isRequired,
-	priorityTableData: propTypeChecking.priorityTable,
+	priorityTableData: propTypeChecking.priorityTable.isRequired,
 	changePriority: PropTypes.func.isRequired
 };
 

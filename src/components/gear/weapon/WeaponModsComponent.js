@@ -12,43 +12,43 @@ class WeaponModsComponent extends React.PureComponent {
 		return (
 			<div className="row">
 				{
-				mount.map((mountLocation) => {
-					return (
-						<div className="col-12 col-md-4" key={`weapon-mods-${weapon.name}-${mountLocation}`}>
-							<p><strong>{mountLocation}</strong></p>
-							<WeaponModOptionsSelect
-								mods={weapon.mods}
-								weaponModLists={weaponModLists}
-								weaponSlotModding={weaponSlotModding}
-								index={index}
-								weaponName={weapon.name}
-								mountLocation={mountLocation}
-							/>
-						</div>
-					);
-				})
+					mount.map((mountLocation) => {
+						return (
+							<div className="col-12 col-md-4" key={`weapon-mods-${weapon.name}-${mountLocation}`}>
+								<p><strong>{mountLocation}</strong></p>
+								<WeaponModOptionsSelect
+									mods={weapon.mods}
+									weaponModLists={weaponModLists}
+									weaponSlotModding={weaponSlotModding}
+									index={index}
+									weaponName={weapon.name}
+									mountLocation={mountLocation}
+								/>
+							</div>
+						);
+					})
 				}
 				<div className="col-md-12">
 					<p><strong>Slotless</strong></p>
 					<table className="table table-striped">
 						<tbody>
 							{
-							weaponModLists.slotless.map((mod) => {
-								return (
-									<tr key={`slotless-mod-${mod.name}`}>
-										<WeaponMultiModding
-											mods={weapon.mods && weapon.mods.slotless}
-											weaponName={weapon.name}
-											weaponCost={weapon.cost}
-											mod={mod}
-											multiple
-											slotlessModding={slotlessModding}
-											slotlessDemodding={slotlessDemodding}
-											index={index}
-										/>
-									</tr>
-								);
-							})
+								weaponModLists.slotless.map((mod) => {
+									return (
+										<tr key={`slotless-mod-${mod.name}`}>
+											<WeaponMultiModding
+												mods={weapon.mods && weapon.mods.slotless}
+												weaponName={weapon.name}
+												weaponCost={weapon.cost}
+												mod={mod}
+												multiple
+												slotlessModding={slotlessModding}
+												slotlessDemodding={slotlessDemodding}
+												index={index}
+											/>
+										</tr>
+									);
+								})
 							}
 						</tbody>
 					</table>
@@ -148,7 +148,7 @@ function WeaponModOptionsSelect({ weaponName, mountLocation, mods, weaponSlotMod
 				});
 			}}
 			value={(mods[mountLocation] && mods[mountLocation].name) || ''}
-		>
+			>
 			<option value="">&mdash;</option>
 			{weaponModLists[mountLocation].map((mod) => {
 				return (<option key={`${weaponName}--${mountLocation}--${mod.name}`} value={mod.name}>{mod.name} {mod.cost}&yen;</option>);

@@ -30,17 +30,17 @@ class summary extends Component {
 
 	render() {
 		const {
-			priorityTable,
-			selectMetatype,
-			attributes,
-			selectMagRes,
-			settingSkills,
-			appControl,
-			spellSelect,
-			quality,
-			karma,
-			purchaseGear
-		} = this.props,
+				priorityTable,
+				selectMetatype,
+				attributes,
+				selectMagRes,
+				settingSkills,
+				appControl,
+				spellSelect,
+				quality,
+				karma,
+				purchaseGear
+			} = this.props,
 
 			karmaTotal = karma - spellSelect.powerPointsKarma;
 
@@ -56,7 +56,7 @@ class summary extends Component {
 				selectedQualities={quality}
 				karma={karmaTotal}
 				purchaseGear={purchaseGear}
-				/>
+			/>
 		);
 	}
 }

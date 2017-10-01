@@ -135,7 +135,7 @@ const spellReducer = (state = initialState, action) => {
 					powers: removeSpellFromList(prevState.powers, powerIndex),
 					powerPointsSpent: prevState.powerPointsSpent - (
 						Number(power.points) * (power.levels > 0 ? power.levels : 1)
-						)
+					)
 				}
 			);
 

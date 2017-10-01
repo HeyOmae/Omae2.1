@@ -69,7 +69,7 @@ const MetatypeButton = ({typeName, anOption, checked, selectMetatypeAction, karm
 			${(anOption ? '' : 'disabled')}
 			${(checked ? 'active' : '')}`}
 			htmlFor={`metatype-${typeName}`}
-		>
+			>
 			<input
 				type="radio"
 				name="metatype-selector"

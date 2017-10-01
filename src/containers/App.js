@@ -12,42 +12,42 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import {
-  priorityTable,
-  selectMetatype,
-  incrementAttribute,
-  decrementAttribute,
-  incrementAugmented,
-  decrementAugmented,
-  selectMagictype,
-  incrementSkill,
-  decrementSkill,
-  incrementSkillgroup,
-  decrementSkillgroup,
-  setSpec,
-  setMagicSkills,
-  addSpell,
-  removeSpell,
-  addComplexform,
-  removeComplexform,
-  addPower,
-  removePower,
-  raisePower,
-  lowerPower,
-  resetAbility,
-  selectQuality,
-  removeQuality,
-  karma,
-  purchaseGear,
-  sellGear,
-  addSkill,
-  removeSkill,
-  style,
-  weaponModding,
-  moddingMulti,
-  demoddingMulti,
-  moddingCapacity,
-  demoddingCapacity,
-  modalClose
+	priorityTable,
+	selectMetatype,
+	incrementAttribute,
+	decrementAttribute,
+	incrementAugmented,
+	decrementAugmented,
+	selectMagictype,
+	incrementSkill,
+	decrementSkill,
+	incrementSkillgroup,
+	decrementSkillgroup,
+	setSpec,
+	setMagicSkills,
+	addSpell,
+	removeSpell,
+	addComplexform,
+	removeComplexform,
+	addPower,
+	removePower,
+	raisePower,
+	lowerPower,
+	resetAbility,
+	selectQuality,
+	removeQuality,
+	karma,
+	purchaseGear,
+	sellGear,
+	addSkill,
+	removeSkill,
+	style,
+	weaponModding,
+	moddingMulti,
+	demoddingMulti,
+	moddingCapacity,
+	demoddingCapacity,
+	modalClose
 } from '../actions/';
 import Main from '../components/Main';
 import PriorityTableComponent from '../components/priorityTable/PriorityTableComponent';
@@ -150,7 +150,7 @@ App.propTypes = {
 };
 
 function mapStateToProps(state) {
-  /* Populated by react-webpack-redux:reducer */
+	/* Populated by react-webpack-redux:reducer */
 	const props = {
 		priorityTableState: state.priorityTable,
 		selectMetatypeState: state.selectMetatype,
@@ -167,7 +167,7 @@ function mapStateToProps(state) {
 	return props;
 }
 function mapDispatchToProps(dispatch) {
-  /* Populated by react-webpack-redux:action */
+	/* Populated by react-webpack-redux:action */
 	const actions = {
 		priorityTable,
 		selectMetatype,

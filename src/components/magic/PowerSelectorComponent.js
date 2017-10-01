@@ -150,12 +150,12 @@ class PowerSelectorComponent extends React.Component {
 						const powerNameOptions = this.refs[`powerOption${power.name}`] ? this.refs[`powerOption${power.name}`].value : '',
 							newName = power.name + powerNameOptions,
 							powerToAdd = Object.assign(
-							{},
-							power,
+								{},
+								power,
 								{
 									name: newName
 								}
-						);
+							);
 						if (powerToAdd.bonus) {
 							powerToAdd.bonus = powerNameOptions.replace(/[()]/g, '');
 							bonusUp(power.name, powerToAdd.bonus);
@@ -182,7 +182,7 @@ class PowerSelectorComponent extends React.Component {
 					Power Points: <strong>{pointSpent}</strong>
 					{isMystic ?
 						<span> Karma Spent: <strong>{karmaSpent}</strong></span>
-					: null}
+						: null}
 				</p>
 				<div className="power-selector">
 					<div className="btn-group">
@@ -209,7 +209,7 @@ class PowerSelectorComponent extends React.Component {
 }
 
 PowerSelectorComponent.propTypes = {
-	actions: PropTypeChecking.actions,
+	actions: PropTypeChecking.actions.isRequired,
 	selectedPowers: PropTypes.arrayOf(PropTypes.object).isRequired,
 	pointSpent: PropTypes.number.isRequired,
 	maxPointPoints: PropTypes.number.isRequired,

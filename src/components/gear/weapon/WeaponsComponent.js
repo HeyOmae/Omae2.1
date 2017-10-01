@@ -45,7 +45,7 @@ class WeaponsComponent extends React.Component {
 						onClick={() => {
 							purchaseGear({gear: weapon, category: 'weapons'});
 						}}
-					>+</button>
+						>+</button>
 				);
 				return {
 					...tableRow,
@@ -55,7 +55,7 @@ class WeaponsComponent extends React.Component {
 							key={weapon.name}
 							weapon={weapon}
 							button={purchaseButton}
-								/>
+						/>
 					]
 				};
 			}
@@ -92,13 +92,13 @@ class WeaponsComponent extends React.Component {
 					<button
 						className="btn btn-warning"
 						onClick={
-							() => {
-								sellGear({index, category: 'weapons'});
-							}
-						}>
+								() => {
+									sellGear({index, category: 'weapons'});
+								}
+							}>
 						-
-					</button>
-				),
+						</button>
+					),
 					modButton = weapon.accessorymounts ?
 						(<Modal
 							modalName={weapon.name}
