@@ -11,12 +11,6 @@ class WebpackTestConfig extends WebpackBaseConfig {
 	constructor() {
 		super();
 
-		const cssModulesQuery = {
-			modules: true,
-			importLoaders: 1,
-			localIdentName: '[name]-[local]-[hash:base64:5]'
-		};
-
 		this.config = {
 			devtool: 'inline-source-map',
 			entry: [
@@ -31,29 +25,12 @@ class WebpackTestConfig extends WebpackBaseConfig {
 			module: {
 				rules: [
 					{
-						test: /\.cssmodule\.css$/,
-						loaders: [
-							{ loader: 'style-loader' },
-							{
-								loader: 'css-loader',
-								query: cssModulesQuery
-							}
-						]
-					},
-					{
 						test: /\.cssmodule\.(sass|scss)$/,
 						loaders: [
 							{ loader: 'style-loader' },
-							{
-								loader: 'css-loader',
-								query: cssModulesQuery
-							},
+							{ loader: 'css-loader' },
 							{ loader: 'sass-loader' }
 						]
-					},
-					{
-						test: /^.((?!cssmodule).)*\.css$/,
-						loader: 'null-loader'
 					},
 					{
 						test: /^.((?!cssmodule).)*\.(sass|scss)$/,
@@ -72,11 +49,8 @@ class WebpackTestConfig extends WebpackBaseConfig {
 						loader: 'babel-loader',
 						exclude: /\/node_modules\//,
 						include: [].concat(
-							this.includedPackages,
-							[
-								this.srcPathAbsolute,
-								this.testPathAbsolute
-							]
+							this.srcPathAbsolute,
+							this.testPathAbsolute
 						)
 					}
 				]
