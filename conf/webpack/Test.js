@@ -52,6 +52,15 @@ class WebpackTestConfig extends WebpackBaseConfig {
 							this.srcPathAbsolute,
 							this.testPathAbsolute
 						)
+					},
+					{
+						test: /\.js$|\.jsx$/,
+						use: {
+							loader: 'istanbul-instrumenter-loader',
+							options: { esModules: true }
+						},
+						enforce: 'post',
+						exclude: /node_modules|Test\.js$/,
 					}
 				]
 			},

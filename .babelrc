@@ -7,18 +7,12 @@
       "modules": false,
       "useBuiltIns": true,
       "debug": true,
+      "loose": true
     }],
     "react",
     "airbnb"
   ],
   "plugins": [
     "react-hot-loader/babel"
-  ],
-  "env": {
-    "test": {
-      "plugins": [
-        "istanbul"
-      ]
-    }
-  }
+  ]
 }
