@@ -31,7 +31,7 @@ class CyberlimbComponent extends React.PureComponent {
 		this.setState((prevState) => {
 			const currentCyberAttribute = prevState[attribute];
 			return {
-				[attribute]: currentCyberAttribute === maxAttribute ? currentCyberAttribute : currentCyberAttribute + 1
+				[attribute]: currentCyberAttribute >= maxAttribute ? currentCyberAttribute : currentCyberAttribute + 1
 			};
 		});
 	}
@@ -56,6 +56,7 @@ class CyberlimbComponent extends React.PureComponent {
 							cyberlimb={cyberlimb}
 							purchase={purchase}
 							currentGrade={currentGrade}
+							availModifier={this.state.agi + this.state.str - 6}
 						/>
 					);
 				})
@@ -132,15 +133,7 @@ class CyberlimbComponent extends React.PureComponent {
 					<div>
 						<DisplayTable
 							header={
-								<tr>
-									<th>Buy</th>
-									<th>Name</th>
-									<th>Essense</th>
-									<th>Capcaity</th>
-									<th>Avail</th>
-									<th>Cost</th>
-									<th>Ref</th>
-								</tr>
+								<CyberLimbHeader />
 							}
 							body={this.generateCyberlimbRows()[this.state.activeType]}
 						/>
@@ -166,10 +159,30 @@ CyberlimbComponent.propTypes = {
 	metatype: PropTypes.string.isRequired
 };
 
-const CyberlimbRows = ({purchase, cyberlimb, currentGrade}) => {
+const CyberLimbHeader = () => {
+	return (
+		<tr>
+			<th>Buy</th>
+			<th>Name</th>
+			<th>Essense</th>
+			<th>Capcaity</th>
+			<th>Avail</th>
+			<th>Cost</th>
+			<th>Ref</th>
+		</tr>
+	);
+};
+
+const CyberlimbRows = ({purchase, cyberlimb, currentGrade, availModifier}) => {
 	const {name, ess, capacity, avail, cost, source, page} = cyberlimb,
 		grade = waregrades[currentGrade],
-		currentAvail = Number(avail) + Number(grade.avail);
+		currentAvail = Number(avail) + Number(grade.avail) + availModifier,
+		customLimb = {
+			...cyberlimb,
+			ess: ess * Number(grade.ess),
+			avail: currentAvail > 0 ? currentAvail : 0,
+			cost: (cost * Number(grade.cost)) + (availModifier * 5000)
+		};
 	return (
 		<tr>
 			<td>
@@ -178,7 +191,7 @@ const CyberlimbRows = ({purchase, cyberlimb, currentGrade}) => {
 					onClick={
 						() => {
 							purchase({
-								gear: cyberlimb,
+								gear: customLimb,
 								category: 'augmentations'
 							});
 						}
@@ -188,10 +201,10 @@ const CyberlimbRows = ({purchase, cyberlimb, currentGrade}) => {
 				</button>
 			</td>
 			<td>{name}</td>
-			<td>{ess * Number(grade.ess)}</td>
+			<td>{customLimb.ess}</td>
 			<td>{capacity}</td>
-			<td>{currentAvail > 0 ? currentAvail : 0}</td>
-			<td>{cost * Number(grade.cost)}&yen;</td>
+			<td>{customLimb.avail}</td>
+			<td>{customLimb.cost}&yen;</td>
 			<td>{source} {page}p</td>
 		</tr>
 	);
@@ -208,7 +221,8 @@ CyberlimbRows.propTypes = {
 		page: PropTypes.string.isRequired,
 	}).isRequired,
 	purchase: PropTypes.func.isRequired,
-	currentGrade: PropTypes.number.isRequired
+	currentGrade: PropTypes.number.isRequired,
+	availModifier: PropTypes.number.isRequired
 };
 
 const CyberlimbRadioSelect = ({isTypeActive, location, type, changeActiveType}) => {
@@ -290,5 +304,7 @@ const mapDispatchToProps = (dispatch) => {
 	};
 	return bindActionCreators(actions, dispatch);
 };
+
+export {CyberLimbHeader};
 
 export default connect(mapStateToProps, mapDispatchToProps)(CyberlimbComponent);

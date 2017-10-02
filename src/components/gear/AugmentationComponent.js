@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cyberwareData from '../../data/cyberware.json';
-import CyberlimbComponent from './cyberware/CyberlimbComponent';
+import CyberlimbComponent, {CyberLimbHeader} from './cyberware/CyberlimbComponent';
+import DisplayTable from '../DisplayTableComponent';
 
 class AugmentationComponent extends React.PureComponent {
 	componentWillMount() {
@@ -88,11 +89,39 @@ class AugmentationComponent extends React.PureComponent {
 					);
 				})}
 
-				<div className="purchased-augs">
-					{augmentations.map((aug) => {
-						return (aug.name);
-					})}
-				</div>
+				{
+					augmentations.length > 0 &&
+					<div className="purchased-augs">
+						<h4>Augmentations</h4>
+						<DisplayTable
+							header={<CyberLimbHeader />}
+							body={
+								augmentations.map((aug, index) => {
+									return (
+										<tr>
+											<td>
+												<button
+													className="btn btn-warning"
+													onClick={() => {
+														this.props.sellGear({index, category: 'augmentations'});
+													}}
+												>
+												-
+												</button>
+											</td>
+											<td>{aug.name}</td>
+											<td>{aug.ess}</td>
+											<td>{aug.capacity}</td>
+											<td>{aug.avail}</td>
+											<td>{aug.cost}</td>
+											<td>{aug.source} {aug.page}p</td>
+										</tr>
+									);
+								})
+							}
+						/>
+					</div>
+				}
 			</div>
 		);
 	}
@@ -101,7 +130,8 @@ class AugmentationComponent extends React.PureComponent {
 AugmentationComponent.propTypes = {
 	augmentations: PropTypes.arrayOf(
 		PropTypes.object.isRequired
-	)
+	),
+	sellGear: PropTypes.func.isRequired
 };
 
 AugmentationComponent.defaultProps = {
