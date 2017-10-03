@@ -12,7 +12,7 @@ class PriorityTableComponent extends React.PureComponent {
 		return (
 			<div className="col">
 				<h2>Priority Table</h2>
-				<table className="table table-bordered priority-table">
+				<table className="table table-responsive table-bordered priority-table">
 					<PriorityLabel />
 					<tbody>
 						<PriorityRow

@@ -32,9 +32,11 @@ class FilterableTable extends Component {
 						setFilterAction({filterTerm: event.target.value});
 					}}
 					value={filterTable} />
-				<DisplayTable
-					header={tableData.header}
-					body={filteredRows} />
+				<div className="filter-table">
+					<DisplayTable
+						header={tableData.header}
+						body={filteredRows} />
+				</div>
 			</div>);
 	}
 }
