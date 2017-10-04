@@ -6,7 +6,15 @@ import 'styles/Modal.sass';
 class ModalComponent extends React.PureComponent {
 	constructor(props) {
 		super(props);
+		this.bodyClassList = document.querySelector('body').classList;
 		this.dismissModal = this.dismissModal.bind(this);
+	}
+	componentWillUpdate({modalContent}) {
+		if (modalContent) {
+			this.bodyClassList.add('modal-open');
+		} else {
+			this.bodyClassList.remove('modal-open');
+		}
 	}
 	dismissModal(e) {
 		// TODO: this seems really hacker, figure out a better solution
