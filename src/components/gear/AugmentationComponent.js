@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cyberwareData from '../../data/cyberware.json';
-import CyberlimbComponent, {CyberLimbHeader} from './cyberware/CyberlimbComponent';
+import CyberlimbComponent from './cyberware/CyberlimbComponent';
 import DisplayTable from '../DisplayTableComponent';
 
 class AugmentationComponent extends React.PureComponent {
@@ -76,7 +76,7 @@ class AugmentationComponent extends React.PureComponent {
 
 	render() {
 		const {Cyberlimb} = this.cyberware;
-		const {augmentations} = this.props;
+		const {cyberlimbs, augmentations} = this.props;
 		return (
 			<div className="augs">
 				{Object.keys(Cyberlimb).map((location) => {
@@ -90,26 +90,40 @@ class AugmentationComponent extends React.PureComponent {
 				})}
 
 				{
-					augmentations.length > 0 &&
-					<div className="purchased-augs">
-						<h4>Augmentations</h4>
+					cyberlimbs.length > 0 &&
+					<div className="purchased-cyberlimbs">
+						<h4>Cyberlimbs</h4>
 						<DisplayTable
-							header={<CyberLimbHeader />}
+							header={
+								<tr>
+									<th>Sell</th>
+									<th>Name</th>
+									<th>Agi</th>
+									<th>Str</th>
+									<th>Essense</th>
+									<th>Capcaity</th>
+									<th>Avail</th>
+									<th>Cost</th>
+									<th>Ref</th>
+								</tr>
+							}
 							body={
-								augmentations.map((aug, index) => {
+								cyberlimbs.map((aug, index) => {
 									return (
-										<tr>
+										<tr key={`cyberlimb-${aug.name}-${index}`}>
 											<td>
 												<button
 													className="btn btn-warning"
 													onClick={() => {
-														this.props.sellGear({index, category: 'augmentations'});
+														this.props.sellGear({index, category: 'cyberlimbs'});
 													}}
 												>
 												-
 												</button>
 											</td>
 											<td>{aug.name}</td>
+											<td>{aug.agi}</td>
+											<td>{aug.str}</td>
 											<td>{aug.ess}</td>
 											<td>{aug.capacity}</td>
 											<td>{aug.avail}</td>
@@ -122,6 +136,16 @@ class AugmentationComponent extends React.PureComponent {
 						/>
 					</div>
 				}
+
+				{
+					augmentations.length > 0 &&
+					<div className="purchased-augs">
+						<h4>Augmentations</h4>
+						{augmentations.map((aug) => {
+							return aug.name;
+						})}
+					</div>
+				}
 			</div>
 		);
 	}
@@ -131,11 +155,15 @@ AugmentationComponent.propTypes = {
 	augmentations: PropTypes.arrayOf(
 		PropTypes.object.isRequired
 	),
+	cyberlimbs: PropTypes.arrayOf(
+		PropTypes.object.isRequired
+	),
 	sellGear: PropTypes.func.isRequired
 };
 
 AugmentationComponent.defaultProps = {
-	augmentations: []
+	augmentations: [],
+	cyberlimbs: []
 };
 
 export default AugmentationComponent;

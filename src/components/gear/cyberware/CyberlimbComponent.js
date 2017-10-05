@@ -4,9 +4,11 @@ import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import metatypeData from 'data/metatype.json';
 import DisplayTable from '../../DisplayTableComponent';
-import waregrades from '../../../data/waregrade.json';
 import { purchaseGear } from '../../../actions';
 import WareGradeComponent from './WareGradeComponent';
+import CyberlimbRows from './CyberlimbRowComponent';
+import CyberlimbRadioSelect from './CyberlimbRadioSelect';
+import CyberlimbAttribute from './CyberlimbAttributeComponent';
 
 class CyberlimbComponent extends React.PureComponent {
 	constructor(props) {
@@ -57,6 +59,8 @@ class CyberlimbComponent extends React.PureComponent {
 							cyberlimb={cyberlimb}
 							purchase={purchase}
 							currentGrade={currentGrade}
+							agi={this.state.agi}
+							str={this.state.str}
 							availModifier={this.state.agi + this.state.str - 6}
 						/>
 					);
@@ -71,7 +75,27 @@ class CyberlimbComponent extends React.PureComponent {
 			<div>
 				<h4>Cyber {location}</h4>
 				<div className="row justify-content-between">
-					<div className="col-12 col-md-4">
+					<div className="col-12 col-md-12">
+						<div className="row justify-content-between">
+							<CyberlimbAttribute
+								incrementAttribute={() => {
+									this.incrementAttribute('agi');
+								}}
+								decrementAttribute={() => {
+									this.decrementAttribute('agi');
+								}}
+								attribute={this.state.agi}
+								att="Agi"
+							/>
+							<CyberlimbAttribute
+								incrementAttribute={() => { this.incrementAttribute('str'); }}
+								decrementAttribute={() => { this.decrementAttribute('str'); }}
+								attribute={this.state.str}
+								att="Str"
+							/>
+						</div>
+					</div>
+					<div className="col-12 col-md-6">
 						<h5>Types</h5>
 						<div className="btn-group">
 							{Object.keys(cyberlimbsByType).map((type) => {
@@ -87,43 +111,7 @@ class CyberlimbComponent extends React.PureComponent {
 							})}
 						</div>
 					</div>
-					<div className="col-12 col-md-4">
-						<div className="row justify-content-between">
-							<div className="col">
-								<h5>Agi</h5>
-								<button
-									className="btn btn-success"
-									onClick={() => { this.incrementAttribute('agi'); }}
-								>
-									+
-								</button>
-								{this.state.agi}
-								<button
-									className="btn btn-warning"
-									onClick={() => { this.decrementAttribute('agi'); }}
-								>
-									-
-								</button>
-							</div>
-							<div className="col">
-								<h5>Str</h5>
-								<button
-									className="btn btn-success"
-									onClick={() => { this.incrementAttribute('str'); }}
-								>
-									+
-								</button>
-								{this.state.str}
-								<button
-									className="btn btn-warning"
-									onClick={() => { this.decrementAttribute('str'); }}
-								>
-									-
-								</button>
-							</div>
-						</div>
-					</div>
-					<div className="col-12 col-md-4">
+					<div className="col-12 col-md-6">
 						<WareGradeComponent />
 					</div>
 				</div>
@@ -170,86 +158,6 @@ const CyberLimbHeader = () => {
 	);
 };
 
-const CyberlimbRows = ({purchase, cyberlimb, currentGrade, availModifier}) => {
-	const {name, ess, capacity, avail, cost, source, page} = cyberlimb,
-		grade = waregrades[currentGrade],
-		currentAvail = Number(avail) + Number(grade.avail) + availModifier,
-		customLimb = {
-			...cyberlimb,
-			ess: ess * Number(grade.ess),
-			avail: currentAvail > 0 ? currentAvail : 0,
-			cost: (cost * Number(grade.cost)) + (availModifier * 5000)
-		};
-	return (
-		<tr>
-			<td>
-				<button
-					className="btn btn-success"
-					onClick={
-						() => {
-							purchase({
-								gear: customLimb,
-								category: 'augmentations'
-							});
-						}
-					}
-				>
-					+
-				</button>
-			</td>
-			<td>{name}</td>
-			<td>{customLimb.ess}</td>
-			<td>{capacity}</td>
-			<td>{customLimb.avail}</td>
-			<td>{customLimb.cost}&yen;</td>
-			<td>{source} {page}p</td>
-		</tr>
-	);
-};
-
-CyberlimbRows.propTypes = {
-	cyberlimb: PropTypes.shape({
-		name: PropTypes.string.isRequired,
-		ess: PropTypes.string.isRequired,
-		capacity: PropTypes.string.isRequired,
-		avail: PropTypes.string.isRequired,
-		cost: PropTypes.string.isRequired,
-		source: PropTypes.string.isRequired,
-		page: PropTypes.string.isRequired,
-	}).isRequired,
-	purchase: PropTypes.func.isRequired,
-	currentGrade: PropTypes.number.isRequired,
-	availModifier: PropTypes.number.isRequired
-};
-
-const CyberlimbRadioSelect = ({isTypeActive, location, type, changeActiveType}) => {
-	return (
-		<label
-			className={`btn btn-primary ${isTypeActive ? 'active' : ''}`}
-			htmlFor={`cyberlimb-${location}-${type}`}
-			>
-			<input
-				type="radio"
-				name="cyberlimb-type"
-				id={`cyberlimb-${location}-${type}`}
-				autoComplete="off"
-				checked={isTypeActive}
-				onChange={() => {
-					changeActiveType(type);
-				}}
-			/>
-			{type}
-		</label>
-	);
-};
-
-CyberlimbRadioSelect.propTypes = {
-	isTypeActive: PropTypes.bool.isRequired,
-	location: PropTypes.string.isRequired,
-	type: PropTypes.string.isRequired,
-	changeActiveType: PropTypes.func.isRequired
-};
-
 const mapStateToProps = (state) => {
 	return {
 		currentGrade: state.augmentation.grade,
@@ -263,7 +171,5 @@ const mapDispatchToProps = (dispatch) => {
 	};
 	return bindActionCreators(actions, dispatch);
 };
-
-export {CyberLimbHeader};
 
 export default connect(mapStateToProps, mapDispatchToProps)(CyberlimbComponent);

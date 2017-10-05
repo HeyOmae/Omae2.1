@@ -69,6 +69,7 @@ class StreetGearComponent extends React.PureComponent {
 				<AugmentationComponent
 					sellGear={actions.sellGear}
 					augmentations={purchaseGear.augmentations}
+					cyberlimbs={purchaseGear.cyberlimbs}
 				/>
 			</div>
 		);
