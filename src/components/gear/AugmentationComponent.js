@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import cyberwareData from '../../data/cyberware.json';
 import CyberlimbComponent from './cyberware/CyberlimbComponent';
 import DisplayTable from '../DisplayTableComponent';
+import ModalButton from '../ModalButtonComponent';
 
 class AugmentationComponent extends React.PureComponent {
 	componentWillMount() {
@@ -78,20 +79,28 @@ class AugmentationComponent extends React.PureComponent {
 		const {Cyberlimb} = this.cyberware;
 		const {cyberlimbs, augmentations} = this.props;
 		return (
-			<div className="augs">
-				{Object.keys(Cyberlimb).map((location) => {
-					return (
-						<CyberlimbComponent
-							key={`cyber-${location}`}
-							location={location}
-							cyberlimbsByType={Cyberlimb[location]}
-						/>
-					);
-				})}
+			<div className="augs row">
+				<div className="col-12">
+					<h3>Cyberlimbs</h3>
+					{Object.keys(Cyberlimb).map((location) => {
+						return (
+							<ModalButton
+								key={`cyber-${location}`}
+								modalName={`Cyber${location}`}
+								modalContent={
+									<CyberlimbComponent
+										location={location}
+										cyberlimbsByType={Cyberlimb[location]}
+									/>
+								}
+							/>
+						);
+					})}
+				</div>
 
 				{
 					cyberlimbs.length > 0 &&
-					<div className="purchased-cyberlimbs">
+					<div className="purchased-cyberlimbs col-12">
 						<h4>Cyberlimbs</h4>
 						<DisplayTable
 							header={
@@ -139,7 +148,7 @@ class AugmentationComponent extends React.PureComponent {
 
 				{
 					augmentations.length > 0 &&
-					<div className="purchased-augs">
+					<div className="purchased-augs col-12">
 						<h4>Augmentations</h4>
 						{augmentations.map((aug) => {
 							return aug.name;
