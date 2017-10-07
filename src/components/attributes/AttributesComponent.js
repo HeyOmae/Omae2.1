@@ -45,8 +45,8 @@ class AttributesComponent extends React.PureComponent {
 
 		// helper function
 		function addingElements(attType, pointsLeft, att, maxPoints, maxAtt, currentAtt) {
-			const maxCanRaiseTo = oneBaseAttAtMax && attType === 'base' ? maxPoints - 1 : maxPoints;
-			const attributeAtMax = attributes[att] > maxCanRaiseTo;
+			const maxCanRaiseTo = oneBaseAttAtMax && attType === 'base' ? maxPoints - 1 : maxPoints,
+				attributeAtMax = attributes[att] > maxCanRaiseTo;
 			attributeElements[attType].incBtn.push(
 				<ModificationButton
 					attName={att}
@@ -96,7 +96,7 @@ class AttributesComponent extends React.PureComponent {
 					baseAtt = priorityData[magicPriority].magic[magictype].attribute.points; // find magic rating
 					currentAtt = baseAtt + attributes.special - essensePenelty;
 					maxAtt = 6 - essensePenelty; // set max to essense rounded down
-					maxPoints = maxAtt - baseAtt;
+					maxPoints = maxAtt - baseAtt + essensePenelty;
 					addingElements('special', specialPointsLeft, 'special', maxPoints, maxAtt, currentAtt);
 					magicName = priorityData[magicPriority].magic[magictype].attribute.name;
 				}
