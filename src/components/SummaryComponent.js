@@ -76,7 +76,7 @@ const SummaryComponent = (
 
 		calculatedStats.attributes[specialType] = baseMagic + (attributes.special || 0);
 		attributesHead.push(<th key={'summary-attribute-head-mag'}>{specialType}</th>);
-		attributesData.push(<td key={'summary-attribute-data-mag'}>{calculatedStats.attributes[specialType]}</td>);
+		attributesData.push(<td key={'summary-attribute-data-mag'}>{calculatedStats.attributes[specialType] - Math.ceil(attributes.ess)}</td>);
 		Object.keys(spellsAndPowers).forEach((magicCat) => {
 			const spellPowerArray = spellsAndPowers[magicCat];
 			if (Array.isArray(spellPowerArray)) {
@@ -88,6 +88,11 @@ const SummaryComponent = (
 			}
 		});
 	}
+
+	// Display essence
+	const essenceLeft = 6 - attributes.ess;
+	attributesHead.push(<th key={'summary-attribute-head-ess'}>ess</th>);
+	attributesData.push(<td key={'summary-attribute-data-ess'}>{essenceLeft}</td>);
 
 	Object.keys(skills.active).forEach((skillName) => {
 		const currSkill = skills.active[skillName],
@@ -252,6 +257,7 @@ const SummaryComponent = (
 			<div className="scroll-overflow">
 				<h2>Gear</h2>
 				<p>Nuyen Left: <strong>{priorityTableData[priority.resources].resources - (purchaseGear.nuyen)}&yen;</strong></p>
+				<p className={essenceLeft <= 0 ? 'text-danger' : ''}>Essense: <strong>{essenceLeft}</strong></p>
 				{PurchasedGearRows.length > 0 &&
 					<table className="table table-responsive">
 						<TableHeader />

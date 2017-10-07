@@ -125,7 +125,7 @@ class AugmentationComponent extends React.PureComponent {
 												<button
 													className="btn btn-warning"
 													onClick={() => {
-														this.props.sellGear({index, category: 'cyberlimbs'});
+														this.props.sellGear({index, category: 'cyberlimbs', gear: aug});
 													}}
 												>
 												-
@@ -137,7 +137,7 @@ class AugmentationComponent extends React.PureComponent {
 											<td>{aug.ess}</td>
 											<td>{aug.capacity}</td>
 											<td>{aug.avail}</td>
-											<td>{aug.cost}</td>
+											<td>{aug.cost}&yen;</td>
 											<td>{aug.source} {aug.page}p</td>
 										</tr>
 									);

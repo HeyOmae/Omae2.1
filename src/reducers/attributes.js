@@ -13,11 +13,12 @@ const initialState = {
 	int: 0,
 	cha: 0,
 	edg: 0,
-	ess: 6,
+	ess: 0,
 	augmented: {},
 	special: 0,
 	baseSpent: 0,
-	specialSpent: 0
+	specialSpent: 0,
+	conditionBonus: {}
 };
 
 const attributesReducer = (state = initialState, action) => {
@@ -128,6 +129,28 @@ const attributesReducer = (state = initialState, action) => {
 			}
 
 			return newState;
+		},
+
+		PURCHASE(prevState, {gear}) {
+			if (gear.ess) {
+				return {
+					...prevState,
+					ess: prevState.ess + gear.ess
+				};
+			}
+
+			return prevState;
+		},
+
+		SELL(prevState, {gear}) {
+			if (gear.ess) {
+				return {
+					...prevState,
+					ess: prevState.ess - gear.ess
+				};
+			}
+
+			return prevState;
 		},
 
 		DEFAULT(prevState) { return prevState; }
