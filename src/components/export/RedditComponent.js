@@ -156,8 +156,8 @@ ${totalKarma} | ${totalKarma}
 
 ##Attributes
 
-Bod | Agi | Rea | Str | Wil | Log | Int | Cha | Edg | Mag
----|---|---|---|---|---|---|---|---|---
+Bod | Agi | Rea | Str | Wil | Log | Int | Cha | Edg | Mag | Ess
+---|---|---|---|---|---|---|---|---|---|---
 ${
 	attributes.bod +
 	(augmentedAtt.bod ? `(${augmentedAtt.bod + attributes.bod})` : '')
@@ -188,6 +188,8 @@ ${
 } | ${
 	(attributes.mag || '–') +
 	(augmentedAtt.mag ? `(${augmentedAtt.mag + attributes.mag})` : '')
+} | ${
+	6 - attributes.ess
 }
 
 ###Limits

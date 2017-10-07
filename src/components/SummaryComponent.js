@@ -72,11 +72,12 @@ const SummaryComponent = (
 
 	if (magicPriorityData && magres !== 'mundane') {
 		const baseMagic = magicPriorityData.attribute.points,
-			specialType = magres === 'Technomancer' ? 'res' : 'mag';
+			specialType = magres === 'Technomancer' ? 'res' : 'mag',
+			essencePenelty = Math.ceil(attributes.ess);
 
-		calculatedStats.attributes[specialType] = baseMagic + (attributes.special || 0);
+		calculatedStats.attributes[specialType] = baseMagic + (attributes.special || 0) - essencePenelty;
 		attributesHead.push(<th key={'summary-attribute-head-mag'}>{specialType}</th>);
-		attributesData.push(<td key={'summary-attribute-data-mag'}>{calculatedStats.attributes[specialType] - Math.ceil(attributes.ess)}</td>);
+		attributesData.push(<td key={'summary-attribute-data-mag'}>{calculatedStats.attributes[specialType]}</td>);
 		Object.keys(spellsAndPowers).forEach((magicCat) => {
 			const spellPowerArray = spellsAndPowers[magicCat];
 			if (Array.isArray(spellPowerArray)) {
@@ -91,6 +92,7 @@ const SummaryComponent = (
 
 	// Display essence
 	const essenceLeft = 6 - attributes.ess;
+	calculatedStats.attributes.ess = attributes.ess;
 	attributesHead.push(<th key={'summary-attribute-head-ess'}>ess</th>);
 	attributesData.push(<td key={'summary-attribute-data-ess'}>{essenceLeft}</td>);
 
