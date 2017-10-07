@@ -73,7 +73,6 @@ class CyberlimbComponent extends React.PureComponent {
 		const {cyberlimbsByType, location} = this.props;
 		return (
 			<div>
-				<h4>Cyber {location}</h4>
 				<div className="row justify-content-between">
 					<div className="col-12 col-md-12">
 						<div className="row justify-content-between">

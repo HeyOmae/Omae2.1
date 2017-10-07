@@ -119,6 +119,7 @@ class AugmentationComponent extends React.PureComponent {
 							body={
 								cyberlimbs.map((aug, index) => {
 									return (
+										// eslint-disable-next-line react/no-array-index-key
 										<tr key={`cyberlimb-${aug.name}-${index}`}>
 											<td>
 												<button
