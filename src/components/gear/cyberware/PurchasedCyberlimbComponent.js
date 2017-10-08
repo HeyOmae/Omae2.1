@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import DisplayTable from '../../DisplayTableComponent';
 import Modal from '../../ModalButtonComponent';
+import CyberlimbMods from './CyberlimbModsComponent';
 
 class PurchasedCyberlimbComponent extends React.PureComponent {
 	render() {
@@ -46,7 +47,6 @@ class PurchasedCyberlimbComponent extends React.PureComponent {
 												<CyberlimbMods
 													index={index}
 													modList={cyberware}
-													cyberlimb={limb}
 												/>
 											}
 										/>
@@ -72,58 +72,19 @@ PurchasedCyberlimbComponent.propTypes = {
 	cyberlimbs: PropTypes.arrayOf(
 		PropTypes.object.isRequired
 	),
-	cyberware: PropTypes.arrayOf(
-		PropTypes.object.isRequired
+	cyberware: PropTypes.objectOf(
+		PropTypes.oneOfType([
+			PropTypes.arrayOf(
+				PropTypes.object.isRequired
+			).isRequired,
+			PropTypes.object.isRequired
+		])
 	).isRequired,
 	sellGear: PropTypes.func.isRequired,
 };
 
 PurchasedCyberlimbComponent.defaultProps = {
 	cyberlimbs: []
-};
-
-const CyberlimbMods = ({index, modList, cyberlimb}) => {
-	return (
-		<div className="col">
-			<p>
-				<strong>Capacity: </strong>{cyberlimb.capacity}
-			</p>
-			{
-				cyberlimb.allowsubsystems.category.map((modCategory) => {
-					return (
-						<div>
-							<h4>{modCategory}</h4>
-							<DisplayTable>
-								{modList[modCategory].reduce((memo, mod) => {
-									if (/\[.*[^0]\]/.test(mod.capacity)) {
-										return [
-											...memo,
-											(
-												<tr>
-													<td>{mod.name}</td>
-													<td>{mod.capacity}</td>
-													<td>{mod.cost}</td>
-												</tr>
-											)
-										];
-									}
-									return memo;
-								}, [])}
-							</DisplayTable>
-						</div>
-					);
-				})
-			}
-		</div>
-	);
-};
-
-CyberlimbMods.propTypes = {
-	index: PropTypes.number.isRequired,
-	modList: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
-	cyberlimb: PropTypes.shape({
-		capacity: PropTypes.string.isRequired
-	}).isRequired
 };
 
 export default PurchasedCyberlimbComponent;
