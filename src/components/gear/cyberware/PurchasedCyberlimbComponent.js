@@ -94,13 +94,21 @@ const CyberlimbMods = ({index, modList, cyberlimb}) => {
 						<div>
 							<h4>{modCategory}</h4>
 							<DisplayTable>
-								{modList[modCategory].map((mod) => {
-									return (
-										<tr>
-											<td>{mod.name}</td>
-										</tr>
-									);
-								})}
+								{modList[modCategory].reduce((memo, mod) => {
+									if (/\[.*[^0]\]/.test(mod.capacity)) {
+										return [
+											...memo,
+											(
+												<tr>
+													<td>{mod.name}</td>
+													<td>{mod.capacity}</td>
+													<td>{mod.cost}</td>
+												</tr>
+											)
+										];
+									}
+									return memo;
+								}, [])}
 							</DisplayTable>
 						</div>
 					);
