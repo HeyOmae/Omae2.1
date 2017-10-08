@@ -103,6 +103,7 @@ class AugmentationComponent extends React.PureComponent {
 					<PurchasedCyberlimbs
 						cyberlimbs={cyberlimbs}
 						sellGear={sellGear}
+						cyberware={this.cyberware}
 					/>
 				}
 
