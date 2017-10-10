@@ -6,7 +6,7 @@ import ArmorModRow from 'components/gear/armor/ArmorModRow';
 describe('<ArmorModRow/>', () => {
 	const setup = (cost = '200', selectedMod = true, currentRating) => {
 		const props = {
-			armorName: 'Blue Suede Shoes',
+			gearName: 'Blue Suede Shoes',
 			mod: {
 				name: 'Rock',
 				maxrating: '6',

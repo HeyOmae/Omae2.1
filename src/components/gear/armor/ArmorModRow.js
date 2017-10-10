@@ -9,6 +9,8 @@ class ArmorModRow extends React.Component {
 			Rating: (props.currentRating || '')
 		};
 
+		this.inputId = `${props.gearName}-mod-${props.mod.name}`.replace(/\s/g, '');
+
 		this.updateRating = this.updateRating.bind(this);
 		this.modifying = this.modifying.bind(this);
 	}
@@ -47,14 +49,13 @@ class ArmorModRow extends React.Component {
 	}
 
 	render() {
-		const {armorName, mod, selectedMod} = this.props,
-			oneWordArmorName = armorName.replace(/\s/g, '');
+		const {mod, selectedMod} = this.props;
 
 		return (
 			<tr>
 				<td className="input-group">
 					<input
-						id={`${oneWordArmorName}-mod-${mod.name}`}
+						id={this.inputId}
 						name={mod.name}
 						type="checkbox"
 						className="form-control"
@@ -63,7 +64,7 @@ class ArmorModRow extends React.Component {
 					/>
 					<label
 						className="armor-mod--name"
-						htmlFor={`${oneWordArmorName}-mod-${mod.name}`}
+						htmlFor={this.inputId}
 					>
 						{mod.name}
 					</label>
@@ -80,6 +81,7 @@ class ArmorModRow extends React.Component {
 						: 'N/A'
 					}
 				</td>
+				<td className="armor-mod--capacity">{/FixedValues/.test(mod.armorcapacity) ? '[Rating]' : mod.armorcapacity}</td>
 				<td className="armor-mod--avail">
 					{mod.avail}
 				</td>
@@ -92,7 +94,7 @@ class ArmorModRow extends React.Component {
 }
 
 ArmorModRow.propTypes = {
-	armorName: PropTypes.string.isRequired,
+	gearName: PropTypes.string.isRequired,
 	mod: PropTypes.shape({
 		name: PropTypes.string.isRequired,
 		maxrating: PropTypes.string.isRequired,

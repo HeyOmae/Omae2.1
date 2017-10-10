@@ -27,6 +27,7 @@ class ArmorModsComponent extends React.PureComponent {
 						<tr>
 							<th>Name</th>
 							<th>Rating</th>
+							<th>Capacity</th>
 							<th>Avail</th>
 							<th>Cost</th>
 						</tr>
@@ -37,7 +38,7 @@ class ArmorModsComponent extends React.PureComponent {
 							return (
 								<ArmorModRow
 									key={`${name}-mod-${mod.name}`}
-									armorName={name}
+									gearName={name}
 									mod={mod}
 									selectedMod={!!mods[mod.name]}
 									index={index}

@@ -21,6 +21,7 @@ const CyberlimbMods = ({index, modList, cyberlimbs}) => {
 									<tr>
 										<th>Name</th>
 										<th>Capacity</th>
+										<th>Avail</th>
 										<th>Cost</th>
 									</tr>
 								}
@@ -33,6 +34,7 @@ const CyberlimbMods = ({index, modList, cyberlimbs}) => {
 												<tr key={mod.name}>
 													<td>{mod.name}</td>
 													<td>{mod.capacity}</td>
+													<td>{mod.avail}</td>
 													<td>{mod.cost}&yen;</td>
 												</tr>
 											)
