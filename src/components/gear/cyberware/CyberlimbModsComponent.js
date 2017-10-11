@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import CyberlimbModRow from './CyberlimbModRowComponent';
 import DisplayTable from '../../DisplayTableComponent';
 import { moddingCapacity, demoddingCapacity } from '../../../actions';
 
-const CyberlimbMods = ({index, modList, cyberlimbs}) => {
+const CyberlimbMods = ({index, modList, cyberlimbs, modLimb, demodLimb}) => {
 	const cyberlimb = cyberlimbs[index];
 	return (
 		<div className="col">
@@ -17,9 +18,12 @@ const CyberlimbMods = ({index, modList, cyberlimbs}) => {
 						<div key={modCategory}>
 							<h4>{modCategory}</h4>
 							<DisplayTable
+								striped
+								invert
 								header={
 									<tr>
 										<th>Name</th>
+										<th>Rating</th>
 										<th>Capacity</th>
 										<th>Avail</th>
 										<th>Cost</th>
@@ -31,12 +35,13 @@ const CyberlimbMods = ({index, modList, cyberlimbs}) => {
 										return [
 											...memo,
 											(
-												<tr key={mod.name}>
-													<td>{mod.name}</td>
-													<td>{mod.capacity}</td>
-													<td>{mod.avail}</td>
-													<td>{mod.cost}&yen;</td>
-												</tr>
+												<CyberlimbModRow
+													gearName={cyberlimb.name}
+													mod={mod}
+													index={index}
+													modArmor={modLimb}
+													demodArmor={demodLimb}
+												/>
 											)
 										];
 									}

@@ -23,6 +23,25 @@ class CyberlimbModRow extends ArmorModRow {
 						{mod.name}
 					</label>
 				</td>
+				<td className="cyberlimb-mod--rating">
+					{isNaN(mod.cost) ?
+						<input
+							className="form-control"
+							type="number"
+							placeholder={`1-${mod.rating}`}
+							onChange={this.updateRating}
+							value={this.state.Rating}
+						/>
+						: 'N/A'
+					}
+				</td>
+				<td className="cyberlimb-mod--capacity">{mod.capacity}</td>
+				<td className="cyberlimb-mod--avail">
+					{mod.avail}
+				</td>
+				<td className="cyberlimb-mod--cost">
+					{mod.cost}&yen;
+				</td>
 			</tr>
 		);
 	}
