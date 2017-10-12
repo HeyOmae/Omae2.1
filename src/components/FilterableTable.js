@@ -7,20 +7,21 @@ import DisplayTable from './DisplayTableComponent';
 
 import {setFilter} from '../actions/';
 
-// helpers
-function filtered(term, tableRows) {
-	const expression = `(${term})`,
-		regExp = new RegExp(expression, 'i');
-	return tableRows.filter((row) => {
-		return row.key.match(regExp);
-	});
-}
-
 // component
 class FilterableTable extends Component {
+	static filtered(term, tableRows) {
+		const expression = `(${term})`,
+			regExp = new RegExp(expression, 'i');
+		return tableRows.filter((row) => {
+			return row.key.match(regExp);
+		});
+	}
+
 	render() {
-		const { setFilterAction, tableData, filterTable } = this.props,
-			filteredRows = filterTable ? filtered(filterTable, tableData.body) : tableData.body;
+		const { setFilterAction, tableData, filterTable, header, children, striped, invert } = this.props,
+			tableContent = tableData.body || children,
+			filteredRows = filterTable ? FilterableTable.filtered(filterTable, tableContent) : tableContent;
+
 		return (
 			<div
 				className="filter-table--wrapper">
@@ -34,7 +35,9 @@ class FilterableTable extends Component {
 					value={filterTable} />
 				<div className="filter-table">
 					<DisplayTable
-						header={tableData.header}
+						striped={striped}
+						invert={invert}
+						header={tableData.header || header}
 						body={filteredRows} />
 				</div>
 			</div>);
@@ -42,13 +45,26 @@ class FilterableTable extends Component {
 }
 
 // prop boilerplate
+// refactor this dumb ass thing to look like display table, no damn reason for me to make in consistant interfaces.
 FilterableTable.propTypes = {
 	setFilterAction: PropTypes.func.isRequired,
 	tableData: PropTypes.shape({
-		header: PropTypes.element.isRequired,
-		body: PropTypes.any
-	}).isRequired,
-	filterTable: PropTypes.string.isRequired
+		header: PropTypes.element,
+		body: PropTypes.node
+	}),
+	header: PropTypes.element,
+	children: PropTypes.node,
+	filterTable: PropTypes.string.isRequired,
+	striped: PropTypes.bool,
+	invert: PropTypes.bool
+};
+
+FilterableTable.defaultProps = {
+	children: null,
+	striped: false,
+	invert: false,
+	header: null,
+	tableData: {header: null, body: null}
 };
 
 function mapStateToProps(state) {

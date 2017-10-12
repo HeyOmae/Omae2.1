@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import CyberlimbModRow from './CyberlimbModRowComponent';
-import DisplayTable from '../../DisplayTableComponent';
+import FilterableTable from '../../FilterableTable';
 import { moddingCapacity, demoddingCapacity } from '../../../actions';
 
-const CyberlimbMods = ({index, modList, cyberlimbs, modLimb, demodLimb}) => {
+const CyberlimbMods = ({index, modList, cyberlimbs, modGear, demodGear}) => {
 	const cyberlimb = cyberlimbs[index];
 	return (
 		<div className="col">
@@ -17,7 +17,7 @@ const CyberlimbMods = ({index, modList, cyberlimbs, modLimb, demodLimb}) => {
 					return (
 						<div key={modCategory}>
 							<h4>{modCategory}</h4>
-							<DisplayTable
+							<FilterableTable
 								striped
 								invert
 								header={
@@ -39,15 +39,15 @@ const CyberlimbMods = ({index, modList, cyberlimbs, modLimb, demodLimb}) => {
 													gearName={cyberlimb.name}
 													mod={mod}
 													index={index}
-													modArmor={modLimb}
-													demodArmor={demodLimb}
+													modArmor={modGear}
+													demodArmor={demodGear}
 												/>
 											)
 										];
 									}
 									return memo;
 								}, [])}
-							</DisplayTable>
+							</FilterableTable>
 						</div>
 					);
 				})
@@ -59,11 +59,13 @@ const CyberlimbMods = ({index, modList, cyberlimbs, modLimb, demodLimb}) => {
 CyberlimbMods.propTypes = {
 	index: PropTypes.number.isRequired,
 	modList: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
-	cyberlimbs: PropTypes.arrayOf(PropTypes.object).isRequired
+	cyberlimbs: PropTypes.arrayOf(PropTypes.object).isRequired,
+	modGear: PropTypes.func.isRequired,
+	demodGear: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => {
 	return {cyberlimbs: state.purchaseGear.cyberlimbs};
 };
 
-export default connect(mapStateToProps, { modLimb: moddingCapacity, demodLimb: demoddingCapacity })(CyberlimbMods);
+export default connect(mapStateToProps, { modGear: moddingCapacity, demodGear: demoddingCapacity })(CyberlimbMods);

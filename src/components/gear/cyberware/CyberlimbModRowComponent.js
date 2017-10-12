@@ -57,8 +57,8 @@ CyberlimbModRow.propTypes = {
 	}).isRequired,
 	selectedMod: PropTypes.bool.isRequired,
 	index: PropTypes.number.isRequired,
-	modArmor: PropTypes.func.isRequired,
-	demodArmor: PropTypes.func.isRequired,
+	modGear: PropTypes.func.isRequired,
+	demodGear: PropTypes.func.isRequired,
 	currentRating: PropTypes.number
 };
 

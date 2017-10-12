@@ -29,18 +29,18 @@ class ArmorModRow extends React.Component {
 	}
 
 	modifying(e) {
-		const {mod, index, modArmor, demodArmor} = this.props,
+		const {mod, index, modGear, demodGear} = this.props,
 			{name, checked} = e.target;
 
 		if (checked) {
-			modArmor({
+			modGear({
 				index,
 				category: 'armors',
 				mod,
 				Rating: isNaN(mod.cost) && (this.state.Rating || 1)
 			});
 		} else {
-			demodArmor({
+			demodGear({
 				index,
 				category: 'armors',
 				demodName: name
@@ -103,8 +103,8 @@ ArmorModRow.propTypes = {
 	}).isRequired,
 	selectedMod: PropTypes.bool.isRequired,
 	index: PropTypes.number.isRequired,
-	modArmor: PropTypes.func.isRequired,
-	demodArmor: PropTypes.func.isRequired,
+	modGear: PropTypes.func.isRequired,
+	demodGear: PropTypes.func.isRequired,
 	currentRating: PropTypes.number
 };
 
