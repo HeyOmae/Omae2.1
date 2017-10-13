@@ -36,11 +36,13 @@ const CyberlimbMods = ({index, modList, cyberlimbs, modGear, demodGear}) => {
 											...memo,
 											(
 												<CyberlimbModRow
+													key={`${modCategory}-${mod.name}`}
 													gearName={cyberlimb.name}
 													mod={mod}
 													index={index}
-													modArmor={modGear}
-													demodArmor={demodGear}
+													selectedMod={false}
+													modGear={modGear}
+													demodGear={demodGear}
 												/>
 											)
 										];
@@ -58,7 +60,12 @@ const CyberlimbMods = ({index, modList, cyberlimbs, modGear, demodGear}) => {
 
 CyberlimbMods.propTypes = {
 	index: PropTypes.number.isRequired,
-	modList: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
+	modList: PropTypes.objectOf(
+		PropTypes.oneOfType([
+			PropTypes.object,
+			PropTypes.array
+		]).isRequired
+	).isRequired,
 	cyberlimbs: PropTypes.arrayOf(PropTypes.object).isRequired,
 	modGear: PropTypes.func.isRequired,
 	demodGear: PropTypes.func.isRequired

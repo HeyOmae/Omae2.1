@@ -51,7 +51,7 @@ CyberlimbModRow.propTypes = {
 	gearName: PropTypes.string.isRequired,
 	mod: PropTypes.shape({
 		name: PropTypes.string.isRequired,
-		maxrating: PropTypes.string.isRequired,
+		rating: PropTypes.string,
 		avail: PropTypes.string.isRequired,
 		cost: PropTypes.string.isRequired
 	}).isRequired,
