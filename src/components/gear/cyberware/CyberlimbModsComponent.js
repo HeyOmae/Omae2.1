@@ -38,6 +38,7 @@ const CyberlimbMods = ({index, modList, cyberlimbs, modGear, demodGear}) => {
 												<CyberlimbModRow
 													key={`${modCategory}-${mod.name}`}
 													gearName={cyberlimb.name}
+													category="cyberlimbs"
 													mod={mod}
 													index={index}
 													selectedMod={false}
