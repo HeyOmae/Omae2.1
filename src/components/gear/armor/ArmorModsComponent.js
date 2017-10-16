@@ -17,7 +17,7 @@ class ArmorModsComponent extends React.PureComponent {
 				<p>
 					<strong>Capacity: </strong>
 					<span className="capacity">
-						{Number(armor.armorcapacity) - (armor.capacity || 0)}
+						{Number(armor.armorcapacity) - (armor.currentCapacity || 0)}
 					</span>
 				</p>
 				<DisplayTableComponent
