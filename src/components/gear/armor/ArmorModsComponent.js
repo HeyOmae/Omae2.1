@@ -34,20 +34,21 @@ class ArmorModsComponent extends React.PureComponent {
 					}
 				>
 					{
-						armorMods.map((mod) => {
-							return (
+						armorMods.reduce((memo, mod) => {
+							return mod.cost > 0 || isNaN(mod.cost) ? [
+								...memo,
 								<ArmorModRow
 									key={`${name}-mod-${mod.name}`}
 									gearName={name}
 									mod={mod}
 									selectedMod={!!mods[mod.name]}
 									index={index}
-									modArmor={modArmor}
-									demodArmor={demodArmor}
+									modGear={modArmor}
+									demodGear={demodArmor}
 									currentRating={mods[mod.name] && mods[mod.name].currentRating}
 								/>
-							);
-						})
+							] : memo;
+						}, [])
 					}
 				</DisplayTableComponent>
 			</div>
