@@ -193,6 +193,12 @@ describe('attributes', () => {
 			expect(newState.ess).to.equal(2);
 			expect(state.ess).to.equal(3);
 		});
+
+		it('should return previous State if there is no gear passed in', () => {
+			const newState = reducer(state, {type: 'SELL', parameter: {category: 'armors', index: 0}});
+
+			expect(newState).to.equal(state);
+		});
 	});
 
 });

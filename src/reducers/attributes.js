@@ -143,7 +143,7 @@ const attributesReducer = (state = initialState, action) => {
 		},
 
 		SELL(prevState, {gear}) {
-			if (gear.ess) {
+			if (gear && gear.ess) {
 				return {
 					...prevState,
 					ess: prevState.ess - gear.ess
