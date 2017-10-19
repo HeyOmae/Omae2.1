@@ -90,8 +90,8 @@ describe('<ArmorModsComponent/>', () => {
 			armorModsComponent.find(ArmorModRow).forEach((row) => {
 				expect(row.props().gearName).to.equal('Armor Vest');
 				expect(row.props().index).to.equal(0);
-				expect(row.props().modArmor).to.equal(props.modArmor);
-				expect(row.props().demodArmor).to.equal(props.demodArmor);
+				expect(row.props().modGear).to.equal(props.modArmor);
+				expect(row.props().demodGear).to.equal(props.demodArmor);
 			});
 		});
 
