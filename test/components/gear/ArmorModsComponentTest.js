@@ -83,12 +83,12 @@ describe('<ArmorModsComponent/>', () => {
 		expect(armorModsComponent.find('.capacity').text()).to.equal('7');
 	});
 
-	describe('<ArmorModRow/>', () => {
+	describe('Armor Mod Row', () => {
 		it('should get the correct props passed down', () => {
 			const { armorModsComponent, props } = setup();
 
 			armorModsComponent.find(ArmorModRow).forEach((row) => {
-				expect(row.props().armorName).to.equal('Armor Vest');
+				expect(row.props().gearName).to.equal('Armor Vest');
 				expect(row.props().index).to.equal(0);
 				expect(row.props().modArmor).to.equal(props.modArmor);
 				expect(row.props().demodArmor).to.equal(props.demodArmor);
