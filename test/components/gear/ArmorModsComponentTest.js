@@ -26,7 +26,7 @@ const unmoddedGear = {
 		name: 'Armor Vest',
 		page: '437',
 		source: 'SR5',
-		capacity: 2,
+		currentCapacity: 2,
 		currentCost: 1000,
 		mods: {
 			'Fire Resistance': {
@@ -59,15 +59,15 @@ describe('<ArmorModsComponent/>', () => {
 		return { armorModsComponent, props };
 	}
 
-	it('should <ArmorModRow/> for each armorMods item', () => {
+	it('should filter out armorMods with cost of 0', () => {
 		const { armorModsComponent } = setup();
 
 		const rows = armorModsComponent.find(ArmorModRow);
 
-		expect(rows).to.have.length(armorMods.length);
-
 		rows.forEach((row, index) => {
-			expect(row.props().mod.name).to.equal(armorMods[index].name)
+			const cost = row.props().mod.cost;
+			if(!isNaN(cost))
+				expect(Number(cost)).to.above(0);
 		});
 	});
 
