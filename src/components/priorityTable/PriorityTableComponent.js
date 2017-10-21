@@ -12,7 +12,7 @@ class PriorityTableComponent extends React.PureComponent {
 		return (
 			<div className="col">
 				<h2>Priority Table</h2>
-				<table className="table table-responsive table-bordered priority-table">
+				<table className="table table-responsive-xl table-bordered priority-table">
 					<PriorityLabel />
 					<tbody>
 						<PriorityRow
@@ -73,7 +73,7 @@ const AttributeDataCell = ({rating, active, changePriority}) => {
 		<td
 			className={isActive(active)}>
 			<button
-				className="prioritytable--btn-select btn-link"
+				className="prioritytable--btn-select btn btn-link"
 				onClick={() => {
 					changePriority({
 						type: 'SET_PRIORITY',
@@ -94,7 +94,7 @@ const SkillsDataCell = ({rating, active, changePriority}) => {
 		<td
 			className={isActive(active)}>
 			<button
-				className="prioritytable--btn-select btn-link"
+				className="prioritytable--btn-select btn btn-link"
 				onClick={() => {
 					changePriority({
 						type: 'SET_PRIORITY',
@@ -114,7 +114,7 @@ const ResourcesDataCell = ({rating, active, changePriority}) => {
 			className={isActive(active)}
 			>
 			<button
-				className="prioritytable--btn-select btn-link"
+				className="prioritytable--btn-select btn btn-link"
 				onClick={() => {
 					changePriority({
 						type: 'SET_PRIORITY',

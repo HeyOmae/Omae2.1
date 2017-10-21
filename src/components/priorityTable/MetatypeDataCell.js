@@ -33,7 +33,7 @@ class MetatypeDataCell extends React.Component {
 			<td
 				className={active ? 'table-success' : ''}>
 				<button
-					className="prioritytable--btn-select btn-link"
+					className="prioritytable--btn-select btn btn-link"
 					onClick={() => {
 						changePriority({
 							type: 'SET_PRIORITY',

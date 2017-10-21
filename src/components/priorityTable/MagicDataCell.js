@@ -46,7 +46,7 @@ class MagicDataCell extends React.Component {
 			<td
 				className={isActive}>
 				<button
-					className="prioritytable--btn-select btn-link"
+					className="prioritytable--btn-select btn btn-link"
 					onClick={() => {
 						changePriority({
 							type: 'SET_PRIORITY',
