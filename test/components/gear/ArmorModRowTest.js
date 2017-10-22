@@ -16,8 +16,8 @@ describe('<ArmorModRow/>', () => {
 			selectedMod,
 			index: 0,
 			currentRating,
-			modArmor: sinon.spy(),
-			demodArmor: sinon.spy()
+			modGear: sinon.spy(),
+			demodGear: sinon.spy()
 		},
 			armorModRow = shallow(<ArmorModRow {...props} />);
 		return {armorModRow, props};
@@ -87,26 +87,26 @@ describe('<ArmorModRow/>', () => {
 			expect(armorModRow.find('#BlueSuedeShoes-mod-Rock').props().checked).to.be.false;
 		});
 
-		it('should fire modArmor on change when unselected', () => {
+		it('should fire modGear on change when unselected', () => {
 			const {armorModRow, props} = setup(undefined, false);
 			const checkbox = armorModRow.find('#BlueSuedeShoes-mod-Rock');
 
 			checkbox.simulate('change', {target: {name: 'Rock', checked: true}});
-			expect(props.modArmor.calledOnce).to.be.true;
-			expect(props.demodArmor.calledOnce).to.be.false;
+			expect(props.modGear.calledOnce).to.be.true;
+			expect(props.demodGear.calledOnce).to.be.false;
 		});
 
 
-		it('should fire demodArmor on change when selected', () => {
+		it('should fire demodGear on change when selected', () => {
 			const {armorModRow, props} = setup();
 			const checkbox = armorModRow.find('#BlueSuedeShoes-mod-Rock');
 
 			checkbox.simulate('change', {target: {name: 'Rock', checked: false}});
-			expect(props.modArmor.calledOnce).to.be.false;
-			expect(props.demodArmor.calledOnce).to.be.true;
+			expect(props.modGear.calledOnce).to.be.false;
+			expect(props.demodGear.calledOnce).to.be.true;
 		});
 
-		it('should fire modArmor with index, category, mod, and Rating', () => {
+		it('should fire modGear with index, category, mod, and Rating', () => {
 			const {armorModRow, props} = setup('Rating * 100', false),
 				checkbox = armorModRow.find('#BlueSuedeShoes-mod-Rock'),
 				Rating = '3';
@@ -114,7 +114,7 @@ describe('<ArmorModRow/>', () => {
 			armorModRow.find('.armor-mod--rating input').simulate('change', {target: {value: Rating}});
 
 			checkbox.simulate('change', {target: {name: 'Rock', checked: true}});
-			expect(props.modArmor).to.have.been.calledWith({
+			expect(props.modGear).to.have.been.calledWith({
 				index: 0,
 				category: 'armors',
 				mod: props.mod,
@@ -122,7 +122,7 @@ describe('<ArmorModRow/>', () => {
 			});
 		});
 
-		it('should fire modArmor with Rating 1 if none is selected', () => {
+		it('should fire modGear with Rating 1 if none is selected', () => {
 			const {armorModRow, props} = setup('Rating * 100', false),
 				checkbox = armorModRow.find('#BlueSuedeShoes-mod-Rock'),
 				Rating = '';
@@ -130,7 +130,7 @@ describe('<ArmorModRow/>', () => {
 			armorModRow.find('.armor-mod--rating input').simulate('change', {target: {value: Rating}});
 
 			checkbox.simulate('change', {target: {name: 'Rock', checked: true}});
-			expect(props.modArmor).to.have.been.calledWith({
+			expect(props.modGear).to.have.been.calledWith({
 				index: 0,
 				category: 'armors',
 				mod: props.mod,
