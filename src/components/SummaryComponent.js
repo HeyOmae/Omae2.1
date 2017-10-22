@@ -227,7 +227,7 @@ const SummaryComponent = (
 
 			<div className="scroll-overflow">
 				<h2>Skills</h2>
-				<table className="table table-responsive">
+				<table className="table">
 					<thead>
 						<tr>
 							<th>SP</th>
@@ -242,7 +242,7 @@ const SummaryComponent = (
 					</tbody>
 				</table>
 				<h3>Active Skills</h3>
-				<table className="table table-responsive">
+				<table className="table">
 					<thead>
 						<tr>
 							<th>Name</th>
