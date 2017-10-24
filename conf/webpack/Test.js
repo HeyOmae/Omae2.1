@@ -59,7 +59,7 @@ class WebpackTestConfig extends WebpackBaseConfig {
 							loader: 'istanbul-instrumenter-loader',
 							options: { esModules: true }
 						},
-						enforce: 'post',
+						enforce: 'pre',
 						exclude: /node_modules|Test\.js$/,
 					}
 				]

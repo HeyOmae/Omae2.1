@@ -6,7 +6,9 @@ import FilterableTable from '../../FilterableTable';
 import { moddingCapacity, demoddingCapacity } from '../../../actions';
 
 const CyberlimbMods = ({index, modList, cyberlimbs, modGear, demodGear}) => {
-	const cyberlimb = cyberlimbs[index];
+	const cyberlimb = cyberlimbs[index],
+		{mods} = cyberlimb;
+
 	return (
 		<div className="col">
 			<p>
@@ -32,16 +34,17 @@ const CyberlimbMods = ({index, modList, cyberlimbs, modGear, demodGear}) => {
 							>
 								{modList[modCategory].reduce((memo, mod) => {
 									if (/\[.*[^0]\]/.test(mod.capacity)) {
+										console.log(!!(mods && mods[mod.name]));
 										return [
 											...memo,
 											(
 												<CyberlimbModRow
 													key={`${modCategory}-${mod.name}`}
 													gearName={cyberlimb.name}
+													selectedMod={!!(mods && mods[mod.name])}
 													category="cyberlimbs"
 													mod={mod}
 													index={index}
-													selectedMod={false}
 													modGear={modGear}
 													demodGear={demodGear}
 												/>

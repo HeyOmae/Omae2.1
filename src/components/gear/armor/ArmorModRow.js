@@ -42,7 +42,7 @@ class ArmorModRow extends React.Component {
 		} else {
 			demodGear({
 				index,
-				category: 'armors',
+				category,
 				demodName: name
 			});
 		}

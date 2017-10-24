@@ -200,10 +200,10 @@ describe('purchaseGear', () => {
 			}],
 			cyberlimbs: [{
 				id: "df01eed6-a019-4198-b88d-4ba8f9aaefdf",
-				name: "Obvious Full Arm",
+				name: "Broken Obvious Full Arm",
 				category: "Cyberlimb",
 				ess: "1",
-				capacity: "15",
+				capacity: "2",
 				avail: "4",
 				cost: "15000",
 				source: "SR5",
@@ -671,6 +671,18 @@ describe('purchaseGear', () => {
 
 			expect(Object.keys(state.armors[2].mods).length).to.equal(1);
 			expect(state.armors[2].currentCost).to.equal(1000);
+			expect(state.nuyen).to.equal(3350);
+		});
+
+		it('should check gear.capacity(not armorcapacity) to add mod', () => {
+			const newState = reducer(state, {type: 'MODDING_CAPACITY', parameter: {index: 0, category: 'cyberlimbs', mod: enhanceStr, Rating: 3}});
+
+			expect(newState.cyberlimbs[0].mods).to.be.undefined;
+			expect(newState.cyberlimbs[0].currentCost).to.be.undefined;
+			expect(newState.nuyen).to.equal(3350);
+
+			expect(state.cyberlimbs[0].mods).to.be.undefined;
+			expect(state.cyberlimbs[0].currentCost).to.be.undefined;
 			expect(state.nuyen).to.equal(3350);
 		});
 	});
