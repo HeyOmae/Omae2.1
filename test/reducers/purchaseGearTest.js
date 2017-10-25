@@ -228,6 +228,54 @@ describe('purchaseGear', () => {
 					}
 				},
 				limbslot: "arm"
+			}, {
+				id: "df01eed6-a019-4198-b88d-4ba8f9aaefdf",
+				name: "Broken Obvious Full Arm",
+				category: "Cyberlimb",
+				ess: "1",
+				capacity: "2",
+				avail: "4",
+				cost: "15000",
+				source: "SR5",
+				page: "456",
+				allowgear: {
+					gearcategory: "Sensors"
+				},
+				allowsubsystems: {
+					category: [
+						"Bodyware",
+						"Cosmetic Enhancement",
+						"Cyberlimb Enhancement",
+						"Cyberlimb Accessory",
+						"Cyber Implant Weapon",
+						"Headware",
+						"Nanocybernetics"
+					]
+				},
+				bonus: {
+					conditionmonitor: {
+						physical: "1"
+					}
+				},
+				limbslot: "arm",
+				mods: {
+					'Enhanced Strength': {
+						id: "a9f4efd4-b86c-4e90-b0f7-aefa32c3b9de",
+						name: "Enhanced Strength",
+						category: "Cyberlimb Enhancement",
+						ess: "0",
+						capacity: "[Rating * 1]",
+						avail: "(Rating * 3)R",
+						cost: "Rating * 6500",
+						source: "SR5",
+						page: "456",
+						rating: "3",
+						currentRating: 2,
+						currentCost: 13000
+					}
+				},
+				currentCost: 28000,
+				currentCapacity: 2
 			}],
 			nuyen: 3350
 		};
@@ -710,9 +758,23 @@ describe('purchaseGear', () => {
 			expect(newState.armors[1].currentCost).to.equal(500);
 			expect(newState.nuyen).to.equal(2100);
 
-			expect(state.armors[1].mods['Faraday Pocket']).to.not.be.undefined;
+			expect(state.armors[1].mods['Nonconductivity']).to.not.be.undefined;
 			expect(state.armors[1].currentCapacity).to.equal(6);
 			expect(state.armors[1].currentCost).to.equal(1750);
+			expect(state.nuyen).to.equal(3350);
+		});
+
+		it('should remove mods without armorcapacity', () => {
+			const newState = reducer(state, {type: 'DEMODDING_CAPACITY', parameter: {index: 1, category: 'cyberlimbs', demodName: 'Enhanced Strength'}});
+
+			expect(newState.cyberlimbs[1].mods['Enhanced Strength']).to.be.undefined;
+			expect(newState.cyberlimbs[1].currentCapacity).to.equal(0);
+			expect(newState.cyberlimbs[1].currentCost).to.equal(15000);
+			expect(newState.nuyen).to.equal(-9650);
+
+			expect(state.cyberlimbs[1].mods['Enhanced Strength']).to.not.be.undefined;
+			expect(state.cyberlimbs[1].currentCapacity).to.equal(2);
+			expect(state.cyberlimbs[1].currentCost).to.equal(28000);
 			expect(state.nuyen).to.equal(3350);
 		});
 	});

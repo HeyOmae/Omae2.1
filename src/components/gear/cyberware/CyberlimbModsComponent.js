@@ -34,7 +34,6 @@ const CyberlimbMods = ({index, modList, cyberlimbs, modGear, demodGear}) => {
 							>
 								{modList[modCategory].reduce((memo, mod) => {
 									if (/\[.*[^0]\]/.test(mod.capacity)) {
-										console.log(!!(mods && mods[mod.name]));
 										return [
 											...memo,
 											(
