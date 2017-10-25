@@ -1,5 +1,5 @@
 import React from 'react';
-import Modal from '../ModalComponent';
+import Modal from '../ModalButtonComponent';
 import Skillgroup from './SkillgroupsComponent';
 import skillsData from '../../data/skills.json';
 import priorityTableData from '../../data/priority.json';
@@ -67,7 +67,7 @@ class SkillsComponent extends React.PureComponent {
 							skills={skills.active}
 							skillPointsLeft={skillPointsLeft}
 							restrictedSkills={attributeAbriv === 'special' ? skillAttribute !== allowedSkill() : false}
-							/>
+						/>
 					}
 				/>
 			);
@@ -106,7 +106,7 @@ class SkillsComponent extends React.PureComponent {
 					priorityDataFreeSkills={priorityDataFreeSkills}
 					magicSkills={skills.magicSkills}
 					setMagicSkills={actions.setMagicSkills}
-					/>
+				/>
 				<h3>Skill Groups</h3>
 				<div className="row">
 					<div className="col">
@@ -125,7 +125,7 @@ class SkillsComponent extends React.PureComponent {
 					</div>
 				</div>
 				{Object.keys(skills.active).length > 0 ?
-					(<div className="table-responsive">
+					(<div className="col">
 						<h3>Skill List</h3>
 						<DisplaySkills
 							activeSkills={skills.active}

@@ -1,7 +1,7 @@
-'use strict';
+import Enzyme from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
-// Add support for Promise objects via polyfills
-import 'babel-polyfill';
+Enzyme.configure({ adapter: new Adapter() });
 
 // Add support for all files in the test directory
 const testsContext = require.context('.', true, /(Test\.js$)/);

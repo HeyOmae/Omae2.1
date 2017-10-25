@@ -20,7 +20,7 @@ const skillReducer = (state = initialState, action) => {
 		spentPoints,
 		copyState = state,
 		skillCategory = action.parameter.category
-		) {
+	) {
 		return Object.assign(
 			{},
 			copyState,
@@ -164,7 +164,7 @@ const skillReducer = (state = initialState, action) => {
 						{
 							[skillName]: skillInfo
 						}
-				)});
+					)});
 			});
 
 			return newState;
@@ -235,7 +235,7 @@ const skillReducer = (state = initialState, action) => {
 					{[name]: newSkill},
 					'skillPointsSpent',
 					prevState.skillPointsSpent - 1
-					);
+				);
 
 				delete newState[category][name].spec;
 
@@ -249,7 +249,7 @@ const skillReducer = (state = initialState, action) => {
 					{[name]: newSkill},
 					'skillPointsSpent',
 					skillPointChange
-					);
+				);
 			} else {
 				return prevState;
 			}

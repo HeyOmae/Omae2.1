@@ -6,7 +6,7 @@
  *          This modifications only run once when the generator is invoked - if
  *          you edit them, they are not updated again.
  */
-import { combineReducers } from 'redux';  /* Populated by react-webpack-redux:reducer */
+import { combineReducers } from 'redux'; /* Populated by react-webpack-redux:reducer */
 import priorityTable from './priorityTable';
 import selectMetatype from './selectMetatype';
 import attributes from './attributes';
@@ -19,6 +19,7 @@ import karma from './karma';
 import modalToggle from './modalToggle';
 import purchaseGear from './gear/purchaseGear';
 import filterTable from './filterTable';
+import augmentation from './gear/augmentation';
 
 const reducers = {
 	priorityTable,
@@ -32,6 +33,7 @@ const reducers = {
 	karma,
 	modalToggle,
 	purchaseGear,
-	filterTable
+	filterTable,
+	augmentation
 };
 module.exports = combineReducers(reducers);

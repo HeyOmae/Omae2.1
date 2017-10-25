@@ -1,60 +1,58 @@
-/*eslint-env node, mocha */
-/*global expect */
-/*eslint no-console: 0*/
-'use strict';
-
 import React from 'react';
 import { shallow } from 'enzyme';
 
 import ModificationButton from 'components/attributes/ModificationButton';
 
 describe('ModificationButton', () => {
-  let component;
+	const setup = (
+			buttonClass = 'btn-success',
+			symbol = '+',
+			pointsLeft = 3
+		) => {
+		const props = {
+			attName: 'agi',
+			buttonClass,
+			maxPoints: 6,
+			pointsLeft,
+			modificationFunction: sinon.spy(),
+			attType: 'baseSpent',
+			symbol
+		},
+			modificationButton = shallow(<ModificationButton {...props} />);
+		return { modificationButton, props };
+	}
 
-  it('should have a button with the default class', () => {
-    component = shallow(<ModificationButton/>);
-    expect(component.find('button.btn').length)
-      .to.equal(1);
-  });
+	it('should have a button with the default class', () => {
+		const { modificationButton } = setup();
+		expect(modificationButton.find('button.btn').length)
+			.to.equal(1);
+	});
 
-  it('should have a button with the passed class', () => {
-    component = shallow(<ModificationButton/>);
-    component.setProps({buttonClass: 'buttonTest'});
-    expect(component.find('button.btn.buttonTest').length)
-      .to.equal(1);
-  });
+	it('should have a button with the passed class', () => {
+		const { modificationButton } = setup('buttonTest');
 
-  it('should have a button with the passed in symbol', () => {
-    const symbol = '&';
-    component = shallow(<ModificationButton/>);
-    component.setProps({ symbol });
-    expect(component.find('button.btn').text())
-      .to.equal(symbol);
-  });
+		expect(modificationButton.find('button.btn.buttonTest').length)
+			.to.equal(1);
+	});
 
-  it('should call modificationFunction when clicked and pointsLeft isn\'t passed', () => {
-    const modificationFunction = sinon.spy();
-    component = shallow(<ModificationButton/>);
-    component.setProps({ modificationFunction });
-    component.find('button.btn').simulate('click')
-    expect(modificationFunction.calledOnce).to.be.true;
-  });
+	it('should have a button with the passed in symbol', () => {
+		const { modificationButton } = setup(undefined, '&');
 
-  it('should call modificationFunction when clicked and pointsLeft is 1', () => {
-    const modificationFunction = sinon.spy();
-    component = shallow(<ModificationButton/>);
-    component.setProps({ modificationFunction, pointsLeft: 1 });
-    component.find('button.btn').simulate('click')
-    expect(modificationFunction.calledOnce).to.be.true;
-  });
+		expect(modificationButton.find('button.btn').text())
+			.to.equal('&');
+	});
 
-  it('should not call modificationFunction when clicked and pointsLeft is 0', () => {
-    const modificationFunction = sinon.spy();
-    component = shallow(<ModificationButton/>);
-    component.setProps({ modificationFunction, pointsLeft: 0 });
-    component.find('button.btn').simulate('click')
-    expect(modificationFunction.calledOnce).to.be.false;
-  });
+	it('should call modificationFunction when clicked and pointsLeft is 1', () => {
+		const { modificationButton, props } = setup(undefined, undefined, 1);
 
-  sinon.spy()
+		modificationButton.find('button.btn').simulate('click')
+		expect(props.modificationFunction.calledOnce).to.be.true;
+	});
+
+	it('should not call modificationFunction when clicked and pointsLeft is 0', () => {
+		const { modificationButton, props } = setup(undefined, undefined, 0);
+
+		modificationButton.find('button.btn').simulate('click')
+		expect(props.modificationFunction.calledOnce).to.be.false;
+	});
 });

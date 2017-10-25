@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Modal from '../ModalComponent';
+import Modal from '../ModalButtonComponent';
 import PropTypeChecking from '../../config/propTypeChecking';
 
 import '../../styles/export/Reddit.sass';
@@ -94,9 +94,9 @@ const RedditComponent = ({priority, metatype, attributes, augmentedAtt, magres, 
 
 Name | Acc | Dam | AP | Reach/RC | Ref
 ----|------|-----|----|----------|--${category.map((weapon) => {
-	return `
+		return `
 ${weapon.name} | ${weapon.accuracy} | ${weapon.damage} | ${weapon.ap} | ${weapon.type === 'Melee' ? weapon.reach : weapon.rc} | ${weapon.source} p${weapon.page}`;
-}).join()}`;
+	}).join()}`;
 		},
 
 		armors(category, gearCategoryName) {
@@ -106,9 +106,9 @@ ${weapon.name} | ${weapon.accuracy} | ${weapon.damage} | ${weapon.ap} | ${weapon
 
 Name | Armor | Capacity | Ref
 ----|--------|----------|--${category.map((armor) => {
-	return `
+		return `
 ${armor.name} | ${armor.armor} | ${armor.capacity}/${armor.armorcapacity} | ${armor.source} p${armor.page}`;
-}).join()}`;
+	}).join()}`;
 		},
 
 		default(category, gearCategoryName) {
@@ -118,9 +118,9 @@ ${armor.name} | ${armor.armor} | ${armor.capacity}/${armor.armorcapacity} | ${ar
 
 Name | Rating | Ref
 -----|--------|--${category.map((gear) => {
-	return `
+		return `
 ${gear.name} | ${gear.currentRating || 'N/A'} | ${gear.source} p${gear.page}`;
-}).join()}`;
+	}).join()}`;
 		}
 	};
 
@@ -156,8 +156,8 @@ ${totalKarma} | ${totalKarma}
 
 ##Attributes
 
-Bod | Agi | Rea | Str | Wil | Log | Int | Cha | Edg | Mag
----|---|---|---|---|---|---|---|---|---
+Bod | Agi | Rea | Str | Wil | Log | Int | Cha | Edg | Mag | Ess
+---|---|---|---|---|---|---|---|---|---|---
 ${
 	attributes.bod +
 	(augmentedAtt.bod ? `(${augmentedAtt.bod + attributes.bod})` : '')
@@ -188,6 +188,8 @@ ${
 } | ${
 	(attributes.mag || '–') +
 	(augmentedAtt.mag ? `(${augmentedAtt.mag + attributes.mag})` : '')
+} | ${
+	6 - attributes.ess
 }
 
 ###Limits
@@ -208,7 +210,7 @@ ${selectedQualities}
 
 ###Spells/Powers
 
-${learnedSpells}
+			${learnedSpells}
 
 ##Skills
 
@@ -219,13 +221,13 @@ Name | Rating | Attribute | Spec | DP
 ${activeSkills}
 
 ##Street Gear${gearBought}
-`,
+			`,
 		exportField = (
 			<textarea
 				className="form-control export-modal"
 				value={formate}
 				readOnly />
-	);
+		);
 	return (
 		<div className="reddit-component">
 			<Modal

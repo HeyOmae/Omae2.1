@@ -139,9 +139,8 @@ describe('purchaseGear', () => {
 				source: 'SR5',
 				page: '437',
 				currentCost: 1750,
-				capacity: 6,
+				currentCapacity: 6,
 				mods: {
-					capacity: 6,
 					Nonconductivity: {
 						id: '0cfb049a-a1bd-4daa-96be-9468c37d9c3c',
 						name: 'Nonconductivity',
@@ -153,7 +152,7 @@ describe('purchaseGear', () => {
 						cost: 'Rating * 250',
 						source: 'SR5',
 						page: '438',
-						rating: 5,
+						currentRating: 5,
 						currentCost: 1250
 					},
 					'Faraday Pocket': {
@@ -169,8 +168,115 @@ describe('purchaseGear', () => {
 						page: "185"
 					}
 				}
-			}
-			],
+			},
+			{
+				id: '4ad1eeab-daf3-4495-a73d-fbb0ce89be5b',
+				name: 'Armor Vest',
+				category: 'Armor',
+				armor: '9',
+				armorcapacity: '9',
+				avail: '4',
+				cost: '500',
+				source: 'SR5',
+				page: '437',
+				currentCost: 1000,
+				currentCapacity: 2,
+				mods: {
+					Nonconductivity: {
+						id: '0cfb049a-a1bd-4daa-96be-9468c37d9c3c',
+						name: 'Nonconductivity',
+						category: 'General',
+						armor: '0',
+						maxrating: '6',
+						armorcapacity: 'FixedValues([1],[2],[3],[4],[5],[6])',
+						avail: '6',
+						cost: 'Rating * 250',
+						source: 'SR5',
+						page: '438',
+						currentRating: 2,
+						currentCost: 500
+					}
+				}
+			}],
+			cyberlimbs: [{
+				id: "df01eed6-a019-4198-b88d-4ba8f9aaefdf",
+				name: "Broken Obvious Full Arm",
+				category: "Cyberlimb",
+				ess: "1",
+				capacity: "2",
+				avail: "4",
+				cost: "15000",
+				source: "SR5",
+				page: "456",
+				allowgear: {
+					gearcategory: "Sensors"
+				},
+				allowsubsystems: {
+					category: [
+						"Bodyware",
+						"Cosmetic Enhancement",
+						"Cyberlimb Enhancement",
+						"Cyberlimb Accessory",
+						"Cyber Implant Weapon",
+						"Headware",
+						"Nanocybernetics"
+					]
+				},
+				bonus: {
+					conditionmonitor: {
+						physical: "1"
+					}
+				},
+				limbslot: "arm"
+			}, {
+				id: "df01eed6-a019-4198-b88d-4ba8f9aaefdf",
+				name: "Broken Obvious Full Arm",
+				category: "Cyberlimb",
+				ess: "1",
+				capacity: "2",
+				avail: "4",
+				cost: "15000",
+				source: "SR5",
+				page: "456",
+				allowgear: {
+					gearcategory: "Sensors"
+				},
+				allowsubsystems: {
+					category: [
+						"Bodyware",
+						"Cosmetic Enhancement",
+						"Cyberlimb Enhancement",
+						"Cyberlimb Accessory",
+						"Cyber Implant Weapon",
+						"Headware",
+						"Nanocybernetics"
+					]
+				},
+				bonus: {
+					conditionmonitor: {
+						physical: "1"
+					}
+				},
+				limbslot: "arm",
+				mods: {
+					'Enhanced Strength': {
+						id: "a9f4efd4-b86c-4e90-b0f7-aefa32c3b9de",
+						name: "Enhanced Strength",
+						category: "Cyberlimb Enhancement",
+						ess: "0",
+						capacity: "[Rating * 1]",
+						avail: "(Rating * 3)R",
+						cost: "Rating * 6500",
+						source: "SR5",
+						page: "456",
+						rating: "3",
+						currentRating: 2,
+						currentCost: 13000
+					}
+				},
+				currentCost: 28000,
+				currentCapacity: 2
+			}],
 			nuyen: 3350
 		};
 	});
@@ -213,10 +319,10 @@ describe('purchaseGear', () => {
 				source: 'SR5',
 				page: '449'
 			},
-			newState = reducer(state, {type: 'PURCHASE', parameter: {gear: gear, category: 'gears', Rating: 3} });
-			expect(newState.gears[0]).to.equal(gear);
+			newState = reducer(state, {type: 'PURCHASE', parameter: {gear: gear, category: gear.category} });
+			expect(newState['Survival Gear'][0]).to.equal(gear);
 			expect(newState.nuyen).to.equal(3550);
-			expect(state.gears).to.be.undefined;
+			expect(state['Survival Gear']).to.be.undefined;
 			expect(state.nuyen).to.equal(3350);
 		});
 
@@ -255,6 +361,28 @@ describe('purchaseGear', () => {
 			expect(newState.commlinks[1]).to.equal(metalink);
 			expect(newState.nuyen).to.equal(3450);
 			expect(state.commlinks.length).to.equal(1);
+			expect(state.nuyen).to.equal(3350);
+		});
+
+		it('should add gear with current rating for gear with static costs', () => {
+			const dynomite = {
+				id: "df3efeef-661f-41fd-9007-01ba7db42dee",
+				name: "Dynamite",
+				category: "Explosives",
+				rating: "3",
+				minrating: "3",
+				avail: "8R",
+				cost: "350",
+				source: "RG",
+				page: "190"
+			};
+
+			const newState = reducer(state, {type: 'PURCHASE', parameter: {gear: dynomite, category: 'Explosives', Rating: 3}});
+
+			expect(newState.Explosives[0].currentRating).to.equal(3);
+			expect(newState.nuyen).to.equal(3700);
+
+			expect(state.Explosives).to.be.undefined;
 			expect(state.nuyen).to.equal(3350);
 		});
 	});
@@ -363,6 +491,27 @@ describe('purchaseGear', () => {
 			const newState = reducer(state, {type: 'WEAPON_MODDING', parameter: {index: 0, category: 'weapons', slot: 'stock', mod: ''}});
 
 			expect(newState).to.equal(state);
+		});
+
+		it('should add to the currentCost if already modded', () => {
+			const topMod = {
+				id: '2905095e-937e-4dbc-aa56-3b66676e1559',
+				name: 'Imaging Scope',
+				mount: 'Top',
+				avail: '2',
+				rating: '0',
+				cost: '300',
+				allowgear: {
+					gearcategory: 'Vision Enhancements'
+				},
+				source: 'SR5',
+				page: '432'
+			};
+
+			const newState = reducer(state, {type: 'WEAPON_MODDING', parameter: {index: 1, category: 'weapons', slot: 'top', mod: topMod}});
+
+			expect(newState.weapons[1].currentCost).to.equal(1250);
+			expect(state.weapons[1].currentCost).to.equal(950);
 		})
 	});
 
@@ -467,6 +616,18 @@ describe('purchaseGear', () => {
 			cost: 'Rating * 500',
 			source: 'SR5',
 			page: '438'
+		},
+			enhanceStr = {
+			id: "a9f4efd4-b86c-4e90-b0f7-aefa32c3b9de",
+			name: "Enhanced Strength",
+			category: "Cyberlimb Enhancement",
+			ess: "0",
+			capacity: "[Rating * 1]",
+			avail: "(Rating * 3)R",
+			cost: "Rating * 6500",
+			source: "SR5",
+			page: "456",
+			rating: "3"
 		};
 
 		it('should add a mod and add capacity based off of the mod', () => {
@@ -475,10 +636,24 @@ describe('purchaseGear', () => {
 			expect(newState.armors[0].mods['Shock Frills']).to.equal(shockFrills);
 			expect(newState.armors[0].currentCost).to.equal(1750);
 			expect(newState.nuyen).to.equal(3600);
-			expect(newState.armors[0].capacity).to.equal(2);
+			expect(newState.armors[0].currentCapacity).to.equal(2);
 
 			expect(state.armors[0].mods).to.be.undefined;
 			expect(state.armors[0].currentCost).to.be.undefined;
+			expect(state.nuyen).to.equal(3350);
+		});
+
+		it('should add not reset mods that have previously been added', () => {
+			const newState = reducer(state, {type: 'MODDING_CAPACITY', parameter: {index: 2, category: 'armors', mod: shockFrills}});
+
+			expect(Object.keys(newState.armors[2].mods).length).to.equal(2);
+			expect(newState.armors[2].mods['Shock Frills']).to.equal(shockFrills);
+			expect(newState.armors[2].currentCost).to.equal(1250);
+			expect(newState.nuyen).to.equal(3600);
+			expect(newState.armors[2].currentCapacity).to.equal(4);
+
+			expect(Object.keys(state.armors[2].mods).length).to.equal(1);
+			expect(state.armors[2].currentCost).to.equal(1000);
 			expect(state.nuyen).to.equal(3350);
 		});
 
@@ -488,9 +663,34 @@ describe('purchaseGear', () => {
 			expect(newState.armors[1].mods['Shock Frills']).to.be.undefined;
 			expect(newState.armors[1].currentCost).to.equal(1750);
 			expect(newState.nuyen).to.equal(3350);
-			expect(newState.armors[1].capacity).to.equal(6);
+			expect(newState.armors[1].currentCapacity).to.equal(6);
 
 			expect(state.armors[1]).to.equal(newState.armors[1]);
+			expect(state.nuyen).to.equal(3350);
+		});
+
+		it('should add a mod that beings the capacity to it the limit', () => {
+			const ruleBreaker = {
+			id: 'ba32a6e9-4e6f-47fe-8fd7-c3194a5174d6',
+			name: 'Breaker',
+			category: 'General',
+			armor: '0',
+			maxrating: '8',
+			armorcapacity: 'FixedValues([1],[2],[3],[4],[5],[6])',
+			avail: '10R',
+			cost: 'Rating * 100',
+			source: 'SR5',
+			page: '438'
+		};
+			const newState = reducer(state, {type: 'MODDING_CAPACITY', parameter: {index: 0, category: 'armors', mod: ruleBreaker, Rating: 8}});
+
+			expect(newState.armors[0].mods.Breaker.name).to.equal('Breaker');
+			expect(newState.armors[0].currentCost).to.equal(2300);
+			expect(newState.nuyen).to.equal(4150);
+			expect(newState.armors[0].currentCapacity).to.equal(8);
+
+			expect(state.armors[0].mods).to.be.undefined;
+			expect(state.armors[0].currentCost).to.be.undefined;
 			expect(state.nuyen).to.equal(3350);
 		});
 
@@ -500,12 +700,37 @@ describe('purchaseGear', () => {
 			expect(newState.armors[0].mods['Thermal Damping'].currentCost).to.equal(1500);
 			expect(newState.armors[0].mods['Thermal Damping'].currentRating).to.equal(3);
 			expect(newState.armors[0].currentCost).to.equal(3000);
-			expect(newState.armors[0].rating).to.equal(3);
-			expect(newState.armors[0].capacity).to.equal(3);
+			expect(newState.armors[0].currentCapacity).to.equal(3);
 			expect(newState.nuyen).to.equal(4850);
 
 			expect(state.armors[0].mods).to.be.undefined;
 			expect(state.armors[0].currentCost).to.be.undefined;
+			expect(state.nuyen).to.equal(3350);
+		});
+
+		it('should calculate the capacity when adding a mod with rating to gear that has been modded', () => {
+			const newState = reducer(state, {type: 'MODDING_CAPACITY', parameter: {index: 2, category: 'armors', mod: thermalDamp, Rating: 3}});
+
+			expect(newState.armors[2].mods['Thermal Damping'].currentCost).to.equal(1500);
+			expect(newState.armors[2].mods['Thermal Damping'].currentRating).to.equal(3);
+			expect(newState.armors[2].currentCost).to.equal(2500);
+			expect(newState.armors[2].currentCapacity).to.equal(5);
+			expect(newState.nuyen).to.equal(4850);
+
+			expect(Object.keys(state.armors[2].mods).length).to.equal(1);
+			expect(state.armors[2].currentCost).to.equal(1000);
+			expect(state.nuyen).to.equal(3350);
+		});
+
+		it('should check gear.capacity(not armorcapacity) to add mod', () => {
+			const newState = reducer(state, {type: 'MODDING_CAPACITY', parameter: {index: 0, category: 'cyberlimbs', mod: enhanceStr, Rating: 3}});
+
+			expect(newState.cyberlimbs[0].mods).to.be.undefined;
+			expect(newState.cyberlimbs[0].currentCost).to.be.undefined;
+			expect(newState.nuyen).to.equal(3350);
+
+			expect(state.cyberlimbs[0].mods).to.be.undefined;
+			expect(state.cyberlimbs[0].currentCost).to.be.undefined;
 			expect(state.nuyen).to.equal(3350);
 		});
 	});
@@ -515,12 +740,12 @@ describe('purchaseGear', () => {
 			const newState = reducer(state, {type: 'DEMODDING_CAPACITY', parameter: {index: 1, category: 'armors', demodName: 'Faraday Pocket'}});
 
 			expect(newState.armors[1].mods['Faraday Pocket']).to.be.undefined;
-			expect(newState.armors[1].mods.capacity).to.equal(5);
+			expect(newState.armors[1].currentCapacity).to.equal(5);
 			expect(newState.armors[1].currentCost).to.equal(1700);
 			expect(newState.nuyen).to.equal(3300);
 
-			expect(state.armors[1].mods['Faraday Pocket']).to.be.defined;
-			expect(state.armors[1].mods.capacity).to.equal(6);
+			expect(state.armors[1].mods['Faraday Pocket']).to.not.be.undefined;
+			expect(state.armors[1].currentCapacity).to.equal(6);
 			expect(state.armors[1].currentCost).to.equal(1750);
 			expect(state.nuyen).to.equal(3350);
 		});
@@ -529,13 +754,27 @@ describe('purchaseGear', () => {
 			const newState = reducer(state, {type: 'DEMODDING_CAPACITY', parameter: {index: 1, category: 'armors', demodName: 'Nonconductivity'}});
 
 			expect(newState.armors[1].mods['Nonconductivity']).to.be.undefined;
-			expect(newState.armors[1].mods.capacity).to.equal(1);
+			expect(newState.armors[1].currentCapacity).to.equal(1);
 			expect(newState.armors[1].currentCost).to.equal(500);
 			expect(newState.nuyen).to.equal(2100);
 
-			expect(state.armors[1].mods['Faraday Pocket']).to.be.defined;
-			expect(state.armors[1].mods.capacity).to.equal(6);
+			expect(state.armors[1].mods['Nonconductivity']).to.not.be.undefined;
+			expect(state.armors[1].currentCapacity).to.equal(6);
 			expect(state.armors[1].currentCost).to.equal(1750);
+			expect(state.nuyen).to.equal(3350);
+		});
+
+		it('should remove mods without armorcapacity', () => {
+			const newState = reducer(state, {type: 'DEMODDING_CAPACITY', parameter: {index: 1, category: 'cyberlimbs', demodName: 'Enhanced Strength'}});
+
+			expect(newState.cyberlimbs[1].mods['Enhanced Strength']).to.be.undefined;
+			expect(newState.cyberlimbs[1].currentCapacity).to.equal(0);
+			expect(newState.cyberlimbs[1].currentCost).to.equal(15000);
+			expect(newState.nuyen).to.equal(-9650);
+
+			expect(state.cyberlimbs[1].mods['Enhanced Strength']).to.not.be.undefined;
+			expect(state.cyberlimbs[1].currentCapacity).to.equal(2);
+			expect(state.cyberlimbs[1].currentCost).to.equal(28000);
 			expect(state.nuyen).to.equal(3350);
 		});
 	});

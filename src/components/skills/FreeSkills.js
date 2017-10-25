@@ -15,7 +15,7 @@ const FreeSkills = ({priorityDataFreeSkills, magicSkills, setMagicSkills}) => {
 				const freeSkill = freeSkills[freeSkillName].name;
 				freeSkillList.push(
 					<option key={`free-skill--${freeSkill}`}>{freeSkill}</option>
-					);
+				);
 			});
 		} else {
 			// TODO: I think I can remove listOfActiveSkills and
@@ -36,7 +36,7 @@ const FreeSkills = ({priorityDataFreeSkills, magicSkills, setMagicSkills}) => {
 			listOfActiveSkills.forEach((activeSkillName) => {
 				freeSkillList.push(
 					<option key={`free-skill--${activeSkillName}`}>{activeSkillName}</option>
-					);
+				);
 			});
 		}
 

@@ -42,7 +42,7 @@ class MetatypeSelectorComponent extends React.PureComponent {
 			<div className="metatypeselector-component">
 				<div className="row">
 					<h2>Metatype</h2>
-					<div className="col-md-12 table-responsive">
+					<div className="col-md-12 scroll-overflow">
 						<div className="btn-group">
 							{buttonElements}
 						</div>
@@ -69,7 +69,7 @@ const MetatypeButton = ({typeName, anOption, checked, selectMetatypeAction, karm
 			${(anOption ? '' : 'disabled')}
 			${(checked ? 'active' : '')}`}
 			htmlFor={`metatype-${typeName}`}
-		>
+			>
 			<input
 				type="radio"
 				name="metatype-selector"

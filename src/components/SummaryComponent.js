@@ -33,7 +33,7 @@ const SummaryComponent = (
 			skills: priorityTableData[priority.skills].skills.skillpoints - skills.skillPointsSpent,
 			skillGroups: (
 				priorityTableData[priority.skills].skills.grouppoints || 0
-				) - skills.groupPointSpent
+			) - skills.groupPointSpent
 		},
 		calculatedStats = {
 			attributes: {}
@@ -72,9 +72,10 @@ const SummaryComponent = (
 
 	if (magicPriorityData && magres !== 'mundane') {
 		const baseMagic = magicPriorityData.attribute.points,
-			specialType = magres === 'Technomancer' ? 'res' : 'mag';
+			specialType = magres === 'Technomancer' ? 'res' : 'mag',
+			essencePenalty = Math.ceil(attributes.ess);
 
-		calculatedStats.attributes[specialType] = baseMagic + (attributes.special || 0);
+		calculatedStats.attributes[specialType] = baseMagic + (attributes.special || 0) - essencePenalty;
 		attributesHead.push(<th key={'summary-attribute-head-mag'}>{specialType}</th>);
 		attributesData.push(<td key={'summary-attribute-data-mag'}>{calculatedStats.attributes[specialType]}</td>);
 		Object.keys(spellsAndPowers).forEach((magicCat) => {
@@ -88,6 +89,12 @@ const SummaryComponent = (
 			}
 		});
 	}
+
+	// Display essence
+	const essenceLeft = 6 - attributes.ess;
+	calculatedStats.attributes.ess = attributes.ess;
+	attributesHead.push(<th key={'summary-attribute-head-ess'}>ess</th>);
+	attributesData.push(<td key={'summary-attribute-data-ess'}>{essenceLeft}</td>);
 
 	Object.keys(skills.active).forEach((skillName) => {
 		const currSkill = skills.active[skillName],
@@ -116,9 +123,9 @@ const SummaryComponent = (
 		if (Array.isArray(gearArray)) {
 			return [
 				...rows,
-				gearArray.map((gear) => {
+				gearArray.map((gear, index) => {
 					return (
-						<tr>
+						<tr key={`${gear.name + index}-summary-purchase`}>
 							<td>{gear.name}</td>
 							<td>{gear.source} p{gear.page}</td>
 						</tr>
@@ -134,9 +141,9 @@ const SummaryComponent = (
 		<div className={`summary-component sticky-top ${(fixed ? 'fixed' : '')}`}>
 			<h1>Character Summary</h1>
 
-			<div className="table-responsive">
+			<div className="scroll-overflow">
 				<h2>Priority</h2>
-				<table className="table">
+				<table className="table table-responsive">
 					<thead>
 						<tr>
 							{priorityHead}
@@ -152,12 +159,12 @@ const SummaryComponent = (
 
 			<div>
 				<h2>Metatype</h2>
-				<div className="col-xs-12">{metatype.typeName}</div>
+				<div className="col-12">{metatype.typeName}</div>
 			</div>
 
-			<div className="table-responsive">
+			<div className="scroll-overflow">
 				<h2>Attributes</h2>
-				<table className="table">
+				<table className="table table-responsive">
 					<thead>
 						<tr>
 							{attributesHead}
@@ -178,51 +185,47 @@ const SummaryComponent = (
 
 			<div className="summary-qualities">
 				<h2>Qualities</h2>
-				{ selectedQualities.Positive.length > 0 ?
-					<div className="table-responsive">
+				{ selectedQualities.Positive.length > 0 &&
+					<div className="scroll-overflow">
 						<h3>Positive</h3>
-						<table className="table">
+						<table className="table table-responsive">
 							<TableHeader />
 							<tbody>
 								{displayQualities.Positive}
 							</tbody>
 						</table>
 					</div>
-					: null
 				}
-				{ selectedQualities.Negative.length > 0 ?
-					<div className="table-responsive">
+				{ selectedQualities.Negative.length > 0 &&
+					<div className="scroll-overflow">
 						<h3>Negative</h3>
-						<table className="table">
+						<table className="table table-responsive">
 							<TableHeader />
 							<tbody>
 								{displayQualities.Negative}
 							</tbody>
 						</table>
 					</div>
-					: null
 				}
 			</div>
 
-			<div>
+			<div className="scroll-overflow">
 				<h2>Magic/Resonacne</h2>
 				{magres}
-				{displaySpellsPowers.length > 1 ?
-					<div className="table-responsive">
+				{displaySpellsPowers.length > 1 &&
+					<div className="col scroll-overflow">
 						<h3>Spells/Powers</h3>
-						<table className="table">
+						<table className="table table-responsive">
 							<TableHeader />
 							<tbody>
 								{displaySpellsPowers}
 							</tbody>
 						</table>
 					</div>
-				:
-					null
 				}
 			</div>
 
-			<div>
+			<div className="scroll-overflow">
 				<h2>Skills</h2>
 				<table className="table">
 					<thead>
@@ -253,15 +256,15 @@ const SummaryComponent = (
 				</table>
 			</div>
 
-			<div>
+			<div className="scroll-overflow">
 				<h2>Gear</h2>
 				<p>Nuyen Left: <strong>{priorityTableData[priority.resources].resources - (purchaseGear.nuyen)}&yen;</strong></p>
-				{PurchasedGearRows.length > 0 ?
-					<table className="table">
+				<p className={essenceLeft <= 0 ? 'text-danger' : ''}>Essense: <strong>{essenceLeft}</strong></p>
+				{PurchasedGearRows.length > 0 &&
+					<table className="table table-responsive">
 						<TableHeader />
 						<tbody>{PurchasedGearRows}</tbody>
 					</table>
-					: null
 				}
 			</div>
 

@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cyberwareData from '../../data/cyberware.json';
+import CyberlimbComponent from './cyberware/CyberlimbComponent';
+import PurchasedCyberlimbs from './cyberware/PurchasedCyberlimbComponent';
+import ModalButton from '../ModalButtonComponent';
 
 class AugmentationComponent extends React.PureComponent {
 	componentWillMount() {
@@ -47,7 +50,7 @@ class AugmentationComponent extends React.PureComponent {
 									&& cyberlimbObject[limbLocation][limbType]
 								)
 								|| []
-								),
+							),
 							limb
 						]
 					}
@@ -59,12 +62,12 @@ class AugmentationComponent extends React.PureComponent {
 				...memo,
 				[ware.category]: (
 					ware.category === 'Cyberlimb' ?
-					organizeCyberlimbs((memo.Cyberlimb || {}), ware)
-					:
-					[
-						...(memo[ware.category] || []),
-						ware
-					]
+						organizeCyberlimbs((memo.Cyberlimb || {}), ware)
+						:
+						[
+							...(memo[ware.category] || []),
+							ware
+						]
 				)
 			};
 		}, {});
@@ -74,56 +77,63 @@ class AugmentationComponent extends React.PureComponent {
 
 	render() {
 		const {Cyberlimb} = this.cyberware;
+		const {cyberlimbs, augmentations, sellGear} = this.props;
 		return (
-			<div className="augs">
-				{Object.keys(Cyberlimb).map((location) => {
-					return (
-						<CyberlimbComponent
-							location={location}
-							cyberlimbsByType={Cyberlimb[location]}
-						/>
-					);
-				})}
+			<div className="augs row">
+				<div className="col-12">
+					<h3>Cyberlimbs</h3>
+					{Object.keys(Cyberlimb).map((location) => {
+						return (
+							<ModalButton
+								key={`cyber-${location}`}
+								modalName={`Cyber${location}`}
+								modalContent={
+									<CyberlimbComponent
+										location={location}
+										cyberlimbsByType={Cyberlimb[location]}
+									/>
+								}
+							/>
+						);
+					})}
+				</div>
+
+				{
+					cyberlimbs.length > 0 &&
+					<PurchasedCyberlimbs
+						cyberlimbs={cyberlimbs}
+						sellGear={sellGear}
+						cyberware={this.cyberware}
+					/>
+				}
+
+				{
+					augmentations.length > 0 &&
+					<div className="purchased-augs col-12">
+						<h4>Augmentations</h4>
+						{augmentations.map((aug) => {
+							return aug.name;
+						})}
+					</div>
+				}
 			</div>
 		);
 	}
 }
 
-const CyberlimbComponent = ({location, cyberlimbsByType}) => {
-	const stuff = Object.keys(cyberlimbsByType).reduce((memo, type) => {
-		return [
-			[
-				...memo[0],
-				<button>{type}</button>
-			],
-			[
-				...memo[1],
-				...cyberlimbsByType[type].map((cyberlimb) => {
-					return (
-						<div>{cyberlimb.name}</div>
-					);
-				})
-			]
-		];
-	}, [[], []]);
-
-	return (
-		<div>
-			<div>{stuff[0]}</div>
-			<div>{stuff[1]}</div>
-		</div>
-	);
+AugmentationComponent.propTypes = {
+	augmentations: PropTypes.arrayOf(
+		PropTypes.object.isRequired
+	),
+	cyberlimbs: PropTypes.arrayOf(
+		PropTypes.object.isRequired
+	),
+	sellGear: PropTypes.func.isRequired
 };
 
-CyberlimbComponent.propTypes = {
-	location: PropTypes.string.isRequired,
-	cyberlimbsByType: PropTypes.arrayOf(
-		PropTypes.arrayOf(
-			PropTypes.shape({
-				name: PropTypes.string.isRequired
-			}).isRequired
-		).isRequired
-	).isRequired
+AugmentationComponent.defaultProps = {
+	augmentations: [],
+	cyberlimbs: []
 };
 
 export default AugmentationComponent;

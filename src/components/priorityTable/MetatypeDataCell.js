@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Modal from '../ModalComponent';
+import Modal from '../ModalButtonComponent';
 import priorityData from '../../data/priority.json';
 
 const coreMetatypes = ['human', 'elf', 'dwarf', 'ork', 'troll'];
@@ -33,7 +33,7 @@ class MetatypeDataCell extends React.Component {
 			<td
 				className={active ? 'table-success' : ''}>
 				<button
-					className="prioritytable--btn-select btn-link"
+					className="prioritytable--btn-select btn btn-link"
 					onClick={() => {
 						changePriority({
 							type: 'SET_PRIORITY',

@@ -10,9 +10,9 @@ class PriorityTableComponent extends React.PureComponent {
 	render() {
 		const {changePriority, priorityTable} = this.props;
 		return (
-			<div className="table-responsive">
+			<div className="col">
 				<h2>Priority Table</h2>
-				<table className="table table-bordered priority-table">
+				<table className="table table-responsive-xl table-bordered priority-table">
 					<PriorityLabel />
 					<tbody>
 						<PriorityRow
@@ -73,7 +73,7 @@ const AttributeDataCell = ({rating, active, changePriority}) => {
 		<td
 			className={isActive(active)}>
 			<button
-				className="prioritytable--btn-select btn-link"
+				className="prioritytable--btn-select btn btn-link"
 				onClick={() => {
 					changePriority({
 						type: 'SET_PRIORITY',
@@ -94,7 +94,7 @@ const SkillsDataCell = ({rating, active, changePriority}) => {
 		<td
 			className={isActive(active)}>
 			<button
-				className="prioritytable--btn-select btn-link"
+				className="prioritytable--btn-select btn btn-link"
 				onClick={() => {
 					changePriority({
 						type: 'SET_PRIORITY',
@@ -112,9 +112,9 @@ const ResourcesDataCell = ({rating, active, changePriority}) => {
 	return (
 		<td
 			className={isActive(active)}
-		>
+			>
 			<button
-				className="prioritytable--btn-select btn-link"
+				className="prioritytable--btn-select btn btn-link"
 				onClick={() => {
 					changePriority({
 						type: 'SET_PRIORITY',
@@ -163,7 +163,7 @@ const PriorityRow = ({rating, priorityTableData, changePriority}) => {
 
 PriorityRow.propTypes = {
 	rating: PropTypes.string.isRequired,
-	priorityTableData: propTypeChecking.priorityTable,
+	priorityTableData: propTypeChecking.priorityTable.isRequired,
 	changePriority: PropTypes.func.isRequired
 };
 

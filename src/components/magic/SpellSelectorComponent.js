@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import 'styles/magic/SpellSelector.sass';
-import Modal from '../ModalComponent';
+import Modal from '../ModalButtonComponent';
 import DisplayTable from '../DisplayTableComponent';
 import FilterTable from '../FilterableTable';
 
@@ -68,15 +68,15 @@ function spellNameTableData({start, end, placeholderText}, name) {
 	return (
 		<td>
 			{start}
-			{placeholderText ?
+			{placeholderText &&
 				<input
 					className="form-control spell-option"
 					type="text"
 					ref={`spellOption${name}`}
-					placeholder={placeholderText} />
-				: null
+					placeholder={placeholderText}
+				/>
 			}
-			{end || null}
+			{end}
 		</td>
 	);
 }
@@ -84,7 +84,7 @@ function spellNameTableData({start, end, placeholderText}, name) {
 spellNameTableData.propTypes = {
 	start: PropTypes.string.isRequired,
 	end: PropTypes.string.isRequired,
-	placeholderText: PropTypes.string
+	placeholderText: PropTypes.string.isRequired
 };
 
 function createSpellIndividualRow(spellName, spellDetails, button, spellID) {
@@ -97,7 +97,7 @@ function createSpellIndividualRow(spellName, spellDetails, button, spellID) {
 			<td>{spellDetails.fv}</td>
 			<td>{`${spellDetails.source} p${spellDetails.page}`}</td>
 		</tr>)
-			:
+		:
 		(<tr key={`spell-${spellID}${spellName.start}${spellName.end}`}>
 			{button}
 			{spellNameTableData(spellName, spellDetails.name)}
@@ -109,7 +109,7 @@ function createSpellIndividualRow(spellName, spellDetails, button, spellID) {
 			<td>{spellDetails.dv}</td>
 			<td>{`${spellDetails.source} p${spellDetails.page}`}</td>
 		</tr>
-	);
+		);
 }
 
 function generateSpellDetailTablesRows(arrayOfSpells, generateBtnFn, abilityType) {
@@ -205,8 +205,8 @@ SpellSelectorComponent.propTypes = {
 	addSpell: PropTypes.func.isRequired,
 	removeSpell: PropTypes.func.isRequired,
 	selectedSpells: PropTypes.arrayOf(
-			PropTypes.object.isRequired
-		).isRequired,
+		PropTypes.object.isRequired
+	).isRequired,
 	spellMax: PropTypes.number.isRequired
 };
 
@@ -221,7 +221,7 @@ const SpellSelectedDisplay = ({selectedSpells, removeSpell}) => {
 		spellDisplayTables = Object.keys(spellTableData).map((spellCat) => {
 			const spellCatagoryData = spellTableData[spellCat];
 			return (
-				<div key={`selected-${spellCat}`} className={`selected-spell-in-${spellCat} table-responsive`}>
+				<div key={`selected-${spellCat}`} className={`selected-spell-in-${spellCat} col`}>
 					<h4>{spellCat}</h4>
 					<DisplayTable
 						header={spellCatagoryData.header}
@@ -246,7 +246,7 @@ SpellSelectedDisplay.propTypes = {
 
 const SpellsTables = ({spellRowData}) => {
 	return (
-		<div className="table-responsive">
+		<div className="col">
 			<FilterTable tableData={spellRowData} />
 		</div>
 	);

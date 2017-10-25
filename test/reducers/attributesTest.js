@@ -14,14 +14,15 @@ describe('attributes', () => {
 		int: 1,
 		cha: 5,
 		edg: 1,
-		ess: 6,
+		ess: 3,
 		augmented: {
 			agi: 1,
 			rea: 4
 		},
 		special: 0,
 		baseSpent: 1,
-		specialSpent: 1
+		specialSpent: 1,
+		conditionBonus : {}
 	};
 
 	it('should not change the passed state', (done) => {
@@ -82,7 +83,7 @@ describe('attributes', () => {
 		});
 	});
 
-	describe('INCREMENT_AUGMENTED', function() {
+	describe('INCREMENT_AUGMENTED', () => {
 		it('should create a attribute in the augmented object with a value of 1 if not already set', () => {
 			const newState = reducer(state, {type: 'INCREMENT_AUGMENTED', parameter: {attribute: 'bod'}});
 
@@ -104,7 +105,7 @@ describe('attributes', () => {
 		});
 	});
 
-	describe('DECREMENT_AUGMENTED', function() {
+	describe('DECREMENT_AUGMENTED', () => {
 		it('should return state if the augmented attibute does not exist', () => {
 			const newState = reducer(state, {type: 'DECREMENT_AUGMENTED', parameter: {attribute: 'bod'}});
 
@@ -139,6 +140,64 @@ describe('attributes', () => {
 				expect(newState.augmented.rea).to.equal(2);
 				expect(state.augmented.rea).to.equal(4);
 			});
+		});
+	});
+
+	const gear = {
+		id: "df01eed6-a019-4198-b88d-4ba8f9aaefdf",
+		name: "Obvious Full Arm",
+		category: "Cyberlimb",
+		ess: 1,
+		capacity: "15",
+		avail: "4",
+		cost: "15000",
+		source: "SR5",
+		page: "456",
+		allowgear: {
+			gearcategory: "Sensors"
+		},
+		allowsubsystems: {
+			category: [
+				"Bodyware",
+				"Cosmetic Enhancement",
+				"Cyberlimb Enhancement",
+				"Cyberlimb Accessory",
+				"Cyber Implant Weapon",
+				"Headware",
+				"Nanocybernetics"
+			]
+		},
+		bonus: {
+			conditionmonitor: {
+				physical: "1"
+			}
+		},
+		limbslot: "arm"
+	};
+
+	describe('PURCHASE', () => {
+		it('should lower ess if gear has essence cost', () => {
+			const newState = reducer(state, {type: 'PURCHASE', parameter: {gear, category: 'cyberlimb'}});
+
+			expect(newState.ess).to.equal(4);
+			// expect(newState.conditionBonus.physical).to.equal(1);
+			expect(state.ess).to.equal(3);
+			// expect(state.conditionBonus.physical).to.be.undefined;
+		});
+	});
+
+	describe('SELL', () => {
+		it('should return ess if gear has essense cost', () => {
+			const newState = reducer(state, {type: 'SELL', parameter: {gear, category: 'cyberlimb', index: 0}});
+
+			expect(newState.ess).to.equal(2);
+			expect(state.ess).to.equal(3);
+		});
+
+		it('should return previous State if there is no gear passed in', () => {
+			const newState = reducer(state, {type: 'SELL', parameter: {category: 'armors', index: 0}});
+
+			expect(newState).to.equal(state);
 		});
 	});
 

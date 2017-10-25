@@ -1,10 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import 'styles/Attributes.sass';
-import metatypeData from '~/data/metatype.json';
-import priorityData from '~/data/priority.json';
-import PropTypeChecking from '~/config/propTypeChecking';
+import metatypeData from 'data/metatype.json';
+import priorityData from 'data/priority.json';
+// TODO: figure out how to make the lint used propTypesChecking with an alias
+import DisplayTableComponent from '../DisplayTableComponent';
+import PropTypeChecking from '../../config/propTypeChecking';
 import ModificationButton from './ModificationButton';
 import SpecialComponent from '../SpecialComponent';
 
@@ -44,8 +45,8 @@ class AttributesComponent extends React.PureComponent {
 
 		// helper function
 		function addingElements(attType, pointsLeft, att, maxPoints, maxAtt, currentAtt) {
-			const maxCanRaiseTo = oneBaseAttAtMax && attType === 'base' ? maxPoints - 1 : maxPoints;
-			const attributeAtMax = attributes[att] > maxCanRaiseTo;
+			const maxCanRaiseTo = oneBaseAttAtMax && attType === 'base' ? maxPoints - 1 : maxPoints,
+				attributeAtMax = attributes[att] > maxCanRaiseTo;
 			attributeElements[attType].incBtn.push(
 				<ModificationButton
 					attName={att}
@@ -91,10 +92,11 @@ class AttributesComponent extends React.PureComponent {
 				addingElements('special', specialPointsLeft, att, maxPoints, maxAtt, currentAtt);
 
 				if (magictype in priorityData[magicPriority].magic && magictype !== 'mundane') {
+					const essensePenalty = Math.ceil(attributes.ess);
 					baseAtt = priorityData[magicPriority].magic[magictype].attribute.points; // find magic rating
-					currentAtt = baseAtt + attributes.special;
-					maxAtt = ~~attributes.ess; // set max to essense rounded down
-					maxPoints = maxAtt - baseAtt;
+					currentAtt = baseAtt + attributes.special - essensePenalty;
+					maxAtt = 6 - essensePenalty; // set max to essense rounded down
+					maxPoints = maxAtt - baseAtt + essensePenalty;
 					addingElements('special', specialPointsLeft, 'special', maxPoints, maxAtt, currentAtt);
 					magicName = priorityData[magicPriority].magic[magictype].attribute.name;
 				}
@@ -105,45 +107,43 @@ class AttributesComponent extends React.PureComponent {
 			<div className="attributes-component ">
 				<div className="row">
 					<div className="col-lg-12 col-xl-9">
-						<div className="table-responsive">
-							<h2>Attributes</h2>
-							<table className="table">
-								<thead>
-									<tr>
-										<th>Bod</th>
-										<th>Agi</th>
-										<th>Rea</th>
-										<th>Str</th>
-										<th>Wil</th>
-										<th>Log</th>
-										<th>Int</th>
-										<th>Cha</th>
-										<th>Points</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										{attributeElements.base.incBtn}
-										<td />
-									</tr>
-									<tr className={attibutePointsLeft < 0 ? 'table-danger' : ''}>
-										{attributeElements.base.display}
-										<td>
-											{attibutePointsLeft}
-										</td>
-									</tr>
-									<tr>
-										{attributeElements.base.decBtn}
-										<td />
-									</tr>
-								</tbody>
-							</table>
-						</div>
+						<h2>Attributes</h2>
+						<DisplayTableComponent
+							header={(
+								<tr>
+									<th>Bod</th>
+									<th>Agi</th>
+									<th>Rea</th>
+									<th>Str</th>
+									<th>Wil</th>
+									<th>Log</th>
+									<th>Int</th>
+									<th>Cha</th>
+									<th>Points</th>
+								</tr>
+							)}
+						>
+							<tr>
+								{attributeElements.base.incBtn}
+								<td />
+							</tr>
+							<tr className={attibutePointsLeft < 0 ? 'table-danger' : ''}>
+								{attributeElements.base.display}
+								<td>
+									{attibutePointsLeft}
+								</td>
+							</tr>
+							<tr>
+								{attributeElements.base.decBtn}
+								<td />
+							</tr>
+						</DisplayTableComponent>
 					</div>
 					<SpecialComponent
 						elements={attributeElements.special}
 						pointsLeft={specialPointsLeft}
-						magicName={magicName} />
+						magicName={magicName}
+					/>
 				</div>
 			</div>
 		);

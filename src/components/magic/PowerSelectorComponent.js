@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import 'styles/magic/SpellSelector.sass';
-import Modal from '../ModalComponent';
+import Modal from '../ModalButtonComponent';
 import DisplayTable from '../DisplayTableComponent';
 import FilterTable from '../FilterableTable';
 import powerData from '../../data/powers.json';
@@ -85,9 +85,9 @@ function createSelectedPowerIndividualRow(powerDetails, button, powerID, modifyP
 
 	const levelButton = (
 		<div>
-			<button className="btn btn-success col-xs-12 col-sm-4" onClick={raiseLevel}>+</button>
-			<span className="col-xs-12 col-sm-4">{powerDetails.levels}</span>
-			<button className="btn btn-warning col-xs-12 col-sm-4" onClick={lowerLevel}>-</button>
+			<button className="btn btn-success col-12 col-sm-4" onClick={raiseLevel}>+</button>
+			<span className="col-12 col-sm-4">{powerDetails.levels}</span>
+			<button className="btn btn-warning col-12 col-sm-4" onClick={lowerLevel}>-</button>
 		</div>
 	);
 
@@ -150,12 +150,12 @@ class PowerSelectorComponent extends React.Component {
 						const powerNameOptions = this.refs[`powerOption${power.name}`] ? this.refs[`powerOption${power.name}`].value : '',
 							newName = power.name + powerNameOptions,
 							powerToAdd = Object.assign(
-							{},
-							power,
+								{},
+								power,
 								{
 									name: newName
 								}
-						);
+							);
 						if (powerToAdd.bonus) {
 							powerToAdd.bonus = powerNameOptions.replace(/[()]/g, '');
 							bonusUp(power.name, powerToAdd.bonus);
@@ -182,7 +182,7 @@ class PowerSelectorComponent extends React.Component {
 					Power Points: <strong>{pointSpent}</strong>
 					{isMystic ?
 						<span> Karma Spent: <strong>{karmaSpent}</strong></span>
-					: null}
+						: null}
 				</p>
 				<div className="power-selector">
 					<div className="btn-group">
@@ -209,7 +209,7 @@ class PowerSelectorComponent extends React.Component {
 }
 
 PowerSelectorComponent.propTypes = {
-	actions: PropTypeChecking.actions,
+	actions: PropTypeChecking.actions.isRequired,
 	selectedPowers: PropTypes.arrayOf(PropTypes.object).isRequired,
 	pointSpent: PropTypes.number.isRequired,
 	maxPointPoints: PropTypes.number.isRequired,
@@ -255,7 +255,7 @@ PowerSelectedDisplay.propTypes = {
 
 const PowersTables = ({powerRowData}) => {
 	return (
-		<div className="table-responsive">
+		<div className="col">
 			<FilterTable tableData={powerRowData} />
 		</div>
 	);

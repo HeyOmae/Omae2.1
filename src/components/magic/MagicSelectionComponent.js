@@ -95,7 +95,7 @@ class MagicSelectionComponent extends React.PureComponent {
 		return (
 			<div className="magicselection-component">
 				<h2>Magic/Resonance</h2>
-				<div className="table-responsive">
+				<div className="scroll-overflow">
 					<div className="btn-group">
 						{awakenButtons}
 					</div>
@@ -112,8 +112,8 @@ class MagicSelectionComponent extends React.PureComponent {
 								spellMax={spellMax}
 							/>
 						</div>
-					:
-					null
+						:
+						null
 				}
 				{
 					displayAbilities.powers ?
@@ -128,8 +128,8 @@ class MagicSelectionComponent extends React.PureComponent {
 								karmaSpent={selectedSpellsPowers.powerPointsKarma}
 							/>
 						</div>
-					:
-					null
+						:
+						null
 				}
 				{
 					displayAbilities.complexforms ?
@@ -143,8 +143,8 @@ class MagicSelectionComponent extends React.PureComponent {
 								spellMax={spellMax}
 							/>
 						</div>
-					:
-					null
+						:
+						null
 				}
 			</div>
 		);
@@ -161,7 +161,7 @@ const AwakenButton = ({typeName, anOption, checked, selectMagicTypeAction, reset
 			${(checked ? 'active' : '')}`
 			}
 			htmlFor={`awakentype-${typeName}`}
-		>
+			>
 			<input
 				type="radio"
 				name="magres-selector"

@@ -1,8 +1,9 @@
 import React from 'react';
-import WeaponsComponent from './WeaponsComponent';
-import ArmorsComponent from './ArmorsComponent';
+import WeaponsComponent from './weapon/WeaponsComponent';
+import ArmorsComponent from './armor/ArmorsComponent';
 import AugmentationComponent from './AugmentationComponent';
-import GearComponent, { PurchasedGear } from './GearComponent';
+import GearComponent from './GearComponent';
+import PurchasedGear from './PurchasedGearComponent';
 import gearData from '../../data/gear.json';
 import PropTypeChecking from '../../config/propTypeChecking';
 
@@ -65,7 +66,11 @@ class StreetGearComponent extends React.PureComponent {
 				{purchasedGearComponents}
 
 				<h3>Augmentations</h3>
-				<AugmentationComponent />
+				<AugmentationComponent
+					sellGear={actions.sellGear}
+					augmentations={purchaseGear.augmentations}
+					cyberlimbs={purchaseGear.cyberlimbs}
+				/>
 			</div>
 		);
 	}

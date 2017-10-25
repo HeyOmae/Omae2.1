@@ -14,10 +14,10 @@ const attributesReducer = (state = initialState, action) => {
 		FIX_SUMMARY(pervState, {summaryFix}) {
 			if (summaryFix !== pervState.summaryFix) {
 				return Object.assign(
-						{},
-						pervState,
-						{ summaryFix }
-					);
+					{},
+					pervState,
+					{ summaryFix }
+				);
 			}
 			return pervState;
 		},

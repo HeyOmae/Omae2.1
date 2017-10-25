@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ModificationButton = ({ attName = '', buttonClass, maxPoints = 6, pointsLeft = undefined, modificationFunction, attType = 'baseSpent', symbol = '' }) => {
+const ModificationButton = ({ attName, buttonClass, maxPoints, pointsLeft, modificationFunction, attType, symbol }) => {
 	return (
 		<td>
 			<button
-				className={`btn ${buttonClass ? buttonClass: ''}`}
+				className={`btn ${buttonClass}`}
 				onClick={() => {
-					console.log(pointsLeft);
-					if (pointsLeft === undefined || pointsLeft > 0) {
+					if (pointsLeft > 0) {
 						modificationFunction({
 							attribute: attName,
 							max: maxPoints,
@@ -16,7 +15,7 @@ const ModificationButton = ({ attName = '', buttonClass, maxPoints = 6, pointsLe
 						});
 					}
 				}}
-            >
+			>
 				{symbol}
 			</button>
 		</td>
@@ -30,12 +29,11 @@ ModificationButton.propTypes = {
 	pointsLeft: PropTypes.number,
 	modificationFunction: PropTypes.func.isRequired,
 	attType: PropTypes.string.isRequired,
-	symbol: PropTypes.string
+	symbol: PropTypes.string.isRequired
 };
 
 ModificationButton.defaultProps = {
-	pointsLeft: undefined,
-	symbol: ''
+	pointsLeft: 1
 };
 
 export default ModificationButton;

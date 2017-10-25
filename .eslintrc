@@ -10,7 +10,7 @@
     "arrow-body-style": ["error", "always"],
     "comma-dangle": ["off"],
     "import/no-extraneous-dependencies": ["off", {"devDependencies": true, "optionalDependencies": true, "peerDependencies": true}],
-    "indent": ["error", "tab"],
+    "indent": ["error", "tab", { "ignoredNodes": ["JSXElement *"] }],
     "max-len": ["off"],
     "no-bitwise": ["error", { "allow": ["~"] }],
     "no-eval": ["error", {"allowIndirect": true}],
@@ -37,7 +37,9 @@
           "actions/",
           "sources/",
           "styles/",
-          "images/"
+          "images/",
+          "~",
+          "data"
         ]
     }]
   }

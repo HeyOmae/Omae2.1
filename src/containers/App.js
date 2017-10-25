@@ -12,41 +12,42 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import {
-  priorityTable,
-  selectMetatype,
-  incrementAttribute,
-  decrementAttribute,
-  incrementAugmented,
-  decrementAugmented,
-  selectMagictype,
-  incrementSkill,
-  decrementSkill,
-  incrementSkillgroup,
-  decrementSkillgroup,
-  setSpec,
-  setMagicSkills,
-  addSpell,
-  removeSpell,
-  addComplexform,
-  removeComplexform,
-  addPower,
-  removePower,
-  raisePower,
-  lowerPower,
-  resetAbility,
-  selectQuality,
-  removeQuality,
-  karma,
-  purchaseGear,
-  sellGear,
-  addSkill,
-  removeSkill,
-  style,
-  weaponModding,
-  moddingMulti,
-  demoddingMulti,
-  moddingCapacity,
-  demoddingCapacity
+	priorityTable,
+	selectMetatype,
+	incrementAttribute,
+	decrementAttribute,
+	incrementAugmented,
+	decrementAugmented,
+	selectMagictype,
+	incrementSkill,
+	decrementSkill,
+	incrementSkillgroup,
+	decrementSkillgroup,
+	setSpec,
+	setMagicSkills,
+	addSpell,
+	removeSpell,
+	addComplexform,
+	removeComplexform,
+	addPower,
+	removePower,
+	raisePower,
+	lowerPower,
+	resetAbility,
+	selectQuality,
+	removeQuality,
+	karma,
+	purchaseGear,
+	sellGear,
+	addSkill,
+	removeSkill,
+	style,
+	weaponModding,
+	moddingMulti,
+	demoddingMulti,
+	moddingCapacity,
+	demoddingCapacity,
+	modalClose
 } from '../actions/';
 import Main from '../components/Main';
 import PriorityTableComponent from '../components/priorityTable/PriorityTableComponent';
@@ -56,6 +57,7 @@ import QualityComponent from '../components/QualityComponent';
 import MagicSelectionComponent from '../components/magic/MagicSelectionComponent';
 import SkillsComponent from '../components/skills/SkillsComponent';
 import StreetGearComponent from '../components/gear/StreetGearComponent';
+import Modal from '../components/Modal';
 import Summary from './summary';
 import PropTypeChecking from '../config/propTypeChecking';
 /* Populated by react-webpack-redux:reducer */
@@ -66,10 +68,15 @@ class App extends Component {
 		}
 	}
 	render() {
-		const {actions, priorityTableState, selectMetatypeState, attributes, selectMagRes, settingSkills, spellSelect, quality, karmaState, purchaseGearState} = this.props,
+		const {actions, priorityTableState, selectMetatypeState, attributes, selectMagRes, settingSkills, spellSelect, quality, karmaState, purchaseGearState, modalState} = this.props,
 			karmaTotal = karmaState - spellSelect.powerPointsKarma;
 		return (
 			<div className="container">
+				<Modal
+					modalName={modalState.modalName}
+					modalContent={modalState.modalContent}
+					closeModal={actions.modalClose}
+				/>
 				<div className="row">
 					<div className="col-md-12">
 						<Main style={actions.style} />
@@ -135,10 +142,15 @@ App.propTypes = {
 	quality: PropTypeChecking.quality.isRequired,
 	karmaState: PropTypeChecking.karma.isRequired,
 	purchaseGearState: PropTypeChecking.purchaseGear.isRequired,
-	styleTheme: PropTypes.string.isRequired
+	styleTheme: PropTypes.string.isRequired,
+	modalState: PropTypes.shape({
+		modalName: PropTypes.string.isRequired,
+		modalContent: PropTypes.node
+	}).isRequired
 };
+
 function mapStateToProps(state) {
-  /* Populated by react-webpack-redux:reducer */
+	/* Populated by react-webpack-redux:reducer */
 	const props = {
 		priorityTableState: state.priorityTable,
 		selectMetatypeState: state.selectMetatype,
@@ -149,12 +161,13 @@ function mapStateToProps(state) {
 		quality: state.quality,
 		karmaState: state.karma,
 		purchaseGearState: state.purchaseGear,
-		styleTheme: state.appControl.styleTheme
+		styleTheme: state.appControl.styleTheme,
+		modalState: state.modalToggle
 	};
 	return props;
 }
 function mapDispatchToProps(dispatch) {
-  /* Populated by react-webpack-redux:action */
+	/* Populated by react-webpack-redux:action */
 	const actions = {
 		priorityTable,
 		selectMetatype,
@@ -190,7 +203,8 @@ function mapDispatchToProps(dispatch) {
 		moddingMulti,
 		demoddingMulti,
 		moddingCapacity,
-		demoddingCapacity
+		demoddingCapacity,
+		modalClose
 	};
 	const actionMap = { actions: bindActionCreators(actions, dispatch) };
 	return actionMap;

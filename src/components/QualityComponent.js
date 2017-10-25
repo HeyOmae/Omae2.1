@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import 'styles/Quality.sass';
-import Modal from './ModalComponent';
+import Modal from './ModalButtonComponent';
 import DisplayTable from './DisplayTableComponent';
 import FilterTable from './FilterableTable';
 import qualityData from '../data/qualities.json';
@@ -28,7 +28,8 @@ class QualityComponent extends React.PureComponent {
 			},
 			generatePurchaseableQualityTableRow = (quality) => {
 				const addButton = (<button
-					className="btn btn-success" onClick={() => {
+					className="btn btn-success"
+					onClick={() => {
 						actions.selectQuality({newQuality: quality});
 						actions.karma({karmaPoints: -Number(quality.karma)});
 					}}>+</button>);
@@ -71,7 +72,7 @@ class QualityComponent extends React.PureComponent {
 							<QualityTable
 								tableRows={qualitiesTableRow.Positive} />
 						}
-						/>
+					/>
 
 					<Modal
 						modalName="Negative"
@@ -124,14 +125,15 @@ QualityHeader.propTypes = {
 const QualityTable = ({tableRows}) => {
 	const header = (
 		<QualityHeader
-			buttonType="Add" />
+			buttonType="Add"
+			/>
 		),
 		tableData = {
 			header,
 			body: tableRows
 		};
 	return (
-		<div className="table-responsive">
+		<div className="col">
 			<FilterTable tableData={tableData} />
 		</div>
 	);
