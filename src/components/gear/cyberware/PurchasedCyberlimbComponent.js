@@ -18,7 +18,7 @@ class PurchasedCyberlimbComponent extends React.PureComponent {
 							<th>Agi</th>
 							<th>Str</th>
 							<th>Essense</th>
-							<th>Capcaity</th>
+							<th>Capacity</th>
 							<th>Avail</th>
 							<th>Cost</th>
 							<th>Ref</th>
