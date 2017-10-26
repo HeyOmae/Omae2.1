@@ -5,7 +5,7 @@ import 'styles//DisplayTable.scss';
 
 const DisplayTableComponent = ({header, body, children, striped, invert}) => {
 	return (
-		<table className={`table table-responsive-lg ${striped && 'table-striped'} ${invert && 'table-inverse'}`}>
+		<table className={`table table-responsive-lg ${striped && 'table-striped'} ${invert && 'table-dark'}`}>
 			<thead>{header}</thead>
 			<tbody>{body || children}</tbody>
 		</table>
