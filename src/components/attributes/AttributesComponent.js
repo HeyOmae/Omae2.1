@@ -6,7 +6,7 @@ import priorityData from 'data/priority.json';
 // TODO: figure out how to make the lint used propTypesChecking with an alias
 import DisplayTableComponent from '../DisplayTableComponent';
 import PropTypeChecking from '../../config/propTypeChecking';
-import ModificationButton from './ModificationButton';
+import ModificationButton from '../ModificationButton';
 import SpecialComponent from '../SpecialComponent';
 
 class AttributesComponent extends React.PureComponent {
@@ -44,10 +44,10 @@ class AttributesComponent extends React.PureComponent {
 		});
 
 		// helper function
-		function addingElements(attType, pointsLeft, att, maxPoints, maxAtt, currentAtt) {
+		function addingElements(attType, pointsLeft, att, maxPoints, maxAtt, currentAtt, attrPointsAdded) {
 			const maxCanRaiseTo = oneBaseAttAtMax && attType === 'base' ? maxPoints - 1 : maxPoints,
 				attributeAtMax = attributes[att] > maxCanRaiseTo;
-			attributeElements[attType].incBtn.push(
+			attributeElements[attType].incBtn.push(<td key={`incBtn-${att}`}>
 				<ModificationButton
 					attName={att}
 					buttonClass={attributeAtMax ?
@@ -56,26 +56,24 @@ class AttributesComponent extends React.PureComponent {
 					maxPoints={maxCanRaiseTo}
 					pointsLeft={pointsLeft}
 					modificationFunction={actions.incrementAttribute}
-					key={`incBtn-${att}`}
 					attType={`${attType}Spent`}
 					symbol="+"
-				/>
+				/></td>
 			);
 			attributeElements[attType].display.push(
 				<td key={`display-${att}`} className={attributes[att] > maxAtt ? 'table-danger' : ''}>
 					{currentAtt}/{maxAtt}{attributes.augmented[att] ? `(${attributes.augmented[att] + currentAtt})` : null}
 				</td>
 			);
-			attributeElements[attType].decBtn.push(
+			attributeElements[attType].decBtn.push(<td key={`decBtn-${att}`}>
 				<ModificationButton
 					attName={att}
-					buttonClass="btn-warning"
+					buttonClass={attrPointsAdded === 0 ? 'disabled btn-danger' : 'btn-warning'}
 					modificationFunction={actions.decrementAttribute}
 					maxPoints={maxPoints}
-					key={`decBtn-${att}`}
 					attType={`${attType}Spent`}
 					symbol="-"
-				/>
+				/></td>
 			);
 		}
 
@@ -86,10 +84,10 @@ class AttributesComponent extends React.PureComponent {
 				maxPoints = maxAtt - baseAtt;
 
 			if (attList.indexOf(att) > -1) {
-				addingElements('base', attibutePointsLeft, att, maxPoints, maxAtt, currentAtt);
+				addingElements('base', attibutePointsLeft, att, maxPoints, maxAtt, currentAtt, attributes[att]);
 			} else {
 				// special stats go here later
-				addingElements('special', specialPointsLeft, att, maxPoints, maxAtt, currentAtt);
+				addingElements('special', specialPointsLeft, att, maxPoints, maxAtt, currentAtt, attributes[att]);
 
 				if (magictype in priorityData[magicPriority].magic && magictype !== 'mundane') {
 					const essensePenalty = Math.ceil(attributes.ess);
@@ -97,7 +95,7 @@ class AttributesComponent extends React.PureComponent {
 					currentAtt = baseAtt + attributes.special - essensePenalty;
 					maxAtt = 6 - essensePenalty; // set max to essense rounded down
 					maxPoints = maxAtt - baseAtt + essensePenalty;
-					addingElements('special', specialPointsLeft, 'special', maxPoints, maxAtt, currentAtt);
+					addingElements('special', specialPointsLeft, 'special', maxPoints, maxAtt, currentAtt, attributes[att]);
 					magicName = priorityData[magicPriority].magic[magictype].attribute.name;
 				}
 			}

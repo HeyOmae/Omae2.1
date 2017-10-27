@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import ModificationButton from 'components/attributes/ModificationButton';
+import ModificationButton from 'components/ModificationButton';
 
 describe('ModificationButton', () => {
 	const setup = (
