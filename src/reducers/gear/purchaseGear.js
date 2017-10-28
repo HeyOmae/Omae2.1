@@ -166,7 +166,7 @@ const purchaseGearReducer = (state = initialState, action) => {
 		MODDING_CAPACITY(prevState, {index, category, mod, Rating}) {
 			const gearArray = prevState[category],
 				gearBeingModded = prevState[category][index],
-				currentCapacity = (gearBeingModded.currentCapacity || 0) + (Number(Rating) || Number((mod.armorcapacity || mod.capacity).match(/\d+/)[0]));
+				currentCapacity = (gearBeingModded.currentCapacity || 0) + (Number(/-/.test(mod.capacity) ? -Rating : Rating) || Number((mod.armorcapacity || mod.capacity).match(/\d+/)[0]));
 
 			if (currentCapacity > (gearBeingModded.capacity || gearBeingModded.armorcapacity)) {
 				return prevState;

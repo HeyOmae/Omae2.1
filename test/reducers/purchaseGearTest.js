@@ -747,19 +747,18 @@ describe('purchaseGear', () => {
 		});
 
 		it('should allow for negative rated mods which lowers current capacity', () => {
-			const newState = reducer(state, {type: 'MODDING_CAPACITY', parameter: {index: 0, category: 'cyberlimbs', mod: bulkMod, Rating: 3}});
+			const newState = reducer(state, {type: 'MODDING_CAPACITY', parameter: {index: 1, category: 'cyberlimbs', mod: bulkMod, Rating: 3}});
 
-			expect(newState.cyberlimbs[0].mods['Bulk Modification']).to.equal({
-				...bulkMod,
-				currentCost: 1500,
-				currentRating: 3
-			});
-			expect(newState.cyberlimbs[0].currentCost).to.equal(16500);
-			expect(newState.cyberlimbs[0].currentRating).to.equal(-1);
+			expect(Object.keys(newState.cyberlimbs[1].mods)).to.have.lengthOf(2);
+
+			expect(newState.cyberlimbs[1].mods['Bulk Modification'].currentCost).to.equal(1500);
+			expect(newState.cyberlimbs[1].mods['Bulk Modification'].currentRating).to.equal(3);
+			expect(newState.cyberlimbs[1].currentCost).to.equal(29500);
+			expect(newState.cyberlimbs[1].currentCapacity).to.equal(-1);
 			expect(newState.nuyen).to.equal(4850);
 
-			expect(state.cyberlimbs[0].mods).to.be.undefined;
-			expect(state.cyberlimbs[0].currentCost).to.be.undefined;
+			expect(Object.keys(state.cyberlimbs[1].mods)).to.have.lengthOf(1);
+			expect(state.cyberlimbs[1].currentCost).to.equal(28000);
 			expect(state.nuyen).to.equal(3350);
 		});
 	});
