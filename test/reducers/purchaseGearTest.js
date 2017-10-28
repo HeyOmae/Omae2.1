@@ -628,6 +628,18 @@ describe('purchaseGear', () => {
 			source: "SR5",
 			page: "456",
 			rating: "3"
+		},
+			bulkMod = {
+			id: "85bd6c32-d0c3-4d1b-99ad-833aad376a54",
+			name: "Bulk Modification",
+			category: "Cyberlimb Enhancement",
+			ess: "0",
+			capacity: "[-Rating]",
+			avail: "+Rating",
+			cost: "Rating * 500",
+			source: "CF",
+			page: "86",
+			rating: "6"
 		};
 
 		it('should add a mod and add capacity based off of the mod', () => {
@@ -728,6 +740,23 @@ describe('purchaseGear', () => {
 			expect(newState.cyberlimbs[0].mods).to.be.undefined;
 			expect(newState.cyberlimbs[0].currentCost).to.be.undefined;
 			expect(newState.nuyen).to.equal(3350);
+
+			expect(state.cyberlimbs[0].mods).to.be.undefined;
+			expect(state.cyberlimbs[0].currentCost).to.be.undefined;
+			expect(state.nuyen).to.equal(3350);
+		});
+
+		it('should allow for negative rated mods which lowers current capacity', () => {
+			const newState = reducer(state, {type: 'MODDING_CAPACITY', parameter: {index: 0, category: 'cyberlimbs', mod: bulkMod, Rating: 3}});
+
+			expect(newState.cyberlimbs[0].mods['Bulk Modification']).to.equal({
+				...bulkMod,
+				currentCost: 1500,
+				currentRating: 3
+			});
+			expect(newState.cyberlimbs[0].currentCost).to.equal(16500);
+			expect(newState.cyberlimbs[0].currentRating).to.equal(-1);
+			expect(newState.nuyen).to.equal(4850);
 
 			expect(state.cyberlimbs[0].mods).to.be.undefined;
 			expect(state.cyberlimbs[0].currentCost).to.be.undefined;
