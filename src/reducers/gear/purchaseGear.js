@@ -208,7 +208,7 @@ const purchaseGearReducer = (state = initialState, action) => {
 			const gearArray = prevState[category],
 				gearBeingModded = prevState[category][index],
 				{[demodName]: discard, ...remainingMods} = gearBeingModded.mods,
-				capacityToRemove = discard.currentRating || Number((discard.capacity || discard.armorcapacity).match(/\d+/)[0]),
+				capacityToRemove = (/-/.test(discard.capacity) ? -discard.currentRating : discard.currentRating) || Number((discard.capacity || discard.armorcapacity).match(/\d+/)[0]),
 				cost = discard.currentCost || Number(discard.cost);
 
 			return {

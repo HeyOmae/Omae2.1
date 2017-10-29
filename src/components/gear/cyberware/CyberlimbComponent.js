@@ -83,14 +83,14 @@ class CyberlimbComponent extends React.PureComponent {
 								decrementAttribute={() => {
 									this.decrementAttribute('agi');
 								}}
-								attribute={this.state.agi}
-								att="Agi"
+								attributeValue={this.state.agi}
+								attributeName="Agi"
 							/>
 							<CyberlimbAttribute
 								incrementAttribute={() => { this.incrementAttribute('str'); }}
 								decrementAttribute={() => { this.decrementAttribute('str'); }}
-								attribute={this.state.str}
-								att="Str"
+								attributeValue={this.state.str}
+								attributeName="Str"
 							/>
 						</div>
 					</div>

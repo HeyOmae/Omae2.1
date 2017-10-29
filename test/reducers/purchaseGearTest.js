@@ -276,6 +276,54 @@ describe('purchaseGear', () => {
 				},
 				currentCost: 28000,
 				currentCapacity: 2
+			}, {
+				id: "df01eed6-a019-4198-b88d-4ba8f9aaefdf",
+				name: "Broken Obvious Full Arm",
+				category: "Cyberlimb",
+				ess: "1",
+				capacity: "2",
+				avail: "4",
+				cost: "15000",
+				source: "SR5",
+				page: "456",
+				allowgear: {
+					gearcategory: "Sensors"
+				},
+				allowsubsystems: {
+					category: [
+						"Bodyware",
+						"Cosmetic Enhancement",
+						"Cyberlimb Enhancement",
+						"Cyberlimb Accessory",
+						"Cyber Implant Weapon",
+						"Headware",
+						"Nanocybernetics"
+					]
+				},
+				bonus: {
+					conditionmonitor: {
+						physical: "1"
+					}
+				},
+				limbslot: "arm",
+				mods: {
+					'Bulk Modification': {
+						id: "85bd6c32-d0c3-4d1b-99ad-833aad376a54",
+						name: "Bulk Modification",
+						category: "Cyberlimb Enhancement",
+						ess: "0",
+						capacity: "[-Rating]",
+						avail: "+Rating",
+						cost: "Rating * 500",
+						source: "CF",
+						page: "86",
+						rating: "6",
+						currentRating: 6,
+						currentCost: 3500
+					}
+				},
+				currentCost: 18500,
+				currentCapacity: -6
 			}],
 			nuyen: 3350
 		};
@@ -803,6 +851,20 @@ describe('purchaseGear', () => {
 			expect(state.cyberlimbs[1].mods['Enhanced Strength']).to.not.be.undefined;
 			expect(state.cyberlimbs[1].currentCapacity).to.equal(2);
 			expect(state.cyberlimbs[1].currentCost).to.equal(28000);
+			expect(state.nuyen).to.equal(3350);
+		});
+
+		it('should raise capacity if the capacity is negative', () => {
+			const newState = reducer(state, {type: 'DEMODDING_CAPACITY', parameter: {index: 2, category: 'cyberlimbs', demodName: 'Bulk Modification'}});
+
+			expect(newState.cyberlimbs[2].mods['Bulk Modification']).to.be.undefined;
+			expect(newState.cyberlimbs[2].currentCapacity).to.equal(0);
+			expect(newState.cyberlimbs[2].currentCost).to.equal(15000);
+			expect(newState.nuyen).to.equal(-150);
+
+			expect(state.cyberlimbs[2].mods['Bulk Modification']).to.not.be.undefined;
+			expect(state.cyberlimbs[2].currentCapacity).to.equal(-6);
+			expect(state.cyberlimbs[2].currentCost).to.equal(18500);
 			expect(state.nuyen).to.equal(3350);
 		});
 	});

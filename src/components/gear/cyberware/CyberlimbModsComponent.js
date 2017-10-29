@@ -12,7 +12,7 @@ const CyberlimbMods = ({index, modList, cyberlimbs, modGear, demodGear}) => {
 	return (
 		<div className="col">
 			<p>
-				<strong>Capacity: </strong>{cyberlimb.capacity - cyberlimb.currentCapacity}
+				<strong>Capacity: </strong>{cyberlimb.capacity - (cyberlimb.currentCapacity || 0)}
 			</p>
 			{
 				cyberlimb.allowsubsystems.category.map((modCategory) => {
