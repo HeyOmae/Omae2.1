@@ -163,10 +163,28 @@ const purchaseGearReducer = (state = initialState, action) => {
 			};
 		},
 
+		findCapacity({currentCapacity}, {armorcapacity, capacity}, Rating) {
+			return actionsToTake.findCurrentCapacity(currentCapacity) + (actionsToTake.findRatingAsCapacity(armorcapacity, capacity, Rating) || actionsToTake.findModCapacity(armorcapacity, capacity));
+		},
+
+		findCurrentCapacity(currentCapacity) {
+			return currentCapacity || 0;
+		},
+
+		findModCapacity(armorcapacity, capacity) {
+			return Number((armorcapacity || capacity).match(/\d+/)[0]);
+		},
+
+		findRatingAsCapacity(armorcapacity, capacity, Rating) {
+			return /Rating|FixedValues/.test(armorcapacity || capacity)
+				&&
+				Number(/-/.test(capacity) ? -Rating : Rating);
+		},
+
 		MODDING_CAPACITY(prevState, {index, category, mod, Rating}) {
 			const gearArray = prevState[category],
 				gearBeingModded = prevState[category][index],
-				currentCapacity = (gearBeingModded.currentCapacity || 0) + (Number(/-/.test(mod.capacity) ? -Rating : Rating) || Number((mod.armorcapacity || mod.capacity).match(/\d+/)[0]));
+				currentCapacity = actionsToTake.findCapacity(gearBeingModded, mod, Rating);
 
 			if (currentCapacity > (gearBeingModded.capacity || gearBeingModded.armorcapacity)) {
 				return prevState;

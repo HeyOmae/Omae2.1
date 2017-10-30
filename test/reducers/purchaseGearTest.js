@@ -806,7 +806,36 @@ describe('purchaseGear', () => {
 			expect(newState.nuyen).to.equal(4850);
 
 			expect(Object.keys(state.cyberlimbs[1].mods)).to.have.lengthOf(1);
+			expect(state.cyberlimbs[1].currentCapacity).to.equal(2);
 			expect(state.cyberlimbs[1].currentCost).to.equal(28000);
+			expect(state.nuyen).to.equal(3350);
+		});
+
+		it('should have rating effect cost if capacity does not contain rating', () => {
+			const fibHair = {
+				id: "b7ec08aa-a328-46a0-9b41-4c9a4bfc13b2",
+				name: "Fiberoptic Hair",
+				category: "Cosmetic Enhancement",
+				ess: "0.1",
+				capacity: "[1]",
+				avail: "0",
+				cost: "Rating * 100",
+				source: "CF",
+				page: "73",
+				rating: "10"
+			};
+
+			const newState = reducer(state, {type: 'MODDING_CAPACITY', parameter: {index: 0, category: 'cyberlimbs', mod: fibHair, Rating: 10}});
+
+			expect(newState.cyberlimbs[0].mods['Fiberoptic Hair'].currentCost).to.equal(1000);
+			expect(newState.cyberlimbs[0].mods['Fiberoptic Hair'].currentRating).to.equal(10);
+			expect(newState.cyberlimbs[0].currentCost).to.equal(16000);
+			expect(newState.cyberlimbs[0].currentCapacity).to.equal(1);
+			expect(newState.nuyen).to.equal(4350);
+
+			expect(state.cyberlimbs[0].mods).to.be.undefined;
+			expect(state.cyberlimbs[0].currentCost).to.be.undefined;
+			expect(state.cyberlimbs[0].currentCapacity).to.be.undefined;
 			expect(state.nuyen).to.equal(3350);
 		});
 	});
