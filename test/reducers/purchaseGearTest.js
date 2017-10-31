@@ -320,10 +320,24 @@ describe('purchaseGear', () => {
 						rating: "6",
 						currentRating: 6,
 						currentCost: 3500
+					},
+					'Fiberoptic Hair': {
+						id: "b7ec08aa-a328-46a0-9b41-4c9a4bfc13b2",
+						name: "Fiberoptic Hair",
+						category: "Cosmetic Enhancement",
+						ess: "0.1",
+						capacity: "[1]",
+						avail: "0",
+						cost: "Rating * 100",
+						source: "CF",
+						page: "73",
+						rating: "10",
+						currentRating: 3,
+						currentCost: 300
 					}
 				},
-				currentCost: 18500,
-				currentCapacity: -6
+				currentCost: 18800,
+				currentCapacity: -3
 			}],
 			nuyen: 3350
 		};
@@ -887,14 +901,18 @@ describe('purchaseGear', () => {
 			const newState = reducer(state, {type: 'DEMODDING_CAPACITY', parameter: {index: 2, category: 'cyberlimbs', demodName: 'Bulk Modification'}});
 
 			expect(newState.cyberlimbs[2].mods['Bulk Modification']).to.be.undefined;
-			expect(newState.cyberlimbs[2].currentCapacity).to.equal(0);
-			expect(newState.cyberlimbs[2].currentCost).to.equal(15000);
+			expect(newState.cyberlimbs[2].currentCapacity).to.equal(3);
+			expect(newState.cyberlimbs[2].currentCost).to.equal(15300);
 			expect(newState.nuyen).to.equal(-150);
 
 			expect(state.cyberlimbs[2].mods['Bulk Modification']).to.not.be.undefined;
-			expect(state.cyberlimbs[2].currentCapacity).to.equal(-6);
-			expect(state.cyberlimbs[2].currentCost).to.equal(18500);
+			expect(state.cyberlimbs[2].currentCapacity).to.equal(-3);
+			expect(state.cyberlimbs[2].currentCost).to.equal(18800);
 			expect(state.nuyen).to.equal(3350);
+		});
+
+		it('should only remove static capacity and not base it off rating', () => {
+			
 		});
 	});
 });
