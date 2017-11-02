@@ -203,7 +203,7 @@ describe('purchaseGear', () => {
 				name: "Broken Obvious Full Arm",
 				category: "Cyberlimb",
 				ess: "1",
-				capacity: "2",
+				capacity: "3",
 				avail: "4",
 				cost: "15000",
 				source: "SR5",
@@ -797,7 +797,7 @@ describe('purchaseGear', () => {
 		});
 
 		it('should check gear.capacity(not armorcapacity) to add mod', () => {
-			const newState = reducer(state, {type: 'MODDING_CAPACITY', parameter: {index: 0, category: 'cyberlimbs', mod: enhanceStr, Rating: 3}});
+			const newState = reducer(state, {type: 'MODDING_CAPACITY', parameter: {index: 0, category: 'cyberlimbs', mod: enhanceStr, Rating: 4}});
 
 			expect(newState.cyberlimbs[0].mods).to.be.undefined;
 			expect(newState.cyberlimbs[0].currentCost).to.be.undefined;
@@ -850,6 +850,36 @@ describe('purchaseGear', () => {
 			expect(state.cyberlimbs[0].mods).to.be.undefined;
 			expect(state.cyberlimbs[0].currentCost).to.be.undefined;
 			expect(state.cyberlimbs[0].currentCapacity).to.be.undefined;
+			expect(state.nuyen).to.equal(3350);
+		});
+
+		it('should take multiplicative capacity based off rating', () => {
+			const telescope = {
+				id: "a40cbc72-7dc6-4f8f-a9ff-e5e3f471b895",
+				name: "Telescoping Limb",
+				category: "Cyberlimb Enhancement",
+				ess: "0",
+				capacity: "[Rating * 3]",
+				avail: "Rating * 4",
+				cost: "Rating * 1000",
+				source: "CF",
+				page: "90",
+				bonus: {
+
+				},
+				rating: "2"
+			};
+
+			const newState = reducer(state, {type: 'MODDING_CAPACITY', parameter: {index: 0, category: 'cyberlimbs', mod: telescope, Rating: 1}});
+
+			expect(newState.cyberlimbs[0].mods['Telescoping Limb'].currentCost).to.equal(1000);
+			expect(newState.cyberlimbs[0].mods['Telescoping Limb'].currentRating).to.equal(1);
+			expect(newState.cyberlimbs[0].currentCost).to.equal(16000);
+			expect(newState.cyberlimbs[0].currentCapacity).to.equal(3);
+			expect(newState.nuyen).to.equal(4350);
+
+			expect(Object.keys(state.cyberlimbs[0].mods)).to.be.undefined;
+			expect(state.cyberlimbs[0].currentCost).to.be.undefined;
 			expect(state.nuyen).to.equal(3350);
 		});
 	});
