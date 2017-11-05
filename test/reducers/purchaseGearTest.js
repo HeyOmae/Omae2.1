@@ -878,7 +878,7 @@ describe('purchaseGear', () => {
 			expect(newState.cyberlimbs[0].currentCapacity).to.equal(3);
 			expect(newState.nuyen).to.equal(4350);
 
-			expect(Object.keys(state.cyberlimbs[0].mods)).to.be.undefined;
+			expect(state.cyberlimbs[0].mods).to.be.undefined;
 			expect(state.cyberlimbs[0].currentCost).to.be.undefined;
 			expect(state.nuyen).to.equal(3350);
 		});

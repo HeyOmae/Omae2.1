@@ -178,7 +178,16 @@ const purchaseGearReducer = (state = initialState, action) => {
 		findRatingAsCapacity(armorcapacity, capacity, Rating) {
 			return /Rating|FixedValues/.test(armorcapacity || capacity)
 				&&
-				Number(/-/.test(capacity) ? -Rating : Rating);
+				actionsToTake.findCapacityMultiplier(capacity, Number(/-/.test(capacity) ? -Rating : Rating));
+		},
+
+		findCapacityMultiplier(capacity, rating) {
+			const multiplier = capacity && capacity.match(/\d/);
+
+			if (multiplier) {
+				return rating * Number(multiplier[0]);
+			}
+			return rating;
 		},
 
 		MODDING_CAPACITY(prevState, {index, category, mod, Rating}) {
