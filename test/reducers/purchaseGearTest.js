@@ -865,7 +865,6 @@ describe('purchaseGear', () => {
 				source: "CF",
 				page: "90",
 				bonus: {
-
 				},
 				rating: "2"
 			};
