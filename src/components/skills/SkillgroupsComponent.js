@@ -1,25 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Modal from '../ModalButtonComponent';
+import { connect } from 'react-redux';
 import FilterTable from '../FilterableTable';
-
-import PropTypeChecking from '../../config/propTypeChecking';
+import { groups as skillgroupsData } from '../../data/skills.json';
+import { incrementSkillgroup, decrementSkillgroup } from '../../actions';
 
 import '../../styles/skills/Skillgroups.sass';
 
 class SkillgroupsComponent extends React.Component {
 	render() {
-		const {skillgroups, skillgroupsData, actions, pointsLeft} = this.props,
+		const {skillgroups, increment, decrement, skillGroupPoints, groupPointsSpent} = this.props,
 			// TODO: refactor skill groups to work like skills so this setup stuff can be in componentWillMount
 			listOfGroups = Object.keys(skillgroupsData).map((groupName) => {
 				const group = skillgroupsData[groupName],
-					enoughPoints = pointsLeft > 0;
+					enoughPoints = (skillGroupPoints - groupPointsSpent) > 0;
 
 				return (
 					<tr key={`skillgroup-${groupName}`}>
 						<td>
 							<ChangeSkillButton
-								action={actions.incrementSkillgroup}
+								action={increment}
 								groupName={groupName}
 								skillsInGroup={group.skillsingroup}
 								condition={skillgroups[groupName] ?
@@ -34,7 +34,7 @@ class SkillgroupsComponent extends React.Component {
 						<td>{(skillgroups[groupName] && skillgroups[groupName].rating) || 0}</td>
 						<td>
 							<ChangeSkillButton
-								action={actions.decrementSkillgroup}
+								action={decrement}
 								groupName={groupName}
 								skillsInGroup={group.skillsingroup}
 								condition={skillgroups[groupName] && skillgroups[groupName].rating > 0}
@@ -49,25 +49,21 @@ class SkillgroupsComponent extends React.Component {
 			});
 
 		return (
-			<Modal
-				modalName="Skill Groups"
-				modalContent={
-					<div className="skillgroups-component">
-						<FilterTable
-							tableData={{
-								header: (
-									<tr>
-										<th>Raise</th>
-										<th>Rating</th>
-										<th>Lower</th>
-										<th>Skill Group</th>
-										<th>Skills</th>
-									</tr>
-								),
-								body: listOfGroups
-							}} />
-					</div>
-				} />
+			<div className="skillgroups-component">
+				<FilterTable
+					tableData={{
+						header: (
+							<tr>
+								<th>Raise</th>
+								<th>Rating</th>
+								<th>Lower</th>
+								<th>Skill Group</th>
+								<th>Skills</th>
+							</tr>
+						),
+						body: listOfGroups
+					}} />
+			</div>
 		);
 	}
 }
@@ -76,25 +72,10 @@ SkillgroupsComponent.propTypes = {
 	skillgroups: PropTypes.objectOf(
 		PropTypes.object
 	).isRequired,
-	skillgroupsData: PropTypes.shape({
-		acting: PropTypes.object.isRequired,
-		athletics: PropTypes.object.isRequired,
-		biotech: PropTypes.object.isRequired,
-		closecombat: PropTypes.object.isRequired,
-		conjuring: PropTypes.object.isRequired,
-		cracking: PropTypes.object.isRequired,
-		electronics: PropTypes.object.isRequired,
-		enchanting: PropTypes.object.isRequired,
-		firearms: PropTypes.object.isRequired,
-		influence: PropTypes.object.isRequired,
-		engineering: PropTypes.object.isRequired,
-		outdoors: PropTypes.object.isRequired,
-		sorcery: PropTypes.object.isRequired,
-		stealth: PropTypes.object.isRequired,
-		tasking: PropTypes.object.isRequired
-	}).isRequired,
-	actions: PropTypeChecking.actions.isRequired,
-	pointsLeft: PropTypes.number.isRequired
+	increment: PropTypes.func.isRequired,
+	decrement: PropTypes.func.isRequired,
+	skillGroupPoints: PropTypes.number.isRequired,
+	groupPointsSpent: PropTypes.number.isRequired,
 };
 
 SkillgroupsComponent.displayName = 'SkillgroupsComponent';
@@ -130,4 +111,11 @@ ChangeSkillButton.defaultProps = {
 	condition: false
 };
 
-export default SkillgroupsComponent;
+const mapStateToProps = (state) => {
+	return {
+		skillgroups: state.settingSkills.group,
+		groupPointsSpent: state.settingSkills.groupPointSpent
+	};
+};
+
+export default connect(mapStateToProps, {increment: incrementSkillgroup, decrement: decrementSkillgroup})(SkillgroupsComponent);

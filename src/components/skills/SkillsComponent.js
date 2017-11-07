@@ -110,11 +110,12 @@ class SkillsComponent extends React.PureComponent {
 				<h3>Skill Groups</h3>
 				<div className="row">
 					<div className="col">
-						<Skillgroup
-							skillgroups={skills.groups}
-							skillgroupsData={skillsData.groups}
-							actions={actions}
-							pointsLeft={groupPointsLeft} />
+						<Modal
+							modalName="Skill Groups"
+						>
+							<Skillgroup
+								skillGroupPoints={priorityTableData[priority.skills].skills.grouppoints} />
+						</Modal>
 					</div>
 				</div>
 
