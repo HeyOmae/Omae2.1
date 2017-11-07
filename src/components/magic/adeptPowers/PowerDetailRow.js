@@ -49,7 +49,7 @@ class PowerDetailRow extends React.Component {
 		const {power, index, pointsSpent, add, maxPoints, isMystic, actions, state = {}} = this.props;
 
 		const bonusOrOptions = this.powerBonus(power.bonus);
-		const canAdd = Number(power.points) + pointsSpent < maxPoints;
+		const canAdd = Number(power.points) + pointsSpent <= maxPoints;
 
 		let action = () => {
 			if (canAdd) {
