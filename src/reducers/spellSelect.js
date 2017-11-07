@@ -20,6 +20,12 @@ const spellReducer = (state = initialState, action) => {
 		];
 	}
 
+	function currentlyHasSpell(listOfSpells, newSpell) {
+		return !!listOfSpells.find((spell) => {
+			return newSpell.name === spell.name;
+		});
+	}
+
 	function removeSpellFromList(listOfSpells, indexToDelete) {
 		return [
 			...listOfSpells.slice(0, indexToDelete),
@@ -112,18 +118,22 @@ const spellReducer = (state = initialState, action) => {
 		},
 
 		ADD_POWER: (prevState, {newSpell, isMystic}) => {
-			let newState = Object.assign(
-				{},
-				prevState,
-				{
-					powers: addingSpellToList(prevState.powers, newSpell),
-					powerPointsSpent: prevState.powerPointsSpent + Number(newSpell.points)
-				}
-			);
+			if (!currentlyHasSpell(prevState.powers, newSpell)) {
+				let newState = Object.assign(
+					{},
+					prevState,
+					{
+						powers: addingSpellToList(prevState.powers, newSpell),
+						powerPointsSpent: prevState.powerPointsSpent + Number(newSpell.points)
+					}
+				);
 
-			newState = mysticPowerKarmaCost(isMystic, newState, prevState);
+				newState = mysticPowerKarmaCost(isMystic, newState, prevState);
 
-			return newState;
+				return newState;
+			}
+
+			return prevState;
 		},
 
 		REMOVE_POWER: (prevState, {powerIndex, isMystic}) => {

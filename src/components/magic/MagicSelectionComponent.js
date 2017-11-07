@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import 'styles/magic/MagicSelection.sass';
 import SpellSelector from './SpellSelectorComponent';
-import PowerSelector from './PowerSelectorComponent';
+import PowerSelector from './adeptPowers/PowerSelectorComponent';
 import priorityData from '../../data/priority.json';
 import PropTypeChecking from '../../config/propTypeChecking';
 
@@ -120,12 +120,12 @@ class MagicSelectionComponent extends React.PureComponent {
 						<div>
 							<h3>Adept Powers</h3>
 							<PowerSelector
-								actions={actions}
 								selectedPowers={selectedSpellsPowers.powers}
-								pointSpent={selectedSpellsPowers.powerPointsSpent}
-								maxPointPoints={magicAtt}
+								pointsSpent={selectedSpellsPowers.powerPointsSpent}
+								maxPoints={magicAtt}
 								isMystic={magictype === 'Mystic'}
 								karmaSpent={selectedSpellsPowers.powerPointsKarma}
+								actions={actions}
 							/>
 						</div>
 						:

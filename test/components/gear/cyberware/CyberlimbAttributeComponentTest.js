@@ -45,8 +45,6 @@ describe('CyberlimbAttribute', () => {
 		const buttonOneProps = buttons.at(0).props();
 		const buttonTwoProps = buttons.at(1).props();
 
-		console.log(buttonOneProps);
-
 		expect(buttonOneProps.attName).to.equal(props.attributeName);
 		expect(buttonOneProps.modificationFunction).to.equal(props.incrementAttribute);
 

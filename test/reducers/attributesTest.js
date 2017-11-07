@@ -112,7 +112,7 @@ describe('attributes', () => {
 			expect(newState).to.equal(state);
 		});
 
-		it('should remove an angumented attirbute if its reduced to 0', () => {
+		it('should remove an augmented attribute if its reduced to 0', () => {
 			const newState = reducer(state, {type: 'DECREMENT_AUGMENTED', parameter: {attribute: 'agi'}});
 
 			expect(newState.augmented.agi).to.equal(undefined);
