@@ -113,7 +113,7 @@ ChangeSkillButton.defaultProps = {
 
 const mapStateToProps = (state) => {
 	return {
-		skillgroups: state.settingSkills.group,
+		skillgroups: state.settingSkills.groups,
 		groupPointsSpent: state.settingSkills.groupPointSpent
 	};
 };
