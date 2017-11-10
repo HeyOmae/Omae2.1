@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import 'styles/magic/SpellSelector.sass';
 import FilterTable from '../../FilterableTable';
@@ -9,15 +10,17 @@ import PowerCategoryHeader from './PowerCategoryHeader';
 import PowerDetailRow from './PowerDetailRow';
 import Modal from '../../ModalButtonComponent';
 
-class PowerSelectorComponent extends React.Component {
+export class PowerSelectorComponent extends React.Component {
 	render() {
 		const {selectedPowers, pointsSpent, maxPoints, isMystic, karmaSpent, actions} = this.props;
 
 		// generated power details to populate addPowerModals
 		const powerRows = powerData.map((power, index) => {
-			const props = {isMystic, power, index, pointsSpent, add: true, maxPoints, actions};
-			return <PowerDetailRow {...props} key={power + index} />;
+			const props = {isMystic, power, pointsSpent, index, add: true, maxPoints, actions};
+			return <PowerDetailRow {...props} key={`${power.name}-${power.source}:${power.page}`} />;
 		});
+
+		const table = <FilterTable header={<PowerCategoryHeader />} >{powerRows}</FilterTable>;
 
 		return (
 			<div className="powers">
@@ -32,19 +35,15 @@ class PowerSelectorComponent extends React.Component {
 						<Modal
 							key={'powers'}
 							modalName="Powers"
-							modalContent={
-								<div className="col">
-									<FilterTable tableData={{header: <PowerCategoryHeader />, body: powerRows}} />
-								</div>
-							}
+							modalContent={table}
 						/>
 					</div>
 				</div>
 				{selectedPowers.length > 0 ?
 					<PowerSelectedDisplay
 						selectedPowers={selectedPowers}
-						pointsSpent={pointsSpent}
 						maxPoints={maxPoints}
+						pointsSpent={pointsSpent}
 						actions={actions}
 						isMystic={isMystic} />
 					: null
@@ -63,4 +62,8 @@ PowerSelectorComponent.propTypes = {
 	actions: PropTypeChecking.actions.isRequired,
 };
 
-export default PowerSelectorComponent;
+function mapStateToProps(state) {
+	return { pointsSpent: state.spellSelect.powerPointsSpent};
+}
+
+export default connect(mapStateToProps)(PowerSelectorComponent);

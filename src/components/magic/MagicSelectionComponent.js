@@ -121,7 +121,6 @@ class MagicSelectionComponent extends React.PureComponent {
 							<h3>Adept Powers</h3>
 							<PowerSelector
 								selectedPowers={selectedSpellsPowers.powers}
-								pointsSpent={selectedSpellsPowers.powerPointsSpent}
 								maxPoints={magicAtt}
 								isMystic={magictype === 'Mystic'}
 								karmaSpent={selectedSpellsPowers.powerPointsKarma}

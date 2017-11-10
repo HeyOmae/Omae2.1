@@ -40,16 +40,18 @@ class PurchasedCyberlimbComponent extends React.PureComponent {
 										</button>
 									</td>
 									<td>
-										<Modal
-											modalName={limb.name}
-											modalID={`${limb.name.replace(/\s/g, '') + index}-modal`}
-											modalContent={
-												<CyberlimbMods
-													index={index}
-													modList={cyberware}
-												/>
-											}
-										/>
+										{ limb.allowsubsystems ?
+											<Modal
+												modalName={limb.name}
+												modalID={`${limb.name.replace(/\s/g, '') + index}-modal`}
+												modalContent={
+													<CyberlimbMods
+														index={index}
+														modList={cyberware}
+													/>
+												}
+											/> : limb.name
+										}
 									</td>
 									<td>{limb.agi}</td>
 									<td>{limb.str}</td>

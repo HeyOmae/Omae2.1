@@ -163,4 +163,4 @@ describe('generateRemoveActionDetails', () => {
 	});
 });
 
-// Going to skip: raiseLevelAction, lowerLevelAction, and generatePowerDetailTablesRows not sure best way to test for now
+// Going to skip: raiseLevelAction and lowerLevelAction not sure best way to test for now

@@ -14,7 +14,9 @@ describe('PowerDetailRow', () => {
 			index= 3,
 			isMystic= true,
 			actions= {}} = args;
+
 		const props = {
+			pointsSpent,
 			power: Object.assign({}, {
 				name: 'TestName',
 				levels: '1',

@@ -18,20 +18,25 @@ class PowerDetailRow extends React.Component {
 		this.setState({ value });
 	}
 
-	powerBonus(bonus) {
+	powerBonus(bonus, name) {
 		if (!bonus) {
 			return 'N/A';
 		}
+
+		const onChange = (e) => {
+			this.updateValue(e.target.value);
+		};
+
 		const bonusSelector = {
-			selectattribute: (attributes) => {
-				const options = [(<option key={`{bonus.name}-blank`} />)].concat(attributes.attribute.map((attName) => {
+			selectattribute(attributes) {
+				const options = [(<option key={`${name}-blank`} />)].concat(attributes.attribute.map((attName) => {
 					const lowerCase = attName.toLowerCase();
-					return (<option key={`{bonus.name}-{lowerCase}`}>({lowerCase})</option>);
+					return (<option key={`${name}-${lowerCase}`}>({lowerCase})</option>);
 				}));
 
-				return (<select key={bonus.name} className="form-control" onChange={(e) => { this.updateValue(e.target.value); }}>{options}</select>);
+				return (<select key={name} className="form-control" onChange={onChange}>{options}</select>);
 			},
-			default: (thing) => {
+			default(thing) {
 				return Object.keys(thing).join(', ');
 			}
 		};
@@ -46,9 +51,9 @@ class PowerDetailRow extends React.Component {
 	}
 
 	render() {
-		const {power, index, pointsSpent, add, maxPoints, isMystic, actions, state = {}} = this.props;
+		const {power, index, pointsSpent, add, maxPoints, isMystic, actions} = this.props;
 
-		const bonusOrOptions = this.powerBonus(power.bonus);
+		const bonusOrOptions = this.powerBonus(power.bonus, power.name);
 		const canAdd = Number(power.points) + pointsSpent <= maxPoints;
 
 		let action = () => {

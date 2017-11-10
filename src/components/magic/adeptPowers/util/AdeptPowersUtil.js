@@ -1,6 +1,3 @@
-import React from 'react';
-import PowerDetailRow from '../PowerDetailRow';
-
 const bonusDown = (name, bonusToRemove, decreaseBy, decrementAugmented) => {
 	const trimmedName = name.match(/^([^(]*)(\s{0,1}\(.*\)){0,1}$/)[1];
 	const bonusAction = {
@@ -70,12 +67,4 @@ const lowerLevelAction = (isMystic, powerName, bonusOfPower, index, lowerPower, 
 	};
 };
 
-const generatePowerDetailTablesRows = (selectedPowers, pointsSpent, maxPoints, actions, isMystic) => {
-	const props = {pointsSpent, maxPoints, actions, isMystic};
-
-	return selectedPowers.map((power, index) => {
-		return <PowerDetailRow key={power + index} power={power} index={index} {...props} add={false} />;
-	});
-};
-
-export {bonusDown, bonusUp, generateAddActionDetails, generatePowerDetailTablesRows, generateRemoveActionDetails, lowerLevelAction, raiseLevelAction};
+export {bonusDown, bonusUp, generateAddActionDetails, generateRemoveActionDetails, lowerLevelAction, raiseLevelAction};

@@ -1,23 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 
 import 'styles/Modal.sass';
-import { modalOpen } from '../actions';
+import Modal from './Modal';
 
 class ModalButtonComponent extends React.PureComponent {
 	constructor(props) {
 		super(props);
 		this.openModal = this.openModal.bind(this);
+		this.state = {
+			showModal: false
+		};
 	}
 
 	openModal() {
-		const { modalName, modalContent, openModalAction } = this.props;
-		openModalAction({modalName, modalContent});
+		this.setState({showModal: true});
+		document.querySelector('body').classList.add('modal-open');
 	}
 
 	render() {
-		const { modalName } = this.props,
+		const { modalName, modalContent } = this.props,
 			{ openModal } = this;
 
 		return (
@@ -29,6 +31,16 @@ class ModalButtonComponent extends React.PureComponent {
 				>
 					{modalName}
 				</button>
+				{this.state.showModal ? <Modal
+					modalName={modalName}
+					modalContent={modalContent}
+					closeModal={
+						() => {
+							this.setState({showModal: false});
+							document.querySelector('body').classList.remove('modal-open');
+						}
+					}
+				/> : null}
 			</div>
 		);
 	}
@@ -39,8 +51,7 @@ ModalButtonComponent.displayName = 'ModalButtonComponent';
 // Uncomment properties you need
 ModalButtonComponent.propTypes = {
 	modalName: PropTypes.string.isRequired,
-	modalContent: PropTypes.element.isRequired,
-	openModalAction: PropTypes.func.isRequired,
+	modalContent: PropTypes.element.isRequired
 };
 
-export default connect(null, { openModalAction: modalOpen })(ModalButtonComponent);
+export default ModalButtonComponent;

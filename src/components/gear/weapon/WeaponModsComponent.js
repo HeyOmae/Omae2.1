@@ -28,9 +28,9 @@ class WeaponModsComponent extends React.PureComponent {
 						);
 					})
 				}
-				<div className="col-md-12">
+				<div className="col-md-12 modal-content">
 					<p><strong>Slotless</strong></p>
-					<table className="table table-striped">
+					<table className="table table-striped table-dark table-responsive-lg">
 						<tbody>
 							{
 								weaponModLists.slotless.map((mod) => {
