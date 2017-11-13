@@ -9,6 +9,7 @@ import WareGradeComponent from './WareGradeComponent';
 import CyberlimbRows from './CyberlimbRowComponent';
 import CyberlimbRadioSelect from './CyberlimbRadioSelect';
 import CyberlimbAttribute from './CyberlimbAttributeComponent';
+import CyberLimbHeader from './CyberwareHeader';
 
 class CyberlimbComponent extends React.PureComponent {
 	constructor(props) {
@@ -74,7 +75,7 @@ class CyberlimbComponent extends React.PureComponent {
 		return (
 			<div>
 				<div className="row justify-content-between">
-					<div className="col-12 col-md-12">
+					<div className="col-12">
 						<div className="row justify-content-between">
 							<CyberlimbAttribute
 								incrementAttribute={() => {
@@ -114,8 +115,8 @@ class CyberlimbComponent extends React.PureComponent {
 						<WareGradeComponent />
 					</div>
 				</div>
-				<div>
-					<div>
+				<div className="row">
+					<div className="col-12">
 						<DisplayTable
 							header={
 								<CyberLimbHeader />
@@ -141,20 +142,6 @@ CyberlimbComponent.propTypes = {
 	purchase: PropTypes.func.isRequired,
 	currentGrade: PropTypes.number.isRequired,
 	metatype: PropTypes.string.isRequired
-};
-
-const CyberLimbHeader = () => {
-	return (
-		<tr>
-			<th>Buy</th>
-			<th>Name</th>
-			<th>Essense</th>
-			<th>Capacity</th>
-			<th>Avail</th>
-			<th>Cost</th>
-			<th>Ref</th>
-		</tr>
-	);
 };
 
 const mapStateToProps = (state) => {

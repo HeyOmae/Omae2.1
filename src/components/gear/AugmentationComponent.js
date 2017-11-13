@@ -76,8 +76,10 @@ class AugmentationComponent extends React.PureComponent {
 	}
 
 	render() {
-		const {Cyberlimb} = this.cyberware;
-		const {cyberlimbs, augmentations, sellGear} = this.props;
+		const {cyberware} = this,
+			{Cyberlimb} = cyberware,
+			{cyberlimbs, augmentations, sellGear} = this.props;
+
 		return (
 			<div className="augs row">
 				<div className="col-12">
@@ -106,6 +108,23 @@ class AugmentationComponent extends React.PureComponent {
 						cyberware={this.cyberware}
 					/>
 				}
+
+				<div className="col-12">
+					<h3>Cyberware</h3>
+					{
+						Object.keys(cyberware).reduce((memo, ware) => {
+							return ware === 'Cyberlimb' ? memo
+							: [
+								...memo,
+								(
+									<div key={`cyberware-${ware}`}>
+										<p>{ware}</p>
+									</div>
+								)
+							];
+						}, [])
+					}
+				</div>
 
 				{
 					augmentations.length > 0 &&
