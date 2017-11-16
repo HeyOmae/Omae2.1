@@ -203,7 +203,7 @@ describe('purchaseGear', () => {
 				name: "Broken Obvious Full Arm",
 				category: "Cyberlimb",
 				ess: "1",
-				capacity: "2",
+				capacity: "3",
 				avail: "4",
 				cost: "15000",
 				source: "SR5",
@@ -276,6 +276,68 @@ describe('purchaseGear', () => {
 				},
 				currentCost: 28000,
 				currentCapacity: 2
+			}, {
+				id: "df01eed6-a019-4198-b88d-4ba8f9aaefdf",
+				name: "Broken Obvious Full Arm",
+				category: "Cyberlimb",
+				ess: "1",
+				capacity: "2",
+				avail: "4",
+				cost: "15000",
+				source: "SR5",
+				page: "456",
+				allowgear: {
+					gearcategory: "Sensors"
+				},
+				allowsubsystems: {
+					category: [
+						"Bodyware",
+						"Cosmetic Enhancement",
+						"Cyberlimb Enhancement",
+						"Cyberlimb Accessory",
+						"Cyber Implant Weapon",
+						"Headware",
+						"Nanocybernetics"
+					]
+				},
+				bonus: {
+					conditionmonitor: {
+						physical: "1"
+					}
+				},
+				limbslot: "arm",
+				mods: {
+					'Bulk Modification': {
+						id: "85bd6c32-d0c3-4d1b-99ad-833aad376a54",
+						name: "Bulk Modification",
+						category: "Cyberlimb Enhancement",
+						ess: "0",
+						capacity: "[-Rating]",
+						avail: "+Rating",
+						cost: "Rating * 500",
+						source: "CF",
+						page: "86",
+						rating: "6",
+						currentRating: 6,
+						currentCost: 3500
+					},
+					'Fiberoptic Hair': {
+						id: "b7ec08aa-a328-46a0-9b41-4c9a4bfc13b2",
+						name: "Fiberoptic Hair",
+						category: "Cosmetic Enhancement",
+						ess: "0.1",
+						capacity: "[1]",
+						avail: "0",
+						cost: "Rating * 100",
+						source: "CF",
+						page: "73",
+						rating: "10",
+						currentRating: 3,
+						currentCost: 300
+					}
+				},
+				currentCost: 18800,
+				currentCapacity: -5
 			}],
 			nuyen: 3350
 		};
@@ -628,6 +690,18 @@ describe('purchaseGear', () => {
 			source: "SR5",
 			page: "456",
 			rating: "3"
+		},
+			bulkMod = {
+			id: "85bd6c32-d0c3-4d1b-99ad-833aad376a54",
+			name: "Bulk Modification",
+			category: "Cyberlimb Enhancement",
+			ess: "0",
+			capacity: "[-Rating]",
+			avail: "+Rating",
+			cost: "Rating * 500",
+			source: "CF",
+			page: "86",
+			rating: "6"
 		};
 
 		it('should add a mod and add capacity based off of the mod', () => {
@@ -723,11 +797,85 @@ describe('purchaseGear', () => {
 		});
 
 		it('should check gear.capacity(not armorcapacity) to add mod', () => {
-			const newState = reducer(state, {type: 'MODDING_CAPACITY', parameter: {index: 0, category: 'cyberlimbs', mod: enhanceStr, Rating: 3}});
+			const newState = reducer(state, {type: 'MODDING_CAPACITY', parameter: {index: 0, category: 'cyberlimbs', mod: enhanceStr, Rating: 4}});
 
 			expect(newState.cyberlimbs[0].mods).to.be.undefined;
 			expect(newState.cyberlimbs[0].currentCost).to.be.undefined;
 			expect(newState.nuyen).to.equal(3350);
+
+			expect(state.cyberlimbs[0].mods).to.be.undefined;
+			expect(state.cyberlimbs[0].currentCost).to.be.undefined;
+			expect(state.nuyen).to.equal(3350);
+		});
+
+		it('should allow for negative rated mods which lowers current capacity', () => {
+			const newState = reducer(state, {type: 'MODDING_CAPACITY', parameter: {index: 1, category: 'cyberlimbs', mod: bulkMod, Rating: 3}});
+
+			expect(Object.keys(newState.cyberlimbs[1].mods)).to.have.lengthOf(2);
+
+			expect(newState.cyberlimbs[1].mods['Bulk Modification'].currentCost).to.equal(1500);
+			expect(newState.cyberlimbs[1].mods['Bulk Modification'].currentRating).to.equal(3);
+			expect(newState.cyberlimbs[1].currentCost).to.equal(29500);
+			expect(newState.cyberlimbs[1].currentCapacity).to.equal(-1);
+			expect(newState.nuyen).to.equal(4850);
+
+			expect(Object.keys(state.cyberlimbs[1].mods)).to.have.lengthOf(1);
+			expect(state.cyberlimbs[1].currentCapacity).to.equal(2);
+			expect(state.cyberlimbs[1].currentCost).to.equal(28000);
+			expect(state.nuyen).to.equal(3350);
+		});
+
+		it('should have rating effect cost if capacity does not contain rating', () => {
+			const fibHair = {
+				id: "b7ec08aa-a328-46a0-9b41-4c9a4bfc13b2",
+				name: "Fiberoptic Hair",
+				category: "Cosmetic Enhancement",
+				ess: "0.1",
+				capacity: "[1]",
+				avail: "0",
+				cost: "Rating * 100",
+				source: "CF",
+				page: "73",
+				rating: "10"
+			};
+
+			const newState = reducer(state, {type: 'MODDING_CAPACITY', parameter: {index: 0, category: 'cyberlimbs', mod: fibHair, Rating: 10}});
+
+			expect(newState.cyberlimbs[0].mods['Fiberoptic Hair'].currentCost).to.equal(1000);
+			expect(newState.cyberlimbs[0].mods['Fiberoptic Hair'].currentRating).to.equal(10);
+			expect(newState.cyberlimbs[0].currentCost).to.equal(16000);
+			expect(newState.cyberlimbs[0].currentCapacity).to.equal(1);
+			expect(newState.nuyen).to.equal(4350);
+
+			expect(state.cyberlimbs[0].mods).to.be.undefined;
+			expect(state.cyberlimbs[0].currentCost).to.be.undefined;
+			expect(state.cyberlimbs[0].currentCapacity).to.be.undefined;
+			expect(state.nuyen).to.equal(3350);
+		});
+
+		it('should take multiplicative capacity based off rating', () => {
+			const telescope = {
+				id: "a40cbc72-7dc6-4f8f-a9ff-e5e3f471b895",
+				name: "Telescoping Limb",
+				category: "Cyberlimb Enhancement",
+				ess: "0",
+				capacity: "[Rating * 3]",
+				avail: "Rating * 4",
+				cost: "Rating * 1000",
+				source: "CF",
+				page: "90",
+				bonus: {
+				},
+				rating: "2"
+			};
+
+			const newState = reducer(state, {type: 'MODDING_CAPACITY', parameter: {index: 0, category: 'cyberlimbs', mod: telescope, Rating: 1}});
+
+			expect(newState.cyberlimbs[0].mods['Telescoping Limb'].currentCost).to.equal(1000);
+			expect(newState.cyberlimbs[0].mods['Telescoping Limb'].currentRating).to.equal(1);
+			expect(newState.cyberlimbs[0].currentCost).to.equal(16000);
+			expect(newState.cyberlimbs[0].currentCapacity).to.equal(3);
+			expect(newState.nuyen).to.equal(4350);
 
 			expect(state.cyberlimbs[0].mods).to.be.undefined;
 			expect(state.cyberlimbs[0].currentCost).to.be.undefined;
@@ -775,6 +923,34 @@ describe('purchaseGear', () => {
 			expect(state.cyberlimbs[1].mods['Enhanced Strength']).to.not.be.undefined;
 			expect(state.cyberlimbs[1].currentCapacity).to.equal(2);
 			expect(state.cyberlimbs[1].currentCost).to.equal(28000);
+			expect(state.nuyen).to.equal(3350);
+		});
+
+		it('should raise capacity if the capacity is negative', () => {
+			const newState = reducer(state, {type: 'DEMODDING_CAPACITY', parameter: {index: 2, category: 'cyberlimbs', demodName: 'Bulk Modification'}});
+
+			expect(newState.cyberlimbs[2].mods['Bulk Modification']).to.be.undefined;
+			expect(newState.cyberlimbs[2].currentCapacity).to.equal(1);
+			expect(newState.cyberlimbs[2].currentCost).to.equal(15300);
+			expect(newState.nuyen).to.equal(-150);
+
+			expect(state.cyberlimbs[2].mods['Bulk Modification']).to.not.be.undefined;
+			expect(state.cyberlimbs[2].currentCapacity).to.equal(-5);
+			expect(state.cyberlimbs[2].currentCost).to.equal(18800);
+			expect(state.nuyen).to.equal(3350);
+		});
+
+		it('should only remove static capacity and not base it off rating', () => {
+			const newState = reducer(state, {type: 'DEMODDING_CAPACITY', parameter: {index: 2, category: 'cyberlimbs', demodName: 'Fiberoptic Hair'}});
+
+			expect(newState.cyberlimbs[2].mods['Fiberoptic Hair']).to.be.undefined;
+			expect(newState.cyberlimbs[2].currentCapacity).to.equal(-6);
+			expect(newState.cyberlimbs[2].currentCost).to.equal(18500);
+			expect(newState.nuyen).to.equal(3050);
+
+			expect(state.cyberlimbs[2].mods['Fiberoptic Hair']).to.not.be.undefined;
+			expect(state.cyberlimbs[2].currentCapacity).to.equal(-5);
+			expect(state.cyberlimbs[2].currentCost).to.equal(18800);
 			expect(state.nuyen).to.equal(3350);
 		});
 	});
