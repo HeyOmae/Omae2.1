@@ -27,6 +27,10 @@ describe('CyberwareRowComponent', () => {
 	it('should display stats about cyberware', () => {
 		const { cyberwareRowComponent } = setup();
 
-		expect(cyberwareRowComponent.find('.name').text()).to.equal(datajack.name);
+		expect(cyberwareRowComponent.find('.cyberware--name').text()).to.equal(datajack.name);
+		expect(cyberwareRowComponent.find('.cyberware--ess').text()).to.equal(datajack.ess);
+		expect(cyberwareRowComponent.find('.cyberware--avail').text()).to.equal(datajack.avail);
+		expect(cyberwareRowComponent.find('.cyberware--cost').text()).to.equal(`${datajack.cost}¥`);
+		expect(cyberwareRowComponent.find('.cyberware--ref').text()).to.equal(`${datajack.source} ${datajack.page}`);
 	});
 });
