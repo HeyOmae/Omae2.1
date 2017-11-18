@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cyberwareData from '../../data/cyberware.json';
 import CyberlimbComponent from './cyberware/CyberlimbComponent';
+import CyberwareComponent from './cyberware/CyberwareComponent';
 import PurchasedCyberlimbs from './cyberware/PurchasedCyberlimbComponent';
 import ModalButton from '../ModalButtonComponent';
 
@@ -117,9 +118,13 @@ class AugmentationComponent extends React.PureComponent {
 							: [
 								...memo,
 								(
-									<div key={`cyberware-${ware}`}>
-										<p>{ware}</p>
-									</div>
+									<ModalButton
+										key={`cyberware-${ware}`}
+										modalName={ware}
+										modalContent={
+											<CyberwareComponent cyberwares={cyberware[ware]} />
+										}
+									/>
 								)
 							];
 						}, [])
