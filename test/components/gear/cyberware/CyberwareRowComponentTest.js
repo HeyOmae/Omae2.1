@@ -14,6 +14,17 @@ describe('CyberwareRowComponent', () => {
 		cost: "1000",
 		source: "SR5",
 		page: "452"
+	},	dataLock = {
+		id: "eb9e691a-8002-4138-ac8d-d9714d398b1e",
+		name: "Data Lock",
+		category: "Headware",
+		ess: "0.1",
+		capacity: "[1]",
+		avail: "Rating * 2",
+		cost: "Rating * 1000",
+		source: "SR5",
+		page: "452",
+		rating: "12"
 	};
 
 	const setup = (ware = datajack) => {
@@ -31,6 +42,22 @@ describe('CyberwareRowComponent', () => {
 		expect(cyberwareRowComponent.find('.cyberware--ess').text()).to.equal(datajack.ess);
 		expect(cyberwareRowComponent.find('.cyberware--avail').text()).to.equal(datajack.avail);
 		expect(cyberwareRowComponent.find('.cyberware--cost').text()).to.equal(`${datajack.cost}¥`);
-		expect(cyberwareRowComponent.find('.cyberware--ref').text()).to.equal(`${datajack.source} ${datajack.page}`);
+		expect(cyberwareRowComponent.find('.cyberware--ref').text()).to.equal(`${datajack.source} p${datajack.page}`);
+	});
+
+	describe('rating', () => {
+		it('should display N/A if there is no rating', () => {
+			const { cyberwareRowComponent } = setup();
+
+			expect(cyberwareRowComponent.find('.cyberware--rating').text()).to.equal('N/A');
+		});
+
+		it('should display a select box if there is a rating', () => {
+			const { cyberwareRowComponent } = setup(dataLock);
+			
+			expect(cyberwareRowComponent.find('select')).lengthOf(1);
+
+			expect(cyberwareRowComponent.find('option')).lengthOf(12);
+		})
 	});
 });

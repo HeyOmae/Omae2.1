@@ -36,7 +36,7 @@ const CyberlimbRows = ({purchase, cyberlimb, currentGrade, availModifier, agi, s
 			<td>{capacity}</td>
 			<td>{customLimb.avail}</td>
 			<td>{customLimb.cost}&yen;</td>
-			<td>{source} {page}p</td>
+			<td>{source} p{page}</td>
 		</tr>
 	);
 };

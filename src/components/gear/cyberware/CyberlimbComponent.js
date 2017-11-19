@@ -9,7 +9,7 @@ import WareGradeComponent from './WareGradeComponent';
 import CyberlimbRows from './CyberlimbRowComponent';
 import CyberlimbRadioSelect from './CyberlimbRadioSelect';
 import CyberlimbAttribute from './CyberlimbAttributeComponent';
-import CyberLimbHeader from './CyberwareHeader';
+import CyberLimbHeader from './CyberlimbHeader';
 
 class CyberlimbComponent extends React.PureComponent {
 	constructor(props) {
