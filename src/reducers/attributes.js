@@ -22,140 +22,138 @@ const initialState = {
 };
 
 const attributesReducer = (state = initialState, action) => {
+	const {type, parameter} = action;
+	switch (type) {
+	case 'INCREMENT_ATTRIBUTE': {
+		const {attribute, max, spend, maxCap} = parameter;
+		const nextIncrement = state[attribute] + 1;
+		if (nextIncrement > (maxCap ? max - 1 : max)) {
+			return state;
+		}
 
-	const actionsToTake = {
-		INCREMENT_ATTRIBUTE(prevState, {attribute, max, spend, maxCap}) {
-			const nextIncrement = prevState[attribute] + 1;
-			if (nextIncrement > (maxCap ? max - 1 : max)) {
-				return prevState;
+		const newState = Object.assign(
+			{},
+			state,
+			{
+				[attribute]: nextIncrement,
+				[spend]: state[spend] + 1
 			}
+		);
+		return newState;
+	}
+	case 'DECREMENT_ATTRIBUTE': {
+		const {attribute, spend} = parameter;
+		const nextDecrement = state[attribute] - 1;
+		if (nextDecrement < 0) {
+			return state;
+		}
+		const newState = Object.assign(
+			{},
+			state,
+			{
+				[attribute]: nextDecrement,
+				[spend]: state[spend] - 1
+			}
+		);
+		return newState;
+	}
+	case 'INCREMENT_AUGMENTED': {
+		const {attribute} = parameter;
+		const augmentedAttribute = state.augmented[attribute];
+		let nextIncrement;
 
+		if (augmentedAttribute) {
+			nextIncrement = augmentedAttribute + 1;
+		} else {
+			nextIncrement = 1;
+		}
+
+		if (nextIncrement <= 4) {
 			const newState = Object.assign(
 				{},
-				prevState,
+				state,
 				{
-					[attribute]: nextIncrement,
-					[spend]: prevState[spend] + 1
+					augmented: Object.assign(
+						{},
+						state.augmented,
+						{
+							[attribute]: nextIncrement
+						}
+					)
 				}
 			);
-			return newState;
-		},
 
-		DECREMENT_ATTRIBUTE(prevState, {attribute, spend}) {
-			const nextDecrement = prevState[attribute] - 1;
-			if (nextDecrement < 0) {
-				return prevState;
-			}
-			const newState = Object.assign(
+			return newState;
+		}
+		return state;
+	}
+	case 'DECREMENT_AUGMENTED': {
+		const {attribute, decreaseBy = 1} = parameter;
+		const augmentedAttribute = state.augmented[attribute];
+		let nextDecrement,
+			newState;
+
+		if (augmentedAttribute) {
+			nextDecrement = augmentedAttribute - decreaseBy;
+		} else {
+			return state;
+		}
+
+		if (nextDecrement > 0) {
+			newState = Object.assign(
 				{},
-				prevState,
+				state,
 				{
-					[attribute]: nextDecrement,
-					[spend]: prevState[spend] - 1
+					augmented: Object.assign(
+						{},
+						state.augmented,
+						{
+							[attribute]: nextDecrement
+						}
+					)
 				}
 			);
-			return newState;
-		},
+		} else {
+			newState = Object.assign(
+				{},
+				state,
+				{
+					augmented: Object.assign(
+						{},
+						state.augmented
+					)
+				}
+			);
 
-		INCREMENT_AUGMENTED(prevState, {attribute}) {
-			const augmentedAttribute = prevState.augmented[attribute];
-			let nextIncrement;
+			delete newState.augmented[attribute];
+		}
+		return newState;
+	}
+	case 'PURCHASE': {
+		const {gear} = parameter;
+		if (gear.ess) {
+			return {
+				...state,
+				ess: state.ess + gear.ess
+			};
+		}
 
-			if (augmentedAttribute) {
-				nextIncrement = augmentedAttribute + 1;
-			} else {
-				nextIncrement = 1;
-			}
+		return state;
+	}
+	case 'SELL': {
+		const {gear} = parameter;
+		if (gear && gear.ess) {
+			return {
+				...state,
+				ess: state.ess - gear.ess
+			};
+		}
 
-			if (nextIncrement <= 4) {
-				const newState = Object.assign(
-					{},
-					prevState,
-					{
-						augmented: Object.assign(
-							{},
-							prevState.augmented,
-							{
-								[attribute]: nextIncrement
-							}
-						)
-					}
-				);
-
-				return newState;
-			}
-
-			return prevState;
-		},
-
-		DECREMENT_AUGMENTED(prevState, {attribute, decreaseBy = 1}) {
-			const augmentedAttribute = prevState.augmented[attribute];
-			let nextDecrement,
-				newState;
-
-			if (augmentedAttribute) {
-				nextDecrement = augmentedAttribute - decreaseBy;
-			} else {
-				return prevState;
-			}
-
-			if (nextDecrement > 0) {
-				newState = Object.assign(
-					{},
-					prevState,
-					{
-						augmented: Object.assign(
-							{},
-							prevState.augmented,
-							{
-								[attribute]: nextDecrement
-							}
-						)
-					}
-				);
-			} else {
-				newState = Object.assign(
-					{},
-					prevState,
-					{
-						augmented: Object.assign(
-							{},
-							prevState.augmented
-						)
-					}
-				);
-
-				delete newState.augmented[attribute];
-			}
-
-			return newState;
-		},
-
-		PURCHASE(prevState, {gear}) {
-			if (gear.ess) {
-				return {
-					...prevState,
-					ess: prevState.ess + gear.ess
-				};
-			}
-
-			return prevState;
-		},
-
-		SELL(prevState, {gear}) {
-			if (gear && gear.ess) {
-				return {
-					...prevState,
-					ess: prevState.ess - gear.ess
-				};
-			}
-
-			return prevState;
-		},
-
-		DEFAULT(prevState) { return prevState; }
-	};
-	return (actionsToTake[action.type] || actionsToTake.DEFAULT)(state, action.parameter);
+		return state;
+	}
+	default:
+		return state;
+	}
 };
 
 module.exports = attributesReducer;

@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Modal from '../ModalButtonComponent';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import PropTypeChecking from '../../config/propTypeChecking';
+import modalOpen from '../../actions/modalOpen';
 
 import '../../styles/export/Reddit.sass';
 
-const RedditComponent = ({priority, metatype, attributes, augmentedAtt, magres, skills, spellsAndPowers, qualities, karma, purchaseGear}) => {
+const RedditComponent = ({priority, metatype, attributes, augmentedAtt, magres, skills, spellsAndPowers, qualities, karma, purchaseGear, actions}) => {
 	let activeSkills = '',
 		learnedSpells = '',
 		selectedQualities = '',
@@ -228,11 +230,22 @@ ${activeSkills}
 				value={formate}
 				readOnly />
 		);
+
+	const clickAction = () => {
+		actions.modalOpen({
+			modalName: 'Export.reddit',
+			modalContent: exportField
+		});
+	};
 	return (
 		<div className="reddit-component">
-			<Modal
-				modalName="Export.reddit"
-				modalContent={exportField} />
+			<button
+				type="button"
+				className="btn btn-info modal-open-btn"
+				onClick={clickAction}
+			>
+				Export.reddit
+			</button>
 		</div>
 	);
 };
@@ -247,7 +260,16 @@ RedditComponent.propTypes = {
 	spellsAndPowers: PropTypeChecking.spellSelect.isRequired,
 	qualities: PropTypeChecking.quality.isRequired,
 	karma: PropTypeChecking.karma.isRequired,
-	purchaseGear: PropTypeChecking.purchaseGear.isRequired
+	purchaseGear: PropTypeChecking.purchaseGear.isRequired,
+	actions: PropTypes.objectOf(PropTypes.func).isRequired
 };
 
-export default RedditComponent;
+function mapDispatchToProps(dispatch) {
+	const actions = {
+		modalOpen
+	};
+	const actionMap = { actions: bindActionCreators(actions, dispatch) };
+	return actionMap;
+}
+
+export default connect(null, mapDispatchToProps)(RedditComponent);
