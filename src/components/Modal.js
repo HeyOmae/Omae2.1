@@ -16,7 +16,7 @@ class ModalComponent extends React.PureComponent {
 		}
 	}
 	render() {
-		const {modalName, modalContent, closeModal} = this.props;
+		const {modalName, modalContent, children, closeModal} = this.props;
 		return modalContent && (
 			<div
 				className="modal"
@@ -37,7 +37,7 @@ class ModalComponent extends React.PureComponent {
 							</button>
 						</div>
 						<div className="modal-body">
-							{modalContent}
+							{modalContent || children}
 						</div>
 						<div className="modal-footer">
 							<button
@@ -57,11 +57,13 @@ class ModalComponent extends React.PureComponent {
 ModalComponent.propTypes = {
 	modalName: PropTypes.string.isRequired,
 	modalContent: PropTypes.node,
+	children: PropTypes.node,
 	closeModal: PropTypes.func.isRequired
 };
 
 ModalComponent.defaultProps = {
-	modalContent: null
+	modalContent: null,
+	children: null
 };
 
 export default ModalComponent;

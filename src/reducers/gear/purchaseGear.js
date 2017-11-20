@@ -163,10 +163,37 @@ const purchaseGearReducer = (state = initialState, action) => {
 			};
 		},
 
+		findCapacity({currentCapacity}, {armorcapacity, capacity}, Rating) {
+			return actionsToTake.findCurrentCapacity(currentCapacity) + (actionsToTake.findRatingAsCapacity(armorcapacity, capacity, Rating) || actionsToTake.findModCapacity(armorcapacity, capacity));
+		},
+
+		findCurrentCapacity(currentCapacity) {
+			return currentCapacity || 0;
+		},
+
+		findModCapacity(armorcapacity, capacity) {
+			return Number((armorcapacity || capacity).match(/\d+/)[0]);
+		},
+
+		findRatingAsCapacity(armorcapacity, capacity, Rating) {
+			return /Rating|FixedValues/.test(armorcapacity || capacity)
+				&&
+				actionsToTake.findCapacityMultiplier(capacity, Number(/-/.test(capacity) ? -Rating : Rating));
+		},
+
+		findCapacityMultiplier(capacity, rating) {
+			const multiplier = capacity && capacity.match(/\d/);
+
+			if (multiplier) {
+				return rating * Number(multiplier[0]);
+			}
+			return rating;
+		},
+
 		MODDING_CAPACITY(prevState, {index, category, mod, Rating}) {
 			const gearArray = prevState[category],
 				gearBeingModded = prevState[category][index],
-				currentCapacity = (gearBeingModded.currentCapacity || 0) + (Number(Rating) || Number((mod.armorcapacity || mod.capacity).match(/\d+/)[0]));
+				currentCapacity = actionsToTake.findCapacity(gearBeingModded, mod, Rating);
 
 			if (currentCapacity > (gearBeingModded.capacity || gearBeingModded.armorcapacity)) {
 				return prevState;
@@ -208,7 +235,7 @@ const purchaseGearReducer = (state = initialState, action) => {
 			const gearArray = prevState[category],
 				gearBeingModded = prevState[category][index],
 				{[demodName]: discard, ...remainingMods} = gearBeingModded.mods,
-				capacityToRemove = discard.currentRating || Number((discard.capacity || discard.armorcapacity).match(/\d+/)[0]),
+				capacityToRemove = actionsToTake.findRatingAsCapacity(discard.armorcapacity, discard.capacity, discard.currentRating) || actionsToTake.findModCapacity(discard.armorcapacity, discard.capacity),
 				cost = discard.currentCost || Number(discard.cost);
 
 			return {
