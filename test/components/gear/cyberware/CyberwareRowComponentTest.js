@@ -58,6 +58,14 @@ describe('CyberwareRowComponent', () => {
 			expect(cyberwareRowComponent.find('select')).lengthOf(1);
 
 			expect(cyberwareRowComponent.find('option')).lengthOf(12);
-		})
+		});
+
+		it('should change state Rating on change event', () => {
+			const {cyberwareRowComponent} = setup(dataLock);
+
+			cyberwareRowComponent.find('select').simulate('change', {target: { value: '3'}});
+
+			expect(cyberwareRowComponent.state('Rating')).to.equal(3);
+		});
 	});
 });

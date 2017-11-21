@@ -2,16 +2,34 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class CyberwareRowComponent extends React.Component {
-	generateRatingOptions(maxRating) {
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			Rating: 1
+		};
+
+		this.updateRating = this.updateRating.bind(this);
+	}
+
+	generateRatingOptions() {
 		const ratingOptions = [];
 
-		for (let i = 1; i <= maxRating; ++i) {
+		for (let i = 1; i <= this.props.ware.rating; ++i) {
 			ratingOptions.push(
-				<option value={i}>{i}</option>
+				<option key={`${this.props.ware.name}-${i}`} value={i}>{i}</option>
 			);
 		}
 
 		return ratingOptions;
+	}
+
+	updateRating(event) {
+		const { value } = event.target;
+
+		this.setState({
+			Rating: +value
+		});
 	}
 
 	render() {
@@ -22,8 +40,8 @@ class CyberwareRowComponent extends React.Component {
 				<td className="cyberware--name">{name}</td>
 				<td className="cyberware--ess">{ess}</td>
 				<td className="cyberware--rating">{rating ?
-					<select>
-						{this.generateRatingOptions(rating)}
+					<select onChange={this.updateRating}>
+						{this.generateRatingOptions()}
 					</select>
 					: 'N/A'}</td>
 				<td className="cyberware--avail">{avail}</td>
