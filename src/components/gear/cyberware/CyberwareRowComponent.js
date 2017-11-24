@@ -9,7 +9,10 @@ class CyberwareRowComponent extends React.Component {
 			Rating: 1
 		};
 
+		this.evil = eval;
+
 		this.updateRating = this.updateRating.bind(this);
+		this.calculateAvail = this.calculateAvail.bind(this);
 	}
 
 	generateRatingOptions() {
@@ -32,8 +35,22 @@ class CyberwareRowComponent extends React.Component {
 		});
 	}
 
+	calculateAvail() {
+		const {rating, avail} = this.props.ware;
+
+		if (rating && /Rating/.test(avail)) {
+			const availSplit = avail.match(/Rating [*] \d+/),
+				restriction = avail.match(/[R|F]$/),
+				{Rating} = this.state;
+
+			return (availSplit && `${this.evil((availSplit[0] || '').replace('Rating', Rating))}${(restriction && restriction[0]) || ''}`) || Rating;
+		}
+
+		return avail;
+	}
+
 	render() {
-		const {name, ess, rating, avail, cost, source, page} = this.props.ware;
+		const {name, ess, rating, cost, source, page} = this.props.ware;
 		return (
 			<tr>
 				<td className="cyberware--buy">+</td>
@@ -44,7 +61,7 @@ class CyberwareRowComponent extends React.Component {
 						{this.generateRatingOptions()}
 					</select>
 					: 'N/A'}</td>
-				<td className="cyberware--avail">{avail}</td>
+				<td className="cyberware--avail">{this.calculateAvail()}</td>
 				<td className="cyberware--cost">{cost}&yen;</td>
 				<td className="cyberware--ref">{source} p{page}</td>
 			</tr>

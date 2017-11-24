@@ -25,6 +25,35 @@ describe('CyberwareRowComponent', () => {
 		source: "SR5",
 		page: "452",
 		rating: "12"
+	}, voiceMod = {
+		id: "ebc25387-655f-4a24-8ae7-81548c097dac",
+		name: "Voice Modulator",
+		category: "Headware",
+		ess: "0.2",
+		capacity: "0",
+		avail: "Rating * 3F",
+		cost: "Rating * 5000",
+		source: "SR5",
+		page: "452",
+		bonus: {
+			specificskill: {
+				name: "Impersonation",
+				bonus: "Rating",
+				applytorating: "no"
+			}
+		},
+		rating: "6"
+	}, knowWare = {
+		id: "56a5fcc1-5da7-4728-aae9-073c92f67c2b",
+		name: "Knowledge Hardwires",
+		category: "Headware",
+		ess: "Rating * 0.05",
+		capacity: "0",
+		avail: "Rating",
+		cost: "Rating * 2000",
+		source: "CF",
+		page: "80",
+		rating: "6"
 	};
 
 	const setup = (ware = datajack) => {
@@ -66,6 +95,29 @@ describe('CyberwareRowComponent', () => {
 			cyberwareRowComponent.find('select').simulate('change', {target: { value: '3'}});
 
 			expect(cyberwareRowComponent.state('Rating')).to.equal(3);
+		});
+
+		it('should change the displayed stats based off the rating', () => {
+			const {cyberwareRowComponent} = setup(dataLock);
+			cyberwareRowComponent.setState({Rating: 4});
+
+			expect(cyberwareRowComponent.find('.cyberware--avail').text()).to.equal('8');
+		});
+
+		it('should handle restricted/forbidden gear avail', () => {
+			const {cyberwareRowComponent} = setup(voiceMod);
+
+			cyberwareRowComponent.setState({Rating: 3});
+
+			expect(cyberwareRowComponent.find('.cyberware--avail').text()).to.equal('9F');
+		});
+
+		it('should use Rating as avail without multiplier', () => {
+			const {cyberwareRowComponent} = setup(knowWare);
+
+			cyberwareRowComponent.setState({ Rating: 2 });
+
+			expect(cyberwareRowComponent.find('.cyberware--avail').text()).to.equal('2');
 		});
 	});
 });

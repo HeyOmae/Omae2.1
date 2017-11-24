@@ -23,7 +23,7 @@ class CyberwareComponent extends React.PureComponent {
 							header={<CyberwareHeader />}
 						>
 							{cyberwares.map((ware) => {
-								return (<CyberwareRowComponent key={ware} ware={ware} />);
+								return (<CyberwareRowComponent key={ware.name} ware={ware} />);
 							})}
 						</DisplayTable>
 					</div>
