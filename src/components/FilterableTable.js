@@ -18,7 +18,7 @@ class FilterableTable extends Component {
 	}
 
 	render() {
-		const { setFilterAction, tableData, filterTable, header, children, striped, invert } = this.props,
+		const { setFilterAction, tableData, filterTable, header, children, striped, invert} = this.props,
 			tableContent = tableData.body || children,
 			filteredRows = filterTable ? FilterableTable.filtered(filterTable, tableContent) : tableContent;
 
@@ -55,8 +55,7 @@ FilterableTable.propTypes = {
 	header: PropTypes.element,
 	children: PropTypes.node,
 	filterTable: PropTypes.string.isRequired,
-	striped: PropTypes.bool,
-	invert: PropTypes.bool
+	striped: PropTypes.bool
 };
 
 FilterableTable.defaultProps = {

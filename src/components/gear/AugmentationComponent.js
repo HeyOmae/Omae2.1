@@ -72,8 +72,6 @@ class AugmentationComponent extends React.PureComponent {
 				)
 			};
 		}, {});
-
-		console.log(this.cyberware);
 	}
 
 	render() {

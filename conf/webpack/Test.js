@@ -33,7 +33,7 @@ class WebpackTestConfig extends WebpackBaseConfig {
 						]
 					},
 					{
-						test: /^.((?!cssmodule).)*\.(sass|scss)$/,
+						test: /^.((?!cssmodule).)*\.(sass|scss|css)$/,
 						loader: 'null-loader'
 					},
 					{

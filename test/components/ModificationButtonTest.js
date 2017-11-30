@@ -17,8 +17,10 @@ describe('ModificationButton', () => {
 			modificationFunction: sinon.spy(),
 			attType: 'baseSpent',
 			symbol
-		},
-			modificationButton = shallow(<ModificationButton {...props} />);
+		};
+
+		const modificationButton = shallow(<ModificationButton {...props} />);
+
 		return { modificationButton, props };
 	}
 

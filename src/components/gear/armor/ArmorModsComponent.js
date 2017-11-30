@@ -22,7 +22,6 @@ class ArmorModsComponent extends React.PureComponent {
 				</p>
 				<DisplayTableComponent
 					striped
-					invert
 					header={
 						<tr>
 							<th>Name</th>

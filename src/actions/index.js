@@ -43,7 +43,6 @@ import purchaseGear from './gear/purchaseGear';
 import sellGear from './gear/sellGear';
 import selectGrade from './gear/selectGrade';
 import modalClose from './modalClose';
-import modalOpen from './modalOpen';
 
 const actions = {
 	priorityTable,
@@ -83,8 +82,7 @@ const actions = {
 	moddingCapacity,
 	demoddingCapacity,
 	selectGrade,
-	modalClose,
-	modalOpen
+	modalClose
 };
 
 module.exports = actions;

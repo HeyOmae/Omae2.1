@@ -85,7 +85,7 @@ class WebpackBaseConfig {
 						loader: 'file-loader'
 					},
 					{
-						test: /^.((?!cssmodule).)*\.(sass|scss)$/,
+						test: /^.((?!cssmodule).)*\.(sass|scss|css)$/,
 						loaders: [
 							{ loader: 'style-loader' },
 							{ loader: 'css-loader' },
