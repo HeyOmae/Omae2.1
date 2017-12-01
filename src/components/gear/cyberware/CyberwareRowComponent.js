@@ -13,6 +13,7 @@ class CyberwareRowComponent extends React.Component {
 
 		this.updateRating = this.updateRating.bind(this);
 		this.calculateAvail = this.calculateAvail.bind(this);
+		this.calculateStat = this.calculateStat.bind(this);
 	}
 
 	generateRatingOptions() {
@@ -49,13 +50,25 @@ class CyberwareRowComponent extends React.Component {
 		return avail;
 	}
 
+	calculateStat(stat) {
+		const {rating} = this.props.ware;
+		if (rating && /Rating/.test(stat)) {
+			const statSplit = stat.match(/Rating [*] \d+(.\d+)?/),
+				{Rating} = this.state;
+
+			return (statSplit && this.evil(statSplit[0].replace('Rating', Rating)));
+		}
+
+		return stat;
+	}
+
 	render() {
 		const {name, ess, rating, cost, source, page} = this.props.ware;
 		return (
 			<tr>
 				<td className="cyberware--buy">+</td>
 				<td className="cyberware--name">{name}</td>
-				<td className="cyberware--ess">{ess}</td>
+				<td className="cyberware--ess">{this.calculateStat(ess)}</td>
 				<td className="cyberware--rating">{rating ?
 					<select onChange={this.updateRating}>
 						{this.generateRatingOptions()}

@@ -102,6 +102,7 @@ describe('CyberwareRowComponent', () => {
 			cyberwareRowComponent.setState({Rating: 4});
 
 			expect(cyberwareRowComponent.find('.cyberware--avail').text()).to.equal('8');
+			expect(cyberwareRowComponent.find('.cyberware--ess').text()).to.equal('0.1');
 		});
 
 		it('should handle restricted/forbidden gear avail', () => {
@@ -110,14 +111,16 @@ describe('CyberwareRowComponent', () => {
 			cyberwareRowComponent.setState({Rating: 3});
 
 			expect(cyberwareRowComponent.find('.cyberware--avail').text()).to.equal('9F');
+			expect(cyberwareRowComponent.find('.cyberware--ess').text()).to.equal('0.2');
 		});
 
-		it('should use Rating as avail without multiplier', () => {
+		it('should use Rating as avail without multiplier, multiple essence cost based off rating', () => {
 			const {cyberwareRowComponent} = setup(knowWare);
 
 			cyberwareRowComponent.setState({ Rating: 2 });
 
 			expect(cyberwareRowComponent.find('.cyberware--avail').text()).to.equal('2');
+			expect(cyberwareRowComponent.find('.cyberware--ess').text()).to.equal('0.1');
 		});
 	});
 });
