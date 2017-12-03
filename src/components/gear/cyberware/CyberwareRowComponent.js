@@ -14,6 +14,7 @@ class CyberwareRowComponent extends React.Component {
 		this.updateRating = this.updateRating.bind(this);
 		this.calculateAvail = this.calculateAvail.bind(this);
 		this.calculateStat = this.calculateStat.bind(this);
+		this.calculateCost = this.calculateCost.bind(this);
 	}
 
 	generateRatingOptions() {
@@ -62,6 +63,16 @@ class CyberwareRowComponent extends React.Component {
 		return stat;
 	}
 
+	calculateCost(cost) {
+		if (/FixedValues/.test(cost)) {
+			const {Rating} = this.state,
+				fixedCosts = cost.match(/\d+/g);
+			return fixedCosts[Rating - 1];
+		}
+
+		return this.calculateStat(cost);
+	}
+
 	render() {
 		const {name, ess, rating, cost, source, page} = this.props.ware;
 		return (
@@ -75,7 +86,7 @@ class CyberwareRowComponent extends React.Component {
 					</select>
 					: 'N/A'}</td>
 				<td className="cyberware--avail">{this.calculateAvail()}</td>
-				<td className="cyberware--cost">{cost}&yen;</td>
+				<td className="cyberware--cost">{this.calculateCost(cost)}&yen;</td>
 				<td className="cyberware--ref">{source} p{page}</td>
 			</tr>
 		);

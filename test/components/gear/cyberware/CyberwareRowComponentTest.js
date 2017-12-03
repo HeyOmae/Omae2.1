@@ -54,6 +54,17 @@ describe('CyberwareRowComponent', () => {
 		source: "CF",
 		page: "80",
 		rating: "6"
+	}, controlRig = {
+		id: "16b45886-2916-48eb-aea5-ecb74da835bd",
+		name: "Control Rig",
+		category: "Headware",
+		ess: "Rating * 1",
+		capacity: "0",
+		avail: "Rating * 5",
+		cost: "FixedValues(43000,97000,208000)",
+		source: "SR5",
+		page: "452",
+		rating: "3"
 	};
 
 	const setup = (ware = datajack) => {
@@ -121,6 +132,25 @@ describe('CyberwareRowComponent', () => {
 
 			expect(cyberwareRowComponent.find('.cyberware--avail').text()).to.equal('2');
 			expect(cyberwareRowComponent.find('.cyberware--ess').text()).to.equal('0.1');
+		});
+
+		describe('change cost', () => {
+			it('should scale off rating', () => {
+				const {cyberwareRowComponent} = setup(dataLock);
+				cyberwareRowComponent.setState({ Rating: 5});
+
+				expect(cyberwareRowComponent.find('.cyberware--cost').text()).to.equal('5000¥');
+			});
+
+			it('should use fixed cost based off rating', () => {
+				const {cyberwareRowComponent} = setup(controlRig);
+				expect(cyberwareRowComponent.find('.cyberware--cost').text()).to.equal('43000¥');
+
+				cyberwareRowComponent.setState({ Rating: 3 });
+
+
+				expect(cyberwareRowComponent.find('.cyberware--cost').text()).to.equal('208000¥');
+			});
 		});
 	});
 });

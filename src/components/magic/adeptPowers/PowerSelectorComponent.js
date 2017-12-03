@@ -10,7 +10,7 @@ import PowerCategoryHeader from './PowerCategoryHeader';
 import PowerDetailRow from './PowerDetailRow';
 import Modal from '../../ModalButtonComponent';
 
-export class PowerSelectorComponent extends React.Component {
+class PowerSelectorComponent extends React.Component {
 	render() {
 		const {selectedPowers, pointsSpent, maxPoints, isMystic, karmaSpent, actions} = this.props;
 
@@ -61,6 +61,8 @@ PowerSelectorComponent.propTypes = {
 	karmaSpent: PropTypes.number.isRequired,
 	actions: PropTypeChecking.actions.isRequired,
 };
+
+export {PowerSelectorComponent};
 
 function mapStateToProps(state) {
 	return { pointsSpent: state.spellSelect.powerPointsSpent};
