@@ -57,7 +57,10 @@ describe('CyberwareComponent', () => {
 		}
 	];
 	const setup = (cyberwares = cyberwareArray) => {
-		const props = {cyberwares},
+		const props = {
+				cyberwares,
+				purchaseGear: () => {}
+			},
 			cyberwareComponent = shallow(<CyberwareComponent {...props} />);
 
 		return { cyberwareComponent, props };
@@ -80,6 +83,13 @@ describe('CyberwareComponent', () => {
 			const {cyberwareComponent} = setup();
 
 			expect(cyberwareComponent.find(CyberwareRow)).lengthOf(cyberwareArray.length);
+		});
+
+		it('should pass the purchase action in to the cyberwareRow', () => {
+			const {cyberwareComponent, props} = setup(),
+				firstRow = cyberwareComponent.find(CyberwareRow).get(0);
+
+			expect(firstRow.props.purchase).to.equal(props.purchaseGear);
 		});
 	});
 });

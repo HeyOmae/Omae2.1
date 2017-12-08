@@ -9,7 +9,7 @@ import CyberwareHeader from './CyberwareHeader';
 
 class CyberwareComponent extends React.PureComponent {
 	render() {
-		const {cyberwares} = this.props;
+		const {cyberwares, purchaseGear} = this.props;
 		return (
 			<div>
 				<div className="row">
@@ -23,7 +23,13 @@ class CyberwareComponent extends React.PureComponent {
 							header={<CyberwareHeader />}
 						>
 							{cyberwares.map((ware) => {
-								return (<CyberwareRowComponent key={ware.name} ware={ware} />);
+								return (
+									<CyberwareRowComponent
+										key={ware.name}
+										ware={ware}
+										purchase={purchaseGear}
+									/>
+								);
 							})}
 						</DisplayTable>
 					</div>
@@ -44,7 +50,8 @@ CyberwareComponent.propTypes = {
 			page: Proptypes.string.isRequired,
 			rating: Proptypes.string,
 		}).isRequired
-	).isRequired
+	).isRequired,
+	purchaseGear: Proptypes.func.isRequired
 };
 
 export { CyberwareComponent };
