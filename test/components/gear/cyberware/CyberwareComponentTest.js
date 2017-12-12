@@ -59,7 +59,7 @@ describe('CyberwareComponent', () => {
 	const setup = (cyberwares = cyberwareArray) => {
 		const props = {
 				cyberwares,
-				purchaseGear: () => {}
+				purchaseWare: () => {}
 			},
 			cyberwareComponent = shallow(<CyberwareComponent {...props} />);
 
@@ -89,7 +89,7 @@ describe('CyberwareComponent', () => {
 			const {cyberwareComponent, props} = setup(),
 				firstRow = cyberwareComponent.find(CyberwareRow).get(0);
 
-			expect(firstRow.props.purchase).to.equal(props.purchaseGear);
+			expect(firstRow.props.purchase).to.equal(props.purchaseWare);
 		});
 	});
 });
