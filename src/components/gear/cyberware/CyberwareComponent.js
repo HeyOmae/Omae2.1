@@ -1,7 +1,8 @@
 import React from 'react';
-import Proptypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import { purchaseGear } from '../../../actions';
 import WareGradeComponent from './WareGradeComponent';
 import CyberwareRowComponent from './CyberwareRowComponent';
 import DisplayTable from '../../DisplayTableComponent';
@@ -9,7 +10,7 @@ import CyberwareHeader from './CyberwareHeader';
 
 class CyberwareComponent extends React.PureComponent {
 	render() {
-		const {cyberwares, purchaseGear} = this.props;
+		const {cyberwares, purchaseWare} = this.props;
 		return (
 			<div>
 				<div className="row">
@@ -27,7 +28,7 @@ class CyberwareComponent extends React.PureComponent {
 									<CyberwareRowComponent
 										key={ware.name}
 										ware={ware}
-										purchase={purchaseGear}
+										purchase={purchaseWare}
 									/>
 								);
 							})}
@@ -40,20 +41,27 @@ class CyberwareComponent extends React.PureComponent {
 }
 
 CyberwareComponent.propTypes = {
-	cyberwares: Proptypes.arrayOf(
-		Proptypes.shape({
-			name: Proptypes.string.isRequired,
-			ess: Proptypes.string.isRequired,
-			avail: Proptypes.string.isRequired,
-			cost: Proptypes.string.isRequired,
-			source: Proptypes.string.isRequired,
-			page: Proptypes.string.isRequired,
-			rating: Proptypes.string,
+	cyberwares: PropTypes.arrayOf(
+		PropTypes.shape({
+			name: PropTypes.string.isRequired,
+			ess: PropTypes.string.isRequired,
+			avail: PropTypes.string.isRequired,
+			cost: PropTypes.string.isRequired,
+			source: PropTypes.string.isRequired,
+			page: PropTypes.string.isRequired,
+			rating: PropTypes.string,
 		}).isRequired
 	).isRequired,
-	purchaseGear: Proptypes.func.isRequired
+	purchaseWare: PropTypes.func.isRequired,
+	currentGrade: PropTypes.number.isRequired
+};
+
+const mapStateToProps = (state) => {
+	return {
+		currentGrade: state.augmentation.grade
+	};
 };
 
 export { CyberwareComponent };
 
-export default connect(null, null)(CyberwareComponent);
+export default connect(mapStateToProps, { purchaseWare: purchaseGear })(CyberwareComponent);
