@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import waregrades from '../../../data/waregrade.json';
 
 class CyberwareRowComponent extends React.Component {
 	constructor(props) {
@@ -38,9 +39,10 @@ class CyberwareRowComponent extends React.Component {
 	}
 
 	calculateAvail(avail) {
-		const restriction = avail.match(/[R|F]$/);
+		const restriction = avail.match(/[R|F]$/),
+			calculatedAvail =(this.calculateStat(avail) || this.state.Rating) + waregrades[this.props.currentGrade].avail;
 
-		return `${this.calculateStat(avail) || this.state.Rating}${restriction || ''}`;
+		return `${calculatedAvail < 0 ? 0 : calculatedAvail}${restriction || ''}`;
 	}
 
 	calculateStat(stat) {
@@ -52,7 +54,7 @@ class CyberwareRowComponent extends React.Component {
 			return (statSplit && this.evil(statSplit[0].replace('Rating', Rating)));
 		}
 
-		return stat;
+		return +stat;
 	}
 
 	calculateCost(cost) {
@@ -62,7 +64,11 @@ class CyberwareRowComponent extends React.Component {
 			return fixedCosts[Rating - 1];
 		}
 
-		return this.calculateStat(cost);
+		return this.calculateStat(cost) * waregrades[this.props.currentGrade].cost;
+	}
+
+	calculateEss(ess) {
+		return this.calculateStat(ess) * waregrades[this.props.currentGrade].ess;
 	}
 
 	render() {
@@ -71,7 +77,7 @@ class CyberwareRowComponent extends React.Component {
 			<tr>
 				<td className="cyberware--buy">+</td>
 				<td className="cyberware--name">{name}</td>
-				<td className="cyberware--ess">{this.calculateStat(ess)}</td>
+				<td className="cyberware--ess">{this.calculateEss(ess)}</td>
 				<td className="cyberware--rating">{rating ?
 					<select onChange={this.updateRating}>
 						{this.generateRatingOptions()}
@@ -94,7 +100,8 @@ CyberwareRowComponent.propTypes = {
 		cost: PropTypes.string.isRequired,
 		source: PropTypes.string.isRequired,
 		page: PropTypes.string.isRequired,
-	}).isRequired
+	}).isRequired,
+	currentGrade: PropTypes.number.isRequired
 };
 
 export default CyberwareRowComponent;

@@ -67,9 +67,10 @@ describe('CyberwareRowComponent', () => {
 		rating: "3"
 	};
 
-	const setup = (ware = datajack) => {
+	const setup = (ware = datajack, currentGrade = 0) => {
 		const props = {
-			ware
+			ware,
+			currentGrade
 		},
 			cyberwareRowComponent = shallow(<CyberwareRowComponent {...props} />);
 		return {cyberwareRowComponent, props};
@@ -151,6 +152,16 @@ describe('CyberwareRowComponent', () => {
 
 				expect(cyberwareRowComponent.find('.cyberware--cost').text()).to.equal('208000¥');
 			});
+		});
+	});
+
+	describe('cyberware grade', () => {
+		it('should change the avail, cost, and essence code of cyberware', () => {
+			const {cyberwareRowComponent} = setup(datajack, 1);
+
+			expect(cyberwareRowComponent.find('.cyberware--avail').text()).to.equal('0');
+			expect(cyberwareRowComponent.find('.cyberware--cost').text()).to.equal('750¥');
+			expect(cyberwareRowComponent.find('.cyberware--ess').text()).to.equal('0.125');
 		});
 	});
 });

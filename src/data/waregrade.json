@@ -1,67 +1,67 @@
 [{
 		"id": "23382221-fd16-44ec-8da7-9b935ed2c1ee",
 		"name": "Standard",
-		"ess": "1",
-		"cost": "1",
-		"avail": "0",
+		"ess": 1,
+		"cost": 1,
+		"avail": 0,
 		"source": "SR5",
-		"page": "451"
+		"page": 451
 	},
 	{
 		"id": "a9aec622-410a-444a-a569-c8d8cc0457b4",
 		"name": "Used",
-		"ess": "1.25",
-		"cost": "0.75",
-		"avail": "-4",
+		"ess": 1.25,
+		"cost": 0.75,
+		"avail": -4,
 		"source": "SR5",
-		"page": "451"
+		"page": 451
 	},
 	{
 		"id": "75da0ff2-4137-4990-85e6-331977564712",
 		"name": "Alphaware",
-		"ess": "0.8",
-		"cost": "1.2",
-		"avail": "+2",
+		"ess": 0.8,
+		"cost": 1.2,
+		"avail": 2,
 		"source": "SR5",
-		"page": "451"
+		"page": 451
 	},
 	{
 		"id": "b1b679e8-72ff-46b5-bd9d-652914731b17",
 		"name": "Betaware",
-		"ess": "0.7",
-		"cost": "1.5",
-		"avail": "+4",
+		"ess": 0.7,
+		"cost": 1.5,
+		"avail": 4,
 		"source": "SR5",
-		"page": "451"
+		"page": 451
 	},
 	{
 		"id": "7ea3a157-867f-4c66-9f62-66b14b36b763",
 		"name": "Deltaware",
-		"ess": "0.5",
-		"cost": "2.5",
-		"avail": "+8",
+		"ess": 0.5,
+		"cost": 2.5,
+		"avail": 8,
 		"source": "SR5",
-		"page": "451"
+		"page": 451
 	},
 	{
 		"id": "81b6d909-699b-4fa5-8bb8-a5b2f3996da7",
 		"name": "Gammaware",
-		"ess": "0.4",
-		"cost": "5",
-		"avail": "+12",
+		"ess": 0.4,
+		"cost": 5,
+		"avail": 12,
 		"source": "CF",
-		"page": "72"
+		"page": 72
 	},
 	{
 		"id": "dcecd7e5-8cf1-4f83-89fa-177e28cfba03",
 		"name": "Omegaware",
-		"ess": "1.0",
-		"cost": "0.75",
-		"avail": "-4",
+		"ess": 1.0,
+		"cost": 0.75,
+		"avail": -4,
 		"bonus": {
 
 		},
 		"source": "CF",
-		"page": "72"
+		"page": 72
 	}
 ]

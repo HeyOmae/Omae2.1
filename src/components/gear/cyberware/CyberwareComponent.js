@@ -10,7 +10,7 @@ import CyberwareHeader from './CyberwareHeader';
 
 class CyberwareComponent extends React.PureComponent {
 	render() {
-		const {cyberwares, purchaseWare} = this.props;
+		const {cyberwares, purchaseWare, currentGrade} = this.props;
 		return (
 			<div>
 				<div className="row">
@@ -29,6 +29,7 @@ class CyberwareComponent extends React.PureComponent {
 										key={ware.name}
 										ware={ware}
 										purchase={purchaseWare}
+										currentGrade={currentGrade}
 									/>
 								);
 							})}
