@@ -70,7 +70,8 @@ describe('CyberwareRowComponent', () => {
 	const setup = (ware = datajack, currentGrade = 0) => {
 		const props = {
 			ware,
-			currentGrade
+			currentGrade,
+			purchase: sinon.spy()
 		},
 			cyberwareRowComponent = shallow(<CyberwareRowComponent {...props} />);
 		return {cyberwareRowComponent, props};
@@ -162,6 +163,40 @@ describe('CyberwareRowComponent', () => {
 			expect(cyberwareRowComponent.find('.cyberware--avail').text()).to.equal('0');
 			expect(cyberwareRowComponent.find('.cyberware--cost').text()).to.equal('750¥');
 			expect(cyberwareRowComponent.find('.cyberware--ess').text()).to.equal('0.125');
+		});
+	});
+
+	describe('purchase button', () => {
+		it('should invoke the purchase prop on click', () => {
+			const {cyberwareRowComponent, props} = setup();
+
+			cyberwareRowComponent.find('button').simulate('click');
+
+			expect(props.purchase).to.have.been.calledWith({
+				gear: {
+					...props.ware,
+					ess: 0.1,
+					cost: 1000
+				},
+				category: 'cyberware'
+			});
+		});
+
+		it('should alter the stats of the ware based off grade', () => {
+			const {cyberwareRowComponent, props} = setup(controlRig);
+			cyberwareRowComponent.setState({Rating: 3});
+
+			cyberwareRowComponent.find('button').simulate('click');
+
+			expect(props.purchase).to.have.been.calledWith({
+				gear: {
+					...props.ware,
+					ess: 3,
+					avail: '15',
+					cost: 208000,
+				},
+				category: 'cyberware'
+			});
 		});
 	});
 });

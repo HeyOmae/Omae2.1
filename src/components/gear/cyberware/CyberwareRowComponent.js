@@ -16,6 +16,7 @@ class CyberwareRowComponent extends React.Component {
 		this.calculateAvail = this.calculateAvail.bind(this);
 		this.calculateStat = this.calculateStat.bind(this);
 		this.calculateCost = this.calculateCost.bind(this);
+		this.purchaseWare = this.purchaseWare.bind(this);
 	}
 
 	generateRatingOptions() {
@@ -61,7 +62,7 @@ class CyberwareRowComponent extends React.Component {
 		if (/FixedValues/.test(cost)) {
 			const {Rating} = this.state,
 				fixedCosts = cost.match(/\d+/g);
-			return fixedCosts[Rating - 1];
+			return +fixedCosts[Rating - 1];
 		}
 
 		return this.calculateStat(cost) * waregrades[this.props.currentGrade].cost;
@@ -71,11 +72,31 @@ class CyberwareRowComponent extends React.Component {
 		return this.calculateStat(ess) * waregrades[this.props.currentGrade].ess;
 	}
 
+	purchaseWare() {
+		const {purchase, ware} = this.props;
+		purchase({
+			gear: {
+				...ware,
+				ess: this.calculateEss(ware.ess),
+				avail: this.calculateAvail(ware.avail),
+				cost: this.calculateCost(ware.cost)
+			},
+			category: 'cyberware'
+		});
+	}
+
 	render() {
 		const {name, ess, rating, cost, avail, source, page} = this.props.ware;
 		return (
 			<tr>
-				<td className="cyberware--buy">+</td>
+				<td className="cyberware--buy">
+					<button
+						className="btn btn-success"
+						onClick={this.purchaseWare}
+					>
+						+
+					</button>
+				</td>
 				<td className="cyberware--name">{name}</td>
 				<td className="cyberware--ess">{this.calculateEss(ess)}</td>
 				<td className="cyberware--rating">{rating ?
@@ -101,7 +122,8 @@ CyberwareRowComponent.propTypes = {
 		source: PropTypes.string.isRequired,
 		page: PropTypes.string.isRequired,
 	}).isRequired,
-	currentGrade: PropTypes.number.isRequired
+	currentGrade: PropTypes.number.isRequired,
+	purchase: PropTypes.func.isRequired
 };
 
 export default CyberwareRowComponent;
