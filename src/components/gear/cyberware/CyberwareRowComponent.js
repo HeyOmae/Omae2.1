@@ -41,7 +41,7 @@ class CyberwareRowComponent extends React.Component {
 
 	calculateAvail(avail) {
 		const restriction = avail.match(/[R|F]$/),
-			calculatedAvail =(this.calculateStat(avail) || this.state.Rating) + waregrades[this.props.currentGrade].avail;
+			calculatedAvail = (this.calculateStat(avail) || this.state.Rating) + waregrades[this.props.currentGrade].avail;
 
 		return `${calculatedAvail < 0 ? 0 : calculatedAvail}${restriction || ''}`;
 	}
@@ -81,7 +81,7 @@ class CyberwareRowComponent extends React.Component {
 				avail: this.calculateAvail(ware.avail),
 				cost: this.calculateCost(ware.cost)
 			},
-			category: 'cyberware'
+			category: 'augmentations'
 		});
 	}
 

@@ -178,7 +178,7 @@ describe('CyberwareRowComponent', () => {
 					ess: 0.1,
 					cost: 1000
 				},
-				category: 'cyberware'
+				category: 'augmentations'
 			});
 		});
 
@@ -195,7 +195,7 @@ describe('CyberwareRowComponent', () => {
 					avail: '15',
 					cost: 208000,
 				},
-				category: 'cyberware'
+				category: 'augmentations'
 			});
 		});
 	});
