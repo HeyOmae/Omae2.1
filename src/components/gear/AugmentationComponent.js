@@ -4,6 +4,7 @@ import cyberwareData from '../../data/cyberware.json';
 import CyberlimbComponent from './cyberware/CyberlimbComponent';
 import CyberwareComponent from './cyberware/CyberwareComponent';
 import PurchasedCyberlimbs from './cyberware/PurchasedCyberlimbComponent';
+import PurchasedAugmentation from './cyberware/PurchasedAugmentationComponent';
 import ModalButton from '../ModalButtonComponent';
 
 class AugmentationComponent extends React.PureComponent {
@@ -131,12 +132,10 @@ class AugmentationComponent extends React.PureComponent {
 
 				{
 					augmentations.length > 0 &&
-					<div className="purchased-augs col-12">
-						<h4>Augmentations</h4>
-						{augmentations.map((aug) => {
-							return aug.name;
-						})}
-					</div>
+					<PurchasedAugmentation
+						augmentations={augmentations}
+						sellAugment={sellGear}
+					/>
 				}
 			</div>
 		);
