@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cyberwareData from '../../data/cyberware.json';
+import biowareData from '../../data/bioware.json';
 import CyberlimbComponent from './cyberware/CyberlimbComponent';
 import CyberwareComponent from './cyberware/CyberwareComponent';
 import PurchasedCyberlimbs from './cyberware/PurchasedCyberlimbComponent';
@@ -73,10 +74,20 @@ class AugmentationComponent extends React.PureComponent {
 				)
 			};
 		}, {});
+
+		this.bioware = biowareData.reduce((memo, ware) => {
+			return {
+				...memo,
+				[ware.category]: [
+					...(memo[ware.category] || []),
+					ware
+				]
+			};
+		}, {});
 	}
 
 	render() {
-		const {cyberware} = this,
+		const {cyberware, bioware} = this,
 			{Cyberlimb} = cyberware,
 			{cyberlimbs, augmentations, sellGear} = this.props;
 
@@ -105,7 +116,7 @@ class AugmentationComponent extends React.PureComponent {
 					<PurchasedCyberlimbs
 						cyberlimbs={cyberlimbs}
 						sellGear={sellGear}
-						cyberware={this.cyberware}
+						cyberware={cyberware}
 					/>
 				}
 
@@ -128,6 +139,21 @@ class AugmentationComponent extends React.PureComponent {
 							];
 						}, [])
 					}
+				</div>
+
+				<div className="col-12">
+					<h3>Bioware</h3>
+					{Object.keys(bioware).map((ware) => {
+						return (
+							<ModalButton
+								key={`bioware-${ware}`}
+								modalName={ware}
+								modalContent={
+									<CyberwareComponent cyberwares={bioware[ware]} />
+								}
+							/>
+						);
+					})}
 				</div>
 
 				{
