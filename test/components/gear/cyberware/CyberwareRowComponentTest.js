@@ -88,6 +88,21 @@ describe('CyberwareRowComponent', () => {
 		},
 		source: "CF",
 		page: "108"
+	}, strikingCallus = {
+		id: "8832f6ac-0082-4b9b-9e1c-7f90874a23a1",
+		name: "Striking Callus",
+		category: "Bio-Weapons",
+		ess: "0.05*Rating",
+		capacity: "0",
+		avail: "2",
+		cost: "Rating*250",
+		bonus: {
+			unarmeddv: "Rating*0.5"
+		},
+		notes: "Rating is used to represent hands and feet. Every 2 Rating will grant +1 Unarmed damage.",
+		rating: "4",
+		source: "CF",
+		page: "121"
 	};
 
 	const setup = (ware = datajack, currentGrade = 0) => {
@@ -166,7 +181,15 @@ describe('CyberwareRowComponent', () => {
 				expect(cyberwareRowComponent.find('.cyberware--avail').text()).to.equal('8');
 				expect(cyberwareRowComponent.find('.cyberware--ess').text()).to.equal('0.2');
 				expect(cyberwareRowComponent.find('.cyberware--cost').text()).to.equal('15000¥');
-			})
+			});
+
+			it('should calculate the essence when the formula is  formated weird', () => {
+				const {cyberwareRowComponent} = setup(strikingCallus);
+
+				expect(cyberwareRowComponent.find('.cyberware--avail').text()).to.equal('2');
+				expect(cyberwareRowComponent.find('.cyberware--ess').text()).to.equal('0.05');
+				expect(cyberwareRowComponent.find('.cyberware--cost').text()).to.equal('250¥');
+			});
 		});
 
 

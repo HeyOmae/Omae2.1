@@ -52,7 +52,15 @@ class CyberwareRowComponent extends React.Component {
 			const statSplit = stat.match(/Rating [*] \d+(\.\d+)?/),
 				{Rating} = this.state;
 
-			return (statSplit && this.evil(statSplit[0].replace('Rating', Rating)));
+			return (
+				(
+					statSplit &&
+					this.evil(
+						statSplit[0].replace('Rating', Rating)
+					)
+				) ||
+				this.evil(stat.replace('Rating', Rating))
+			);
 		} else if (/FixedValues/.test(stat)) {
 			const {Rating} = this.state,
 				fixedValue = stat.match(/\d+(\.\d+)?/g);
