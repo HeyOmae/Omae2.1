@@ -65,6 +65,29 @@ describe('CyberwareRowComponent', () => {
 		source: "SR5",
 		page: "452",
 		rating: "3"
+	}, trollReduction = {
+		id: "aa347008-38f1-4cb4-a919-bc705a8efe71",
+		name: "Troll Reduction",
+		category: "Biosculpting",
+		ess: "FixedValues(0.2,0.5)",
+		capacity: "0",
+		avail: "FixedValues(8,12)",
+		cost: "FixedValues(15000,25000)",
+		bonus: {
+			armor: "-1",
+			specificattribute: {
+				name: "CHA",
+				max: "Rating"
+			}
+		},
+		rating: "2",
+		required: {
+			oneof: {
+				metatype: "Troll"
+			}
+		},
+		source: "CF",
+		page: "108"
 	};
 
 	const setup = (ware = datajack, currentGrade = 0) => {
@@ -127,14 +150,25 @@ describe('CyberwareRowComponent', () => {
 			expect(cyberwareRowComponent.find('.cyberware--ess').text()).to.equal('0.2');
 		});
 
-		it('should use Rating as avail without multiplier, multiple essence cost based off rating', () => {
-			const {cyberwareRowComponent} = setup(knowWare);
+		describe('change essence', () => {
+			it('should use Rating as avail without multiplier, multiple essence cost based off rating', () => {
+				const {cyberwareRowComponent} = setup(knowWare);
 
-			cyberwareRowComponent.setState({ Rating: 2 });
+				cyberwareRowComponent.setState({ Rating: 2 });
 
-			expect(cyberwareRowComponent.find('.cyberware--avail').text()).to.equal('2');
-			expect(cyberwareRowComponent.find('.cyberware--ess').text()).to.equal('0.1');
+				expect(cyberwareRowComponent.find('.cyberware--avail').text()).to.equal('2');
+				expect(cyberwareRowComponent.find('.cyberware--ess').text()).to.equal('0.1');
+			});
+
+			it('should display fixed values for essence', () => {
+				const {cyberwareRowComponent} = setup(trollReduction);
+
+				expect(cyberwareRowComponent.find('.cyberware--avail').text()).to.equal('8');
+				expect(cyberwareRowComponent.find('.cyberware--ess').text()).to.equal('0.2');
+				expect(cyberwareRowComponent.find('.cyberware--cost').text()).to.equal('15000¥');
+			})
 		});
+
 
 		describe('change cost', () => {
 			it('should scale off rating', () => {

@@ -15,7 +15,7 @@ class CyberwareRowComponent extends React.Component {
 		this.updateRating = this.updateRating.bind(this);
 		this.calculateAvail = this.calculateAvail.bind(this);
 		this.calculateStat = this.calculateStat.bind(this);
-		this.calculateCost = this.calculateCost.bind(this);
+		this.calculateStatBasedOffGrade = this.calculateStatBasedOffGrade.bind(this);
 		this.purchaseWare = this.purchaseWare.bind(this);
 	}
 
@@ -49,27 +49,21 @@ class CyberwareRowComponent extends React.Component {
 	calculateStat(stat) {
 		const {rating} = this.props.ware;
 		if (rating && /Rating/.test(stat)) {
-			const statSplit = stat.match(/Rating [*] \d+(.\d+)?/),
+			const statSplit = stat.match(/Rating [*] \d+(\.\d+)?/),
 				{Rating} = this.state;
 
 			return (statSplit && this.evil(statSplit[0].replace('Rating', Rating)));
+		} else if (/FixedValues/.test(stat)) {
+			const {Rating} = this.state,
+				fixedValue = stat.match(/\d+(\.\d+)?/g);
+			return +fixedValue[Rating - 1];
 		}
 
 		return +stat;
 	}
 
-	calculateCost(cost) {
-		if (/FixedValues/.test(cost)) {
-			const {Rating} = this.state,
-				fixedCosts = cost.match(/\d+/g);
-			return +fixedCosts[Rating - 1];
-		}
-
-		return this.calculateStat(cost) * waregrades[this.props.currentGrade].cost;
-	}
-
-	calculateEss(ess) {
-		return this.calculateStat(ess) * waregrades[this.props.currentGrade].ess;
+	calculateStatBasedOffGrade(stat, type) {
+		return this.calculateStat(stat) * waregrades[this.props.currentGrade][type];
 	}
 
 	purchaseWare() {
@@ -77,9 +71,9 @@ class CyberwareRowComponent extends React.Component {
 		purchase({
 			gear: {
 				...ware,
-				ess: this.calculateEss(ware.ess),
+				ess: this.calculateStatBasedOffGrade(ware.ess, 'ess'),
 				avail: this.calculateAvail(ware.avail),
-				cost: this.calculateCost(ware.cost)
+				cost: this.calculateStatBasedOffGrade(ware.cost, 'cost')
 			},
 			category: 'augmentations'
 		});
@@ -98,14 +92,14 @@ class CyberwareRowComponent extends React.Component {
 					</button>
 				</td>
 				<td className="cyberware--name">{name}</td>
-				<td className="cyberware--ess">{this.calculateEss(ess)}</td>
+				<td className="cyberware--ess">{this.calculateStatBasedOffGrade(ess, 'ess')}</td>
 				<td className="cyberware--rating">{rating ?
 					<select onChange={this.updateRating}>
 						{this.generateRatingOptions()}
 					</select>
 					: 'N/A'}</td>
 				<td className="cyberware--avail">{this.calculateAvail(avail)}</td>
-				<td className="cyberware--cost">{this.calculateCost(cost)}&yen;</td>
+				<td className="cyberware--cost">{this.calculateStatBasedOffGrade(cost, 'cost')}&yen;</td>
 				<td className="cyberware--ref">{source} p{page}</td>
 			</tr>
 		);
