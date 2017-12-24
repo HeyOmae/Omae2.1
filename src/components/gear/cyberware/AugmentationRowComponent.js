@@ -51,7 +51,6 @@ class AugmentationRowComponent extends React.Component {
 		if (rating && /Rating/.test(stat)) {
 			const statSplit = stat.match(/Rating [*] \d+(\.\d+)?/),
 				{Rating} = this.state;
-
 			return (
 				(
 					statSplit &&

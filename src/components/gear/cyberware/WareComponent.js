@@ -23,16 +23,20 @@ class WareComponent extends React.PureComponent {
 						<DisplayTable
 							header={<CyberwareHeader />}
 						>
-							{wares.map((ware) => {
+							{wares.reduce((memo, ware) => {
 								return (
-									<AugmentationRowComponent
-										key={ware.name}
-										ware={ware}
-										purchase={purchaseWare}
-										currentGrade={currentGrade}
-									/>
+									/Cyberlimb/.test(ware.name) || ware.minrating ? memo :
+									[
+										...memo,
+										<AugmentationRowComponent
+											key={ware.name}
+											ware={ware}
+											purchase={purchaseWare}
+											currentGrade={currentGrade}
+										/>
+									]
 								);
-							})}
+							}, [])}
 						</DisplayTable>
 					</div>
 				</div>

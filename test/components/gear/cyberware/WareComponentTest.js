@@ -54,6 +54,42 @@ describe('WareComponent', () => {
 			cost: "4000",
 			source: "SR5",
 			page: "452"
+		},
+		{
+			id: "4415180f-c3a0-4bb9-8580-3ed689ab6863",
+			name: "Cyberlimb Customization, Strength (2050)",
+			category: "Bodyware",
+			ess: "0",
+			capacity: "[0]",
+			avail: "+Rating - MinRating",
+			cost: "(Rating - MinRating) * 2000",
+			source: "2050",
+			page: "203",
+			forbidden: {
+				oneof: {
+					metatype: "Pixie"
+				}
+			},
+			minrating: "MinimumSTR",
+			rating: "MaximumSTR"
+		},
+		{
+			id: "7d61f860-0637-4214-914d-c68022361d24",
+			name: "Customized Strength",
+			category: "Cyberlimb Enhancement",
+			ess: "0",
+			capacity: "[0]",
+			avail: "+Rating - MinRating",
+			cost: "(Rating - MinRating) * 5000",
+			source: "SR5",
+			page: "456",
+			forbidden: {
+				oneof: {
+					metatype: "Pixie"
+				}
+			},
+			minrating: "MinimumSTR",
+			rating: "MaximumSTR"
 		}
 	];
 	const setup = (wares = cyberwareArray) => {
@@ -79,10 +115,10 @@ describe('WareComponent', () => {
 			expect(cyberwareComponent.find(DisplayTableComponent).props().header).to.deep.equal(<CyberwareHeader />);
 		});
 
-		it('should render AugmentationRow for each cyberware passed in', () => {
+		it('should render AugmentationRow for each cyberware passed in, expect for cyberlimb only augs', () => {
 			const {cyberwareComponent} = setup();
 
-			expect(cyberwareComponent.find(AugmentationRow)).lengthOf(cyberwareArray.length);
+			expect(cyberwareComponent.find(AugmentationRow)).lengthOf(cyberwareArray.length - 2);
 		});
 
 		it('should pass the purchase action in to the cyberwareRow', () => {

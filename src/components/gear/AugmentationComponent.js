@@ -84,6 +84,11 @@ class AugmentationComponent extends React.PureComponent {
 				]
 			};
 		}, {});
+
+		this.cyberwareToNotDisplay = [
+			'Cyberlimb',
+			'Cyberlimb Accessory'
+		];
 	}
 
 	render() {
@@ -124,7 +129,7 @@ class AugmentationComponent extends React.PureComponent {
 					<h3>Cyberware</h3>
 					{
 						Object.keys(cyberware).reduce((memo, ware) => {
-							return ware === 'Cyberlimb' ? memo
+							return this.cyberwareToNotDisplay.indexOf(ware) > -1 ? memo
 							: [
 								...memo,
 								(
