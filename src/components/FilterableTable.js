@@ -55,7 +55,8 @@ FilterableTable.propTypes = {
 	header: PropTypes.element,
 	children: PropTypes.node,
 	filterTable: PropTypes.string.isRequired,
-	striped: PropTypes.bool
+	striped: PropTypes.bool,
+	invert: PropTypes.bool
 };
 
 FilterableTable.defaultProps = {

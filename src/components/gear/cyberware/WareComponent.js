@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { purchaseGear } from '../../../actions';
 import WareGradeComponent from './WareGradeComponent';
 import AugmentationRowComponent from './AugmentationRowComponent';
-import DisplayTable from '../../DisplayTableComponent';
+import FilterableTable from '../../FilterableTable';
 import CyberwareHeader from './CyberwareHeader';
 
 class WareComponent extends React.PureComponent {
@@ -20,7 +20,7 @@ class WareComponent extends React.PureComponent {
 				</div>
 				<div className="row">
 					<div className="col-12">
-						<DisplayTable
+						<FilterableTable
 							header={<CyberwareHeader />}
 						>
 							{wares.reduce((memo, ware) => {
@@ -37,7 +37,7 @@ class WareComponent extends React.PureComponent {
 									]
 								);
 							}, [])}
-						</DisplayTable>
+						</FilterableTable>
 					</div>
 				</div>
 			</div>

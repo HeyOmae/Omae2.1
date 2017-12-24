@@ -5,7 +5,7 @@ import {WareComponent} from 'components/gear/cyberware/WareComponent';
 import WareGradeComponent from 'components/gear/cyberware/WareGradeComponent';
 import CyberwareHeader from 'components/gear/cyberware/CyberwareHeader';
 import AugmentationRow from 'components/gear/cyberware/AugmentationRowComponent';
-import DisplayTableComponent from 'components/DisplayTableComponent';
+import FilterableTable from 'components/FilterableTable';
 
 describe('WareComponent', () => {
 	const cyberwareArray = [
@@ -112,7 +112,7 @@ describe('WareComponent', () => {
 		it('should have a display table with cyberware header and rows', () => {
 			const {cyberwareComponent} = setup();
 
-			expect(cyberwareComponent.find(DisplayTableComponent).props().header).to.deep.equal(<CyberwareHeader />);
+			expect(cyberwareComponent.find(FilterableTable).props().header).to.deep.equal(<CyberwareHeader />);
 		});
 
 		it('should render AugmentationRow for each cyberware passed in, expect for cyberlimb only augs', () => {
