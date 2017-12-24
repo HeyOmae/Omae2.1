@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { purchaseGear } from '../../../actions';
 import WareGradeComponent from './WareGradeComponent';
-import CyberwareRowComponent from './CyberwareRowComponent';
+import AugmentationRowComponent from './AugmentationRowComponent';
 import DisplayTable from '../../DisplayTableComponent';
 import CyberwareHeader from './CyberwareHeader';
 
@@ -25,7 +25,7 @@ class CyberwareComponent extends React.PureComponent {
 						>
 							{cyberwares.map((ware) => {
 								return (
-									<CyberwareRowComponent
+									<AugmentationRowComponent
 										key={ware.name}
 										ware={ware}
 										purchase={purchaseWare}

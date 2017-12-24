@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import {CyberwareComponent} from 'components/gear/cyberware/CyberwareComponent';
 import WareGradeComponent from 'components/gear/cyberware/WareGradeComponent';
 import CyberwareHeader from 'components/gear/cyberware/CyberwareHeader';
-import CyberwareRow from 'components/gear/cyberware/CyberwareRowComponent';
+import AugmentationRow from 'components/gear/cyberware/AugmentationRowComponent';
 import DisplayTableComponent from 'components/DisplayTableComponent';
 
 describe('CyberwareComponent', () => {
@@ -79,15 +79,15 @@ describe('CyberwareComponent', () => {
 			expect(cyberwareComponent.find(DisplayTableComponent).props().header).to.deep.equal(<CyberwareHeader />);
 		});
 
-		it('should render CyberwareRow for each cyberware passed in', () => {
+		it('should render AugmentationRow for each cyberware passed in', () => {
 			const {cyberwareComponent} = setup();
 
-			expect(cyberwareComponent.find(CyberwareRow)).lengthOf(cyberwareArray.length);
+			expect(cyberwareComponent.find(AugmentationRow)).lengthOf(cyberwareArray.length);
 		});
 
 		it('should pass the purchase action in to the cyberwareRow', () => {
 			const {cyberwareComponent, props} = setup(),
-				firstRow = cyberwareComponent.find(CyberwareRow).get(0);
+				firstRow = cyberwareComponent.find(AugmentationRow).get(0);
 
 			expect(firstRow.props.purchase).to.equal(props.purchaseWare);
 		});

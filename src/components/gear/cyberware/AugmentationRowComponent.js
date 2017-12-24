@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import waregrades from '../../../data/waregrade.json';
 
-class CyberwareRowComponent extends React.Component {
+class AugmentationRowComponent extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -114,7 +114,7 @@ class CyberwareRowComponent extends React.Component {
 	}
 }
 
-CyberwareRowComponent.propTypes = {
+AugmentationRowComponent.propTypes = {
 	ware: PropTypes.shape({
 		name: PropTypes.string.isRequired,
 		ess: PropTypes.string.isRequired,
@@ -128,4 +128,4 @@ CyberwareRowComponent.propTypes = {
 	purchase: PropTypes.func.isRequired
 };
 
-export default CyberwareRowComponent;
+export default AugmentationRowComponent;
