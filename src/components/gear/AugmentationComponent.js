@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cyberwareData from '../../data/cyberware.json';
 import biowareData from '../../data/bioware.json';
 import CyberlimbComponent from './cyberware/CyberlimbComponent';
-import CyberwareComponent from './cyberware/CyberwareComponent';
+import Ware from './cyberware/WareComponent';
 import PurchasedCyberlimbs from './cyberware/PurchasedCyberlimbComponent';
 import PurchasedAugmentation from './cyberware/PurchasedAugmentationComponent';
 import ModalButton from '../ModalButtonComponent';
@@ -132,7 +132,7 @@ class AugmentationComponent extends React.PureComponent {
 										key={`cyberware-${ware}`}
 										modalName={ware}
 										modalContent={
-											<CyberwareComponent cyberwares={cyberware[ware]} />
+											<Ware wares={cyberware[ware]} />
 										}
 									/>
 								)
@@ -149,7 +149,7 @@ class AugmentationComponent extends React.PureComponent {
 								key={`bioware-${ware}`}
 								modalName={ware}
 								modalContent={
-									<CyberwareComponent cyberwares={bioware[ware]} />
+									<Ware wares={bioware[ware]} />
 								}
 							/>
 						);

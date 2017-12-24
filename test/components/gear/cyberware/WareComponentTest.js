@@ -1,13 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import {CyberwareComponent} from 'components/gear/cyberware/CyberwareComponent';
+import {WareComponent} from 'components/gear/cyberware/WareComponent';
 import WareGradeComponent from 'components/gear/cyberware/WareGradeComponent';
 import CyberwareHeader from 'components/gear/cyberware/CyberwareHeader';
 import AugmentationRow from 'components/gear/cyberware/AugmentationRowComponent';
 import DisplayTableComponent from 'components/DisplayTableComponent';
 
-describe('CyberwareComponent', () => {
+describe('WareComponent', () => {
 	const cyberwareArray = [
 		{
 			id: "47c48542-48c3-417e-91f0-b5a456183f05",
@@ -56,12 +56,12 @@ describe('CyberwareComponent', () => {
 			page: "452"
 		}
 	];
-	const setup = (cyberwares = cyberwareArray) => {
+	const setup = (wares = cyberwareArray) => {
 		const props = {
-				cyberwares,
+				wares,
 				purchaseWare: () => {}
 			},
-			cyberwareComponent = shallow(<CyberwareComponent {...props} />);
+			cyberwareComponent = shallow(<WareComponent {...props} />);
 
 		return { cyberwareComponent, props };
 	};

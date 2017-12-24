@@ -8,9 +8,9 @@ import AugmentationRowComponent from './AugmentationRowComponent';
 import DisplayTable from '../../DisplayTableComponent';
 import CyberwareHeader from './CyberwareHeader';
 
-class CyberwareComponent extends React.PureComponent {
+class WareComponent extends React.PureComponent {
 	render() {
-		const {cyberwares, purchaseWare, currentGrade} = this.props;
+		const {wares, purchaseWare, currentGrade} = this.props;
 		return (
 			<div>
 				<div className="row">
@@ -23,7 +23,7 @@ class CyberwareComponent extends React.PureComponent {
 						<DisplayTable
 							header={<CyberwareHeader />}
 						>
-							{cyberwares.map((ware) => {
+							{wares.map((ware) => {
 								return (
 									<AugmentationRowComponent
 										key={ware.name}
@@ -41,8 +41,8 @@ class CyberwareComponent extends React.PureComponent {
 	}
 }
 
-CyberwareComponent.propTypes = {
-	cyberwares: PropTypes.arrayOf(
+WareComponent.propTypes = {
+	wares: PropTypes.arrayOf(
 		PropTypes.shape({
 			name: PropTypes.string.isRequired,
 			ess: PropTypes.string.isRequired,
@@ -63,6 +63,6 @@ const mapStateToProps = (state) => {
 	};
 };
 
-export { CyberwareComponent };
+export { WareComponent };
 
-export default connect(mapStateToProps, { purchaseWare: purchaseGear })(CyberwareComponent);
+export default connect(mapStateToProps, { purchaseWare: purchaseGear })(WareComponent);
