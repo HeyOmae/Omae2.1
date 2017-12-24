@@ -103,6 +103,16 @@ describe('AugmentationRowComponent', () => {
 		rating: "4",
 		source: "CF",
 		page: "121"
+	}, consmenticMod = {
+		id: "df427266-60ea-4289-94ee-a30bb46ceb89",
+		name: "Cosmetic Modifcations (2050)",
+		category: "Bodyware",
+		ess: "0",
+		capacity: "0",
+		avail: "2",
+		cost: "Variable(2000-10000)",
+		source: "2050",
+		page: "203"
 	};
 
 	const setup = (ware = datajack, currentGrade = 0) => {
@@ -123,6 +133,17 @@ describe('AugmentationRowComponent', () => {
 		expect(augmentationRowComponent.find('.cyberware--avail').text()).to.equal(datajack.avail);
 		expect(augmentationRowComponent.find('.cyberware--cost').text()).to.equal(`${datajack.cost}¥`);
 		expect(augmentationRowComponent.find('.cyberware--ref').text()).to.equal(`${datajack.source} p${datajack.page}`);
+	});
+
+	describe('variable cost', () => {
+		it('should display an input field', () => {
+			const {augmentationRowComponent} = setup(consmenticMod);
+
+			const costInput = augmentationRowComponent.find('.cyberware--cost__input');
+
+			expect(costInput).lengthOf(1);
+			expect(costInput.props().placeholder).to.equal('2000-10000¥')
+		});
 	});
 
 	describe('rating', () => {

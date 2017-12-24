@@ -6,8 +6,19 @@ class AugmentationRowComponent extends React.Component {
 	constructor(props) {
 		super(props);
 
+		this.cost = {};
+
+		if (/Variable/.test(props.ware.cost)) {
+			const cost = props.ware.cost.match(/\d+/g);
+			this.cost = {
+				min: cost[0],
+				max: cost[1]
+			};
+		}
+
 		this.state = {
-			Rating: 1
+			Rating: 1,
+			cost: this.cost.min
 		};
 
 		this.evil = eval;
@@ -104,9 +115,21 @@ class AugmentationRowComponent extends React.Component {
 					<select onChange={this.updateRating}>
 						{this.generateRatingOptions()}
 					</select>
-					: 'N/A'}</td>
+					: 'N/A'}
+				</td>
 				<td className="cyberware--avail">{this.calculateAvail(avail)}</td>
-				<td className="cyberware--cost">{this.calculateStatBasedOffGrade(cost, 'cost')}&yen;</td>
+				<td className="cyberware--cost">
+					{
+						this.state.cost ?
+							<input
+								type="text"
+								className="cyberware--cost__input form-control"
+								placeholder={`${this.cost.min}-${this.cost.max}¥`}
+							/>
+						:
+							<span>{this.calculateStatBasedOffGrade(cost, 'cost')}&yen;</span>
+					}
+				</td>
 				<td className="cyberware--ref">{source} p{page}</td>
 			</tr>
 		);
