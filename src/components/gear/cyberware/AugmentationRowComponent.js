@@ -24,6 +24,7 @@ class AugmentationRowComponent extends React.Component {
 		this.evil = eval;
 
 		this.updateRating = this.updateRating.bind(this);
+		this.changeCost = this.changeCost.bind(this);
 		this.calculateAvail = this.calculateAvail.bind(this);
 		this.calculateStat = this.calculateStat.bind(this);
 		this.calculateStatBasedOffGrade = this.calculateStatBasedOffGrade.bind(this);
@@ -84,6 +85,12 @@ class AugmentationRowComponent extends React.Component {
 		return this.calculateStat(stat) * waregrades[this.props.currentGrade][type];
 	}
 
+	changeCost({target}) {
+		this.setState({
+			cost: target.value
+		});
+	}
+
 	purchaseWare() {
 		const {purchase, ware} = this.props;
 		purchase({
@@ -122,9 +129,11 @@ class AugmentationRowComponent extends React.Component {
 					{
 						this.state.cost ?
 							<input
-								type="text"
+								type="number"
 								className="cyberware--cost__input form-control"
 								placeholder={`${this.cost.min}-${this.cost.max}¥`}
+								onChange={this.changeCost}
+								value={this.state.cost}
 							/>
 						:
 							<span>{this.calculateStatBasedOffGrade(cost, 'cost')}&yen;</span>

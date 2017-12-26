@@ -144,6 +144,17 @@ describe('AugmentationRowComponent', () => {
 			expect(costInput).lengthOf(1);
 			expect(costInput.props().placeholder).to.equal('2000-10000¥')
 		});
+
+		it('should update state cost on change', () => {
+			const {augmentationRowComponent} = setup(consmenticMod);
+
+			const costInput = augmentationRowComponent.find('.cyberware--cost__input');
+
+			costInput.simulate('change', {target: {value: '5000'}});
+
+			expect(augmentationRowComponent.state().cost).to.equal('5000');
+			expect(augmentationRowComponent.find('.cyberware--cost__input').props().value).to.equal('5000');
+		});
 	});
 
 	describe('rating', () => {
