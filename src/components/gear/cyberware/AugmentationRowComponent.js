@@ -18,7 +18,7 @@ class AugmentationRowComponent extends React.Component {
 
 		this.state = {
 			Rating: 1,
-			cost: this.cost.min
+			cost: ''
 		};
 
 		this.evil = eval;
@@ -87,7 +87,7 @@ class AugmentationRowComponent extends React.Component {
 
 	changeCost({target}) {
 		this.setState({
-			cost: target.value
+			cost: +target.value > this.cost.max ? this.cost.max : target.value
 		});
 	}
 

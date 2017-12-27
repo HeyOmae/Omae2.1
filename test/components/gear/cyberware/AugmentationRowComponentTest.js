@@ -155,6 +155,23 @@ describe('AugmentationRowComponent', () => {
 			expect(augmentationRowComponent.state().cost).to.equal('5000');
 			expect(augmentationRowComponent.find('.cyberware--cost__input').props().value).to.equal('5000');
 		});
+
+		it('should not set the cost higher then the max', () => {
+			const {augmentationRowComponent} = setup(consmenticMod);
+
+			const costInput = augmentationRowComponent.find('.cyberware--cost__input');
+
+			costInput.simulate('change', {target: {value: '10001'}});
+
+			expect(augmentationRowComponent.state().cost).to.equal('10000');
+			expect(augmentationRowComponent.find('.cyberware--cost__input').props().value).to.equal('10000');
+		});
+
+		it('should puchase gear at the state.cost', () => {
+			const {augmentationRowComponent} = setup(consmenticMod);
+
+			
+		});
 	});
 
 	describe('rating', () => {
