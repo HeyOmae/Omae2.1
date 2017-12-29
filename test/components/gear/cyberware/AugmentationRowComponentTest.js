@@ -152,8 +152,8 @@ describe('AugmentationRowComponent', () => {
 
 			costInput.simulate('change', {target: {value: '5000'}});
 
-			expect(augmentationRowComponent.state().cost).to.equal('5000');
-			expect(augmentationRowComponent.find('.cyberware--cost__input').props().value).to.equal('5000');
+			expect(augmentationRowComponent.state().cost).to.equal(5000);
+			expect(augmentationRowComponent.find('.cyberware--cost__input').props().value).to.equal(5000);
 		});
 
 		it('should not set the cost higher then the max', () => {
@@ -163,14 +163,46 @@ describe('AugmentationRowComponent', () => {
 
 			costInput.simulate('change', {target: {value: '10001'}});
 
-			expect(augmentationRowComponent.state().cost).to.equal('10000');
-			expect(augmentationRowComponent.find('.cyberware--cost__input').props().value).to.equal('10000');
+			expect(augmentationRowComponent.state().cost).to.equal(10000);
+			expect(augmentationRowComponent.find('.cyberware--cost__input').props().value).to.equal(10000);
 		});
 
 		it('should puchase gear at the state.cost', () => {
-			const {augmentationRowComponent} = setup(consmenticMod);
+			const {augmentationRowComponent, props} = setup(consmenticMod);
 
-			
+			augmentationRowComponent.setState({
+				cost: 5000,
+			});
+
+			augmentationRowComponent.find('button').simulate('click');
+
+			expect(props.purchase).to.have.been.calledWith({
+				gear: {
+					...consmenticMod,
+					ess: 0,
+					cost: 5000
+				},
+				category: 'augmentations'
+			});
+		});
+
+		it('should puchase gear at the cost.min if state.cost is below that', () => {
+			const {augmentationRowComponent, props} = setup(consmenticMod);
+
+			augmentationRowComponent.setState({
+				cost: 1,
+			});
+
+			augmentationRowComponent.find('button').simulate('click');
+
+			expect(props.purchase).to.have.been.calledWith({
+				gear: {
+					...consmenticMod,
+					ess: 0,
+					cost: 2000
+				},
+				category: 'augmentations'
+			});
 		});
 	});
 

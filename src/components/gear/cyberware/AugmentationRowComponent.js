@@ -11,14 +11,14 @@ class AugmentationRowComponent extends React.Component {
 		if (/Variable/.test(props.ware.cost)) {
 			const cost = props.ware.cost.match(/\d+/g);
 			this.cost = {
-				min: cost[0],
-				max: cost[1]
+				min: +cost[0],
+				max: +cost[1]
 			};
 		}
 
 		this.state = {
 			Rating: 1,
-			cost: ''
+			cost: this.cost.min ? '' : undefined
 		};
 
 		this.evil = eval;
@@ -87,7 +87,7 @@ class AugmentationRowComponent extends React.Component {
 
 	changeCost({target}) {
 		this.setState({
-			cost: +target.value > this.cost.max ? this.cost.max : target.value
+			cost: +(+target.value > this.cost.max ? this.cost.max : target.value)
 		});
 	}
 
@@ -98,7 +98,9 @@ class AugmentationRowComponent extends React.Component {
 				...ware,
 				ess: this.calculateStatBasedOffGrade(ware.ess, 'ess'),
 				avail: this.calculateAvail(ware.avail),
-				cost: this.calculateStatBasedOffGrade(ware.cost, 'cost')
+				cost: this.state.cost === undefined ? this.calculateStatBasedOffGrade(ware.cost, 'cost')
+					:
+					this.state.cost < this.cost.min ? this.cost.min : this.state.cost
 			},
 			category: 'augmentations'
 		});
@@ -127,7 +129,9 @@ class AugmentationRowComponent extends React.Component {
 				<td className="cyberware--avail">{this.calculateAvail(avail)}</td>
 				<td className="cyberware--cost">
 					{
-						this.state.cost ?
+						this.state.cost === undefined ?
+							<span>{this.calculateStatBasedOffGrade(cost, 'cost')}&yen;</span>
+							:
 							<input
 								type="number"
 								className="cyberware--cost__input form-control"
@@ -135,8 +139,6 @@ class AugmentationRowComponent extends React.Component {
 								onChange={this.changeCost}
 								value={this.state.cost}
 							/>
-						:
-							<span>{this.calculateStatBasedOffGrade(cost, 'cost')}&yen;</span>
 					}
 				</td>
 				<td className="cyberware--ref">{source} p{page}</td>
