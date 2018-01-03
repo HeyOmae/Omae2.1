@@ -1,0 +1,93 @@
+[
+	{
+		"id": "45d84d77-5461-4441-a529-527aba347334",
+		"name": "Blow-Away Panel Weapon Mount Add-on (Drone)",
+		"page": "124",
+		"source": "R5",
+		"avail": "0",
+		"category": "All",
+		"cost": "25",
+		"rating": "0",
+		"slots": "0",
+		"required": {
+			"vehicledetails": {
+				"category": {
+					"-operation": "contains",
+					"#text": "Drones"
+				}
+			}
+		}
+	},
+	{
+		"id": "dd03dc64-64e1-49a7-8836-d932cd4cb95b",
+		"name": "Pop-Out Weapon Mount Add-on (Drone)",
+		"page": "124",
+		"source": "R5",
+		"avail": "0",
+		"category": "All",
+		"cost": "Rating * 100",
+		"rating": "7",
+		"slots": "1",
+		"required": {
+			"vehicledetails": {
+				"category": {
+					"-operation": "contains",
+					"#text": "Drones"
+				}
+			}
+		}
+	},
+	{
+		"id": "c3f9f5a4-b8d4-11e6-80f5-76304dec7eb7",
+		"name": "Expanded Ammunition Bay (Second Bin) Weapon Mount Add-on (Drone)",
+		"page": "124",
+		"source": "R5",
+		"avail": "0",
+		"category": "All",
+		"cost": "50",
+		"rating": "0",
+		"slots": "1",
+		"ammoreplace": "Weapon * 2",
+		"required": {
+			"vehicledetails": {
+				"category": {
+					"-operation": "contains",
+					"#text": "Drones"
+				}
+			}
+		}
+	},
+	{
+		"id": "c3f9fa86-b8d4-11e6-80f5-76304dec7eb7",
+		"name": "Expanded Ammunition Bay (Belt-Feed) Weapon Mount Add-on (Drone)",
+		"page": "124",
+		"source": "R5",
+		"avail": "0",
+		"category": "All",
+		"cost": "500",
+		"rating": "0",
+		"slots": "2",
+		"ammobonus": "100",
+		"ammoreplace": "0(belt)",
+		"required": {
+			"vehicledetails": {
+				"category": {
+					"-operation": "contains",
+					"#text": "Drones"
+				}
+			}
+		}
+	},
+	{
+		"id": "6741d080-0e40-4941-a7b5-85ab3e1a9cb2",
+		"name": "Ammo Bin",
+		"page": "159",
+		"source": "R5",
+		"avail": "6R",
+		"category": "Weapons",
+		"cost": "200",
+		"rating": "0",
+		"slots": "1",
+		"ammobonus": "250"
+	}
+]

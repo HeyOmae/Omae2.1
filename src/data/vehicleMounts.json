@@ -1,0 +1,361 @@
+[
+	{
+		"id": "079a5c61-aee6-4383-81b7-32540f7a0a0b",
+		"name": "Standard [SR5]",
+		"page": "461",
+		"source": "SR5",
+		"avail": "8F",
+		"category": "Size",
+		"cost": "2500",
+		"slots": "0",
+		"required": {
+			"control": [
+				"Manual",
+				"Remote"
+			],
+			"flexibility": "Fixed",
+			"visibility": "External"
+		},
+		"weaponcategories": "Blades,Clubs,Exotic Melee Weapons,Crossbows,Tasers,Holdouts,Light Pistols,Heavy Pistols,Machine Pistols,Submachine Guns,Assault Rifles,Shotguns,Exotic Ranged Weapons,Flamethrowers,Special Weapons,Sporting Rifles"
+	},
+	{
+		"id": "a567c5d3-38b8-496a-add8-1e176384e935",
+		"name": "Heavy [SR5]",
+		"page": "461",
+		"source": "SR5",
+		"avail": "14F",
+		"category": "Size",
+		"cost": "5000",
+		"slots": "0",
+		"required": {
+			"control": [
+				"Manual",
+				"Remote"
+			],
+			"flexibility": "Fixed",
+			"visibility": "External"
+		},
+		"weaponcategories": "Blades,Clubs,Exotic Melee Weapons,Crossbows,Tasers,Holdouts,Light Pistols,Heavy Pistols,Machine Pistols,Submachine Guns,Assault Rifles,Sniper Rifles,Shotguns,Grenade Launchers,Missile Launchers,Laser Weapons,Light Machine Guns,Medium Machine Guns,Heavy Machine Guns,Assault Cannons,Flamethrowers,Sporting Rifles,Exotic Ranged Weapons"
+	},
+	{
+		"id": "1b44540c-b463-47ed-b288-cf4a8e130eab",
+		"name": "Light",
+		"page": "163",
+		"source": "R5",
+		"avail": "6F",
+		"category": "Size",
+		"cost": "750",
+		"slots": "1",
+		"weaponcategories": "Melee,Tasers,Holdouts,Light Pistols,Heavy Pistols,Machine Pistols,Submachine Guns"
+	},
+	{
+		"id": "4e9da56b-622c-439f-9718-98ac3a792351",
+		"name": "Standard",
+		"page": "163",
+		"source": "R5",
+		"avail": "8F",
+		"category": "Size",
+		"cost": "1500",
+		"slots": "2",
+		"weaponcategories": "Tasers,Holdouts,Light Pistols,Heavy Pistols,Assault Rifles,Sniper Rifles,Shotguns,Exotic Ranged Weapons,Flamethrowers,Special Weapons"
+	},
+	{
+		"id": "73f6f721-9732-4773-8ce6-0e3f5222a49f",
+		"name": "Heavy",
+		"page": "163",
+		"source": "R5",
+		"avail": "12F",
+		"category": "Size",
+		"cost": "4000",
+		"slots": "4",
+		"weaponcategories": "Tasers,Holdouts,Light Pistols,Heavy Pistols,Assault Rifles,Sniper Rifles,Shotguns,Exotic Ranged Weapons,Flamethrowers,Special Weapons,Light Machine Guns,Medium Machine Guns,Heavy Machine Guns,Assault Cannons,Grenade Launchers,Missile Launchers,Laser Weapons"
+	},
+	{
+		"id": "20e7d5d5-da20-4466-99b7-977a578155e4",
+		"name": "External",
+		"page": "163",
+		"source": "R5",
+		"avail": "0",
+		"category": "Visibility",
+		"cost": "0",
+		"slots": "0"
+	},
+	{
+		"id": "4d90a1e3-8602-488e-b837-f155b4549084",
+		"name": "Internal",
+		"page": "163",
+		"source": "R5",
+		"avail": "4",
+		"category": "Visibility",
+		"cost": "1500",
+		"slots": "2"
+	},
+	{
+		"id": "ad732625-c8bc-4e24-bc84-90c8449e82d5",
+		"name": "Concealed",
+		"page": "163",
+		"source": "R5",
+		"avail": "4",
+		"category": "Visibility",
+		"cost": "4000",
+		"slots": "4"
+	},
+	{
+		"id": "5d53c232-c18d-4546-bb50-5325f57eb422",
+		"name": "Fixed",
+		"page": "163",
+		"source": "R5",
+		"avail": "0",
+		"category": "Flexibility",
+		"cost": "0",
+		"slots": "0"
+	},
+	{
+		"id": "8a0be4c4-5717-4a82-a1cd-35cd0315d180",
+		"name": "Flexible",
+		"page": "163",
+		"source": "R5",
+		"avail": "2",
+		"category": "Flexibility",
+		"cost": "2000",
+		"slots": "1"
+	},
+	{
+		"id": "12342330-446f-4e2f-ad9b-6ccdc4d89a9b",
+		"name": "Turret",
+		"page": "163",
+		"source": "R5",
+		"avail": "6",
+		"category": "Flexibility",
+		"cost": "5000",
+		"slots": "2"
+	},
+	{
+		"id": "df720a43-31aa-4053-9f2e-30ec4923cfe8",
+		"name": "Remote",
+		"page": "163",
+		"source": "R5",
+		"avail": "0",
+		"category": "Control",
+		"cost": "0",
+		"slots": "0"
+	},
+	{
+		"id": "0c05f936-4826-418f-b798-848dafa4b4a0",
+		"name": "Manual",
+		"page": "163",
+		"source": "R5",
+		"avail": "1",
+		"category": "Control",
+		"cost": "500",
+		"slots": "1"
+	},
+	{
+		"id": "05995261-b645-48b5-9a54-9f26becc9d5d",
+		"name": "Armored Manual",
+		"page": "163",
+		"source": "R5",
+		"avail": "4",
+		"category": "Control",
+		"cost": "1500",
+		"slots": "2"
+	},
+	{
+		"id": "4fdb0fb3-c987-41a0-b11e-d82fe6ac85b1",
+		"name": "Micro (Drone)",
+		"page": "124",
+		"source": "R5",
+		"avail": "8R",
+		"category": "Size",
+		"cost": "400",
+		"slots": "0",
+		"required": {
+			"vehicledetails": {
+				"category": {
+					"-operation": "contains",
+					"#text": "Drones"
+				}
+			},
+			"weaponmountdetails": {
+				"control": "None",
+				"flexibility": "None",
+				"visibility": "None"
+			}
+		},
+		"weaponcategories": "Micro-Drone Weapons"
+	},
+	{
+		"id": "94d06312-0487-4f3c-a8e9-e02ac2d04a2e",
+		"name": "Mini (Drone)",
+		"page": "124",
+		"source": "R5",
+		"avail": "4R",
+		"category": "Size",
+		"cost": "800",
+		"slots": "1",
+		"required": {
+			"vehicledetails": {
+				"category": {
+					"-operation": "contains",
+					"#text": "Drones"
+				}
+			},
+			"weaponmountdetails": {
+				"control": "None",
+				"flexibility": "None",
+				"visibility": "None"
+			}
+		},
+		"weaponcategories": "Tasers,Holdouts,Light Pistols,Grenades,Blades,Clubs"
+	},
+	{
+		"id": "9ee5e112-8ced-4266-9141-02ef18e33f43",
+		"name": "Small (Drone)",
+		"page": "124",
+		"source": "R5",
+		"avail": "8R",
+		"category": "Size",
+		"cost": "1600",
+		"slots": "2",
+		"required": {
+			"vehicledetails": {
+				"category": {
+					"-operation": "contains",
+					"#text": "Drones"
+				}
+			},
+			"weaponmountdetails": {
+				"control": "None",
+				"flexibility": "None",
+				"visibility": "None"
+			}
+		},
+		"weaponcategories": "Melee,Tasers,Holdouts,Light Pistols,Heavy Pistols,Machine Pistols"
+	},
+	{
+		"id": "0ec991be-a888-4547-8ca2-ad43d7c7399e",
+		"name": "Standard (Drone)",
+		"page": "124",
+		"source": "R5",
+		"avail": "10F",
+		"category": "Size",
+		"cost": "2400",
+		"slots": "3",
+		"required": {
+			"vehicledetails": {
+				"category": {
+					"-operation": "contains",
+					"#text": "Drones"
+				}
+			},
+			"weaponmountdetails": {
+				"control": "None",
+				"flexibility": "None",
+				"visibility": "None"
+			}
+		},
+		"weaponcategories": "Melee,Tasers,Holdouts,Light Pistols,Heavy Pistols,Machine Pistols,Submachine Guns,Grenade Launchers"
+	},
+	{
+		"id": "2ab20ea4-441c-482d-977e-a5e90f37cb51",
+		"name": "Large (Drone)",
+		"page": "124",
+		"source": "R5",
+		"avail": "12F",
+		"category": "Size",
+		"cost": "3200",
+		"slots": "4",
+		"required": {
+			"vehicledetails": {
+				"category": {
+					"-operation": "contains",
+					"#text": "Drones"
+				}
+			},
+			"weaponmountdetails": {
+				"control": "None",
+				"flexibility": "None",
+				"visibility": "None"
+			}
+		},
+		"weaponcategories": "Melee,Tasers,Holdouts,Light Pistols,Heavy Pistols,Machine Pistols,Submachine Guns,Assault Rifles,Shotguns,Grenade Launchers,Sporting Rifles"
+	},
+	{
+		"id": "30099989-d8ca-4f9c-adf0-1de36b6f8ab6",
+		"name": "Huge (Drone)",
+		"page": "124",
+		"source": "R5",
+		"avail": "16F",
+		"category": "Size",
+		"cost": "4000",
+		"slots": "5",
+		"required": {
+			"vehicledetails": {
+				"category": {
+					"-operation": "contains",
+					"#text": "Drones"
+				}
+			},
+			"weaponmountdetails": {
+				"control": "None",
+				"flexibility": "None",
+				"visibility": "None"
+			}
+		},
+		"weaponcategories": "Melee,Tasers,Holdouts,Light Pistols,Heavy Pistols,Machine Pistols,Submachine Guns,Assault Rifles,Shotguns,Machine Guns,Grenade Launchers,Laser Weapons,Light Machine Guns,Medium Machine Guns,Sporting Rifles,Sniper Rifles"
+	},
+	{
+		"id": "52973ba7-3dbb-49fe-9a4c-8105eb6ab4bc",
+		"name": "Heavy (Drone)",
+		"page": "124",
+		"source": "R5",
+		"avail": "20F",
+		"category": "Size",
+		"cost": "4800",
+		"slots": "6",
+		"required": {
+			"vehicledetails": {
+				"category": {
+					"-operation": "contains",
+					"#text": "Drones"
+				}
+			},
+			"weaponmountdetails": {
+				"control": "None",
+				"flexibility": "None",
+				"visibility": "None"
+			}
+		},
+		"weaponcategories": "Melee,Tasers,Holdouts,Light Pistols,Heavy Pistols,Machine Pistols,Submachine Guns,Assault Rifles,Shotguns,Machine Guns,Assault Cannons,Grenade Launchers,Missile Launchers,Laser Weapons,Light Machine Guns,Medium Machine Guns,Heavy Machine Guns,Sporting Rifles,Sniper Rifles"
+	},
+	{
+		"id": "be56fb91-88d3-4bfb-8e42-d12929b44fe5",
+		"name": "None",
+		"page": "163",
+		"source": "R5",
+		"avail": "0",
+		"category": "Control",
+		"cost": "0",
+		"slots": "0"
+	},
+	{
+		"id": "c6939caa-e94d-4db3-94f6-a46fbcc4df07",
+		"name": "None",
+		"page": "163",
+		"source": "R5",
+		"avail": "0",
+		"category": "Flexibility",
+		"cost": "0",
+		"slots": "0"
+	},
+	{
+		"id": "b7333366-24bf-4f47-bb68-b1cfe8f450fd",
+		"name": "None",
+		"page": "163",
+		"source": "R5",
+		"avail": "0",
+		"category": "Visibility",
+		"cost": "0",
+		"slots": "0"
+	}
+]

@@ -1,0 +1,9786 @@
+[
+	{
+		"id": "c0d3e7fd-d5fd-48c4-b49d-0c7dea26895d",
+		"name": "Dodge Scoot (Scooter)",
+		"page": "462",
+		"source": "SR5",
+		"accel": "1",
+		"armor": "4",
+		"avail": "0",
+		"body": "4",
+		"category": "Bikes",
+		"cost": "3000",
+		"handling": "4/3",
+		"pilot": "1",
+		"sensor": "1",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "1",
+				"-maxrating": "6",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": "Improved Economy"
+		},
+		"seats": "1"
+	},
+	{
+		"id": "d43b2b6a-d6e6-460a-ab75-ca445db06dde",
+		"name": "Daihatsu-Caterpillar Horseman",
+		"page": "41",
+		"source": "R5",
+		"accel": "2",
+		"armor": "3",
+		"avail": "0",
+		"body": "4",
+		"category": "Bikes",
+		"cost": "12000",
+		"handling": "3/1",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "6",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": "Enviroseal"
+		},
+		"seats": "1"
+	},
+	{
+		"id": "be4aa3ae-6725-4082-a5d2-8fa8d1e91640",
+		"name": "Ares-Segway Terrier",
+		"page": "42",
+		"source": "R5",
+		"accel": "1",
+		"armor": "2",
+		"avail": "0",
+		"body": "2",
+		"category": "Bikes",
+		"cost": "4500",
+		"handling": "5/2",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "2",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "6",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": "Gyro-Stabilization"
+		},
+		"seats": "1"
+	},
+	{
+		"id": "ce6e90f6-2be6-42f4-a1e7-b633b40604c2",
+		"name": "Horizon-Doble Revolution",
+		"page": "42",
+		"source": "R5",
+		"accel": "3",
+		"armor": "6",
+		"avail": "4",
+		"body": "6",
+		"category": "Bikes",
+		"cost": "8000",
+		"handling": "5/3",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "6",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Gyro-Stabilization",
+				"Smart Tire"
+			]
+		},
+		"seats": "1"
+	},
+	{
+		"id": "cfafdbac-509e-49f3-a62a-5cfa8e987e0f",
+		"name": "Evo Falcon-EX",
+		"page": "43",
+		"source": "R5",
+		"accel": "1/2",
+		"armor": "9",
+		"avail": "0",
+		"body": "7",
+		"category": "Bikes",
+		"cost": "10000",
+		"handling": "3/5",
+		"pilot": "1",
+		"sensor": "1",
+		"speed": "2/3",
+		"gears": {
+			"gear": {
+				"-rating": "1",
+				"-maxrating": "6",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": "Tracked Propulsion"
+		},
+		"seats": "2"
+	},
+	{
+		"id": "e812194e-9e7b-4769-bf77-8034a3b306de",
+		"name": "Entertainment Systems Cyclops",
+		"page": "42",
+		"source": "R5",
+		"accel": "2",
+		"armor": "4",
+		"avail": "0",
+		"body": "4",
+		"category": "Bikes",
+		"cost": "6500",
+		"handling": "4/4",
+		"pilot": "1",
+		"sensor": "1",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "1",
+				"-maxrating": "6",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": "Gyro-Stabilization"
+		},
+		"seats": "1"
+	},
+	{
+		"id": "87435f01-f4e3-424f-a252-2415b9b988cd",
+		"name": "Echo Motors Zip",
+		"page": "44",
+		"source": "R5",
+		"accel": "1",
+		"armor": "4",
+		"avail": "0",
+		"body": "6",
+		"category": "Bikes",
+		"cost": "3500",
+		"handling": "3/2",
+		"pilot": "1",
+		"sensor": "2",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "6",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": {
+				"-rating": "1",
+				"#text": "Metahuman Adjustment"
+			}
+		},
+		"seats": "1"
+	},
+	{
+		"id": "006ea45a-cc35-496c-8d01-94eb64d8febb",
+		"name": "Yamaha Kaburaya",
+		"page": "44",
+		"source": "R5",
+		"accel": "3",
+		"armor": "4",
+		"avail": "0",
+		"body": "5",
+		"category": "Bikes",
+		"cost": "17000",
+		"handling": "5/3",
+		"pilot": "1",
+		"sensor": "2",
+		"speed": "6",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "6",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "1"
+	},
+	{
+		"id": "16c2885f-ef4a-4f06-92c8-754694790ccb",
+		"name": "Buell Spartan",
+		"page": "45",
+		"source": "R5",
+		"accel": "2",
+		"armor": "6",
+		"avail": "0",
+		"body": "7",
+		"category": "Bikes",
+		"cost": "11500",
+		"handling": "3/4",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "6",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": "Off-Road Suspension"
+		},
+		"seats": "1"
+	},
+	{
+		"id": "f0b4963e-d709-47a2-a290-5528c79d2cd8",
+		"name": "Harley-Davidson Nightmare",
+		"page": "45",
+		"source": "R5",
+		"accel": "2",
+		"armor": "8",
+		"avail": "0",
+		"body": "8",
+		"category": "Bikes",
+		"cost": "22000",
+		"handling": "4/3",
+		"pilot": "2",
+		"sensor": "3",
+		"speed": "5",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "6",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "2"
+	},
+	{
+		"id": "801800de-858c-4e98-949d-0b429884e755",
+		"name": "Yamaha Nodachi",
+		"page": "45",
+		"source": "R5",
+		"accel": "2",
+		"armor": "9",
+		"avail": "12R",
+		"body": "8",
+		"category": "Bikes",
+		"cost": "28000",
+		"handling": "4/3",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "5",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "6",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "2"
+	},
+	{
+		"id": "e61ac395-78d2-44d8-a3bd-6ac74b1d76f5",
+		"name": "Thundercloud Mustang",
+		"page": "46",
+		"source": "R5",
+		"accel": "2",
+		"armor": "6",
+		"avail": "3",
+		"body": "8",
+		"category": "Bikes",
+		"cost": "11000",
+		"handling": "4/4",
+		"pilot": "1",
+		"sensor": "1",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "1",
+				"-maxrating": "6",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Smart Tire",
+				"Secondary Propulsion (Amphibious, Surface)"
+			]
+		},
+		"seats": "2"
+	},
+	{
+		"id": "69c76fc9-43e0-44b4-9ff9-4ea9f700ee81",
+		"name": "Renault-Fiat Funone",
+		"page": "47",
+		"source": "R5",
+		"accel": "1",
+		"armor": "4",
+		"avail": "0",
+		"body": "6",
+		"category": "Cars",
+		"cost": "8500",
+		"handling": "3/1",
+		"pilot": "2",
+		"sensor": "1",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "1",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": {
+				"-rating": "1",
+				"#text": "Metahuman Adjustment"
+			}
+		},
+		"seats": "2"
+	},
+	{
+		"id": "df7fa024-4b0d-429b-931e-ac3057d507a9",
+		"name": "Dodge Xenon",
+		"page": "47",
+		"source": "R5",
+		"accel": "2",
+		"armor": "6",
+		"avail": "0",
+		"body": "8",
+		"category": "Cars",
+		"cost": "18000",
+		"handling": "3/2",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "4/3",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "4"
+	},
+	{
+		"id": "63609689-d809-49f7-8d41-16a23319f049",
+		"name": "Echo Motors Metaway",
+		"page": "47",
+		"source": "R5",
+		"accel": "1",
+		"armor": "4",
+		"avail": "0",
+		"body": "10",
+		"category": "Cars",
+		"cost": "24000",
+		"handling": "4/2",
+		"pilot": "1",
+		"sensor": "2",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [{
+					"-rating": "1",
+					"#text": "Metahuman Adjustment"
+				},
+				"Enviroseal"
+			]
+		},
+		"seats": "1"
+	},
+	{
+		"id": "6a094997-cd2b-4094-90ff-d5648b8889fb",
+		"name": "GMC 442 Chameleon",
+		"page": "48",
+		"source": "R5",
+		"accel": "1",
+		"armor": "4",
+		"avail": "0",
+		"body": "10",
+		"category": "Cars",
+		"cost": "14000",
+		"handling": "4/2",
+		"pilot": "1",
+		"sensor": "1",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "1",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "4"
+	},
+	{
+		"id": "7f8cbe18-eec0-4e06-8c7b-ba3f87bfb15b",
+		"name": "Mercury Comet",
+		"page": "49",
+		"source": "R5",
+		"accel": "2",
+		"armor": "6",
+		"avail": "0",
+		"body": "11",
+		"category": "Cars",
+		"cost": "20000",
+		"handling": "4/4",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "4"
+	},
+	{
+		"id": "605d4098-01c4-481b-b6ac-f2e39c528cb4",
+		"name": "SAAB Gladius 998 TI",
+		"page": "50",
+		"source": "R5",
+		"accel": "4",
+		"armor": "5",
+		"avail": "14",
+		"body": "10",
+		"category": "Cars",
+		"cost": "154000",
+		"handling": "7/3",
+		"pilot": "3",
+		"sensor": "5",
+		"speed": "9",
+		"gears": {
+			"gear": {
+				"-rating": "5",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": "Rigger Interface"
+		},
+		"seats": "2"
+	},
+	{
+		"id": "04b31d4c-55f1-43c8-a2ea-ce3002c6f577",
+		"name": "SAAB Dynamit",
+		"page": "50",
+		"source": "R5",
+		"accel": "3",
+		"armor": "3",
+		"avail": "8",
+		"body": "10",
+		"category": "Cars",
+		"cost": "98000",
+		"handling": "5/1",
+		"pilot": "2",
+		"sensor": "3",
+		"speed": "9",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "2"
+	},
+	{
+		"id": "6243f89d-710f-4cc7-b168-eed3723395a8",
+		"name": "GMC Phoenix",
+		"page": "51",
+		"source": "R5",
+		"accel": "3",
+		"armor": "6",
+		"avail": "0",
+		"body": "10",
+		"category": "Cars",
+		"cost": "32000",
+		"handling": "4/2",
+		"pilot": "2",
+		"sensor": "3",
+		"speed": "6",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "4"
+	},
+	{
+		"id": "c8dd9bbc-532b-46c2-9a72-05c3ae4bf05f",
+		"name": "Hyundai Equus",
+		"page": "52",
+		"source": "R5",
+		"accel": "2",
+		"armor": "10",
+		"avail": "0",
+		"body": "12",
+		"category": "Cars",
+		"cost": "40000",
+		"handling": "3/3",
+		"pilot": "2",
+		"sensor": "3",
+		"speed": "4/3",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": "Amenities (Low)"
+		},
+		"seats": "4"
+	},
+	{
+		"id": "ebe75238-fb29-4913-8dc2-745bbde42db6",
+		"name": "Chevrolet Longboard",
+		"page": "52",
+		"source": "R5",
+		"accel": "2",
+		"armor": "6",
+		"avail": "0",
+		"body": "12",
+		"category": "Cars",
+		"cost": "31000",
+		"handling": "4/3",
+		"pilot": "1",
+		"sensor": "2",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": "Amenities (Low)"
+		},
+		"seats": "6"
+	},
+	{
+		"id": "8776075a-0ef3-4aa1-8811-6fb87e96ece6",
+		"name": "Rolls-Royce Phaeton",
+		"page": "52",
+		"source": "R5",
+		"accel": "2",
+		"armor": "12",
+		"avail": "18",
+		"body": "16",
+		"category": "Cars",
+		"cost": "350000",
+		"handling": "5/3",
+		"pilot": "3",
+		"sensor": "4",
+		"speed": "5/3",
+		"gears": {
+			"gear": {
+				"-rating": "4",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Amenities (Luxury)",
+				{
+					"-rating": "2",
+					"#text": "Anti-Theft System"
+				},
+				{
+					"-rating": "3",
+					"#text": "Armor (Concealed)"
+				},
+				"Rigger Interface"
+			]
+		},
+		"seats": "10"
+	},
+	{
+		"id": "b25cc2b2-f67f-4361-be28-e9451d2928fd",
+		"name": "Thundercloud Morgan",
+		"page": "52",
+		"source": "R5",
+		"accel": "3",
+		"armor": "6",
+		"avail": "8",
+		"body": "14",
+		"category": "Cars",
+		"cost": "7500",
+		"handling": "3/5",
+		"pilot": "0",
+		"sensor": "0",
+		"speed": "4",
+		"mods": {
+			"name": [
+				"Off-Road Suspension",
+				"Manual Control Override"
+			]
+		},
+		"seats": "2",
+		"weaponmounts": {
+			"weaponmount": {
+				"control": "Manual",
+				"flexibility": "Fixed",
+				"size": "Standard",
+				"visibility": "External"
+			}
+		}
+	},
+	{
+		"id": "ed0eb004-0d3b-44da-916a-e767e0e72ac8",
+		"name": "Tata Hotspur",
+		"page": "53",
+		"source": "R5",
+		"accel": "3",
+		"armor": "12",
+		"avail": "8",
+		"body": "16",
+		"category": "Cars",
+		"cost": "60000",
+		"handling": "4/5",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "6",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": "Off-Road Suspension"
+		},
+		"seats": "2"
+	},
+	{
+		"id": "e8816947-a26e-4d98-939b-e6551356c913",
+		"name": "GMC Armadillo",
+		"page": "54",
+		"source": "R5",
+		"accel": "2",
+		"armor": "10",
+		"avail": "0",
+		"body": "13",
+		"category": "Cars",
+		"cost": "22000",
+		"handling": "3/4",
+		"pilot": "1",
+		"sensor": "2",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "6"
+	},
+	{
+		"id": "50f40623-7ca6-4499-a64f-22d54e2bef4c",
+		"name": "Ford Percheron",
+		"page": "54",
+		"source": "R5",
+		"accel": "2",
+		"armor": "6",
+		"avail": "0",
+		"body": "15",
+		"category": "Cars",
+		"cost": "39000",
+		"handling": "3/3",
+		"pilot": "4",
+		"sensor": "3",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "6"
+	},
+	{
+		"id": "a80bd3e7-abc4-412f-b6c0-eaa5c7585936",
+		"name": "Jeep Trailblazer",
+		"page": "54",
+		"source": "R5",
+		"accel": "2",
+		"armor": "6",
+		"avail": "0",
+		"body": "12",
+		"category": "Cars",
+		"cost": "32000",
+		"handling": "3/4",
+		"pilot": "1",
+		"sensor": "2",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Off-Road Suspension",
+				"Multifuel Engine"
+			]
+		},
+		"seats": "4"
+	},
+	{
+		"id": "48ebf4fc-bd56-4e14-a433-6d92f18251dc",
+		"name": "Toyota Talon",
+		"page": "55",
+		"source": "R5",
+		"accel": "2",
+		"armor": "6",
+		"avail": "0",
+		"body": "12",
+		"category": "Cars",
+		"cost": "30000",
+		"handling": "4/3",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "5"
+	},
+	{
+		"id": "abc43924-23f0-407d-b3d5-e96f03b9f808",
+		"name": "Nissan Hauler",
+		"page": "56",
+		"source": "R5",
+		"accel": "1",
+		"armor": "8",
+		"avail": "0",
+		"body": "16",
+		"category": "Cars",
+		"cost": "30000",
+		"handling": "3/3",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "4/3",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "8"
+	},
+	{
+		"id": "7190fec0-2c0e-4df8-8916-0e870fddf43c",
+		"name": "Eurocar Northstar",
+		"page": "56",
+		"source": "R5",
+		"accel": "2",
+		"armor": "8",
+		"avail": "12",
+		"body": "12",
+		"category": "Cars",
+		"cost": "115000",
+		"handling": "5/3",
+		"pilot": "3",
+		"sensor": "5",
+		"speed": "6",
+		"gears": {
+			"gear": {
+				"-rating": "5",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": "Amenities (Middle)"
+		},
+		"seats": "4"
+	},
+	{
+		"id": "45549db3-db43-42d2-bc45-8f7db70a1b19",
+		"name": "GMC Escalade",
+		"page": "57",
+		"source": "R5",
+		"accel": "2",
+		"armor": "10",
+		"avail": "10",
+		"body": "16",
+		"category": "Cars",
+		"cost": "125000",
+		"handling": "3/3",
+		"pilot": "3",
+		"sensor": "4",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "4",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Amenities (High)",
+				{
+					"-rating": "2",
+					"#text": "Anti-Theft System"
+				},
+				"Rigger Interface"
+			]
+		},
+		"seats": "6"
+	},
+	{
+		"id": "b1bfc86a-120e-45fd-b8e5-9486d43d7956",
+		"name": "Ford Econovan",
+		"page": "58",
+		"source": "R5",
+		"accel": "1",
+		"armor": "8",
+		"avail": "0",
+		"body": "14",
+		"category": "Cars",
+		"cost": "30000",
+		"handling": "3/2",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": "Amenities (Low)"
+		},
+		"seats": "10"
+	},
+	{
+		"id": "6756cbb6-02db-4450-adf8-acce13598a17",
+		"name": "Dodge Caravaner",
+		"page": "58",
+		"source": "R5",
+		"accel": "1",
+		"armor": "8",
+		"avail": "0",
+		"body": "12",
+		"category": "Cars",
+		"cost": "28000",
+		"handling": "3/2",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "7"
+	},
+	{
+		"id": "3ff3b5a3-4755-4390-9782-23a9cc34cf72",
+		"name": "GMC Universe",
+		"page": "59",
+		"source": "R5",
+		"accel": "1",
+		"armor": "8",
+		"avail": "0",
+		"body": "14",
+		"category": "Cars",
+		"cost": "30000",
+		"handling": "3/3",
+		"pilot": "3",
+		"sensor": "2",
+		"speed": "4/3",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "16"
+	},
+	{
+		"id": "aa27ed63-313e-4cb3-98b9-920bb9b319b6",
+		"name": "Ares Chuck Wagon",
+		"page": "59",
+		"source": "R5",
+		"accel": "1",
+		"armor": "5",
+		"avail": "0",
+		"body": "16",
+		"category": "Cars",
+		"cost": "40000",
+		"handling": "2/2",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "2"
+	},
+	{
+		"id": "116f6efe-2bb0-4fd4-80de-c25d6fa721bd",
+		"name": "BMW M8",
+		"page": "42",
+		"source": "SHB",
+		"accel": "2",
+		"armor": "11",
+		"avail": "10",
+		"body": "12",
+		"category": "Cars",
+		"cost": "76000",
+		"handling": "4/3",
+		"pilot": "1",
+		"sensor": "2",
+		"speed": "6",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "4"
+	},
+	{
+		"id": "8b7dd760-4528-413f-a577-a51fe8a705c9",
+		"name": "Mercury Comet Cruiser",
+		"page": "42",
+		"source": "SHB",
+		"accel": "2",
+		"armor": "11",
+		"avail": "0",
+		"body": "14",
+		"category": "Cars",
+		"cost": "21000",
+		"handling": "4/3",
+		"pilot": "1",
+		"sensor": "2",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "5"
+	},
+	{
+		"id": "2f46305b-6196-43d1-b748-2266c5f1dc08",
+		"name": "Chrysler-Nissan Bobcat",
+		"page": "42",
+		"source": "SHB",
+		"accel": "2",
+		"armor": "10",
+		"avail": "0",
+		"body": "15",
+		"category": "Cars",
+		"cost": "25000",
+		"handling": "3/3",
+		"pilot": "1",
+		"sensor": "2",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "8"
+	},
+	{
+		"id": "15e937d5-a1be-401e-a15c-0ff6e73a25d9",
+		"name": "Dodge Hurricane",
+		"page": "42",
+		"source": "SHB",
+		"accel": "2",
+		"armor": "12",
+		"avail": "0",
+		"body": "15",
+		"category": "Cars",
+		"cost": "37000",
+		"handling": "4/4",
+		"pilot": "1",
+		"sensor": "2",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "3"
+	},
+	{
+		"id": "026beaac-5e92-4210-943a-97f5455d98ec",
+		"name": "Dodge Hurricane Crew Modell",
+		"page": "42",
+		"source": "SHB",
+		"accel": "2",
+		"armor": "12",
+		"avail": "0",
+		"body": "16",
+		"category": "Cars",
+		"cost": "43000",
+		"handling": "3/3",
+		"pilot": "1",
+		"sensor": "2",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "6"
+	},
+	{
+		"id": "4d38b501-1b40-4eb2-a4be-4ec0fb099cdf",
+		"name": "Dodge Hurricane Security Modell",
+		"page": "42",
+		"source": "SHB",
+		"accel": "2",
+		"armor": "14",
+		"avail": "0",
+		"body": "16",
+		"category": "Cars",
+		"cost": "67000",
+		"handling": "4/3",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "5"
+	},
+	{
+		"id": "baf9cd37-06b2-45d7-b355-7da492a82220",
+		"name": "Mercedes-Benz Tornado",
+		"page": "42",
+		"source": "SHB",
+		"accel": "2",
+		"armor": "12",
+		"avail": "0",
+		"body": "15",
+		"category": "Cars",
+		"cost": "44400",
+		"handling": "4/4",
+		"pilot": "1",
+		"sensor": "2",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "3"
+	},
+	{
+		"id": "3748c902-c5f0-4173-bc4e-d5fab28418bc",
+		"name": "Mercedes-Benz Tornado Crew Modell",
+		"page": "42",
+		"source": "SHB",
+		"accel": "2",
+		"armor": "12",
+		"avail": "0",
+		"body": "16",
+		"category": "Cars",
+		"cost": "51600",
+		"handling": "3/3",
+		"pilot": "1",
+		"sensor": "2",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "6"
+	},
+	{
+		"id": "d823558b-3d98-47eb-924a-3f3db1565eb1",
+		"name": "Mercedes-Benz Tornado Security Modell",
+		"page": "42",
+		"source": "SHB",
+		"accel": "2",
+		"armor": "14",
+		"avail": "0",
+		"body": "16",
+		"category": "Cars",
+		"cost": "80400",
+		"handling": "4/3",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "5"
+	},
+	{
+		"id": "5159292e-897c-40aa-84ad-a1b374d95370",
+		"name": "BMW X Infinity",
+		"page": "42",
+		"source": "SHB",
+		"accel": "2",
+		"armor": "13",
+		"avail": "10",
+		"body": "14",
+		"category": "Cars",
+		"cost": "72000",
+		"handling": "5/5",
+		"pilot": "2",
+		"sensor": "4",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "6"
+	},
+	{
+		"id": "c90e2ec7-f351-4bb5-a145-bf33c9062ff9",
+		"name": "Volkswagen MultyCity",
+		"page": "42",
+		"source": "SHB",
+		"accel": "1",
+		"armor": "4",
+		"avail": "0",
+		"body": "12",
+		"category": "Cars",
+		"cost": "18000",
+		"handling": "3/2",
+		"pilot": "1",
+		"sensor": "1",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "3"
+	},
+	{
+		"id": "2a548234-f76f-4359-bfa0-f3d26a749426",
+		"name": "Volkswagen Urban Allrounder",
+		"page": "42",
+		"source": "SHB",
+		"accel": "1",
+		"armor": "6",
+		"avail": "0",
+		"body": "13",
+		"category": "Cars",
+		"cost": "19500",
+		"handling": "3/3",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "5"
+	},
+	{
+		"id": "453d90d0-8ec0-4d0a-9478-1dde666c0b24",
+		"name": "Mercedes-Benz CityMog / Dodge City Basis Modell",
+		"page": "42",
+		"source": "SHB",
+		"accel": "1",
+		"armor": "10",
+		"avail": "0",
+		"body": "18",
+		"category": "Cars",
+		"cost": "44000",
+		"handling": "5/4",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "3"
+	},
+	{
+		"id": "22d97843-c25b-4b83-97f4-9f0db590b77d",
+		"name": "Mercedes-Benz CityMog / Dodge City CM-X (mit Pritsche)",
+		"page": "42",
+		"source": "SHB",
+		"accel": "1",
+		"armor": "10",
+		"avail": "0",
+		"body": "18",
+		"category": "Cars",
+		"cost": "42000",
+		"handling": "5/4",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "5"
+	},
+	{
+		"id": "8053ea4f-9ad3-4b50-8ca9-cc7e78eb8da4",
+		"name": "Mercedes-Benz CityMog / Dodge City CM Traveller (mit Pritsche)",
+		"page": "42",
+		"source": "SHB",
+		"accel": "1",
+		"armor": "10",
+		"avail": "0",
+		"body": "18",
+		"category": "Cars",
+		"cost": "56000",
+		"handling": "5/4",
+		"pilot": "3",
+		"sensor": "2",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "20"
+	},
+	{
+		"id": "5ef26f25-f8cf-4610-856b-91f2152ad17a",
+		"name": "Mercedes-Benz CityMog / Dodge City CM Elite",
+		"page": "42",
+		"source": "SHB",
+		"accel": "1",
+		"armor": "12",
+		"avail": "0",
+		"body": "18",
+		"category": "Cars",
+		"cost": "96000",
+		"handling": "5/3",
+		"pilot": "3",
+		"sensor": "4",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "12"
+	},
+	{
+		"id": "4b64e3b8-bc1f-4dea-8d53-d90cf35f4315",
+		"name": "Airstream Traveller Chinook",
+		"page": "59",
+		"source": "R5",
+		"accel": "1",
+		"armor": "12",
+		"avail": "0",
+		"body": "14",
+		"category": "Trucks",
+		"cost": "145000",
+		"handling": "3/2",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "4/3",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Amenities (Squatter)",
+				"Extreme Environment Modification",
+				"SunCell",
+				"Satellite Link"
+			]
+		},
+		"seats": "10"
+	},
+	{
+		"id": "cb970581-0a0d-47a3-b334-9d3feea05b7d",
+		"name": "Airstream Traveller Preserve",
+		"page": "59",
+		"source": "R5",
+		"accel": "1",
+		"armor": "12",
+		"avail": "0",
+		"body": "16",
+		"category": "Trucks",
+		"cost": "134000",
+		"handling": "3/3",
+		"pilot": "2",
+		"sensor": "3",
+		"speed": "4/4",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Amenities (Squatter)",
+				"GridLink",
+				"SunCell",
+				"Satellite Link"
+			]
+		},
+		"seats": "10"
+	},
+	{
+		"id": "732a042d-631c-485a-b8c4-ce010de0b8af",
+		"name": "Airstream Traveller Outback",
+		"page": "59",
+		"source": "R5",
+		"accel": "1",
+		"armor": "12",
+		"avail": "0",
+		"body": "14",
+		"category": "Trucks",
+		"cost": "158000",
+		"handling": "3/4",
+		"pilot": "2",
+		"sensor": "4",
+		"speed": "3/4",
+		"gears": {
+			"gear": {
+				"-rating": "4",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Amenities (Squatter)",
+				"Extreme Environment Modification",
+				"SunCell",
+				"Off-Road Suspension",
+				"Satellite Link"
+			]
+		},
+		"seats": "8"
+	},
+	{
+		"id": "7eb192ce-abcb-46ff-b29e-c39d2c0978cb",
+		"name": "Mack Hellhound",
+		"page": "60",
+		"source": "R5",
+		"accel": "1",
+		"armor": "15",
+		"avail": "16R",
+		"body": "20",
+		"category": "Trucks",
+		"cost": "150000",
+		"handling": "3/2",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "4/3",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Amenities (Low)",
+				"Landing Drone Rack (Medium)",
+				"Landing Drone Rack (Medium)",
+				"Landing Drone Rack (Micro)",
+				"Landing Drone Rack (Small)",
+				"Landing Drone Rack (Small)",
+				"Rigger Cocoon",
+				"Rigger Cocoon",
+				"Rigger Interface",
+				"Drone Rail"
+			]
+		},
+		"seats": "2"
+	},
+	{
+		"id": "b0b13ff4-1820-4168-834e-bec224c81bb1",
+		"name": "Omni Motors Omnibus",
+		"page": "62",
+		"source": "R5",
+		"accel": "1",
+		"armor": "10",
+		"avail": "12",
+		"body": "18",
+		"category": "Municipal/Construction",
+		"cost": "296000",
+		"handling": "2/2",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"GridLink",
+				"GridLink Override"
+			]
+		},
+		"seats": "53"
+	},
+	{
+		"id": "e4a04ec4-62ca-49d3-bbcf-fe390bdf523e",
+		"name": "GMC Commercial G-Series",
+		"page": "62",
+		"source": "R5",
+		"accel": "1",
+		"armor": "12",
+		"avail": "14",
+		"body": "18",
+		"category": "Municipal/Construction",
+		"cost": "287000",
+		"handling": "2/2",
+		"pilot": "2",
+		"sensor": "3",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"GridLink",
+				"GridLink Override",
+				"Special Equipment"
+			]
+		},
+		"seats": "2"
+	},
+	{
+		"id": "88b674d3-fd95-435c-888c-3846b6d89ea6",
+		"name": "GMC Commercial D-Series",
+		"page": "63",
+		"source": "R5",
+		"accel": "1",
+		"armor": "10",
+		"avail": "12",
+		"body": "16",
+		"category": "Municipal/Construction",
+		"cost": "248000",
+		"handling": "2/2",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			},
+			"name": "Special Equipment"
+		},
+		"seats": "2"
+	},
+	{
+		"id": "49ed00fb-70b2-46d3-b10a-4e12bd89d798",
+		"name": "GMC Commercial D-Series Compact",
+		"page": "63",
+		"source": "R5",
+		"accel": "1",
+		"armor": "8",
+		"avail": "12",
+		"body": "12",
+		"category": "Municipal/Construction",
+		"cost": "196000",
+		"handling": "2/2",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			},
+			"name": "Special Equipment"
+		},
+		"seats": "2"
+	},
+	{
+		"id": "4bd62e1e-11e1-4b69-9f16-6073abaab680",
+		"name": "GMC Commercial DD",
+		"page": "63",
+		"source": "R5",
+		"accel": "1",
+		"armor": "12",
+		"avail": "12",
+		"body": "20",
+		"category": "Municipal/Construction",
+		"cost": "312000",
+		"handling": "2/2",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			},
+			"name": "Special Equipment"
+		},
+		"seats": "2"
+	},
+	{
+		"id": "8cb508c2-462b-4499-9c00-ac244b9c72b6",
+		"name": "Saeder-Krupp Konstructors",
+		"page": "64",
+		"source": "R5",
+		"accel": "1",
+		"armor": "18",
+		"avail": "16",
+		"body": "24",
+		"category": "Municipal/Construction",
+		"cost": "365000",
+		"handling": "2/2",
+		"pilot": "4",
+		"sensor": "3",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			},
+			"name": "Special Equipment"
+		},
+		"seats": "2"
+	},
+	{
+		"id": "5ef3b170-5e8b-4d27-90db-f82c6f7c25b7",
+		"name": "Mostrans KVP-28",
+		"page": "64",
+		"source": "R5",
+		"accel": "1",
+		"armor": "12",
+		"avail": "16",
+		"body": "18",
+		"category": "Municipal/Construction",
+		"cost": "87000",
+		"handling": "2/2",
+		"pilot": "4",
+		"sensor": "3",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": "Secondary Propulsion (Hovercraft)"
+		},
+		"seats": "2"
+	},
+	{
+		"id": "aab15689-b3e6-4c2c-9399-cf5987af96fe",
+		"name": "Mostrans Minsk",
+		"page": "64",
+		"source": "R5",
+		"accel": "1",
+		"armor": "10",
+		"avail": "16",
+		"body": "16",
+		"category": "Municipal/Construction",
+		"cost": "77000",
+		"handling": "2/2",
+		"pilot": "4",
+		"sensor": "3",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "2"
+	},
+	{
+		"id": "b243cb7f-3944-46a8-afef-6a4ba80e25e0",
+		"name": "Universal Hovercraft Minnesota",
+		"page": "65",
+		"source": "R5",
+		"accel": "2",
+		"armor": "9",
+		"avail": "12R",
+		"body": "14",
+		"category": "Municipal/Construction",
+		"cost": "130000",
+		"handling": "4/4",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "14"
+	},
+	{
+		"id": "b7a2c6af-b0b3-446e-8a49-b1e6b8fd131b",
+		"name": "Vodyanoy Assault Hovercraft",
+		"page": "65",
+		"source": "R5",
+		"accel": "3",
+		"armor": "16",
+		"avail": "12F",
+		"body": "16",
+		"category": "Municipal/Construction",
+		"cost": "84000",
+		"handling": "3/3",
+		"pilot": "1",
+		"sensor": "2",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": "Amenities (Squatter)"
+		},
+		"seats": "10",
+		"weaponmounts": {
+			"weaponmount": {
+				"control": "Manual",
+				"flexibility": "Turret",
+				"size": "Standard",
+				"visibility": "External"
+			}
+		}
+	},
+	{
+		"id": "01a51f42-7348-42ff-9b68-cde36f60743d",
+		"name": "BMW Blitzkrieg",
+		"page": "66",
+		"source": "R5",
+		"accel": "2",
+		"armor": "8",
+		"avail": "14R",
+		"body": "10",
+		"category": "Corpsec/Police/Military",
+		"cost": "46000",
+		"handling": "4/3",
+		"pilot": "3",
+		"sensor": "4",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "4",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "2",
+		"weaponmounts": {
+			"weaponmount": [{
+					"size": "Heavy",
+					"visibility": "External",
+					"flexibility": "Fixed",
+					"control": "Remote"
+				},
+				{
+					"size": "Heavy",
+					"visibility": "External",
+					"flexibility": "Fixed",
+					"control": "Remote"
+				}
+			]
+		}
+	},
+	{
+		"id": "3a9eeaaa-56c2-4020-ba9f-e0f7c6f9e0eb",
+		"name": "Dodge Charger",
+		"page": "67",
+		"source": "R5",
+		"accel": "2",
+		"armor": "12",
+		"avail": "16R",
+		"body": "12",
+		"category": "Corpsec/Police/Military",
+		"cost": "65000",
+		"handling": "4/3",
+		"pilot": "4",
+		"sensor": "4",
+		"speed": "5",
+		"gears": {
+			"gear": {
+				"-rating": "4",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "5",
+		"weaponmounts": {
+			"weaponmount": [{
+					"size": "Standard",
+					"visibility": "External",
+					"flexibility": "Fixed",
+					"control": "Remote"
+				},
+				{
+					"size": "Standard",
+					"visibility": "External",
+					"flexibility": "Fixed",
+					"control": "Remote"
+				},
+				{
+					"size": "Standard",
+					"visibility": "External",
+					"flexibility": "Fixed",
+					"control": "Remote"
+				},
+				{
+					"size": "Standard",
+					"visibility": "External",
+					"flexibility": "Fixed",
+					"control": "Remote"
+				}
+			]
+		}
+	},
+	{
+		"id": "45abd151-b3d1-4367-9133-3ff458532172",
+		"name": "BMW I8 Interceptor",
+		"page": "68",
+		"source": "R5",
+		"accel": "4",
+		"armor": "8",
+		"avail": "20F",
+		"body": "12",
+		"category": "Corpsec/Police/Military",
+		"cost": "114000",
+		"handling": "5/3",
+		"pilot": "4",
+		"sensor": "4",
+		"speed": "8",
+		"gears": {
+			"gear": {
+				"-rating": "4",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Oil Slick Sprayer",
+				"Smoke Projector",
+				"Road Strip Ejector",
+				"Rigger Interface"
+			]
+		},
+		"seats": "3",
+		"weaponmounts": {
+			"weaponmount": [{
+					"size": "Heavy",
+					"visibility": "External",
+					"flexibility": "Flexible",
+					"control": "Remote"
+				},
+				{
+					"size": "Standard",
+					"visibility": "External",
+					"flexibility": "Fixed",
+					"control": "Remote"
+				},
+				{
+					"size": "Standard",
+					"visibility": "External",
+					"flexibility": "Fixed",
+					"control": "Remote"
+				}
+			]
+		}
+	},
+	{
+		"id": "d1f39621-5c37-4b02-ad25-7e36dcd6a9d4",
+		"name": "Dodge Goliath",
+		"page": "70",
+		"source": "R5",
+		"accel": "2",
+		"armor": "16",
+		"avail": "20R",
+		"body": "16",
+		"category": "Corpsec/Police/Military",
+		"cost": "120000",
+		"handling": "3/2",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Gun Port",
+				"Gun Port",
+				"Gun Port",
+				"Gun Port",
+				"Gun Port",
+				"Gun Port",
+				"Extra Entry/Exit Points",
+				"Ram Plate",
+				{
+					"-select": "Extended Roof",
+					"#text": "Special Equipment"
+				}
+			]
+		},
+		"seats": "8"
+	},
+	{
+		"id": "d2f3f4a9-dbb2-4c43-b45d-6e22c0760698",
+		"name": "BMW Teufelkatze",
+		"page": "71",
+		"source": "R5",
+		"accel": "3",
+		"armor": "16",
+		"avail": "16F",
+		"body": "16",
+		"category": "Corpsec/Police/Military",
+		"cost": "76000",
+		"handling": "5/4",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "5",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"FlashTech",
+				"Signature Dampening",
+				{
+					"-rating": "3",
+					"#text": "Anti-Theft System"
+				}
+			]
+		},
+		"seats": "7"
+	},
+	{
+		"id": "afb9137b-c488-48cd-b9b2-c846540526d8",
+		"name": "Dodge Stallion",
+		"page": "71",
+		"source": "R5",
+		"accel": "3",
+		"armor": "12",
+		"avail": "16R",
+		"body": "16",
+		"category": "Corpsec/Police/Military",
+		"cost": "78000",
+		"handling": "3/4",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "5",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "4",
+		"weaponmounts": {
+			"weaponmount": [{
+					"size": "Heavy",
+					"visibility": "External",
+					"flexibility": "Turret",
+					"control": "Manual"
+				},
+				{
+					"size": "Standard",
+					"visibility": "External",
+					"flexibility": "Fixed",
+					"control": "Remote"
+				},
+				{
+					"size": "Standard",
+					"visibility": "External",
+					"flexibility": "Fixed",
+					"control": "Remote"
+				}
+			]
+		}
+	},
+	{
+		"id": "7c804214-420e-48e4-8a44-f836b7fa4135",
+		"name": "Dodge Minotaur",
+		"page": "71",
+		"source": "R5",
+		"accel": "2",
+		"armor": "8",
+		"avail": "0",
+		"body": "14",
+		"category": "Corpsec/Police/Military",
+		"cost": "45000",
+		"handling": "4/5",
+		"pilot": "4",
+		"sensor": "4",
+		"speed": "5",
+		"gears": {
+			"gear": {
+				"-rating": "4",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "4",
+		"weaponmounts": {
+			"weaponmount": [{
+					"size": "Heavy",
+					"visibility": "External",
+					"flexibility": "Turret",
+					"control": "Manual"
+				},
+				{
+					"size": "Standard",
+					"visibility": "External",
+					"flexibility": "Fixed",
+					"control": "Remote"
+				}
+			]
+		}
+	},
+	{
+		"id": "34d93e94-55af-463b-bec3-ed719dbd9d91",
+		"name": "BMW Luxus",
+		"page": "73",
+		"source": "R5",
+		"accel": "3",
+		"armor": "16",
+		"avail": "0",
+		"body": "18",
+		"category": "Corpsec/Police/Military",
+		"cost": "398000",
+		"handling": "5/5",
+		"pilot": "5",
+		"sensor": "6",
+		"speed": "5",
+		"gears": {
+			"gear": {
+				"-rating": "6",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Amenities (Middle)",
+				{
+					"-rating": "3",
+					"#text": "Anti-Theft System"
+				},
+				{
+					"-rating": "2",
+					"#text": "Life Support"
+				},
+				"Missile Defence System",
+				{
+					"-rating": "6",
+					"#text": "Passenger Protection System"
+				}
+			]
+		},
+		"seats": "8",
+		"weaponmounts": {
+			"weaponmount": {
+				"size": "Heavy",
+				"visibility": "Concealed",
+				"flexibility": "Turret",
+				"control": "Remote"
+			}
+		}
+	},
+	{
+		"id": "f0e34913-e7d1-447b-a71b-35a170703087",
+		"name": "Dodge General Command",
+		"page": "74",
+		"source": "R5",
+		"accel": "1",
+		"armor": "16",
+		"avail": "18R",
+		"body": "20",
+		"category": "Corpsec/Police/Military",
+		"cost": "344000",
+		"handling": "3/3",
+		"pilot": "5",
+		"sensor": "7",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "6",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Extra Entry/Exit Points",
+				"Amenities (Middle)",
+				{
+					"-select": "Bathroom",
+					"#text": "Special Equipment"
+				},
+				{
+					"-select": "Holding Cell",
+					"#text": "Special Equipment"
+				},
+				{
+					"-select": "Holding Cell",
+					"#text": "Special Equipment"
+				},
+				{
+					"-select": "Sleeping Quarters",
+					"#text": "Special Equipment"
+				}
+			]
+		},
+		"seats": "10"
+	},
+	{
+		"id": "47c2ddae-851a-4d75-8764-b80019a44616",
+		"name": "Dodge General Trailer",
+		"page": "74",
+		"source": "R5",
+		"accel": "1",
+		"armor": "16",
+		"avail": "18R",
+		"body": "20",
+		"category": "Corpsec/Police/Military",
+		"cost": "54000",
+		"handling": "3/3",
+		"pilot": "3",
+		"sensor": "7",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "6",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [{
+					"-select": "Generator",
+					"#text": "Special Equipment"
+				},
+				"Rigger Adaptation",
+				"Rigger Cocoon",
+				{
+					"-select": "Aircraft Repair",
+					"#text": "Workshop"
+				},
+				"Standard Drone Rack (Medium)",
+				"Standard Drone Rack (Medium)",
+				"Standard Drone Rack (Medium)",
+				"Standard Drone Rack (Medium)"
+			]
+		},
+		"seats": "1"
+	},
+	{
+		"id": "b6b3714e-880c-4eba-9edc-cd6087945750",
+		"name": "BMW Sturmwagon",
+		"page": "75",
+		"source": "R5",
+		"accel": "2",
+		"armor": "18",
+		"avail": "20R",
+		"body": "17",
+		"category": "Corpsec/Police/Military",
+		"cost": "145000",
+		"handling": "5/4",
+		"pilot": "4",
+		"sensor": "5",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "5",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Extra Entry/Exit Points",
+				"Gun Port",
+				"Gun Port",
+				"Gun Port",
+				"Gun Port",
+				{
+					"-select": "Advanced Lightbar",
+					"#text": "Special Equipment"
+				}
+			]
+		},
+		"seats": "10"
+	},
+	{
+		"id": "945d3c12-d119-4441-a6f5-d69c6317aff2",
+		"name": "Dodge Rhino",
+		"page": "77",
+		"source": "R5",
+		"accel": "2",
+		"armor": "14",
+		"avail": "18R",
+		"body": "24",
+		"category": "Corpsec/Police/Military",
+		"cost": "225000",
+		"handling": "4/4",
+		"pilot": "6",
+		"sensor": "7",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "6",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Extra Entry/Exit Points",
+				{
+					"-rating": "1",
+					"#text": "Anti-Theft System"
+				}
+			]
+		},
+		"seats": "9",
+		"weaponmounts": {
+			"weaponmount": [{
+					"size": "Standard",
+					"visibility": "External",
+					"flexibility": "Flexible",
+					"control": "Remote"
+				},
+				{
+					"size": "Standard",
+					"visibility": "External",
+					"flexibility": "Fixed",
+					"control": "Remote"
+				},
+				{
+					"size": "Standard",
+					"visibility": "External",
+					"flexibility": "Fixed",
+					"control": "Remote"
+				}
+			]
+		}
+	},
+	{
+		"id": "90234226-413e-4fac-89ce-ffce9db69b12",
+		"name": "Ruhrmetal Wolf II",
+		"page": "77",
+		"source": "R5",
+		"accel": "2",
+		"armor": "12",
+		"avail": "20F",
+		"body": "24",
+		"category": "Corpsec/Police/Military",
+		"cost": "330000",
+		"handling": "3/3",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Enviroseal",
+				{
+					"-rating": "2",
+					"#text": "Life Support"
+				}
+			]
+		},
+		"seats": "6"
+	},
+	{
+		"id": "757fa739-7255-4ce3-bb61-ad478e4e4a99",
+		"name": "Evo Waterking",
+		"page": "79",
+		"source": "R5",
+		"accel": "2",
+		"armor": "8",
+		"avail": "12",
+		"body": "14",
+		"category": "Boats",
+		"cost": "74000",
+		"handling": "3",
+		"pilot": "3",
+		"sensor": "2",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Amenities (Middle)",
+				"Satellite Link",
+				"Secondary Manual Controls",
+				"Smuggling Compartment"
+			]
+		},
+		"seats": "12"
+	},
+	{
+		"id": "193a6429-b4ba-4e68-a89e-5cd9a7965e50",
+		"name": "Sea Ray Cottonmouth",
+		"page": "80",
+		"source": "R5",
+		"accel": "4",
+		"armor": "4",
+		"avail": "12",
+		"body": "8",
+		"category": "Boats",
+		"cost": "120000",
+		"handling": "5",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "7",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Amenities (Squatter)",
+				"Rigger Interface",
+				{
+					"-rating": "1",
+					"#text": "Speed Enhancement"
+				}
+			]
+		},
+		"seats": "4",
+		"weaponmounts": {
+			"weaponmount": [{
+					"size": "Standard",
+					"visibility": "Internal",
+					"flexibility": "Fixed",
+					"control": "Remote"
+				},
+				{
+					"size": "Standard",
+					"visibility": "Internal",
+					"flexibility": "Fixed",
+					"control": "Remote"
+				},
+				{
+					"size": "Standard",
+					"visibility": "Internal",
+					"flexibility": "Fixed",
+					"control": "Remote"
+				},
+				{
+					"size": "Standard",
+					"visibility": "Internal",
+					"flexibility": "Fixed",
+					"control": "Remote"
+				}
+			]
+		}
+	},
+	{
+		"id": "8a3971d6-25d4-4797-add2-fad2f6a7ef09",
+		"name": "Kawasaki Stingray",
+		"page": "81",
+		"source": "R5",
+		"accel": "3",
+		"armor": "6",
+		"avail": "0",
+		"body": "8",
+		"category": "Boats",
+		"cost": "13000",
+		"handling": "5",
+		"pilot": "1",
+		"sensor": "1",
+		"speed": "5",
+		"gears": {
+			"gear": {
+				"-rating": "1",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "2"
+	},
+	{
+		"id": "d44323ef-f8f3-4b1f-b5d1-9ae4888cd6b9",
+		"name": "Kawasaki Manta Ray",
+		"page": "81",
+		"source": "R5",
+		"accel": "3",
+		"armor": "6",
+		"avail": "0",
+		"body": "9",
+		"category": "Boats",
+		"cost": "16000",
+		"handling": "4",
+		"pilot": "1",
+		"sensor": "1",
+		"speed": "5",
+		"gears": {
+			"gear": {
+				"-rating": "1",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "3"
+	},
+	{
+		"id": "399b9c5f-31c0-475e-a987-caa3e60ea0eb",
+		"name": "Aztechnology Nightrunner",
+		"page": "81",
+		"source": "R5",
+		"accel": "3",
+		"armor": "6",
+		"avail": "10",
+		"body": "12",
+		"category": "Boats",
+		"cost": "56000",
+		"handling": "5",
+		"pilot": "3",
+		"sensor": "4",
+		"speed": "6",
+		"gears": {
+			"gear": {
+				"-rating": "4",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Amenities (Squatter)",
+				{
+					"-rating": "1",
+					"#text": "Life Support"
+				},
+				"Rigger Interface",
+				"Satellite Link",
+				{
+					"-rating": "4",
+					"#text": "Signature Masking"
+				}
+			]
+		},
+		"seats": "6"
+	},
+	{
+		"id": "199f5570-e313-4f2a-9762-63e73f230732",
+		"name": "Zodiac Scorpio",
+		"page": "82",
+		"source": "R5",
+		"accel": "2",
+		"armor": "6",
+		"avail": "8",
+		"body": "10",
+		"category": "Boats",
+		"cost": "26000",
+		"handling": "4",
+		"pilot": "1",
+		"sensor": "1",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "1",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "8",
+		"weaponmounts": {
+			"weaponmount": [{
+					"size": "Standard",
+					"visibility": "External",
+					"flexibility": "Flexible",
+					"control": "Manual"
+				},
+				{
+					"size": "Standard",
+					"visibility": "External",
+					"flexibility": "Flexible",
+					"control": "Manual"
+				},
+				{
+					"size": "Heavy",
+					"visibility": "External",
+					"flexibility": "Flexible",
+					"control": "Manual"
+				}
+			]
+		}
+	},
+	{
+		"id": "4fda117c-38a0-440f-899e-27b39735747b",
+		"name": "Mitsubishi Waterbug",
+		"page": "83",
+		"source": "R5",
+		"accel": "2",
+		"armor": "4",
+		"avail": "0",
+		"body": "8",
+		"category": "Boats",
+		"cost": "8000",
+		"handling": "6",
+		"pilot": "1",
+		"sensor": "0",
+		"speed": "3",
+		"seats": "1"
+	},
+	{
+		"id": "d7a2bfe7-f43d-420d-9ef0-164e644529be",
+		"name": "Mitsubishi Waveskipper",
+		"page": "83",
+		"source": "R5",
+		"accel": "2",
+		"armor": "4",
+		"avail": "0",
+		"body": "10",
+		"category": "Boats",
+		"cost": "10000",
+		"handling": "5",
+		"pilot": "1",
+		"sensor": "0",
+		"speed": "3",
+		"seats": "2"
+	},
+	{
+		"id": "3a01a97e-9df8-4516-9f41-4ff92b465d3b",
+		"name": "Evo Water Strider",
+		"page": "84",
+		"source": "R5",
+		"accel": "1",
+		"armor": "5",
+		"avail": "16",
+		"body": "8",
+		"category": "Boats",
+		"cost": "11000",
+		"handling": "3",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "2",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [{
+					"-rating": "1",
+					"#text": "Life Support"
+				},
+				{
+					"-rating": "1",
+					"#text": "Signature Masking"
+				}
+			]
+		},
+		"seats": "1"
+	},
+	{
+		"id": "9dfc2603-8289-474c-842b-dd74ac406fb7",
+		"name": "Corsair Elysium",
+		"page": "85",
+		"source": "R5",
+		"accel": "1/2",
+		"armor": "10",
+		"avail": "12",
+		"body": "14",
+		"category": "Boats",
+		"cost": "78000",
+		"handling": "1/3",
+		"pilot": "2",
+		"sensor": "3",
+		"speed": "1/4",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Amenities (Middle)",
+				"Improved Economy",
+				"Satellite Link"
+			]
+		},
+		"seats": "6"
+	},
+	{
+		"id": "c7d3a2bb-bad0-49a3-964f-b48911b37dcc",
+		"name": "Corsair Panther",
+		"page": "85",
+		"source": "R5",
+		"accel": "1/3",
+		"armor": "10",
+		"avail": "12",
+		"body": "18",
+		"category": "Boats",
+		"cost": "135000",
+		"handling": "1/3",
+		"pilot": "2",
+		"sensor": "3",
+		"speed": "2/5",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Amenities (Middle)",
+				"Improved Economy",
+				"Satellite Link",
+				"Secondary Manual Controls",
+				"SunCell",
+				{
+					"-rating": "2",
+					"#text": "Signature Masking"
+				}
+			]
+		},
+		"seats": "8"
+	},
+	{
+		"id": "db3526df-3370-4b28-84cd-e113ad69ee5a",
+		"name": "Corsair Trident",
+		"page": "87",
+		"source": "R5",
+		"accel": "2/3",
+		"armor": "10",
+		"avail": "12",
+		"body": "16",
+		"category": "Boats",
+		"cost": "125000",
+		"handling": "1/3",
+		"pilot": "2",
+		"sensor": "3",
+		"speed": "4/5",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Amenities (Middle)",
+				"Improved Economy",
+				"Satellite Link",
+				"SunCell"
+			]
+		},
+		"seats": "6"
+	},
+	{
+		"id": "cb6f7e79-1756-41ad-9907-09bf5b1e4039",
+		"name": "Corsair Triton",
+		"page": "87",
+		"source": "R5",
+		"accel": "2",
+		"armor": "10",
+		"avail": "0",
+		"body": "16",
+		"category": "Boats",
+		"cost": "104000",
+		"handling": "1",
+		"pilot": "2",
+		"sensor": "3",
+		"speed": "6",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Amenities (Middle)",
+				"Improved Economy",
+				"Satellite Link"
+			]
+		},
+		"seats": "6"
+	},
+	{
+		"id": "f6b4394e-a005-4a25-8f44-1513701c07f5",
+		"name": "Blohm and Voss Classic 111",
+		"page": "88",
+		"source": "R5",
+		"accel": "2",
+		"armor": "14",
+		"avail": "16",
+		"body": "24",
+		"category": "Boats",
+		"cost": "14870000",
+		"handling": "3",
+		"pilot": "4",
+		"sensor": "4",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "4",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Amenities (High)",
+				"Interior Cameras",
+				"Rigger Interface",
+				"Satellite Link"
+			]
+		},
+		"seats": "14"
+	},
+	{
+		"id": "28894d1f-18c8-4a16-b117-42658a2e3fa1",
+		"name": "Lurssen Mobius",
+		"page": "89",
+		"source": "R5",
+		"accel": "2",
+		"armor": "14",
+		"avail": "36",
+		"body": "36",
+		"category": "Boats",
+		"cost": "84985000",
+		"handling": "3",
+		"pilot": "6",
+		"sensor": "5",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "5",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Amenities (Luxury)",
+				"Interior Cameras",
+				"Rigger Interface",
+				"Rigger Cocoon",
+				"Satellite Link",
+				"Manual Control Override",
+				"Searchlight"
+			]
+		},
+		"seats": "22"
+	},
+	{
+		"id": "b3586f7a-f291-40b3-8ea7-ee5d82ca5586",
+		"name": "Sun Tracker Lake King",
+		"page": "90",
+		"source": "R5",
+		"accel": "2",
+		"armor": "8",
+		"avail": "0",
+		"body": "14",
+		"category": "Boats",
+		"cost": "35000",
+		"handling": "2",
+		"pilot": "1",
+		"sensor": "1",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "1",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "8"
+	},
+	{
+		"id": "1312f26a-4cac-45a9-a8f2-f74b2a80a468",
+		"name": "Evo Aquavida 1",
+		"page": "90",
+		"source": "R5",
+		"accel": "2",
+		"armor": "16",
+		"avail": "10",
+		"body": "20",
+		"category": "Boats",
+		"cost": "115000",
+		"handling": "2",
+		"pilot": "1",
+		"sensor": "3",
+		"speed": "1",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Amenities (Middle)",
+				"Winch (Basic)"
+			]
+		},
+		"seats": "10"
+	},
+	{
+		"id": "ea80540c-83e1-4ff3-b411-a990e19fdc33",
+		"name": "Evo Aquavida 2",
+		"page": "90",
+		"source": "R5",
+		"accel": "2",
+		"armor": "16",
+		"avail": "10",
+		"body": "20",
+		"category": "Boats",
+		"cost": "135000",
+		"handling": "2",
+		"pilot": "1",
+		"sensor": "3",
+		"speed": "1",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Amenities (Middle)",
+				"Winch (Basic)"
+			]
+		},
+		"seats": "12"
+	},
+	{
+		"id": "ef0f8108-e057-4caf-afb0-4cc11264ccec",
+		"name": "Ultramarine Kingfisher",
+		"page": "92",
+		"source": "R5",
+		"accel": "2",
+		"armor": "12",
+		"avail": "12",
+		"body": "16",
+		"category": "Boats",
+		"cost": "61000",
+		"handling": "3",
+		"pilot": "3",
+		"sensor": "4",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "4",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Amenities (Squatter)",
+				"Winch (Basic)",
+				"Satellite Link",
+				"Smuggling Compartment"
+			]
+		},
+		"seats": "6"
+	},
+	{
+		"id": "119963e1-cdca-439d-b1d5-fd9e0ab85985",
+		"name": "American Airboat AirRanger",
+		"page": "92",
+		"source": "R5",
+		"accel": "3",
+		"armor": "6",
+		"avail": "6",
+		"body": "10",
+		"category": "Boats",
+		"cost": "25500",
+		"handling": "4",
+		"pilot": "1",
+		"sensor": "1",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "1",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "6"
+	},
+	{
+		"id": "ce233f26-f8ab-4f59-96fe-d57892e18cb3",
+		"name": "American Airboat AirRanger Heavy",
+		"page": "92",
+		"source": "R5",
+		"accel": "3",
+		"armor": "6",
+		"avail": "8",
+		"body": "12",
+		"category": "Boats",
+		"cost": "35500",
+		"handling": "4",
+		"pilot": "1",
+		"sensor": "1",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "1",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "5"
+	},
+	{
+		"id": "5a77445f-c676-4f07-805e-3aac7c3f9830",
+		"name": "GMC Riverine Security",
+		"page": "92",
+		"source": "R5",
+		"accel": "3",
+		"armor": "12",
+		"avail": "15R",
+		"body": "16",
+		"category": "Boats",
+		"cost": "100000",
+		"handling": "4",
+		"pilot": "4",
+		"sensor": "4",
+		"speed": "5",
+		"gears": {
+			"gear": {
+				"-rating": "4",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Amenities (Squatter)",
+				"Rigger Cocoon",
+				"Rigger Interface",
+				"Satellite Link",
+				"Searchlight"
+			]
+		},
+		"seats": "8",
+		"weaponmounts": {
+			"weaponmount": [{
+					"size": "Heavy",
+					"visibility": "Internal",
+					"flexibility": "Flexible",
+					"control": "Remote"
+				},
+				{
+					"size": "Standard",
+					"visibility": "Internal",
+					"flexibility": "Flexible",
+					"control": "Remote"
+				},
+				{
+					"size": "Standard",
+					"visibility": "Internal",
+					"flexibility": "Flexible",
+					"control": "Remote"
+				},
+				{
+					"size": "Standard",
+					"visibility": "External",
+					"flexibility": "Flexible",
+					"control": "Remote"
+				},
+				{
+					"size": "Standard",
+					"visibility": "External",
+					"flexibility": "Flexible",
+					"control": "Remote"
+				}
+			]
+		}
+	},
+	{
+		"id": "d72817d0-2fa7-4c97-a8ef-bc2912549d27",
+		"name": "GMC Riverine Police",
+		"page": "92",
+		"source": "R5",
+		"accel": "3",
+		"armor": "14",
+		"avail": "15R",
+		"body": "16",
+		"category": "Boats",
+		"cost": "154000",
+		"handling": "4",
+		"pilot": "4",
+		"sensor": "5",
+		"speed": "5",
+		"gears": {
+			"gear": {
+				"-rating": "5",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Amenities (Squatter)",
+				"Rigger Cocoon",
+				"Rigger Interface",
+				"Satellite Link",
+				"Searchlight",
+				"Searchlight",
+				"Searchlight",
+				"Searchlight"
+			]
+		},
+		"seats": "8",
+		"weaponmounts": {
+			"weaponmount": [{
+					"size": "Heavy",
+					"visibility": "Internal",
+					"flexibility": "Flexible",
+					"control": "Remote"
+				},
+				{
+					"size": "Standard",
+					"visibility": "Internal",
+					"flexibility": "Flexible",
+					"control": "Remote"
+				},
+				{
+					"size": "Standard",
+					"visibility": "Internal",
+					"flexibility": "Flexible",
+					"control": "Remote"
+				},
+				{
+					"size": "Standard",
+					"visibility": "External",
+					"flexibility": "Flexible",
+					"control": "Remote"
+				},
+				{
+					"size": "Standard",
+					"visibility": "External",
+					"flexibility": "Flexible",
+					"control": "Remote"
+				}
+			]
+		}
+	},
+	{
+		"id": "386a33be-d016-4bae-ba7a-7b0f618e92d6",
+		"name": "GMC Riverine Military",
+		"page": "92",
+		"source": "R5",
+		"accel": "3",
+		"armor": "20",
+		"avail": "20F",
+		"body": "20",
+		"category": "Boats",
+		"cost": "225000",
+		"handling": "4",
+		"pilot": "6",
+		"sensor": "6",
+		"speed": "5",
+		"gears": {
+			"gear": {
+				"-rating": "6",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Amenities (Squatter)",
+				"Rigger Cocoon",
+				"Rigger Interface",
+				"Satellite Link",
+				"Searchlight",
+				{
+					"-rating": "4",
+					"#text": "Signature Masking"
+				}
+			]
+		},
+		"seats": "8",
+		"weaponmounts": {
+			"weaponmount": [{
+					"size": "Heavy",
+					"visibility": "Internal",
+					"flexibility": "Flexible",
+					"control": "Remote"
+				},
+				{
+					"size": "Standard",
+					"visibility": "Internal",
+					"flexibility": "Flexible",
+					"control": "Remote"
+				},
+				{
+					"size": "Standard",
+					"visibility": "Internal",
+					"flexibility": "Flexible",
+					"control": "Remote"
+				},
+				{
+					"size": "Standard",
+					"visibility": "External",
+					"flexibility": "Flexible",
+					"control": "Remote"
+				},
+				{
+					"size": "Standard",
+					"visibility": "External",
+					"flexibility": "Flexible",
+					"control": "Remote"
+				},
+				{
+					"size": "Standard",
+					"visibility": "External",
+					"flexibility": "Flexible",
+					"control": "Remote"
+				}
+			]
+		}
+	},
+	{
+		"id": "13441e68-867a-42cd-88a6-f28e4fade20a",
+		"name": "Hughes Stallion WK-4",
+		"page": "95",
+		"source": "R5",
+		"accel": "4",
+		"armor": "16",
+		"avail": "12",
+		"body": "16",
+		"category": "Rotorcraft",
+		"cost": "440000",
+		"handling": "5",
+		"pilot": "4",
+		"sensor": "4",
+		"speed": "5",
+		"gears": {
+			"gear": {
+				"-rating": "4",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "8"
+	},
+	{
+		"id": "9911d59b-8db1-4517-b554-49ab5d3f478d",
+		"name": "Aztechnology Agular GX-2",
+		"page": "97",
+		"source": "R5",
+		"accel": "5",
+		"armor": "16",
+		"avail": "28F",
+		"body": "20",
+		"category": "Rotorcraft",
+		"cost": "500000",
+		"handling": "5",
+		"pilot": "4",
+		"sensor": "5",
+		"speed": "7",
+		"gears": {
+			"gear": {
+				"-rating": "5",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": "Rigger Interface"
+		},
+		"seats": "2"
+	},
+	{
+		"id": "319d9e3b-a0c4-4a8b-87c9-ff50eb4c3f85",
+		"name": "Aztechnology Agular GX-3AT",
+		"page": "97",
+		"source": "R5",
+		"accel": "4",
+		"armor": "20",
+		"avail": "28F",
+		"body": "22",
+		"category": "Rotorcraft",
+		"cost": "550000",
+		"handling": "4",
+		"pilot": "4",
+		"sensor": "4",
+		"speed": "6",
+		"gears": {
+			"gear": {
+				"-rating": "4",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": "Rigger Interface"
+		},
+		"seats": "10"
+	},
+	{
+		"id": "cfb98885-315b-4f6f-8291-470ce43c8df1",
+		"name": "S-K Aerospace SKA-008",
+		"page": "98",
+		"source": "R5",
+		"accel": "8",
+		"armor": "18",
+		"avail": "24R",
+		"body": "16",
+		"category": "Rotorcraft",
+		"cost": "525000",
+		"handling": "6",
+		"pilot": "4",
+		"sensor": "4",
+		"speed": "5",
+		"gears": {
+			"gear": {
+				"-rating": "4",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": "Rigger Interface"
+		},
+		"seats": "12"
+	},
+	{
+		"id": "d3184353-13b2-4f02-b74e-55ac1e0246de",
+		"name": "Dassault Sea Sprite",
+		"page": "98",
+		"source": "R5",
+		"accel": "3",
+		"armor": "12",
+		"avail": "18R",
+		"body": "18",
+		"category": "Rotorcraft",
+		"cost": "400000",
+		"handling": "5",
+		"pilot": "3",
+		"sensor": "5",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "4",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Winch (Basic)",
+				"Winch (Basic)"
+			]
+		},
+		"seats": "14"
+	},
+	{
+		"id": "6f75f984-b5bd-4fd7-b4a2-c59a9c4f9ce6",
+		"name": "Federated-Boeing PBY-70 Catalina II",
+		"page": "100",
+		"source": "R5",
+		"accel": "3",
+		"armor": "14",
+		"avail": "12",
+		"body": "22",
+		"category": "Fixed-Wing Aircraft",
+		"cost": "250000",
+		"handling": "4",
+		"pilot": "3",
+		"sensor": "4",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "4",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "16",
+		"weaponmounts": {
+			"weaponmount": [{
+					"size": "Heavy",
+					"visibility": "External",
+					"flexibility": "Flexible",
+					"control": "Manual"
+				},
+				{
+					"size": "Heavy",
+					"visibility": "External",
+					"flexibility": "Flexible",
+					"control": "Manual"
+				},
+				{
+					"size": "Heavy",
+					"visibility": "External",
+					"flexibility": "Flexible",
+					"control": "Manual"
+				}
+			]
+		}
+	},
+	{
+		"id": "b4e88420-eae5-4c35-8ef2-a067012b2bf2",
+		"name": "Airbus Lift Ticket ALS-699",
+		"page": "100",
+		"source": "R5",
+		"accel": "3",
+		"armor": "12",
+		"avail": "14",
+		"body": "16",
+		"category": "Rotorcraft",
+		"cost": "325000",
+		"handling": "5",
+		"pilot": "3",
+		"sensor": "4",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "4",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Winch (Basic)",
+				"Winch (Basic)",
+				"Winch (Basic)",
+				"Winch (Basic)",
+				"Winch (Enhanced)",
+				"Winch (Enhanced)",
+				"Winch (Enhanced)",
+				"Winch (Enhanced)"
+			]
+		},
+		"seats": "5"
+	},
+	{
+		"id": "4bb96843-2759-4263-b5cd-56b7f5f0178f",
+		"name": "GMC Gryphon",
+		"page": "103",
+		"source": "R5",
+		"accel": "7",
+		"armor": "24",
+		"avail": "28F",
+		"body": "24",
+		"category": "VTOL/VSTOL",
+		"cost": "3200000",
+		"handling": "5",
+		"pilot": "4",
+		"sensor": "5",
+		"speed": "8",
+		"gears": {
+			"gear": {
+				"-rating": "5",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": "Rigger Interface"
+		},
+		"seats": "2",
+		"weaponmounts": {
+			"weaponmount": [{
+					"size": "Heavy",
+					"visibility": "External",
+					"flexibility": "Fixed",
+					"control": "Remote"
+				},
+				{
+					"size": "Heavy",
+					"visibility": "External",
+					"flexibility": "Fixed",
+					"control": "Remote"
+				},
+				{
+					"size": "Heavy",
+					"visibility": "External",
+					"flexibility": "Fixed",
+					"control": "Remote"
+				}
+			]
+		}
+	},
+	{
+		"id": "e7891e8c-3c27-4fd1-97cf-cf1384ecb829",
+		"name": "Evo-Krime Krime Wing",
+		"page": "105",
+		"source": "R5",
+		"accel": "5",
+		"armor": "18",
+		"avail": "24F",
+		"body": "22",
+		"category": "VTOL/VSTOL",
+		"cost": "2275000",
+		"handling": "4",
+		"pilot": "4",
+		"sensor": "5",
+		"speed": "6",
+		"gears": {
+			"gear": {
+				"-rating": "5",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": {
+				"-rating": "1",
+				"#text": "Metahuman Adjustment"
+			}
+		},
+		"seats": "20"
+	},
+	{
+		"id": "9486c47c-7093-4897-bde9-14a522cd8394",
+		"name": "Luftshiffbau Personal Zeppelin LZP-2070",
+		"page": "107",
+		"source": "R5",
+		"accel": "3",
+		"armor": "6",
+		"avail": "12",
+		"body": "12",
+		"category": "LTAV",
+		"cost": "85000",
+		"handling": "4",
+		"pilot": "5",
+		"sensor": "4",
+		"speed": "2",
+		"gears": {
+			"gear": {
+				"-rating": "4",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "6"
+	},
+	{
+		"id": "464ef537-768b-447b-9c30-39239234b2a3",
+		"name": "Renegade Works Mothership LAVH",
+		"page": "105",
+		"source": "R5",
+		"accel": "3",
+		"armor": "5",
+		"avail": "24R",
+		"body": "10",
+		"category": "LTAV",
+		"cost": "50000",
+		"handling": "3",
+		"pilot": "3",
+		"sensor": "4",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "4",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": {
+				"-rating": "1",
+				"#text": "Metahuman Adjustment"
+			}
+		},
+		"seats": "1"
+	},
+	{
+		"id": "685a5cb6-75ee-45fd-80bd-07ea669054a3",
+		"name": "Horizon Noizquito (Microdrone)",
+		"page": "128",
+		"source": "R5",
+		"accel": "2",
+		"armor": "0",
+		"avail": "10R",
+		"body": "1",
+		"category": "Drones: Micro",
+		"cost": "2000",
+		"handling": "4",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "3",
+				"#text": "Sensor Array"
+			}
+		}
+	},
+	{
+		"id": "8b1aff5b-a9a3-4fdc-a10c-de56d88e4b91",
+		"name": "Sony Goldfish (Microdrone)",
+		"page": "129",
+		"source": "R5",
+		"accel": "1",
+		"armor": "0",
+		"avail": "6",
+		"body": "0",
+		"category": "Drones: Micro",
+		"cost": "500",
+		"handling": "2/4",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "1",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "3",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": {
+				"-cost": "0",
+				"#text": "Submersible (Drone)"
+			}
+		}
+	},
+	{
+		"id": "3defffd7-c7ee-4c54-8d51-1df731842823",
+		"name": "Aerodesign Systems Condor LDSD-23 (Minidrone)",
+		"page": "129",
+		"source": "R5",
+		"accel": "0",
+		"armor": "0",
+		"avail": "6R",
+		"body": "1",
+		"category": "Drones: Mini",
+		"cost": "4000",
+		"handling": "2",
+		"pilot": "2",
+		"sensor": "4",
+		"speed": "0",
+		"gears": {
+			"gear": {
+				"-rating": "4",
+				"-maxrating": "3",
+				"#text": "Sensor Array"
+			}
+		}
+	},
+	{
+		"id": "cf1383e9-5604-46eb-8323-522acaeada2e",
+		"name": "Aztechnology Hedgehog (Minidrone)",
+		"page": "129",
+		"source": "R5",
+		"accel": "1",
+		"armor": "0",
+		"avail": "8F",
+		"body": "1",
+		"category": "Drones: Mini",
+		"cost": "8000",
+		"handling": "3",
+		"pilot": "4",
+		"sensor": "3",
+		"speed": "1",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "3",
+				"#text": "Sensor Array"
+			}
+		}
+	},
+	{
+		"id": "cdf8a11b-c74a-4754-89b0-cb1a4bec17cd",
+		"name": "Cyberspace Designs Dragonfly (Minidrone)",
+		"page": "129",
+		"source": "R5",
+		"accel": "1",
+		"armor": "3",
+		"avail": "12R",
+		"body": "1",
+		"category": "Drones: Mini",
+		"cost": "4000",
+		"handling": "4",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "2",
+		"gears": {
+			"gear": [{
+					"-select": "Melee Bite",
+					"#text": "[Weapon] Melee Autosoft"
+				},
+				{
+					"-rating": "3",
+					"-maxrating": "3",
+					"#text": "Sensor Array"
+				}
+			]
+		}
+	},
+	{
+		"id": "b5ef225a-9a22-4dfd-bf4e-2832cbe8e064",
+		"name": "Festo Pigeon 2.0 (Minidrone)",
+		"page": "129",
+		"source": "R5",
+		"accel": "1",
+		"armor": "0",
+		"avail": "8",
+		"body": "1",
+		"category": "Drones: Mini",
+		"cost": "3000",
+		"handling": "4",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "2",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "3",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": {
+				"-rating": "1",
+				"#text": "Realistic Features (Drone)"
+			}
+		}
+	},
+	{
+		"id": "df487ee7-9009-47b0-9db8-548bed9a3361",
+		"name": "Horizon CU^3 (Minidrone)",
+		"page": "130",
+		"source": "R5",
+		"accel": "1",
+		"armor": "0",
+		"avail": "4",
+		"body": "1",
+		"category": "Drones: Mini",
+		"cost": "3000",
+		"handling": "4",
+		"pilot": "2",
+		"sensor": "3",
+		"speed": "1",
+		"gears": {
+			"gear": [{
+					"-rating": "2",
+					"#text": "Clearsight Autosoft"
+				},
+				{
+					"-rating": "3",
+					"-maxrating": "3",
+					"#text": "Sensor Array"
+				}
+			]
+		}
+	},
+	{
+		"id": "8e9830e5-16e4-40e3-9803-4036945b786d",
+		"name": "Horizon CU^3 Professional (Minidrone)",
+		"page": "130",
+		"source": "R5",
+		"accel": "1",
+		"armor": "0",
+		"avail": "4",
+		"body": "1",
+		"category": "Drones: Mini",
+		"cost": "6000",
+		"handling": "4",
+		"pilot": "4",
+		"sensor": "3",
+		"speed": "1",
+		"gears": {
+			"gear": [{
+					"-rating": "4",
+					"#text": "Clearsight Autosoft"
+				},
+				{
+					"-rating": "3",
+					"-maxrating": "3",
+					"#text": "Sensor Array"
+				}
+			]
+		}
+	},
+	{
+		"id": "94a53ea0-c8de-4f2f-9098-55180205d8fa",
+		"name": "Renraku Gerbil (Minidrone)",
+		"page": "130",
+		"source": "R5",
+		"accel": "1",
+		"armor": "0",
+		"avail": "4",
+		"body": "1",
+		"category": "Drones: Mini",
+		"cost": "2000",
+		"handling": "4/2",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "2",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "3",
+				"#text": "Sensor Array"
+			}
+		}
+	},
+	{
+		"id": "a38e5f21-eb84-4f01-81cc-ee214d88ed96",
+		"name": "Ares Arms Sentry V (Small)",
+		"page": "130",
+		"source": "R5",
+		"accel": "1",
+		"armor": "6",
+		"avail": "4R",
+		"body": "2",
+		"category": "Drones: Small",
+		"cost": "4000",
+		"handling": "4/0",
+		"pilot": "3",
+		"sensor": "2",
+		"speed": "1",
+		"gears": {
+			"gear": [{
+					"-rating": "2",
+					"-select": "Colt Cobra TZ-120",
+					"#text": "[Weapon] Targeting Autosoft"
+				},
+				"Smartsoft",
+				{
+					"-rating": "2",
+					"-maxrating": "3",
+					"#text": "Sensor Array"
+				}
+			]
+		},
+		"mods": {
+			"name": "Standard Weapon Mount (Drone)"
+		},
+		"weapons": {
+			"weapon": {
+				"name": "Colt Cobra TZ-120"
+			}
+		}
+	},
+	{
+		"id": "d1289d4c-2b32-450f-bbc1-489dafe39c19",
+		"name": "Citron-Brouillard Smoke Generator (Small)",
+		"page": "131",
+		"source": "R5",
+		"accel": "1",
+		"armor": "0",
+		"avail": "8",
+		"body": "2",
+		"category": "Drones: Small",
+		"cost": "4000",
+		"handling": "3",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "1",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "3",
+				"#text": "Sensor Array"
+			}
+		}
+	},
+	{
+		"id": "fcbe7bb4-6137-4939-8d4b-10b011b33ac6",
+		"name": "Cyberspace Designs Wolfhound (Small)",
+		"page": "131",
+		"source": "R5",
+		"accel": "1",
+		"armor": "0",
+		"avail": "12",
+		"body": "2",
+		"category": "Drones: Small",
+		"cost": "30000",
+		"handling": "3",
+		"pilot": "2",
+		"sensor": "4",
+		"speed": "2",
+		"gears": {
+			"gear": {
+				"-rating": "4",
+				"-maxrating": "4",
+				"#text": "Sensor Array"
+			}
+		},
+		"modslots": "1"
+	},
+	{
+		"id": "d9157390-2003-4238-8738-6a24efc770f0",
+		"name": "Evo Proletarian (Small)",
+		"page": "132",
+		"source": "R5",
+		"accel": "1",
+		"armor": "0",
+		"avail": "6",
+		"body": "2",
+		"category": "Drones: Small",
+		"cost": "4000",
+		"handling": "4/2",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "2",
+		"gears": {
+			"gear": [{
+					"-rating": "2",
+					"-maxrating": "3",
+					"#text": "Sensor Array"
+				},
+				{
+					"-rating": "2",
+					"-select": "Automotive Mechanic",
+					"#text": "Skill Autosoft"
+				},
+				{
+					"-select": "Automotive Mechanic",
+					"#text": "Tool Kit"
+				}
+			]
+		},
+		"mods": {
+			"name": "Drone Arm"
+		},
+		"modslots": "1"
+	},
+	{
+		"id": "6b0c07b2-6e3d-4174-a748-859fd46c090c",
+		"name": "Ferret RPD-1X (Small)",
+		"page": "132",
+		"source": "R5",
+		"accel": "1",
+		"armor": "3",
+		"avail": "6",
+		"body": "2",
+		"category": "Drones: Small",
+		"cost": "4000",
+		"handling": "4/2",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "1",
+		"gears": {
+			"gear": [{
+					"-rating": "3",
+					"-maxrating": "3",
+					"#text": "Sensor Array"
+				},
+				"Flashlight"
+			]
+		},
+		"mods": {
+			"name": "Mini Weapon Mount (Drone)"
+		},
+		"modslots": "1",
+		"weapons": {
+			"weapon": {
+				"name": "Defiance EX Shocker"
+			}
+		}
+	},
+	{
+		"id": "2e70a156-4201-48c8-935f-7223c16a1e82",
+		"name": "Festo Sewer Snake (Small)",
+		"page": "132",
+		"source": "R5",
+		"accel": "1/1",
+		"armor": "0",
+		"avail": "10",
+		"body": "2",
+		"category": "Drones: Small",
+		"cost": "6000",
+		"handling": "3",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "1/1",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "3",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Submersible (Drone)",
+				"Gecko Grips (Drone)"
+			]
+		},
+		"modslots": "1"
+	},
+	{
+		"id": "89392969-1d03-4322-9aa8-c0160ba3ee76",
+		"name": "Horizon Mini-Zep (Small)",
+		"page": "132",
+		"source": "R5",
+		"accel": "0",
+		"armor": "0",
+		"avail": "4",
+		"body": "2",
+		"category": "Drones: Small",
+		"cost": "2000",
+		"handling": "2",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "0",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "3",
+				"#text": "Sensor Array"
+			}
+		},
+		"modslots": "4"
+	},
+	{
+		"id": "68f2fddf-c530-4093-855a-f08e3924b68c",
+		"name": "Knight Errant P5 (Small)",
+		"page": "133",
+		"source": "R5",
+		"accel": "2",
+		"armor": "0",
+		"avail": "10R",
+		"body": "2",
+		"category": "Drones: Small",
+		"cost": "8000",
+		"handling": "4/2",
+		"pilot": "3",
+		"sensor": "2",
+		"speed": "6",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "3",
+				"#text": "Sensor Array"
+			}
+		},
+		"modslots": "1"
+	},
+	{
+		"id": "28abf230-3bd7-4edb-bcba-f6ae28d62d3a",
+		"name": "Lone Star Castle Guard (Small)",
+		"page": "133",
+		"source": "R5",
+		"accel": "1",
+		"armor": "6",
+		"avail": "10R",
+		"body": "2",
+		"category": "Drones: Small",
+		"cost": "8000",
+		"handling": "4/2",
+		"pilot": "3",
+		"sensor": "2",
+		"speed": "1",
+		"gears": {
+			"gear": [{
+					"-rating": "2",
+					"-maxrating": "3",
+					"#text": "Sensor Array"
+				},
+				{
+					"-rating": "3",
+					"#text": "[Weapon] Targeting Autosoft"
+				},
+				"Smartsoft",
+				"SmartSafety Bracelet",
+				"SmartSafety Bracelet",
+				"SmartSafety Bracelet",
+				"SmartSafety Bracelet"
+			]
+		},
+		"mods": {
+			"name": "Small Weapon Mount (Drone)"
+		}
+	},
+	{
+		"id": "a836d6d5-56f3-416c-a53f-2249af400580",
+		"name": "MCT Gun Turret (Small)",
+		"page": "133",
+		"source": "R5",
+		"accel": "0",
+		"armor": "6",
+		"avail": "4R",
+		"body": "2",
+		"category": "Drones: Small",
+		"cost": "4000",
+		"handling": "0",
+		"pilot": "3",
+		"sensor": "2",
+		"speed": "0",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "3",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Standard Weapon Mount (Drone)",
+				"Immobile (Drone)"
+			]
+		}
+	},
+	{
+		"id": "68b2cf81-7fa0-4451-8096-96d9bd25c128",
+		"name": "MCT Seven (Wheelie) (Small)",
+		"page": "134",
+		"source": "R5",
+		"accel": "1",
+		"armor": "0",
+		"avail": "0",
+		"body": "1",
+		"category": "Drones: Small",
+		"cost": "2000",
+		"handling": "4/2",
+		"pilot": "1",
+		"sensor": "1",
+		"speed": "2",
+		"gears": {
+			"gear": {
+				"-rating": "1",
+				"-maxrating": "3",
+				"#text": "Sensor Array"
+			}
+		},
+		"modslots": "3"
+	},
+	{
+		"id": "84bc59dd-cd8f-4148-b5fa-53c3e0fe384f",
+		"name": "MCT Seven (Treads) (Small)",
+		"page": "134",
+		"source": "R5",
+		"accel": "1",
+		"armor": "0",
+		"avail": "2",
+		"body": "1",
+		"category": "Drones: Small",
+		"cost": "2000",
+		"handling": "3",
+		"pilot": "1",
+		"sensor": "1",
+		"speed": "2",
+		"gears": {
+			"gear": {
+				"-rating": "1",
+				"-maxrating": "3",
+				"#text": "Sensor Array"
+			}
+		},
+		"modslots": "3"
+	},
+	{
+		"id": "67bfc8e7-e8dd-4e3f-9e31-d5aa4990e4f5",
+		"name": "MCT Seven (Dirty) (Small)",
+		"page": "134",
+		"source": "R5",
+		"accel": "1",
+		"armor": "0",
+		"avail": "2",
+		"body": "1",
+		"category": "Drones: Small",
+		"cost": "2000",
+		"handling": "2/4",
+		"pilot": "1",
+		"sensor": "1",
+		"speed": "2",
+		"gears": {
+			"gear": {
+				"-rating": "1",
+				"-maxrating": "3",
+				"#text": "Sensor Array"
+			}
+		},
+		"modslots": "3"
+	},
+	{
+		"id": "7cc3856f-eaaa-47a6-83f5-a5efa36efbcd",
+		"name": "MCT Seven (Quad) (Small)",
+		"page": "134",
+		"source": "R5",
+		"accel": "1",
+		"armor": "0",
+		"avail": "4",
+		"body": "1",
+		"category": "Drones: Small",
+		"cost": "2000",
+		"handling": "4",
+		"pilot": "1",
+		"sensor": "1",
+		"speed": "1",
+		"gears": {
+			"gear": {
+				"-rating": "1",
+				"-maxrating": "3",
+				"#text": "Sensor Array"
+			}
+		},
+		"modslots": "3"
+	},
+	{
+		"id": "4c2952dd-b400-4560-816b-1a857e3f24dd",
+		"name": "MCT Seven (Swims) (Small)",
+		"page": "134",
+		"source": "R5",
+		"accel": "1",
+		"armor": "0",
+		"avail": "4",
+		"body": "1",
+		"category": "Drones: Small",
+		"cost": "1000",
+		"handling": "3",
+		"pilot": "1",
+		"sensor": "1",
+		"speed": "2",
+		"gears": {
+			"gear": {
+				"-rating": "1",
+				"-maxrating": "3",
+				"#text": "Sensor Array"
+			}
+		},
+		"modslots": "3"
+	},
+	{
+		"id": "2227d4bb-9a97-460a-b90c-cf9fd4d98636",
+		"name": "MCT Seven (Hovers) (Small)",
+		"page": "134",
+		"source": "R5",
+		"accel": "1",
+		"armor": "0",
+		"avail": "6",
+		"body": "1",
+		"category": "Drones: Small",
+		"cost": "4000",
+		"handling": "3",
+		"pilot": "1",
+		"sensor": "1",
+		"speed": "1",
+		"gears": {
+			"gear": {
+				"-rating": "1",
+				"-maxrating": "3",
+				"#text": "Sensor Array"
+			}
+		},
+		"modslots": "3"
+	},
+	{
+		"id": "6918401c-ae18-45cc-90e2-72a029240eed",
+		"name": "MCT Seven (Soars) (Small)",
+		"page": "134",
+		"source": "R5",
+		"accel": "1",
+		"armor": "0",
+		"avail": "8",
+		"body": "1",
+		"category": "Drones: Small",
+		"cost": "4000",
+		"handling": "3",
+		"pilot": "1",
+		"sensor": "1",
+		"speed": "2",
+		"gears": {
+			"gear": {
+				"-rating": "1",
+				"-maxrating": "3",
+				"#text": "Sensor Array"
+			}
+		},
+		"modslots": "3"
+	},
+	{
+		"id": "0ff86ef9-e35d-4f8f-bc64-0303f81f11c7",
+		"name": "Neonet Prarie Dog (Small)",
+		"page": "134",
+		"source": "R5",
+		"accel": "1",
+		"armor": "3",
+		"avail": "12F",
+		"body": "2",
+		"category": "Drones: Small",
+		"cost": "8000",
+		"handling": "2/4",
+		"pilot": "3",
+		"sensor": "4",
+		"speed": "2",
+		"gears": {
+			"gear": [{
+					"-rating": "3",
+					"#text": "Electronic Warfare Autosoft"
+				},
+				{
+					"-rating": "4",
+					"#text": "Jammer, Directional"
+				},
+				{
+					"-rating": "6",
+					"#text": "Jammer, Area"
+				},
+				{
+					"-rating": "4",
+					"-maxrating": "4",
+					"#text": "Sensor Array"
+				}
+			]
+		}
+	},
+	{
+		"id": "963d0596-c0f5-40d9-8bfe-580cc1150d20",
+		"name": "PW Sundowner (Small)",
+		"page": "134",
+		"source": "R5",
+		"accel": "1",
+		"armor": "0",
+		"avail": "8",
+		"body": "2",
+		"category": "Drones: Small",
+		"cost": "10000",
+		"handling": "3",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "3",
+				"#text": "Sensor Array"
+			}
+		}
+	},
+	{
+		"id": "6cef9ce0-b7b0-4d3c-933a-ef1da1580388",
+		"name": "Proteus Krake (Small)",
+		"page": "136",
+		"source": "R5",
+		"accel": "4",
+		"armor": "2",
+		"avail": "18F",
+		"body": "2",
+		"category": "Drones: Small",
+		"cost": "10000",
+		"handling": "5",
+		"pilot": "4",
+		"sensor": "3",
+		"speed": "3",
+		"gears": {
+			"gear": [{
+					"-rating": "3",
+					"-maxrating": "3",
+					"#text": "Sensor Array"
+				},
+				{
+					"-select": "Nautical Mechanic",
+					"#text": "Tool Kit"
+				},
+				"Plasma Torch",
+				"Ink Pouch"
+			]
+		},
+		"mods": {
+			"name": "Small Weapon Mount (Drone)"
+		}
+	},
+	{
+		"id": "75b5192e-6d57-4ca3-b288-c733c1272cef",
+		"name": "Saab-Thyssen Bloodhound (Small)",
+		"page": "136",
+		"source": "R5",
+		"accel": "1",
+		"armor": "0",
+		"avail": "8",
+		"body": "2",
+		"category": "Drones: Small",
+		"cost": "10000",
+		"handling": "3",
+		"pilot": "2",
+		"sensor": "4",
+		"speed": "1",
+		"gears": {
+			"gear": [{
+					"-rating": "4",
+					"-maxrating": "4",
+					"#text": "Sensor Array"
+				},
+				{
+					"-rating": "6",
+					"#text": "Geiger Counter"
+				},
+				{
+					"-rating": "8",
+					"#text": "Olfactory Sensor"
+				}
+			]
+		}
+	},
+	{
+		"id": "ec84a3e8-00f7-4558-b21c-62fff76c33c5",
+		"name": "Renraku Dove-4 (Small)",
+		"page": "136",
+		"source": "R5",
+		"accel": "1",
+		"armor": "0",
+		"avail": "4",
+		"body": "2",
+		"category": "Drones: Small",
+		"cost": "5000",
+		"handling": "4",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "2",
+		"gears": {
+			"gear": [{
+					"-rating": "2",
+					"-maxrating": "3",
+					"#text": "Sensor Array"
+				},
+				{
+					"-rating": "6",
+					"#text": "Radio Signal Scanner"
+				}
+			]
+		},
+		"modslots": "1"
+	},
+	{
+		"id": "2f1519ae-8c34-48cb-a5ba-47eac74fff82",
+		"name": "Renraku Jardinero (Small)",
+		"page": "136",
+		"source": "R5",
+		"accel": "1",
+		"armor": "0",
+		"avail": "4",
+		"body": "2",
+		"category": "Drones: Small",
+		"cost": "2000",
+		"handling": "2/4",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "1",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "3",
+				"#text": "Sensor Array"
+			}
+		},
+		"modslots": "1"
+	},
+	{
+		"id": "744987eb-0503-4d1f-b49e-fb3a543b08e0",
+		"name": "Renraku Job-A-Mat (Small)",
+		"page": "137",
+		"source": "R5",
+		"accel": "0",
+		"armor": "0",
+		"avail": "4",
+		"body": "2",
+		"category": "Drones: Small",
+		"cost": "3000",
+		"handling": "0",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "0",
+		"gears": {
+			"gear": [{
+					"-rating": "2",
+					"-maxrating": "3",
+					"#text": "Sensor Array"
+				},
+				{
+					"-rating": "2",
+					"-select": "Knowledge",
+					"#text": "Skill Autosoft"
+				}
+			]
+		},
+		"mods": {
+			"name": "Immobile (Drone)"
+		}
+	},
+	{
+		"id": "d8654096-dcd5-42ce-af43-cda1c0caeb3f",
+		"name": "Renraku Pelican (Small)",
+		"page": "137",
+		"source": "R5",
+		"accel": "1",
+		"armor": "0",
+		"avail": "2",
+		"body": "2",
+		"category": "Drones: Small",
+		"cost": "4000",
+		"handling": "4",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "2",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "3",
+				"#text": "Sensor Array"
+			}
+		},
+		"modslots": "1"
+	},
+	{
+		"id": "50d4bce4-79f1-48d4-8b38-68969802dec0",
+		"name": "Telestrian Shamus",
+		"page": "138",
+		"source": "R5",
+		"accel": "1",
+		"armor": "4",
+		"avail": "10",
+		"body": "4",
+		"category": "Drones: Small",
+		"cost": "30000",
+		"handling": "3",
+		"pilot": "3",
+		"sensor": "8",
+		"speed": "3",
+		"gears": {
+			"gear": [
+				"Quicksilver Camera",
+				{
+					"-rating": "8",
+					"-maxrating": "8",
+					"#text": "Sensor Array"
+				},
+				{
+					"-rating": "8",
+					"#text": "Atmosphere Sensor"
+				},
+				{
+					"-rating": "8",
+					"#text": "Camera"
+				},
+				{
+					"-rating": "8",
+					"#text": "Geiger Counter"
+				},
+				{
+					"-rating": "8",
+					"#text": "MAD Scanner"
+				},
+				{
+					"-rating": "8",
+					"#text": "Olfactory Sensor"
+				},
+				{
+					"-rating": "8",
+					"#text": "Radio Signal Scanner"
+				},
+				{
+					"-rating": "8",
+					"#text": "Ultrasound"
+				},
+				{
+					"-rating": "8",
+					"#text": "X-Ray"
+				}
+			]
+		}
+	},
+	{
+		"id": "2c2ab919-9432-4e0a-9f30-a8cc9d51f7fb",
+		"name": "Ares Cheetah (Medium)",
+		"page": "139",
+		"source": "R5",
+		"accel": "1",
+		"armor": "6",
+		"avail": "12R",
+		"body": "2",
+		"category": "Drones: Medium",
+		"cost": "14000",
+		"handling": "4",
+		"pilot": "3",
+		"sensor": "2",
+		"speed": "6",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "4",
+				"#text": "Sensor Array"
+			}
+		}
+	},
+	{
+		"id": "671e4bc0-bd06-4158-9515-2e353f2f6123",
+		"name": "Evo Krokodil (Medium)",
+		"page": "140",
+		"source": "R5",
+		"accel": "1",
+		"armor": "6",
+		"avail": "8R",
+		"body": "3",
+		"category": "Drones: Medium",
+		"cost": "12000",
+		"handling": "3",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "2/3",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "4",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": "Amphibious (Drone)"
+		},
+		"modslots": "1"
+	},
+	{
+		"id": "62431445-834e-424b-b4e4-ff41f36b184c",
+		"name": "Federated-Boeing Kull (Medium)",
+		"page": "140",
+		"source": "R5",
+		"accel": "2",
+		"armor": "0",
+		"avail": "4",
+		"body": "3",
+		"category": "Drones: Medium",
+		"cost": "10000",
+		"handling": "3",
+		"pilot": "3",
+		"sensor": "2",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "4",
+				"#text": "Sensor Array"
+			}
+		}
+	},
+	{
+		"id": "dd68326a-254b-44e7-b787-67a539f19e06",
+		"name": "MCT Tunneler (Medium)",
+		"page": "140",
+		"source": "R5",
+		"accel": "0",
+		"armor": "6",
+		"avail": "8R",
+		"body": "3",
+		"category": "Drones: Medium",
+		"cost": "10000",
+		"handling": "3",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "0",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "4",
+				"#text": "Sensor Array"
+			}
+		},
+		"modslots": "2"
+	},
+	{
+		"id": "4ca97d26-0d55-4b9e-afcb-4f10b5eea4a6",
+		"name": "Renraku LEBD-2 (Medium)",
+		"page": "140",
+		"source": "R5",
+		"accel": "1",
+		"armor": "9",
+		"avail": "12R",
+		"body": "3",
+		"category": "Drones: Medium",
+		"cost": "20000",
+		"handling": "4",
+		"pilot": "4",
+		"sensor": "4",
+		"speed": "2",
+		"gears": {
+			"gear": [{
+					"-rating": "4",
+					"-maxrating": "4",
+					"#text": "Sensor Array"
+				},
+				{
+					"-rating": "4",
+					"-select": "Yamaha Pulsar",
+					"#text": "[Weapon] Targeting Autosoft"
+				},
+				{
+					"-rating": "4",
+					"#text": "Clearsight Autosoft"
+				},
+				{
+					"-rating": "4",
+					"-select": "Legal Codes",
+					"#text": "Skill Autosoft"
+				},
+				{
+					"-costfor": "4",
+					"#text": "Ammo: Taser Dart"
+				}
+			]
+		},
+		"mods": {
+			"name": "Mini Weapon Mount (Drone)"
+		},
+		"weapons": {
+			"weapon": {
+				"name": "Yamaha Pulsar"
+			}
+		}
+	},
+	{
+		"id": "39f2681c-6a20-4799-bd9a-f81636a00dbd",
+		"name": "Transys Steed (Medium)",
+		"page": "141",
+		"source": "R5",
+		"accel": "1",
+		"armor": "0",
+		"avail": "2",
+		"body": "3",
+		"category": "Drones: Medium",
+		"cost": "4000",
+		"handling": "4/2",
+		"pilot": "2",
+		"sensor": "4",
+		"speed": "1",
+		"gears": {
+			"gear": {
+				"-rating": "4",
+				"-maxrating": "4",
+				"#text": "Sensor Array"
+			}
+		},
+		"modslots": "1"
+	},
+	{
+		"id": "9bb6d665-a59c-4146-ad2f-2ce4ef2e52c9",
+		"name": "Ares Matilda (Large)",
+		"page": "141",
+		"source": "R5",
+		"accel": "1",
+		"armor": "8",
+		"avail": "12R",
+		"body": "8",
+		"category": "Drones: Large",
+		"cost": "18000",
+		"handling": "1",
+		"pilot": "2",
+		"sensor": "4",
+		"speed": "2",
+		"gears": {
+			"gear": [{
+					"-rating": "2",
+					"-maxrating": "5",
+					"#text": "Sensor Array"
+				},
+				{
+					"-rating": "3",
+					"#text": "[Weapon] Targeting Autosoft"
+				}
+			]
+		},
+		"mods": {
+			"name": "Standard Weapon Mount (Drone)"
+		},
+		"weapons": {
+			"weapon": [{
+					"name": "Underbarrel Grenade Launcher"
+				},
+				{
+					"name": "Riot Shield"
+				},
+				{
+					"name": "Riot Shield"
+				}
+			]
+		}
+	},
+	{
+		"id": "4ea566f2-a5c0-4021-80b1-60d85dab1b27",
+		"name": "Ares Mule (Large)",
+		"page": "142",
+		"source": "R5",
+		"accel": "1",
+		"armor": "6",
+		"avail": "4",
+		"body": "4",
+		"category": "Drones: Large",
+		"cost": "8000",
+		"handling": "4",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "1",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "5",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": "Drone Arm"
+		},
+		"modslots": "3"
+	},
+	{
+		"id": "a5700d79-5748-4c6d-a28b-8c282827a05a",
+		"name": "Ares Paladin (Large)",
+		"page": "142",
+		"source": "R5",
+		"accel": "1",
+		"armor": "18",
+		"avail": "8R",
+		"body": "5",
+		"category": "Drones: Large",
+		"cost": "5000",
+		"handling": "5",
+		"pilot": "3",
+		"sensor": "2",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "5",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": "Tracked Propulsion"
+		}
+	},
+	{
+		"id": "18dbdb52-cb84-43d5-8d0e-15eb5a036556",
+		"name": "CrashCart Medicart (Large)",
+		"page": "143",
+		"source": "R5",
+		"accel": "1",
+		"armor": "5",
+		"avail": "6",
+		"body": "6",
+		"category": "Drones: Large",
+		"cost": "10000",
+		"handling": "5",
+		"pilot": "4",
+		"sensor": "4",
+		"speed": "5",
+		"gears": {
+			"gear": [{
+					"-rating": "4",
+					"-maxrating": "5",
+					"#text": "Sensor Array"
+				},
+				{
+					"-rating": "6",
+					"#text": "Medkit"
+				}
+			]
+		},
+		"mods": {
+			"name": "Tracked Propulsion"
+		},
+		"modslots": "2"
+	},
+	{
+		"id": "4037bd7f-917a-4478-a52a-e4b73635a5c1",
+		"name": "GTS Tower (Large)",
+		"page": "143",
+		"source": "R5",
+		"accel": "1",
+		"armor": "6",
+		"avail": "8",
+		"body": "4",
+		"category": "Drones: Large",
+		"cost": "10000",
+		"handling": "2",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "1",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "5",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Standard Drone Rack (Mini)",
+				"Standard Drone Rack (Mini)",
+				"Standard Drone Rack (Mini)",
+				"Standard Drone Rack (Mini)",
+				"Retrans Unit"
+			]
+		}
+	},
+	{
+		"id": "e0343c07-3a15-4596-bcc0-5a2d6d160a6b",
+		"name": "Saeder-Krupp MK-170 Neptune (Large)",
+		"page": "143",
+		"source": "R5",
+		"accel": "1",
+		"armor": "3",
+		"avail": "10F",
+		"body": "5",
+		"category": "Drones: Large",
+		"cost": "17500",
+		"handling": "2",
+		"pilot": "4",
+		"sensor": "3",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "5",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Submersible (Drone)",
+				"Searchlight"
+			]
+		}
+	},
+	{
+		"id": "bc21264d-527c-4066-b8c6-0aa24cff61cb",
+		"name": "Mitsuhama Malakim (Large)",
+		"page": "143",
+		"source": "R5",
+		"accel": "2",
+		"armor": "9",
+		"avail": "20F",
+		"body": "4",
+		"category": "Drones: Large",
+		"cost": "40000",
+		"handling": "3",
+		"pilot": "4",
+		"sensor": "4",
+		"speed": "6",
+		"gears": {
+			"gear": [{
+					"-rating": "6",
+					"#text": "Jammer, Area"
+				},
+				{
+					"-rating": "6",
+					"#text": "Jammer, Directional"
+				},
+				{
+					"-rating": "4",
+					"#text": "[Weapon] Targeting Autosoft"
+				},
+				{
+					"-rating": "4",
+					"-maxrating": "5",
+					"#text": "Sensor Array"
+				}
+			]
+		},
+		"mods": {
+			"name": "Standard Weapon Mount (Drone)"
+		}
+	},
+	{
+		"id": "70916e91-a7ee-477f-a4b0-14bc125c1034",
+		"name": "Ares KN-Y2: Deimos (Huge)",
+		"page": "144",
+		"source": "R5",
+		"accel": "1",
+		"armor": "18",
+		"avail": "20F",
+		"body": "6",
+		"category": "Drones: Huge",
+		"cost": "220000",
+		"handling": "3",
+		"pilot": "5",
+		"sensor": "3",
+		"speed": "2",
+		"gears": {
+			"gear": [{
+					"-rating": "5",
+					"#text": "[Weapon] Targeting Autosoft"
+				},
+				"Smartsoft",
+				{
+					"-rating": "3",
+					"-maxrating": "6",
+					"#text": "Sensor Array"
+				}
+			]
+		},
+		"mods": {
+			"name": "Heavy Weapon Mount (Drone)"
+		}
+	},
+	{
+		"id": "e4f82e1e-1bcb-4857-a693-80cea860150e",
+		"name": "Ares KN-Y1: Phobos (Huge)",
+		"page": "144",
+		"source": "R5",
+		"accel": "1",
+		"armor": "18",
+		"avail": "16F",
+		"body": "6",
+		"category": "Drones: Huge",
+		"cost": "250000",
+		"handling": "3",
+		"pilot": "5",
+		"sensor": "3",
+		"speed": "2",
+		"gears": {
+			"gear": [{
+					"-rating": "5",
+					"#text": "[Weapon] Targeting Autosoft"
+				},
+				"Smartsoft",
+				{
+					"-rating": "3",
+					"-maxrating": "6",
+					"#text": "Sensor Array"
+				}
+			]
+		},
+		"mods": {
+			"name": "Heavy Weapon Mount (Drone)"
+		}
+	},
+	{
+		"id": "83dae489-5d31-4d39-b6fa-aefc83b3ff20",
+		"name": "Ares KN-Y4: Eris (Huge)",
+		"page": "144",
+		"source": "R5",
+		"accel": "1",
+		"armor": "18",
+		"avail": "24F",
+		"body": "6",
+		"category": "Drones: Huge",
+		"cost": "270000",
+		"handling": "3",
+		"pilot": "5",
+		"sensor": "3",
+		"speed": "2",
+		"gears": {
+			"gear": [{
+					"-rating": "5",
+					"#text": "[Weapon] Targeting Autosoft"
+				},
+				"Smartsoft",
+				{
+					"-rating": "6",
+					"#text": "Jammer, Area"
+				},
+				{
+					"-rating": "6",
+					"#text": "Jammer, Directional"
+				},
+				{
+					"-rating": "5",
+					"#text": "Electronic Warfare Autosoft"
+				},
+				{
+					"-rating": "3",
+					"-maxrating": "6",
+					"#text": "Sensor Array"
+				}
+			]
+		},
+		"mods": {
+			"name": "Large Weapon Mount (Drone)"
+		}
+	},
+	{
+		"id": "0f1b635b-59d8-4b43-b809-76eae7f0048c",
+		"name": "Mesametric Kodiak (Huge)",
+		"page": "145",
+		"source": "R5",
+		"accel": "1",
+		"armor": "12",
+		"avail": "12R",
+		"body": "6",
+		"category": "Drones: Huge",
+		"cost": "40000",
+		"handling": "2/4",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "2",
+		"gears": {
+			"gear": [{
+					"-rating": "2",
+					"-select": "Road Engineering",
+					"#text": "Skill Autosoft"
+				},
+				{
+					"-rating": "2",
+					"-maxrating": "6",
+					"#text": "Sensor Array"
+				}
+			]
+		},
+		"mods": {
+			"name": "Drone Arm"
+		},
+		"modslots": "2"
+	},
+	{
+		"id": "a88f58ad-f4e0-448a-ba5c-00cbdd0076f6",
+		"name": "NeoNet Avenging Angel (Huge)",
+		"page": "145",
+		"source": "R5",
+		"accel": "2",
+		"armor": "12",
+		"avail": "40F",
+		"body": "6",
+		"category": "Drones: Huge",
+		"cost": "1000000",
+		"handling": "3",
+		"pilot": "6",
+		"sensor": "6",
+		"speed": "6",
+		"gears": {
+			"gear": {
+				"-rating": "6",
+				"-maxrating": "6",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": "Heavy Weapon Mount (Drone)"
+		}
+	},
+	{
+		"id": "472a0869-4759-41cf-b529-a42b0f308f69",
+		"name": "Criado Juan",
+		"page": "146",
+		"source": "R5",
+		"accel": "1",
+		"armor": "0",
+		"avail": "2",
+		"body": "2",
+		"category": "Drones: Anthro",
+		"cost": "8000",
+		"handling": "2",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "2",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "6",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Drone Arm",
+				"Drone Arm",
+				"Drone Leg",
+				"Drone Leg"
+			]
+		}
+	},
+	{
+		"id": "ad77dfa1-36ae-4e66-a319-24de903652aa",
+		"name": "Horizon Little Buddy",
+		"page": "146",
+		"source": "R5",
+		"accel": "1",
+		"armor": "0",
+		"avail": "4",
+		"body": "1",
+		"category": "Drones: Anthro",
+		"cost": "2000",
+		"handling": "2",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "1",
+		"gears": {
+			"gear": [{
+					"-rating": "2",
+					"-maxrating": "6",
+					"#text": "Sensor Array"
+				},
+				{
+					"-rating": "2",
+					"-select": "Instruction",
+					"#text": "Skill Autosoft"
+				}
+			]
+		},
+		"mods": {
+			"name": [
+				"Drone Arm",
+				"Drone Arm",
+				"Drone Leg",
+				"Drone Leg"
+			]
+		}
+	},
+	{
+		"id": "54f7d700-d407-49bf-a231-83777419cbe3",
+		"name": "MCT Kenchiku-Kikai",
+		"page": "147",
+		"source": "R5",
+		"accel": "1",
+		"armor": "3",
+		"avail": "8R",
+		"body": "5",
+		"category": "Drones: Anthro",
+		"cost": "20000",
+		"handling": "2",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "2",
+		"gears": {
+			"gear": [{
+					"-rating": "2",
+					"-maxrating": "6",
+					"#text": "Sensor Array"
+				},
+				{
+					"-rating": "2",
+					"-select": "Industrial Mechanic",
+					"#text": "Skill Autosoft"
+				}
+			]
+		},
+		"mods": {
+			"name": [
+				"Drone Arm",
+				"Drone Arm",
+				"Drone Leg",
+				"Drone Leg"
+			]
+		}
+	},
+	{
+		"id": "b448855b-57e7-435a-b523-174adb276674",
+		"name": "NeoNet Juggernaut",
+		"page": "147",
+		"source": "R5",
+		"accel": "1",
+		"armor": "12",
+		"avail": "14R",
+		"body": "6",
+		"category": "Drones: Anthro",
+		"cost": "100000",
+		"handling": "3",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "6",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Drone Arm",
+				"Drone Arm",
+				"Drone Leg",
+				"Drone Leg",
+				"Standard Weapon Mount (Drone)",
+				"Standard Weapon Mount (Drone)"
+			]
+		}
+	},
+	{
+		"id": "ca18775c-3535-40e1-be69-a07905add421",
+		"name": "Saeder-Krupp Direktionssekretar",
+		"page": "148",
+		"source": "R5",
+		"accel": "2",
+		"armor": "3",
+		"avail": "12R",
+		"body": "4",
+		"category": "Drones: Anthro",
+		"cost": "40000",
+		"handling": "4",
+		"pilot": "4",
+		"sensor": "4",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "4",
+				"-maxrating": "6",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Drone Arm",
+				"Drone Arm",
+				"Drone Leg",
+				"Drone Leg"
+			]
+		}
+	},
+	{
+		"id": "17d1e41b-6650-45e2-b898-d047c3b8702a",
+		"name": "Shiawase I-Doll",
+		"page": "148",
+		"source": "R5",
+		"accel": "1",
+		"armor": "0",
+		"avail": "4",
+		"body": "3",
+		"category": "Drones: Anthro",
+		"cost": "20000",
+		"handling": "3",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "3",
+		"gears": {
+			"gear": [{
+					"-rating": "3",
+					"-maxrating": "6",
+					"#text": "Sensor Array"
+				},
+				{
+					"-rating": "3",
+					"-select": "Cooking",
+					"#text": "Skill Autosoft"
+				}
+			]
+		},
+		"mods": {
+			"name": [
+				"Synthetic Drone Arm",
+				"Synthetic Drone Arm",
+				"Synthetic Drone Leg",
+				"Synthetic Drone Leg",
+				{
+					"-rating": "1",
+					"#text": "Realistic Features (Drone)"
+				}
+			]
+		}
+	},
+	{
+		"id": "1e8e5e79-9d32-48fa-802c-6bf91676ae63",
+		"name": "Harley-Davidson Scorpion (Chopper)",
+		"page": "462",
+		"source": "SR5",
+		"accel": "2",
+		"armor": "9",
+		"avail": "0",
+		"body": "8",
+		"category": "Bikes",
+		"cost": "12000",
+		"handling": "4/3",
+		"pilot": "1",
+		"sensor": "2",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "6",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": {
+				"-rating": "1",
+				"#text": "Metahuman Adjustment"
+			}
+		},
+		"seats": "1"
+	},
+	{
+		"id": "2df83d3e-78bb-4b42-b19f-78df8588e981",
+		"name": "Yamaha Growler (Off-Road Bike)",
+		"page": "462",
+		"source": "SR5",
+		"accel": "1",
+		"armor": "5",
+		"avail": "0",
+		"body": "5",
+		"category": "Bikes",
+		"cost": "5000",
+		"handling": "4/5",
+		"pilot": "1",
+		"sensor": "1",
+		"speed": "3/4",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "6",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "1"
+	},
+	{
+		"id": "86374792-b881-4d9b-915a-d0e6652bbf4d",
+		"name": "Suzuki Mirage (Racing Bike)",
+		"page": "462",
+		"source": "SR5",
+		"accel": "3",
+		"armor": "6",
+		"avail": "0",
+		"body": "5",
+		"category": "Bikes",
+		"cost": "8500",
+		"handling": "5/3",
+		"pilot": "1",
+		"sensor": "2",
+		"speed": "6",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "6",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "1"
+	},
+	{
+		"id": "e3b51fdb-e62b-4343-b905-999056286fcb",
+		"name": "Chrysler-Nissan Jackrabbit (Subcompact)",
+		"page": "462",
+		"source": "SR5",
+		"accel": "2",
+		"armor": "4",
+		"avail": "0",
+		"body": "8",
+		"category": "Cars",
+		"cost": "10000",
+		"handling": "4/3",
+		"pilot": "1",
+		"sensor": "2",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "2"
+	},
+	{
+		"id": "1f011f9a-42bb-401d-938d-592a4759a502",
+		"name": "Chrysler-Nissan Journey (Car)",
+		"page": "186",
+		"source": "SS",
+		"accel": "3",
+		"armor": "5",
+		"avail": "0",
+		"body": "9",
+		"category": "Cars",
+		"cost": "17000",
+		"handling": "4/3",
+		"pilot": "1",
+		"sensor": "1",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "4"
+	},
+	{
+		"id": "d7695e8c-1eab-4fe3-8b37-406cc73ca1d6",
+		"name": "Eurocar Westwind 3000 (Luxury Sports Car)",
+		"page": "463",
+		"source": "SR5",
+		"accel": "3",
+		"armor": "8",
+		"avail": "13",
+		"body": "10",
+		"category": "Cars",
+		"cost": "110000",
+		"handling": "6/4",
+		"pilot": "3",
+		"sensor": "5",
+		"speed": "7",
+		"gears": {
+			"gear": {
+				"-rating": "5",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [{
+					"-rating": "6",
+					"#text": "Passenger Protection System"
+				},
+				{
+					"-rating": "2",
+					"#text": "Anti-Theft System"
+				}
+			]
+		},
+		"seats": "2"
+	},
+	{
+		"id": "79046746-a3fb-4eb2-a78a-82ebdeecdacc",
+		"name": "Honda Spirit (Subcompact)",
+		"page": "463",
+		"source": "SR5",
+		"accel": "2",
+		"armor": "6",
+		"avail": "0",
+		"body": "8",
+		"category": "Cars",
+		"cost": "12000",
+		"handling": "3/2",
+		"pilot": "1",
+		"sensor": "2",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "2"
+	},
+	{
+		"id": "7eb50773-4291-42af-af27-1ac469f8470c",
+		"name": "Honda Artemis (Car)",
+		"page": "186",
+		"source": "SS",
+		"accel": "3",
+		"armor": "6",
+		"avail": "0",
+		"body": "9",
+		"category": "Cars",
+		"cost": "17000",
+		"handling": "4/2",
+		"pilot": "1",
+		"sensor": "1",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "4"
+	},
+	{
+		"id": "62a93c90-fcfe-49bd-85ba-4730f4b6ebd7",
+		"name": "Saeder-Krupp LT-21 (Delivery Van)",
+		"page": "186",
+		"source": "SS",
+		"accel": "1",
+		"armor": "7",
+		"avail": "0",
+		"body": "15",
+		"category": "Trucks",
+		"cost": "31000",
+		"handling": "2/1",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "2",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "2"
+	},
+	{
+		"id": "72a204fc-e4f7-4e00-9d14-7f338fb86817",
+		"name": "Hyundai Shin-Hyung (Sport Sedan)",
+		"page": "463",
+		"source": "SR5",
+		"accel": "3",
+		"armor": "6",
+		"avail": "0",
+		"body": "10",
+		"category": "Cars",
+		"cost": "28500",
+		"handling": "5/4",
+		"pilot": "1",
+		"sensor": "2",
+		"speed": "6",
+		"bodymodslots": "4",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "4"
+	},
+	{
+		"id": "9f6115e6-b52b-40d8-94d5-c4874de4858b",
+		"name": "Dodge Ram Industrial (Large) (Garbage Truck)",
+		"page": "186",
+		"source": "SS",
+		"accel": "1",
+		"armor": "8",
+		"avail": "4",
+		"body": "16",
+		"category": "Trucks",
+		"cost": "51000",
+		"handling": "2/1",
+		"pilot": "2",
+		"sensor": "4",
+		"speed": "1",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "4"
+	},
+	{
+		"id": "53afa8ff-2903-4167-8ed4-ae6d833d1547",
+		"name": "Dodge Ram Industrial (Narrow) (Garbage Truck)",
+		"page": "186",
+		"source": "SS",
+		"accel": "1",
+		"armor": "8",
+		"avail": "4",
+		"body": "16",
+		"category": "Trucks",
+		"cost": "49000",
+		"handling": "3/1",
+		"pilot": "2",
+		"sensor": "4",
+		"speed": "1",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "4"
+	},
+	{
+		"id": "f43a6579-cc23-4bae-b154-5f9adf6cb7f2",
+		"name": "Esprit Industries Watcher (SUV)",
+		"page": "186",
+		"source": "SS",
+		"accel": "3",
+		"armor": "8",
+		"avail": "4",
+		"body": "9",
+		"category": "Trucks",
+		"cost": "40000",
+		"handling": "3/3",
+		"pilot": "1",
+		"sensor": "3",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "5"
+	},
+	{
+		"id": "3aed6a1c-af27-48eb-84e3-8f21875e0c65",
+		"name": "Mitsubishi Nightsky (Limousine)",
+		"page": "463",
+		"source": "SR5",
+		"accel": "2",
+		"armor": "15",
+		"avail": "16",
+		"body": "15",
+		"category": "Cars",
+		"cost": "320000",
+		"handling": "4/3",
+		"pilot": "3",
+		"sensor": "5",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "5",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Amenities (Luxury)",
+				{
+					"-rating": "2",
+					"#text": "Life Support"
+				}
+			]
+		},
+		"seats": "8"
+	},
+	{
+		"id": "898906ec-f2b9-43a4-98ad-6f79230b9a0c",
+		"name": "Ford Americar (Sedan)",
+		"page": "463",
+		"source": "SR5",
+		"accel": "2",
+		"armor": "6",
+		"avail": "0",
+		"body": "11",
+		"category": "Cars",
+		"cost": "16000",
+		"handling": "4/3",
+		"pilot": "1",
+		"sensor": "2",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "4"
+	},
+	{
+		"id": "71600577-7cce-4f6b-9854-531460d9400a",
+		"name": "Saeder-Krupp-Bentley Concordat (Luxury Sedan)",
+		"page": "463",
+		"source": "SR5",
+		"accel": "2",
+		"armor": "12",
+		"avail": "10",
+		"body": "12",
+		"category": "Cars",
+		"cost": "65000",
+		"handling": "5/4",
+		"pilot": "2",
+		"sensor": "4",
+		"speed": "5",
+		"gears": {
+			"gear": {
+				"-rating": "4",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "4"
+	},
+	{
+		"id": "30de4139-368b-4569-94c1-f65c1cd2dc26",
+		"name": "Rover 2072 (SUV)",
+		"page": "464",
+		"source": "SR5",
+		"accel": "2",
+		"armor": "12",
+		"avail": "10",
+		"body": "15",
+		"category": "Trucks",
+		"cost": "68000",
+		"handling": "5/5",
+		"pilot": "2",
+		"sensor": "4",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "4",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "6"
+	},
+	{
+		"id": "56747364-dbd5-40e3-b4c1-5a361ec0c710",
+		"name": "Toyota Gopher (Heavy-Duty Pickup)",
+		"page": "463",
+		"source": "SR5",
+		"accel": "2",
+		"armor": "10",
+		"avail": "0",
+		"body": "14",
+		"category": "Trucks",
+		"cost": "25000",
+		"handling": "5/5",
+		"pilot": "1",
+		"sensor": "2",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Off-Road Suspension",
+				{
+					"-select": "Open Box Storage",
+					"#text": "Special Equipment"
+				}
+			]
+		},
+		"seats": "3"
+	},
+	{
+		"id": "3ce7af9c-104c-4b74-be1b-f0b512ebea4b",
+		"name": "GMC Bulldog Step-Van (Van)",
+		"page": "463",
+		"source": "SR5",
+		"accel": "1",
+		"armor": "12",
+		"avail": "0",
+		"body": "16",
+		"category": "Trucks",
+		"cost": "35000",
+		"handling": "3/3",
+		"pilot": "1",
+		"sensor": "2",
+		"speed": "3",
+		"bodymodslots": "4",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "6"
+	},
+	{
+		"id": "f73f5dbf-f812-4a04-a441-98a3cc37d23a",
+		"name": "GMC Endurance (Van)",
+		"page": "186",
+		"source": "SS",
+		"accel": "3",
+		"armor": "6",
+		"avail": "0",
+		"body": "14",
+		"category": "Trucks",
+		"cost": "35000",
+		"handling": "3/3",
+		"pilot": "1",
+		"sensor": "2",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "8"
+	},
+	{
+		"id": "e04c0dce-b45a-4f0d-8d48-bea1c4a305f1",
+		"name": "GMC Sidewinder (SUV)",
+		"page": "186",
+		"source": "SS",
+		"accel": "2",
+		"armor": "6",
+		"avail": "4",
+		"body": "10",
+		"category": "Trucks",
+		"cost": "33000",
+		"handling": "4/3",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "6"
+	},
+	{
+		"id": "0ed17686-7ac3-48de-88d2-bc8738a00afa",
+		"name": "Ares Roadmaster (Armored Transport)",
+		"page": "464",
+		"source": "SR5",
+		"accel": "1",
+		"armor": "18",
+		"avail": "8",
+		"body": "18",
+		"category": "Trucks",
+		"cost": "52000",
+		"handling": "3/3",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "8"
+	},
+	{
+		"id": "8a898851-6409-48f0-95f9-62e831835890",
+		"name": "Conestoga Vista (Bus)",
+		"page": "110",
+		"source": "AR",
+		"accel": "15/25",
+		"armor": "4",
+		"avail": "0",
+		"body": "20",
+		"category": "Trucks",
+		"cost": "25000",
+		"handling": "-3",
+		"pilot": "1",
+		"sensor": "1",
+		"speed": "90",
+		"gears": {
+			"gear": {
+				"-rating": "1",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": "Amenities (Squatter)"
+		}
+	},
+	{
+		"id": "81505035-7043-4841-a952-3763e9e7ddc5",
+		"name": "Conestoga Trailblazer (Moving Truck)",
+		"page": "186",
+		"source": "SS",
+		"accel": "1",
+		"armor": "6",
+		"avail": "4",
+		"body": "14",
+		"category": "Trucks",
+		"cost": "75000",
+		"handling": "2/1",
+		"pilot": "2",
+		"sensor": "1",
+		"speed": "2",
+		"gears": {
+			"gear": {
+				"-rating": "1",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "2"
+	},
+	{
+		"id": "f4b1800d-7542-477c-b007-094e6a989ece",
+		"name": "Conestoga Trailblazer w/Trailer (Moving Truck)",
+		"page": "186",
+		"source": "SS",
+		"accel": "1",
+		"armor": "6",
+		"avail": "4",
+		"body": "20",
+		"category": "Trucks",
+		"cost": "95000",
+		"handling": "1/1",
+		"pilot": "2",
+		"sensor": "1",
+		"speed": "2",
+		"gears": {
+			"gear": {
+				"-rating": "1",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "2"
+	},
+	{
+		"id": "7e5d30f4-ef09-4a95-8bb5-a9128557e1b0",
+		"name": "Samuvani Criscraft Otter (Sport Cruiser)",
+		"page": "464",
+		"source": "SR5",
+		"accel": "2",
+		"armor": "6",
+		"avail": "0",
+		"body": "12",
+		"category": "Boats",
+		"cost": "21000",
+		"handling": "4",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "8"
+	},
+	{
+		"id": "6af4e72c-a783-4b61-8f3b-22436b635b57",
+		"name": "Yongkang Gala Trinity (Speedboat)",
+		"page": "464",
+		"source": "SR5",
+		"accel": "3",
+		"armor": "6",
+		"avail": "8",
+		"body": "10",
+		"category": "Boats",
+		"cost": "37000",
+		"handling": "5",
+		"pilot": "1",
+		"sensor": "1",
+		"speed": "6",
+		"gears": {
+			"gear": {
+				"-rating": "1",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Smuggling Compartment",
+				"Assembly/Disassembly"
+			]
+		},
+		"seats": "3"
+	},
+	{
+		"id": "bffc0ba9-ab14-4226-bb4e-c2db70528a06",
+		"name": "Morgan Cutlass (Patrol Boat)",
+		"page": "454",
+		"source": "SR5",
+		"accel": "2",
+		"armor": "10",
+		"avail": "14R",
+		"body": "16",
+		"category": "Boats",
+		"cost": "96000",
+		"handling": "5",
+		"pilot": "3",
+		"sensor": "5",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "5",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Heavy Weapon Mount, Manual",
+				"Heavy Weapon Mount, Manual"
+			]
+		},
+		"seats": "6"
+	},
+	{
+		"id": "fb002667-22de-4156-ad17-def60a1795c0",
+		"name": "Proteus Lamprey (Sea Sled)",
+		"page": "464",
+		"source": "SR5",
+		"accel": "1",
+		"armor": "6",
+		"avail": "0",
+		"body": "6",
+		"category": "Submarines",
+		"cost": "14000",
+		"handling": "3",
+		"pilot": "1",
+		"sensor": "3",
+		"speed": "2",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": "Landing Drone Rack (Medium)"
+		},
+		"seats": "4"
+	},
+	{
+		"id": "f6360d94-95f1-474c-82b3-0c0d3f9575c2",
+		"name": "Vulkan Electronaut (Mini-sub)",
+		"page": "464",
+		"source": "SR5",
+		"accel": "1",
+		"armor": "10",
+		"avail": "10",
+		"body": "12",
+		"category": "Submarines",
+		"cost": "108000",
+		"handling": "3",
+		"pilot": "4",
+		"sensor": "4",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "4",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "2"
+	},
+	{
+		"id": "590fde44-d58d-4b96-871f-406426dbabf7",
+		"name": "Artemis Industries Nightwing (Glider)",
+		"page": "464",
+		"source": "SR5",
+		"accel": "1",
+		"armor": "0",
+		"avail": "8",
+		"body": "4",
+		"category": "Fixed-Wing Aircraft",
+		"cost": "20000",
+		"handling": "6",
+		"pilot": "1",
+		"sensor": "1",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": {
+				"-rating": "4",
+				"#text": "Signature Masking"
+			}
+		},
+		"seats": "1"
+	},
+	{
+		"id": "a383fc02-599b-4bd6-b699-bbac28162ef2",
+		"name": "Cessna C750 (Twin-Prop Airplane)",
+		"page": "464",
+		"source": "SR5",
+		"accel": "3",
+		"armor": "4",
+		"avail": "8",
+		"body": "18",
+		"category": "Fixed-Wing Aircraft",
+		"cost": "146000",
+		"handling": "3",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "5",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "4"
+	},
+	{
+		"id": "af79563a-e66d-4cd4-9b1b-2d412ce54107",
+		"name": "Renault-Fiat Fokker Tundra-9 (Amphibious Jet)",
+		"page": "464",
+		"source": "SR5",
+		"accel": "3",
+		"armor": "10",
+		"avail": "12",
+		"body": "20",
+		"category": "Fixed-Wing Aircraft",
+		"cost": "300000",
+		"handling": "2",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": "Secondary Propulsion (Amphibious, Surface)"
+		},
+		"seats": "24"
+	},
+	{
+		"id": "907833f4-30d3-4291-ba21-f165ec105b92",
+		"name": "Ares Dragon (Cargo Helicopter)",
+		"page": "464",
+		"source": "SR5",
+		"accel": "3",
+		"armor": "8",
+		"avail": "12",
+		"body": "22",
+		"category": "Rotorcraft",
+		"cost": "355000",
+		"handling": "4",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "18"
+	},
+	{
+		"id": "9ce49c91-c231-4784-b88b-feee327fec90",
+		"name": "Nissan Hound (Transport Helicopter)",
+		"page": "464",
+		"source": "SR5",
+		"accel": "3",
+		"armor": "16",
+		"avail": "13R",
+		"body": "16",
+		"category": "Rotorcraft",
+		"cost": "425000",
+		"handling": "5",
+		"pilot": "2",
+		"sensor": "4",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "4",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "12",
+		"weaponmounts": {
+			"weaponmount": [{
+					"size": "Standard [SR5]",
+					"visibility": "External",
+					"flexibility": "Fixed",
+					"control": "Remote"
+				},
+				{
+					"size": "Standard [SR5]",
+					"visibility": "External",
+					"flexibility": "Fixed",
+					"control": "Remote"
+				}
+			]
+		}
+	},
+	{
+		"id": "c0e5d03c-abbd-433a-b186-0bb2b4945b4c",
+		"name": "Northrup Wasp (Autogyro)",
+		"page": "465",
+		"source": "SR5",
+		"accel": "3",
+		"armor": "8",
+		"avail": "12R",
+		"body": "10",
+		"category": "Rotorcraft",
+		"cost": "86000",
+		"handling": "5",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "5",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "1",
+		"weaponmounts": {
+			"weaponmount": {
+				"size": "Heavy [SR5]",
+				"visibility": "External",
+				"flexibility": "Fixed",
+				"control": "Remote"
+			}
+		}
+	},
+	{
+		"id": "de4166ba-f6b3-4675-acef-39327c84f57f",
+		"name": "Ares Venture (LAV)",
+		"page": "465",
+		"source": "SR5",
+		"accel": "4",
+		"armor": "14",
+		"avail": "12F",
+		"body": "16",
+		"category": "VTOL/VSTOL",
+		"cost": "400000",
+		"handling": "5",
+		"pilot": "4",
+		"sensor": "4",
+		"speed": "7",
+		"gears": {
+			"gear": {
+				"-rating": "4",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "6"
+	},
+	{
+		"id": "7926b1f7-9d92-4e28-9913-4d0c4d8b3c86",
+		"name": "GMC Banshee (Thunderbird)",
+		"page": "465",
+		"source": "SR5",
+		"accel": "4",
+		"armor": "18",
+		"avail": "24F",
+		"body": "20",
+		"category": "VTOL/VSTOL",
+		"cost": "2500000",
+		"handling": "6",
+		"pilot": "4",
+		"sensor": "6",
+		"speed": "8",
+		"gears": {
+			"gear": {
+				"-rating": "6",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Rigger Cocoon",
+				{
+					"-rating": "4",
+					"#text": "ECM"
+				}
+			]
+		},
+		"seats": "12"
+	},
+	{
+		"id": "37eff614-ba8d-422c-af74-5cabcdebe3ce",
+		"name": "Federated Boeing Commuter (Tilt-Wing Airplane)",
+		"page": "465",
+		"source": "SR5",
+		"accel": "3",
+		"armor": "8",
+		"avail": "16",
+		"body": "16",
+		"category": "VTOL/VSTOL",
+		"cost": "350000",
+		"handling": "3",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "30"
+	},
+	{
+		"id": "1f3308cb-837a-45c5-b581-9fef48cd4d8c",
+		"name": "Shiawase Kanmushi (Microdrone)",
+		"page": "465",
+		"source": "SR5",
+		"accel": "1",
+		"armor": "0",
+		"avail": "8",
+		"body": "0",
+		"category": "Drones: Micro",
+		"cost": "1000",
+		"handling": "4",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "2",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "3",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": "Gecko Tips"
+		}
+	},
+	{
+		"id": "3be36e78-0786-45e6-bc72-6269b75c3f29",
+		"name": "Sikorsky-Bell Microskimmer (Microdrone)",
+		"page": "465",
+		"source": "SR5",
+		"accel": "1",
+		"armor": "0",
+		"avail": "6",
+		"body": "0",
+		"category": "Drones: Micro",
+		"cost": "1000",
+		"handling": "3",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "3",
+				"#text": "Sensor Array"
+			}
+		}
+	},
+	{
+		"id": "4261d97f-2a4f-4ed3-91a4-64a69a549e37",
+		"name": "Horizon Flying Eye (Minidrone)",
+		"page": "465",
+		"source": "SR5",
+		"accel": "2",
+		"armor": "0",
+		"avail": "8",
+		"body": "1",
+		"category": "Drones: Mini",
+		"cost": "2000",
+		"handling": "4",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "3",
+				"#text": "Sensor Array"
+			}
+		}
+	},
+	{
+		"id": "fa4686b8-3886-4bd8-bda4-737050245208",
+		"name": "Horizon Flying Eye w/Flash-Pak and Grenade (Minidrone)",
+		"page": "465",
+		"source": "SR5",
+		"accel": "2",
+		"armor": "0",
+		"avail": "8",
+		"body": "1",
+		"category": "Drones: Mini",
+		"cost": "2500",
+		"handling": "4",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "3",
+		"gears": {
+			"gear": [
+				"Grenade: Flash-Pak",
+				"Grenade: Smoke",
+				{
+					"-rating": "3",
+					"-maxrating": "3",
+					"#text": "Sensor Array"
+				}
+			]
+		}
+	},
+	{
+		"id": "715a8171-8167-4391-8d33-f7d50217efec",
+		"name": "Ocular Drone",
+		"page": "453",
+		"source": "SR5",
+		"accel": "2",
+		"armor": "0",
+		"avail": "8",
+		"body": "1",
+		"category": "Drones: Mini",
+		"cost": "0",
+		"handling": "4",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "3",
+				"#text": "Sensor Array"
+			}
+		}
+	},
+	{
+		"id": "d187e9f7-b308-426f-ac35-957ba601c70c",
+		"name": "MCT Fly-Spy (Minidrone)",
+		"page": "466",
+		"source": "SR5",
+		"accel": "2",
+		"armor": "0",
+		"avail": "8",
+		"body": "1",
+		"category": "Drones: Mini",
+		"cost": "2000",
+		"handling": "4",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "3",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": {
+				"-rating": "2",
+				"#text": "Realistic Features"
+			}
+		}
+	},
+	{
+		"id": "16d4e660-7014-434e-a437-08bc869c6200",
+		"name": "Aztechnology Crawler (Small)",
+		"page": "466",
+		"source": "SR5",
+		"accel": "1",
+		"armor": "3",
+		"avail": "4",
+		"body": "3",
+		"category": "Drones: Small",
+		"cost": "4000",
+		"handling": "4",
+		"pilot": "4",
+		"sensor": "3",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "3",
+				"#text": "Sensor Array"
+			}
+		}
+	},
+	{
+		"id": "9604795c-03f2-46db-a86b-3fd16ea35c51",
+		"name": "Lockheed Optic-X2 (Small)",
+		"page": "466",
+		"source": "SR5",
+		"accel": "3",
+		"armor": "2",
+		"avail": "10",
+		"body": "2",
+		"category": "Drones: Small",
+		"cost": "21000",
+		"handling": "4",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "3",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": {
+				"-rating": "3",
+				"#text": "Signature Masking"
+			}
+		}
+	},
+	{
+		"id": "10a55a19-7f86-4942-830f-212b9975280e",
+		"name": "Cyberspace Designs Dragonfly (Small)",
+		"page": "179",
+		"source": "SS",
+		"accel": "2",
+		"armor": "1",
+		"avail": "12R",
+		"body": "1",
+		"category": "Drones: Small",
+		"cost": "2500",
+		"handling": "4",
+		"pilot": "3",
+		"sensor": "2",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "3",
+				"#text": "Sensor Array"
+			}
+		}
+	},
+	{
+		"id": "c8f7e6c0-85e6-4feb-9ef0-0aeca5fba76b",
+		"name": "Ares Duelist (Medium)",
+		"page": "466",
+		"source": "SR5",
+		"accel": "1",
+		"armor": "4",
+		"avail": "5R",
+		"body": "4",
+		"category": "Drones: Anthro",
+		"cost": "4500",
+		"handling": "3",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "6",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Drone Arm",
+				"Drone Arm",
+				"Drone Leg",
+				"Drone Leg",
+				{
+					"-rating": "1",
+					"#text": "Realistic Features"
+				}
+			]
+		},
+		"weaponmounts": {
+			"weaponmount": [{
+					"size": "Standard [SR5]",
+					"visibility": "External",
+					"flexibility": "Fixed",
+					"control": "Remote"
+				},
+				{
+					"size": "Standard [SR5]",
+					"visibility": "External",
+					"flexibility": "Fixed",
+					"control": "Remote"
+				}
+			]
+		},
+		"weapons": {
+			"weapon": [{
+					"name": "Sword"
+				},
+				{
+					"name": "Sword"
+				}
+			]
+		}
+	},
+	{
+		"id": "3fc823bd-bff7-4838-8f94-11c1e55c380a",
+		"name": "Bust-A-Move (2nd Generation) (Medium)",
+		"page": "178",
+		"source": "SS",
+		"accel": "1",
+		"armor": "1",
+		"avail": "50",
+		"body": "2",
+		"category": "Drones: Medium",
+		"cost": "Variable(700-1500)",
+		"handling": "4",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "4",
+				"#text": "Sensor Array"
+			}
+		}
+	},
+	{
+		"id": "1264a59a-2fdd-4d41-a674-2082db4f199b",
+		"name": "Transys Office Maid (Medium)",
+		"page": "179",
+		"source": "SS",
+		"accel": "2",
+		"armor": "0",
+		"avail": "4",
+		"body": "3",
+		"category": "Drones: Medium",
+		"cost": "8000",
+		"handling": "3",
+		"pilot": "4",
+		"sensor": "3",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "4",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Drone Arm",
+				"Drone Arm"
+			]
+		}
+	},
+	{
+		"id": "9186a0a7-635f-4242-a0e8-238f48b17ca2",
+		"name": "GM-Nissan Doberman (Medium)",
+		"page": "466",
+		"source": "SR5",
+		"accel": "1",
+		"armor": "4",
+		"avail": "4R",
+		"body": "4",
+		"category": "Drones: Medium",
+		"cost": "5000",
+		"handling": "5",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "4",
+				"#text": "Sensor Array"
+			}
+		},
+		"weaponmounts": {
+			"weaponmount": {
+				"size": "Standard [SR5]",
+				"visibility": "External",
+				"flexibility": "Fixed",
+				"control": "Remote"
+			}
+		}
+	},
+	{
+		"id": "1291ab59-2483-42ca-b7a9-503b2c354cee",
+		"name": "MCT-Nissan Roto-drone (Medium)",
+		"page": "466",
+		"source": "SR5",
+		"accel": "2",
+		"armor": "4",
+		"avail": "6",
+		"body": "4",
+		"category": "Drones: Medium",
+		"cost": "5000",
+		"handling": "4",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "4",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"addslots": "3"
+		},
+		"modslots": "7",
+		"weaponmodslots": "3"
+	},
+	{
+		"id": "4fbe5cd2-b7b9-11e6-80f5-76304dec7eb7",
+		"name": "MCT-Nissan Roto-drone (Medium) (German)",
+		"page": "147",
+		"source": "R5G",
+		"accel": "1",
+		"armor": "6",
+		"avail": "6",
+		"body": "4",
+		"category": "Drones: Medium",
+		"cost": "8000",
+		"handling": "4",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "2",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "4",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"addslots": "3"
+		},
+		"modslots": "7",
+		"weaponmodslots": "3"
+	},
+	{
+		"id": "6c6893fd-a69f-4346-885b-c6ae85679d35",
+		"name": "Cyberspace Designs Dalmatian (Large)",
+		"page": "466",
+		"source": "SR5",
+		"accel": "3",
+		"armor": "5",
+		"avail": "6R",
+		"body": "5",
+		"category": "Drones: Large",
+		"cost": "10000",
+		"handling": "5",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "5",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "5",
+				"#text": "Sensor Array"
+			}
+		}
+	},
+	{
+		"id": "b627c28f-e67e-4a34-9808-af81fad2acf9",
+		"name": "GMC Snatch'n'Grab (Large)",
+		"page": "179",
+		"source": "SS",
+		"accel": "2",
+		"armor": "4",
+		"avail": "12F",
+		"body": "2",
+		"category": "Drones: Large",
+		"cost": "8000",
+		"handling": "3",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "5",
+				"#text": "Sensor Array"
+			}
+		}
+	},
+	{
+		"id": "50e6572c-ea59-4756-83e4-7c51f8f614c9",
+		"name": "Modified Dassault Janatorial Drone (Large)",
+		"page": "179",
+		"source": "SS",
+		"accel": "2",
+		"armor": "2",
+		"avail": "8",
+		"body": "10",
+		"category": "Drones: Large",
+		"cost": "10000",
+		"handling": "2",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "2",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "5",
+				"#text": "Sensor Array"
+			}
+		}
+	},
+	{
+		"id": "0e8d9c3c-83c0-4c1d-96f0-1f2a2e0bf354",
+		"name": "Modified Renraku Manservant-3 (Large)",
+		"page": "180",
+		"source": "SS",
+		"accel": "2",
+		"armor": "5",
+		"avail": "14F",
+		"body": "3",
+		"category": "Drones: Anthro",
+		"cost": "9000",
+		"handling": "2",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "2",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "5",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Drone Arm",
+				"Drone Arm",
+				"Drone Leg",
+				"Drone Leg"
+			]
+		}
+	},
+	{
+		"id": "a8c39fd9-d219-4772-9f8e-49b1d0975733",
+		"name": "Steel Lynx Combat Drone (Large)",
+		"page": "466",
+		"source": "SR5",
+		"accel": "2",
+		"armor": "12",
+		"avail": "10R",
+		"body": "6",
+		"category": "Drones: Large",
+		"cost": "25000",
+		"handling": "5",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "5",
+				"#text": "Sensor Array"
+			}
+		},
+		"weaponmounts": {
+			"weaponmount": {
+				"size": "Heavy [SR5]",
+				"visibility": "External",
+				"flexibility": "Fixed",
+				"control": "Remote"
+			}
+		}
+	},
+	{
+		"id": "8ac6c14d-22c2-4f5f-be53-774af78179ad",
+		"name": "Aeroquip M.E.D.-1 'Dustoff' Medical Evacuation Drone (Large)",
+		"page": "23",
+		"source": "BB",
+		"accel": "4",
+		"armor": "5",
+		"avail": "10R",
+		"body": "4",
+		"category": "Drones: Large",
+		"cost": "12000",
+		"handling": "3",
+		"pilot": "4",
+		"sensor": "3",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "5",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": "Dustoff Armored Valkyrie Module"
+		}
+	},
+	{
+		"id": "d186dbc2-52e6-4804-94ca-7db96c2afdde",
+		"name": "Shiawase Caduceus 'CAD' 7 (Medium)",
+		"page": "23",
+		"source": "BB",
+		"accel": "1",
+		"armor": "3",
+		"avail": "12R",
+		"body": "5",
+		"category": "Drones: Anthro",
+		"cost": "16500",
+		"handling": "4",
+		"pilot": "2",
+		"sensor": "1",
+		"speed": "2",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "4",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Drone Arm",
+				"Drone Arm",
+				"Drone Leg",
+				"Drone Leg"
+			]
+		}
+	},
+	{
+		"id": "73b7729b-89c1-44fb-950c-f8391376a6b8",
+		"name": "F-B Bumblebee",
+		"page": "23",
+		"source": "NP",
+		"accel": "1",
+		"armor": "14",
+		"avail": "12F",
+		"body": "4",
+		"category": "Drones: Medium",
+		"cost": "24000",
+		"handling": "3",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "2",
+		"gears": {
+			"gear": [{
+					"-rating": "3",
+					"-maxrating": "4",
+					"#text": "Sensor Array"
+				},
+				{
+					"-rating": "3",
+					"-select": "Stoner-Ares M202",
+					"#text": "[Weapon] Targeting Autosoft"
+				}
+			]
+		},
+		"weapons": {
+			"weapon": {
+				"name": "Stoner-Ares M202"
+			}
+		},
+		"weaponmounts": {
+			"weaponmount": {
+				"size": "Heavy [SR5]",
+				"visibility": "External",
+				"flexibility": "Fixed",
+				"control": "Remote"
+			}
+		}
+	},
+	{
+		"id": "57f83415-4b13-47d2-8a80-20483d356a09",
+		"name": "Cocotaxi",
+		"page": "139",
+		"source": "HT",
+		"accel": "2",
+		"armor": "4",
+		"avail": "0",
+		"body": "5",
+		"category": "Bikes",
+		"cost": "4000",
+		"handling": "4/2",
+		"pilot": "1",
+		"sensor": "1",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "1",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "3"
+	},
+	{
+		"id": "b5f962ae-d541-4271-812b-3a4d0eb812e4",
+		"name": "Camellos",
+		"page": "139",
+		"source": "HT",
+		"accel": "1",
+		"armor": "5",
+		"avail": "0",
+		"body": "16",
+		"category": "Municipal/Construction",
+		"cost": "150000",
+		"handling": "3/2",
+		"pilot": "1",
+		"sensor": "2",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "200"
+	},
+	{
+		"id": "53079aac-250a-4ec5-9f0d-b8fbc6368e46",
+		"name": "Ares Garuda",
+		"page": "149",
+		"source": "R5",
+		"accel": "2/4",
+		"armor": "2",
+		"avail": "20F",
+		"body": "2",
+		"category": "Drones: Missile",
+		"cost": "8500",
+		"handling": "6",
+		"pilot": "4",
+		"sensor": "3",
+		"speed": "3/6",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "6",
+				"#text": "Sensor Array"
+			}
+		}
+	},
+	{
+		"id": "546f0dc2-0478-4d36-a4cd-0b091ffa0eb2",
+		"name": "Remote Cyberhand",
+		"page": "130",
+		"source": "R5",
+		"accel": "0",
+		"armor": "0",
+		"avail": "8",
+		"body": "0",
+		"category": "Drones: Mini",
+		"cost": "0",
+		"handling": "0",
+		"pilot": "0",
+		"sensor": "0",
+		"speed": "0"
+	},
+	{
+		"id": "2013dff9-f313-441b-9207-3fdb8a44c8ba",
+		"name": "Ammo Drone (Small)",
+		"page": "189",
+		"source": "HT",
+		"accel": "2",
+		"armor": "4",
+		"avail": "5",
+		"body": "2",
+		"category": "Drones: Small",
+		"cost": "3000",
+		"handling": "2",
+		"pilot": "3",
+		"sensor": "2",
+		"speed": "2",
+		"gears": {
+			"gear": [{
+					"-rating": "2",
+					"-maxrating": "3",
+					"#text": "Sensor Array"
+				},
+				{
+					"-rating": "2",
+					"-select": "Ammo Drone",
+					"#text": "[Model] Maneuvering Autosoft"
+				}
+			]
+		}
+	},
+	{
+		"id": "ffcab1c2-4ae3-43a9-bfb0-eb8af29af3d7",
+		"name": "Reloading Drone (Medium)",
+		"page": "190",
+		"source": "HT",
+		"accel": "2",
+		"armor": "4",
+		"avail": "6R",
+		"body": "3",
+		"category": "Drones: Medium",
+		"cost": "4500",
+		"handling": "4",
+		"pilot": "3",
+		"sensor": "2",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "4",
+				"#text": "Sensor Array"
+			}
+		}
+	},
+	{
+		"id": "c2fa6792-1ed9-437c-a7d2-b9ff79c44fd2",
+		"name": "Mitsuhama Akiyama (Medium)",
+		"page": "190",
+		"source": "HT",
+		"accel": "2",
+		"armor": "6",
+		"avail": "24F",
+		"body": "4",
+		"category": "Drones: Anthro",
+		"cost": "200000",
+		"handling": "5",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "4",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Synthetic Drone Arm",
+				"Synthetic Drone Arm",
+				"Synthetic Drone Leg",
+				"Synthetic Drone Leg"
+			]
+		}
+	},
+	{
+		"id": "c036d20d-1bfe-48ee-b188-7756323764cd",
+		"name": "Sparring Drone (Large)",
+		"page": "190",
+		"source": "HT",
+		"accel": "2",
+		"armor": "2",
+		"avail": "6",
+		"body": "4",
+		"category": "Drones: Anthro",
+		"cost": "5000",
+		"handling": "3",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "2",
+		"gears": {
+			"gear": [{
+					"-rating": "3",
+					"-maxrating": "4",
+					"#text": "Sensor Array"
+				},
+				{
+					"-rating": "1",
+					"-select": "Blades",
+					"#text": "Tutorsoft"
+				},
+				{
+					"-rating": "1",
+					"-select": "Clubs",
+					"#text": "Tutorsoft"
+				},
+				{
+					"-rating": "1",
+					"-select": "Unarmed Combat",
+					"#text": "Tutorsoft"
+				}
+			]
+		},
+		"mods": {
+			"name": [
+				"Drone Arm",
+				"Drone Arm",
+				"Drone Leg",
+				"Drone Leg"
+			]
+		}
+	},
+	{
+		"id": "54807634-4472-4c86-87ad-5d07b7116ef5",
+		"name": "Clockwork Greyhound",
+		"page": "19",
+		"source": "TVG",
+		"accel": "1",
+		"armor": "1",
+		"avail": "16",
+		"body": "2",
+		"category": "Drones: Medium",
+		"cost": "225000",
+		"handling": "3",
+		"pilot": "3",
+		"sensor": "2",
+		"speed": "2",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "4",
+				"#text": "Sensor Array"
+			}
+		}
+	},
+	{
+		"id": "d159489d-0210-45be-8629-f29e6f883e3e",
+		"name": "Holo-Conference Drone (Small)",
+		"page": "147",
+		"source": "CA",
+		"accel": "1",
+		"armor": "3",
+		"avail": "11",
+		"body": "2",
+		"category": "Drones: Small",
+		"cost": "18000",
+		"handling": "3",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "2",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "6",
+				"#text": "Sensor Array"
+			}
+		}
+	},
+	{
+		"id": "a9077795-4ddf-498e-8ea2-a5cfadd69c37",
+		"name": "Medusa Extensions (Mini)",
+		"page": "147",
+		"source": "CA",
+		"accel": "0",
+		"armor": "0",
+		"avail": "7",
+		"body": "1",
+		"category": "Drones: Mini",
+		"cost": "600",
+		"handling": "1",
+		"pilot": "1",
+		"sensor": "1",
+		"speed": "0",
+		"gears": {
+			"gear": {
+				"-rating": "1",
+				"-maxrating": "2",
+				"#text": "Sensor Array"
+			}
+		}
+	},
+	{
+		"id": "0a8a99f7-5cd1-43e5-b5b2-8fb1db3c77ea",
+		"name": "Microweave Spider (Mini)",
+		"page": "147",
+		"source": "CA",
+		"accel": "1",
+		"armor": "0",
+		"avail": "11",
+		"body": "1",
+		"category": "Drones: Mini",
+		"cost": "18000",
+		"handling": "4",
+		"pilot": "4",
+		"sensor": "2",
+		"speed": "1",
+		"gears": {
+			"gear": [{
+					"-rating": "2",
+					"-maxrating": "4",
+					"#text": "Sensor Array"
+				},
+				{
+					"-rating": "4",
+					"-select": "Armorer",
+					"#text": "Skill Autosoft"
+				},
+				{
+					"-select": "Armorer",
+					"#text": "Tool Kit"
+				}
+			]
+		}
+	},
+	{
+		"id": "baac8c9e-5604-4329-9757-f82de25a5d3c",
+		"name": "Dodge Scoot (2050)",
+		"page": "208",
+		"source": "2050",
+		"accel": "1",
+		"armor": "4",
+		"avail": "0",
+		"body": "4",
+		"category": "Bikes",
+		"cost": "1000",
+		"handling": "4/3",
+		"pilot": "1",
+		"sensor": "1",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "1",
+				"-maxrating": "6",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": "Improved Economy"
+		},
+		"seats": "1"
+	},
+	{
+		"id": "cf205096-7a6c-4bf1-99c1-5c24cfff8fb5",
+		"name": "Yamaha Rapier (2050)",
+		"page": "208",
+		"source": "2050",
+		"accel": "3",
+		"armor": "6",
+		"avail": "0",
+		"body": "5",
+		"category": "Bikes",
+		"cost": "10000",
+		"handling": "5/3",
+		"pilot": "1",
+		"sensor": "1",
+		"speed": "6",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "6",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "1"
+	},
+	{
+		"id": "7927db78-1e79-4332-8cc7-4d4db162a68b",
+		"name": "Harley-Davidson Scorpion (2050)",
+		"page": "208",
+		"source": "2050",
+		"accel": "2",
+		"armor": "9",
+		"avail": "0",
+		"body": "8",
+		"category": "Bikes",
+		"cost": "15000",
+		"handling": "4/3",
+		"pilot": "1",
+		"sensor": "2",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "6",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "1"
+	},
+	{
+		"id": "0e7f4ed0-749f-4743-8b95-dbcb376b48b7",
+		"name": "Mitsubishi Runabout (2050)",
+		"page": "208",
+		"source": "2050",
+		"accel": "2",
+		"armor": "6",
+		"avail": "0",
+		"body": "8",
+		"category": "Cars",
+		"cost": "10000",
+		"handling": "3/2",
+		"pilot": "1",
+		"sensor": "2",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "2"
+	},
+	{
+		"id": "6975423f-43c7-4960-98bb-7363b491856c",
+		"name": "Chrysler-Nissan Jackrabbit (2050)",
+		"page": "208",
+		"source": "2050",
+		"accel": "2",
+		"armor": "4",
+		"avail": "0",
+		"body": "8",
+		"category": "Cars",
+		"cost": "15000",
+		"handling": "4/3",
+		"pilot": "1",
+		"sensor": "2",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "2"
+	},
+	{
+		"id": "3d699295-5943-4d9a-8712-006a1dffe4aa",
+		"name": "Ford Americar (2050)",
+		"page": "208",
+		"source": "2050",
+		"accel": "2",
+		"armor": "6",
+		"avail": "0",
+		"body": "11",
+		"category": "Cars",
+		"cost": "20000",
+		"handling": "4/3",
+		"pilot": "1",
+		"sensor": "2",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "4"
+	},
+	{
+		"id": "74265b60-46cf-4c25-b2ff-7ed7364c3961",
+		"name": "Eurocar Westwind 2000 (2050)",
+		"page": "208",
+		"source": "2050",
+		"accel": "3",
+		"armor": "8",
+		"avail": "0",
+		"body": "10",
+		"category": "Cars",
+		"cost": "100000",
+		"handling": "6/4",
+		"pilot": "3",
+		"sensor": "5",
+		"speed": "6",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "2"
+	},
+	{
+		"id": "a2581e31-30fa-45de-8d60-ffd3d5a3a5b0",
+		"name": "Toyota Elite (2050)",
+		"page": "208",
+		"source": "2050",
+		"accel": "2",
+		"armor": "12",
+		"avail": "0",
+		"body": "12",
+		"category": "Cars",
+		"cost": "125000",
+		"handling": "5/4",
+		"pilot": "2",
+		"sensor": "4",
+		"speed": "5",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "4"
+	},
+	{
+		"id": "0bd8157d-510f-4920-b8c8-c65cb6e95c4e",
+		"name": "Mitsubishi Nightsky (2050)",
+		"page": "208",
+		"source": "2050",
+		"accel": "2",
+		"armor": "15",
+		"avail": "0",
+		"body": "15",
+		"category": "Cars",
+		"cost": "250000",
+		"handling": "4/3",
+		"pilot": "3",
+		"sensor": "5",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "5",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "8"
+	},
+	{
+		"id": "b6d6d319-1b29-4f76-a52c-3fc177a153da",
+		"name": "Bulldog Step-Van (2050)",
+		"page": "208",
+		"source": "2050",
+		"accel": "1",
+		"armor": "12",
+		"avail": "0",
+		"body": "16",
+		"category": "Cars",
+		"cost": "35000",
+		"handling": "3/3",
+		"pilot": "1",
+		"sensor": "2",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "6"
+	},
+	{
+		"id": "f5511048-ddd7-41dc-abe1-33750779ab8f",
+		"name": "Samuvani-Criscraft Otter (2050)",
+		"page": "208",
+		"source": "2050",
+		"accel": "2",
+		"armor": "6",
+		"avail": "0",
+		"body": "12",
+		"category": "Boats",
+		"cost": "20000",
+		"handling": "4",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "8"
+	},
+	{
+		"id": "4cf620da-e273-494d-b2a7-1252cc2de3dd",
+		"name": "Aztech Nightrunner (2050)",
+		"page": "208",
+		"source": "2050",
+		"accel": "2",
+		"armor": "6",
+		"avail": "4R",
+		"body": "12",
+		"category": "Boats",
+		"cost": "30000",
+		"handling": "4",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "2"
+	},
+	{
+		"id": "76f4dc51-66d0-4f6b-bd0a-622ae5fe04e3",
+		"name": "Sendanko Marlin (2050)",
+		"page": "208",
+		"source": "2050",
+		"accel": "2",
+		"armor": "4",
+		"avail": "0",
+		"body": "14",
+		"category": "Boats",
+		"cost": "15000",
+		"handling": "2",
+		"pilot": "1",
+		"sensor": "2",
+		"speed": "2",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "6"
+	},
+	{
+		"id": "3b7d96d2-9b1b-4eea-8f64-aa63804b1197",
+		"name": "Cessna C750 (2050)",
+		"page": "210",
+		"source": "2050",
+		"accel": "3",
+		"armor": "4",
+		"avail": "4",
+		"body": "18",
+		"category": "Fixed-Wing Aircraft",
+		"cost": "200000",
+		"handling": "3",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "5",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "6"
+	},
+	{
+		"id": "8e8dfd57-0257-4978-865c-54bc62f80903",
+		"name": "Lear-Cessna Platinum 1 (2050)",
+		"page": "210",
+		"source": "2050",
+		"accel": "4",
+		"armor": "6",
+		"avail": "8",
+		"body": "20",
+		"category": "Fixed-Wing Aircraft",
+		"cost": "500000",
+		"handling": "4",
+		"pilot": "3",
+		"sensor": "2",
+		"speed": "5",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "8"
+	},
+	{
+		"id": "c442e6d1-cd77-40f0-926c-3b4771718706",
+		"name": "Federated-Boeing Commuter (2050)",
+		"page": "210",
+		"source": "2050",
+		"accel": "3",
+		"armor": "8",
+		"avail": "8R",
+		"body": "16",
+		"category": "VTOL/VSTOL",
+		"cost": "625000",
+		"handling": "3",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "30"
+	},
+	{
+		"id": "bc26a329-cf64-4a2d-841a-599f480762ff",
+		"name": "Hughes Stallion WK-4 (2050)",
+		"page": "210",
+		"source": "2050",
+		"accel": "3",
+		"armor": "10",
+		"avail": "6",
+		"body": "16",
+		"category": "Rotorcraft",
+		"cost": "300000",
+		"handling": "5",
+		"pilot": "2",
+		"sensor": "4",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "4",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "6"
+	},
+	{
+		"id": "096c56ab-b706-4a68-ae35-163b499f0b7c",
+		"name": "Ares Dragon (2050)",
+		"page": "210",
+		"source": "2050",
+		"accel": "3",
+		"armor": "8",
+		"avail": "6",
+		"body": "22",
+		"category": "Rotorcraft",
+		"cost": "600000",
+		"handling": "4",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "18"
+	},
+	{
+		"id": "26a5632c-8d13-4e63-a4d4-158c9254bf84",
+		"name": "Hughes Airstar (2050)",
+		"page": "210",
+		"source": "2050",
+		"accel": "3",
+		"armor": "8",
+		"avail": "7",
+		"body": "16",
+		"category": "Rotorcraft",
+		"cost": "900000",
+		"handling": "4",
+		"pilot": "2",
+		"sensor": "4",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "4",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "6"
+	},
+	{
+		"id": "1e39f946-a56d-4a37-8d55-fe15fdae47cd",
+		"name": "EFA-Variant (2050)",
+		"page": "210",
+		"source": "2050",
+		"accel": "6",
+		"armor": "12",
+		"avail": "13F",
+		"body": "18",
+		"category": "Fixed-Wing Aircraft",
+		"cost": "5000000",
+		"handling": "5",
+		"pilot": "3",
+		"sensor": "5",
+		"speed": "8",
+		"gears": {
+			"gear": {
+				"-rating": "5",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "2"
+	},
+	{
+		"id": "84b7f212-4a74-436e-b6f4-d19b8f5fb500",
+		"name": "GMC-Banshee (2050)",
+		"page": "210",
+		"source": "2050",
+		"accel": "4",
+		"armor": "18",
+		"avail": "0",
+		"body": "20",
+		"category": "VTOL/VSTOL",
+		"cost": "0",
+		"handling": "6",
+		"pilot": "4",
+		"sensor": "6",
+		"speed": "8",
+		"gears": {
+			"gear": {
+				"-rating": "6",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "12"
+	},
+	{
+		"id": "82d76453-1823-497f-a48a-128063892787",
+		"name": "Ares Citymaster (2050)",
+		"page": "210",
+		"source": "2050",
+		"accel": "1",
+		"armor": "18",
+		"avail": "20R",
+		"body": "18",
+		"category": "Trucks",
+		"cost": "500000",
+		"handling": "3/3",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "8"
+	},
+	{
+		"id": "a2e7da3b-2cde-4ab3-9fd5-a19f1e830784",
+		"name": "Chrysler-Nissan Patrol-1 (2050)",
+		"page": "210",
+		"source": "2050",
+		"accel": "3",
+		"armor": "12",
+		"avail": "12R",
+		"body": "12",
+		"category": "Trucks",
+		"cost": "100000",
+		"handling": "5/4",
+		"pilot": "1",
+		"sensor": "2",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "4"
+	},
+	{
+		"id": "88834716-41e6-4bb8-90e1-3bd16df01753",
+		"name": "GMC Beachcraft Patroller (2050)",
+		"page": "210",
+		"source": "2050",
+		"accel": "2",
+		"armor": "10",
+		"avail": "16R",
+		"body": "20",
+		"category": "Municipal/Construction",
+		"cost": "750000",
+		"handling": "5",
+		"pilot": "3",
+		"sensor": "5",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "5",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "6"
+	},
+	{
+		"id": "9f68e8ba-bffa-4bc5-91bf-e6c600910e28",
+		"name": "GMC Riverine (2050)",
+		"page": "210",
+		"source": "2050",
+		"accel": "4",
+		"armor": "10",
+		"avail": "16R",
+		"body": "14",
+		"category": "Boats",
+		"cost": "125000",
+		"handling": "5",
+		"pilot": "3",
+		"sensor": "4",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "4",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "6"
+	},
+	{
+		"id": "23402e3c-8f96-4e56-a2a4-65cd16a7516d",
+		"name": "Northrup PRC-42B Wasp (2050)",
+		"page": "210",
+		"source": "2050",
+		"accel": "3",
+		"armor": "8",
+		"avail": "12R",
+		"body": "10",
+		"category": "Rotorcraft",
+		"cost": "220000",
+		"handling": "5",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "5",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "1"
+	},
+	{
+		"id": "d05f15cc-6a54-4d43-9453-6e56aaf676d6",
+		"name": "Northrup PRC-44B Yellowjacket (2050)",
+		"page": "210",
+		"source": "2050",
+		"accel": "3",
+		"armor": "10",
+		"avail": "12R",
+		"body": "10",
+		"category": "Rotorcraft",
+		"cost": "280000",
+		"handling": "5",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "5",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "1"
+	},
+	{
+		"id": "1b843cb9-66b6-4f85-b4a1-888116d23f13",
+		"name": "Federated-Boeing Eagle (2050)",
+		"page": "210",
+		"source": "2050",
+		"accel": "4",
+		"armor": "14",
+		"avail": "26F",
+		"body": "16",
+		"category": "VTOL/VSTOL",
+		"cost": "0",
+		"handling": "5",
+		"pilot": "4",
+		"sensor": "4",
+		"speed": "7",
+		"gears": {
+			"gear": {
+				"-rating": "4",
+				"-maxrating": "7",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "6"
+	},
+	{
+		"id": "f9a409cd-e7ef-4049-94af-a9e812602f84",
+		"name": "Surveillance Drone (2050)",
+		"page": "212",
+		"source": "2050",
+		"accel": "2",
+		"armor": "4",
+		"avail": "6",
+		"body": "4",
+		"category": "Drones: Medium",
+		"cost": "10000",
+		"handling": "4",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "2",
+				"#text": "Sensor Array"
+			}
+		},
+		"modslots": "4"
+	},
+	{
+		"id": "7ac00990-31a3-4314-a114-9cd6468fb66d",
+		"name": "Spotter Drone (2050)",
+		"page": "212",
+		"source": "2050",
+		"accel": "3",
+		"armor": "2",
+		"avail": "4",
+		"body": "4",
+		"category": "Drones: Medium",
+		"cost": "15000",
+		"handling": "4",
+		"pilot": "3",
+		"sensor": "2",
+		"speed": "5",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "2",
+				"#text": "Sensor Array"
+			}
+		},
+		"modslots": "4"
+	},
+	{
+		"id": "11418c52-6c1f-477f-a660-2451fb3ee8fa",
+		"name": "Hunter Drone (2050)",
+		"page": "212",
+		"source": "2050",
+		"accel": "3",
+		"armor": "5",
+		"avail": "6R",
+		"body": "4",
+		"category": "Drones: Medium",
+		"cost": "20000",
+		"handling": "5",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "5",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "3",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Standard Weapon Mount (Drone)",
+				"Standard Weapon Mount (Drone)"
+			]
+		}
+	},
+	{
+		"id": "d28b349e-6580-4a04-8dfe-d09ebdb261f0",
+		"name": "Patrol Vehicle (2050)",
+		"page": "212",
+		"source": "2050",
+		"accel": "2",
+		"armor": "12",
+		"avail": "6R",
+		"body": "6",
+		"category": "Drones: Large",
+		"cost": "10000",
+		"handling": "5",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "3",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Standard Weapon Mount (Drone)",
+				"Standard Weapon Mount (Drone)"
+			]
+		}
+	},
+	{
+		"id": "8e1a5fe3-9f13-49f0-b74a-7de82fc40dc2",
+		"name": "BMW Sleipnir",
+		"page": "43",
+		"source": "SAG",
+		"accel": "2",
+		"armor": "8",
+		"avail": "0",
+		"body": "8",
+		"category": "Bikes",
+		"cost": "14000",
+		"handling": "3/5",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "2",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Off-Road Suspension",
+				{
+					"-rating": "2",
+					"#text": "Anti-Theft System"
+				},
+				"Metahuman Adjustment"
+			]
+		},
+		"seats": "3"
+	},
+	{
+		"id": "bd3e79cc-4441-4bc3-977e-fcec22f4a9f7",
+		"name": "Shiawase Motors Shuriken",
+		"page": "44",
+		"source": "SAG",
+		"accel": "3",
+		"armor": "5",
+		"avail": "4",
+		"body": "5",
+		"category": "Bikes",
+		"cost": "32000",
+		"handling": "5/2",
+		"pilot": "1",
+		"sensor": "2",
+		"speed": "6",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "2",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [{
+					"-rating": "2",
+					"#text": "Anti-Theft System"
+				},
+				"Gyro-Stabilization",
+				"GridLink"
+			]
+		},
+		"seats": "1"
+	},
+	{
+		"id": "f76c285b-8c19-4e53-9aab-41174c4b5b30",
+		"name": "BMW Gaia",
+		"page": "45",
+		"source": "SAG",
+		"accel": "2",
+		"armor": "8",
+		"avail": "0",
+		"body": "11",
+		"category": "Cars",
+		"cost": "35000",
+		"handling": "4/3",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "2",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [{
+					"-rating": "2",
+					"#text": "Anti-Theft System"
+				},
+				{
+					"-rating": "2",
+					"#text": "Passenger Protection System"
+				},
+				"Improved Economy",
+				"GridLink",
+				"Amenities (Middle)"
+			]
+		},
+		"seats": "4"
+	},
+	{
+		"id": "2e111e8d-154c-469e-8836-dda20b9296b5",
+		"name": "EMC Celine",
+		"page": "46",
+		"source": "SAG",
+		"accel": "2",
+		"armor": "10",
+		"avail": "0",
+		"body": "14",
+		"category": "Cars",
+		"cost": "45000",
+		"handling": "3/2",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "2",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [{
+					"-rating": "2",
+					"#text": "Anti-Theft System"
+				},
+				{
+					"-rating": "4",
+					"#text": "Passenger Protection System"
+				},
+				{
+					"-rating": "2",
+					"#text": "ECM"
+				},
+				"Improved Economy",
+				"GridLink",
+				"Amenities (High)",
+				"Interior Cameras",
+				"Satellite Link",
+				{
+					"-rating": "3",
+					"#text": "Armor (Concealed)"
+				}
+			]
+		},
+		"seats": "6"
+	},
+	{
+		"id": "f1cf0391-4a8a-497c-b9a4-5590d572b646",
+		"name": "Eurocar Escape",
+		"page": "47",
+		"source": "SAG",
+		"accel": "1",
+		"armor": "12",
+		"avail": "0",
+		"body": "16",
+		"category": "Trucks",
+		"cost": "185000",
+		"handling": "3/4",
+		"pilot": "2",
+		"sensor": "3",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "3",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [{
+					"-rating": "2",
+					"#text": "Anti-Theft System"
+				},
+				"Standard Drone Rack (Small)",
+				"Off-Road Suspension",
+				"Amenities (High)",
+				"Winch (Basic)",
+				"Satellite Link",
+				"Multifuel Engine",
+				"SunCell"
+			]
+		},
+		"seats": "8"
+	},
+	{
+		"id": "0c1bb1ca-9824-4730-9edf-3a3758b084dd",
+		"name": "Mercedes 250 Classic",
+		"page": "48",
+		"source": "SAG",
+		"accel": "2",
+		"armor": "7",
+		"avail": "0",
+		"body": "11",
+		"category": "Cars",
+		"cost": "28000",
+		"handling": "4/3",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "2",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [{
+					"-rating": "2",
+					"#text": "Anti-Theft System"
+				},
+				{
+					"-rating": "1",
+					"#text": "Passenger Protection System"
+				},
+				{
+					"-rating": "1",
+					"#text": "Life Support"
+				}
+			]
+		},
+		"seats": "5"
+	},
+	{
+		"id": "41ae9ef0-11b5-443b-a9fa-2617fafa2589",
+		"name": "Mercedes Click",
+		"page": "49",
+		"source": "SAG",
+		"accel": "3",
+		"armor": "5",
+		"avail": "0",
+		"body": "10",
+		"category": "Cars",
+		"cost": "24000",
+		"handling": "4/3",
+		"pilot": "1",
+		"sensor": "2",
+		"speed": "5",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "2",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": "Metahuman Adjustment"
+		},
+		"seats": "4"
+	},
+	{
+		"id": "69b9c81b-2982-470e-a28c-ce01747ad935",
+		"name": "Mercedes Paladin",
+		"page": "50",
+		"source": "SAG",
+		"accel": "2",
+		"armor": "14",
+		"avail": "0",
+		"body": "16",
+		"category": "Cars",
+		"cost": "24000",
+		"handling": "5/3",
+		"pilot": "3",
+		"sensor": "4",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "4",
+				"-maxrating": "4",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [{
+					"-rating": "2",
+					"#text": "Anti-Theft System"
+				},
+				{
+					"-rating": "2",
+					"#text": "Passenger Protection System"
+				},
+				{
+					"-rating": "2",
+					"#text": "ECM"
+				},
+				"Rigger Interface",
+				"GridLink",
+				"Amenities (Luxury)",
+				{
+					"-rating": "4",
+					"#text": "Armor (Concealed)"
+				}
+			]
+		},
+		"seats": "8"
+	},
+	{
+		"id": "da9d17e2-c725-4464-8c3e-6a91d2a5e8ad",
+		"name": "Nordseewerke Thetis",
+		"page": "51",
+		"source": "SAG",
+		"accel": "1",
+		"armor": "10",
+		"avail": "14",
+		"body": "18",
+		"category": "Hovercraft",
+		"cost": "80000",
+		"handling": "2/2",
+		"pilot": "4",
+		"sensor": "3",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "3",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Amenities (Middle)",
+				"Interior Cameras",
+				"SunCell",
+				"Metahuman Adjustment"
+			]
+		},
+		"seats": "50"
+	},
+	{
+		"id": "7fb03fb2-ba96-453a-8110-155188d350c6",
+		"name": "Caterpillar Omniwinder",
+		"page": "52",
+		"source": "SAG",
+		"accel": "1",
+		"armor": "16",
+		"avail": "16",
+		"body": "20",
+		"category": "Municipal/Construction",
+		"cost": "235000",
+		"handling": "2/2",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "3",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [{
+					"-rating": "1",
+					"#text": "Anti-Theft System"
+				},
+				{
+					"-rating": "4",
+					"#text": "Passenger Protection System"
+				},
+				"Off-Road Suspension",
+				"Multifuel Engine"
+			]
+		},
+		"seats": "3"
+	},
+	{
+		"id": "9f39cb01-3285-41b2-88a0-1745341ed406",
+		"name": "EMC 2073 Catcher",
+		"page": "53",
+		"source": "SAG",
+		"accel": "3",
+		"armor": "8",
+		"avail": "12R",
+		"body": "12",
+		"category": "Corpsec/Police/Military",
+		"cost": "56000",
+		"handling": "5/4",
+		"pilot": "4",
+		"sensor": "3",
+		"speed": "5",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "3",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [{
+					"-rating": "2",
+					"#text": "Anti-Theft System"
+				},
+				{
+					"-rating": "2",
+					"#text": "Passenger Protection System"
+				},
+				"Weapon Mount Type (Standard)",
+				"Weapon Mount Visibility (Internal)",
+				"Weapon Mount Flexibility (Flexible)",
+				"Weapon Mount Control (Remote)",
+				"Weapon Mount Type (Standard)",
+				"Weapon Mount Visibility (Internal)",
+				"Weapon Mount Flexibility (Flexible)",
+				"Weapon Mount Control (Remote)"
+			]
+		},
+		"seats": "4"
+	},
+	{
+		"id": "99322016-baba-470d-b6c4-c78b70228156",
+		"name": "VW Freya",
+		"page": "54",
+		"source": "SAG",
+		"accel": "3",
+		"armor": "8",
+		"avail": "10",
+		"body": "14",
+		"category": "Municipal/Construction",
+		"cost": "38000",
+		"handling": "3/3",
+		"pilot": "3",
+		"sensor": "2",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "2",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [{
+					"-rating": "2",
+					"#text": "Passenger Protection System"
+				},
+				"Valkyrie Module"
+			]
+		},
+		"seats": "3"
+	},
+	{
+		"id": "bda96069-c91a-4724-aa5f-b101ea2ab9d5",
+		"name": "Kamow Ka-226 Sergej",
+		"page": "55",
+		"source": "SAG",
+		"accel": "3",
+		"armor": "6",
+		"avail": "10",
+		"body": "16",
+		"category": "Rotorcraft",
+		"cost": "225000",
+		"handling": "2",
+		"pilot": "1",
+		"sensor": "1",
+		"speed": "3",
+		"gears": {
+			"gear": {
+				"-rating": "1",
+				"-maxrating": "1",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Multifuel Engine",
+				"Winch (Basic)"
+			]
+		},
+		"seats": "6"
+	},
+	{
+		"id": "54165cb2-522f-441f-9a3c-fc6d6e4b4aaf",
+		"name": "Kamow Ka-226 Kasatka",
+		"page": "55",
+		"source": "SAG",
+		"accel": "3",
+		"armor": "6",
+		"avail": "10",
+		"body": "14",
+		"category": "Rotorcraft",
+		"cost": "300000",
+		"handling": "3",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "2",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": "Multifuel Engine"
+		},
+		"seats": "6"
+	},
+	{
+		"id": "67f23300-4623-4273-8387-ff0882ca197a",
+		"name": "Airbus A140",
+		"page": "56",
+		"source": "SAG",
+		"accel": "4",
+		"armor": "12",
+		"avail": "12",
+		"body": "18",
+		"category": "Rotorcraft",
+		"cost": "420000",
+		"handling": "4",
+		"pilot": "4",
+		"sensor": "4",
+		"speed": "5",
+		"gears": {
+			"gear": {
+				"-rating": "4",
+				"-maxrating": "4",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [{
+					"-rating": "4",
+					"#text": "Anti-Theft System"
+				},
+				"Amenities (Middle)",
+				"Interior Cameras",
+				{
+					"-rating": "1",
+					"#text": "Life Support"
+				},
+				"Extra Entry/Exit Points"
+			]
+		},
+		"seats": "8"
+	},
+	{
+		"id": "c16468b6-a2f7-42a4-9f06-a8d94d8439e7",
+		"name": "Cargolifter Industries CL-180",
+		"page": "57",
+		"source": "SAG",
+		"accel": "2",
+		"armor": "12",
+		"avail": "12",
+		"body": "12",
+		"category": "Rotorcraft",
+		"cost": "82000",
+		"handling": "4",
+		"pilot": "4",
+		"sensor": "4",
+		"speed": "2",
+		"gears": {
+			"gear": {
+				"-rating": "4",
+				"-maxrating": "4",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": "SunCell"
+		},
+		"seats": "4"
+	},
+	{
+		"id": "6240139c-cf8e-4f7f-be93-a2a87d1bb1d4",
+		"name": "Jena Robotnik Pilalux",
+		"page": "58",
+		"source": "SAG",
+		"accel": "1",
+		"armor": "0",
+		"avail": "10",
+		"body": "1",
+		"category": "Drones: Mini",
+		"cost": "5500",
+		"handling": "4",
+		"pilot": "2",
+		"sensor": "3",
+		"speed": "2",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "3",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Flash-Pak",
+				"Gecko Grips (Drone)",
+				"Spotlight (Drone)"
+			]
+		},
+		"modslots": "0",
+		"seats": "0"
+	},
+	{
+		"id": "78071d83-1328-46d2-bfac-aece4ecc7dff",
+		"name": "Jena Robotnik Tegenaria",
+		"page": "59",
+		"source": "SAG",
+		"accel": "1",
+		"armor": "0",
+		"avail": "8",
+		"body": "1",
+		"category": "Drones: Mini",
+		"cost": "3000",
+		"handling": "4",
+		"pilot": "2",
+		"sensor": "3",
+		"speed": "1",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "3",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Gecko Grips (Drone)",
+				{
+					"-rating": "1",
+					"#text": "Realistic Features"
+				}
+			]
+		},
+		"modslots": "0",
+		"seats": "0"
+	},
+	{
+		"id": "bc48ec25-84ce-435a-a418-ddbac5f7507c",
+		"name": "Messerschmitt-Kawasaki Hugin",
+		"page": "60",
+		"source": "SAG",
+		"accel": "1",
+		"armor": "0",
+		"avail": "8",
+		"body": "2",
+		"category": "Drones: Small",
+		"cost": "1500",
+		"handling": "4",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "2",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "2",
+				"#text": "Sensor Array"
+			}
+		},
+		"modslots": "2",
+		"seats": "0"
+	},
+	{
+		"id": "33487443-148e-4a25-b351-3a958aae5a90",
+		"name": "Messerschmitt-Kawasaki Munin",
+		"page": "60",
+		"source": "SAG",
+		"accel": "1",
+		"armor": "0",
+		"avail": "8",
+		"body": "2",
+		"category": "Drones: Small",
+		"cost": "8500",
+		"handling": "4",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "2",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "2",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": {
+				"-rating": "4",
+				"#text": "Realistic Features"
+			}
+		},
+		"modslots": "2",
+		"seats": "0"
+	},
+	{
+		"id": "c2073528-54a5-45e0-b5f8-9c1ab74647aa",
+		"name": "Messerschmitt-Kawasaki Libelle",
+		"page": "61",
+		"source": "SAG",
+		"accel": "1",
+		"armor": "1",
+		"avail": "8",
+		"body": "2",
+		"category": "Drones: Small",
+		"cost": "4500",
+		"handling": "5",
+		"pilot": "3",
+		"sensor": "4",
+		"speed": "2",
+		"gears": {
+			"gear": {
+				"-rating": "4",
+				"-maxrating": "4",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": "Assembly Time Improvement (Drone)"
+		},
+		"modslots": "1",
+		"seats": "0"
+	},
+	{
+		"id": "581eeb8d-3b66-44c0-9e1e-b6d819135b3f",
+		"name": "Ruhrmetall Skarabäus",
+		"page": "62",
+		"source": "SAG",
+		"accel": "2",
+		"armor": "6",
+		"avail": "12R",
+		"body": "3",
+		"category": "Drones: Small",
+		"cost": "9500",
+		"handling": "4/2",
+		"pilot": "3",
+		"sensor": "2",
+		"speed": "4",
+		"gears": {
+			"gear": [{
+					"-rating": "2",
+					"-maxrating": "2",
+					"#text": "Sensor Array"
+				},
+				{
+					"-rating": "3",
+					"#text": "[Weapon] Targeting Autosoft"
+				},
+				"Smartsoft"
+			]
+		},
+		"mods": {
+			"name": "Small Weapon Mount (Drone)"
+		},
+		"modslots": "1",
+		"seats": "0"
+	},
+	{
+		"id": "41e04bbc-0987-45e8-84fe-f80441bc0ba3",
+		"name": "Schiebel Robotic Crust Mark II",
+		"page": "63",
+		"source": "SAG",
+		"accel": "1",
+		"armor": "2",
+		"avail": "10",
+		"body": "2",
+		"category": "Drones: Small",
+		"cost": "9500",
+		"handling": "2",
+		"pilot": "2",
+		"sensor": "4",
+		"speed": "1",
+		"gears": {
+			"gear": {
+				"-rating": "4",
+				"-maxrating": "4",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Gecko Grips (Drone)",
+				"Spotlight (Drone)"
+			]
+		},
+		"modslots": "0",
+		"seats": "0"
+	},
+	{
+		"id": "d15d0609-296d-4e47-a4c0-f41fefcf6f4e",
+		"name": "Krupp Minion (Medium)",
+		"page": "64",
+		"source": "SAG",
+		"accel": "1",
+		"armor": "6",
+		"avail": "8",
+		"body": "4",
+		"category": "Drones: Medium",
+		"cost": "5000",
+		"handling": "3",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "2",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "3",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": "Spotlight (Drone)"
+		},
+		"modslots": "4",
+		"seats": "0"
+	},
+	{
+		"id": "b7abae70-ed26-4f8d-9b73-01760009dc1e",
+		"name": "Messerschmitt-Kawasaki Heuschrecke 2",
+		"page": "65",
+		"source": "SAG",
+		"accel": "2",
+		"armor": "6",
+		"avail": "10R",
+		"body": "5",
+		"category": "Drones: Medium",
+		"cost": "12000",
+		"handling": "4",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "3",
+		"gears": {
+			"gear": [{
+					"-rating": "3",
+					"-maxrating": "3",
+					"#text": "Sensor Array"
+				},
+				"Smartsoft",
+				{
+					"-rating": "5",
+					"#text": "[Weapon] Targeting Autosoft"
+				}
+			]
+		},
+		"mods": {
+			"name": "Standard Weapon Mount (Drone)"
+		},
+		"modslots": "2",
+		"seats": "0"
+	},
+	{
+		"id": "02179e64-72e2-462c-9b53-dcbc9aceb9a4",
+		"name": "Ruhrmetall Murmillo",
+		"page": "66",
+		"source": "SAG",
+		"accel": "1",
+		"armor": "12",
+		"avail": "10R",
+		"body": "5",
+		"category": "Drones: Medium",
+		"cost": "8000",
+		"handling": "3",
+		"pilot": "2",
+		"sensor": "1",
+		"speed": "1",
+		"gears": {
+			"gear": {
+				"-rating": "1",
+				"-maxrating": "1",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Standard Weapon Mount (Drone)",
+				"Flash-Pak"
+			]
+		},
+		"modslots": "0",
+		"seats": "0"
+	},
+	{
+		"id": "3524337b-03e3-4218-b721-d1df2cc4a8c7",
+		"name": "Siemens FWD Screamer",
+		"page": "67",
+		"source": "SAG",
+		"accel": "2",
+		"armor": "6",
+		"avail": "10R",
+		"body": "3",
+		"category": "Drones: Medium",
+		"cost": "11000",
+		"handling": "4",
+		"pilot": "3",
+		"sensor": "4",
+		"speed": "1",
+		"gears": {
+			"gear": [{
+					"-rating": "4",
+					"-maxrating": "4",
+					"#text": "Sensor Array"
+				},
+				{
+					"-rating": "3",
+					"-select": "Sonic Cannon",
+					"#text": "[Weapon] Targeting Autosoft"
+				}
+			]
+		},
+		"mods": {
+			"name": "Spotlight (Drone)"
+		},
+		"modslots": "0",
+		"seats": "0"
+	},
+	{
+		"id": "47a4d3aa-f9bb-4f16-bbf1-5e8b73f61c0e",
+		"name": "Messerschmitt-Kawasaki Jagdhund",
+		"page": "68",
+		"source": "SAG",
+		"accel": "3",
+		"armor": "10",
+		"avail": "12R",
+		"body": "6",
+		"category": "Drones: Large",
+		"cost": "30000",
+		"handling": "5",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "4",
+		"gears": {
+			"gear": [{
+					"-rating": "3",
+					"-maxrating": "3",
+					"#text": "Sensor Array"
+				},
+				{
+					"-rating": "3",
+					"#text": "[Weapon] Targeting Autosoft"
+				},
+				{
+					"-rating": "3",
+					"#text": "[Weapon] Targeting Autosoft"
+				},
+				{
+					"-rating": "3",
+					"#text": "Clearsight Autosoft"
+				}
+			]
+		},
+		"mods": {
+			"name": [
+				"Large Weapon Mount (Drone)",
+				"Small Weapon Mount (Drone)"
+			]
+		},
+		"modslots": "0",
+		"seats": "0"
+	},
+	{
+		"id": "e338dcf9-3149-4519-9228-589354be5667",
+		"name": "Messerschmitt-Kawasaki Jagdschreccke",
+		"page": "69",
+		"source": "SAG",
+		"accel": "2",
+		"armor": "8",
+		"avail": "10R",
+		"body": "6",
+		"category": "Drones: Large",
+		"cost": "32000",
+		"handling": "5",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "4",
+		"gears": {
+			"gear": [{
+					"-rating": "3",
+					"-maxrating": "3",
+					"#text": "Sensor Array"
+				},
+				{
+					"-rating": "4",
+					"#text": "[Weapon] Targeting Autosoft"
+				},
+				{
+					"-rating": "4",
+					"#text": "Clearsight Autosoft"
+				}
+			]
+		},
+		"mods": {
+			"name": [
+				"Huge Weapon Mount (Drone)",
+				{
+					"-rating": "3",
+					"#text": "ECM"
+				},
+				"Expanded Ammunition Bay"
+			]
+		},
+		"modslots": "0",
+		"seats": "0"
+	},
+	{
+		"id": "c4e56ddb-6369-4527-a537-9b8ade6d9ada",
+		"name": "Mitsuhama FED-11",
+		"page": "70",
+		"source": "SAG",
+		"accel": "1",
+		"armor": "4",
+		"avail": "8",
+		"body": "4",
+		"category": "Drones: Large",
+		"cost": "32000",
+		"handling": "2",
+		"pilot": "2",
+		"sensor": "4",
+		"speed": "1",
+		"gears": {
+			"gear": [{
+					"-rating": "4",
+					"-maxrating": "4",
+					"#text": "Sensor Array"
+				},
+				{
+					"-rating": "5",
+					"#text": "Clearsight Autosoft"
+				}
+			]
+		},
+		"mods": {
+			"name": [
+				"SkyGuide (Drone)",
+				"SunCell",
+				"Spotlight (Drone)"
+			]
+		},
+		"modslots": "3",
+		"seats": "0"
+	},
+	{
+		"id": "7c921200-76a8-465f-8207-01a7c1785c67",
+		"name": "Ruhrmetall Wolfspinne 8V2",
+		"page": "71",
+		"source": "SAG",
+		"accel": "1",
+		"armor": "14",
+		"avail": "16F",
+		"body": "8",
+		"category": "Drones: Large",
+		"cost": "110000",
+		"handling": "5",
+		"pilot": "4",
+		"sensor": "4",
+		"speed": "1",
+		"gears": {
+			"gear": [{
+					"-rating": "4",
+					"-maxrating": "4",
+					"#text": "Sensor Array"
+				},
+				{
+					"-rating": "5",
+					"-select": "GE Vindicator Mini-Gun",
+					"#text": "[Weapon] Targeting Autosoft"
+				},
+				"Smartsoft"
+			]
+		},
+		"mods": {
+			"name": [
+				"Gecko Grips (Drone)",
+				"Large Weapon Mount (Drone)",
+				"Large Weapon Mount (Drone)"
+			]
+		},
+		"modslots": "0",
+		"seats": "0",
+		"weapons": {
+			"weapon": [{
+					"name": "GE Vindicator Mini-Gun"
+				},
+				{
+					"name": "GE Vindicator Mini-Gun"
+				}
+			]
+		}
+	},
+	{
+		"id": "63a915a3-b71b-4ee4-8638-8a24df833c14",
+		"name": "Mitsuhama Honson",
+		"page": "72",
+		"source": "SAG",
+		"accel": "2",
+		"armor": "6",
+		"avail": "10R",
+		"body": "5",
+		"category": "Drones: Anthro",
+		"cost": "30000",
+		"handling": "3",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "2",
+		"gears": {
+			"gear": [{
+					"-rating": "3",
+					"-maxrating": "3",
+					"#text": "Sensor Array"
+				},
+				{
+					"-rating": "3",
+					"-select": "First Aid",
+					"#text": "Skill Autosoft"
+				},
+				{
+					"-rating": "3",
+					"-select": "Automotive Mechanic",
+					"#text": "Skill Autosoft"
+				}
+			]
+		},
+		"mods": {
+			"name": [
+				"Touch Sensors",
+				"Mini Weapon Mount (Drone)",
+				"Drone Arm",
+				"Drone Arm",
+				"Drone Leg",
+				"Drone Leg"
+			]
+		},
+		"modslots": "0",
+		"seats": "0",
+		"weapons": {
+			"weapon": {
+				"name": "Yamaha Pulsar"
+			}
+		}
+	},
+	{
+		"id": "139fb6cb-a4c5-4ba2-8cf2-f10b9e187093",
+		"name": "BMW Trollhammer",
+		"page": "184",
+		"source": "TCT",
+		"accel": "2",
+		"armor": "8",
+		"avail": "0",
+		"body": "10",
+		"category": "Bikes",
+		"cost": "12500",
+		"handling": "4/3",
+		"pilot": "1",
+		"sensor": "2",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "3",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": "Metahuman Adjustment"
+		},
+		"seats": "1"
+	},
+	{
+		"id": "d706917a-ae42-4134-a1bb-0dc276e02fbe",
+		"name": "Ford Titan",
+		"page": "184",
+		"source": "TCT",
+		"accel": "1",
+		"armor": "8",
+		"avail": "0",
+		"body": "16",
+		"category": "Bikes",
+		"cost": "32500",
+		"handling": "3/2",
+		"pilot": "2",
+		"sensor": "2",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "3",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": "Metahuman Adjustment"
+		},
+		"seats": "8"
+	},
+	{
+		"id": "1a50c08f-6c44-4e2d-b15c-457cc98f10b9",
+		"name": "Mercury Cruiser",
+		"handling": "4/3",
+		"speed": "3",
+		"accel": "3",
+		"body": "14",
+		"armor": "11",
+		"pilot": "1",
+		"sensor": "2",
+		"seats": "5",
+		"avail": "0",
+		"cost": "21000",
+		"source": "R5G",
+		"page": "51",
+		"category": "Cars",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "2",
+				"#text": "Sensor Array"
+			}
+		}
+	},
+	{
+		"id": "1eb827c6-cda1-40fe-b855-8a1f41a34700",
+		"name": "Mercedes-Benz CityMog",
+		"handling": "5/4",
+		"speed": "3",
+		"accel": "1",
+		"body": "18",
+		"armor": "10",
+		"pilot": "2",
+		"sensor": "2",
+		"seats": "3",
+		"avail": "0",
+		"cost": "44000",
+		"source": "R5G",
+		"page": "64",
+		"category": "Cars",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "2",
+				"#text": "Sensor Array"
+			}
+		}
+	},
+	{
+		"id": "122a3919-dc05-4d8d-89b3-fa0ac9e1d669",
+		"name": "Mercedes-Benz CityMog CM-X (Pickup)",
+		"handling": "5/4",
+		"speed": "3",
+		"accel": "1",
+		"body": "18",
+		"armor": "10",
+		"pilot": "2",
+		"sensor": "2",
+		"seats": "5",
+		"avail": "0",
+		"cost": "42000",
+		"source": "R5G",
+		"page": "64",
+		"category": "Cars",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "2",
+				"#text": "Sensor Array"
+			}
+		}
+	},
+	{
+		"id": "e0a63cca-ce9b-4b1b-b88b-1d496c37e82d",
+		"name": "Mercedes-Benz CityMog Traveller",
+		"handling": "5/4",
+		"speed": "3",
+		"accel": "1",
+		"body": "18",
+		"armor": "10",
+		"pilot": "3",
+		"sensor": "2",
+		"seats": "20",
+		"avail": "0",
+		"cost": "56000",
+		"source": "R5G",
+		"page": "64",
+		"category": "Cars",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "2",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": "Amenities (Middle)"
+		}
+	},
+	{
+		"id": "04b54f68-d1df-42f7-a03e-0bc465e42024",
+		"name": "Mercedes-Benz CityMog Elite",
+		"handling": "5/3",
+		"speed": "3",
+		"accel": "1",
+		"body": "18",
+		"armor": "12",
+		"pilot": "3",
+		"sensor": "4",
+		"seats": "12",
+		"avail": "0",
+		"cost": "96000",
+		"source": "R5G",
+		"page": "64",
+		"category": "Cars",
+		"gears": {
+			"gear": {
+				"-rating": "4",
+				"-maxrating": "4",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": "Amenities (High)"
+		}
+	},
+	{
+		"id": "b52811c6-03d4-4dee-8a2e-04ea043b79e8",
+		"name": "Volkswagen Multicity",
+		"page": "64",
+		"source": "R5G",
+		"accel": "1",
+		"armor": "4",
+		"avail": "0",
+		"body": "12",
+		"category": "Cars",
+		"cost": "18000",
+		"handling": "3/2",
+		"pilot": "1",
+		"sensor": "1",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "1",
+				"-maxrating": "1",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "3"
+	},
+	{
+		"id": "8abe349d-d687-45a0-a1c9-d6189e4eac39",
+		"name": "Volkswagen Urban Explorer",
+		"handling": "3/3",
+		"speed": "3",
+		"accel": "1",
+		"body": "13",
+		"armor": "6",
+		"pilot": "2",
+		"sensor": "2",
+		"seats": "4",
+		"avail": "0",
+		"cost": "28000",
+		"source": "R5G",
+		"page": "65",
+		"category": "Cars",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "2",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Amenities (Middle)",
+				"SunCell"
+			]
+		}
+	},
+	{
+		"id": "9b5cf9b8-c3ce-4853-91c7-215a73ad4ed2",
+		"name": "Volkswagen Urban Transporter",
+		"handling": "3/3",
+		"speed": "3",
+		"accel": "1",
+		"body": "13",
+		"armor": "6",
+		"pilot": "2",
+		"sensor": "2",
+		"seats": "2",
+		"avail": "0",
+		"cost": "19500",
+		"source": "R5G",
+		"page": "65",
+		"category": "Cars",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "2",
+				"#text": "Sensor Array"
+			}
+		}
+	},
+	{
+		"id": "61c57dad-8683-464e-92e1-3ad57776365e",
+		"name": "Volkswagen Urban Traveller",
+		"handling": "3/3",
+		"speed": "3",
+		"accel": "1",
+		"body": "13",
+		"armor": "6",
+		"pilot": "2",
+		"sensor": "2",
+		"seats": "9",
+		"avail": "0",
+		"cost": "29500",
+		"source": "R5G",
+		"page": "65",
+		"category": "Cars",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "2",
+				"#text": "Sensor Array"
+			}
+		}
+	},
+	{
+		"id": "1581a0b7-d198-46ba-bf68-88871554fcf1",
+		"name": "Volkswagen Urban Watcher",
+		"handling": "3/3",
+		"speed": "3",
+		"accel": "1",
+		"body": "16",
+		"armor": "10",
+		"pilot": "2",
+		"sensor": "2",
+		"seats": "4",
+		"avail": "12R",
+		"cost": "65000",
+		"source": "R5G",
+		"page": "65",
+		"category": "Cars",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "2",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Landing Drone Rack (Medium)",
+				"Landing Drone Rack (Medium)",
+				"Landing Drone Rack (Medium)",
+				"Landing Drone Rack (Medium)",
+				"Retrans Unit"
+			]
+		}
+	},
+	{
+		"id": "d0bdf891-9faa-4128-8439-ae4964a425f7",
+		"name": "Ares Minotaurus",
+		"handling": "4/5",
+		"speed": "5",
+		"accel": "2",
+		"body": "14",
+		"armor": "8",
+		"pilot": "4",
+		"sensor": "4",
+		"seats": "4",
+		"avail": "12F",
+		"cost": "45000",
+		"source": "R5G",
+		"page": "81",
+		"category": "Cars",
+		"gears": {
+			"gear": {
+				"-rating": "4",
+				"-maxrating": "4",
+				"#text": "Sensor Array"
+			}
+		}
+	},
+	{
+		"id": "98dc1868-0c72-468a-bf82-a87dbbcd0002",
+		"name": "Dodge Hurricane",
+		"page": "57",
+		"source": "R5G",
+		"accel": "2",
+		"armor": "12",
+		"avail": "0",
+		"body": "15",
+		"category": "Cars",
+		"cost": "37000",
+		"handling": "4/4",
+		"pilot": "1",
+		"sensor": "2",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "2",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "3"
+	},
+	{
+		"id": "31a6d5b8-025e-4391-b302-ff4ae38ae196",
+		"name": "Dodge Hurricane Crew Modell",
+		"page": "57",
+		"source": "R5G",
+		"accel": "2",
+		"armor": "12",
+		"avail": "0",
+		"body": "16",
+		"category": "Cars",
+		"cost": "43000",
+		"handling": "3/3",
+		"pilot": "1",
+		"sensor": "2",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "2",
+				"-maxrating": "2",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "6"
+	},
+	{
+		"id": "6a8c2884-7ca3-4070-a87f-5aff00b852f8",
+		"name": "Dodge Hurricane Security Modell",
+		"page": "57",
+		"source": "R5G",
+		"accel": "2",
+		"armor": "14",
+		"avail": "0",
+		"body": "16",
+		"category": "Cars",
+		"cost": "67000",
+		"handling": "4/3",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "3",
+				"-maxrating": "3",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "5"
+	},
+	{
+		"id": "349e9cdf-fa51-4da1-87ee-2ecd535fd019",
+		"name": "BMW X Infinity",
+		"page": "57",
+		"source": "R5G",
+		"accel": "2",
+		"armor": "13",
+		"avail": "10",
+		"body": "14",
+		"category": "Cars",
+		"cost": "72000",
+		"handling": "5/5",
+		"pilot": "2",
+		"sensor": "4",
+		"speed": "4",
+		"gears": {
+			"gear": {
+				"-rating": "4",
+				"-maxrating": "4",
+				"#text": "Sensor Array"
+			}
+		},
+		"seats": "6"
+	},
+	{
+		"id": "c659ace5-1dfb-4eeb-b49d-5867b3153649",
+		"name": "Avibras-Nissan AN 822",
+		"page": "31",
+		"source": "SFME",
+		"accel": "0",
+		"armor": "10",
+		"avail": "10",
+		"body": "14",
+		"category": "Rotorcraft",
+		"cost": "221500",
+		"handling": "5",
+		"pilot": "3",
+		"sensor": "3",
+		"seats": "5",
+		"speed": "6",
+		"gears": {
+			"gear": [{
+					"-rating": "3",
+					"-maxrating": "3",
+					"#text": "Sensor Array"
+				},
+				{
+					"-rating": "2",
+					"-select": "Evasion",
+					"#text": "Skill Autosoft"
+				},
+				{
+					"-rating": "2",
+					"-select": "Electronic Warfare",
+					"#text": "Skill Autosoft"
+				},
+				{
+					"-rating": "2",
+					"-select": "Avibras-Nissan AN 822",
+					"#text": "[Model] Maneuvering Autosoft"
+				}
+			]
+		},
+		"mods": {
+			"name": [
+				"Rigger Interface",
+				"Manual Controls",
+				"Avibras-Nissan AN 822 Device Rating Upgrade"
+			]
+		}
+	},
+	{
+		"id": "f2993dbf-6800-4dad-b9ff-b6324a73b54e",
+		"name": "Ares Citymaster",
+		"handling": "4/3",
+		"speed": "4/3",
+		"accel": "2",
+		"body": "18",
+		"armor": "22",
+		"pilot": "5",
+		"sensor": "5",
+		"seats": "12",
+		"avail": "0",
+		"cost": "0",
+		"source": "SPS",
+		"page": "40",
+		"category": "Cars",
+		"gears": {
+			"gear": {
+				"-rating": "5",
+				"-maxrating": "5",
+				"#text": "Sensor Array"
+			}
+		},
+		"mods": {
+			"name": [
+				"Rigger Interface",
+				{
+					"-select": "Chemical Seal",
+					"#text": "Special Equipment"
+				}
+			]
+		},
+		"weaponmounts": {
+			"weaponmount": {
+				"size": "Heavy [SR5]",
+				"visibility": "External",
+				"flexibility": "Fixed",
+				"control": "Remote"
+			}
+		},
+		"weapons": {
+			"weapon": {
+				"name": "Stoner-Ares M202"
+			}
+		}
+	},
+	{
+		"id": "bf1c4807-6f21-425c-aa1e-521ebf34ffe8",
+		"name": "Lone Star SecureSector Mk2",
+		"page": "40",
+		"source": "TVG",
+		"accel": "2",
+		"armor": "4",
+		"avail": "10",
+		"body": "4",
+		"category": "Drones: Small",
+		"cost": "5000",
+		"handling": "4/3",
+		"pilot": "3",
+		"sensor": "3",
+		"speed": "4",
+		"gears": {
+			"gear": [{
+					"-rating": "3",
+					"-maxrating": "6",
+					"#text": "Sensor Array"
+				},
+				{
+					"-rating": "2",
+					"#text": "Clearsight Autosoft"
+				},
+				{
+					"-select": "Floodlight",
+					"#text": "Custom Item"
+				}
+			]
+		}
+	}
+]
