@@ -5,6 +5,7 @@ import AugmentationComponent from './AugmentationComponent';
 import GearComponent from './GearComponent';
 import PurchasedGear from './PurchasedGearComponent';
 import gearData from '../../data/gear.json';
+import mechData from '../../data/vehiclesAndDrones.json';
 import PropTypeChecking from '../../config/propTypeChecking';
 
 import '../../styles/gear/StreetGear.scss';
@@ -18,6 +19,20 @@ class StreetGearComponent extends React.PureComponent {
 					...(gearMemo[gear.category] || []),
 					gear
 				]
+			};
+		}, {});
+
+		this.organizedMechs = mechData.reduce((mechMemo, mech) => {
+			const type = /Drone/.test(mech.category) ? 'drones' : 'vehicles';
+			return {
+				...mechMemo,
+				[type]: {
+					...(mechMemo[type] || {}),
+					[mech.category]: [
+						...((mechMemo[type] && mechMemo[type][mech.category]) || []),
+						mech
+					]
+				}
 			};
 		}, {});
 	}
@@ -71,6 +86,12 @@ class StreetGearComponent extends React.PureComponent {
 					augmentations={purchaseGear.augmentations}
 					cyberlimbs={purchaseGear.cyberlimbs}
 				/>
+
+				<h3>Vehicles</h3>
+				{ Object.keys(this.organizedMechs.vehicles) }
+
+				<h3>Drones</h3>
+				{ Object.keys(this.organizedMechs.drones) }
 			</div>
 		);
 	}
