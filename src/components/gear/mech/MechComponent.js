@@ -5,7 +5,10 @@ class MechComponent extends React.Component {
 	render() {
 		const {classOfMechs, mechsByType} = this.props;
 		return (
-			<div>{classOfMechs} { mechsByType }</div>
+			<div>
+				<h3>{classOfMechs}</h3>
+				{ mechsByType }
+			</div>
 		);
 	}
 }
