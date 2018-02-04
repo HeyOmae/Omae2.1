@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ModalButton from '../../ModalButtonComponent';
 
 class MechComponent extends React.Component {
 	render() {
@@ -7,7 +8,9 @@ class MechComponent extends React.Component {
 		return (
 			<div>
 				<h3>{classOfMechs}</h3>
-				{ mechsByType }
+				{ Object.keys(mechsByType).map((typeName) => {
+					return (<ModalButton />);
+				}) }
 			</div>
 		);
 	}
