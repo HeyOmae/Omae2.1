@@ -2,7 +2,8 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import MechComponent from 'components/gear/mech/MechComponent';
-import ModalButton from 'components/ModalButtonComponent'
+import ModalButton from 'components/ModalButtonComponent';
+import FilterableTable from 'components/FilterableTable';
 
 describe('Mech Component', () => {
 	const setup = () => {
@@ -27,8 +28,16 @@ describe('Mech Component', () => {
 	});
 
 	it('should render a modal button for each item in mechsByType', () => {
-		const {mechComponent, props} = setup();
+		const {mechComponent, props} = setup(),
+			modalButtons = mechComponent.find(ModalButton),
+			mechsByType = Object.keys(props.mechsByType);
 
-		expect(mechComponent.find(ModalButton)).lengthOf(Object.keys(props.mechsByType).length);
+		expect(modalButtons).lengthOf(mechsByType.length);
+
+		modalButtons.forEach((btn, index) => {
+			const btnProps = btn.props();
+			expect(btnProps.modalName).to.equal(mechsByType[index]);
+			// expect(btnProps.modalContent).to.equal(mechComponent.modalContent[mechsByType[index]]);
+		});
 	});
 });

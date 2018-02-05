@@ -1,15 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ModalButton from '../../ModalButtonComponent';
+import FilterableTable from '../../FilterableTable';
 
 class MechComponent extends React.Component {
+	componentWillMount() {
+		this.modalContent = {};
+	}
 	render() {
 		const {classOfMechs, mechsByType} = this.props;
 		return (
 			<div>
 				<h3>{classOfMechs}</h3>
 				{ Object.keys(mechsByType).map((typeName) => {
-					return (<ModalButton />);
+					return (
+						<ModalButton
+							key={`${classOfMechs}-${typeName}`}
+							modalName={typeName}
+							modalContent={
+								<FilterableTable />
+							}
+						/>
+					);
 				}) }
 			</div>
 		);
