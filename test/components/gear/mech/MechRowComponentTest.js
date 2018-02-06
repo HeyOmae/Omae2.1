@@ -45,5 +45,9 @@ describe('Mech Row Component', () => {
 		expect(mechRow.find('tr')).lengthOf(1);
 	});
 
-	it('should ')
+	it('should display a mechs stats', () => {
+		const {mechRow, props} = setup();
+
+		expect(mechRow.find('.mech--name').text()).to.equal(props.mech.name);
+	});
 });
