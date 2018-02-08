@@ -32,7 +32,8 @@ describe('Mech Row Component', () => {
 					name: 'Improved Economy'
 				},
 				seats: '1'
-			}
+			},
+			purchaseMech: sinon.spy(),
 		},
 			mechRow = shallow(<MechRow {...props} />);
 
@@ -57,5 +58,15 @@ describe('Mech Row Component', () => {
 		expect(mechRow.find('.mech--sensor').text()).to.equal(props.mech.sensor);
 		expect(mechRow.find('.mech--cost').text()).to.equal(props.mech.cost);
 		expect(mechRow.find('.mech--ref').text()).to.equal(`${props.mech.source} ${props.mech.page}p`);
+	});
+
+	describe('buy button', () => {
+		it('should call the purchase mech function', () => {
+			const {mechRow, props} = setup();
+
+			mechRow.find('.mech--buy button').simulate('click');
+
+			expect(props.purchaseMech.calledOnce).to.be.true;
+		});
 	});
 });
