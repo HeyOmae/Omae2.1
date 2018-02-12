@@ -4,6 +4,7 @@ import ArmorsComponent from './armor/ArmorsComponent';
 import AugmentationComponent from './AugmentationComponent';
 import GearComponent from './GearComponent';
 import PurchasedGear from './PurchasedGearComponent';
+import MechComponent from './mech/MechComponent';
 import gearData from '../../data/gear.json';
 import mechData from '../../data/vehiclesAndDrones.json';
 import PropTypeChecking from '../../config/propTypeChecking';
@@ -87,8 +88,10 @@ class StreetGearComponent extends React.PureComponent {
 					cyberlimbs={purchaseGear.cyberlimbs}
 				/>
 
-				<h3>Vehicles</h3>
-				{ Object.keys(this.organizedMechs.vehicles) }
+				<MechComponent
+					classOfMechs="Vehicles"
+					mechsByType={this.organizedMechs.vehicles}
+				/>
 
 				<h3>Drones</h3>
 				{ Object.keys(this.organizedMechs.drones) }

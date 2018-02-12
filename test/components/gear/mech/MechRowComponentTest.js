@@ -33,7 +33,7 @@ describe('Mech Row Component', () => {
 				},
 				seats: '1'
 			},
-			purchaseMech: sinon.spy(),
+			mechButton: <button className="btn btn-success">+</button>,
 		},
 			mechRow = shallow(<MechRow {...props} />);
 
@@ -60,13 +60,11 @@ describe('Mech Row Component', () => {
 		expect(mechRow.find('.mech--ref').text()).to.equal(`${props.mech.source} ${props.mech.page}p`);
 	});
 
-	describe('buy button', () => {
-		it('should call the purchase mech function', () => {
+	describe('buy/sell button', () => {
+		it('should come in from props', () => {
 			const {mechRow, props} = setup();
 
-			mechRow.find('.mech--buy button').simulate('click');
-
-			expect(props.purchaseMech.calledOnce).to.be.true;
+			expect(mechRow.find('.btn.btn-success')).lengthOf(1);
 		});
 	});
 });

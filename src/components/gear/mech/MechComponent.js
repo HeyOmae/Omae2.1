@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ModalButton from '../../ModalButtonComponent';
 import FilterableTable from '../../FilterableTable';
+import MechRow from './MechRowComponent';
 
 class MechComponent extends React.Component {
 	componentWillMount() {
@@ -18,7 +19,33 @@ class MechComponent extends React.Component {
 							key={`${classOfMechs}-${typeName}`}
 							modalName={typeName}
 							modalContent={
-								<FilterableTable />
+								<FilterableTable
+									header={
+										<th>
+											<td>Name</td>
+											<td>Handling</td>
+											<td>Accel</td>
+											<td>Body</td>
+											<td>Armor</td>
+											<td>Pilot</td>
+											<td>Sensor</td>
+											<td>Cost</td>
+											<td>Ref</td>
+										</th>
+									}
+								>
+									{mechsByType[typeName].map((mech) => {
+										return (
+											<MechRow
+												key={`${typeName}-${mech.name}`}
+												mech={mech}
+												button={
+													<button className="btn btn-success">+</button>
+												}
+											/>
+										);
+									})}
+								</FilterableTable>
 							}
 						/>
 					);

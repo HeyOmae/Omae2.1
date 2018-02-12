@@ -1,16 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const MechRowComponent = ({mech, purchaseMech}) => {
+const MechRowComponent = ({mech, mechButton}) => {
 	return (
 		<tr>
 			<td className="mech--buy">
-				<button
-					className="btn btn-success"
-					onClick={() => {
-						purchaseMech();
-					}}
-				>+</button>
+				{mechButton}
 			</td>
 			<td className="mech--name">{mech.name}</td>
 			<td className="mech--handling">{mech.handling}</td>
@@ -38,7 +33,7 @@ MechRowComponent.propTypes = {
 		source: PropTypes.string.isRequired,
 		page: PropTypes.string.isRequired,
 	}).isRequired,
-	purchaseMech: PropTypes.func.isRequired
+	mechButton: PropTypes.node.isRequired
 };
 
 export default MechRowComponent;

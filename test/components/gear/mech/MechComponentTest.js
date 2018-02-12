@@ -10,7 +10,33 @@ describe('Mech Component', () => {
 		const props = {
 			classOfMechs: 'Vehicles',
 			mechsByType: {
-				bikes: [],
+				bikes: [{
+					id: 'c0d3e7fd-d5fd-48c4-b49d-0c7dea26895d',
+					name: 'Dodge Scoot (Scooter)',
+					page: '462',
+					source: 'SR5',
+					accel: '1',
+					armor: '4',
+					avail: '0',
+					body: '4',
+					category: 'Bikes',
+					cost: '3000',
+					handling: '4/3',
+					pilot: '1',
+					sensor: '1',
+					speed: '3',
+					gears: {
+						gear: {
+							'-rating': '1',
+							'-maxrating': '6',
+							'#text': 'Sensor Array'
+						}
+					},
+					mods: {
+						name: 'Improved Economy'
+					},
+					seats: '1'
+				}],
 				cars: [],
 				boats: []
 			}
@@ -37,7 +63,6 @@ describe('Mech Component', () => {
 		modalButtons.forEach((btn, index) => {
 			const btnProps = btn.props();
 			expect(btnProps.modalName).to.equal(mechsByType[index]);
-			// expect(btnProps.modalContent).to.equal(mechComponent.modalContent[mechsByType[index]]);
 		});
 	});
 });
