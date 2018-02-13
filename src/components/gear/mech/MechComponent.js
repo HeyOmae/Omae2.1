@@ -11,46 +11,48 @@ class MechComponent extends React.Component {
 	render() {
 		const {classOfMechs, mechsByType} = this.props;
 		return (
-			<div>
-				<h3>{classOfMechs}</h3>
-				{ Object.keys(mechsByType).map((typeName) => {
-					return (
-						<ModalButton
-							key={`${classOfMechs}-${typeName}`}
-							modalName={typeName}
-							modalContent={
-								<FilterableTable
-									header={
-										<tr>
-											<th>Buy</th>
-											<th>Name</th>
-											<th>Handling</th>
-											<th>Accel</th>
-											<th>Body</th>
-											<th>Armor</th>
-											<th>Pilot</th>
-											<th>Sensor</th>
-											<th>Cost</th>
-											<th>Ref</th>
-										</tr>
-									}
-								>
-									{mechsByType[typeName].map((mech) => {
-										return (
-											<MechRow
-												key={`${typeName}-${mech.name}`}
-												mech={mech}
-												mechButton={
-													<button className="btn btn-success">+</button>
-												}
-											/>
-										);
-									})}
-								</FilterableTable>
-							}
-						/>
-					);
-				}) }
+			<div className="row">
+				<div className="col">
+					<h3>{classOfMechs}</h3>
+					{ Object.keys(mechsByType).map((typeName) => {
+						return (
+							<ModalButton
+								key={`${classOfMechs}-${typeName}`}
+								modalName={typeName}
+								modalContent={
+									<FilterableTable
+										header={
+											<tr>
+												<th>Buy</th>
+												<th>Name</th>
+												<th>Handling</th>
+												<th>Accel</th>
+												<th>Body</th>
+												<th>Armor</th>
+												<th>Pilot</th>
+												<th>Sensor</th>
+												<th>Cost</th>
+												<th>Ref</th>
+											</tr>
+										}
+									>
+										{mechsByType[typeName].map((mech) => {
+											return (
+												<MechRow
+													key={`${typeName}-${mech.name}`}
+													mech={mech}
+													mechButton={
+														<button className="btn btn-success">+</button>
+													}
+												/>
+											);
+										})}
+									</FilterableTable>
+								}
+							/>
+						);
+					}) }
+				</div>
 			</div>
 		);
 	}
