@@ -21,17 +21,18 @@ class MechComponent extends React.Component {
 							modalContent={
 								<FilterableTable
 									header={
-										<th>
-											<td>Name</td>
-											<td>Handling</td>
-											<td>Accel</td>
-											<td>Body</td>
-											<td>Armor</td>
-											<td>Pilot</td>
-											<td>Sensor</td>
-											<td>Cost</td>
-											<td>Ref</td>
-										</th>
+										<tr>
+											<th>Buy</th>
+											<th>Name</th>
+											<th>Handling</th>
+											<th>Accel</th>
+											<th>Body</th>
+											<th>Armor</th>
+											<th>Pilot</th>
+											<th>Sensor</th>
+											<th>Cost</th>
+											<th>Ref</th>
+										</tr>
 									}
 								>
 									{mechsByType[typeName].map((mech) => {
@@ -39,7 +40,7 @@ class MechComponent extends React.Component {
 											<MechRow
 												key={`${typeName}-${mech.name}`}
 												mech={mech}
-												button={
+												mechButton={
 													<button className="btn btn-success">+</button>
 												}
 											/>

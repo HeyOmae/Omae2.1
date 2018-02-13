@@ -28,7 +28,7 @@ MechRowComponent.propTypes = {
 		body: PropTypes.string.isRequired,
 		armor: PropTypes.string.isRequired,
 		pilot: PropTypes.string.isRequired,
-		senor: PropTypes.string.isRequired,
+		sensor: PropTypes.string.isRequired,
 		cost: PropTypes.string.isRequired,
 		source: PropTypes.string.isRequired,
 		page: PropTypes.string.isRequired,
