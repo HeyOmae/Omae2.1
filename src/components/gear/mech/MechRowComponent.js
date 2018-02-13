@@ -14,7 +14,7 @@ const MechRowComponent = ({mech, mechButton}) => {
 			<td className="mech--armor">{mech.armor}</td>
 			<td className="mech--pilot">{mech.pilot}</td>
 			<td className="mech--sensor">{mech.sensor}</td>
-			<td className="mech--cost">{mech.cost}</td>
+			<td className="mech--cost">{mech.cost}&yen;</td>
 			<td className="mech--ref">{mech.source} {mech.page}p</td>
 		</tr>
 	);

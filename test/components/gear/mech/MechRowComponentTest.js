@@ -56,7 +56,7 @@ describe('Mech Row Component', () => {
 		expect(mechRow.find('.mech--armor').text()).to.equal(props.mech.armor);
 		expect(mechRow.find('.mech--pilot').text()).to.equal(props.mech.pilot);
 		expect(mechRow.find('.mech--sensor').text()).to.equal(props.mech.sensor);
-		expect(mechRow.find('.mech--cost').text()).to.equal(props.mech.cost);
+		expect(mechRow.find('.mech--cost').text()).to.equal(`${props.mech.cost}¥`);
 		expect(mechRow.find('.mech--ref').text()).to.equal(`${props.mech.source} ${props.mech.page}p`);
 	});
 
