@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import MechComponent from 'components/gear/mech/MechComponent';
+import {MechComponent} from 'components/gear/mech/MechComponent';
 import ModalButton from 'components/ModalButtonComponent';
 import FilterableTable from 'components/FilterableTable';
 
@@ -39,8 +39,8 @@ describe('Mech Component', () => {
 				}],
 				cars: [],
 				boats: []
-			}
-			
+			},
+			purchaseMech: sinon.spy()
 		},
 			mechComponent = shallow(<MechComponent {...props} />);
 

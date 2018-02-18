@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import DisplayTable from './DisplayTableComponent';
 
-import {setFilter} from '../actions/';
+import {setFilter} from '../actions';
 
 // component
 class FilterableTable extends Component {

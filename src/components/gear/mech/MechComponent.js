@@ -1,5 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+
+import { purchaseGear } from '../../../actions';
+
 import ModalButton from '../../ModalButtonComponent';
 import FilterableTable from '../../FilterableTable';
 import MechRow from './MechRowComponent';
@@ -9,7 +13,7 @@ class MechComponent extends React.Component {
 		this.modalContent = {};
 	}
 	render() {
-		const {classOfMechs, mechsByType} = this.props;
+		const {classOfMechs, mechsByType, purchaseMech} = this.props;
 		return (
 			<div className="row">
 				<div className="col">
@@ -42,7 +46,17 @@ class MechComponent extends React.Component {
 													key={`${typeName}-${mech.name}`}
 													mech={mech}
 													mechButton={
-														<button className="btn btn-success">+</button>
+														<button
+															className="btn btn-success"
+															onClick={
+																() => {
+																	purchaseMech({
+																		gear: mech,
+																		category: classOfMechs
+																	});
+																}
+															}
+														>+</button>
 													}
 												/>
 											);
@@ -76,7 +90,10 @@ MechComponent.propTypes = {
 			sensor: PropTypes.string.isRequired,
 			speed: PropTypes.string.isRequired,
 		})).isRequired
-	).isRequired
+	).isRequired,
+	purchaseMech: PropTypes.func.isRequired
 };
 
-export default MechComponent;
+export {MechComponent};
+
+export default connect(null, {purchaseMech: purchaseGear})(MechComponent);

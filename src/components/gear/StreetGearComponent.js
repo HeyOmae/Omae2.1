@@ -88,10 +88,12 @@ class StreetGearComponent extends React.PureComponent {
 					cyberlimbs={purchaseGear.cyberlimbs}
 				/>
 
+				<h3>Rigger Stuff</h3>
 				<MechComponent
 					classOfMechs="Vehicles"
 					mechsByType={this.organizedMechs.vehicles}
 				/>
+				{purchaseGear.Vehicles && purchaseGear.Vehicles.map(vehicle => vehicle.name)}
 				<MechComponent
 					classOfMechs="Drones"
 					mechsByType={this.organizedMechs.drones}
