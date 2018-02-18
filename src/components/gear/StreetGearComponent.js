@@ -4,7 +4,7 @@ import ArmorsComponent from './armor/ArmorsComponent';
 import AugmentationComponent from './AugmentationComponent';
 import GearComponent from './GearComponent';
 import PurchasedGear from './PurchasedGearComponent';
-import MechComponent from './mech/MechComponent';
+import Mech from './mech/MechComponent';
 import gearData from '../../data/gear.json';
 import mechData from '../../data/vehiclesAndDrones.json';
 import PropTypeChecking from '../../config/propTypeChecking';
@@ -89,14 +89,16 @@ class StreetGearComponent extends React.PureComponent {
 				/>
 
 				<h3>Rigger Stuff</h3>
-				<MechComponent
+				<Mech
 					classOfMechs="Vehicles"
 					mechsByType={this.organizedMechs.vehicles}
+					purchasedMech={purchaseGear.Vehicles}
 				/>
-				{purchaseGear.Vehicles && purchaseGear.Vehicles.map(vehicle => vehicle.name)}
-				<MechComponent
+
+				<Mech
 					classOfMechs="Drones"
 					mechsByType={this.organizedMechs.drones}
+					purchasedMech={purchaseGear.Drones}
 				/>
 			</div>
 		);
