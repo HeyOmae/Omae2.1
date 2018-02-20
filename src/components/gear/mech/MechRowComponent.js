@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const MechRowComponent = ({mech, mechButton}) => {
+const MechRowComponent = ({mech, mechButton, mechMod}) => {
 	return (
 		<tr>
 			<td className="mech--buy">
 				{mechButton}
 			</td>
-			<td className="mech--name">{mech.name}</td>
+			<td className="mech--name">{mechMod || mech.name}</td>
 			<td className="mech--handling">{mech.handling}</td>
 			<td className="mech--accel">{mech.accel}</td>
 			<td className="mech--body">{mech.body}</td>
@@ -33,7 +33,12 @@ MechRowComponent.propTypes = {
 		source: PropTypes.string.isRequired,
 		page: PropTypes.string.isRequired,
 	}).isRequired,
-	mechButton: PropTypes.node.isRequired
+	mechButton: PropTypes.node.isRequired,
+	mechMod: PropTypes.node
+};
+
+MechRowComponent.defaultProps = {
+	mechMod: null
 };
 
 export default MechRowComponent;

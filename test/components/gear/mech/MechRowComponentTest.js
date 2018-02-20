@@ -4,7 +4,8 @@ import { shallow } from 'enzyme';
 import MechRow from 'components/gear/mech/MechRowComponent';
 
 describe('Mech Row Component', () => {
-	const setup = () => {
+	const modBtn = (<button className="btn btn-info">Dodge Scoot (Scooter)</button>);
+	const setup = (mechMod = null) => {
 		const props = {
 			mech: {
 				id: 'c0d3e7fd-d5fd-48c4-b49d-0c7dea26895d',
@@ -34,6 +35,7 @@ describe('Mech Row Component', () => {
 				seats: '1'
 			},
 			mechButton: <button className="btn btn-success">+</button>,
+			mechMod
 		},
 			mechRow = shallow(<MechRow {...props} />);
 
@@ -66,5 +68,11 @@ describe('Mech Row Component', () => {
 
 			expect(mechRow.find('.btn.btn-success')).lengthOf(1);
 		});
+	});
+
+	it('mech name should be replace with modal mod button if defined', () => {
+		const {mechRow, props} = setup(modBtn);
+
+		expect(mechRow.find('.mech--name .btn.btn-info')).lengthOf(1);
 	});
 });
