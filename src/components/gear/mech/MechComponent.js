@@ -79,18 +79,24 @@ class MechComponent extends React.Component {
 								header={<MechHeader />}
 							>
 								{
-									purchasedMech.map((vehicle, index) => {
+									purchasedMech.map((mech, index) => {
 										return (
 											<MechRow
-												key={`purchased-vehicle-${vehicle.name + index}`}
-												mech={vehicle}
+												key={`purchased-${classOfMechs}-${mech.name + index}`}
+												mech={mech}
 												mechButton={
 													<button
 														className="btn btn-warning"
 														onClick={() => {
-															this.actions.sellGear({index, category: 'Vehicles'});
+															this.actions.sellGear({index, category: classOfMechs});
 														}}
 													>-</button>
+												}
+												mechMod={
+													<ModalButton
+														modalName={mech.name}
+														modalContent={<h1>mods go here</h1>}
+													/>
 												}
 											/>
 										);
