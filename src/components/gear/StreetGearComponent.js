@@ -7,13 +7,14 @@ import PurchasedGear from './PurchasedGearComponent';
 import Mech from './mech/MechComponent';
 import gearData from '../../data/gear.json';
 import mechData from '../../data/vehiclesAndDrones.json';
+import mechMods from '../../data/vehicleMods.json';
 import PropTypeChecking from '../../config/propTypeChecking';
 
 import '../../styles/gear/StreetGear.scss';
 
 class StreetGearComponent extends React.PureComponent {
 	componentWillMount() {
-		this.organizedGear = gearData.reduce((gearMemo, gear) => {
+		const organizeGearByCategory = (gearMemo, gear) => {
 			return {
 				...gearMemo,
 				[gear.category]: [
@@ -21,7 +22,9 @@ class StreetGearComponent extends React.PureComponent {
 					gear
 				]
 			};
-		}, {});
+		};
+
+		this.organizedGear = gearData.reduce(organizeGearByCategory, {});
 
 		this.organizedMechs = mechData.reduce((mechMemo, mech) => {
 			const type = /Drone/.test(mech.category) ? 'drones' : 'vehicles';
@@ -36,6 +39,10 @@ class StreetGearComponent extends React.PureComponent {
 				}
 			};
 		}, {});
+
+		this.organizedMechMods = mechMods.reduce(organizeGearByCategory, {});
+
+		console.log(this.organizedMechMods);
 	}
 
 	render() {
