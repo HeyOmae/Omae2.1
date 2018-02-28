@@ -15,32 +15,31 @@ import '../../styles/gear/StreetGear.scss';
 class StreetGearComponent extends React.PureComponent {
 	componentWillMount() {
 		const organizeGearByCategory = (gearMemo, gear) => {
-			return {
-				...gearMemo,
-				[gear.category]: [
-					...(gearMemo[gear.category] || []),
-					gear
-				]
+				return {
+					...gearMemo,
+					[gear.category]: [
+						...(gearMemo[gear.category] || []),
+						gear
+					]
+				};
+			},
+			organizeGearByType = (keyType) => {
+				return (mechMemo, mech) => {
+					const type = /Drone/.test(mech[keyType]) ? 'drones' : 'vehicles';
+					return {
+						...mechMemo,
+						[type]: {
+							...organizeGearByCategory((mechMemo[type] || {}), mech)
+						}
+					};
+				};
 			};
-		};
 
 		this.organizedGear = gearData.reduce(organizeGearByCategory, {});
 
-		this.organizedMechs = mechData.reduce((mechMemo, mech) => {
-			const type = /Drone/.test(mech.category) ? 'drones' : 'vehicles';
-			return {
-				...mechMemo,
-				[type]: {
-					...(mechMemo[type] || {}),
-					[mech.category]: [
-						...((mechMemo[type] && mechMemo[type][mech.category]) || []),
-						mech
-					]
-				}
-			};
-		}, {});
+		this.organizedMechs = mechData.reduce(organizeGearByType('category'), {});
 
-		this.organizedMechMods = mechMods.reduce(organizeGearByCategory, {});
+		this.organizedMechMods = mechMods.reduce(organizeGearByType('name'), {});
 
 		console.log(this.organizedMechMods);
 	}
