@@ -99,12 +99,14 @@ class StreetGearComponent extends React.PureComponent {
 					classOfMechs="Vehicles"
 					mechsByType={this.organizedMechs.vehicles}
 					purchasedMech={purchaseGear.Vehicles}
+					mechMods={this.organizedMechMods.vehicles}
 				/>
 
 				<Mech
 					classOfMechs="Drones"
 					mechsByType={this.organizedMechs.drones}
 					purchasedMech={purchaseGear.Drones}
+					mechMods={this.organizedMechMods.drones}
 				/>
 			</div>
 		);

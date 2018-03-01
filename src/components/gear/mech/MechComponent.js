@@ -31,7 +31,7 @@ class MechComponent extends React.Component {
 		this.modalContent = {};
 	}
 	render() {
-		const {classOfMechs, mechsByType, purchaseMechAction, purchasedMech} = this.props;
+		const {classOfMechs, mechsByType, purchaseMechAction, purchasedMech, mechMods} = this.props;
 		return (
 			<div className="row">
 				<div className="col">
@@ -95,7 +95,24 @@ class MechComponent extends React.Component {
 												mechMod={
 													<ModalButton
 														modalName={mech.name}
-														modalContent={<h1>mods go here</h1>}
+														modalContent={
+															Object.keys(mechMods).map((modType) => {
+																return (
+																	<div key={modType}>
+																		<h4>{modType}</h4>
+																		<FilterableTable
+																			header={
+																				<tr><th>Name</th></tr>
+																			}
+																		>
+																			{mechMods[modType].map((mod) => {
+																				return (<tr><td>{mod.name}</td></tr>);
+																			})}
+																		</FilterableTable>
+																	</div>
+																);
+															})
+														}
 													/>
 												}
 											/>
@@ -133,7 +150,12 @@ MechComponent.propTypes = {
 		PropTypes.arrayOf(mechType).isRequired
 	).isRequired,
 	purchaseMechAction: PropTypes.func.isRequired,
-	purchasedMech: PropTypes.arrayOf(mechType)
+	purchasedMech: PropTypes.arrayOf(mechType),
+	mechMods: PropTypes.objectOf(
+		PropTypes.arrayOf(PropTypes.shape({
+			name: PropTypes.string.isRequired
+		}).isRequired).isRequired
+	).isRequired
 };
 
 MechComponent.defaultProps = {
