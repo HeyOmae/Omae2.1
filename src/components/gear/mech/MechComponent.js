@@ -102,11 +102,27 @@ class MechComponent extends React.Component {
 																		<h4>{modType}</h4>
 																		<FilterableTable
 																			header={
-																				<tr><th>Name</th></tr>
+																				<tr>
+																					<th>Name</th>
+																					<th>Rating</th>
+																					<th>Slot</th>
+																					<th>Avail</th>
+																					<th>Cost</th>
+																					<th>Ref</th>
+																				</tr>
 																			}
 																		>
 																			{mechMods[modType].map((mod) => {
-																				return (<tr><td>{mod.name}</td></tr>);
+																				return (
+																					<tr key={`${mech.name}--${modType}-${mod.name}`}>
+																						<td>{mod.name}</td>
+																						<td>{mod.rating}</td>
+																						<td>{mod.slot || 'N/A'}</td>
+																						<td>{mod.avail}</td>
+																						<td>{mod.cost}&yen;</td>
+																						<td>{mod.source} {mod.page}p</td>
+																					</tr>
+																				);
 																			})}
 																		</FilterableTable>
 																	</div>
@@ -153,7 +169,13 @@ MechComponent.propTypes = {
 	purchasedMech: PropTypes.arrayOf(mechType),
 	mechMods: PropTypes.objectOf(
 		PropTypes.arrayOf(PropTypes.shape({
-			name: PropTypes.string.isRequired
+			name: PropTypes.string.isRequired,
+			rating: PropTypes.string.isRequired,
+			slot: PropTypes.string,
+			avail: PropTypes.string.isRequired,
+			cost: PropTypes.string.isRequired,
+			source: PropTypes.string.isRequired,
+			page: PropTypes.string.isRequired
 		}).isRequired).isRequired
 	).isRequired
 };
