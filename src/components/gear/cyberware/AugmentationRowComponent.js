@@ -29,6 +29,7 @@ class AugmentationRowComponent extends React.Component {
 		this.calculateStat = this.calculateStat.bind(this);
 		this.calculateStatBasedOffGrade = this.calculateStatBasedOffGrade.bind(this);
 		this.purchaseWare = this.purchaseWare.bind(this);
+		this.findCost = this.findCost.bind(this);
 	}
 
 	generateRatingOptions() {
@@ -98,12 +99,17 @@ class AugmentationRowComponent extends React.Component {
 				...ware,
 				ess: this.calculateStatBasedOffGrade(ware.ess, 'ess'),
 				avail: this.calculateAvail(ware.avail),
-				cost: this.state.cost === undefined ? this.calculateStatBasedOffGrade(ware.cost, 'cost')
-					:
-					this.state.cost < this.cost.min ? this.cost.min : this.state.cost
+				cost: this.findCost()
 			},
 			category: 'augmentations'
 		});
+	}
+
+	findCost() {
+		if (this.state.cost === undefined) {
+			return this.calculateStatBasedOffGrade(this.props.ware.cost, 'cost');
+		}
+		return this.state.cost < this.cost.min ? this.cost.min : this.state.cost;
 	}
 
 	render() {
