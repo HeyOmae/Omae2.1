@@ -19,7 +19,7 @@ class SelectRatingComponent extends React.PureComponent {
 		const { rating } = this.props.item;
 		return (
 			rating ?
-				<select onChange={this.updateRating}>
+				<select onChange={this.props.updateRating}>
 					{this.generateRatingOptions()}
 				</select>
 				:
@@ -30,9 +30,10 @@ class SelectRatingComponent extends React.PureComponent {
 
 SelectRatingComponent.propTypes = {
 	item: PropTypes.shape({
-		rating: PropTypes.string.isRequired,
+		rating: PropTypes.string,
 		name: PropTypes.string.isRequired
-	}).isRequired
+	}).isRequired,
+	updateRating: PropTypes.func.isRequired
 };
 
 export default SelectRatingComponent;

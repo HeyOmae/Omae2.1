@@ -7,8 +7,10 @@ describe('Mech Row Component', () => {
 	const setup = (rating) => {
 		const props = {
 			item: {
-				rating
-			}
+				rating,
+				name: 'taco'
+			},
+			updateRating: sinon.spy()
 		},
 
 		selectRating = shallow(<SelectRating {...props} />);
@@ -26,5 +28,15 @@ describe('Mech Row Component', () => {
 		const {selectRating, props} = setup('6');
 
 		expect(selectRating.find('option')).lengthOf(props.item.rating);
+	});
+
+	it('should file updateRating prop when the select is changed', () => {
+		const {selectRating, props} = setup('6');
+
+		const event = {target: {value: 6}};
+
+		selectRating.find('select').simulate('change', event);
+
+		expect(props.updateRating).to.have.been.calledWith(event);
 	});
 });
