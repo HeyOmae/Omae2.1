@@ -18,7 +18,7 @@ class SelectRatingComponent extends React.PureComponent {
 	render() {
 		const { rating } = this.props.item;
 		return (
-			rating ?
+			rating && rating !== '0' ?
 				<select onChange={this.props.updateRating}>
 					{this.generateRatingOptions()}
 				</select>

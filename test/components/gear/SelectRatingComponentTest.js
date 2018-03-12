@@ -30,6 +30,12 @@ describe('Mech Row Component', () => {
 		expect(selectRating.find('option')).lengthOf(props.item.rating);
 	});
 
+	it('should render N/A if rating is 0', () => {
+		const {selectRating} = setup('0');
+
+		expect(selectRating.text()).to.equal('N/A');
+	});
+
 	it('should file updateRating prop when the select is changed', () => {
 		const {selectRating, props} = setup('6');
 
