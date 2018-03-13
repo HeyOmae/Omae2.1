@@ -8,6 +8,7 @@ import ModalButton from '../../ModalButtonComponent';
 import FilterableTable from '../../FilterableTable';
 import DisplayTable from '../../DisplayTableComponent';
 import MechRow from './MechRowComponent';
+import MechModRow from './MechModRowComponent';
 
 const MechHeader = () => {
 	return (
@@ -114,14 +115,10 @@ class MechComponent extends React.Component {
 																		>
 																			{mechMods[modType].map((mod) => {
 																				return (
-																					<tr key={`${mech.name}--${modType}-${mod.name}`}>
-																						<td>{mod.name}</td>
-																						<td>{mod.rating}</td>
-																						<td>{mod.slot || 'N/A'}</td>
-																						<td>{mod.avail}</td>
-																						<td>{mod.cost}&yen;</td>
-																						<td>{mod.source} {mod.page}p</td>
-																					</tr>
+																					<MechModRow
+																						key={`${mech.name}--${modType}-${mod.name}`}
+																						mod={mod}
+																					/>
 																				);
 																			})}
 																		</FilterableTable>

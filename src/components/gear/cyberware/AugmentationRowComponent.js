@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import waregrades from '../../../data/waregrade.json';
+import SelectRating from '../SelectRatingComponent';
 
 class AugmentationRowComponent extends React.Component {
 	constructor(props) {
@@ -30,18 +31,6 @@ class AugmentationRowComponent extends React.Component {
 		this.calculateStatBasedOffGrade = this.calculateStatBasedOffGrade.bind(this);
 		this.purchaseWare = this.purchaseWare.bind(this);
 		this.findCost = this.findCost.bind(this);
-	}
-
-	generateRatingOptions() {
-		const ratingOptions = [];
-
-		for (let i = 1; i <= this.props.ware.rating; ++i) {
-			ratingOptions.push(
-				<option key={`${this.props.ware.name}-${i}`} value={i}>{i}</option>
-			);
-		}
-
-		return ratingOptions;
 	}
 
 	updateRating(event) {
@@ -113,7 +102,7 @@ class AugmentationRowComponent extends React.Component {
 	}
 
 	render() {
-		const {name, ess, rating, cost, avail, source, page} = this.props.ware;
+		const {name, ess, cost, avail, source, page} = this.props.ware;
 		return (
 			<tr>
 				<td className="cyberware--buy">
@@ -126,11 +115,8 @@ class AugmentationRowComponent extends React.Component {
 				</td>
 				<td className="cyberware--name">{name}</td>
 				<td className="cyberware--ess">{this.calculateStatBasedOffGrade(ess, 'ess')}</td>
-				<td className="cyberware--rating">{rating ?
-					<select onChange={this.updateRating}>
-						{this.generateRatingOptions()}
-					</select>
-					: 'N/A'}
+				<td className="cyberware--rating">
+				<SelectRating item={this.props.ware} updateRating={this.updateRating} />
 				</td>
 				<td className="cyberware--avail">{this.calculateAvail(avail)}</td>
 				<td className="cyberware--cost">

@@ -1,13 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import SelectRating from '../SelectRatingComponent';
+
 class MechModRowComponent extends React.PureComponent {
+	updateRating(x) {
+		console.log(x);
+	}
+
 	render() {
 		const { mod } = this.props;
 		return (
 			<tr>
 				<td>{mod.name}</td>
-				<td>{mod.rating}</td>
+				<td>
+					<SelectRating item={mod} updateRating={this.updateRating} />
+				</td>
 				<td>{mod.slot || 'N/A'}</td>
 				<td>{mod.avail}</td>
 				<td>{mod.cost}&yen;</td>
