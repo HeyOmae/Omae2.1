@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import AugmentationRowComponent from 'components/gear/cyberware/AugmentationRowComponent';
+import SelectRating from 'components/gear/SelectRatingComponent';
 
 describe('AugmentationRowComponent', () => {
 	const datajack = {
@@ -207,24 +208,19 @@ describe('AugmentationRowComponent', () => {
 	});
 
 	describe('rating', () => {
-		it('should display N/A if there is no rating', () => {
-			const { augmentationRowComponent } = setup();
+		it('should have a SelectRatingComponent', () => {
+			const { augmentationRowComponent, props } = setup(),
+				selectRating = augmentationRowComponent.find(SelectRating);
 
-			expect(augmentationRowComponent.find('.cyberware--rating').text()).to.equal('N/A');
-		});
-
-		it('should display a select box if there is a rating', () => {
-			const { augmentationRowComponent } = setup(dataLock);
-			
-			expect(augmentationRowComponent.find('select')).lengthOf(1);
-
-			expect(augmentationRowComponent.find('option')).lengthOf(12);
+			expect(selectRating).lengthOf(1);
+			expect(selectRating.props().updateRating).to.equal(augmentationRowComponent.instance().updateRating);
+			expect(selectRating.props().item).to.equal(props.ware);
 		});
 
 		it('should change state Rating on change event', () => {
 			const {augmentationRowComponent} = setup(dataLock);
 
-			augmentationRowComponent.find('select').simulate('change', {target: { value: '3'}});
+			augmentationRowComponent.instance().updateRating({target: { value: '3'}});
 
 			expect(augmentationRowComponent.state('Rating')).to.equal(3);
 		});
