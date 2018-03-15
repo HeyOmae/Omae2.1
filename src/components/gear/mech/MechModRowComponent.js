@@ -12,14 +12,14 @@ class MechModRowComponent extends React.PureComponent {
 		const { mod } = this.props;
 		return (
 			<tr>
-				<td>{mod.name}</td>
-				<td>
+				<td className="mech-mod--name">{mod.name}</td>
+				<td className="mech-mod--rating">
 					<SelectRating item={mod} updateRating={this.updateRating} />
 				</td>
-				<td>{mod.slot || 'N/A'}</td>
-				<td>{mod.avail}</td>
-				<td>{mod.cost}&yen;</td>
-				<td>{mod.source} {mod.page}p</td>
+				<td className="mech-mod--slot">{mod.slots || 'N/A'}</td>
+				<td className="mech-mod--avail">{mod.avail}</td>
+				<td className="mech-mod--cost">{mod.cost}&yen;</td>
+				<td className="mech-mod--ref">{mod.source} {mod.page}p</td>
 			</tr>
 		);
 	}

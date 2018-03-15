@@ -94,7 +94,7 @@ class StreetGearComponent extends React.PureComponent {
 					cyberlimbs={purchaseGear.cyberlimbs}
 				/>
 
-				<h3>Rigger Stuff</h3>
+				<h3>Rigger Toys</h3>
 				<Mech
 					classOfMechs="Vehicles"
 					mechsByType={this.organizedMechs.vehicles}
