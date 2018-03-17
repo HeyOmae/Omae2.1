@@ -31,6 +31,12 @@ describe('Mech Mod Row Component', () => {
 		};
 
 	describe('mods with rating', () => {
+		it('should set the state rating', () => {
+			const { mechModRow } = setup();
+
+			expect(mechModRow.state().rating).to.equal(1);
+		});
+
 		it('should render a SelectRatingComponent and display stats based off rating', () => {
 			const { mechModRow, props } = setup();
 
