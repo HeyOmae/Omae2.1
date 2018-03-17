@@ -10,19 +10,36 @@ class MechModRowComponent extends React.PureComponent {
 		this.state = {
 			rating: 1
 		};
+		this.evil = eval;
+
+		this.updateRating = this.updateRating.bind(this);
+		this.calculateStat = this.calculateStat.bind(this);
+		this.fixedValues = this.fixedValues.bind(this);
 	}
 
-	updateRating(x) {
-		console.log(x);
+	updateRating(event) {
+		const { value } = event.target;
+
+		this.setState({
+			rating: +value
+		});
 	}
 
 	calculateStat(stat) {
 		if (/FixedValues/.test(stat)) {
-			const value = stat.match(/\d+/g);
-			return value[this.state.rating - 1];
+			return this.fixedValues(stat);
 		}
 
 		return stat || 'N/A';
+	}
+
+	fixedValues(stat) {
+		if (/Accelaration/.test(stat)) {
+			const value = stat.match(/Acceleration\s*\*\s*\d+/g)[this.state.rating - 1];
+			return this.evil(value.replace('Acceleration', this.mech.accel));
+		}
+		const value = stat.match(/\d+/g);
+		return value[this.state.rating - 1];
 	}
 
 	render() {
@@ -35,7 +52,7 @@ class MechModRowComponent extends React.PureComponent {
 				</td>
 				<td className="mech-mod--slot">{this.calculateStat(mod.slots)}</td>
 				<td className="mech-mod--avail">{mod.avail}</td>
-				<td className="mech-mod--cost">{mod.cost}&yen;</td>
+				<td className="mech-mod--cost">{this.calculateStat(mod.cost)}&yen;</td>
 				<td className="mech-mod--ref">{mod.source} {mod.page}p</td>
 			</tr>
 		);
@@ -51,6 +68,9 @@ MechModRowComponent.propTypes = {
 		cost: PropTypes.string.isRequired,
 		source: PropTypes.string.isRequired,
 		page: PropTypes.string.isRequired
+	}).isRequired,
+	mech: PropTypes.shape({
+		accel: PropTypes.string.isRequired
 	}).isRequired
 };
 

@@ -23,6 +23,33 @@ describe('Mech Mod Row Component', () => {
 		setup = (mod = modWithRating) => {
 			const props = {
 				mod,
+				mech: {
+					id: 'c0d3e7fd-d5fd-48c4-b49d-0c7dea26895d',
+					name: 'Dodge Scoot (Scooter)',
+					page: '462',
+					source: 'SR5',
+					accel: '1',
+					armor: '4',
+					avail: '0',
+					body: '4',
+					category: 'Bikes',
+					cost: '3000',
+					handling: '4/3',
+					pilot: '1',
+					sensor: '1',
+					speed: '3',
+					gears: {
+						gear: {
+							'-rating': '1',
+							'-maxrating': '6',
+							'#text': 'Sensor Array'
+						}
+					},
+					mods: {
+						name: 'Improved Economy'
+					},
+					seats: '1'
+				}
 			},
 
 			mechModRow = shallow(<MechModRow {...props} />);
@@ -47,5 +74,19 @@ describe('Mech Mod Row Component', () => {
 			expect(mechModRow.find('.mech-mod--cost').text()).to.equal('10000¥');
 			expect(mechModRow.find('.mech-mod--ref').text()).to.equal('R5 154p');
 		});
+
+		it('should change stats when the state.rating is updated', () => {
+			const { mechModRow, props } = setup();
+			expect(mechModRow.find('.mech-mod--slot').text()).to.equal('4');
+			expect(mechModRow.find('.mech-mod--cost').text()).to.equal('10000¥');
+			expect(mechModRow.state().rating).to.equal(1);
+
+			mechModRow.instance().updateRating({target: {value: '2'}});
+			mechModRow.update();
+
+			expect(mechModRow.state().rating).to.equal(2);
+			expect(mechModRow.find('.mech-mod--slot').text()).to.equal('8');
+			expect(mechModRow.find('.mech-mod--cost').text()).to.equal('25000¥');
+		})
 	});
 });
