@@ -19,6 +19,20 @@ describe('Mech Mod Row Component', () => {
 				accel: '+Rating',
 				offroadaccel: '+Rating'
 			}
+		}, modWRatingAvail = {
+			id: '956a20f7-64f3-4160-88a0-d6d6b29b0bd1',
+			name: 'Handling Enhancement',
+			page: '154',
+			source: 'R5',
+			avail: 'FixedValues(6,8,10)',
+			category: 'Powertrain',
+			cost: 'FixedValues(Handling*2000,Handling*5000,Handling*12000)',
+			rating: '3',
+			slots: 'FixedValues(4,10,18)',
+			bonus: {
+				handling: '+Rating',
+				offroadhandling: '+Rating'
+			}
 		},
 		setup = (mod = modWithRating) => {
 			const props = {
@@ -75,18 +89,37 @@ describe('Mech Mod Row Component', () => {
 			expect(mechModRow.find('.mech-mod--ref').text()).to.equal('R5 154p');
 		});
 
-		it('should change stats when the state.rating is updated', () => {
-			const { mechModRow, props } = setup();
-			expect(mechModRow.find('.mech-mod--slot').text()).to.equal('4');
-			expect(mechModRow.find('.mech-mod--cost').text()).to.equal('10000¥');
-			expect(mechModRow.state().rating).to.equal(1);
+		describe('fixedValues', () => {
+			it('should change slot and cost', () => {
+				const { mechModRow, props } = setup();
+				expect(mechModRow.find('.mech-mod--slot').text()).to.equal('4');
+				expect(mechModRow.find('.mech-mod--cost').text()).to.equal('10000¥');
+				expect(mechModRow.state().rating).to.equal(1);
 
-			mechModRow.instance().updateRating({target: {value: '2'}});
-			mechModRow.update();
+				mechModRow.instance().updateRating({target: {value: '2'}});
+				mechModRow.update();
 
-			expect(mechModRow.state().rating).to.equal(2);
-			expect(mechModRow.find('.mech-mod--slot').text()).to.equal('8');
-			expect(mechModRow.find('.mech-mod--cost').text()).to.equal('25000¥');
-		})
+				expect(mechModRow.state().rating).to.equal(2);
+				expect(mechModRow.find('.mech-mod--slot').text()).to.equal('8');
+				expect(mechModRow.find('.mech-mod--cost').text()).to.equal('25000¥');
+			});
+
+			it('should change avail', () => {
+				const { mechModRow, props } = setup(modWRatingAvail);
+				expect(mechModRow.find('.mech-mod--slot').text()).to.equal('4');
+				expect(mechModRow.find('.mech-mod--avail').text()).to.equal('6');
+				expect(mechModRow.find('.mech-mod--cost').text()).to.equal('8000¥');
+				expect(mechModRow.state().rating).to.equal(1);
+
+				mechModRow.instance().updateRating({target: {value: '3'}});
+				mechModRow.update();
+
+				expect(mechModRow.state().rating).to.equal(3);
+				expect(mechModRow.find('.mech-mod--slot').text()).to.equal('18');
+				expect(mechModRow.find('.mech-mod--avail').text()).to.equal('10');
+				expect(mechModRow.find('.mech-mod--cost').text()).to.equal('48000¥');
+			});
+		});
+
 	});
 });
