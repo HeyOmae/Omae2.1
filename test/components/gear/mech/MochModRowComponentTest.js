@@ -34,36 +34,64 @@ describe('Mech Mod Row Component', () => {
 				offroadhandling: '+Rating'
 			}
 		},
-		setup = (mod = modWithRating) => {
+		scoot = {
+			id: 'c0d3e7fd-d5fd-48c4-b49d-0c7dea26895d',
+			name: 'Dodge Scoot (Scooter)',
+			page: '462',
+			source: 'SR5',
+			accel: '1',
+			armor: '4',
+			avail: '0',
+			body: '4',
+			category: 'Bikes',
+			cost: '3000',
+			handling: '4/3',
+			pilot: '1',
+			sensor: '1',
+			speed: '3',
+			gears: {
+				gear: {
+					'-rating': '1',
+					'-maxrating': '6',
+					'#text': 'Sensor Array'
+				}
+			},
+			mods: {
+				name: 'Improved Economy'
+			},
+			seats: '1'
+		},
+		falcon = {
+			id: 'cfafdbac-509e-49f3-a62a-5cfa8e987e0f',
+			name: 'Evo Falcon-EX',
+			page: '43',
+			source: 'R5',
+			accel: '1/2',
+			armor: '9',
+			avail: '0',
+			body: '7',
+			category: 'Bikes',
+			cost: '10000',
+			handling: '3/5',
+			pilot: '1',
+			sensor: '1',
+			speed: '2/3',
+			gears: {
+				gear: {
+					'-rating': '1',
+					'-maxrating': '6',
+					'#text': 'Sensor Array'
+				}
+			},
+			mods: {
+				name: 'Tracked Propulsion'
+			},
+			seats: '2'
+		},
+		setup = (mod = modWithRating, mech = scoot) => {
 			const props = {
 				mod,
-				mech: {
-					id: 'c0d3e7fd-d5fd-48c4-b49d-0c7dea26895d',
-					name: 'Dodge Scoot (Scooter)',
-					page: '462',
-					source: 'SR5',
-					accel: '1',
-					armor: '4',
-					avail: '0',
-					body: '4',
-					category: 'Bikes',
-					cost: '3000',
-					handling: '4/3',
-					pilot: '1',
-					sensor: '1',
-					speed: '3',
-					gears: {
-						gear: {
-							'-rating': '1',
-							'-maxrating': '6',
-							'#text': 'Sensor Array'
-						}
-					},
-					mods: {
-						name: 'Improved Economy'
-					},
-					seats: '1'
-				}
+				mech
 			},
 
 			mechModRow = shallow(<MechModRow {...props} />);
@@ -118,6 +146,19 @@ describe('Mech Mod Row Component', () => {
 				expect(mechModRow.find('.mech-mod--slot').text()).to.equal('18');
 				expect(mechModRow.find('.mech-mod--avail').text()).to.equal('10');
 				expect(mechModRow.find('.mech-mod--cost').text()).to.equal('48000¥');
+			});
+
+			it('should find the highest handling', () => {
+				const { mechModRow, props } = setup(modWRatingAvail, falcon);
+
+				expect(mechModRow.find('.mech-mod--cost').text()).to.equal('10000¥');
+				expect(mechModRow.state().rating).to.equal(1);
+
+				mechModRow.instance().updateRating({target: {value: '3'}});
+				mechModRow.update();
+
+				expect(mechModRow.state().rating).to.equal(3);
+				expect(mechModRow.find('.mech-mod--cost').text()).to.equal('60000¥');
 			});
 		});
 

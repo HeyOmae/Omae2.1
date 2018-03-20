@@ -40,7 +40,7 @@ class MechModRowComponent extends React.PureComponent {
 		} else if (/Handling/.test(stat)) {
 			const value = stat.match(/Handling\s*\*\s*\d+/g)[this.state.rating - 1],
 				// find a way to find the highest handling value
-				handling = this.props.mech.handling.match(/\d+/g)[0];
+				handling = Math.max(...this.props.mech.handling.match(/\d+/g));
 			return this.evil(value.replace('Handling', handling));
 		}
 		const value = stat.match(/\d+/g);
