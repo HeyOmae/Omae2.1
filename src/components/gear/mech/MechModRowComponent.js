@@ -37,6 +37,11 @@ class MechModRowComponent extends React.PureComponent {
 		if (/Accelaration/.test(stat)) {
 			const value = stat.match(/Acceleration\s*\*\s*\d+/g)[this.state.rating - 1];
 			return this.evil(value.replace('Acceleration', this.mech.accel));
+		} else if (/Handling/.test(stat)) {
+			const value = stat.match(/Handling\s*\*\s*\d+/g)[this.state.rating - 1],
+				// find a way to find the highest handling value
+				handling = this.props.mech.handling.match(/\d+/g)[0];
+			return this.evil(value.replace('Handling', handling));
 		}
 		const value = stat.match(/\d+/g);
 		return value[this.state.rating - 1];
@@ -51,7 +56,7 @@ class MechModRowComponent extends React.PureComponent {
 					<SelectRating item={mod} updateRating={this.updateRating} />
 				</td>
 				<td className="mech-mod--slot">{this.calculateStat(mod.slots)}</td>
-				<td className="mech-mod--avail">{mod.avail}</td>
+				<td className="mech-mod--avail">{this.calculateStat(mod.avail)}</td>
 				<td className="mech-mod--cost">{this.calculateStat(mod.cost)}&yen;</td>
 				<td className="mech-mod--ref">{mod.source} {mod.page}p</td>
 			</tr>
@@ -70,7 +75,8 @@ MechModRowComponent.propTypes = {
 		page: PropTypes.string.isRequired
 	}).isRequired,
 	mech: PropTypes.shape({
-		accel: PropTypes.string.isRequired
+		accel: PropTypes.string.isRequired,
+		handling: PropTypes.string.isRequired,
 	}).isRequired
 };
 
