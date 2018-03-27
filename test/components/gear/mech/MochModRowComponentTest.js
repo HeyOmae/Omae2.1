@@ -88,6 +88,21 @@ describe('Mech Mod Row Component', () => {
 			},
 			seats: '2'
 		},
+		speedEnhance = {
+			id: 'ecc73836-9110-4f5f-9464-cb6ae6e954d2',
+			name: 'Speed Enhancement',
+			page: '157',
+			source: 'R5',
+			avail: 'FixedValues(6,8,12)',
+			category: 'Powertrain',
+			cost: 'FixedValues(Speed * 2000,Speed * 5000,Speed * 12000)',
+			rating: '3',
+			slots: 'FixedValues(5,14,20)',
+			bonus: {
+				offroadspeed: '+Rating',
+				speed: '+Rating'
+			}
+		},
 		setup = (mod = modWithRating, mech = scoot) => {
 			const props = {
 				mod,
@@ -159,6 +174,17 @@ describe('Mech Mod Row Component', () => {
 
 				expect(mechModRow.state().rating).to.equal(3);
 				expect(mechModRow.find('.mech-mod--cost').text()).to.equal('60000¥');
+			});
+
+			it('should calculate stats based off of speed', () => {
+				const { mechModRow, props } = setup(speedEnhance);
+
+				expect(mechModRow.find('.mech-mod--cost').text()).to.equal('6000¥');
+
+				mechModRow.instance().updateRating({target: {value: '3'}});
+				mechModRow.update();
+
+				expect(mechModRow.find('.mech-mod--cost').text()).to.equal('36000¥');
 			});
 		});
 

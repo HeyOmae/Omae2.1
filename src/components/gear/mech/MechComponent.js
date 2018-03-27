@@ -118,6 +118,7 @@ class MechComponent extends React.Component {
 																					<MechModRow
 																						key={`${mech.name}--${modType}-${mod.name}`}
 																						mod={mod}
+																						mech={mech}
 																					/>
 																				);
 																			})}

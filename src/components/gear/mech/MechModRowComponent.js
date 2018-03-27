@@ -25,7 +25,7 @@ class MechModRowComponent extends React.PureComponent {
 		});
 	}
 
-	calculateStat(stat) {
+	displayStat(stat) {
 		if (/FixedValues/.test(stat)) {
 			return this.fixedValues(stat);
 		}
@@ -35,16 +35,21 @@ class MechModRowComponent extends React.PureComponent {
 
 	fixedValues(stat) {
 		if (/Accelaration/.test(stat)) {
-			const value = stat.match(/Acceleration\s*\*\s*\d+/g)[this.state.rating - 1];
-			return this.evil(value.replace('Acceleration', this.mech.accel));
+			return this.calculateStat(stat, 'Acceleration', 'accel');
 		} else if (/Handling/.test(stat)) {
-			const value = stat.match(/Handling\s*\*\s*\d+/g)[this.state.rating - 1],
-				// find a way to find the highest handling value
-				handling = Math.max(...this.props.mech.handling.match(/\d+/g));
-			return this.evil(value.replace('Handling', handling));
+			return this.calculateStat(stat, 'Handling', 'handling');
+		} else if (/Speed/.test(stat)) {
+			return this.calculateStat(stat, 'Speed', 'speed');
 		}
 		const value = stat.match(/\d+/g);
 		return value[this.state.rating - 1];
+	}
+
+	calculateStat(stat, mechAttribute, attributeKey) {
+		const regex = new RegExp(`${mechAttribute}\\s*\\*\\s*\\d+`, 'g'),
+			value = stat.match(regex)[this.state.rating - 1],
+			attribute = Math.max(...this.props.mech[attributeKey].match(/\d+/g));
+		return this.evil(value.replace(mechAttribute, attribute));
 	}
 
 	render() {
@@ -55,9 +60,9 @@ class MechModRowComponent extends React.PureComponent {
 				<td className="mech-mod--rating">
 					<SelectRating item={mod} updateRating={this.updateRating} />
 				</td>
-				<td className="mech-mod--slot">{this.calculateStat(mod.slots)}</td>
-				<td className="mech-mod--avail">{this.calculateStat(mod.avail)}</td>
-				<td className="mech-mod--cost">{this.calculateStat(mod.cost)}&yen;</td>
+				<td className="mech-mod--slot">{this.displayStat(mod.slots)}</td>
+				<td className="mech-mod--avail">{this.displayStat(mod.avail)}</td>
+				<td className="mech-mod--cost">{this.displayStat(mod.cost)}&yen;</td>
 				<td className="mech-mod--ref">{mod.source} {mod.page}p</td>
 			</tr>
 		);
