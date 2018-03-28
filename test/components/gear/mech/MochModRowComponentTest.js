@@ -103,6 +103,25 @@ describe('Mech Mod Row Component', () => {
 				speed: '+Rating'
 			}
 		},
+		geckoTip = {
+			id: '06940788-ad0b-453c-bc8a-e54e6221c185',
+			name: 'Gecko Tips',
+			page: '154',
+			source: 'R5',
+			avail: '6',
+			category: 'Powertrain',
+			cost: '1000 + 4000*number(Body >= 4)',
+			rating: '0',
+			slots: '1 + 3*number(Body >= 4)',
+			required: {
+				vehicledetails: {
+					body: {
+						'-operation': 'lessthanequals',
+						'#text': '6'
+					}
+				}
+			}
+		},
 		setup = (mod = modWithRating, mech = scoot) => {
 			const props = {
 				mod,
@@ -185,6 +204,13 @@ describe('Mech Mod Row Component', () => {
 				mechModRow.update();
 
 				expect(mechModRow.find('.mech-mod--cost').text()).to.equal('36000¥');
+			});
+
+			it('should should raise extra stats based off body', () => {
+				const { mechModRow, props } = setup(geckoTip);
+
+				expect(mechModRow.find('.mech-mod--cost').text()).to.equal('5000¥');
+				expect(mechModRow.find('.mech-mod--slot').text()).to.equal('4');
 			});
 		});
 
