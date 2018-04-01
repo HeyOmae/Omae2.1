@@ -28,9 +28,19 @@ class MechModRowComponent extends React.PureComponent {
 	displayStat(stat) {
 		if (/FixedValues/.test(stat)) {
 			return this.fixedValues(stat);
+		} else if (/number/.test(stat)) {
+			return this.conditionalValue(stat);
 		}
 
 		return stat || 'N/A';
+	}
+
+	conditionalValue(stat) {
+		const extraValueExpression = stat.match(/Body.+\d+/)[0],
+			baseValue = +stat.match(/^\d+/)[0],
+			extraValue = +stat.match(/\d+?(?=\*number)/g)[0],
+			isThereExtraValue = this.evil(extraValueExpression.replace('Body', this.props.mech.body));
+		return baseValue + (isThereExtraValue ? extraValue : 0);
 	}
 
 	fixedValues(stat) {
@@ -40,6 +50,8 @@ class MechModRowComponent extends React.PureComponent {
 			return this.calculateStat(stat, 'Handling', 'handling');
 		} else if (/Speed/.test(stat)) {
 			return this.calculateStat(stat, 'Speed', 'speed');
+		} else if (/Body/.test(stat)) {
+			return this.calculateStat(stat, 'Body', 'body');
 		}
 		const value = stat.match(/\d+/g);
 		return value[this.state.rating - 1];
@@ -82,6 +94,7 @@ MechModRowComponent.propTypes = {
 	mech: PropTypes.shape({
 		accel: PropTypes.string.isRequired,
 		handling: PropTypes.string.isRequired,
+		body: PropTypes.string.isRequired,
 	}).isRequired
 };
 

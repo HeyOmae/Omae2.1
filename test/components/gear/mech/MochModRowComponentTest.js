@@ -122,6 +122,33 @@ describe('Mech Mod Row Component', () => {
 				}
 			}
 		},
+		terrier = {
+			id: 'be4aa3ae-6725-4082-a5d2-8fa8d1e91640',
+			name: 'Ares-Segway Terrier',
+			page: '42',
+			source: 'R5',
+			accel: '1',
+			armor: '2',
+			avail: '0',
+			body: '2',
+			category: 'Bikes',
+			cost: '4500',
+			handling: '5/2',
+			pilot: '2',
+			sensor: '2',
+			speed: '2',
+			gears: {
+				gear: {
+					'-rating': '2',
+					'-maxrating': '6',
+					'#text': 'Sensor Array'
+				}
+			},
+			mods: {
+				name: 'Gyro-Stabilization'
+			},
+			seats: '1'
+		},
 		setup = (mod = modWithRating, mech = scoot) => {
 			const props = {
 				mod,
@@ -206,6 +233,21 @@ describe('Mech Mod Row Component', () => {
 				expect(mechModRow.find('.mech-mod--cost').text()).to.equal('36000¥');
 			});
 
+		});
+
+		describe('conditionalValue', () => {
+			it('should return the first value if the number value is false', () => {
+				const { mechModRow, props } = setup(geckoTip, terrier);
+
+				expect(mechModRow.instance().conditionalValue('1 + 3*number(Body >= 4)')).to.equal(1);
+			});
+
+			it('should return the calculate the value if the number value is true', () => {
+				const { mechModRow, props } = setup(geckoTip);
+
+				expect(mechModRow.instance().conditionalValue('1 + 3*number(Body >= 4)')).to.equal(4);
+			});
+
 			it('should should raise extra stats based off body', () => {
 				const { mechModRow, props } = setup(geckoTip);
 
@@ -213,6 +255,5 @@ describe('Mech Mod Row Component', () => {
 				expect(mechModRow.find('.mech-mod--slot').text()).to.equal('4');
 			});
 		});
-
 	});
 });
