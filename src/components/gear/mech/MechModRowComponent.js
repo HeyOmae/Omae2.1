@@ -36,11 +36,10 @@ class MechModRowComponent extends React.PureComponent {
 	}
 
 	conditionalValue(stat) {
-		const extraValueExpression = stat.match(/Body.+\d+/)[0],
-			baseValue = +stat.match(/^\d+/)[0],
-			extraValue = +stat.match(/\d+?(?=\*number)/g)[0],
-			isThereExtraValue = this.evil(extraValueExpression.replace('Body', this.props.mech.body));
-		return baseValue + (isThereExtraValue ? extraValue : 0);
+		/* eslint-disable no-unused-vars, no-eval */
+		const number = Number;
+		return eval(stat.replace(/Body/g, this.props.mech.body).replace('R', '+"R"'));
+		/* eslint-enable */
 	}
 
 	fixedValues(stat) {

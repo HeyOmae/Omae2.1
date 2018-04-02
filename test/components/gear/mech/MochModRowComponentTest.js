@@ -236,16 +236,28 @@ describe('Mech Mod Row Component', () => {
 		});
 
 		describe('conditionalValue', () => {
-			it('should return the first value if the number value is false', () => {
+			it('should return the first value if the conditional value is false', () => {
 				const { mechModRow, props } = setup(geckoTip, terrier);
 
 				expect(mechModRow.instance().conditionalValue('1 + 3*number(Body >= 4)')).to.equal(1);
 			});
 
-			it('should return the calculate the value if the number value is true', () => {
+			it('should return the calculate the value if the conditional value is true', () => {
 				const { mechModRow, props } = setup(geckoTip);
 
 				expect(mechModRow.instance().conditionalValue('1 + 3*number(Body >= 4)')).to.equal(4);
+			});
+
+			it('should return the calculate the value based off body if the conditional value is true', () => {
+				const { mechModRow, props } = setup(geckoTip);
+
+				expect(mechModRow.instance().conditionalValue('Body * 3000 + (Body * 1000)*number(Body > 12)')).to.equal(12000);
+			});
+
+			it('should return an avail string with the restirction level of an item', () => {
+				const { mechModRow, props } = setup(geckoTip);
+
+				expect(mechModRow.instance().conditionalValue('(12 + 4*number(Body > 12))R')).to.equal('12R');
 			});
 
 			it('should should raise extra stats based off body', () => {
