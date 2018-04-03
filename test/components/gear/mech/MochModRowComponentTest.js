@@ -149,6 +149,17 @@ describe('Mech Mod Row Component', () => {
 			},
 			seats: '1'
 		},
+		multifuel = {
+			id: 'b242a897-74d6-44da-9922-b0b1f4537609',
+			name: 'Multifuel Engine',
+			page: '155',
+			source: 'R5',
+			avail: '10',
+			category: 'Powertrain',
+			cost: 'Body * 1000',
+			rating: '0',
+			slots: '4'
+		},
 		setup = (mod = modWithRating, mech = scoot) => {
 			const props = {
 				mod,
@@ -231,6 +242,12 @@ describe('Mech Mod Row Component', () => {
 				mechModRow.update();
 
 				expect(mechModRow.find('.mech-mod--cost').text()).to.equal('36000¥');
+			});
+
+			it('should calculate stats based off of body', () => {
+				const { mechModRow, props } = setup(multifuel);
+
+				expect(mechModRow.find('.mech-mod--cost').text()).to.equal('4000¥');
 			});
 
 		});

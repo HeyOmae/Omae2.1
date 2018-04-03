@@ -26,10 +26,10 @@ class MechModRowComponent extends React.PureComponent {
 	}
 
 	displayStat(stat) {
-		if (/FixedValues/.test(stat)) {
-			return this.fixedValues(stat);
-		} else if (/number/.test(stat)) {
+		if (/number/.test(stat)) {
 			return this.conditionalValue(stat);
+		} else if (/FixedValues|Body/.test(stat)) {
+			return this.fixedValues(stat);
 		}
 
 		return stat || 'N/A';
