@@ -160,6 +160,21 @@ describe('Mech Mod Row Component', () => {
 			rating: '0',
 			slots: '4'
 		},
+		offroad = {
+			id: '5acc99df-ffaf-4c43-93bc-07b552fc4c1c',
+			name: 'Off-Road Suspension',
+			page: '155',
+			source: 'R5',
+			avail: '4',
+			category: 'Powertrain',
+			cost: 'Vehicle Cost * 0.25',
+			rating: '0',
+			slots: '2',
+			bonus: {
+				handling: '-1',
+				offroadhandling: '+1'
+			}
+		},
 		setup = (mod = modWithRating, mech = scoot) => {
 			const props = {
 				mod,
@@ -248,6 +263,12 @@ describe('Mech Mod Row Component', () => {
 				const { mechModRow, props } = setup(multifuel);
 
 				expect(mechModRow.find('.mech-mod--cost').text()).to.equal('4000¥');
+			});
+
+			it('should calculate stats based off of vehicle cost', () => {
+				const { mechModRow, props } = setup(offroad);
+
+				expect(mechModRow.find('.mech-mod--cost').text()).to.equal('750¥');
 			});
 
 		});

@@ -30,6 +30,8 @@ class MechModRowComponent extends React.PureComponent {
 			return this.conditionalValue(stat);
 		} else if (/FixedValues|Body/.test(stat)) {
 			return this.fixedValues(stat);
+		} else if (/Vehicle Cost/.test(stat)) {
+			return this.evil(stat.replace('Vehicle Cost', this.props.mech.cost));
 		}
 
 		return stat || 'N/A';
@@ -94,6 +96,7 @@ MechModRowComponent.propTypes = {
 		accel: PropTypes.string.isRequired,
 		handling: PropTypes.string.isRequired,
 		body: PropTypes.string.isRequired,
+		cost: PropTypes.string.isRequired
 	}).isRequired
 };
 
