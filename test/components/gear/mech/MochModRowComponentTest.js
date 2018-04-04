@@ -175,6 +175,28 @@ describe('Mech Mod Row Component', () => {
 				offroadhandling: '+1'
 			}
 		},
+		nanomaintenance = {
+			id: '74756635-ad88-437a-8123-599019aafa6c',
+			name: 'Nanomaintenance System',
+			page: '165',
+			source: 'R5',
+			avail: '(Rating * 5)R',
+			category: 'Body',
+			cost: 'Rating * 5000',
+			rating: '4',
+			slots: 'Rating'
+		},
+		ecm = {
+			id: '518a5fdc-3b2c-42a6-a3fb-3cb88918fe72',
+			name: 'ECM',
+			page: '166',
+			source: 'R5',
+			avail: '(Rating * 3)F',
+			category: 'Electromagnetic',
+			cost: 'Rating * 500',
+			rating: '6',
+			slots: '2'
+		},
 		setup = (mod = modWithRating, mech = scoot) => {
 			const props = {
 				mod,
@@ -202,6 +224,26 @@ describe('Mech Mod Row Component', () => {
 			expect(mechModRow.find('.mech-mod--avail').text()).to.equal('6');
 			expect(mechModRow.find('.mech-mod--cost').text()).to.equal('10000¥');
 			expect(mechModRow.find('.mech-mod--ref').text()).to.equal('R5 154p');
+		});
+
+		it('should calculate stats based off rating', () => {
+			const {mechModRow} = setup(nanomaintenance);
+
+			expect(mechModRow.find('.mech-mod--cost').text()).to.equal('5000¥');
+			expect(mechModRow.find('.mech-mod--slot').text()).to.equal('1');
+			expect(mechModRow.find('.mech-mod--avail').text()).to.equal('5R');
+
+			mechModRow.setState({rating: 4});
+
+			expect(mechModRow.find('.mech-mod--avail').text()).to.equal('20R');
+			expect(mechModRow.find('.mech-mod--cost').text()).to.equal('20000¥');
+			expect(mechModRow.find('.mech-mod--slot').text()).to.equal('4');
+		});
+
+		it('should calculate forbidden gear based off rating', () => {
+			const {mechModRow} = setup(ecm);
+
+			expect(mechModRow.find('.mech-mod--avail').text()).to.equal('3F');
 		});
 
 		describe('fixedValues', () => {
@@ -258,52 +300,54 @@ describe('Mech Mod Row Component', () => {
 
 				expect(mechModRow.find('.mech-mod--cost').text()).to.equal('36000¥');
 			});
+		});
+	});
 
-			it('should calculate stats based off of body', () => {
-				const { mechModRow, props } = setup(multifuel);
+	describe('conditionalValue', () => {
+		it('should return the first value if the conditional value is false', () => {
+			const { mechModRow, props } = setup(geckoTip, terrier);
 
-				expect(mechModRow.find('.mech-mod--cost').text()).to.equal('4000¥');
-			});
-
-			it('should calculate stats based off of vehicle cost', () => {
-				const { mechModRow, props } = setup(offroad);
-
-				expect(mechModRow.find('.mech-mod--cost').text()).to.equal('750¥');
-			});
-
+			expect(mechModRow.instance().conditionalValue('1 + 3*number(Body >= 4)')).to.equal(1);
 		});
 
-		describe('conditionalValue', () => {
-			it('should return the first value if the conditional value is false', () => {
-				const { mechModRow, props } = setup(geckoTip, terrier);
+		it('should return the calculate the value if the conditional value is true', () => {
+			const { mechModRow, props } = setup(geckoTip);
 
-				expect(mechModRow.instance().conditionalValue('1 + 3*number(Body >= 4)')).to.equal(1);
-			});
+			expect(mechModRow.instance().conditionalValue('1 + 3*number(Body >= 4)')).to.equal(4);
+		});
 
-			it('should return the calculate the value if the conditional value is true', () => {
-				const { mechModRow, props } = setup(geckoTip);
+		it('should return the calculate the value based off body if the conditional value is true', () => {
+			const { mechModRow, props } = setup(geckoTip);
 
-				expect(mechModRow.instance().conditionalValue('1 + 3*number(Body >= 4)')).to.equal(4);
-			});
+			expect(mechModRow.instance().conditionalValue('Body * 3000 + (Body * 1000)*number(Body > 12)')).to.equal(12000);
+		});
 
-			it('should return the calculate the value based off body if the conditional value is true', () => {
-				const { mechModRow, props } = setup(geckoTip);
+		it('should return an avail string with the restirction level of an item', () => {
+			const { mechModRow, props } = setup(geckoTip);
 
-				expect(mechModRow.instance().conditionalValue('Body * 3000 + (Body * 1000)*number(Body > 12)')).to.equal(12000);
-			});
+			expect(mechModRow.instance().conditionalValue('(12 + 4*number(Body > 12))R')).to.equal('12R');
+		});
 
-			it('should return an avail string with the restirction level of an item', () => {
-				const { mechModRow, props } = setup(geckoTip);
+	});
 
-				expect(mechModRow.instance().conditionalValue('(12 + 4*number(Body > 12))R')).to.equal('12R');
-			});
+	describe('calculate stats', () => {
+		it('should should raise extra stats based off body', () => {
+			const { mechModRow, props } = setup(geckoTip);
 
-			it('should should raise extra stats based off body', () => {
-				const { mechModRow, props } = setup(geckoTip);
+			expect(mechModRow.find('.mech-mod--cost').text()).to.equal('5000¥');
+			expect(mechModRow.find('.mech-mod--slot').text()).to.equal('4');
+		});
 
-				expect(mechModRow.find('.mech-mod--cost').text()).to.equal('5000¥');
-				expect(mechModRow.find('.mech-mod--slot').text()).to.equal('4');
-			});
+		it('should calculate stats based off of body', () => {
+			const { mechModRow, props } = setup(multifuel);
+
+			expect(mechModRow.find('.mech-mod--cost').text()).to.equal('4000¥');
+		});
+
+		it('should calculate stats based off of vehicle cost', () => {
+			const { mechModRow, props } = setup(offroad);
+
+			expect(mechModRow.find('.mech-mod--cost').text()).to.equal('750¥');
 		});
 	});
 });

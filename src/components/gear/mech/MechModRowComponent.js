@@ -32,6 +32,8 @@ class MechModRowComponent extends React.PureComponent {
 			return this.fixedValues(stat);
 		} else if (/Vehicle Cost/.test(stat)) {
 			return this.evil(stat.replace('Vehicle Cost', this.props.mech.cost));
+		} else if (/Rating/.test(stat)) {
+			return this.evil(stat.replace('Rating', this.state.rating).replace('R', '+"R"').replace('F', '+"F"'));
 		}
 
 		return stat || 'N/A';
