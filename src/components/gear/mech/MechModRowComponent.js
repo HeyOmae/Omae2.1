@@ -15,6 +15,13 @@ class MechModRowComponent extends React.PureComponent {
 		this.updateRating = this.updateRating.bind(this);
 		this.calculateStat = this.calculateStat.bind(this);
 		this.fixedValues = this.fixedValues.bind(this);
+
+		if (props.mod.rating === 'body') {
+			this.selectRating = {
+				name: props.mod.name,
+				rating: props.mech.body
+			};
+		}
 	}
 
 	updateRating(event) {
@@ -73,7 +80,7 @@ class MechModRowComponent extends React.PureComponent {
 			<tr>
 				<td className="mech-mod--name">{mod.name}</td>
 				<td className="mech-mod--rating">
-					<SelectRating item={mod} updateRating={this.updateRating} />
+					<SelectRating item={this.selectRating || mod} updateRating={this.updateRating} />
 				</td>
 				<td className="mech-mod--slot">{this.displayStat(mod.slots)}</td>
 				<td className="mech-mod--avail">{this.displayStat(mod.avail)}</td>

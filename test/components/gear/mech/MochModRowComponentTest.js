@@ -197,6 +197,20 @@ describe('Mech Mod Row Component', () => {
 			rating: '6',
 			slots: '2'
 		},
+		armor = {
+			id: '85a85cfd-7703-48f6-9745-d0a2b64c8b9e',
+			name: 'Armor (Concealed)',
+			page: '159',
+			source: 'R5',
+			avail: '12R',
+			category: 'Protection',
+			cost: 'Rating * 3000',
+			rating: 'body',
+			slots: 'Rating * 3',
+			bonus: {
+				armor: 'Rating'
+			}
+		},
 		setup = (mod = modWithRating, mech = scoot) => {
 			const props = {
 				mod,
@@ -244,6 +258,13 @@ describe('Mech Mod Row Component', () => {
 			const {mechModRow} = setup(ecm);
 
 			expect(mechModRow.find('.mech-mod--avail').text()).to.equal('3F');
+		});
+
+		it('should set max rating to body of the mech if rating is equal to body', () => {
+			const { mechModRow, props } = setup(armor);
+
+			expect(mechModRow.find(SelectRating).props().item.rating).to.equal(props.mech.body);
+			expect(mechModRow.find(SelectRating).props().item.name).to.equal(props.mod.name);
 		});
 
 		describe('fixedValues', () => {
