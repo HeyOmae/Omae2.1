@@ -51,7 +51,7 @@ ModalButtonComponent.displayName = 'ModalButtonComponent';
 // Uncomment properties you need
 ModalButtonComponent.propTypes = {
 	modalName: PropTypes.string.isRequired,
-	modalContent: PropTypes.element.isRequired
+	modalContent: PropTypes.node.isRequired
 };
 
 export default ModalButtonComponent;

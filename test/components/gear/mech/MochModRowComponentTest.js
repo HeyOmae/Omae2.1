@@ -211,6 +211,25 @@ describe('Mech Mod Row Component', () => {
 				armor: 'Rating'
 			}
 		},
+		adjustment = {
+			id: 'a586e8b6-2737-4baa-a343-f366d33fe57a',
+			name: 'Metahuman Adjustment',
+			page: '170',
+			source: 'R5',
+			avail: '4',
+			category: 'Cosmetic',
+			cost: 'Rating * 500',
+			rating: 'Seats',
+			slots: '0',
+			required: {
+				vehicledetails: {
+					seats: {
+						'-operation': 'greaterthanequals',
+						'#text': '1'
+					}
+				}
+			}
+		},
 		setup = (mod = modWithRating, mech = scoot) => {
 			const props = {
 				mod,
@@ -260,11 +279,20 @@ describe('Mech Mod Row Component', () => {
 			expect(mechModRow.find('.mech-mod--avail').text()).to.equal('3F');
 		});
 
-		it('should set max rating to body of the mech if rating is equal to body', () => {
-			const { mechModRow, props } = setup(armor);
+		describe('max rating', () => {
+			it('should set to body of the mech if rating is equal to body', () => {
+				const { mechModRow, props } = setup(armor);
 
-			expect(mechModRow.find(SelectRating).props().item.rating).to.equal(props.mech.body);
-			expect(mechModRow.find(SelectRating).props().item.name).to.equal(props.mod.name);
+				expect(mechModRow.find(SelectRating).props().item.rating).to.equal(props.mech.body);
+				expect(mechModRow.find(SelectRating).props().item.name).to.equal(props.mod.name);
+			});
+
+			it('should set to number of seats of the mech', () => {
+				const { mechModRow, props } = setup(adjustment);
+
+				expect(mechModRow.find(SelectRating).props().item.rating).to.equal(props.mech.seats);
+				expect(mechModRow.find(SelectRating).props().item.name).to.equal(props.mod.name);
+			});
 		});
 
 		describe('fixedValues', () => {

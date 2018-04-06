@@ -16,12 +16,19 @@ class MechModRowComponent extends React.PureComponent {
 		this.calculateStat = this.calculateStat.bind(this);
 		this.fixedValues = this.fixedValues.bind(this);
 
-		if (props.mod.rating === 'body') {
-			this.selectRating = {
-				name: props.mod.name,
-				rating: props.mech.body
-			};
-		}
+		const findMaxRating = {
+			body({name}, {body: rating}) {
+				return { name, rating};
+			},
+			Seats({name}, {seats: rating}) {
+				return { name, rating };
+			},
+			default() {
+				return undefined;
+			}
+		};
+
+		this.selectRating = (findMaxRating[props.mod.rating] || findMaxRating.default)(props.mod, props.mech);
 	}
 
 	updateRating(event) {
