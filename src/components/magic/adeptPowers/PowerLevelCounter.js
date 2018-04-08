@@ -9,7 +9,7 @@ class PowerLevelCounter extends React.Component {
 
 		const capOf = {
 			'Improved Physical Attribute': 4,
-			default: maxPoints
+			default: maxPoints,
 		};
 
 		const powerName = power.name.replace(/\((.*?)\)/g, '');
@@ -39,14 +39,14 @@ PowerLevelCounter.propTypes = {
 			decrementAugmented: PropTypes.func.isRequired,
 			incrementAugmented: PropTypes.func.isRequired,
 			lowerPower: PropTypes.func.isRequired,
-			raisePower: PropTypes.func.isRequired
-		}
+			raisePower: PropTypes.func.isRequired,
+		},
 	),
 	power: PropTypes.object.isRequired,
 	index: PropTypes.number.isRequired,
 	pointsSpent: PropTypes.number.isRequired,
 	maxPoints: PropTypes.number.isRequired,
-	isMystic: PropTypes.bool.isRequired
+	isMystic: PropTypes.bool.isRequired,
 };
 
 export default PowerLevelCounter;

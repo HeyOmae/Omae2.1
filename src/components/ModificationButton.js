@@ -10,7 +10,7 @@ const ModificationButton = ({ attName, buttonClass, maxPoints, pointsLeft, modif
 					modificationFunction({
 						attribute: attName,
 						max: maxPoints,
-						spend: attType
+						spend: attType,
 					});
 				}
 			}}
@@ -27,14 +27,14 @@ ModificationButton.propTypes = {
 	pointsLeft: PropTypes.number,
 	modificationFunction: PropTypes.func.isRequired,
 	attType: PropTypes.string,
-	symbol: PropTypes.string.isRequired
+	symbol: PropTypes.string.isRequired,
 };
 
 ModificationButton.defaultProps = {
 	pointsLeft: 1,
 	attName: '!!!!!!!!!!!!!!!!!!!!',
 	maxPoints: 999,
-	attType: 'notDefined'
+	attType: 'notDefined',
 };
 
 export default ModificationButton;

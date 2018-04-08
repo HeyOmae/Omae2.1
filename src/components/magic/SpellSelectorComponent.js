@@ -39,7 +39,7 @@ function createSpellCategoryLabel(damage, category) {
 						<th>Ref</th>
 					</tr>
 				);
-			}
+			},
 		};
 
 	return (buildHeader[category] || buildHeader.default)();
@@ -49,7 +49,7 @@ function createSpellNameWithOptions(spellName) {
 	const partsOfName = {
 			start: '',
 			end: '',
-			placeholderText: ''
+			placeholderText: '',
 		},
 		nameWithNoOptions = spellName.replace(/\[[\s\S]*\]/g, (match, offset, string) => {
 			partsOfName.placeholderText = match;
@@ -84,7 +84,7 @@ function spellNameTableData({start, end, placeholderText}, name) {
 spellNameTableData.propTypes = {
 	start: PropTypes.string.isRequired,
 	end: PropTypes.string.isRequired,
-	placeholderText: PropTypes.string.isRequired
+	placeholderText: PropTypes.string.isRequired,
 };
 
 function createSpellIndividualRow(spellName, spellDetails, button, spellID) {
@@ -123,7 +123,7 @@ function generateSpellDetailTablesRows(arrayOfSpells, generateBtnFn, abilityType
 		if (!spellTableData) {
 			spellTables[category] = {
 				header: createSpellCategoryLabel(spell.damage, category),
-				body: []
+				body: [],
 			};
 			spellTableData = spellTables[category];
 		}
@@ -146,7 +146,7 @@ class SpellSelectorComponent extends React.Component {
 				},
 				'Complex Forms': () => {
 					return complexformData;
-				}
+				},
 			},
 			abilityData = activeAbility[abilities](),
 			generateAddSpellButton = (spell, spellName) => {
@@ -159,8 +159,8 @@ class SpellSelectorComponent extends React.Component {
 								{},
 								spell,
 								{
-									name: newName
-								}
+									name: newName,
+								},
 							);
 						if (spellToAdd.bonus) {
 							spellToAdd.bonus = spellNameOptions.replace(/[()]/g, '');
@@ -205,9 +205,9 @@ SpellSelectorComponent.propTypes = {
 	addSpell: PropTypes.func.isRequired,
 	removeSpell: PropTypes.func.isRequired,
 	selectedSpells: PropTypes.arrayOf(
-		PropTypes.object.isRequired
+		PropTypes.object.isRequired,
 	).isRequired,
-	spellMax: PropTypes.number.isRequired
+	spellMax: PropTypes.number.isRequired,
 };
 
 const SpellSelectedDisplay = ({selectedSpells, removeSpell}) => {
@@ -241,7 +241,7 @@ const SpellSelectedDisplay = ({selectedSpells, removeSpell}) => {
 
 SpellSelectedDisplay.propTypes = {
 	selectedSpells: PropTypes.arrayOf(PropTypes.object).isRequired,
-	removeSpell: PropTypes.func.isRequired
+	removeSpell: PropTypes.func.isRequired,
 };
 
 const SpellsTables = ({spellRowData}) => {
@@ -256,9 +256,9 @@ SpellsTables.propTypes = {
 	spellRowData: PropTypes.shape({
 		header: PropTypes.element.isRequired,
 		body: PropTypes.arrayOf(
-			PropTypes.element.isRequired
-		)
-	}).isRequired
+			PropTypes.element.isRequired,
+		),
+	}).isRequired,
 };
 
 export default SpellSelectorComponent;

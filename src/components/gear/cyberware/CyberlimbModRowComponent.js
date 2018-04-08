@@ -53,13 +53,13 @@ CyberlimbModRow.propTypes = {
 		name: PropTypes.string.isRequired,
 		rating: PropTypes.string,
 		avail: PropTypes.string.isRequired,
-		cost: PropTypes.string.isRequired
+		cost: PropTypes.string.isRequired,
 	}).isRequired,
 	selectedMod: PropTypes.bool.isRequired,
 	index: PropTypes.number.isRequired,
 	modGear: PropTypes.func.isRequired,
 	demodGear: PropTypes.func.isRequired,
-	currentRating: PropTypes.number
+	currentRating: PropTypes.number,
 };
 
 export default CyberlimbModRow;

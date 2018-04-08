@@ -34,6 +34,6 @@ const reducers = {
 	modalToggle,
 	purchaseGear,
 	filterTable,
-	augmentation
+	augmentation,
 };
 module.exports = combineReducers(reducers);

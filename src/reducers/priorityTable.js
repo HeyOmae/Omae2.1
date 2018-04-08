@@ -8,7 +8,7 @@ const initialState = {
 	attribute: 'B',
 	magres: 'C',
 	skills: 'D',
-	resources: 'E'
+	resources: 'E',
 };
 
 const priorityReducer = (state = initialState, action) => {
@@ -16,10 +16,10 @@ const priorityReducer = (state = initialState, action) => {
 		SET_PRIORITY(prevState, {rating, category}) {
 			return {
 				...prevState,
-				[category]: rating
+				[category]: rating,
 			};
 		},
-		DEFAULT(sameState) { return sameState; }
+		DEFAULT(sameState) { return sameState; },
 	};
 	return (actionsToTake[action.type] || actionsToTake.DEFAULT)(state, action.parameter);
 };

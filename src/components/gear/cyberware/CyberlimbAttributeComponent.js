@@ -35,7 +35,7 @@ CyberlimbAttribute.propTypes = {
 	incrementAttribute: PropTypes.func.isRequired,
 	decrementAttribute: PropTypes.func.isRequired,
 	attributeValue: PropTypes.number.isRequired,
-	attributeName: PropTypes.string.isRequired
+	attributeName: PropTypes.string.isRequired,
 };
 
 export default CyberlimbAttribute;

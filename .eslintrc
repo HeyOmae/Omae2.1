@@ -8,7 +8,6 @@
   "extends": "airbnb",
   "rules": {
     "arrow-body-style": ["error", "always"],
-    "comma-dangle": ["off"],
     "import/no-extraneous-dependencies": ["off", {"devDependencies": true, "optionalDependencies": true, "peerDependencies": true}],
     "indent": ["error", "tab", { "ignoredNodes": ["JSXElement *"] }],
     "max-len": ["off"],

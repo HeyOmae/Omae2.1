@@ -33,7 +33,7 @@ class WareComponent extends React.PureComponent {
 											ware={ware}
 											purchase={purchaseWare}
 											currentGrade={currentGrade}
-										/>
+										/>,
 									]
 								);
 							}, [])}
@@ -55,15 +55,15 @@ WareComponent.propTypes = {
 			source: PropTypes.string.isRequired,
 			page: PropTypes.string.isRequired,
 			rating: PropTypes.string,
-		}).isRequired
+		}).isRequired,
 	).isRequired,
 	purchaseWare: PropTypes.func.isRequired,
-	currentGrade: PropTypes.number.isRequired
+	currentGrade: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = (state) => {
 	return {
-		currentGrade: state.augmentation.grade
+		currentGrade: state.augmentation.grade,
 	};
 };
 

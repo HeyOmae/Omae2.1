@@ -61,7 +61,7 @@ class SkillgroupsComponent extends React.Component {
 								<th>Skills</th>
 							</tr>
 						),
-						body: listOfGroups
+						body: listOfGroups,
 					}} />
 			</div>
 		);
@@ -70,7 +70,7 @@ class SkillgroupsComponent extends React.Component {
 
 SkillgroupsComponent.propTypes = {
 	skillgroups: PropTypes.objectOf(
-		PropTypes.object
+		PropTypes.object,
 	).isRequired,
 	increment: PropTypes.func.isRequired,
 	decrement: PropTypes.func.isRequired,
@@ -101,20 +101,20 @@ ChangeSkillButton.propTypes = {
 	action: PropTypes.func.isRequired,
 	groupName: PropTypes.string.isRequired,
 	skillsInGroup: PropTypes.objectOf(
-		PropTypes.string
+		PropTypes.string,
 	).isRequired,
 	condition: PropTypes.bool,
 	btnType: PropTypes.string.isRequired,
-	children: PropTypes.string.isRequired
+	children: PropTypes.string.isRequired,
 };
 ChangeSkillButton.defaultProps = {
-	condition: false
+	condition: false,
 };
 
 const mapStateToProps = (state) => {
 	return {
 		skillgroups: state.settingSkills.groups,
-		groupPointsSpent: state.settingSkills.groupPointSpent
+		groupPointsSpent: state.settingSkills.groupPointSpent,
 	};
 };
 

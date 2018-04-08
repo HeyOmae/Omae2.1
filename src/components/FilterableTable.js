@@ -1,5 +1,5 @@
 import React, {
-	Component
+	Component,
 } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -50,13 +50,13 @@ FilterableTable.propTypes = {
 	setFilterAction: PropTypes.func.isRequired,
 	tableData: PropTypes.shape({
 		header: PropTypes.element,
-		body: PropTypes.node
+		body: PropTypes.node,
 	}),
 	header: PropTypes.element,
 	children: PropTypes.node,
 	filterTable: PropTypes.string.isRequired,
 	striped: PropTypes.bool,
-	invert: PropTypes.bool
+	invert: PropTypes.bool,
 };
 
 FilterableTable.defaultProps = {
@@ -64,12 +64,12 @@ FilterableTable.defaultProps = {
 	striped: false,
 	invert: false,
 	header: null,
-	tableData: {header: null, body: null}
+	tableData: {header: null, body: null},
 };
 
 function mapStateToProps(state) {
 	const props = {
-		filterTable: state.filterTable
+		filterTable: state.filterTable,
 	};
 	return props;
 }
@@ -78,7 +78,7 @@ function mapDispatchToProps(dispatch) {
 	return {
 		setFilterAction: (filterTerm) => {
 			return dispatch(setFilter(filterTerm));
-		}
+		},
 	};
 }
 

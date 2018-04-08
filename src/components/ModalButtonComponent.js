@@ -9,7 +9,7 @@ class ModalButtonComponent extends React.PureComponent {
 		super(props);
 		this.openModal = this.openModal.bind(this);
 		this.state = {
-			showModal: false
+			showModal: false,
 		};
 	}
 
@@ -51,7 +51,7 @@ ModalButtonComponent.displayName = 'ModalButtonComponent';
 // Uncomment properties you need
 ModalButtonComponent.propTypes = {
 	modalName: PropTypes.string.isRequired,
-	modalContent: PropTypes.node.isRequired
+	modalContent: PropTypes.node.isRequired,
 };
 
 export default ModalButtonComponent;

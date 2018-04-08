@@ -78,7 +78,7 @@ const AttributeDataCell = ({rating, active, changePriority}) => {
 					changePriority({
 						type: 'SET_PRIORITY',
 						category: 'attribute',
-						rating
+						rating,
 					});
 				}}>
 				{priorityData[rating].attributes}
@@ -99,7 +99,7 @@ const SkillsDataCell = ({rating, active, changePriority}) => {
 					changePriority({
 						type: 'SET_PRIORITY',
 						category: 'skills',
-						rating
+						rating,
 					});
 				}}>
 				{priorityData[rating].skills.skillpoints}{skillgroups ? <span>/{skillgroups}</span> : null}
@@ -119,7 +119,7 @@ const ResourcesDataCell = ({rating, active, changePriority}) => {
 					changePriority({
 						type: 'SET_PRIORITY',
 						category: 'resources',
-						rating
+						rating,
 					});
 				}}
 			>
@@ -164,13 +164,13 @@ const PriorityRow = ({rating, priorityTableData, changePriority}) => {
 PriorityRow.propTypes = {
 	rating: PropTypes.string.isRequired,
 	priorityTableData: propTypeChecking.priorityTable.isRequired,
-	changePriority: PropTypes.func.isRequired
+	changePriority: PropTypes.func.isRequired,
 };
 
 const PropsToChangePriority = {
 	changePriority: PropTypes.func.isRequired,
 	active: PropTypes.bool.isRequired,
-	rating: PropTypes.string.isRequired
+	rating: PropTypes.string.isRequired,
 };
 ResourcesDataCell.propTypes = PropsToChangePriority;
 SkillsDataCell.propTypes = PropsToChangePriority;
@@ -180,7 +180,7 @@ PriorityTableComponent.displayName = 'PriorityTableComponent';
 
 PriorityTableComponent.propTypes = {
 	changePriority: PropTypes.func.isRequired,
-	priorityTable: propTypeChecking.priorityTable.isRequired
+	priorityTable: propTypeChecking.priorityTable.isRequired,
 };
 
 export default PriorityTableComponent;

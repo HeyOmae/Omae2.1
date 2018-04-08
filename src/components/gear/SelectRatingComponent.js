@@ -8,7 +8,7 @@ class SelectRatingComponent extends React.PureComponent {
 
 		for (let i = 1; i <= rating; ++i) {
 			ratingOptions.push(
-				<option key={`${name}-${i}`} value={i}>{i}</option>
+				<option key={`${name}-${i}`} value={i}>{i}</option>,
 			);
 		}
 
@@ -31,9 +31,9 @@ class SelectRatingComponent extends React.PureComponent {
 SelectRatingComponent.propTypes = {
 	item: PropTypes.shape({
 		rating: PropTypes.string,
-		name: PropTypes.string.isRequired
+		name: PropTypes.string.isRequired,
 	}).isRequired,
-	updateRating: PropTypes.func.isRequired
+	updateRating: PropTypes.func.isRequired,
 };
 
 export default SelectRatingComponent;

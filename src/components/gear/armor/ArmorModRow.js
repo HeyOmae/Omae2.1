@@ -6,7 +6,7 @@ class ArmorModRow extends React.Component {
 		super(props);
 
 		this.state = {
-			Rating: (props.currentRating || '')
+			Rating: (props.currentRating || ''),
 		};
 
 		this.inputId = `${props.gearName}-mod-${props.mod.name}`.replace(/\s/g, '');
@@ -37,13 +37,13 @@ class ArmorModRow extends React.Component {
 				index,
 				category,
 				mod,
-				Rating: isNaN(mod.cost) && (this.state.Rating || 1)
+				Rating: isNaN(mod.cost) && (this.state.Rating || 1),
 			});
 		} else {
 			demodGear({
 				index,
 				category,
-				demodName: name
+				demodName: name,
 			});
 		}
 	}
@@ -99,19 +99,19 @@ ArmorModRow.propTypes = {
 		name: PropTypes.string.isRequired,
 		maxrating: PropTypes.string.isRequired,
 		avail: PropTypes.string.isRequired,
-		cost: PropTypes.string.isRequired
+		cost: PropTypes.string.isRequired,
 	}).isRequired,
 	category: PropTypes.string,
 	selectedMod: PropTypes.bool.isRequired,
 	index: PropTypes.number.isRequired,
 	modGear: PropTypes.func.isRequired,
 	demodGear: PropTypes.func.isRequired,
-	currentRating: PropTypes.number
+	currentRating: PropTypes.number,
 };
 
 ArmorModRow.defaultProps = {
 	category: 'armors',
-	currentRating: 0
+	currentRating: 0,
 };
 
 export default ArmorModRow;

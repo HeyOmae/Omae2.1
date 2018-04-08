@@ -13,7 +13,7 @@ import WeaponsTableRow from './WeaponDisplayTableRow';
 class WeaponsComponent extends React.Component {
 	componentWillMount() {
 		const weaponModLists = {
-				slotless: []
+				slotless: [],
 			},
 
 			skipWeapons = ['Quality', 'Natural', 'Cyberweapon', 'Bio-Weapon', 'Cyber-Weapon', 'Underbarrel Weapons'],
@@ -55,8 +55,8 @@ class WeaponsComponent extends React.Component {
 							key={weapon.name}
 							weapon={weapon}
 							button={purchaseButton}
-						/>
-					]
+						/>,
+					],
 				};
 			}
 			return tableRow;
@@ -74,7 +74,7 @@ class WeaponsComponent extends React.Component {
 							tableData={{
 								header: (<WeaponTableHeader
 									reachCoil={reachCoil} />),
-								body: weaponsTableRow[category]
+								body: weaponsTableRow[category],
 							}} />
 					}
 				/>
@@ -141,10 +141,10 @@ class WeaponsComponent extends React.Component {
 
 WeaponsComponent.propTypes = {
 	purchased: PropTypes.arrayOf(PropTypes.object),
-	actions: PropTypeChecking.actions.isRequired
+	actions: PropTypeChecking.actions.isRequired,
 };
 WeaponsComponent.defaultProps = {
-	purchased: null
+	purchased: null,
 };
 
 function WeaponTableHeader({buySell, reachCoil, isModable}) {
@@ -167,11 +167,11 @@ function WeaponTableHeader({buySell, reachCoil, isModable}) {
 WeaponTableHeader.propTypes = {
 	buySell: PropTypes.string,
 	reachCoil: PropTypes.string.isRequired,
-	isModable: PropTypes.bool
+	isModable: PropTypes.bool,
 };
 WeaponTableHeader.defaultProps = {
 	buySell: 'Buy',
-	isModable: false
+	isModable: false,
 };
 
 WeaponsComponent.displayName = 'GearWeaponsComponent';

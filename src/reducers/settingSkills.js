@@ -10,7 +10,7 @@ const initialState = {
 	groups: {},
 	magicSkills: ['', ''],
 	skillPointsSpent: 0,
-	groupPointSpent: 0
+	groupPointSpent: 0,
 };
 
 const skillReducer = (state = initialState, action) => {
@@ -19,7 +19,7 @@ const skillReducer = (state = initialState, action) => {
 		typeSpend,
 		spentPoints,
 		copyState = state,
-		skillCategory = action.parameter.category
+		skillCategory = action.parameter.category,
 	) {
 		return Object.assign(
 			{},
@@ -29,8 +29,8 @@ const skillReducer = (state = initialState, action) => {
 					{},
 					copyState[skillCategory],
 					skillInfoUpdated),
-				[typeSpend]: spentPoints
-			}
+				[typeSpend]: spentPoints,
+			},
 		);
 	}
 
@@ -52,10 +52,10 @@ const skillReducer = (state = initialState, action) => {
 						...prevState.active,
 						[name]: {
 							rating: 1,
-							attribute
-						}
+							attribute,
+						},
 					},
-					skillPointsSpent: prevState.skillPointsSpent + 1
+					skillPointsSpent: prevState.skillPointsSpent + 1,
 				};
 			}
 			return prevState;
@@ -83,7 +83,7 @@ const skillReducer = (state = initialState, action) => {
 						'',
 						...prevState.magicSkills.slice(removeMagicSkillIndex + 1),
 					],
-					skillPointsSpent: prevState.skillPointsSpent - (skill.rating + specCost)
+					skillPointsSpent: prevState.skillPointsSpent - (skill.rating + specCost),
 				};
 			}
 
@@ -102,7 +102,7 @@ const skillReducer = (state = initialState, action) => {
 				newState = changeSkill(
 					{[name]: generateSkillObject(skill, {rating: nextIncrement})},
 					'skillPointsSpent',
-					prevState.skillPointsSpent + 1
+					prevState.skillPointsSpent + 1,
 				);
 			}
 
@@ -121,7 +121,7 @@ const skillReducer = (state = initialState, action) => {
 				newState = changeSkill(
 					{[name]: generateSkillObject(skill, {rating: nextDecrement})},
 					'skillPointsSpent',
-					prevState.skillPointsSpent - 1
+					prevState.skillPointsSpent - 1,
 				);
 
 			}
@@ -140,7 +140,7 @@ const skillReducer = (state = initialState, action) => {
 			} else {
 				newState = changeSkill(
 					{[name]: {
-						rating: 1
+						rating: 1,
 					}},
 					'groupPointSpent',
 					prevState.groupPointSpent + 1);
@@ -162,8 +162,8 @@ const skillReducer = (state = initialState, action) => {
 						{},
 						newState.active,
 						{
-							[skillName]: skillInfo
-						}
+							[skillName]: skillInfo,
+						},
 					)});
 			});
 
@@ -181,7 +181,7 @@ const skillReducer = (state = initialState, action) => {
 				newState = changeSkill(
 					{},
 					'groupPointSpent',
-					prevState.groupPointSpent - 1
+					prevState.groupPointSpent - 1,
 				);
 
 				delete newState.groups[name];
@@ -189,7 +189,7 @@ const skillReducer = (state = initialState, action) => {
 				newState = changeSkill(
 					{[name]: generateSkillObject(skillgroup, {rating: newGroupRating})},
 					'groupPointSpent',
-					prevState.groupPointSpent - 1
+					prevState.groupPointSpent - 1,
 				);
 			}
 
@@ -204,10 +204,10 @@ const skillReducer = (state = initialState, action) => {
 							Object.assign(
 								{},
 								newState.active[skillName],
-								{groupRating: newGroupRating}
-							)
-						}
-					)}
+								{groupRating: newGroupRating},
+							),
+						},
+					)},
 				);
 
 				const newSkill = newState.active[skillName];
@@ -234,7 +234,7 @@ const skillReducer = (state = initialState, action) => {
 				newState = changeSkill(
 					{[name]: newSkill},
 					'skillPointsSpent',
-					prevState.skillPointsSpent - 1
+					prevState.skillPointsSpent - 1,
 				);
 
 				delete newState[category][name].spec;
@@ -248,7 +248,7 @@ const skillReducer = (state = initialState, action) => {
 				newState = changeSkill(
 					{[name]: newSkill},
 					'skillPointsSpent',
-					skillPointChange
+					skillPointChange,
 				);
 			} else {
 				return prevState;
@@ -282,13 +282,13 @@ const skillReducer = (state = initialState, action) => {
 					newState = {
 						...newState,
 						active: {
-							...newActiveskills
+							...newActiveskills,
 						},
 						magicSkills: [
 							...newState.magicSkills.slice(0, index),
 							'',
-							...newState.magicSkills.slice(index + 1)
-						]
+							...newState.magicSkills.slice(index + 1),
+						],
 					};
 				} else if (prevState.magicSkills[index] !== magSkill.name) {
 					newState = {
@@ -298,14 +298,14 @@ const skillReducer = (state = initialState, action) => {
 							[magSkill.name]: {
 								...newState.active[magSkill.name],
 								attribute: magSkill.attribute,
-								magicSkillRating: magSkill.rating
-							}
+								magicSkillRating: magSkill.rating,
+							},
 						},
 						magicSkills: [
 							...newState.magicSkills.slice(0, index),
 							magSkill.name,
-							...newState.magicSkills.slice(index + 1)
-						]
+							...newState.magicSkills.slice(index + 1),
+						],
 					};
 				}
 			});
@@ -313,7 +313,7 @@ const skillReducer = (state = initialState, action) => {
 			return newState;
 		},
 
-		DEFAULT(prevState) { return prevState; }
+		DEFAULT(prevState) { return prevState; },
 	};
 
 	return (actionsToTake[action.type] || actionsToTake.DEFAULT)(state, action.parameter);

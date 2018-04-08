@@ -22,7 +22,7 @@ const SummaryComponent = (
 		spellsAndPowers,
 		selectedQualities,
 		karma,
-		purchaseGear
+		purchaseGear,
 	}) => {
 	const priorityHead = [],
 		priorityData = [],
@@ -33,15 +33,15 @@ const SummaryComponent = (
 			skills: priorityTableData[priority.skills].skills.skillpoints - skills.skillPointsSpent,
 			skillGroups: (
 				priorityTableData[priority.skills].skills.grouppoints || 0
-			) - skills.groupPointSpent
+			) - skills.groupPointSpent,
 		},
 		calculatedStats = {
-			attributes: {}
+			attributes: {},
 		},
 		displaySpellsPowers = [],
 		displayQualities = {
 			Positive: [],
-			Negative: []
+			Negative: [],
 		};
 
 	Object.keys(priority).forEach((pariorityCategory) => {
@@ -83,7 +83,7 @@ const SummaryComponent = (
 			if (Array.isArray(spellPowerArray)) {
 				spellPowerArray.forEach((spell) => {
 					displaySpellsPowers.push(
-						<tr key={`summary-${(magicCat || 'complex-form')}${spell.name}`}><td>{spell.name}</td><td>{spell.source} p{spell.page}</td></tr>
+						<tr key={`summary-${(magicCat || 'complex-form')}${spell.name}`}><td>{spell.name}</td><td>{spell.source} p{spell.page}</td></tr>,
 					);
 				});
 			}
@@ -114,7 +114,7 @@ const SummaryComponent = (
 			<tr key={`skill-${skillName}`}>
 				<td>{skillName}</td>
 				<td>{currDP}{currSkill.spec ? `(${currDP + 2})` : null}</td>
-			</tr>
+			</tr>,
 		);
 	});
 
@@ -130,7 +130,7 @@ const SummaryComponent = (
 							<td>{gear.source} p{gear.page}</td>
 						</tr>
 					);
-				})
+				}),
 			];
 		}
 
@@ -296,7 +296,7 @@ SummaryComponent.propTypes = {
 	spellsAndPowers: PropTypeChecking.spellSelect.isRequired,
 	selectedQualities: PropTypeChecking.quality.isRequired,
 	karma: PropTypeChecking.karma.isRequired,
-	purchaseGear: PropTypeChecking.purchaseGear.isRequired
+	purchaseGear: PropTypeChecking.purchaseGear.isRequired,
 };
 
 export default SummaryComponent;

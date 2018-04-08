@@ -1,5 +1,5 @@
 const initialState = {
-	grade: 0
+	grade: 0,
 };
 
 const augmentationReducer = (state = initialState, action) => {
@@ -7,10 +7,10 @@ const augmentationReducer = (state = initialState, action) => {
 		SELECT_GRADE(prevState, {grade}) {
 			return {
 				...prevState,
-				grade
+				grade,
 			};
 		},
-		DEFAULT(prevState) { return prevState; }
+		DEFAULT(prevState) { return prevState; },
 	};
 
 	return (actionsToTake[action.type] || actionsToTake.DEFAULT)(state, action.parameter);

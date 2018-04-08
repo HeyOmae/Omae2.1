@@ -17,14 +17,14 @@ DisplayTableComponent.propTypes = {
 	body: PropTypes.arrayOf(PropTypes.element),
 	children: PropTypes.node,
 	striped: PropTypes.bool,
-	invert: PropTypes.bool
+	invert: PropTypes.bool,
 };
 
 DisplayTableComponent.defaultProps = {
 	body: null,
 	children: null,
 	striped: false,
-	invert: false
+	invert: false,
 };
 
 

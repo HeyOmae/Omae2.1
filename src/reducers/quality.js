@@ -9,8 +9,8 @@ const initialState = {
 	Negative: [],
 	karma: {
 		Positive: 0,
-		Negative: 0
-	}
+		Negative: 0,
+	},
 };
 
 const qualityReducer = (state = initialState, action) => {
@@ -24,16 +24,16 @@ const qualityReducer = (state = initialState, action) => {
 				{
 					[category]: [
 						...prevState[category],
-						newQuality
+						newQuality,
 					],
 					karma: Object.assign(
 						{},
 						prevState.karma,
 						{
-							[category]: prevState.karma[category] + Number(newQuality.karma)
-						}
-					)
-				}
+							[category]: prevState.karma[category] + Number(newQuality.karma),
+						},
+					),
+				},
 			);
 		},
 
@@ -46,19 +46,19 @@ const qualityReducer = (state = initialState, action) => {
 				{
 					[category]: [
 						...qualityArray.slice(0, qualityIndex),
-						...qualityArray.slice(qualityIndex + 1)
+						...qualityArray.slice(qualityIndex + 1),
 					],
 					karma: Object.assign(
 						{},
 						prevState.karma,
 						{
-							[category]: prevState.karma[category] - Number(removeQualityKarma)
-						}
-					)
-				}
+							[category]: prevState.karma[category] - Number(removeQualityKarma),
+						},
+					),
+				},
 			);
 		},
-		DEFAULT: (prevState) => { return prevState; }
+		DEFAULT: (prevState) => { return prevState; },
 	};
 	return (actionsToTake[action.type] || actionsToTake.DEFAULT)(state, action.parameter);
 };

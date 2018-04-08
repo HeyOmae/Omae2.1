@@ -14,7 +14,7 @@ const store = configureStore(),
 					<Component />
 				</Provider>
 			</AppContainer>,
-			rootElement
+			rootElement,
 		);
 	};
 

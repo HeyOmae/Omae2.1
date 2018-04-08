@@ -34,11 +34,11 @@ function PurchasedGear({purchased, sellGear, category}) {
 PurchasedGear.propTypes = {
 	sellGear: PropTypes.func.isRequired,
 	category: PropTypes.string.isRequired,
-	purchased: PropTypes.arrayOf(PropTypes.object.isRequired)
+	purchased: PropTypes.arrayOf(PropTypes.object.isRequired),
 };
 
 PurchasedGear.defaultProps = {
-	purchased: []
+	purchased: [],
 };
 
 export default PurchasedGear;

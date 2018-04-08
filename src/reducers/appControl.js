@@ -5,7 +5,7 @@
  */
 const initialState = {
 	summaryFix: false,
-	styleTheme: ''
+	styleTheme: '',
 };
 
 
@@ -16,7 +16,7 @@ const attributesReducer = (state = initialState, action) => {
 				return Object.assign(
 					{},
 					pervState,
-					{ summaryFix }
+					{ summaryFix },
 				);
 			}
 			return pervState;
@@ -26,11 +26,11 @@ const attributesReducer = (state = initialState, action) => {
 			return Object.assign(
 				{},
 				pervState,
-				{ styleTheme }
+				{ styleTheme },
 			);
 		},
 
-		DEFAULT() { return state; }
+		DEFAULT() { return state; },
 	};
 
 	return (actionsToTake[action.type] || actionsToTake.DEFAULT)(state, action.parameter);

@@ -82,7 +82,7 @@ const MetatypeButton = ({typeName, anOption, checked, selectMetatypeAction, karm
 							typeName,
 							priority,
 							karmaOldCost,
-							karmaNewCost
+							karmaNewCost,
 						});
 					}
 				}}
@@ -99,7 +99,7 @@ MetatypeButton.propTypes = {
 	selectMetatypeAction: PropTypes.func.isRequired,
 	karmaNewCost: PropTypes.number.isRequired,
 	karmaOldCost: PropTypes.number.isRequired,
-	priority: PropTypes.string.isRequired
+	priority: PropTypes.string.isRequired,
 };
 
 MetatypeSelectorComponent.displayName = 'MetatypeSelectorComponent';
@@ -109,9 +109,9 @@ MetatypeSelectorComponent.propTypes = {
 	priorityRating: PropTypes.string.isRequired,
 	metatype: PropTypes.shape({
 		typeName: PropTypes.string.isRequired,
-		priority: PropTypes.string.isRequired
+		priority: PropTypes.string.isRequired,
 	}).isRequired,
-	action: PropTypes.func.isRequired
+	action: PropTypes.func.isRequired,
 };
 // MetatypeSelectorComponent.defaultProps = {};
 

@@ -45,14 +45,14 @@ SpecialComponent.propTypes = {
 	elements: PropTypes.shape({
 		incBtn: PropTypes.array.isRequired,
 		display: PropTypes.array.isRequired,
-		decBtn: PropTypes.array.isRequired
+		decBtn: PropTypes.array.isRequired,
 	}).isRequired,
 	pointsLeft: PropTypes.number.isRequired,
-	magicName: PropTypes.string
+	magicName: PropTypes.string,
 };
 
 SpecialComponent.defaultProps = {
-	magicName: ''
+	magicName: '',
 };
 
 export default SpecialComponent;

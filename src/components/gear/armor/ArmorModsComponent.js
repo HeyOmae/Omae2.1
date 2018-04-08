@@ -45,7 +45,7 @@ class ArmorModsComponent extends React.PureComponent {
 									modGear={modArmor}
 									demodGear={demodArmor}
 									currentRating={mods[mod.name] && mods[mod.name].currentRating}
-								/>
+								/>,
 							] : memo;
 						}, [])
 					}
@@ -59,7 +59,7 @@ ArmorModsComponent.propTypes = {
 	index: PropTypes.number.isRequired,
 	modArmor: PropTypes.func.isRequired,
 	demodArmor: PropTypes.func.isRequired,
-	armors: PropTypes.arrayOf(PropTypes.object).isRequired
+	armors: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 const mapStateToProps = (state) => {

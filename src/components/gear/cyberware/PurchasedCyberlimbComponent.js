@@ -72,21 +72,21 @@ class PurchasedCyberlimbComponent extends React.PureComponent {
 
 PurchasedCyberlimbComponent.propTypes = {
 	cyberlimbs: PropTypes.arrayOf(
-		PropTypes.object.isRequired
+		PropTypes.object.isRequired,
 	),
 	cyberware: PropTypes.objectOf(
 		PropTypes.oneOfType([
 			PropTypes.arrayOf(
-				PropTypes.object.isRequired
+				PropTypes.object.isRequired,
 			).isRequired,
-			PropTypes.object.isRequired
-		])
+			PropTypes.object.isRequired,
+		]),
 	).isRequired,
 	sellGear: PropTypes.func.isRequired,
 };
 
 PurchasedCyberlimbComponent.defaultProps = {
-	cyberlimbs: []
+	cyberlimbs: [],
 };
 
 export default PurchasedCyberlimbComponent;

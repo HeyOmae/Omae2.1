@@ -29,7 +29,7 @@ class SkillsComponent extends React.PureComponent {
 				Logic: 'log',
 				Will: 'wil',
 				Magic: 'special',
-				Resonance: 'special'
+				Resonance: 'special',
 			},
 			skillPointsLeft = priorityTableData[priority.skills].skills.skillpoints
 				- skills.skillPointsSpent,
@@ -37,7 +37,7 @@ class SkillsComponent extends React.PureComponent {
 				'Mage',
 				'Mystic',
 				'Adept',
-				'Aspected'
+				'Aspected',
 			],
 			groupPointsLeft = calculateGroupPointsLeft(priority.skills, skills.groupPointSpent),
 			priorityMagicData = priorityTableData[priority.magres].magic[magictype];
@@ -152,7 +152,7 @@ SkillsComponent.propTypes = {
 	skills: PropTypeChecking.settingSkills.isRequired,
 	attributes: PropTypeChecking.attributes.isRequired,
 	metatype: PropTypeChecking.selectMetatype.isRequired,
-	magictype: PropTypeChecking.selectMagRes.isRequired
+	magictype: PropTypeChecking.selectMagRes.isRequired,
 };
 // SkillsComponent.defaultProps = {};
 

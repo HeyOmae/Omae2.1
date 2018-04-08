@@ -11,7 +11,7 @@ const magicReducer = (state = initialState, action) => {
 			return selectedMagicType;
 		},
 
-		DEFAULT: (prevState) => { return prevState; }
+		DEFAULT: (prevState) => { return prevState; },
 	};
 
 	return (actionsToTake[action.type] || actionsToTake.DEFAULT)(state, action.parameter);

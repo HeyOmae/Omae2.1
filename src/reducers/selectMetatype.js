@@ -5,7 +5,7 @@
  */
 const initialState = {
 	typeName: 'human',
-	priority: 'A'
+	priority: 'A',
 };
 
 const metatypeReducer = (state = initialState, action) => {
@@ -14,7 +14,7 @@ const metatypeReducer = (state = initialState, action) => {
 			return {typeName, priority};
 		},
 
-		DEFAULT: (prevState) => { return prevState; }
+		DEFAULT: (prevState) => { return prevState; },
 	};
 	return (actionsToTake[action.type] || actionsToTake.DEFAULT)(state, action.parameter);
 };

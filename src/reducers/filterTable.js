@@ -4,7 +4,7 @@ const FilterTable = (state = '', action) => {
 			return filterTerm;
 		},
 		TOGGLE_MODAL() { return ''; },
-		DEFAULT(prevState) { return prevState; }
+		DEFAULT(prevState) { return prevState; },
 	};
 	return (actionsToTake[action.type] || actionsToTake.DEFAULT)(state, action.parameter);
 };

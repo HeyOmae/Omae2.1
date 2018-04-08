@@ -5,7 +5,7 @@
  */
 const initialState = {
 	modalName: '',
-	modalContent: null
+	modalContent: null,
 };
 
 const modalReducer = (state = initialState, action) => {
@@ -18,7 +18,7 @@ const modalReducer = (state = initialState, action) => {
 			return initialState;
 		},
 
-		DEFAULT: (prevState) => { return prevState; }
+		DEFAULT: (prevState) => { return prevState; },
 	};
 	return (actionsToTake[action.type] || actionsToTake.DEFAULT)(state, action.parameter);
 };

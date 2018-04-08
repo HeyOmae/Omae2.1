@@ -13,13 +13,13 @@ class AugmentationRowComponent extends React.Component {
 			const cost = props.ware.cost.match(/\d+/g);
 			this.cost = {
 				min: +cost[0],
-				max: +cost[1]
+				max: +cost[1],
 			};
 		}
 
 		this.state = {
 			Rating: 1,
-			cost: this.cost.min ? '' : undefined
+			cost: this.cost.min ? '' : undefined,
 		};
 
 		this.evil = eval;
@@ -37,7 +37,7 @@ class AugmentationRowComponent extends React.Component {
 		const { value } = event.target;
 
 		this.setState({
-			Rating: +value
+			Rating: +value,
 		});
 	}
 
@@ -57,7 +57,7 @@ class AugmentationRowComponent extends React.Component {
 				(
 					statSplit &&
 					this.evil(
-						statSplit[0].replace('Rating', Rating)
+						statSplit[0].replace('Rating', Rating),
 					)
 				) ||
 				this.evil(stat.replace('Rating', Rating))
@@ -77,7 +77,7 @@ class AugmentationRowComponent extends React.Component {
 
 	changeCost({target}) {
 		this.setState({
-			cost: +(+target.value > this.cost.max ? this.cost.max : target.value)
+			cost: +(+target.value > this.cost.max ? this.cost.max : target.value),
 		});
 	}
 
@@ -88,9 +88,9 @@ class AugmentationRowComponent extends React.Component {
 				...ware,
 				ess: this.calculateStatBasedOffGrade(ware.ess, 'ess'),
 				avail: this.calculateAvail(ware.avail),
-				cost: this.findCost()
+				cost: this.findCost(),
 			},
-			category: 'augmentations'
+			category: 'augmentations',
 		});
 	}
 
@@ -150,7 +150,7 @@ AugmentationRowComponent.propTypes = {
 		page: PropTypes.string.isRequired,
 	}).isRequired,
 	currentGrade: PropTypes.number.isRequired,
-	purchase: PropTypes.func.isRequired
+	purchase: PropTypes.func.isRequired,
 };
 
 export default AugmentationRowComponent;

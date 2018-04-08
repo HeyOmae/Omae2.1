@@ -9,14 +9,14 @@ class ArmorTableRow extends React.PureComponent {
 
 		this.state = {
 			Rating: (props.armor.rating) ? '' : null,
-			currentCost: isCostVariable ? '' : null
+			currentCost: isCostVariable ? '' : null,
 		};
 
 		if (isCostVariable) {
 			const range = props.armor.cost.match(/\d+/g);
 			this.gearCost = {
 				max: range[1],
-				min: range[0]
+				min: range[0],
 			};
 		}
 
@@ -35,13 +35,13 @@ class ArmorTableRow extends React.PureComponent {
 		}
 
 		this.setState({
-			Rating: value
+			Rating: value,
 		});
 	}
 
 	updateCost({target}) {
 		this.setState({
-			currentCost: isNaN(target.value) ? '0' : target.value
+			currentCost: isNaN(target.value) ? '0' : target.value,
 		});
 	}
 
@@ -108,18 +108,18 @@ ArmorTableRow.propTypes = {
 		page: PropTypes.string.isRequired,
 		rating: PropTypes.string,
 		currentCost: PropTypes.number,
-		currentRating: PropTypes.number
+		currentRating: PropTypes.number,
 	}).isRequired,
 	btnClass: PropTypes.string.isRequired,
 	btnAction: PropTypes.func.isRequired,
 	btnSymbol: PropTypes.oneOf(['+', '-']).isRequired,
 	mod: PropTypes.element,
-	index: PropTypes.number
+	index: PropTypes.number,
 };
 
 ArmorTableRow.defaultProps = {
 	mod: null,
-	index: undefined
+	index: undefined,
 };
 
 export default ArmorTableRow;

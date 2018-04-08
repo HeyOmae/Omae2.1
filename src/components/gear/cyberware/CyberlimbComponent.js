@@ -20,7 +20,7 @@ class CyberlimbComponent extends React.PureComponent {
 		this.state = {
 			activeType: 'Obvious',
 			agi: 3,
-			str: 3
+			str: 3,
 		};
 	}
 
@@ -35,7 +35,7 @@ class CyberlimbComponent extends React.PureComponent {
 		this.setState((prevState) => {
 			const currentCyberAttribute = prevState[attribute];
 			return {
-				[attribute]: currentCyberAttribute >= maxAttribute ? currentCyberAttribute : currentCyberAttribute + 1
+				[attribute]: currentCyberAttribute >= maxAttribute ? currentCyberAttribute : currentCyberAttribute + 1,
 			};
 		});
 	}
@@ -43,7 +43,7 @@ class CyberlimbComponent extends React.PureComponent {
 	decrementAttribute(attribute) {
 		this.setState((prevState) => {
 			return {
-				[attribute]: prevState[attribute] === 3 ? 3 : prevState[attribute] - 1
+				[attribute]: prevState[attribute] === 3 ? 3 : prevState[attribute] - 1,
 			};
 		});
 	}
@@ -65,7 +65,7 @@ class CyberlimbComponent extends React.PureComponent {
 							availModifier={this.state.agi + this.state.str - 6}
 						/>
 					);
-				})
+				}),
 			};
 		}, {});
 	}
@@ -135,25 +135,25 @@ CyberlimbComponent.propTypes = {
 	cyberlimbsByType: PropTypes.objectOf(
 		PropTypes.arrayOf(
 			PropTypes.shape({
-				name: PropTypes.string.isRequired
-			}).isRequired
-		).isRequired
+				name: PropTypes.string.isRequired,
+			}).isRequired,
+		).isRequired,
 	).isRequired,
 	purchase: PropTypes.func.isRequired,
 	currentGrade: PropTypes.number.isRequired,
-	metatype: PropTypes.string.isRequired
+	metatype: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = (state) => {
 	return {
 		currentGrade: state.augmentation.grade,
-		metatype: state.selectMetatype.typeName
+		metatype: state.selectMetatype.typeName,
 	};
 };
 
 const mapDispatchToProps = (dispatch) => {
 	const actions = {
-		purchase: purchaseGear
+		purchase: purchaseGear,
 	};
 	return bindActionCreators(actions, dispatch);
 };

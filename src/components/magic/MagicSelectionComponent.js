@@ -41,9 +41,9 @@ class MagicSelectionComponent extends React.PureComponent {
 					return {
 						spells: false,
 						powers: false,
-						complexforms: false
+						complexforms: false,
 					};
-				}
+				},
 			},
 			displayAbilities = (toggleAbilities[magictype] || toggleAbilities.default)();
 		const awakenButtons = [];
@@ -73,7 +73,7 @@ class MagicSelectionComponent extends React.PureComponent {
 					actions.resetAbility({ability: 'powers'});
 					actions.resetAbility({ability: 'spells'});
 					actions.resetAbility({ability: 'complexforms'});
-				}
+				},
 			};
 			(reset[magicTypeName] || reset.default)();
 		}
@@ -88,7 +88,7 @@ class MagicSelectionComponent extends React.PureComponent {
 					selectMagicTypeAction={changeMagicType}
 					resetFreeMagicSkills={actions.setMagicSkills}
 					key={`awaken-selection-${typeName}`}
-				/>
+				/>,
 			);
 		});
 
@@ -184,7 +184,7 @@ AwakenButton.propTypes = {
 	anOption: PropTypes.bool.isRequired,
 	checked: PropTypes.bool.isRequired,
 	selectMagicTypeAction: PropTypes.func.isRequired,
-	resetFreeMagicSkills: PropTypes.func.isRequired
+	resetFreeMagicSkills: PropTypes.func.isRequired,
 };
 
 MagicSelectionComponent.displayName = 'MagicMagicSelectionComponent';
@@ -195,7 +195,7 @@ MagicSelectionComponent.propTypes = {
 	magictype: PropTypeChecking.selectMagRes.isRequired,
 	magicAttribute: PropTypes.number.isRequired,
 	selectedSpellsPowers: PropTypeChecking.spellSelect.isRequired,
-	actions: PropTypeChecking.actions.isRequired
+	actions: PropTypeChecking.actions.isRequired,
 };
 // MagicSelectionComponent.defaultProps = {};
 

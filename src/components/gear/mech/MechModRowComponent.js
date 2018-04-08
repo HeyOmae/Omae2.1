@@ -8,7 +8,7 @@ class MechModRowComponent extends React.PureComponent {
 		super(props);
 
 		this.state = {
-			rating: 1
+			rating: 1,
 		};
 		this.evil = eval;
 
@@ -25,7 +25,7 @@ class MechModRowComponent extends React.PureComponent {
 			},
 			default() {
 				return undefined;
-			}
+			},
 		};
 
 		this.selectRating = (findMaxRating[props.mod.rating] || findMaxRating.default)(props.mod, props.mech);
@@ -35,7 +35,7 @@ class MechModRowComponent extends React.PureComponent {
 		const { value } = event.target;
 
 		this.setState({
-			rating: +value
+			rating: +value,
 		});
 	}
 
@@ -106,14 +106,14 @@ MechModRowComponent.propTypes = {
 		avail: PropTypes.string.isRequired,
 		cost: PropTypes.string.isRequired,
 		source: PropTypes.string.isRequired,
-		page: PropTypes.string.isRequired
+		page: PropTypes.string.isRequired,
 	}).isRequired,
 	mech: PropTypes.shape({
 		accel: PropTypes.string.isRequired,
 		handling: PropTypes.string.isRequired,
 		body: PropTypes.string.isRequired,
-		cost: PropTypes.string.isRequired
-	}).isRequired
+		cost: PropTypes.string.isRequired,
+	}).isRequired,
 };
 
 export default MechModRowComponent;

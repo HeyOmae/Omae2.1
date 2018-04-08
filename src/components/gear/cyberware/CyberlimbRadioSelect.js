@@ -26,7 +26,7 @@ CyberlimbRadioSelect.propTypes = {
 	isTypeActive: PropTypes.bool.isRequired,
 	location: PropTypes.string.isRequired,
 	type: PropTypes.string.isRequired,
-	changeActiveType: PropTypes.func.isRequired
+	changeActiveType: PropTypes.func.isRequired,
 };
 
 export default CyberlimbRadioSelect;

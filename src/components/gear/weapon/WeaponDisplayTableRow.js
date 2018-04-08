@@ -34,13 +34,13 @@ WeaponsTableRow.propTypes = {
 		avail: PropTypes.string.isRequired,
 		cost: PropTypes.string.isRequired,
 		source: PropTypes.string.isRequired,
-		page: PropTypes.string.isRequired
+		page: PropTypes.string.isRequired,
 	}).isRequired,
 	button: PropTypes.element.isRequired,
-	mod: PropTypes.element
+	mod: PropTypes.element,
 };
 WeaponsTableRow.defaultProps = {
-	mod: null
+	mod: null,
 };
 
 export default WeaponsTableRow;

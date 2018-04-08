@@ -13,12 +13,12 @@ export function modifyGear(armor, rating, cost) {
 	if (cost !== null) {
 		return {
 			...armor,
-			cost
+			cost,
 		};
 	} else if (rating !== null) {
 		return {
 			...armor,
-			armorcapacity: rating
+			armorcapacity: rating,
 		};
 	}
 	return armor;
@@ -41,7 +41,7 @@ class ArmorsComponent extends React.PureComponent {
 								purchaseGear({
 									gear,
 									category: 'armors',
-									Rating
+									Rating,
 								});
 							};
 						}}
@@ -56,7 +56,7 @@ class ArmorsComponent extends React.PureComponent {
 					<FilterTable
 						tableData={{
 							header: <ArmorTableHeader />,
-							body: armorRows
+							body: armorRows,
 						}} />
 				} />
 		);
@@ -117,12 +117,12 @@ ArmorsComponent.propTypes = {
 		avail: PropTypes.string.isRequired,
 		cost: PropTypes.string.isRequired,
 		source: PropTypes.string.isRequired,
-		page: PropTypes.string.isRequired
-	}))
+		page: PropTypes.string.isRequired,
+	})),
 };
 
 ArmorsComponent.defaultProps = {
-	purchased: null
+	purchased: null,
 };
 
 function ArmorTableHeader({sell}) {
@@ -140,11 +140,11 @@ function ArmorTableHeader({sell}) {
 }
 
 ArmorTableHeader.propTypes = {
-	sell: PropTypes.bool
+	sell: PropTypes.bool,
 };
 
 ArmorTableHeader.defaultProps = {
-	sell: false
+	sell: false,
 };
 
 export default ArmorsComponent;

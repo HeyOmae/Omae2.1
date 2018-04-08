@@ -32,7 +32,7 @@ export default {
 			karma: PropTypes.func.isRequired,
 			purchaseGear: PropTypes.func.isRequired,
 			sellGear: PropTypes.func.isRequired,
-			addSkill: PropTypes.func.isRequired
+			addSkill: PropTypes.func.isRequired,
 		}),
 	appControl: PropTypes.shape(
 		{
@@ -44,13 +44,13 @@ export default {
 			attribute: propTypePriorityCheck.isRequired,
 			magres: propTypePriorityCheck.isRequired,
 			skills: propTypePriorityCheck.isRequired,
-			resources: propTypePriorityCheck.isRequired
+			resources: propTypePriorityCheck.isRequired,
 		}),
 	propTypePriorityCheck,
 	selectMetatype: PropTypes.shape(
 		{
 			typeName: PropTypes.string,
-			priority: propTypePriorityCheck
+			priority: propTypePriorityCheck,
 		}),
 	attributes: PropTypes.shape(
 		{
@@ -67,7 +67,7 @@ export default {
 			augmented: PropTypes.objectOf(PropTypes.number),
 			special: PropTypes.number.isRequired,
 			baseSpent: PropTypes.number.isRequired,
-			specialSpent: PropTypes.number.isRequired
+			specialSpent: PropTypes.number.isRequired,
 		}),
 	selectMagRes: PropTypes.string,
 	settingSkills: PropTypes.shape(
@@ -77,7 +77,7 @@ export default {
 			groups: PropTypes.object.isRequired,
 			magicSkills: PropTypes.array.isRequired,
 			skillPointsSpent: PropTypes.number.isRequired,
-			groupPointSpent: PropTypes.number.isRequired
+			groupPointSpent: PropTypes.number.isRequired,
 		}),
 	spellSelect: PropTypes.shape(
 		{
@@ -85,7 +85,7 @@ export default {
 			powers: PropTypes.array.isRequired,
 			powerPointsSpent: PropTypes.number.isRequired,
 			powerPointsKarma: PropTypes.number.isRequired,
-			complexforms: PropTypes.array.isRequired
+			complexforms: PropTypes.array.isRequired,
 		}),
 	quality: PropTypes.shape(
 		{
@@ -93,12 +93,12 @@ export default {
 			Negative: PropTypes.array.isRequired,
 			karma: PropTypes.shape({
 				Positive: PropTypes.number.isRequired,
-				Negative: PropTypes.number.isRequired
-			}).isRequired
+				Negative: PropTypes.number.isRequired,
+			}).isRequired,
 		}),
 	karma: PropTypes.number,
 	purchaseGear: PropTypes.shape(
 		{
-			nuyen: PropTypes.number.isRequired
-		})
+			nuyen: PropTypes.number.isRequired,
+		}),
 };

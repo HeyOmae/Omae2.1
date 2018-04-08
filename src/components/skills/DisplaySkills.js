@@ -30,12 +30,12 @@ const DisplaySkills = ({activeSkills, actions, attributes, metatype, skillPoints
 
 DisplaySkills.propTypes = {
 	activeSkills: PropTypes.objectOf(
-		PropTypes.object
+		PropTypes.object,
 	).isRequired,
 	actions: PropTypeChecking.actions.isRequired,
 	attributes: PropTypeChecking.attributes.isRequired,
 	metatype: PropTypeChecking.selectMetatype.isRequired,
-	skillPointsLeft: PropTypes.number.isRequired
+	skillPointsLeft: PropTypes.number.isRequired,
 };
 
 function ActiveSkillHeader() {
@@ -122,11 +122,11 @@ ActiveSkillRow.propTypes = {
 	skill: PropTypes.shape({
 		rating: PropTypes.number,
 		attribute: PropTypes.string.isRequired,
-		spec: PropTypes.string
+		spec: PropTypes.string,
 	}).isRequired,
 	actions: PropTypeChecking.actions.isRequired,
 	attribute: PropTypes.number.isRequired,
-	skillPointsLeft: PropTypes.number.isRequired
+	skillPointsLeft: PropTypes.number.isRequired,
 };
 
 export default DisplaySkills;

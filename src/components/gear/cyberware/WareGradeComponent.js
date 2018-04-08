@@ -50,7 +50,7 @@ class WareGradeComponent extends React.Component {
 
 WareGradeComponent.propTypes = {
 	changeGrade: PropTypes.func.isRequired,
-	currentGrade: PropTypes.number.isRequired
+	currentGrade: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = (state) => {

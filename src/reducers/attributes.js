@@ -18,7 +18,7 @@ const initialState = {
 	special: 0,
 	baseSpent: 0,
 	specialSpent: 0,
-	conditionBonus: {}
+	conditionBonus: {},
 };
 
 const attributesReducer = (state = initialState, action) => {
@@ -36,8 +36,8 @@ const attributesReducer = (state = initialState, action) => {
 			state,
 			{
 				[attribute]: nextIncrement,
-				[spend]: state[spend] + 1
-			}
+				[spend]: state[spend] + 1,
+			},
 		);
 		return newState;
 	}
@@ -52,8 +52,8 @@ const attributesReducer = (state = initialState, action) => {
 			state,
 			{
 				[attribute]: nextDecrement,
-				[spend]: state[spend] - 1
-			}
+				[spend]: state[spend] - 1,
+			},
 		);
 		return newState;
 	}
@@ -77,10 +77,10 @@ const attributesReducer = (state = initialState, action) => {
 						{},
 						state.augmented,
 						{
-							[attribute]: nextIncrement
-						}
-					)
-				}
+							[attribute]: nextIncrement,
+						},
+					),
+				},
 			);
 
 			return newState;
@@ -108,10 +108,10 @@ const attributesReducer = (state = initialState, action) => {
 						{},
 						state.augmented,
 						{
-							[attribute]: nextDecrement
-						}
-					)
-				}
+							[attribute]: nextDecrement,
+						},
+					),
+				},
 			);
 		} else {
 			newState = Object.assign(
@@ -120,9 +120,9 @@ const attributesReducer = (state = initialState, action) => {
 				{
 					augmented: Object.assign(
 						{},
-						state.augmented
-					)
-				}
+						state.augmented,
+					),
+				},
 			);
 
 			delete newState.augmented[attribute];
@@ -134,7 +134,7 @@ const attributesReducer = (state = initialState, action) => {
 		if (gear.ess) {
 			return {
 				...state,
-				ess: state.ess + gear.ess
+				ess: state.ess + gear.ess,
 			};
 		}
 
@@ -145,7 +145,7 @@ const attributesReducer = (state = initialState, action) => {
 		if (gear && gear.ess) {
 			return {
 				...state,
-				ess: state.ess - gear.ess
+				ess: state.ess - gear.ess,
 			};
 		}
 

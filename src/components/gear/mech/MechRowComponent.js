@@ -34,11 +34,11 @@ MechRowComponent.propTypes = {
 		page: PropTypes.string.isRequired,
 	}).isRequired,
 	mechButton: PropTypes.node.isRequired,
-	mechMod: PropTypes.node
+	mechMod: PropTypes.node,
 };
 
 MechRowComponent.defaultProps = {
-	mechMod: null
+	mechMod: null,
 };
 
 export default MechRowComponent;

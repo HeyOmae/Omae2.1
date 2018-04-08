@@ -14,7 +14,7 @@ const FreeSkills = ({priorityDataFreeSkills, magicSkills, setMagicSkills}) => {
 			Object.keys(freeSkills).forEach((freeSkillName) => {
 				const freeSkill = freeSkills[freeSkillName].name;
 				freeSkillList.push(
-					<option key={`free-skill--${freeSkill}`}>{freeSkill}</option>
+					<option key={`free-skill--${freeSkill}`}>{freeSkill}</option>,
 				);
 			});
 		} else {
@@ -35,7 +35,7 @@ const FreeSkills = ({priorityDataFreeSkills, magicSkills, setMagicSkills}) => {
 
 			listOfActiveSkills.forEach((activeSkillName) => {
 				freeSkillList.push(
-					<option key={`free-skill--${activeSkillName}`}>{activeSkillName}</option>
+					<option key={`free-skill--${activeSkillName}`}>{activeSkillName}</option>,
 				);
 			});
 		}
@@ -46,7 +46,7 @@ const FreeSkills = ({priorityDataFreeSkills, magicSkills, setMagicSkills}) => {
 					name: skillName,
 					category: 'active',
 					rating: priorityDataFreeSkills.rating,
-					attribute: activeSkillAttribute ? activeSkillAttribute[skillName] : 'mag'
+					attribute: activeSkillAttribute ? activeSkillAttribute[skillName] : 'mag',
 				};
 			}
 
@@ -97,16 +97,16 @@ const FreeSkills = ({priorityDataFreeSkills, magicSkills, setMagicSkills}) => {
 FreeSkills.propTypes = {
 	priorityDataFreeSkills: PropTypes.shape({
 		attribute: PropTypes.string,
-		rating: PropTypes.number
+		rating: PropTypes.number,
 	}),
 	magicSkills: PropTypes.arrayOf(PropTypes.string),
-	setMagicSkills: PropTypes.func
+	setMagicSkills: PropTypes.func,
 };
 
 FreeSkills.defaultProps = {
 	priorityDataFreeSkills: null,
 	magicSkills: null,
-	setMagicSkills: null
+	setMagicSkills: null,
 };
 
 export default FreeSkills;

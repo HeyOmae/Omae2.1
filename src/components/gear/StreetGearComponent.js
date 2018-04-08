@@ -19,8 +19,8 @@ class StreetGearComponent extends React.PureComponent {
 					...gearMemo,
 					[gear.category]: [
 						...(gearMemo[gear.category] || []),
-						gear
-					]
+						gear,
+					],
 				};
 			},
 			organizeGearByType = (keyType) => {
@@ -29,8 +29,8 @@ class StreetGearComponent extends React.PureComponent {
 					return {
 						...mechMemo,
 						[type]: {
-							...organizeGearByCategory((mechMemo[type] || {}), mech)
-						}
+							...organizeGearByCategory((mechMemo[type] || {}), mech),
+						},
 					};
 				};
 			};
@@ -70,7 +70,7 @@ class StreetGearComponent extends React.PureComponent {
 										purchased={purchaseGear[gearCategory]}
 										sellGear={actions.sellGear}
 										category={gearCategory}
-									/>
+									/>,
 								);
 							}
 
@@ -118,10 +118,10 @@ StreetGearComponent.displayName = 'StreetGearComponent';
 // Uncomment properties you need
 StreetGearComponent.propTypes = {
 	actions: PropTypeChecking.actions.isRequired,
-	purchaseGear: PropTypeChecking.purchaseGear
+	purchaseGear: PropTypeChecking.purchaseGear,
 };
 StreetGearComponent.defaultProps = {
-	purchaseGear: null
+	purchaseGear: null,
 };
 
 export default StreetGearComponent;

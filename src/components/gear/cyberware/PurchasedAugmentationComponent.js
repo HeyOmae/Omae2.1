@@ -32,7 +32,7 @@ class PurchasedAugmentationComponent extends React.PureComponent {
 											sellAugment({
 												index,
 												category: 'augmentations',
-												gear: aug
+												gear: aug,
 											});
 										}}
 									>-</button>
@@ -59,14 +59,14 @@ PurchasedAugmentationComponent.propTypes = {
 			avail: PropTypes.string.isRequired,
 			cost: PropTypes.number.isRequired,
 			source: PropTypes.string.isRequired,
-			page: PropTypes.string.isRequired
-		}).isRequired
+			page: PropTypes.string.isRequired,
+		}).isRequired,
 	),
-	sellAugment: PropTypes.func.isRequired
+	sellAugment: PropTypes.func.isRequired,
 };
 
 PurchasedAugmentationComponent.defaultProps = {
-	augmentations: []
+	augmentations: [],
 };
 
 export default PurchasedAugmentationComponent;

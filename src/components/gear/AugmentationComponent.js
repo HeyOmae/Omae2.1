@@ -54,9 +54,9 @@ class AugmentationComponent extends React.PureComponent {
 								)
 								|| []
 							),
-							limb
-						]
-					}
+							limb,
+						],
+					},
 				};
 			};
 
@@ -69,9 +69,9 @@ class AugmentationComponent extends React.PureComponent {
 						:
 						[
 							...(memo[ware.category] || []),
-							ware
+							ware,
 						]
-				)
+				),
 			};
 		}, {});
 
@@ -80,14 +80,14 @@ class AugmentationComponent extends React.PureComponent {
 				...memo,
 				[ware.category]: [
 					...(memo[ware.category] || []),
-					ware
-				]
+					ware,
+				],
 			};
 		}, {});
 
 		this.cyberwareToNotDisplay = [
 			'Cyberlimb',
-			'Cyberlimb Accessory'
+			'Cyberlimb Accessory',
 		];
 	}
 
@@ -140,7 +140,7 @@ class AugmentationComponent extends React.PureComponent {
 											<Ware wares={cyberware[ware]} />
 										}
 									/>
-								)
+								),
 							];
 						}, [])
 					}
@@ -175,17 +175,17 @@ class AugmentationComponent extends React.PureComponent {
 
 AugmentationComponent.propTypes = {
 	augmentations: PropTypes.arrayOf(
-		PropTypes.object.isRequired
+		PropTypes.object.isRequired,
 	),
 	cyberlimbs: PropTypes.arrayOf(
-		PropTypes.object.isRequired
+		PropTypes.object.isRequired,
 	),
-	sellGear: PropTypes.func.isRequired
+	sellGear: PropTypes.func.isRequired,
 };
 
 AugmentationComponent.defaultProps = {
 	augmentations: [],
-	cyberlimbs: []
+	cyberlimbs: [],
 };
 
 export default AugmentationComponent;

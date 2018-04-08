@@ -11,12 +11,31 @@
     "amd": true,
     "es6": true,
     "node": true,
-    "mocha": true,
-    "chai": true
+    "mocha": true
   },
   "extends": "airbnb",
   "rules": {
-    "no-console": 0
+    "no-console": 0,
+    "import/no-extraneous-dependencies": ["off", {"devDependencies": true, "optionalDependencies": true, "peerDependencies": true}],
+    "indent": ["error", "tab", { "ignoredNodes": ["JSXElement *"] }],
+    "no-tabs": ["off"],
+    "one-var": ["off"],
+    "react/jsx-indent": [2, "tab"],
+    "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
+    "import/no-unresolved": ["error", {
+        "ignore": [
+          "config",
+          "components/",
+          "containers/",
+          "stores/",
+          "actions/",
+          "sources/",
+          "styles/",
+          "images/",
+          "~",
+          "data"
+        ]
+    }]
   },
   "globals": {
     "expect": true

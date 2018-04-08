@@ -9,14 +9,14 @@ class GearTableRow extends React.Component {
 
 		this.state = {
 			rating: (props.gear.rating > 0) ? '' : null,
-			currentCost: isCostVariable ? '' : null
+			currentCost: isCostVariable ? '' : null,
 		};
 
 		if (isCostVariable) {
 			const range = props.gear.cost.match(/\d+/g);
 			this.gearCost = {
 				max: range[1],
-				min: range[0]
+				min: range[0],
 			};
 		}
 
@@ -35,18 +35,18 @@ class GearTableRow extends React.Component {
 		}
 
 		this.setState({
-			rating
+			rating,
 		});
 	}
 
 	updateCost({target}) {
 		this.setState({
-			currentCost: isNaN(target.value) ? 0 : Number(target.value)
+			currentCost: isNaN(target.value) ? 0 : Number(target.value),
 		});
 	}
 
 	render() {
-		const { gear, btnAction, btnClass, btnSymbol, } = this.props;
+		const { gear, btnAction, btnClass, btnSymbol } = this.props;
 		return (
 			<tr>
 				<td>
@@ -102,11 +102,11 @@ GearTableRow.propTypes = {
 		avail: PropTypes.string.isRequired,
 		cost: PropTypes.oneOfType([
 			PropTypes.string,
-			PropTypes.number
+			PropTypes.number,
 		]).isRequired,
 		source: PropTypes.string.isRequired,
 		page: PropTypes.string.isRequired,
-		currentRating: PropTypes.number
+		currentRating: PropTypes.number,
 	}).isRequired,
 	btnClass: PropTypes.string.isRequired,
 	btnAction: PropTypes.func.isRequired,

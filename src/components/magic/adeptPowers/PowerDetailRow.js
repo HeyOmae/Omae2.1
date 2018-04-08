@@ -38,7 +38,7 @@ class PowerDetailRow extends React.Component {
 			},
 			default(thing) {
 				return Object.keys(thing).join(', ');
-			}
+			},
 		};
 
 		if (typeof bonus === 'object') {
@@ -104,9 +104,9 @@ PowerDetailRow.propTypes = {
 	actions: PropTypes.shape(
 		{
 			addPower: PropTypes.func.isRequired,
-			removePower: PropTypes.func.isRequired
-		}
-	).isRequired
+			removePower: PropTypes.func.isRequired,
+		},
+	).isRequired,
 };
 
 export default PowerDetailRow;

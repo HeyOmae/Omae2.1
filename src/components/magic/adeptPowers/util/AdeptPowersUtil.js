@@ -6,7 +6,7 @@ const bonusDown = (name, bonusToRemove, decreaseBy, decrementAugmented) => {
 		},
 		default: () => {
 			return null;
-		}
+		},
 	};
 
 	(bonusAction[trimmedName] || bonusAction.default)();
@@ -19,7 +19,7 @@ const bonusUp = (name, bonusToApply, incrementAugmented) => {
 		},
 		default: () => {
 			return null;
-		}
+		},
 	};
 
 	return (bonusAction[name] || bonusAction.default)();

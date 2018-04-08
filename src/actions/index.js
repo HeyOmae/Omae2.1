@@ -82,7 +82,7 @@ const actions = {
 	moddingCapacity,
 	demoddingCapacity,
 	selectGrade,
-	modalClose
+	modalClose,
 };
 
 module.exports = actions;

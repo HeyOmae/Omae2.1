@@ -47,7 +47,7 @@ const CyberlimbMods = ({index, modList, cyberlimbs, modGear, demodGear}) => {
 													modGear={modGear}
 													demodGear={demodGear}
 												/>
-											)
+											),
 										];
 									}
 									return memo;
@@ -66,12 +66,12 @@ CyberlimbMods.propTypes = {
 	modList: PropTypes.objectOf(
 		PropTypes.oneOfType([
 			PropTypes.object,
-			PropTypes.array
-		]).isRequired
+			PropTypes.array,
+		]).isRequired,
 	).isRequired,
 	cyberlimbs: PropTypes.arrayOf(PropTypes.object).isRequired,
 	modGear: PropTypes.func.isRequired,
-	demodGear: PropTypes.func.isRequired
+	demodGear: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => {

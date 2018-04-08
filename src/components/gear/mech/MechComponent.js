@@ -58,7 +58,7 @@ class MechComponent extends React.Component {
 																() => {
 																	purchaseMechAction({
 																		gear: mech,
-																		category: classOfMechs
+																		category: classOfMechs,
 																	});
 																}
 															}
@@ -161,7 +161,7 @@ const mechType = PropTypes.shape({
 MechComponent.propTypes = {
 	classOfMechs: PropTypes.oneOf(['Vehicles', 'Drones']).isRequired,
 	mechsByType: PropTypes.objectOf(
-		PropTypes.arrayOf(mechType).isRequired
+		PropTypes.arrayOf(mechType).isRequired,
 	).isRequired,
 	purchaseMechAction: PropTypes.func.isRequired,
 	purchasedMech: PropTypes.arrayOf(mechType),
@@ -173,13 +173,13 @@ MechComponent.propTypes = {
 			avail: PropTypes.string.isRequired,
 			cost: PropTypes.string.isRequired,
 			source: PropTypes.string.isRequired,
-			page: PropTypes.string.isRequired
-		}).isRequired).isRequired
-	).isRequired
+			page: PropTypes.string.isRequired,
+		}).isRequired).isRequired,
+	).isRequired,
 };
 
 MechComponent.defaultProps = {
-	purchasedMech: null
+	purchasedMech: null,
 };
 
 export {MechComponent};

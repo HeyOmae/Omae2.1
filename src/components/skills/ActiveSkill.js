@@ -7,7 +7,7 @@ function ActiveSkill({
 	skillList,
 	actions,
 	skillPointsLeft,
-	restrictedSkills
+	restrictedSkills,
 }) {
 	// Helper Functions
 	// TODO: Think of a way to move all the helpers out of the activeSkill Component
@@ -55,7 +55,7 @@ function ActiveSkill({
 						<th>Ref</th>
 					</tr>
 				),
-				body: skillTableData
+				body: skillTableData,
 			}} />
 	);
 }
@@ -64,7 +64,7 @@ ActiveSkill.propTypes = {
 	skillList: PropTypes.objectOf(PropTypes.object).isRequired,
 	actions: PropTypeChecking.actions.isRequired,
 	skillPointsLeft: PropTypes.number.isRequired,
-	restrictedSkills: PropTypes.bool.isRequired
+	restrictedSkills: PropTypes.bool.isRequired,
 };
 
 function ActiveSkillTableRow({
@@ -73,7 +73,7 @@ function ActiveSkillTableRow({
 	defaultable,
 	restrictedSkills,
 	addSkill,
-	references
+	references,
 }) {
 	return (
 		<tr className={restrictedSkills ? 'table-danger ' : ''}>

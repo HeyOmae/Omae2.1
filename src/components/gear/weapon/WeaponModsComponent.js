@@ -65,12 +65,12 @@ WeaponModsComponent.propTypes = {
 		PropTypes.shape({
 			name: PropTypes.string.isRequired,
 			accessorymounts: PropTypes.objectOf(PropTypes.arrayOf(PropTypes.string)),
-			cost: PropTypes.string.isRequired
-		})
+			cost: PropTypes.string.isRequired,
+		}),
 	).isRequired,
 	weaponSlotModding: PropTypes.func.isRequired,
 	slotlessModding: PropTypes.func.isRequired,
-	slotlessDemodding: PropTypes.func.isRequired
+	slotlessDemodding: PropTypes.func.isRequired,
 };
 
 // Helper function
@@ -93,15 +93,15 @@ function WeaponMultiModding({ weaponName, weaponCost, mod, mods, slotlessModding
 							slot: 'slotless',
 							mod: {
 								...mod,
-								cost: modCost
-							}
+								cost: modCost,
+							},
 						});
 					} else {
 						slotlessDemodding({
 							index,
 							category: 'weapons',
 							slot: 'slotless',
-							demodName: name
+							demodName: name,
 						});
 					}
 				}}
@@ -120,15 +120,15 @@ WeaponMultiModding.propTypes = {
 	weaponCost: PropTypes.string.isRequired,
 	mod: PropTypes.shape({
 		name: PropTypes.string,
-		cost: PropTypes.string
+		cost: PropTypes.string,
 	}).isRequired,
 	mods: PropTypes.objectOf(PropTypes.object),
 	slotlessModding: PropTypes.func.isRequired,
 	slotlessDemodding: PropTypes.func.isRequired,
-	index: PropTypes.number.isRequired
+	index: PropTypes.number.isRequired,
 };
 WeaponMultiModding.defaultProps = {
-	mods: {}
+	mods: {},
 };
 
 function WeaponModOptionsSelect({ weaponName, mountLocation, mods, weaponSlotModding, index, weaponModLists}) {
@@ -144,7 +144,7 @@ function WeaponModOptionsSelect({ weaponName, mountLocation, mods, weaponSlotMod
 					index,
 					category: 'weapons',
 					slot: mountLocation,
-					mod
+					mod,
 				});
 			}}
 			value={(mods[mountLocation] && mods[mountLocation].name) || ''}
@@ -163,16 +163,16 @@ WeaponModOptionsSelect.propTypes = {
 	mods: PropTypes.objectOf(PropTypes.object),
 	weaponSlotModding: PropTypes.func.isRequired,
 	index: PropTypes.number.isRequired,
-	weaponModLists: PropTypes.objectOf(PropTypes.array).isRequired
+	weaponModLists: PropTypes.objectOf(PropTypes.array).isRequired,
 };
 WeaponModOptionsSelect.defaultProps = {
 	mods: {},
-	multiple: false
+	multiple: false,
 };
 
 const mapStateToProps = (state) => {
 	return {
-		weapons: state.purchaseGear.weapons
+		weapons: state.purchaseGear.weapons,
 	};
 };
 

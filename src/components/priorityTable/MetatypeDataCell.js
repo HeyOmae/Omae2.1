@@ -38,7 +38,7 @@ class MetatypeDataCell extends React.Component {
 						changePriority({
 							type: 'SET_PRIORITY',
 							category: 'metatype',
-							rating
+							rating,
 						});
 					}}>
 					<ul>
@@ -54,7 +54,7 @@ class MetatypeDataCell extends React.Component {
 MetatypeDataCell.propTypes = {
 	changePriority: PropTypes.func.isRequired,
 	active: PropTypes.bool.isRequired,
-	rating: PropTypes.string.isRequired
+	rating: PropTypes.string.isRequired,
 };
 
 export default MetatypeDataCell;

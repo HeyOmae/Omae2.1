@@ -31,7 +31,7 @@ class GearComponent extends React.PureComponent {
 					<FilterTable
 						tableData={{
 							header: <GearTableHeader />,
-							body: gearRows
+							body: gearRows,
 						}}
 					/>
 				}
@@ -46,7 +46,7 @@ class GearComponent extends React.PureComponent {
 			this.props.purchaseGear({
 				gear: (state.currentCost === null) ? gear : {...gear, cost: state.currentCost},
 				category: gear.category,
-				Rating
+				Rating,
 			});
 		};
 	}
@@ -65,14 +65,14 @@ GearComponent.propTypes = {
 			cost: PropTypes.string.isRequired,
 			source: PropTypes.string.isRequired,
 			page: PropTypes.string.isRequired,
-		}).isRequired
+		}).isRequired,
 	).isRequired,
 	category: PropTypes.string.isRequired,
-	purchaseGear: PropTypes.func.isRequired
+	purchaseGear: PropTypes.func.isRequired,
 };
 
 GearComponent.defaultProps = {
-	purchased: null
+	purchased: null,
 };
 
 function GearTableHeader() {

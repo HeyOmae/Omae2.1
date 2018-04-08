@@ -12,7 +12,7 @@ const CyberlimbRows = ({purchase, cyberlimb, currentGrade, availModifier, agi, s
 			str,
 			ess: ess * Number(grade.ess),
 			avail: currentAvail > 0 ? currentAvail : 0,
-			cost: (cost * Number(grade.cost)) + (availModifier * 5000)
+			cost: (cost * Number(grade.cost)) + (availModifier * 5000),
 		};
 	return (
 		<tr>
@@ -23,7 +23,7 @@ const CyberlimbRows = ({purchase, cyberlimb, currentGrade, availModifier, agi, s
 						() => {
 							purchase({
 								gear: customLimb,
-								category: 'cyberlimbs'
+								category: 'cyberlimbs',
 							});
 						}
 					}
@@ -55,7 +55,7 @@ CyberlimbRows.propTypes = {
 	currentGrade: PropTypes.number.isRequired,
 	agi: PropTypes.number.isRequired,
 	str: PropTypes.number.isRequired,
-	availModifier: PropTypes.number.isRequired
+	availModifier: PropTypes.number.isRequired,
 };
 
 export default CyberlimbRows;

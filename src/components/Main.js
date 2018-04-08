@@ -24,7 +24,7 @@ const AppComponent = ({style}) => {
 };
 
 AppComponent.propTypes = {
-	style: PropTypes.func.isRequired
+	style: PropTypes.func.isRequired,
 };
 
 export default AppComponent;

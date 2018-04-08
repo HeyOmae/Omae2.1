@@ -16,7 +16,7 @@ const KarmaReducer = (state = initialState, action) => {
 			return prevState + karmaOldCost - karmaNewCost;
 		},
 
-		DEFAULT(prevState) { return prevState; }
+		DEFAULT(prevState) { return prevState; },
 	};
 	return (actionsToTake[action.type] || actionsToTake.DEFAULT)(state, action.parameter);
 };

@@ -51,7 +51,7 @@ class MagicDataCell extends React.Component {
 						changePriority({
 							type: 'SET_PRIORITY',
 							category: 'magres',
-							rating
+							rating,
 						});
 					}}>
 					{this.magicStatBlock}
@@ -64,7 +64,7 @@ class MagicDataCell extends React.Component {
 MagicDataCell.propTypes = {
 	changePriority: PropTypes.func.isRequired,
 	isActive: PropTypes.string.isRequired,
-	rating: PropTypes.string.isRequired
+	rating: PropTypes.string.isRequired,
 };
 
 export default MagicDataCell;

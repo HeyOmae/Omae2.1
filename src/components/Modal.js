@@ -58,12 +58,12 @@ ModalComponent.propTypes = {
 	modalName: PropTypes.string.isRequired,
 	modalContent: PropTypes.node,
 	children: PropTypes.node,
-	closeModal: PropTypes.func.isRequired
+	closeModal: PropTypes.func.isRequired,
 };
 
 ModalComponent.defaultProps = {
 	modalContent: null,
-	children: null
+	children: null,
 };
 
 export default ModalComponent;

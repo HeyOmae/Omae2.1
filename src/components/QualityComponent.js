@@ -13,7 +13,7 @@ class QualityComponent extends React.PureComponent {
 
 		this.qualitiesTableRow = {
 			Positive: [],
-			Negative: []
+			Negative: [],
 		};
 
 		const generateQualityTableRow = (quality, button) => {
@@ -119,7 +119,7 @@ const QualityHeader = ({buttonType}) => {
 };
 
 QualityHeader.propTypes = {
-	buttonType: PropTypes.string.isRequired
+	buttonType: PropTypes.string.isRequired,
 };
 
 const QualityTable = ({tableRows}) => {
@@ -130,7 +130,7 @@ const QualityTable = ({tableRows}) => {
 		),
 		tableData = {
 			header,
-			body: tableRows
+			body: tableRows,
 		};
 	return (
 		<div className="col">
@@ -140,7 +140,7 @@ const QualityTable = ({tableRows}) => {
 };
 
 QualityTable.propTypes = {
-	tableRows: PropTypes.arrayOf(PropTypes.element).isRequired
+	tableRows: PropTypes.arrayOf(PropTypes.element).isRequired,
 };
 
 
@@ -150,7 +150,7 @@ QualityComponent.displayName = 'QualityComponent';
 QualityComponent.propTypes = {
 	actions: propTypeChecking.actions.isRequired,
 	selectedQualities: propTypeChecking.quality.isRequired,
-	karma: PropTypes.number.isRequired
+	karma: PropTypes.number.isRequired,
 };
 // QualityComponent.defaultProps = {};
 

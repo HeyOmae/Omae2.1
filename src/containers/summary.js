@@ -1,5 +1,5 @@
 import React, {
-	Component
+	Component,
 } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -39,7 +39,7 @@ class summary extends Component {
 				spellSelect,
 				quality,
 				karma,
-				purchaseGear
+				purchaseGear,
 			} = this.props,
 
 			karmaTotal = karma - spellSelect.powerPointsKarma;
@@ -71,7 +71,7 @@ summary.propTypes = {
 	spellSelect: PropTypeChecking.spellSelect.isRequired,
 	quality: PropTypeChecking.quality.isRequired,
 	karma: PropTypeChecking.karma.isRequired,
-	purchaseGear: PropTypeChecking.purchaseGear.isRequired
+	purchaseGear: PropTypeChecking.purchaseGear.isRequired,
 };
 
 function mapStateToProps(state) {
@@ -85,14 +85,14 @@ function mapStateToProps(state) {
 		spellSelect: state.spellSelect,
 		quality: state.quality,
 		karma: state.karma,
-		purchaseGear: state.purchaseGear
+		purchaseGear: state.purchaseGear,
 	};
 	return props;
 }
 
 function mapDispatchToProps(dispatch) {
 	const actions = {
-		fixSummary
+		fixSummary,
 	};
 	const actionMap = { actions: bindActionCreators(actions, dispatch) };
 	return actionMap;

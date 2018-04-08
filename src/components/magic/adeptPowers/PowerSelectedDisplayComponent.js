@@ -20,9 +20,9 @@ class PowerSelectedDisplay extends React.Component {
 							const index = currentChildren.length;
 							return [
 								...currentChildren,
-								<PowerDetailRow key={power.name + index} power={power} index={index} {...{pointsSpent, maxPoints, actions, isMystic}} add={false} />
+								<PowerDetailRow key={power.name + index} power={power} index={index} {...{pointsSpent, maxPoints, actions, isMystic}} add={false} />,
 							];
-						}, []
+						}, [],
 					)}
 				</DisplayTable>
 			</div>
@@ -35,7 +35,7 @@ PowerSelectedDisplay.propTypes = {
 	selectedPowers: PropTypes.arrayOf(PropTypes.object).isRequired,
 	pointsSpent: PropTypes.number.isRequired,
 	maxPoints: PropTypes.number.isRequired,
-	isMystic: PropTypes.bool.isRequired
+	isMystic: PropTypes.bool.isRequired,
 };
 
 export default PowerSelectedDisplay;

@@ -123,7 +123,7 @@ Name | Rating | Ref
 		return `
 ${gear.name} | ${gear.currentRating || 'N/A'} | ${gear.source} p${gear.page}`;
 	}).join()}`;
-		}
+		},
 	};
 
 	Object.keys(purchaseGear).forEach((gearCategoryName) => {
@@ -234,7 +234,7 @@ ${activeSkills}
 	const clickAction = () => {
 		actions.modalOpen({
 			modalName: 'Export.reddit',
-			modalContent: exportField
+			modalContent: exportField,
 		});
 	};
 	return (
@@ -261,12 +261,12 @@ RedditComponent.propTypes = {
 	qualities: PropTypeChecking.quality.isRequired,
 	karma: PropTypeChecking.karma.isRequired,
 	purchaseGear: PropTypeChecking.purchaseGear.isRequired,
-	actions: PropTypes.objectOf(PropTypes.func).isRequired
+	actions: PropTypes.objectOf(PropTypes.func).isRequired,
 };
 
 function mapDispatchToProps(dispatch) {
 	const actions = {
-		modalOpen
+		modalOpen,
 	};
 	const actionMap = { actions: bindActionCreators(actions, dispatch) };
 	return actionMap;

@@ -47,7 +47,7 @@ import {
 	demoddingMulti,
 	moddingCapacity,
 	demoddingCapacity,
-	modalClose
+	modalClose,
 } from '../actions/';
 import Main from '../components/Main';
 import PriorityTableComponent from '../components/priorityTable/PriorityTableComponent';
@@ -145,8 +145,8 @@ App.propTypes = {
 	styleTheme: PropTypes.string.isRequired,
 	modalInfo: PropTypes.shape({
 		modalName: PropTypes.string,
-		modalContent: PropTypes.object
-	})
+		modalContent: PropTypes.object,
+	}),
 };
 
 function mapStateToProps(state) {
@@ -162,7 +162,7 @@ function mapStateToProps(state) {
 		karmaState: state.karma,
 		purchaseGearState: state.purchaseGear,
 		styleTheme: state.appControl.styleTheme,
-		modalInfo: state.modalToggle
+		modalInfo: state.modalToggle,
 	};
 	return props;
 }
@@ -204,7 +204,7 @@ function mapDispatchToProps(dispatch) {
 		demoddingMulti,
 		moddingCapacity,
 		demoddingCapacity,
-		modalClose
+		modalClose,
 	};
 	const actionMap = { actions: bindActionCreators(actions, dispatch) };
 	return actionMap;

@@ -16,13 +16,13 @@ class AttributesComponent extends React.PureComponent {
 				base: {
 					incBtn: [],
 					display: [],
-					decBtn: []
+					decBtn: [],
 				},
 				special: {
 					incBtn: [],
 					display: [],
-					decBtn: []
-				}
+					decBtn: [],
+				},
 			},
 			attibutePointsLeft = priorityData[priorityRating].attributes - attributes.baseSpent,
 			specialPointsLeft = priorityData[metatypeRating].metatype[metatype.typeName].special - attributes.specialSpent,
@@ -58,12 +58,12 @@ class AttributesComponent extends React.PureComponent {
 					modificationFunction={actions.incrementAttribute}
 					attType={`${attType}Spent`}
 					symbol="+"
-				/></td>
+				/></td>,
 			);
 			attributeElements[attType].display.push(
 				<td key={`display-${att}`} className={attributes[att] > maxAtt ? 'table-danger' : ''}>
 					{currentAtt}/{maxAtt}{attributes.augmented[att] ? `(${attributes.augmented[att] + currentAtt})` : null}
-				</td>
+				</td>,
 			);
 			attributeElements[attType].decBtn.push(<td key={`decBtn-${att}`}>
 				<ModificationButton
@@ -73,7 +73,7 @@ class AttributesComponent extends React.PureComponent {
 					maxPoints={maxPoints}
 					attType={`${attType}Spent`}
 					symbol="-"
-				/></td>
+				/></td>,
 			);
 		}
 
@@ -155,7 +155,7 @@ AttributesComponent.propTypes = {
 	priorityRating: PropTypeChecking.propTypePriorityCheck.isRequired,
 	metatypeRating: PropTypeChecking.propTypePriorityCheck.isRequired,
 	magicPriority: PropTypeChecking.propTypePriorityCheck.isRequired,
-	actions: PropTypeChecking.actions.isRequired
+	actions: PropTypeChecking.actions.isRequired,
 };
 
 AttributesComponent.displayName = 'AttributesComponent';
