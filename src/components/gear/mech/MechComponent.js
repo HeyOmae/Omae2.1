@@ -28,11 +28,110 @@ const MechHeader = () => {
 };
 
 class MechComponent extends React.Component {
+	constructor(props) {
+		super(props);
+
+		this.generatePurchasedMechs = this.generatePurchasedMechs.bind(this);
+	}
+
 	componentWillMount() {
 		this.modalContent = {};
 	}
+
+	generateMechMods(mech) {
+		const { mechMods } = this.props;
+		return Object.keys(mechMods).map(
+			(modType) => {
+				return (
+					<div key={modType}>
+						<h4>{modType}</h4>
+						<FilterableTable
+							header={
+								<tr>
+									<th>Name</th>
+									<th>Rating</th>
+									<th>Slot</th>
+									<th>Avail</th>
+									<th>Cost</th>
+									<th>Ref</th>
+								</tr>
+							}
+						>
+							{mechMods[modType].map((mod) => {
+								return (
+									<MechModRow
+										key={`${mech.name}--${modType}-${mod.name}`}
+										mod={mod}
+										mech={mech}
+									/>
+								);
+							})}
+						</FilterableTable>
+					</div>
+				);
+			},
+		);
+	}
+
+	generateMechTable(mechsByType, typeName) {
+		const {purchaseMechAction, classOfMechs} = this.props;
+		return (
+			<FilterableTable
+				header={<MechHeader />}
+				>
+				{mechsByType[typeName].map((mech) => {
+					return (
+						<MechRow
+							key={`${typeName}-${mech.name}-${mech.source}`}
+							mech={mech}
+							mechButton={
+								<button
+									className="btn btn-success"
+									onClick={
+										() => {
+											purchaseMechAction({
+												gear: mech,
+												category: classOfMechs,
+											});
+										}
+									}
+								>+</button>
+							}
+						/>
+					);
+				})}
+			</FilterableTable>
+		);
+	}
+
+	generatePurchasedMechs(mech, index) {
+		const {classOfMechs, sellMechAction} = this.props;
+		return (
+			<MechRow
+				key={`purchased-${classOfMechs}-${mech.name + index}`}
+				mech={mech}
+				mechButton={
+					<button
+						className="btn btn-warning"
+						onClick={() => {
+							sellMechAction({index, category: classOfMechs});
+						}}
+					>-</button>
+				}
+				mechMod={
+					<ModalButton
+						modalName={mech.name}
+						modalContent={
+							this.generateMechMods(mech)
+						}
+					/>
+				}
+			/>
+		);
+	}
+
 	render() {
-		const {classOfMechs, mechsByType, purchaseMechAction, sellMechAction, purchasedMech, mechMods} = this.props;
+		const {classOfMechs, mechsByType, purchasedMech} = this.props;
 		return (
 			<div className="row">
 				<div className="col">
@@ -43,31 +142,7 @@ class MechComponent extends React.Component {
 								key={`${classOfMechs}-${typeName}`}
 								modalName={typeName}
 								modalContent={
-									<FilterableTable
-										header={<MechHeader />}
-									>
-										{mechsByType[typeName].map((mech) => {
-											return (
-												<MechRow
-													key={`${typeName}-${mech.name}-${mech.source}`}
-													mech={mech}
-													mechButton={
-														<button
-															className="btn btn-success"
-															onClick={
-																() => {
-																	purchaseMechAction({
-																		gear: mech,
-																		category: classOfMechs,
-																	});
-																}
-															}
-														>+</button>
-													}
-												/>
-											);
-										})}
-									</FilterableTable>
+									this.generateMechTable(mechsByType, typeName)
 								}
 							/>
 						);
@@ -79,60 +154,7 @@ class MechComponent extends React.Component {
 							<DisplayTable
 								header={<MechHeader />}
 							>
-								{
-									purchasedMech.map((mech, index) => {
-										return (
-											<MechRow
-												key={`purchased-${classOfMechs}-${mech.name + index}`}
-												mech={mech}
-												mechButton={
-													<button
-														className="btn btn-warning"
-														onClick={() => {
-															sellMechAction({index, category: classOfMechs});
-														}}
-													>-</button>
-												}
-												mechMod={
-													<ModalButton
-														modalName={mech.name}
-														modalContent={
-															Object.keys(mechMods).map((modType) => {
-																return (
-																	<div key={modType}>
-																		<h4>{modType}</h4>
-																		<FilterableTable
-																			header={
-																				<tr>
-																					<th>Name</th>
-																					<th>Rating</th>
-																					<th>Slot</th>
-																					<th>Avail</th>
-																					<th>Cost</th>
-																					<th>Ref</th>
-																				</tr>
-																			}
-																		>
-																			{mechMods[modType].map((mod) => {
-																				return (
-																					<MechModRow
-																						key={`${mech.name}--${modType}-${mod.name}`}
-																						mod={mod}
-																						mech={mech}
-																					/>
-																				);
-																			})}
-																		</FilterableTable>
-																	</div>
-																);
-															})
-														}
-													/>
-												}
-											/>
-										);
-									})
-								}
+								{purchasedMech.map(this.generatePurchasedMechs)}
 							</DisplayTable>
 						</div>
 					)
