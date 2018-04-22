@@ -32,6 +32,8 @@ class MechComponent extends React.Component {
 		super(props);
 
 		this.generatePurchasedMechs = this.generatePurchasedMechs.bind(this);
+
+		this.modsToNotDisplay = ['Vehicle Weapon Mount', 'Model-Specific'];
 	}
 
 	componentWillMount() {
@@ -40,36 +42,39 @@ class MechComponent extends React.Component {
 
 	generateMechMods(mech) {
 		const { mechMods } = this.props;
-		return Object.keys(mechMods).map(
-			(modType) => {
-				return (
-					<div key={modType}>
-						<h4>{modType}</h4>
-						<FilterableTable
-							header={
-								<tr>
-									<th>Name</th>
-									<th>Rating</th>
-									<th>Slot</th>
-									<th>Avail</th>
-									<th>Cost</th>
-									<th>Ref</th>
-								</tr>
-							}
-						>
-							{mechMods[modType].map((mod) => {
-								return (
-									<MechModRow
-										key={`${mech.name}--${modType}-${mod.name}`}
-										mod={mod}
-										mech={mech}
-									/>
-								);
-							})}
-						</FilterableTable>
-					</div>
-				);
-			},
+		return Object.keys(mechMods).reduce(
+			(memo, modType) => {
+				return this.modsToNotDisplay.indexOf(modType) !== -1 ? memo : [
+					...memo,
+					(
+						<div key={modType}>
+							<h4>{modType}</h4>
+							<FilterableTable
+								header={
+									<tr>
+										<th>Name</th>
+										<th>Rating</th>
+										<th>Slot</th>
+										<th>Avail</th>
+										<th>Cost</th>
+										<th>Ref</th>
+									</tr>
+								}
+							>
+								{mechMods[modType].map((mod) => {
+									return (
+										<MechModRow
+											key={`${mech.name}--${modType}-${mod.name}`}
+											mod={mod}
+											mech={mech}
+										/>
+									);
+								})}
+							</FilterableTable>
+						</div>
+					),
+				];
+			}, [],
 		);
 	}
 
