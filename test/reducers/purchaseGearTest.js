@@ -693,43 +693,43 @@ describe('purchaseGear', () => {
 			cost: '250',
 			source: 'SR5',
 			page: '438'
-		},
-			thermalDamp = {
-			id: 'ba32a6e9-4e6f-47fe-8fd7-c3194a5174d6',
-			name: 'Thermal Damping',
-			category: 'General',
-			armor: '0',
-			maxrating: '6',
-			armorcapacity: 'FixedValues([1],[2],[3],[4],[5],[6])',
-			avail: '10R',
-			cost: 'Rating * 500',
-			source: 'SR5',
-			page: '438'
-		},
-			enhanceStr = {
-			id: 'a9f4efd4-b86c-4e90-b0f7-aefa32c3b9de',
-			name: 'Enhanced Strength',
-			category: 'Cyberlimb Enhancement',
-			ess: '0',
-			capacity: '[Rating * 1]',
-			avail: '(Rating * 3)R',
-			cost: 'Rating * 6500',
-			source: 'SR5',
-			page: '456',
-			rating: '3'
-		},
-			bulkMod = {
-			id: '85bd6c32-d0c3-4d1b-99ad-833aad376a54',
-			name: 'Bulk Modification',
-			category: 'Cyberlimb Enhancement',
-			ess: '0',
-			capacity: '[-Rating]',
-			avail: '+Rating',
-			cost: 'Rating * 500',
-			source: 'CF',
-			page: '86',
-			rating: '6'
-		};
+			},
+				thermalDamp = {
+				id: 'ba32a6e9-4e6f-47fe-8fd7-c3194a5174d6',
+				name: 'Thermal Damping',
+				category: 'General',
+				armor: '0',
+				maxrating: '6',
+				armorcapacity: 'FixedValues([1],[2],[3],[4],[5],[6])',
+				avail: '10R',
+				cost: 'Rating * 500',
+				source: 'SR5',
+				page: '438'
+			},
+				enhanceStr = {
+				id: 'a9f4efd4-b86c-4e90-b0f7-aefa32c3b9de',
+				name: 'Enhanced Strength',
+				category: 'Cyberlimb Enhancement',
+				ess: '0',
+				capacity: '[Rating * 1]',
+				avail: '(Rating * 3)R',
+				cost: 'Rating * 6500',
+				source: 'SR5',
+				page: '456',
+				rating: '3'
+			},
+				bulkMod = {
+				id: '85bd6c32-d0c3-4d1b-99ad-833aad376a54',
+				name: 'Bulk Modification',
+				category: 'Cyberlimb Enhancement',
+				ess: '0',
+				capacity: '[-Rating]',
+				avail: '+Rating',
+				cost: 'Rating * 500',
+				source: 'CF',
+				page: '86',
+				rating: '6'
+			};
 
 		it('should add a mod and add capacity based off of the mod', () => {
 			const newState = reducer(state, {type: 'MODDING_CAPACITY', parameter: {index: 0, category: 'armors', mod: shockFrills}});
@@ -978,6 +978,37 @@ describe('purchaseGear', () => {
 			expect(state.cyberlimbs[2].mods['Fiberoptic Hair']).to.not.be.undefined;
 			expect(state.cyberlimbs[2].currentCapacity).to.equal(-5);
 			expect(state.cyberlimbs[2].currentCost).to.equal(18800);
+			expect(state.nuyen).to.equal(3350);
+		});
+	});
+
+	describe('MODDING_VEHICLE', () => {
+		const accel = {
+			id: '6ac249ee-84c0-498f-9377-149ccbc2f959',
+			name: 'Acceleration Enhancement',
+			page: '154',
+			source: 'R5',
+			avail: '6',
+			category: 'Powertrain',
+			cost: 'FixedValues(Acceleration * 10000,Acceleration * 25000)',
+			rating: '2',
+			slots: 'FixedValues(4,8)',
+			bonus: {
+				accel: '+Rating',
+				offroadaccel: '+Rating',
+			},
+		};
+
+		it('should add a mod on a vehicle and add the slot to the rating', () => {
+			const newState = reducer(state, { type: 'MODDING_VEHICLE', parameter: { index: 0, category: 'vehicles', mod: accel } });
+
+			expect(newState.vehicles[0].mods.Powertrain['Acceleration Enhancement']).to.equal(accel);
+			expect(newState.vehicles[0].currentCost).to.equal(13000);
+			expect(newState.nuyen).to.equal(16600);
+			expect(newState.vehicles[0].mods.Powertrain.currentRating).to.equal(4);
+
+			expect(state.vehicles[0].mods).to.be.undefined;
+			expect(state.vehicles[0].currentCost).to.be.undefined;
 			expect(state.nuyen).to.equal(3350);
 		});
 	});

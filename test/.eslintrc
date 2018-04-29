@@ -16,6 +16,7 @@
   "extends": "airbnb",
   "rules": {
     "no-console": 0,
+    "no-unused-expressions": "off",
     "import/no-extraneous-dependencies": ["off", {"devDependencies": true, "optionalDependencies": true, "peerDependencies": true}],
     "indent": ["error", "tab", { "ignoredNodes": ["JSXElement *"] }],
     "no-tabs": ["off"],
