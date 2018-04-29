@@ -45,16 +45,16 @@ describe('purchaseGear', () => {
 						'Internal',
 						'Barrel',
 						'Top',
-						'Under'
-					]
+						'Under',
+					],
 				},
 				accessories: {
 					accessory: {
-						name: 'Smartgun System, Internal'
-					}
+						name: 'Smartgun System, Internal',
+					},
 				},
 				source: 'SR5',
-				page: '428'
+				page: '428',
 			},
 			{
 				id: '67474de7-d29b-4b31-a6ae-1e2e981fa5d2',
@@ -76,8 +76,8 @@ describe('purchaseGear', () => {
 				accessorymounts: {
 					mount: [
 						'Barrel',
-						'Top'
-					]
+						'Top',
+					],
 				},
 				source: 'SR5',
 				page: '425',
@@ -91,7 +91,7 @@ describe('purchaseGear', () => {
 						avail: '9R',
 						cost: '600',
 						source: 'SR5',
-						page: '431'
+						page: '431',
 					},
 					slotless: {
 						'Trigger Removal': {
@@ -102,7 +102,7 @@ describe('purchaseGear', () => {
 							avail: '2',
 							cost: '50',
 							source: 'HT',
-							page: '182'
+							page: '182',
 						},
 						'Gecko Grip': {
 							id: '627f212a-ac15-4739-afbc-f44676dfe508',
@@ -111,11 +111,11 @@ describe('purchaseGear', () => {
 							avail: '6',
 							cost: '100',
 							source: 'RG',
-							page: '52'
-						}
-					}
+							page: '52',
+						},
+					},
 				},
-				currentCost: 950
+				currentCost: 950,
 			}],
 			armors: [{
 				id: '5a650844-8f24-48e7-829f-0443d9ff5cf7',
@@ -156,16 +156,16 @@ describe('purchaseGear', () => {
 						currentCost: 1250
 					},
 					'Faraday Pocket': {
-						id: "c3ea670b-45e7-4b75-a85d-1801c91d1c8c",
-						name: "Faraday Pocket",
-						category: "General",
-						armor: "0",
-						maxrating: "1",
-						armorcapacity: "[1]",
-						avail: "7R",
-						cost: "50",
-						source: "HT",
-						page: "185"
+						id: 'c3ea670b-45e7-4b75-a85d-1801c91d1c8c',
+						name: 'Faraday Pocket',
+						category: 'General',
+						armor: '0',
+						maxrating: '1',
+						armorcapacity: '[1]',
+						avail: '7R',
+						cost: '50',
+						source: 'HT',
+						page: '185'
 					}
 				}
 			},
@@ -199,77 +199,77 @@ describe('purchaseGear', () => {
 				}
 			}],
 			cyberlimbs: [{
-				id: "df01eed6-a019-4198-b88d-4ba8f9aaefdf",
-				name: "Broken Obvious Full Arm",
-				category: "Cyberlimb",
-				ess: "1",
-				capacity: "3",
-				avail: "4",
-				cost: "15000",
-				source: "SR5",
-				page: "456",
+				id: 'df01eed6-a019-4198-b88d-4ba8f9aaefdf',
+				name: 'Broken Obvious Full Arm',
+				category: 'Cyberlimb',
+				ess: '1',
+				capacity: '3',
+				avail: '4',
+				cost: '15000',
+				source: 'SR5',
+				page: '456',
 				allowgear: {
-					gearcategory: "Sensors"
+					gearcategory: 'Sensors',
 				},
 				allowsubsystems: {
 					category: [
-						"Bodyware",
-						"Cosmetic Enhancement",
-						"Cyberlimb Enhancement",
-						"Cyberlimb Accessory",
-						"Cyber Implant Weapon",
-						"Headware",
-						"Nanocybernetics"
+						'Bodyware',
+						'Cosmetic Enhancement',
+						'Cyberlimb Enhancement',
+						'Cyberlimb Accessory',
+						'Cyber Implant Weapon',
+						'Headware',
+						'Nanocybernetics'
 					]
 				},
 				bonus: {
 					conditionmonitor: {
-						physical: "1"
+						physical: '1'
 					}
 				},
-				limbslot: "arm"
+				limbslot: 'arm'
 			}, {
-				id: "df01eed6-a019-4198-b88d-4ba8f9aaefdf",
-				name: "Broken Obvious Full Arm",
-				category: "Cyberlimb",
-				ess: "1",
-				capacity: "2",
-				avail: "4",
-				cost: "15000",
-				source: "SR5",
-				page: "456",
+				id: 'df01eed6-a019-4198-b88d-4ba8f9aaefdf',
+				name: 'Broken Obvious Full Arm',
+				category: 'Cyberlimb',
+				ess: '1',
+				capacity: '2',
+				avail: '4',
+				cost: '15000',
+				source: 'SR5',
+				page: '456',
 				allowgear: {
-					gearcategory: "Sensors"
+					gearcategory: 'Sensors'
 				},
 				allowsubsystems: {
 					category: [
-						"Bodyware",
-						"Cosmetic Enhancement",
-						"Cyberlimb Enhancement",
-						"Cyberlimb Accessory",
-						"Cyber Implant Weapon",
-						"Headware",
-						"Nanocybernetics"
+						'Bodyware',
+						'Cosmetic Enhancement',
+						'Cyberlimb Enhancement',
+						'Cyberlimb Accessory',
+						'Cyber Implant Weapon',
+						'Headware',
+						'Nanocybernetics'
 					]
 				},
 				bonus: {
 					conditionmonitor: {
-						physical: "1"
+						physical: '1'
 					}
 				},
-				limbslot: "arm",
+				limbslot: 'arm',
 				mods: {
 					'Enhanced Strength': {
-						id: "a9f4efd4-b86c-4e90-b0f7-aefa32c3b9de",
-						name: "Enhanced Strength",
-						category: "Cyberlimb Enhancement",
-						ess: "0",
-						capacity: "[Rating * 1]",
-						avail: "(Rating * 3)R",
-						cost: "Rating * 6500",
-						source: "SR5",
-						page: "456",
-						rating: "3",
+						id: 'a9f4efd4-b86c-4e90-b0f7-aefa32c3b9de',
+						name: 'Enhanced Strength',
+						category: 'Cyberlimb Enhancement',
+						ess: '0',
+						capacity: '[Rating * 1]',
+						avail: '(Rating * 3)R',
+						cost: 'Rating * 6500',
+						source: 'SR5',
+						page: '456',
+						rating: '3',
 						currentRating: 2,
 						currentCost: 13000
 					}
@@ -277,61 +277,61 @@ describe('purchaseGear', () => {
 				currentCost: 28000,
 				currentCapacity: 2
 			}, {
-				id: "df01eed6-a019-4198-b88d-4ba8f9aaefdf",
-				name: "Broken Obvious Full Arm",
-				category: "Cyberlimb",
-				ess: "1",
-				capacity: "2",
-				avail: "4",
-				cost: "15000",
-				source: "SR5",
-				page: "456",
+				id: 'df01eed6-a019-4198-b88d-4ba8f9aaefdf',
+				name: 'Broken Obvious Full Arm',
+				category: 'Cyberlimb',
+				ess: '1',
+				capacity: '2',
+				avail: '4',
+				cost: '15000',
+				source: 'SR5',
+				page: '456',
 				allowgear: {
-					gearcategory: "Sensors"
+					gearcategory: 'Sensors'
 				},
 				allowsubsystems: {
 					category: [
-						"Bodyware",
-						"Cosmetic Enhancement",
-						"Cyberlimb Enhancement",
-						"Cyberlimb Accessory",
-						"Cyber Implant Weapon",
-						"Headware",
-						"Nanocybernetics"
+						'Bodyware',
+						'Cosmetic Enhancement',
+						'Cyberlimb Enhancement',
+						'Cyberlimb Accessory',
+						'Cyber Implant Weapon',
+						'Headware',
+						'Nanocybernetics'
 					]
 				},
 				bonus: {
 					conditionmonitor: {
-						physical: "1"
+						physical: '1'
 					}
 				},
-				limbslot: "arm",
+				limbslot: 'arm',
 				mods: {
 					'Bulk Modification': {
-						id: "85bd6c32-d0c3-4d1b-99ad-833aad376a54",
-						name: "Bulk Modification",
-						category: "Cyberlimb Enhancement",
-						ess: "0",
-						capacity: "[-Rating]",
-						avail: "+Rating",
-						cost: "Rating * 500",
-						source: "CF",
-						page: "86",
-						rating: "6",
+						id: '85bd6c32-d0c3-4d1b-99ad-833aad376a54',
+						name: 'Bulk Modification',
+						category: 'Cyberlimb Enhancement',
+						ess: '0',
+						capacity: '[-Rating]',
+						avail: '+Rating',
+						cost: 'Rating * 500',
+						source: 'CF',
+						page: '86',
+						rating: '6',
 						currentRating: 6,
 						currentCost: 3500
 					},
 					'Fiberoptic Hair': {
-						id: "b7ec08aa-a328-46a0-9b41-4c9a4bfc13b2",
-						name: "Fiberoptic Hair",
-						category: "Cosmetic Enhancement",
-						ess: "0.1",
-						capacity: "[1]",
-						avail: "0",
-						cost: "Rating * 100",
-						source: "CF",
-						page: "73",
-						rating: "10",
+						id: 'b7ec08aa-a328-46a0-9b41-4c9a4bfc13b2',
+						name: 'Fiberoptic Hair',
+						category: 'Cosmetic Enhancement',
+						ess: '0.1',
+						capacity: '[1]',
+						avail: '0',
+						cost: 'Rating * 100',
+						source: 'CF',
+						page: '73',
+						rating: '10',
 						currentRating: 3,
 						currentCost: 300
 					}
@@ -339,7 +339,34 @@ describe('purchaseGear', () => {
 				currentCost: 18800,
 				currentCapacity: -5
 			}],
-			nuyen: 3350
+			vehicles: [{
+				id: 'c0d3e7fd-d5fd-48c4-b49d-0c7dea26895d',
+				name: 'Dodge Scoot (Scooter)',
+				page: '462',
+				source: 'SR5',
+				accel: '1',
+				armor: '4',
+				avail: '0',
+				body: '4',
+				category: 'Bikes',
+				cost: '3000',
+				handling: '4/3',
+				pilot: '1',
+				sensor: '1',
+				speed: '3',
+				gears: {
+					gear: {
+						'-rating': '1',
+						'-maxrating': '6',
+						'#text': 'Sensor Array',
+					},
+				},
+				mods: {
+					name: 'Improved Economy',
+				},
+				seats: '1',
+			}],
+			nuyen: 3350,
 		};
 	});
 
@@ -371,17 +398,17 @@ describe('purchaseGear', () => {
 	describe('PURCHASE', () => {
 		it('should add a key for a new category of gear, and add that gear', () => {
 			const gear = {
-				id: '2633cf38-90a6-4843-b475-e3ee1132fb5f',
-				name: 'Gas Mask',
-				category: 'Survival Gear',
-				armorcapacity: '[2]',
-				rating: '0',
-				avail: '0',
-				cost: '200',
-				source: 'SR5',
-				page: '449'
-			},
-			newState = reducer(state, {type: 'PURCHASE', parameter: {gear: gear, category: gear.category} });
+					id: '2633cf38-90a6-4843-b475-e3ee1132fb5f',
+					name: 'Gas Mask',
+					category: 'Survival Gear',
+					armorcapacity: '[2]',
+					rating: '0',
+					avail: '0',
+					cost: '200',
+					source: 'SR5',
+					page: '449',
+				},
+				newState = reducer(state, { type: 'PURCHASE', parameter: { gear, category: gear.category } });
 			expect(newState['Survival Gear'][0]).to.equal(gear);
 			expect(newState.nuyen).to.equal(3550);
 			expect(state['Survival Gear']).to.be.undefined;
@@ -390,17 +417,17 @@ describe('purchaseGear', () => {
 
 		it('should set the key of currentCost by the rating and cost and give a key of currentRating', () => {
 			const gear = {
-				id: '7e887224-6896-4588-a5d3-cace6a8506d2',
-				name: 'White Noise Generator',
-				rating: '6',
-				category: 'Communications and Countermeasures',
-				armorcapacity: '[2]',
-				avail: '(Rating)',
-				cost: 'Rating * 50',
-				source: 'SR5',
-				page: '441'
-			},
-				newState = reducer(state, {type: 'PURCHASE', parameter: {gear: gear, category: 'gears', Rating: 1} });
+					id: '7e887224-6896-4588-a5d3-cace6a8506d2',
+					name: 'White Noise Generator',
+					rating: '6',
+					category: 'Communications and Countermeasures',
+					armorcapacity: '[2]',
+					avail: '(Rating)',
+					cost: 'Rating * 50',
+					source: 'SR5',
+					page: '441',
+				},
+				newState = reducer(state, { type: 'PURCHASE', parameter: { gear, category: 'gears', Rating: 1 } });
 
 
 			expect(newState.gears[0].currentRating).to.equal(1);
@@ -409,7 +436,7 @@ describe('purchaseGear', () => {
 			expect(newState.gears[0]).to.deep.equal({
 				...gear,
 				currentRating: 1,
-				currentCost: 50
+				currentCost: 50,
 			});
 			expect(newState.nuyen).to.equal(3400);
 			expect(state.gears).to.be.undefined;
@@ -428,15 +455,15 @@ describe('purchaseGear', () => {
 
 		it('should add gear with current rating for gear with static costs', () => {
 			const dynomite = {
-				id: "df3efeef-661f-41fd-9007-01ba7db42dee",
-				name: "Dynamite",
-				category: "Explosives",
-				rating: "3",
-				minrating: "3",
-				avail: "8R",
-				cost: "350",
-				source: "RG",
-				page: "190"
+				id: 'df3efeef-661f-41fd-9007-01ba7db42dee',
+				name: 'Dynamite',
+				category: 'Explosives',
+				rating: '3',
+				minrating: '3',
+				avail: '8R',
+				cost: '350',
+				source: 'RG',
+				page: '190',
 			};
 
 			const newState = reducer(state, {type: 'PURCHASE', parameter: {gear: dynomite, category: 'Explosives', Rating: 3}});
@@ -680,28 +707,28 @@ describe('purchaseGear', () => {
 			page: '438'
 		},
 			enhanceStr = {
-			id: "a9f4efd4-b86c-4e90-b0f7-aefa32c3b9de",
-			name: "Enhanced Strength",
-			category: "Cyberlimb Enhancement",
-			ess: "0",
-			capacity: "[Rating * 1]",
-			avail: "(Rating * 3)R",
-			cost: "Rating * 6500",
-			source: "SR5",
-			page: "456",
-			rating: "3"
+			id: 'a9f4efd4-b86c-4e90-b0f7-aefa32c3b9de',
+			name: 'Enhanced Strength',
+			category: 'Cyberlimb Enhancement',
+			ess: '0',
+			capacity: '[Rating * 1]',
+			avail: '(Rating * 3)R',
+			cost: 'Rating * 6500',
+			source: 'SR5',
+			page: '456',
+			rating: '3'
 		},
 			bulkMod = {
-			id: "85bd6c32-d0c3-4d1b-99ad-833aad376a54",
-			name: "Bulk Modification",
-			category: "Cyberlimb Enhancement",
-			ess: "0",
-			capacity: "[-Rating]",
-			avail: "+Rating",
-			cost: "Rating * 500",
-			source: "CF",
-			page: "86",
-			rating: "6"
+			id: '85bd6c32-d0c3-4d1b-99ad-833aad376a54',
+			name: 'Bulk Modification',
+			category: 'Cyberlimb Enhancement',
+			ess: '0',
+			capacity: '[-Rating]',
+			avail: '+Rating',
+			cost: 'Rating * 500',
+			source: 'CF',
+			page: '86',
+			rating: '6'
 		};
 
 		it('should add a mod and add capacity based off of the mod', () => {
@@ -827,16 +854,16 @@ describe('purchaseGear', () => {
 
 		it('should have rating effect cost if capacity does not contain rating', () => {
 			const fibHair = {
-				id: "b7ec08aa-a328-46a0-9b41-4c9a4bfc13b2",
-				name: "Fiberoptic Hair",
-				category: "Cosmetic Enhancement",
-				ess: "0.1",
-				capacity: "[1]",
-				avail: "0",
-				cost: "Rating * 100",
-				source: "CF",
-				page: "73",
-				rating: "10"
+				id: 'b7ec08aa-a328-46a0-9b41-4c9a4bfc13b2',
+				name: 'Fiberoptic Hair',
+				category: 'Cosmetic Enhancement',
+				ess: '0.1',
+				capacity: '[1]',
+				avail: '0',
+				cost: 'Rating * 100',
+				source: 'CF',
+				page: '73',
+				rating: '10'
 			};
 
 			const newState = reducer(state, {type: 'MODDING_CAPACITY', parameter: {index: 0, category: 'cyberlimbs', mod: fibHair, Rating: 10}});
@@ -855,18 +882,18 @@ describe('purchaseGear', () => {
 
 		it('should take multiplicative capacity based off rating', () => {
 			const telescope = {
-				id: "a40cbc72-7dc6-4f8f-a9ff-e5e3f471b895",
-				name: "Telescoping Limb",
-				category: "Cyberlimb Enhancement",
-				ess: "0",
-				capacity: "[Rating * 3]",
-				avail: "Rating * 4",
-				cost: "Rating * 1000",
-				source: "CF",
-				page: "90",
+				id: 'a40cbc72-7dc6-4f8f-a9ff-e5e3f471b895',
+				name: 'Telescoping Limb',
+				category: 'Cyberlimb Enhancement',
+				ess: '0',
+				capacity: '[Rating * 3]',
+				avail: 'Rating * 4',
+				cost: 'Rating * 1000',
+				source: 'CF',
+				page: '90',
 				bonus: {
 				},
-				rating: "2"
+				rating: '2'
 			};
 
 			const newState = reducer(state, {type: 'MODDING_CAPACITY', parameter: {index: 0, category: 'cyberlimbs', mod: telescope, Rating: 1}});
