@@ -256,6 +256,30 @@ const purchaseGearReducer = (state = initialState, action) => {
 			};
 		},
 
+		MODDING_VEHICLE(prevState, {index, category, mod}) {
+			const vehicleArray = prevState[category],
+				vehicleBengModded = vehicleArray[index],
+				vehicleMods = vehicleBengModded.mods[mod.category] || {};
+
+			return {
+				...prevState,
+				[category]: [
+					...vehicleArray.slice(0, index),
+					{
+						...vehicleBengModded,
+						mods: {
+							...vehicleBengModded.mods,
+							[mod.category]: {
+								...vehicleMods,
+								[mod.name]: mod,
+							},
+						},
+					},
+					...vehicleArray.slice(index + 1),
+				],
+			};
+		},
+
 		DEFAULT(prevState) { return prevState; },
 	};
 	return (actionsToTake[action.type] || actionsToTake.DEFAULT)(state, action.parameter);
