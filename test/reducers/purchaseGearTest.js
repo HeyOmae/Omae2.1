@@ -997,6 +997,9 @@ describe('purchaseGear', () => {
 				accel: '+Rating',
 				offroadaccel: '+Rating',
 			},
+			currentCost: 10000,
+			currentRating: 1,
+			currentSlot: 4,
 		};
 
 		it('should add a mod on a vehicle and add the slot to the rating', () => {
@@ -1004,10 +1007,10 @@ describe('purchaseGear', () => {
 
 			expect(newState.vehicles[0].mods.Powertrain['Acceleration Enhancement']).to.equal(accel);
 			expect(newState.vehicles[0].currentCost).to.equal(13000);
-			expect(newState.nuyen).to.equal(16600);
-			expect(newState.vehicles[0].mods.Powertrain.currentRating).to.equal(4);
+			expect(newState.nuyen).to.equal(13350);
+			expect(newState.vehicles[0].mods.Powertrain.currentSlot).to.equal(4);
 
-			expect(state.vehicles[0].mods).to.be.undefined;
+			expect(state.vehicles[0].mods).to.deep.equal({name: 'Improved Economy'});
 			expect(state.vehicles[0].currentCost).to.be.undefined;
 			expect(state.nuyen).to.equal(3350);
 		});
