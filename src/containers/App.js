@@ -146,7 +146,7 @@ App.propTypes = {
 	modalInfo: PropTypes.shape({
 		modalName: PropTypes.string,
 		modalContent: PropTypes.object,
-	}),
+	}).isRequired,
 };
 
 function mapStateToProps(state) {

@@ -95,7 +95,7 @@ class SkillsComponent extends React.PureComponent {
 
 	render() {
 		const {actions, skills, attributes, metatype, priority} = this.props,
-			{listOfSkills, priorityDataFreeSkills, groupPointsLeft} = this,
+			{listOfSkills, priorityDataFreeSkills} = this,
 			skillPointsLeft = priorityTableData[priority.skills].skills.skillpoints
 				- skills.skillPointsSpent;
 

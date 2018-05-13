@@ -1,5 +1,5 @@
-var reducer = require('../../src/reducers/gear/purchaseGear'),
-	state;
+const reducer = require('../../src/reducers/gear/purchaseGear');
+let state;
 
 describe('purchaseGear', () => {
 	beforeEach(() => {
@@ -19,7 +19,7 @@ describe('purchaseGear', () => {
 				avail: '4',
 				cost: '700',
 				source: 'SR5',
-				page: '438'
+				page: '438',
 			}],
 			weapons: [{
 				id: '3a7a90ce-fbb5-4599-a857-b9849eb9769c',
@@ -126,7 +126,7 @@ describe('purchaseGear', () => {
 				avail: '8',
 				cost: '1500',
 				source: 'SR5',
-				page: '437'
+				page: '437',
 			},
 			{
 				id: '40826eaa-c22a-43da-8730-bc1867ea65a1',
@@ -153,7 +153,7 @@ describe('purchaseGear', () => {
 						source: 'SR5',
 						page: '438',
 						currentRating: 5,
-						currentCost: 1250
+						currentCost: 1250,
 					},
 					'Faraday Pocket': {
 						id: 'c3ea670b-45e7-4b75-a85d-1801c91d1c8c',
@@ -165,9 +165,9 @@ describe('purchaseGear', () => {
 						avail: '7R',
 						cost: '50',
 						source: 'HT',
-						page: '185'
-					}
-				}
+						page: '185',
+					},
+				},
 			},
 			{
 				id: '4ad1eeab-daf3-4495-a73d-fbb0ce89be5b',
@@ -194,9 +194,9 @@ describe('purchaseGear', () => {
 						source: 'SR5',
 						page: '438',
 						currentRating: 2,
-						currentCost: 500
-					}
-				}
+						currentCost: 500,
+					},
+				},
 			}],
 			cyberlimbs: [{
 				id: 'df01eed6-a019-4198-b88d-4ba8f9aaefdf',

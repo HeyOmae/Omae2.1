@@ -280,7 +280,7 @@ const purchaseGearReducer = (state = initialState, action) => {
 					},
 					...vehicleArray.slice(index + 1),
 				],
-				nuyen: prevState.nuyen + cost
+				nuyen: prevState.nuyen + cost,
 			};
 		},
 

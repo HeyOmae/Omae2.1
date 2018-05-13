@@ -3,9 +3,6 @@
   "plugins": [
     "react"
   ],
-  "ecmaFeatures": {
-    "modules": true
-  },
   "env": {
     "browser": true,
     "amd": true,
