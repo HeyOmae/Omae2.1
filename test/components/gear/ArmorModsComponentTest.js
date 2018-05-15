@@ -14,7 +14,7 @@ const unmoddedGear = {
 		id: '4ad1eeab-daf3-4495-a73d-fbb0ce89be5b',
 		name: 'Armor Vest',
 		page: '437',
-		source: 'SR5'
+		source: 'SR5',
 	},
 	moddedGear = {
 		armor: '9',
@@ -41,23 +41,23 @@ const unmoddedGear = {
 				source: 'SR5',
 				page: '437',
 				currentRating: 2,
-				currentCost: 500
-			}
-		}
+				currentCost: 500,
+			},
+		},
 	};
 
 describe('<ArmorModsComponent/>', () => {
 	const setup = (index = 0) => {
 		const props = {
-			armors: [unmoddedGear, moddedGear],
-			index,
-			modArmor: sinon.spy(),
-			demodArmor: sinon.spy()
-		},
+				armors: [unmoddedGear, moddedGear],
+				index,
+				modArmor: sinon.spy(),
+				demodArmor: sinon.spy(),
+			},
 			armorModsComponent = shallow(<ArmorModsComponent {...props} />);
 
 		return { armorModsComponent, props };
-	}
+	};
 
 	it('should filter out armorMods with cost of 0', () => {
 		const { armorModsComponent } = setup();
@@ -66,19 +66,18 @@ describe('<ArmorModsComponent/>', () => {
 
 		rows.forEach((row, index) => {
 			const cost = row.props().mod.cost;
-			if(!isNaN(cost))
-				expect(Number(cost)).to.above(0);
+			if (!isNaN(cost)) { expect(Number(cost)).to.above(0); }
 		});
 	});
 
 	it('should display how much armor capacity', () => {
-		const {armorModsComponent} = setup();
+		const { armorModsComponent } = setup();
 
 		expect(armorModsComponent.find('.capacity').text()).to.equal('9');
 	});
 
 	it('should calculate how much armor capacity is left', () => {
-		const {armorModsComponent} = setup(1);
+		const { armorModsComponent } = setup(1);
 
 		expect(armorModsComponent.find('.capacity').text()).to.equal('7');
 	});
@@ -96,9 +95,9 @@ describe('<ArmorModsComponent/>', () => {
 		});
 
 		it('should set selectedMod to true if the mod is in the armor mods object', () => {
-			const {armorModsComponent, props} = setup(1);
+			const { armorModsComponent, props } = setup(1);
 
-			const activeModRows = armorModsComponent.find({selectedMod: true});
+			const activeModRows = armorModsComponent.find({ selectedMod: true });
 
 			activeModRows.forEach((row) => {
 				const activeModName = row.props().mod.name;
@@ -107,9 +106,9 @@ describe('<ArmorModsComponent/>', () => {
 		});
 
 		it('should pass the currentRating of the mod if it is selected with a rating', () => {
-			const {armorModsComponent, props} = setup(1);
+			const { armorModsComponent, props } = setup(1);
 
-			const activeModRows = armorModsComponent.find({selectedMod: true});
+			const activeModRows = armorModsComponent.find({ selectedMod: true });
 
 			activeModRows.forEach((row) => {
 				const activeModName = row.props().mod.name;
@@ -117,6 +116,5 @@ describe('<ArmorModsComponent/>', () => {
 				expect(activeModRating).to.equal(moddedGear.mods[activeModName].currentRating);
 			});
 		});
-
 	});
 });

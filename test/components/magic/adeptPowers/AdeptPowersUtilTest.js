@@ -1,7 +1,7 @@
 import React from 'react';
 import * as AdeptPowersUtil from 'components/magic/adeptPowers/util/AdeptPowersUtil';
 
-var sandbox = sinon.createSandbox();
+const sandbox = sinon.createSandbox();
 
 describe('bonusDown', () => {
 	it('Should call decrementAugmented for Improved Physical Attribute', () => {
@@ -12,7 +12,7 @@ describe('bonusDown', () => {
 
 		AdeptPowersUtil.bonusDown(name, bonusToRemove, decreaseBy, decrementAugmented);
 
-		expect(decrementAugmented).to.have.been.calledWith({attribute: bonusToRemove, decreaseBy});
+		expect(decrementAugmented).to.have.been.calledWith({ attribute: bonusToRemove, decreaseBy });
 	});
 
 	it('Should not call decrementAugmented for anything else', () => {
@@ -35,7 +35,7 @@ describe('bonusUp', () => {
 
 		AdeptPowersUtil.bonusUp(name, bonusToApply, incrementAugmented);
 
-		expect(incrementAugmented).to.have.been.calledWith({attribute: bonusToApply});
+		expect(incrementAugmented).to.have.been.calledWith({ attribute: bonusToApply });
 	});
 
 	it('Should not call incrementAugmented for anything else', () => {
@@ -54,7 +54,7 @@ describe('generateAddActionDetails', () => {
 		const isMystic = false;
 		const power = {
 			points: 1.5,
-			name: 'TestName'
+			name: 'TestName',
 		};
 		const pointsSpent = 4;
 		const maxPoints = 5;
@@ -69,17 +69,17 @@ describe('generateAddActionDetails', () => {
 		const isMystic = false;
 		const power = {
 			points: 1.5,
-			name: 'TestName'
+			name: 'TestName',
 		};
 		const pointsSpent = 3.5;
 		const maxPoints = 5;
 		const selectedOption = '';
 		const incrementAugmented = sinon.spy();
-		const adjustedSpell = Object.assign({}, power, {levels:'N/A'})
+		const adjustedSpell = Object.assign({}, power, { levels: 'N/A' });
 
 		const returnValue = AdeptPowersUtil.generateAddActionDetails(isMystic, power, pointsSpent, maxPoints, selectedOption, incrementAugmented);
 
-		expect(returnValue).to.eql({newSpell: adjustedSpell, isMystic});
+		expect(returnValue).to.eql({ newSpell: adjustedSpell, isMystic });
 		expect(incrementAugmented).to.not.be.called;
 	});
 
@@ -88,17 +88,17 @@ describe('generateAddActionDetails', () => {
 		const power = {
 			points: 1.5,
 			name: 'TestName',
-			levels: 'yes'
+			levels: 'yes',
 		};
 		const pointsSpent = 3.5;
 		const maxPoints = 5;
 		const selectedOption = '';
 		const incrementAugmented = sinon.spy();
-		const adjustedSpell = Object.assign({}, power, {levels:1})
+		const adjustedSpell = Object.assign({}, power, { levels: 1 });
 
 		const returnValue = AdeptPowersUtil.generateAddActionDetails(isMystic, power, pointsSpent, maxPoints, selectedOption, incrementAugmented);
 
-		expect(returnValue).to.eql({newSpell: adjustedSpell, isMystic});
+		expect(returnValue).to.eql({ newSpell: adjustedSpell, isMystic });
 		expect(incrementAugmented).to.not.be.called;
 	});
 
@@ -108,58 +108,58 @@ describe('generateAddActionDetails', () => {
 			points: 1.5,
 			name: 'Improved Physical Attribute',
 			levels: 'yes',
-			bonus: {'selectattribute': {}}
+			bonus: { selectattribute: {} },
 		};
 		const pointsSpent = 3.5;
 		const maxPoints = 5;
 		const selectedOption = '(Test)';
 		const incrementAugmented = sinon.spy();
-		const adjustedSpell = Object.assign({}, power, {levels: 1, name: power.name + selectedOption, bonus: selectedOption.replace(/[()]/g, '')})
+		const adjustedSpell = Object.assign({}, power, { levels: 1, name: power.name + selectedOption, bonus: selectedOption.replace(/[()]/g, '') });
 
 		const returnValue = AdeptPowersUtil.generateAddActionDetails(isMystic, power, pointsSpent, maxPoints, selectedOption, incrementAugmented);
 
-		expect(returnValue).to.eql({newSpell: adjustedSpell, isMystic});
-		expect(incrementAugmented).to.be.calledWith({attribute:selectedOption.replace(/[()]/g, '')});
+		expect(returnValue).to.eql({ newSpell: adjustedSpell, isMystic });
+		expect(incrementAugmented).to.be.calledWith({ attribute: selectedOption.replace(/[()]/g, '') });
 	});
 });
 
 describe('generateRemoveActionDetails', () => {
-	beforeEach(function() {
+	beforeEach(() => {
 		 sandbox.spy(AdeptPowersUtil, 'bonusDown');
 	});
 
-	afterEach(function() {
+	afterEach(() => {
 		 sandbox.restore();
 	});
 
 	it('Should return the power index and isMystic value', () => {
 		const isMystic = false;
 		const power = {
-			bonus: 'N/A'
+			bonus: 'N/A',
 		};
 		const index = 5;
 
 		const returnValue = AdeptPowersUtil.generateRemoveActionDetails(isMystic, power, index, () => {});
 
-		expect(returnValue).to.eql({powerIndex: index, isMystic});
+		expect(returnValue).to.eql({ powerIndex: index, isMystic });
 		expect(AdeptPowersUtil.bonusDown).to.not.be.called;
 	});
 
 	it('Should call decrementAugmented if it is improved attribute', () => {
 		const isMystic = true;
 		const baseName = 'Improved Physical Attribute';
-		const attribute = 'Test'
+		const attribute = 'Test';
 		const power = {
-			name: baseName + '(' + attribute +')',
+			name: `${baseName}(${attribute})`,
 			bonus: 'Test',
-			levels: 5
+			levels: 5,
 		};
 		const index = 5;
 		const decrementAugmented = sinon.spy();
 
 		const returnValue = AdeptPowersUtil.generateRemoveActionDetails(isMystic, power, index, decrementAugmented);
-		expect(returnValue).to.eql({powerIndex: index, isMystic});
-		expect(decrementAugmented).to.be.calledWith({ attribute, decreaseBy: 5});
+		expect(returnValue).to.eql({ powerIndex: index, isMystic });
+		expect(decrementAugmented).to.be.calledWith({ attribute, decreaseBy: 5 });
 	});
 });
 

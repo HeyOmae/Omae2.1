@@ -6,18 +6,18 @@ import ModificationButton from 'components/ModificationButton';
 
 describe('CyberlimbAttribute', () => {
 	const setup = (
-			attributeName = 'Test',
-			attributeValue = 3
-		) => {
+		attributeName = 'Test',
+		attributeValue = 3,
+	) => {
 		const props = {
-			incrementAttribute : sinon.spy(),
-			decrementAttribute : sinon.spy(),
-			attributeName,
-			attributeValue
-		},
+				incrementAttribute: sinon.spy(),
+				decrementAttribute: sinon.spy(),
+				attributeName,
+				attributeValue,
+			},
 			cyberlimbAttribute = shallow(<CyberlimbAttribute {...props} />);
 		return { cyberlimbAttribute, props };
-	}
+	};
 
 	it('should have two buttons', () => {
 		const { cyberlimbAttribute } = setup();

@@ -17,9 +17,10 @@ describe('Mech Mod Row Component', () => {
 			slots: 'FixedValues(4,8)',
 			bonus: {
 				accel: '+Rating',
-				offroadaccel: '+Rating'
-			}
-		}, modWRatingAvail = {
+				offroadaccel: '+Rating',
+			},
+		},
+		modWRatingAvail = {
 			id: '956a20f7-64f3-4160-88a0-d6d6b29b0bd1',
 			name: 'Handling Enhancement',
 			page: '154',
@@ -31,8 +32,8 @@ describe('Mech Mod Row Component', () => {
 			slots: 'FixedValues(4,10,18)',
 			bonus: {
 				handling: '+Rating',
-				offroadhandling: '+Rating'
-			}
+				offroadhandling: '+Rating',
+			},
 		},
 		scoot = {
 			id: 'c0d3e7fd-d5fd-48c4-b49d-0c7dea26895d',
@@ -53,13 +54,13 @@ describe('Mech Mod Row Component', () => {
 				gear: {
 					'-rating': '1',
 					'-maxrating': '6',
-					'#text': 'Sensor Array'
-				}
+					'#text': 'Sensor Array',
+				},
 			},
 			mods: {
-				name: 'Improved Economy'
+				name: 'Improved Economy',
 			},
-			seats: '1'
+			seats: '1',
 		},
 		falcon = {
 			id: 'cfafdbac-509e-49f3-a62a-5cfa8e987e0f',
@@ -80,13 +81,13 @@ describe('Mech Mod Row Component', () => {
 				gear: {
 					'-rating': '1',
 					'-maxrating': '6',
-					'#text': 'Sensor Array'
-				}
+					'#text': 'Sensor Array',
+				},
 			},
 			mods: {
-				name: 'Tracked Propulsion'
+				name: 'Tracked Propulsion',
 			},
-			seats: '2'
+			seats: '2',
 		},
 		speedEnhance = {
 			id: 'ecc73836-9110-4f5f-9464-cb6ae6e954d2',
@@ -100,8 +101,8 @@ describe('Mech Mod Row Component', () => {
 			slots: 'FixedValues(5,14,20)',
 			bonus: {
 				offroadspeed: '+Rating',
-				speed: '+Rating'
-			}
+				speed: '+Rating',
+			},
 		},
 		geckoTip = {
 			id: '06940788-ad0b-453c-bc8a-e54e6221c185',
@@ -117,10 +118,10 @@ describe('Mech Mod Row Component', () => {
 				vehicledetails: {
 					body: {
 						'-operation': 'lessthanequals',
-						'#text': '6'
-					}
-				}
-			}
+						'#text': '6',
+					},
+				},
+			},
 		},
 		terrier = {
 			id: 'be4aa3ae-6725-4082-a5d2-8fa8d1e91640',
@@ -141,13 +142,13 @@ describe('Mech Mod Row Component', () => {
 				gear: {
 					'-rating': '2',
 					'-maxrating': '6',
-					'#text': 'Sensor Array'
-				}
+					'#text': 'Sensor Array',
+				},
 			},
 			mods: {
-				name: 'Gyro-Stabilization'
+				name: 'Gyro-Stabilization',
 			},
-			seats: '1'
+			seats: '1',
 		},
 		multifuel = {
 			id: 'b242a897-74d6-44da-9922-b0b1f4537609',
@@ -158,7 +159,7 @@ describe('Mech Mod Row Component', () => {
 			category: 'Powertrain',
 			cost: 'Body * 1000',
 			rating: '0',
-			slots: '4'
+			slots: '4',
 		},
 		offroad = {
 			id: '5acc99df-ffaf-4c43-93bc-07b552fc4c1c',
@@ -172,8 +173,8 @@ describe('Mech Mod Row Component', () => {
 			slots: '2',
 			bonus: {
 				handling: '-1',
-				offroadhandling: '+1'
-			}
+				offroadhandling: '+1',
+			},
 		},
 		nanomaintenance = {
 			id: '74756635-ad88-437a-8123-599019aafa6c',
@@ -184,7 +185,7 @@ describe('Mech Mod Row Component', () => {
 			category: 'Body',
 			cost: 'Rating * 5000',
 			rating: '4',
-			slots: 'Rating'
+			slots: 'Rating',
 		},
 		ecm = {
 			id: '518a5fdc-3b2c-42a6-a3fb-3cb88918fe72',
@@ -195,7 +196,7 @@ describe('Mech Mod Row Component', () => {
 			category: 'Electromagnetic',
 			cost: 'Rating * 500',
 			rating: '6',
-			slots: '2'
+			slots: '2',
 		},
 		armor = {
 			id: '85a85cfd-7703-48f6-9745-d0a2b64c8b9e',
@@ -208,8 +209,8 @@ describe('Mech Mod Row Component', () => {
 			rating: 'body',
 			slots: 'Rating * 3',
 			bonus: {
-				armor: 'Rating'
-			}
+				armor: 'Rating',
+			},
 		},
 		adjustment = {
 			id: 'a586e8b6-2737-4baa-a343-f366d33fe57a',
@@ -225,20 +226,20 @@ describe('Mech Mod Row Component', () => {
 				vehicledetails: {
 					seats: {
 						'-operation': 'greaterthanequals',
-						'#text': '1'
-					}
-				}
-			}
+						'#text': '1',
+					},
+				},
+			},
 		},
 		setup = (mod = modWithRating, mech = scoot) => {
 			const props = {
-				mod,
-				mech
-			},
+					mod,
+					mech,
+				},
 
-			mechModRow = shallow(<MechModRow {...props} />);
+				mechModRow = shallow(<MechModRow {...props} />);
 
-			return {props, mechModRow};
+			return { props, mechModRow };
 		};
 
 	describe('mods with rating', () => {
@@ -260,13 +261,13 @@ describe('Mech Mod Row Component', () => {
 		});
 
 		it('should calculate stats based off rating', () => {
-			const {mechModRow} = setup(nanomaintenance);
+			const { mechModRow } = setup(nanomaintenance);
 
 			expect(mechModRow.find('.mech-mod--cost').text()).to.equal('5000¥');
 			expect(mechModRow.find('.mech-mod--slot').text()).to.equal('1');
 			expect(mechModRow.find('.mech-mod--avail').text()).to.equal('5R');
 
-			mechModRow.setState({rating: 4});
+			mechModRow.setState({ rating: 4 });
 
 			expect(mechModRow.find('.mech-mod--avail').text()).to.equal('20R');
 			expect(mechModRow.find('.mech-mod--cost').text()).to.equal('20000¥');
@@ -274,7 +275,7 @@ describe('Mech Mod Row Component', () => {
 		});
 
 		it('should calculate forbidden gear based off rating', () => {
-			const {mechModRow} = setup(ecm);
+			const { mechModRow } = setup(ecm);
 
 			expect(mechModRow.find('.mech-mod--avail').text()).to.equal('3F');
 		});
@@ -302,7 +303,7 @@ describe('Mech Mod Row Component', () => {
 				expect(mechModRow.find('.mech-mod--cost').text()).to.equal('10000¥');
 				expect(mechModRow.state().rating).to.equal(1);
 
-				mechModRow.instance().updateRating({target: {value: '2'}});
+				mechModRow.instance().updateRating({ target: { value: '2' } });
 				mechModRow.update();
 
 				expect(mechModRow.state().rating).to.equal(2);
@@ -317,7 +318,7 @@ describe('Mech Mod Row Component', () => {
 				expect(mechModRow.find('.mech-mod--cost').text()).to.equal('8000¥');
 				expect(mechModRow.state().rating).to.equal(1);
 
-				mechModRow.instance().updateRating({target: {value: '3'}});
+				mechModRow.instance().updateRating({ target: { value: '3' } });
 				mechModRow.update();
 
 				expect(mechModRow.state().rating).to.equal(3);
@@ -332,7 +333,7 @@ describe('Mech Mod Row Component', () => {
 				expect(mechModRow.find('.mech-mod--cost').text()).to.equal('10000¥');
 				expect(mechModRow.state().rating).to.equal(1);
 
-				mechModRow.instance().updateRating({target: {value: '3'}});
+				mechModRow.instance().updateRating({ target: { value: '3' } });
 				mechModRow.update();
 
 				expect(mechModRow.state().rating).to.equal(3);
@@ -344,7 +345,7 @@ describe('Mech Mod Row Component', () => {
 
 				expect(mechModRow.find('.mech-mod--cost').text()).to.equal('6000¥');
 
-				mechModRow.instance().updateRating({target: {value: '3'}});
+				mechModRow.instance().updateRating({ target: { value: '3' } });
 				mechModRow.update();
 
 				expect(mechModRow.find('.mech-mod--cost').text()).to.equal('36000¥');
@@ -376,7 +377,6 @@ describe('Mech Mod Row Component', () => {
 
 			expect(mechModRow.instance().conditionalValue('(12 + 4*number(Body > 12))R')).to.equal('12R');
 		});
-
 	});
 
 	describe('calculate stats', () => {

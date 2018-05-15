@@ -7,22 +7,22 @@ import ModificationButton from 'components/ModificationButton';
 
 describe('PowerDetailRow', () => {
 	const setup = (args = {}) => {
-		const {power = {},
-			add= true,
-			pointsSpent= 5,
-			maxPoints= 6,
-			index= 3,
-			isMystic= true,
-			actions= {}} = args;
+		const { power = {},
+			add = true,
+			pointsSpent = 5,
+			maxPoints = 6,
+			index = 3,
+			isMystic = true,
+			actions = {} } = args;
 
 		const props = {
 			pointsSpent,
 			power: Object.assign({}, {
 				name: 'TestName',
 				levels: '1',
-				points: .5,
+				points: 0.5,
 				source: 'Omae',
-				page: 'v2'
+				page: 'v2',
 			}, power),
 			add,
 			index,
@@ -35,14 +35,14 @@ describe('PowerDetailRow', () => {
 				incrementAugmented: () => {},
 				lowerPower: () => {},
 				raisePower: () => {},
-				removePower: () => {}
-			}, actions)
+				removePower: () => {},
+			}, actions),
 		};
 
 		const detailRow = shallow(<PowerDetailRow {...props} />);
 
 		return { detailRow, props };
-	}
+	};
 
 	describe('When we are making an add row', () => {
 		describe('and there is not a bonus', () => {
@@ -64,17 +64,17 @@ describe('PowerDetailRow', () => {
 		describe('and there is a bonus', () => {
 			const bonusPower = {
 				bonus: {
-					"selectattribute": {
-						"attribute": [
-							"TEST",
-							"TEST1"
-						]
-					}
-				}
+					selectattribute: {
+						attribute: [
+							'TEST',
+							'TEST1',
+						],
+					},
+				},
 			};
 
 			const { detailRow } = setup({
-				power: bonusPower
+				power: bonusPower,
 			});
 
 			it('Should have a select with the correct options', () => {
@@ -94,7 +94,7 @@ describe('PowerDetailRow', () => {
 
 	describe('When we are making a remove row', () => {
 		describe('and there is not a bonus', () => {
-			const { detailRow } = setup({add:false});
+			const { detailRow } = setup({ add: false });
 
 			it('Should not have a select', () => {
 				expect(detailRow.find('Select').length).to.equal(0);
@@ -111,12 +111,12 @@ describe('PowerDetailRow', () => {
 
 		describe('and there is a bonus', () => {
 			const bonusPower = {
-				bonus: "TEST"
+				bonus: 'TEST',
 			};
 
 			const { detailRow } = setup({
 				power: bonusPower,
-				add: false
+				add: false,
 			});
 
 			it('Should not have a select', () => {
@@ -128,7 +128,7 @@ describe('PowerDetailRow', () => {
 			});
 
 			it('Should have the power\'s bonus in the 5th td', () => {
-				expect(detailRow.find('td').at(4).html()).to.contain('>' + bonusPower.bonus + '<');
+				expect(detailRow.find('td').at(4).html()).to.contain(`>${bonusPower.bonus}<`);
 			});
 
 			it('Should have a ModificationButton with the remove css', () => {

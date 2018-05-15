@@ -1,17 +1,17 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import {PowerSelectorComponent} from 'components/magic/adeptPowers/PowerSelectorComponent';
+import { PowerSelectorComponent } from 'components/magic/adeptPowers/PowerSelectorComponent';
 
 describe('PowerSelectorComponent', () => {
 	const setup = (args = {}) => {
 		const {
 			selectedPowers = [],
-			pointsSpent= 0,
-			maxPoints= 6,
-			isMystic= false,
+			pointsSpent = 0,
+			maxPoints = 6,
+			isMystic = false,
 			karmaSpent = 0,
-			actions= {}
+			actions = {},
 		} = args;
 
 		const props = {
@@ -26,19 +26,19 @@ describe('PowerSelectorComponent', () => {
 				incrementAugmented: () => {},
 				lowerPower: () => {},
 				raisePower: () => {},
-				removePower: () => {}
-			}, actions)
+				removePower: () => {},
+			}, actions),
 		};
 
 		const selectorComponent = shallow(<PowerSelectorComponent {...props} />);
 
 		return { selectorComponent, props };
-	}
+	};
 
 	describe('When isMystic is false', () => {
-		const {props, selectorComponent} = setup({
+		const { props, selectorComponent } = setup({
 			isMystic: false,
-			selectedPowers: [{name: 'test'}]
+			selectedPowers: [{ name: 'test' }],
 		});
 
 		it('should have rows matching powers passed in', () => {
@@ -51,10 +51,10 @@ describe('PowerSelectorComponent', () => {
 	});
 
 	describe('When isMystic is true', () => {
-		const {props, selectorComponent} = setup({
+		const { props, selectorComponent } = setup({
 			isMystic: true,
 			karmaSpent: 5,
-			selectedPowers: [{name: 'test'}]
+			selectedPowers: [{ name: 'test' }],
 		});
 
 		it('should have rows matching powers passed in', () => {
@@ -62,7 +62,7 @@ describe('PowerSelectorComponent', () => {
 		});
 
 		it('should not have Karma Spent info', () => {
-			expect(selectorComponent.find('p span').at(0).html()).to.contain('<span> Karma Spent: <strong>' + props.karmaSpent + '</strong>');
+			expect(selectorComponent.find('p span').at(0).html()).to.contain(`<span> Karma Spent: <strong>${props.karmaSpent}</strong>`);
 		});
 	});
 });

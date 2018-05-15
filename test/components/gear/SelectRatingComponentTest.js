@@ -6,16 +6,16 @@ import SelectRating from 'components/gear/SelectRatingComponent';
 describe('Mech Row Component', () => {
 	const setup = (rating) => {
 		const props = {
-			item: {
-				rating,
-				name: 'taco'
+				item: {
+					rating,
+					name: 'taco',
+				},
+				updateRating: sinon.spy(),
 			},
-			updateRating: sinon.spy()
-		},
 
-		selectRating = shallow(<SelectRating {...props} />);
+			selectRating = shallow(<SelectRating {...props} />);
 
-		return {props, selectRating};
+		return { props, selectRating };
 	};
 
 	it('should render N/A if rating is undefined', () => {
@@ -25,21 +25,21 @@ describe('Mech Row Component', () => {
 	});
 
 	it('should render rating number of options', () => {
-		const {selectRating, props} = setup('6');
+		const { selectRating, props } = setup('6');
 
 		expect(selectRating.find('option')).lengthOf(props.item.rating);
 	});
 
 	it('should render N/A if rating is 0', () => {
-		const {selectRating} = setup('0');
+		const { selectRating } = setup('0');
 
 		expect(selectRating.text()).to.equal('N/A');
 	});
 
 	it('should file updateRating prop when the select is changed', () => {
-		const {selectRating, props} = setup('6');
+		const { selectRating, props } = setup('6');
 
-		const event = {target: {value: 6}};
+		const event = { target: { value: 6 } };
 
 		selectRating.find('select').simulate('change', event);
 

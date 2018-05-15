@@ -44,8 +44,8 @@ PowerLevelCounter.propTypes = {
 	).isRequired,
 	power: PropTypes.shape({
 		name: PropTypes.string.isRequired,
-		points: PropTypes.stirng.isRequired,
-		bonus: PropTypes.object,
+		points: PropTypes.stirng,
+		bonus: PropTypes.object.isRequired,
 	}).isRequired,
 	index: PropTypes.number.isRequired,
 	pointsSpent: PropTypes.number.isRequired,

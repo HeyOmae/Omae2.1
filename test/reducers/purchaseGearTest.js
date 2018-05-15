@@ -1,4 +1,5 @@
 const reducer = require('../../src/reducers/gear/purchaseGear');
+
 let state;
 
 describe('purchaseGear', () => {
@@ -219,15 +220,15 @@ describe('purchaseGear', () => {
 						'Cyberlimb Accessory',
 						'Cyber Implant Weapon',
 						'Headware',
-						'Nanocybernetics'
-					]
+						'Nanocybernetics',
+					],
 				},
 				bonus: {
 					conditionmonitor: {
-						physical: '1'
-					}
+						physical: '1',
+					},
 				},
-				limbslot: 'arm'
+				limbslot: 'arm',
 			}, {
 				id: 'df01eed6-a019-4198-b88d-4ba8f9aaefdf',
 				name: 'Broken Obvious Full Arm',
@@ -239,7 +240,7 @@ describe('purchaseGear', () => {
 				source: 'SR5',
 				page: '456',
 				allowgear: {
-					gearcategory: 'Sensors'
+					gearcategory: 'Sensors',
 				},
 				allowsubsystems: {
 					category: [
@@ -249,13 +250,13 @@ describe('purchaseGear', () => {
 						'Cyberlimb Accessory',
 						'Cyber Implant Weapon',
 						'Headware',
-						'Nanocybernetics'
-					]
+						'Nanocybernetics',
+					],
 				},
 				bonus: {
 					conditionmonitor: {
-						physical: '1'
-					}
+						physical: '1',
+					},
 				},
 				limbslot: 'arm',
 				mods: {
@@ -271,11 +272,11 @@ describe('purchaseGear', () => {
 						page: '456',
 						rating: '3',
 						currentRating: 2,
-						currentCost: 13000
-					}
+						currentCost: 13000,
+					},
 				},
 				currentCost: 28000,
-				currentCapacity: 2
+				currentCapacity: 2,
 			}, {
 				id: 'df01eed6-a019-4198-b88d-4ba8f9aaefdf',
 				name: 'Broken Obvious Full Arm',
@@ -287,7 +288,7 @@ describe('purchaseGear', () => {
 				source: 'SR5',
 				page: '456',
 				allowgear: {
-					gearcategory: 'Sensors'
+					gearcategory: 'Sensors',
 				},
 				allowsubsystems: {
 					category: [
@@ -297,13 +298,13 @@ describe('purchaseGear', () => {
 						'Cyberlimb Accessory',
 						'Cyber Implant Weapon',
 						'Headware',
-						'Nanocybernetics'
-					]
+						'Nanocybernetics',
+					],
 				},
 				bonus: {
 					conditionmonitor: {
-						physical: '1'
-					}
+						physical: '1',
+					},
 				},
 				limbslot: 'arm',
 				mods: {
@@ -319,7 +320,7 @@ describe('purchaseGear', () => {
 						page: '86',
 						rating: '6',
 						currentRating: 6,
-						currentCost: 3500
+						currentCost: 3500,
 					},
 					'Fiberoptic Hair': {
 						id: 'b7ec08aa-a328-46a0-9b41-4c9a4bfc13b2',
@@ -333,11 +334,11 @@ describe('purchaseGear', () => {
 						page: '73',
 						rating: '10',
 						currentRating: 3,
-						currentCost: 300
-					}
+						currentCost: 300,
+					},
 				},
 				currentCost: 18800,
-				currentCapacity: -5
+				currentCapacity: -5,
 			}],
 			vehicles: [{
 				id: 'c0d3e7fd-d5fd-48c4-b49d-0c7dea26895d',
@@ -386,11 +387,11 @@ describe('purchaseGear', () => {
 		avail: '2',
 		cost: '100',
 		source: 'SR5',
-		page: '438'
+		page: '438',
 	};
 
 	it('should not change the passed state', (done) => {
-		reducer(state, {type: 'INVALID'});
+		reducer(state, { type: 'INVALID' });
 
 		done();
 	});
@@ -444,7 +445,7 @@ describe('purchaseGear', () => {
 		});
 
 		it('should add a gear to its category if the key already exists', () => {
-			const newState = reducer(state, {type: 'PURCHASE', parameter: {gear: metalink, category: 'commlinks'}});
+			const newState = reducer(state, { type: 'PURCHASE', parameter: { gear: metalink, category: 'commlinks' } });
 
 			expect(newState.commlinks.length).to.equal(2);
 			expect(newState.commlinks[1]).to.equal(metalink);
@@ -466,7 +467,7 @@ describe('purchaseGear', () => {
 				page: '190',
 			};
 
-			const newState = reducer(state, {type: 'PURCHASE', parameter: {gear: dynomite, category: 'Explosives', Rating: 3}});
+			const newState = reducer(state, { type: 'PURCHASE', parameter: { gear: dynomite, category: 'Explosives', Rating: 3 } });
 
 			expect(newState.Explosives[0].currentRating).to.equal(3);
 			expect(newState.nuyen).to.equal(3700);
@@ -476,11 +477,11 @@ describe('purchaseGear', () => {
 		});
 	});
 
-	describe('SELL', ()=>{
+	describe('SELL', () => {
 		it('should remove a piece of gear from the gear array', () => {
 			state.commlinks.push(metalink);
 			state.nuyen += 100;
-			const newState = reducer(state, {type: 'SELL', parameter: {index: 0, category: 'commlinks'}});
+			const newState = reducer(state, { type: 'SELL', parameter: { index: 0, category: 'commlinks' } });
 
 			expect(newState.commlinks.length).to.equal(1);
 			expect(newState.nuyen).to.equal(2750);
@@ -489,7 +490,7 @@ describe('purchaseGear', () => {
 		});
 
 		it('should remove a key if the gear array becomes empty', () => {
-			const newState = reducer(state, {type: 'SELL', parameter: {index: 0, category: 'commlinks'}});
+			const newState = reducer(state, { type: 'SELL', parameter: { index: 0, category: 'commlinks' } });
 
 			expect(newState.commlinks).to.be.undefined;
 			expect(newState.nuyen).to.equal(2650);
@@ -498,7 +499,7 @@ describe('purchaseGear', () => {
 		});
 
 		it('should refund the cost of a modded weapon cost', () => {
-			const newState = reducer(state, {type: 'SELL', parameter: {index: 1, category: 'weapons'}});
+			const newState = reducer(state, { type: 'SELL', parameter: { index: 1, category: 'weapons' } });
 
 			expect(newState.weapons.length).to.equal(1);
 			expect(newState.nuyen).to.equal(2400);
@@ -518,11 +519,11 @@ describe('purchaseGear', () => {
 			rc: '1',
 			rcgroup: '2',
 			source: 'RG',
-			page: '52'
+			page: '52',
 		};
 
 		it('should add a mod key to a weapon and populate it with the mod', () => {
-			const newState = reducer(state, {type: 'WEAPON_MODDING', parameter: {index: 0, category: 'weapons', slot: 'stock', mod: stockMod}});
+			const newState = reducer(state, { type: 'WEAPON_MODDING', parameter: { index: 0, category: 'weapons', slot: 'stock', mod: stockMod } });
 
 			expect(newState.weapons[0].mods.stock).to.equal(stockMod);
 			expect(newState.weapons[0].currentCost).to.equal(2900);
@@ -543,15 +544,15 @@ describe('purchaseGear', () => {
 				avail: '2',
 				cost: '20',
 				source: 'HT',
-				page: '182'
+				page: '182',
 			};
-			const newState = reducer(state, {type: 'WEAPON_MODDING', parameter: {index: 0, category: 'weapons', slot: 'stock', mod: stockMod}});
+			const newState = reducer(state, { type: 'WEAPON_MODDING', parameter: { index: 0, category: 'weapons', slot: 'stock', mod: stockMod } });
 			expect(newState.weapons[0].currentCost).to.equal(2900);
 			expect(newState.nuyen).to.equal(3600);
 			expect(state.weapons[0].currentCost).to.be.undefined;
 			expect(state.nuyen).to.equal(3350);
 
-			const newState2 = reducer(newState, {type: 'WEAPON_MODDING', parameter: {index: 0, category: 'weapons', slot: 'stock', mod: stockMod2}});
+			const newState2 = reducer(newState, { type: 'WEAPON_MODDING', parameter: { index: 0, category: 'weapons', slot: 'stock', mod: stockMod2 } });
 			expect(newState2.weapons[0].mods.stock).to.equal(stockMod2);
 			expect(newState2.weapons[0].currentCost).to.equal(2670);
 			expect(newState2.nuyen).to.equal(3370);
@@ -562,13 +563,13 @@ describe('purchaseGear', () => {
 		});
 
 		it('should do reset remove the slot if there is no mod given', () => {
-			const newState = reducer(state, {type: 'WEAPON_MODDING', parameter: {index: 0, category: 'weapons', slot: 'stock', mod: stockMod}});
+			const newState = reducer(state, { type: 'WEAPON_MODDING', parameter: { index: 0, category: 'weapons', slot: 'stock', mod: stockMod } });
 			expect(newState.weapons[0].currentCost).to.equal(2900);
 			expect(newState.nuyen).to.equal(3600);
 			expect(state.weapons[0].currentCost).to.be.undefined;
 			expect(state.nuyen).to.equal(3350);
 
-			const newState2 = reducer(newState, {type: 'WEAPON_MODDING', parameter: {index: 0, category: 'weapons', slot: 'stock', mod: ''}});
+			const newState2 = reducer(newState, { type: 'WEAPON_MODDING', parameter: { index: 0, category: 'weapons', slot: 'stock', mod: '' } });
 
 			expect(newState2.weapons[0].mods.stock).to.be.undefined;
 			expect(newState2.nuyen).to.equal(3350);
@@ -577,7 +578,7 @@ describe('purchaseGear', () => {
 		});
 
 		it('should return state if no mod is passed in to an empty mod slot', () => {
-			const newState = reducer(state, {type: 'WEAPON_MODDING', parameter: {index: 0, category: 'weapons', slot: 'stock', mod: ''}});
+			const newState = reducer(state, { type: 'WEAPON_MODDING', parameter: { index: 0, category: 'weapons', slot: 'stock', mod: '' } });
 
 			expect(newState).to.equal(state);
 		});
@@ -591,17 +592,17 @@ describe('purchaseGear', () => {
 				rating: '0',
 				cost: '300',
 				allowgear: {
-					gearcategory: 'Vision Enhancements'
+					gearcategory: 'Vision Enhancements',
 				},
 				source: 'SR5',
-				page: '432'
+				page: '432',
 			};
 
-			const newState = reducer(state, {type: 'WEAPON_MODDING', parameter: {index: 1, category: 'weapons', slot: 'top', mod: topMod}});
+			const newState = reducer(state, { type: 'WEAPON_MODDING', parameter: { index: 1, category: 'weapons', slot: 'top', mod: topMod } });
 
 			expect(newState.weapons[1].currentCost).to.equal(1250);
 			expect(state.weapons[1].currentCost).to.equal(950);
-		})
+		});
 	});
 
 	const triggerMod = {
@@ -612,13 +613,12 @@ describe('purchaseGear', () => {
 		avail: '2',
 		cost: '50',
 		source: 'HT',
-		page: '182'
+		page: '182',
 	};
 
 	describe('MODDING_MULTI', () => {
 		it('should add an item to a slot that takes mutliple mods', () => {
-
-			const newState = reducer(state, {type: 'MODDING_MULTI', parameter: {index: 0, category: 'weapons', slot: 'slotless', mod: triggerMod}});
+			const newState = reducer(state, { type: 'MODDING_MULTI', parameter: { index: 0, category: 'weapons', slot: 'slotless', mod: triggerMod } });
 
 			expect(newState.weapons[0].mods.slotless['Trigger Removal']).to.equal(triggerMod);
 			expect(newState.weapons[0].currentCost).to.equal(2700);
@@ -630,7 +630,7 @@ describe('purchaseGear', () => {
 		});
 
 		it('should add another item to the slot', () => {
-			const newState1 = reducer(state, {type: 'MODDING_MULTI', parameter: {index: 0, category: 'weapons', slot: 'slotless', mod: triggerMod}});
+			const newState1 = reducer(state, { type: 'MODDING_MULTI', parameter: { index: 0, category: 'weapons', slot: 'slotless', mod: triggerMod } });
 
 			const geckoGrip = {
 				id: '627f212a-ac15-4739-afbc-f44676dfe508',
@@ -639,10 +639,10 @@ describe('purchaseGear', () => {
 				avail: '6',
 				cost: '100',
 				source: 'RG',
-				page: '52'
+				page: '52',
 			};
 
-			const newState2 = reducer(newState1, {type: 'MODDING_MULTI', parameter: {index: 0, category: 'weapons', slot: 'slotless', mod: geckoGrip}});
+			const newState2 = reducer(newState1, { type: 'MODDING_MULTI', parameter: { index: 0, category: 'weapons', slot: 'slotless', mod: geckoGrip } });
 
 			expect(newState2.weapons[0].mods.slotless['Trigger Removal']).to.equal(triggerMod);
 			expect(newState2.weapons[0].mods.slotless['Gecko Grip']).to.equal(geckoGrip);
@@ -664,9 +664,9 @@ describe('purchaseGear', () => {
 				avail: '6',
 				cost: '100',
 				source: 'RG',
-				page: '52'
+				page: '52',
 			};
-			const newState = reducer(state, {type: 'DEMODDING_MULTI', parameter: {index: 1, category: 'weapons', slot: 'slotless', demodName: 'Trigger Removal'}});
+			const newState = reducer(state, { type: 'DEMODDING_MULTI', parameter: { index: 1, category: 'weapons', slot: 'slotless', demodName: 'Trigger Removal' } });
 
 			expect(newState.weapons[1].mods.slotless['Trigger Removal']).to.be.undefined;
 			expect(newState.weapons[1].mods.slotless['Gecko Grip']).to.deep.equal(geckoGrip);
@@ -683,18 +683,18 @@ describe('purchaseGear', () => {
 
 	describe('MODDING_CAPACITY', () => {
 		const shockFrills = {
-			id: 'dbdaf817-9bfa-4938-a195-b53c63b53e7c',
-			name: 'Shock Frills',
-			category: 'General',
-			armor: '0',
-			maxrating: '1',
-			armorcapacity: '[2]',
-			avail: '6R',
-			cost: '250',
-			source: 'SR5',
-			page: '438'
+				id: 'dbdaf817-9bfa-4938-a195-b53c63b53e7c',
+				name: 'Shock Frills',
+				category: 'General',
+				armor: '0',
+				maxrating: '1',
+				armorcapacity: '[2]',
+				avail: '6R',
+				cost: '250',
+				source: 'SR5',
+				page: '438',
 			},
-				thermalDamp = {
+			thermalDamp = {
 				id: 'ba32a6e9-4e6f-47fe-8fd7-c3194a5174d6',
 				name: 'Thermal Damping',
 				category: 'General',
@@ -704,9 +704,9 @@ describe('purchaseGear', () => {
 				avail: '10R',
 				cost: 'Rating * 500',
 				source: 'SR5',
-				page: '438'
+				page: '438',
 			},
-				enhanceStr = {
+			enhanceStr = {
 				id: 'a9f4efd4-b86c-4e90-b0f7-aefa32c3b9de',
 				name: 'Enhanced Strength',
 				category: 'Cyberlimb Enhancement',
@@ -716,9 +716,9 @@ describe('purchaseGear', () => {
 				cost: 'Rating * 6500',
 				source: 'SR5',
 				page: '456',
-				rating: '3'
+				rating: '3',
 			},
-				bulkMod = {
+			bulkMod = {
 				id: '85bd6c32-d0c3-4d1b-99ad-833aad376a54',
 				name: 'Bulk Modification',
 				category: 'Cyberlimb Enhancement',
@@ -728,11 +728,11 @@ describe('purchaseGear', () => {
 				cost: 'Rating * 500',
 				source: 'CF',
 				page: '86',
-				rating: '6'
+				rating: '6',
 			};
 
 		it('should add a mod and add capacity based off of the mod', () => {
-			const newState = reducer(state, {type: 'MODDING_CAPACITY', parameter: {index: 0, category: 'armors', mod: shockFrills}});
+			const newState = reducer(state, { type: 'MODDING_CAPACITY', parameter: { index: 0, category: 'armors', mod: shockFrills } });
 
 			expect(newState.armors[0].mods['Shock Frills']).to.equal(shockFrills);
 			expect(newState.armors[0].currentCost).to.equal(1750);
@@ -745,7 +745,7 @@ describe('purchaseGear', () => {
 		});
 
 		it('should add not reset mods that have previously been added', () => {
-			const newState = reducer(state, {type: 'MODDING_CAPACITY', parameter: {index: 2, category: 'armors', mod: shockFrills}});
+			const newState = reducer(state, { type: 'MODDING_CAPACITY', parameter: { index: 2, category: 'armors', mod: shockFrills } });
 
 			expect(Object.keys(newState.armors[2].mods).length).to.equal(2);
 			expect(newState.armors[2].mods['Shock Frills']).to.equal(shockFrills);
@@ -759,7 +759,7 @@ describe('purchaseGear', () => {
 		});
 
 		it('should not add a mod if it will be more then the capacity limit of the gear', () => {
-			const newState = reducer(state, {type: 'MODDING_CAPACITY', parameter: {index: 1, category: 'armors', mod: shockFrills}});
+			const newState = reducer(state, { type: 'MODDING_CAPACITY', parameter: { index: 1, category: 'armors', mod: shockFrills } });
 
 			expect(newState.armors[1].mods['Shock Frills']).to.be.undefined;
 			expect(newState.armors[1].currentCost).to.equal(1750);
@@ -772,18 +772,18 @@ describe('purchaseGear', () => {
 
 		it('should add a mod that beings the capacity to it the limit', () => {
 			const ruleBreaker = {
-			id: 'ba32a6e9-4e6f-47fe-8fd7-c3194a5174d6',
-			name: 'Breaker',
-			category: 'General',
-			armor: '0',
-			maxrating: '8',
-			armorcapacity: 'FixedValues([1],[2],[3],[4],[5],[6])',
-			avail: '10R',
-			cost: 'Rating * 100',
-			source: 'SR5',
-			page: '438'
-		};
-			const newState = reducer(state, {type: 'MODDING_CAPACITY', parameter: {index: 0, category: 'armors', mod: ruleBreaker, Rating: 8}});
+				id: 'ba32a6e9-4e6f-47fe-8fd7-c3194a5174d6',
+				name: 'Breaker',
+				category: 'General',
+				armor: '0',
+				maxrating: '8',
+				armorcapacity: 'FixedValues([1],[2],[3],[4],[5],[6])',
+				avail: '10R',
+				cost: 'Rating * 100',
+				source: 'SR5',
+				page: '438',
+			};
+			const newState = reducer(state, { type: 'MODDING_CAPACITY', parameter: { index: 0, category: 'armors', mod: ruleBreaker, Rating: 8 } });
 
 			expect(newState.armors[0].mods.Breaker.name).to.equal('Breaker');
 			expect(newState.armors[0].currentCost).to.equal(2300);
@@ -796,7 +796,7 @@ describe('purchaseGear', () => {
 		});
 
 		it('should add a mod with a rating and calculate the currentCost based off of the rating', () => {
-			const newState = reducer(state, {type: 'MODDING_CAPACITY', parameter: {index: 0, category: 'armors', mod: thermalDamp, Rating: 3}});
+			const newState = reducer(state, { type: 'MODDING_CAPACITY', parameter: { index: 0, category: 'armors', mod: thermalDamp, Rating: 3 } });
 
 			expect(newState.armors[0].mods['Thermal Damping'].currentCost).to.equal(1500);
 			expect(newState.armors[0].mods['Thermal Damping'].currentRating).to.equal(3);
@@ -810,7 +810,7 @@ describe('purchaseGear', () => {
 		});
 
 		it('should calculate the capacity when adding a mod with rating to gear that has been modded', () => {
-			const newState = reducer(state, {type: 'MODDING_CAPACITY', parameter: {index: 2, category: 'armors', mod: thermalDamp, Rating: 3}});
+			const newState = reducer(state, { type: 'MODDING_CAPACITY', parameter: { index: 2, category: 'armors', mod: thermalDamp, Rating: 3 } });
 
 			expect(newState.armors[2].mods['Thermal Damping'].currentCost).to.equal(1500);
 			expect(newState.armors[2].mods['Thermal Damping'].currentRating).to.equal(3);
@@ -824,7 +824,7 @@ describe('purchaseGear', () => {
 		});
 
 		it('should check gear.capacity(not armorcapacity) to add mod', () => {
-			const newState = reducer(state, {type: 'MODDING_CAPACITY', parameter: {index: 0, category: 'cyberlimbs', mod: enhanceStr, Rating: 4}});
+			const newState = reducer(state, { type: 'MODDING_CAPACITY', parameter: { index: 0, category: 'cyberlimbs', mod: enhanceStr, Rating: 4 } });
 
 			expect(newState.cyberlimbs[0].mods).to.be.undefined;
 			expect(newState.cyberlimbs[0].currentCost).to.be.undefined;
@@ -836,7 +836,7 @@ describe('purchaseGear', () => {
 		});
 
 		it('should allow for negative rated mods which lowers current capacity', () => {
-			const newState = reducer(state, {type: 'MODDING_CAPACITY', parameter: {index: 1, category: 'cyberlimbs', mod: bulkMod, Rating: 3}});
+			const newState = reducer(state, { type: 'MODDING_CAPACITY', parameter: { index: 1, category: 'cyberlimbs', mod: bulkMod, Rating: 3 } });
 
 			expect(Object.keys(newState.cyberlimbs[1].mods)).to.have.lengthOf(2);
 
@@ -863,10 +863,10 @@ describe('purchaseGear', () => {
 				cost: 'Rating * 100',
 				source: 'CF',
 				page: '73',
-				rating: '10'
+				rating: '10',
 			};
 
-			const newState = reducer(state, {type: 'MODDING_CAPACITY', parameter: {index: 0, category: 'cyberlimbs', mod: fibHair, Rating: 10}});
+			const newState = reducer(state, { type: 'MODDING_CAPACITY', parameter: { index: 0, category: 'cyberlimbs', mod: fibHair, Rating: 10 } });
 
 			expect(newState.cyberlimbs[0].mods['Fiberoptic Hair'].currentCost).to.equal(1000);
 			expect(newState.cyberlimbs[0].mods['Fiberoptic Hair'].currentRating).to.equal(10);
@@ -893,10 +893,10 @@ describe('purchaseGear', () => {
 				page: '90',
 				bonus: {
 				},
-				rating: '2'
+				rating: '2',
 			};
 
-			const newState = reducer(state, {type: 'MODDING_CAPACITY', parameter: {index: 0, category: 'cyberlimbs', mod: telescope, Rating: 1}});
+			const newState = reducer(state, { type: 'MODDING_CAPACITY', parameter: { index: 0, category: 'cyberlimbs', mod: telescope, Rating: 1 } });
 
 			expect(newState.cyberlimbs[0].mods['Telescoping Limb'].currentCost).to.equal(1000);
 			expect(newState.cyberlimbs[0].mods['Telescoping Limb'].currentRating).to.equal(1);
@@ -912,7 +912,7 @@ describe('purchaseGear', () => {
 
 	describe('DEMODDING_CAPACITY', () => {
 		it('should remove a mod and lower capacity', () => {
-			const newState = reducer(state, {type: 'DEMODDING_CAPACITY', parameter: {index: 1, category: 'armors', demodName: 'Faraday Pocket'}});
+			const newState = reducer(state, { type: 'DEMODDING_CAPACITY', parameter: { index: 1, category: 'armors', demodName: 'Faraday Pocket' } });
 
 			expect(newState.armors[1].mods['Faraday Pocket']).to.be.undefined;
 			expect(newState.armors[1].currentCapacity).to.equal(5);
@@ -926,21 +926,21 @@ describe('purchaseGear', () => {
 		});
 
 		it('should remove a mod and lower capacity by rating', () => {
-			const newState = reducer(state, {type: 'DEMODDING_CAPACITY', parameter: {index: 1, category: 'armors', demodName: 'Nonconductivity'}});
+			const newState = reducer(state, { type: 'DEMODDING_CAPACITY', parameter: { index: 1, category: 'armors', demodName: 'Nonconductivity' } });
 
-			expect(newState.armors[1].mods['Nonconductivity']).to.be.undefined;
+			expect(newState.armors[1].mods.Nonconductivity).to.be.undefined;
 			expect(newState.armors[1].currentCapacity).to.equal(1);
 			expect(newState.armors[1].currentCost).to.equal(500);
 			expect(newState.nuyen).to.equal(2100);
 
-			expect(state.armors[1].mods['Nonconductivity']).to.not.be.undefined;
+			expect(state.armors[1].mods.Nonconductivity).to.not.be.undefined;
 			expect(state.armors[1].currentCapacity).to.equal(6);
 			expect(state.armors[1].currentCost).to.equal(1750);
 			expect(state.nuyen).to.equal(3350);
 		});
 
 		it('should remove mods without armorcapacity', () => {
-			const newState = reducer(state, {type: 'DEMODDING_CAPACITY', parameter: {index: 1, category: 'cyberlimbs', demodName: 'Enhanced Strength'}});
+			const newState = reducer(state, { type: 'DEMODDING_CAPACITY', parameter: { index: 1, category: 'cyberlimbs', demodName: 'Enhanced Strength' } });
 
 			expect(newState.cyberlimbs[1].mods['Enhanced Strength']).to.be.undefined;
 			expect(newState.cyberlimbs[1].currentCapacity).to.equal(0);
@@ -954,7 +954,7 @@ describe('purchaseGear', () => {
 		});
 
 		it('should raise capacity if the capacity is negative', () => {
-			const newState = reducer(state, {type: 'DEMODDING_CAPACITY', parameter: {index: 2, category: 'cyberlimbs', demodName: 'Bulk Modification'}});
+			const newState = reducer(state, { type: 'DEMODDING_CAPACITY', parameter: { index: 2, category: 'cyberlimbs', demodName: 'Bulk Modification' } });
 
 			expect(newState.cyberlimbs[2].mods['Bulk Modification']).to.be.undefined;
 			expect(newState.cyberlimbs[2].currentCapacity).to.equal(1);
@@ -968,7 +968,7 @@ describe('purchaseGear', () => {
 		});
 
 		it('should only remove static capacity and not base it off rating', () => {
-			const newState = reducer(state, {type: 'DEMODDING_CAPACITY', parameter: {index: 2, category: 'cyberlimbs', demodName: 'Fiberoptic Hair'}});
+			const newState = reducer(state, { type: 'DEMODDING_CAPACITY', parameter: { index: 2, category: 'cyberlimbs', demodName: 'Fiberoptic Hair' } });
 
 			expect(newState.cyberlimbs[2].mods['Fiberoptic Hair']).to.be.undefined;
 			expect(newState.cyberlimbs[2].currentCapacity).to.equal(-6);
@@ -984,23 +984,42 @@ describe('purchaseGear', () => {
 
 	describe('MODDING_VEHICLE', () => {
 		const accel = {
-			id: '6ac249ee-84c0-498f-9377-149ccbc2f959',
-			name: 'Acceleration Enhancement',
-			page: '154',
-			source: 'R5',
-			avail: '6',
-			category: 'Powertrain',
-			cost: 'FixedValues(Acceleration * 10000,Acceleration * 25000)',
-			rating: '2',
-			slots: 'FixedValues(4,8)',
-			bonus: {
-				accel: '+Rating',
-				offroadaccel: '+Rating',
+				id: '6ac249ee-84c0-498f-9377-149ccbc2f959',
+				name: 'Acceleration Enhancement',
+				page: '154',
+				source: 'R5',
+				avail: '6',
+				category: 'Powertrain',
+				cost: 'FixedValues(Acceleration * 10000,Acceleration * 25000)',
+				rating: '2',
+				slots: 'FixedValues(4,8)',
+				bonus: {
+					accel: '+Rating',
+					offroadaccel: '+Rating',
+				},
+				currentCost: 10000,
+				currentRating: 1,
+				currentSlot: 4,
 			},
-			currentCost: 10000,
-			currentRating: 1,
-			currentSlot: 4,
-		};
+			handling = {
+				id: '956a20f7-64f3-4160-88a0-d6d6b29b0bd1',
+				name: 'Handling Enhancement',
+				page: '154',
+				source: 'R5',
+				avail: 'FixedValues(6,8,10)',
+				category: 'Powertrain',
+				cost: 'FixedValues(Handling*2000,Handling*5000,Handling*12000)',
+				rating: '3',
+				slots: 'FixedValues(4,10,18)',
+				bonus: {
+					handling: '+Rating',
+					offroadhandling: '+Rating',
+				},
+				currentRating: 1,
+				currentCost: 8000,
+				currentSlot: 4,
+				currentAvail: 6,
+			};
 
 		it('should add a mod on a vehicle and add the slot to the rating', () => {
 			const newState = reducer(state, { type: 'MODDING_VEHICLE', parameter: { index: 0, category: 'vehicles', mod: accel } });
@@ -1010,9 +1029,24 @@ describe('purchaseGear', () => {
 			expect(newState.nuyen).to.equal(13350);
 			expect(newState.vehicles[0].mods.Powertrain.currentSlot).to.equal(4);
 
-			expect(state.vehicles[0].mods).to.deep.equal({name: 'Improved Economy'});
+			expect(state.vehicles[0].mods).to.deep.equal({ name: 'Improved Economy' });
 			expect(state.vehicles[0].currentCost).to.be.undefined;
 			expect(state.nuyen).to.equal(3350);
 		});
+
+		it('should take custom avail', () => {
+			const newState = reducer(state, { type: 'MODDING_VEHICLE', parameter: { index: 0, category: 'vehicles', mod: handling } });
+
+			expect(newState.vehicles[0].mods.Powertrain['Handling Enhancement']).to.equal(handling);
+			expect(newState.vehicles[0].currentCost).to.equal(11000);
+			expect(newState.nuyen).to.equal(11350);
+			expect(newState.vehicles[0].mods.Powertrain.currentSlot).to.equal(4);
+
+			expect(state.vehicles[0].mods).to.deep.equal({ name: 'Improved Economy' });
+			expect(state.vehicles[0].currentCost).to.be.undefined;
+			expect(state.nuyen).to.equal(3350);
+		});
+
+		it('should not accept a mod if there are not enough slots availible');
 	});
 });

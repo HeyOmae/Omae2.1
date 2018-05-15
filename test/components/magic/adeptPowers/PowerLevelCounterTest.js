@@ -6,46 +6,46 @@ import ModificationButton from 'components/ModificationButton';
 
 describe('PowerLevelCounter', () => {
 	const setup = (
-			power = {},
-			pointsSpent= 1,
-			maxPoints= 6,
-			index= 3,
-			isMystic= true,
-			actions= {
-				addPower: () => {},
-				decrementAugmented: () => {},
-				incrementAugmented: () => {},
-				lowerPower: () => {},
-				raisePower: () => {},
-				removePower: () => {}
-			},
-		) => {
+		power = {},
+		pointsSpent = 1,
+		maxPoints = 6,
+		index = 3,
+		isMystic = true,
+		actions = {
+			addPower: () => {},
+			decrementAugmented: () => {},
+			incrementAugmented: () => {},
+			lowerPower: () => {},
+			raisePower: () => {},
+			removePower: () => {},
+		},
+	) => {
 		const props = {
 			power: Object.assign({}, {
 				name: 'TestName',
 				levels: '1',
-				points: .5,
+				points: 0.5,
 				source: 'Omae',
-				page: 'v2'
+				page: 'v2',
 
 			}, power),
 			index,
 			pointsSpent,
 			maxPoints,
 			isMystic,
-			actions
+			actions,
 		};
 
 		const levelCounter = shallow(<PowerLevelCounter {...props} />);
 
 		return { levelCounter, props };
-	}
+	};
 
 	describe('When the power can be increased but not decreased', () => {
 		const { levelCounter, props } = setup({
 			power: {
-				levels: 1
-			}
+				levels: 1,
+			},
 		});
 
 		it('Should have 2 ModificationButtons', () => {
@@ -61,15 +61,15 @@ describe('PowerLevelCounter', () => {
 		});
 
 		it('Span should contain current level', () => {
-			expect(levelCounter.find('span').at(0).html()).to.contain('>' + props.power.levels + '<');
+			expect(levelCounter.find('span').at(0).html()).to.contain(`>${props.power.levels}<`);
 		});
 	});
 
 	describe('When the power can be increased and decreased', () => {
 		const { levelCounter, props } = setup(
 			{
-				levels: 2
-			}
+				levels: 2,
+			},
 		);
 
 		it('Should have 2 ModificationButtons', () => {
@@ -85,7 +85,7 @@ describe('PowerLevelCounter', () => {
 		});
 
 		it('Span should contain current level', () => {
-			expect(levelCounter.find('span').at(0).html()).to.contain('>' + props.power.levels + '<');
+			expect(levelCounter.find('span').at(0).html()).to.contain(`>${props.power.levels}<`);
 		});
 	});
 
@@ -93,8 +93,8 @@ describe('PowerLevelCounter', () => {
 		const { levelCounter, props } = setup(
 			{
 				levels: 4,
-				name: 'Improved Physical Attribute(test)'
-			}
+				name: 'Improved Physical Attribute(test)',
+			},
 		);
 
 		it('Should have 2 ModificationButtons', () => {
@@ -110,7 +110,7 @@ describe('PowerLevelCounter', () => {
 		});
 
 		it('Span should contain current level', () => {
-			expect(levelCounter.find('span').at(0).html()).to.contain('>' + props.power.levels + '<');
+			expect(levelCounter.find('span').at(0).html()).to.contain(`>${props.power.levels}<`);
 		});
 	});
 
@@ -118,10 +118,10 @@ describe('PowerLevelCounter', () => {
 		const { levelCounter, props } = setup(
 			{
 				levels: 4,
-				name: 'Improved Physical Attribute(test)'
+				name: 'Improved Physical Attribute(test)',
 			},
 			4.75,
-			5
+			5,
 		);
 
 		it('Should have 2 ModificationButtons', () => {
@@ -137,7 +137,7 @@ describe('PowerLevelCounter', () => {
 		});
 
 		it('Span should contain current level', () => {
-			expect(levelCounter.find('span').at(0).html()).to.contain('>' + props.power.levels + '<');
+			expect(levelCounter.find('span').at(0).html()).to.contain(`>${props.power.levels}<`);
 		});
 	});
 });

@@ -5,10 +5,10 @@ import ModificationButton from 'components/ModificationButton';
 
 describe('ModificationButton', () => {
 	const setup = (
-			buttonClass = 'btn-success',
-			symbol = '+',
-			pointsLeft = 3
-		) => {
+		buttonClass = 'btn-success',
+		symbol = '+',
+		pointsLeft = 3,
+	) => {
 		const props = {
 			attName: 'agi',
 			buttonClass,
@@ -16,13 +16,13 @@ describe('ModificationButton', () => {
 			pointsLeft,
 			modificationFunction: sinon.spy(),
 			attType: 'baseSpent',
-			symbol
+			symbol,
 		};
 
 		const modificationButton = shallow(<ModificationButton {...props} />);
 
 		return { modificationButton, props };
-	}
+	};
 
 	it('should have a button with the default class', () => {
 		const { modificationButton } = setup();
@@ -47,14 +47,14 @@ describe('ModificationButton', () => {
 	it('should call modificationFunction when clicked and pointsLeft is 1', () => {
 		const { modificationButton, props } = setup(undefined, undefined, 1);
 
-		modificationButton.find('button.btn').simulate('click')
+		modificationButton.find('button.btn').simulate('click');
 		expect(props.modificationFunction.calledOnce).to.be.true;
 	});
 
 	it('should not call modificationFunction when clicked and pointsLeft is 0', () => {
 		const { modificationButton, props } = setup(undefined, undefined, 0);
 
-		modificationButton.find('button.btn').simulate('click')
+		modificationButton.find('button.btn').simulate('click');
 		expect(props.modificationFunction.calledOnce).to.be.false;
 	});
 });
