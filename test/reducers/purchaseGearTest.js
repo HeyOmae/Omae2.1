@@ -1015,10 +1015,10 @@ describe('purchaseGear', () => {
 					handling: '+Rating',
 					offroadhandling: '+Rating',
 				},
-				currentRating: 1,
-				currentCost: 8000,
-				currentSlot: 4,
-				currentAvail: 6,
+				currentRating: 2,
+				currentCost: 20000,
+				currentSlot: 10,
+				currentAvail: 8,
 			};
 
 		it('should add a mod on a vehicle and add the slot to the rating', () => {
@@ -1034,19 +1034,17 @@ describe('purchaseGear', () => {
 			expect(state.nuyen).to.equal(3350);
 		});
 
-		it('should take custom avail', () => {
+		it('should not accept a mod if there are not enough slots availible', () => {
 			const newState = reducer(state, { type: 'MODDING_VEHICLE', parameter: { index: 0, category: 'vehicles', mod: handling } });
 
-			expect(newState.vehicles[0].mods.Powertrain['Handling Enhancement']).to.equal(handling);
-			expect(newState.vehicles[0].currentCost).to.equal(11000);
-			expect(newState.nuyen).to.equal(11350);
-			expect(newState.vehicles[0].mods.Powertrain.currentSlot).to.equal(4);
+			expect(newState.vehicles[0].mods.Powertrain['Handling Enhancement']).to.undefined;
+			expect(newState.vehicles[0].currentCost).to.undefined;
+			expect(newState.nuyen).to.equal(3350);
+			expect(newState.vehicles[0].mods.Powertrain.currentSlot).to.undefined;
 
 			expect(state.vehicles[0].mods).to.deep.equal({ name: 'Improved Economy' });
 			expect(state.vehicles[0].currentCost).to.be.undefined;
 			expect(state.nuyen).to.equal(3350);
 		});
-
-		it('should not accept a mod if there are not enough slots availible');
 	});
 });
