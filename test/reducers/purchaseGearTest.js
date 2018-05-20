@@ -1037,14 +1037,7 @@ describe('purchaseGear', () => {
 		it('should not accept a mod if there are not enough slots availible', () => {
 			const newState = reducer(state, { type: 'MODDING_VEHICLE', parameter: { index: 0, category: 'vehicles', mod: handling } });
 
-			expect(newState.vehicles[0].mods.Powertrain['Handling Enhancement']).to.undefined;
-			expect(newState.vehicles[0].currentCost).to.undefined;
-			expect(newState.nuyen).to.equal(3350);
-			expect(newState.vehicles[0].mods.Powertrain.currentSlot).to.undefined;
-
-			expect(state.vehicles[0].mods).to.deep.equal({ name: 'Improved Economy' });
-			expect(state.vehicles[0].currentCost).to.be.undefined;
-			expect(state.nuyen).to.equal(3350);
+			expect(newState).to.equal(state);
 		});
 	});
 });

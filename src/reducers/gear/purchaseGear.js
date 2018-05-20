@@ -260,7 +260,15 @@ const purchaseGearReducer = (state = initialState, action) => {
 			const vehicleArray = prevState[category],
 				vehicleBengModded = vehicleArray[index],
 				vehicleMods = vehicleBengModded.mods[mod.category] || {},
-				cost = mod.currentCost || +mod.cost;
+				cost = mod.currentCost || +mod.cost,
+				vahicleModCategory = vehicleBengModded.mods[mod.category];
+
+			if (((vahicleModCategory && vahicleModCategory.currentSlot) || 0) +
+				(mod.currentSlot || +mod.slot)
+				>
+				+vehicleBengModded.body) {
+				return prevState;
+			}
 
 			return {
 				...prevState,
