@@ -91,11 +91,7 @@ class WebpackBaseConfig {
 							{ loader: 'css-loader' },
 							{ loader: 'sass-loader' }
 						]
-					},
-					{
-						test: /\.json$/,
-						loader: 'json-loader'
-					},
+					}
 				]
 			},
 			output: {

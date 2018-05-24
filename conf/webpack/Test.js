@@ -41,10 +41,6 @@ class WebpackTestConfig extends WebpackBaseConfig {
 						loader: 'null-loader'
 					},
 					{
-						test: /\.json$/,
-						loader: 'json-loader'
-					},
-					{
 						test: /\.(js|jsx)$/,
 						loader: 'babel-loader',
 						exclude: /\/node_modules\//,
