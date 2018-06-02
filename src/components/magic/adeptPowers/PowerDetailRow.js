@@ -6,6 +6,11 @@ import ModificationButton from '../../ModificationButton';
 import PowerLevelCounter from './PowerLevelCounter';
 
 class PowerDetailRow extends React.Component {
+	constructor(props) {
+		super(props);
+
+		this.action = this.action.bind(this);
+	}
 	componentWillMount() {
 		this.setState({ value: '' });
 	}
@@ -50,17 +55,23 @@ class PowerDetailRow extends React.Component {
 		return bonus;
 	}
 
+	action(canAdd) {
+		const {actions, index, isMystic, power, pointsSpent, maxPoints, add} = this.props;
+
+		if (canAdd) {
+			return actions.addPower(generateAddActionDetails(isMystic, power, pointsSpent, maxPoints, this.getValue(), actions.incrementAugmented));
+		} else if (!add) {
+			return actions.removePower(generateRemoveActionDetails(isMystic, power, index, actions.decrementAugmented));
+		}
+
+		return null;
+	}
+
 	render() {
 		const {power, index, pointsSpent, add, maxPoints, isMystic, actions} = this.props;
 
 		const bonusOrOptions = this.powerBonus(power.bonus, power.name);
 		const canAdd = Number(power.points) + pointsSpent <= maxPoints;
-
-		let action = function () {
-			if (canAdd) {
-				return actions.addPower(generateAddActionDetails(isMystic, power, pointsSpent, maxPoints, this.getValue(), actions.incrementAugmented));
-			}
-		};
 
 		let symbol = '+';
 		let classNames = canAdd ? 'btn btn-success' : 'btn disabled btn-danger';
@@ -68,9 +79,6 @@ class PowerDetailRow extends React.Component {
 
 		if (!add) {
 			classNames = 'btn btn-warning';
-			action = () => {
-				return actions.removePower(generateRemoveActionDetails(isMystic, power, index, actions.decrementAugmented));
-			};
 			symbol = '-';
 
 			if (power.levels !== 'N/A') {
@@ -82,7 +90,7 @@ class PowerDetailRow extends React.Component {
 		return (
 			<tr key={`power-${index}${power.name}`}>
 				<td>
-					<ModificationButton symbol={symbol} buttonClass={classNames} modificationFunction={action.bind(this)} />
+					<ModificationButton symbol={symbol} buttonClass={classNames} modificationFunction={this.action(canAdd)} />
 				</td>
 				<td>{levelInfo}</td>
 				<td>{power.name}</td>
@@ -107,6 +115,10 @@ PowerDetailRow.propTypes = {
 			removePower: PropTypes.func.isRequired,
 		},
 	).isRequired,
+};
+
+PowerDetailRow.defaultProps = {
+	add: false,
 };
 
 export default PowerDetailRow;

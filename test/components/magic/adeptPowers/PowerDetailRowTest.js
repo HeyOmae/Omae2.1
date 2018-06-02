@@ -57,7 +57,7 @@ describe('PowerDetailRow', () => {
 			});
 
 			it('Should have a ModificationButton with the add css', () => {
-				expect(detailRow.find('ModificationButton').at(0).props().buttonClass).to.equal('btn btn-success');
+				expect(detailRow.find(ModificationButton).props().buttonClass).to.equal('btn btn-success');
 			});
 		});
 
@@ -87,7 +87,7 @@ describe('PowerDetailRow', () => {
 			});
 
 			it('Should have a ModificationButton with the add css', () => {
-				expect(detailRow.find('ModificationButton').at(0).props().buttonClass).to.equal('btn btn-success');
+				expect(detailRow.find(ModificationButton).props().buttonClass).to.equal('btn btn-success');
 			});
 		});
 	});
@@ -105,7 +105,7 @@ describe('PowerDetailRow', () => {
 			});
 
 			it('Should have a ModificationButton with the remove css', () => {
-				expect(detailRow.find('ModificationButton').at(0).props().buttonClass).to.equal('btn btn-warning');
+				expect(detailRow.find(ModificationButton).props().buttonClass).to.equal('btn btn-warning');
 			});
 		});
 
@@ -132,7 +132,7 @@ describe('PowerDetailRow', () => {
 			});
 
 			it('Should have a ModificationButton with the remove css', () => {
-				expect(detailRow.find('ModificationButton').at(0).props().buttonClass).to.equal('btn btn-warning');
+				expect(detailRow.find(ModificationButton).props().buttonClass).to.equal('btn btn-warning');
 			});
 		});
 	});
