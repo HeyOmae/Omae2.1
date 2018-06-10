@@ -410,8 +410,30 @@ describe('purchaseGear', () => {
 						},
 						currentSlot: 6,
 					},
+					Powertrain: {
+						'Speed Enhancement': {
+							id: 'ecc73836-9110-4f5f-9464-cb6ae6e954d2',
+							name: 'Speed Enhancement',
+							page: '157',
+							source: 'R5',
+							avail: 'FixedValues(6,8,12)',
+							category: 'Powertrain',
+							cost: 'FixedValues(Speed * 2000,Speed * 5000,Speed * 12000)',
+							rating: '3',
+							slots: 'FixedValues(5,14,20)',
+							bonus: {
+								offroadspeed: '+Rating',
+								speed: '+Rating',
+							},
+							currentRating: 1,
+							currentSlot: 5,
+							currentCost: 6000,
+						},
+						currentSlot: 5,
+					},
 				},
 				seats: '2',
+				currentCost: 22000
 			}],
 			nuyen: 3350,
 		};
@@ -1065,6 +1087,22 @@ describe('purchaseGear', () => {
 				currentCost: 20000,
 				currentSlot: 10,
 				currentAvail: 8,
+			},
+			offRoad = {
+				id: '5acc99df-ffaf-4c43-93bc-07b552fc4c1c',
+				name: 'Off-Road Suspension',
+				page: '155',
+				source: 'R5',
+				avail: '4',
+				category: 'Powertrain',
+				cost: 'Vehicle Cost * 0.25',
+				rating: '0',
+				slots: '2',
+				bonus: {
+					handling: '-1',
+					offroadhandling: '+1',
+				},
+				currentCost: 2500,
 			};
 
 		it('should add a mod on a vehicle and add the slot to the rating', () => {
@@ -1084,6 +1122,19 @@ describe('purchaseGear', () => {
 			const newState = reducer(state, { type: 'MODDING_VEHICLE', parameter: { index: 0, category: 'vehicles', mod: handling } });
 
 			expect(newState).to.equal(state);
+		});
+
+		it('should add to the mod\'s currentSlot', () => {
+			const newState = reducer(state, { type: 'MODDING_VEHICLE', parameter: { index: 1, category: 'vehicles', mod: offRoad } });
+
+			expect(newState.vehicles[1].mods.Powertrain['Off-Road Suspension']).to.equal(offRoad);
+			expect(newState.vehicles[1].currentCost).to.equal(24500);
+			expect(newState.nuyen).to.equal(5850);
+			expect(newState.vehicles[1].mods.Powertrain.currentSlot).to.equal(7);
+
+			expect(state.vehicles[0].mods).to.deep.equal({ name: 'Improved Economy' });
+			expect(state.vehicles[0].currentCost).to.be.undefined;
+			expect(state.nuyen).to.equal(3350);
 		});
 	});
 });

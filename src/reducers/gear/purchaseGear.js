@@ -281,7 +281,7 @@ const purchaseGearReducer = (state = initialState, action) => {
 							[mod.category]: {
 								...vehicleMods,
 								[mod.name]: mod,
-								currentSlot: (vehicleMods.currentSlot || 0) + mod.currentSlot,
+								currentSlot: (vehicleMods.currentSlot || 0) + (mod.currentSlot || +mod.slots),
 							},
 						},
 						currentCost: (vehicleBengModded.currentCost || +vehicleBengModded.cost) + (cost),
