@@ -12,6 +12,7 @@ class WebpackTestConfig extends WebpackBaseConfig {
 		super();
 
 		this.config = {
+			mode: 'development',
 			devtool: 'inline-source-map',
 			entry: [
 				'./client.js'
@@ -62,7 +63,7 @@ class WebpackTestConfig extends WebpackBaseConfig {
 			},
 			plugins: [
 				new webpack.DefinePlugin({
-					'process.env.NODE_ENV': '"test"'
+					'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'test'),
 				})
 			]
 		};
