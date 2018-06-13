@@ -292,6 +292,10 @@ const purchaseGearReducer = (state = initialState, action) => {
 			};
 		},
 
+		DEMODDING_VEHICLE(prevState, {index, category, demodName}) {
+			return prevState;
+		},
+
 		DEFAULT(prevState) { return prevState; },
 	};
 	return (actionsToTake[action.type] || actionsToTake.DEFAULT)(state, action.parameter);

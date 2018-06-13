@@ -404,9 +404,36 @@ describe('purchaseGear', () => {
 							bonus: {
 								armor: 'Rating',
 							},
-							currentRating: 2,
+							currentRating: 1,
+							currentCost: 3000,
+							currentSlot: 3,
+						},
+						'Anti-Theft System': {
+							id: 'f2d9840c-22a7-4c70-943d-ffac88fe6120',
+							name: 'Anti-Theft System',
+							page: '159',
+							source: 'R5',
+							avail: 'FixedValues(4,6,8R,12F)',
+							category: 'Protection',
+							cost: 'FixedValues(500,1000,2500,5000)',
+							rating: '4',
+							slots: 'FixedValues(1,2,4,6)',
+							currentRating: 1,
+							currentCost: 500,
+							currentSlot: 1,
+						},
+						'Passenger Protection System': {
+							id: 'f9353113-4f4b-4c71-b742-eb5a6f87fc1"',
+							name: 'Passenger Protection System',
+							page: '159',
+							source: 'R5',
+							avail: '6',
+							category: 'Protection',
+							cost: 'Rating * 2000',
+							rating: '6',
+							slots: '2',
+							currentRating: 3,
 							currentCost: 6000,
-							currentSlot: 6,
 						},
 						currentSlot: 6,
 					},
@@ -433,7 +460,7 @@ describe('purchaseGear', () => {
 					},
 				},
 				seats: '2',
-				currentCost: 22000
+				currentCost: 28500,
 			}],
 			nuyen: 3350,
 		};
@@ -1128,12 +1155,27 @@ describe('purchaseGear', () => {
 			const newState = reducer(state, { type: 'MODDING_VEHICLE', parameter: { index: 1, category: 'vehicles', mod: offRoad } });
 
 			expect(newState.vehicles[1].mods.Powertrain['Off-Road Suspension']).to.equal(offRoad);
-			expect(newState.vehicles[1].currentCost).to.equal(24500);
+			expect(newState.vehicles[1].currentCost).to.equal(31000);
 			expect(newState.nuyen).to.equal(5850);
 			expect(newState.vehicles[1].mods.Powertrain.currentSlot).to.equal(7);
 
-			expect(state.vehicles[0].mods).to.deep.equal({ name: 'Improved Economy' });
-			expect(state.vehicles[0].currentCost).to.be.undefined;
+			expect(state.vehicles[1].currentCost).to.equal(28500);
+			expect(state.nuyen).to.equal(3350);
+		});
+	});
+
+	describe('DEMODDING_VEHICLE', () => {
+		it('should remove a mod from a vehicle', () => {
+			const newState = reducer(state, { type: 'DEMODDING_VEHICLE', parameter: { index: 1, category: 'vehicles', demodName: 'Armor (Concealed)' } });
+
+			expect(newState.vehicles[1].mods.Protection['Armor (Concealed)']).to.be.undefined;
+			expect(Object.keys(newState.vehicles[1].mods.Protection).length).to.equal(2);
+			expect(newState.vehicles[1].currentCost).to.equal(25500);
+			expect(newState.nuyen).to.equal(350);
+			expect(newState.vehicles[1].mods.Protection.currentSlot).to.equal(3);
+
+			expect(Object.keys(state.vehicles[1].mods.Protection).length).to.equal(3);
+			expect(state.vehicles[1].currentCost).to.equal(28500);
 			expect(state.nuyen).to.equal(3350);
 		});
 	});
