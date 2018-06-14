@@ -258,15 +258,15 @@ const purchaseGearReducer = (state = initialState, action) => {
 
 		MODDING_VEHICLE(prevState, {index, category, mod}) {
 			const vehicleArray = prevState[category],
-				vehicleBengModded = vehicleArray[index],
-				vehicleMods = vehicleBengModded.mods[mod.category] || {},
+				vehicleBeingModded = vehicleArray[index],
+				vehicleMods = vehicleBeingModded.mods[mod.category] || {},
 				cost = mod.currentCost || +mod.cost,
-				vahicleModCategory = vehicleBengModded.mods[mod.category];
+				vahicleModCategory = vehicleBeingModded.mods[mod.category];
 
 			if (((vahicleModCategory && vahicleModCategory.currentSlot) || 0) +
 				(mod.currentSlot || +mod.slot)
 				>
-				+vehicleBengModded.body) {
+				+vehicleBeingModded.body) {
 				return prevState;
 			}
 
@@ -275,16 +275,16 @@ const purchaseGearReducer = (state = initialState, action) => {
 				[category]: [
 					...vehicleArray.slice(0, index),
 					{
-						...vehicleBengModded,
+						...vehicleBeingModded,
 						mods: {
-							...vehicleBengModded.mods,
+							...vehicleBeingModded.mods,
 							[mod.category]: {
 								...vehicleMods,
 								[mod.name]: mod,
 								currentSlot: (vehicleMods.currentSlot || 0) + (mod.currentSlot || +mod.slots),
 							},
 						},
-						currentCost: (vehicleBengModded.currentCost || +vehicleBengModded.cost) + (cost),
+						currentCost: (vehicleBeingModded.currentCost || +vehicleBeingModded.cost) + (cost),
 					},
 					...vehicleArray.slice(index + 1),
 				],
@@ -292,8 +292,32 @@ const purchaseGearReducer = (state = initialState, action) => {
 			};
 		},
 
-		DEMODDING_VEHICLE(prevState, {index, category, demodName}) {
-			return prevState;
+		DEMODDING_VEHICLE(prevState, {index, category, demodName, type}) {
+			const vehicleArray = prevState[category],
+				vehicleBeingModded = vehicleArray[index],
+				{[demodName]: discard, ...remainingMods} = vehicleBeingModded.mods[type],
+				slotsToRemove = discard.currentSlot || +discard.slot,
+				cost = discard.currentCost || +discard.cost;
+
+			return {
+				...prevState,
+				[category]: [
+					vehicleArray.slice(0, index),
+					{
+						...vehicleBeingModded,
+						mods: {
+							...vehicleBeingModded.mods,
+							[type]: {
+								...remainingMods,
+								currentSlot: vehicleBeingModded.mods[type].currentSlot - slotsToRemove,
+							}
+						},
+						currentCost: vehicleBeingModded.currentCost - cost
+					},
+					vehicleArray.slice(index + 1),
+				],
+				nuyen: prevState.nuyen - cost,
+			}
 		},
 
 		DEFAULT(prevState) { return prevState; },
