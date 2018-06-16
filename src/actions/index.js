@@ -2,18 +2,18 @@
 
 Allows to import actions like so:
 
-import {action1, action2} from '../actions/'
+import {action1, action2} from './'
 */
 /* Populated by react-webpack-redux:action */
-import demoddingCapacity from '../actions/gear/demoddingCapacity';
-import moddingCapacity from '../actions/gear/moddingCapacity';
-import demoddingMulti from '../actions/gear/demoddingMulti';
-import moddingMulti from '../actions/gear/moddingMulti';
-import weaponModding from '../actions/gear/weaponModding';
-import style from '../actions/app/style';
-import removeSkill from '../actions/skills/removeSkill';
-import addSkill from '../actions/skills/addSkill';
-import setFilter from '../actions/setFilter';
+import demoddingCapacity from './gear/demoddingCapacity';
+import moddingCapacity from './gear/moddingCapacity';
+import demoddingMulti from './gear/demoddingMulti';
+import moddingMulti from './gear/moddingMulti';
+import weaponModding from './gear/weaponModding';
+import style from './app/style';
+import removeSkill from './skills/removeSkill';
+import addSkill from './skills/addSkill';
+import setFilter from './setFilter';
 import priorityTable from './priorityTable';
 import selectMetatype from './selectMetatype';
 import incrementAttribute from './attributes/incrementAttribute';
@@ -43,6 +43,8 @@ import purchaseGear from './gear/purchaseGear';
 import sellGear from './gear/sellGear';
 import selectGrade from './gear/selectGrade';
 import modalClose from './modalClose';
+import moddingVehicle from './gear/moddingVehicle';
+import demoddingVehicle from './gear/demoddingVehicle';
 
 const actions = {
 	priorityTable,
@@ -83,6 +85,8 @@ const actions = {
 	demoddingCapacity,
 	selectGrade,
 	modalClose,
+	moddingVehicle,
+	demoddingVehicle,
 };
 
 module.exports = actions;
