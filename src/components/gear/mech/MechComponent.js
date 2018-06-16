@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { purchaseGear, sellGear } from '../../../actions';
+import { purchaseGear, sellGear, moddingVehicle, demoddingVehicle } from '../../../actions';
 
 import ModalButton from '../../ModalButtonComponent';
 import FilterableTable from '../../FilterableTable';
@@ -41,7 +41,7 @@ class MechComponent extends React.Component {
 	}
 
 	generateMechMods(mech) {
-		const { mechMods } = this.props;
+		const { mechMods, demodAction, modAction } = this.props;
 		return Object.keys(mechMods).reduce(
 			(memo, modType) => {
 				return this.modsToNotDisplay.indexOf(modType) !== -1 ? memo : [
@@ -67,6 +67,8 @@ class MechComponent extends React.Component {
 											key={`${mech.name}--${modType}-${mod.name}`}
 											mod={mod}
 											mech={mech}
+											modAction={modAction}
+											demodAction={demodAction}
 										/>
 									);
 								})}
@@ -193,6 +195,8 @@ MechComponent.propTypes = {
 	purchaseMechAction: PropTypes.func.isRequired,
 	sellMechAction: PropTypes.func.isRequired,
 	purchasedMech: PropTypes.arrayOf(mechType),
+	modAction: PropTypes.func.isRequired,
+	demodAction: PropTypes.func.isRequired,
 	mechMods: PropTypes.objectOf(
 		PropTypes.arrayOf(PropTypes.shape({
 			name: PropTypes.string.isRequired,
@@ -212,4 +216,4 @@ MechComponent.defaultProps = {
 
 export {MechComponent};
 
-export default connect(null, { purchaseMechAction: purchaseGear, sellMechAction: sellGear })(MechComponent);
+export default connect(null, { purchaseMechAction: purchaseGear, sellMechAction: sellGear, modAction: moddingVehicle, demodAction: demoddingVehicle })(MechComponent);

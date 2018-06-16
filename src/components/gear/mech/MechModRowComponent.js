@@ -114,6 +114,8 @@ MechModRowComponent.propTypes = {
 		body: PropTypes.string.isRequired,
 		cost: PropTypes.string.isRequired,
 	}).isRequired,
+	modAction: PropTypes.func.isRequired,
+	demodAction: PropTypes.func.isRequired,
 };
 
 export default MechModRowComponent;
