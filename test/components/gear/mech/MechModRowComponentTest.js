@@ -235,6 +235,8 @@ describe('Mech Mod Row Component', () => {
 			const props = {
 					mod,
 					mech,
+					modAction: sinon.spy(),
+					demodAction: sinon.spy()
 				},
 
 				mechModRow = shallow(<MechModRow {...props} />);
@@ -397,6 +399,16 @@ describe('Mech Mod Row Component', () => {
 			const { mechModRow, props } = setup(offroad);
 
 			expect(mechModRow.find('.mech-mod--cost').text()).to.equal('750¥');
+		});
+	});
+
+	describe('mod checkbox', () => {
+		it('should call modAction when the mod checkbox is not checked', () => {
+			const { mechModRow, props } = setup(offroad);
+
+			mechModRow.find('.mech-mod--checkbox').simulate('change', {target: {value: false}});
+
+			expect(props.modAction).to.have.been.calledWith({index: 1, category: 'vehicles', mod: {...offroad, cost: 750} });
 		});
 	});
 });
