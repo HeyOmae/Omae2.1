@@ -15,6 +15,7 @@ class MechModRowComponent extends React.PureComponent {
 		this.updateRating = this.updateRating.bind(this);
 		this.calculateStat = this.calculateStat.bind(this);
 		this.fixedValues = this.fixedValues.bind(this);
+		this.toggleMod = this.toggleMod.bind(this);
 
 		const findMaxRating = {
 			body({name}, {body: rating}) {
@@ -81,11 +82,26 @@ class MechModRowComponent extends React.PureComponent {
 		return this.evil(value.replace(mechAttribute, attribute));
 	}
 
+	toggleMod(e) {
+		const {modAction, mechIndex, mod} = this.props;
+		modAction({
+			index: mechIndex,
+			category: 'vehicles',
+			mod,
+		});
+		console.log(e.target.value);
+	}
+
 	render() {
 		const { mod } = this.props;
 		return (
 			<tr>
-				<td className="mech-mod--name">{mod.name}</td>
+				<td className="mech-mod--name">
+					<label htmlFor="mech-mod--checkbox">
+						<input id="mech-mod--checkbox" type="checkbox" className="mech-mod--checkbox" onChange={this.toggleMod} />
+						{mod.name}
+					</label>
+				</td>
 				<td className="mech-mod--rating">
 					<SelectRating item={this.selectRating || mod} updateRating={this.updateRating} />
 				</td>
@@ -108,6 +124,7 @@ MechModRowComponent.propTypes = {
 		source: PropTypes.string.isRequired,
 		page: PropTypes.string.isRequired,
 	}).isRequired,
+	mechIndex: PropTypes.number.isRequired,
 	mech: PropTypes.shape({
 		accel: PropTypes.string.isRequired,
 		handling: PropTypes.string.isRequired,
