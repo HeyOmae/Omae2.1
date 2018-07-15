@@ -235,8 +235,9 @@ describe('Mech Mod Row Component', () => {
 			const props = {
 					mod,
 					mech,
+					mechIndex: 1,
 					modAction: sinon.spy(),
-					demodAction: sinon.spy()
+					demodAction: sinon.spy(),
 				},
 
 				mechModRow = shallow(<MechModRow {...props} />);
@@ -300,7 +301,7 @@ describe('Mech Mod Row Component', () => {
 
 		describe('fixedValues', () => {
 			it('should change slot and cost', () => {
-				const { mechModRow, props } = setup();
+				const { mechModRow } = setup();
 				expect(mechModRow.find('.mech-mod--slot').text()).to.equal('4');
 				expect(mechModRow.find('.mech-mod--cost').text()).to.equal('10000¥');
 				expect(mechModRow.state().rating).to.equal(1);
@@ -314,7 +315,7 @@ describe('Mech Mod Row Component', () => {
 			});
 
 			it('should change avail', () => {
-				const { mechModRow, props } = setup(modWRatingAvail);
+				const { mechModRow } = setup(modWRatingAvail);
 				expect(mechModRow.find('.mech-mod--slot').text()).to.equal('4');
 				expect(mechModRow.find('.mech-mod--avail').text()).to.equal('6');
 				expect(mechModRow.find('.mech-mod--cost').text()).to.equal('8000¥');
@@ -330,7 +331,7 @@ describe('Mech Mod Row Component', () => {
 			});
 
 			it('should find the highest handling', () => {
-				const { mechModRow, props } = setup(modWRatingAvail, falcon);
+				const { mechModRow } = setup(modWRatingAvail, falcon);
 
 				expect(mechModRow.find('.mech-mod--cost').text()).to.equal('10000¥');
 				expect(mechModRow.state().rating).to.equal(1);
@@ -343,7 +344,7 @@ describe('Mech Mod Row Component', () => {
 			});
 
 			it('should calculate stats based off of speed', () => {
-				const { mechModRow, props } = setup(speedEnhance);
+				const { mechModRow } = setup(speedEnhance);
 
 				expect(mechModRow.find('.mech-mod--cost').text()).to.equal('6000¥');
 
@@ -357,25 +358,25 @@ describe('Mech Mod Row Component', () => {
 
 	describe('conditionalValue', () => {
 		it('should return the first value if the conditional value is false', () => {
-			const { mechModRow, props } = setup(geckoTip, terrier);
+			const { mechModRow } = setup(geckoTip, terrier);
 
 			expect(mechModRow.instance().conditionalValue('1 + 3*number(Body >= 4)')).to.equal(1);
 		});
 
 		it('should return the calculate the value if the conditional value is true', () => {
-			const { mechModRow, props } = setup(geckoTip);
+			const { mechModRow } = setup(geckoTip);
 
 			expect(mechModRow.instance().conditionalValue('1 + 3*number(Body >= 4)')).to.equal(4);
 		});
 
 		it('should return the calculate the value based off body if the conditional value is true', () => {
-			const { mechModRow, props } = setup(geckoTip);
+			const { mechModRow } = setup(geckoTip);
 
 			expect(mechModRow.instance().conditionalValue('Body * 3000 + (Body * 1000)*number(Body > 12)')).to.equal(12000);
 		});
 
 		it('should return an avail string with the restirction level of an item', () => {
-			const { mechModRow, props } = setup(geckoTip);
+			const { mechModRow } = setup(geckoTip);
 
 			expect(mechModRow.instance().conditionalValue('(12 + 4*number(Body > 12))R')).to.equal('12R');
 		});
@@ -383,20 +384,20 @@ describe('Mech Mod Row Component', () => {
 
 	describe('calculate stats', () => {
 		it('should should raise extra stats based off body', () => {
-			const { mechModRow, props } = setup(geckoTip);
+			const { mechModRow } = setup(geckoTip);
 
 			expect(mechModRow.find('.mech-mod--cost').text()).to.equal('5000¥');
 			expect(mechModRow.find('.mech-mod--slot').text()).to.equal('4');
 		});
 
 		it('should calculate stats based off of body', () => {
-			const { mechModRow, props } = setup(multifuel);
+			const { mechModRow } = setup(multifuel);
 
 			expect(mechModRow.find('.mech-mod--cost').text()).to.equal('4000¥');
 		});
 
 		it('should calculate stats based off of vehicle cost', () => {
-			const { mechModRow, props } = setup(offroad);
+			const { mechModRow } = setup(offroad);
 
 			expect(mechModRow.find('.mech-mod--cost').text()).to.equal('750¥');
 		});
@@ -406,9 +407,9 @@ describe('Mech Mod Row Component', () => {
 		it('should call modAction when the mod checkbox is not checked', () => {
 			const { mechModRow, props } = setup(offroad);
 
-			mechModRow.find('.mech-mod--checkbox').simulate('change', {target: {value: false}});
+			mechModRow.find('.mech-mod--checkbox').simulate('change', { target: { value: false } });
 
-			expect(props.modAction).to.have.been.calledWith({index: 1, category: 'vehicles', mod: {...offroad, cost: 750} });
+			expect(props.modAction).to.have.been.calledWith({ index: 1, category: 'vehicles', mod: { ...offroad, currentCost: 750 } });
 		});
 	});
 });

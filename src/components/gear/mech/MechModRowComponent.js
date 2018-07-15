@@ -87,9 +87,11 @@ class MechModRowComponent extends React.PureComponent {
 		modAction({
 			index: mechIndex,
 			category: 'vehicles',
-			mod,
+			mod: {
+				...mod,
+				currentCost: this.displayStat(mod.cost),
+			},
 		});
-		console.log(e.target.value);
 	}
 
 	render() {
