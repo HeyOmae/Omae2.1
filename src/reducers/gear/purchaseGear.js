@@ -310,14 +310,14 @@ const purchaseGearReducer = (state = initialState, action) => {
 							[type]: {
 								...remainingMods,
 								currentSlot: vehicleBeingModded.mods[type].currentSlot - slotsToRemove,
-							}
+							},
 						},
-						currentCost: vehicleBeingModded.currentCost - cost
+						currentCost: vehicleBeingModded.currentCost - cost,
 					},
 					vehicleArray.slice(index + 1),
 				],
 				nuyen: prevState.nuyen - cost,
-			}
+			};
 		},
 
 		DEFAULT(prevState) { return prevState; },

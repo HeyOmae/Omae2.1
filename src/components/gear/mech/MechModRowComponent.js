@@ -83,15 +83,25 @@ class MechModRowComponent extends React.PureComponent {
 	}
 
 	toggleMod(e) {
-		const {modAction, mechIndex, mod} = this.props;
-		modAction({
-			index: mechIndex,
-			category: 'vehicles',
-			mod: {
-				...mod,
-				currentCost: this.displayStat(mod.cost),
-			},
-		});
+		const {modAction, demodAction, mechIndex, mod} = this.props;
+
+		if (e.target.value) {
+			demodAction({
+				index: mechIndex,
+				category: 'vehicles',
+				demodName: mod.name,
+				type: mod.category,
+			});
+		} else {
+			modAction({
+				index: mechIndex,
+				category: 'vehicles',
+				mod: {
+					...mod,
+					currentCost: this.displayStat(mod.cost),
+				},
+			});
+		}
 	}
 
 	render() {

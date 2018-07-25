@@ -411,5 +411,13 @@ describe('Mech Mod Row Component', () => {
 
 			expect(props.modAction).to.have.been.calledWith({ index: 1, category: 'vehicles', mod: { ...offroad, currentCost: 750 } });
 		});
+
+		it('should call demodAction when the mod checkbox is checked', () => {
+			const { mechModRow, props } = setup(offroad);
+
+			mechModRow.find('.mech-mod--checkbox').simulate('change', { target: { value: true } });
+
+			expect(props.demodAction).to.have.been.calledWith({ index: props.mechIndex, category: 'vehicles', demodName: offroad.name, type: offroad.category });
+		});
 	});
 });
