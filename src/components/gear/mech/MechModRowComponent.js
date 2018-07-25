@@ -105,12 +105,12 @@ class MechModRowComponent extends React.PureComponent {
 	}
 
 	render() {
-		const { mod } = this.props;
+		const { mod, selectedMod } = this.props;
 		return (
 			<tr>
 				<td className="mech-mod--name">
 					<label htmlFor="mech-mod--checkbox">
-						<input id="mech-mod--checkbox" type="checkbox" className="mech-mod--checkbox" onChange={this.toggleMod} />
+						<input id="mech-mod--checkbox" type="checkbox" className="mech-mod--checkbox" onChange={this.toggleMod} value={selectedMod} />
 						{mod.name}
 					</label>
 				</td>
@@ -145,6 +145,7 @@ MechModRowComponent.propTypes = {
 	}).isRequired,
 	modAction: PropTypes.func.isRequired,
 	demodAction: PropTypes.func.isRequired,
+	selectedMod: PropTypes.bool.isRequired,
 };
 
 export default MechModRowComponent;

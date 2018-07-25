@@ -231,13 +231,14 @@ describe('Mech Mod Row Component', () => {
 				},
 			},
 		},
-		setup = (mod = modWithRating, mech = scoot) => {
+		setup = (mod = modWithRating, mech = scoot, selectedMod = false) => {
 			const props = {
 					mod,
 					mech,
 					mechIndex: 1,
 					modAction: sinon.spy(),
 					demodAction: sinon.spy(),
+					selectedMod,
 				},
 
 				mechModRow = shallow(<MechModRow {...props} />);
@@ -418,6 +419,20 @@ describe('Mech Mod Row Component', () => {
 			mechModRow.find('.mech-mod--checkbox').simulate('change', { target: { value: true } });
 
 			expect(props.demodAction).to.have.been.calledWith({ index: props.mechIndex, category: 'vehicles', demodName: offroad.name, type: offroad.category });
+		});
+
+		describe('value', () => {
+			it('should set be set to true if the mod is selected', () => {
+				const { mechModRow } = setup(offroad, undefined, true);
+
+				expect(mechModRow.find('.mech-mod--checkbox').props().value).to.be.true;
+			});
+
+			it('should be set to false if the mod is not selected', () => {
+				const { mechModRow } = setup(offroad);
+
+				expect(mechModRow.find('.mech-mod--checkbox').props().value).to.be.false;
+			});
 		});
 	});
 });
