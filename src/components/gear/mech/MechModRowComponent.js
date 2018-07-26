@@ -85,21 +85,21 @@ class MechModRowComponent extends React.PureComponent {
 	toggleMod(e) {
 		const {modAction, demodAction, mechIndex, mod} = this.props;
 
-		if (e.target.value) {
-			demodAction({
-				index: mechIndex,
-				category: 'vehicles',
-				demodName: mod.name,
-				type: mod.category,
-			});
-		} else {
+		if (e.target.checked) {
 			modAction({
 				index: mechIndex,
-				category: 'vehicles',
+				category: 'Vehicles',
 				mod: {
 					...mod,
 					currentCost: this.displayStat(mod.cost),
 				},
+			});
+		} else {
+			demodAction({
+				index: mechIndex,
+				category: 'Vehicles',
+				demodName: mod.name,
+				type: mod.category,
 			});
 		}
 	}
@@ -110,7 +110,7 @@ class MechModRowComponent extends React.PureComponent {
 			<tr>
 				<td className="mech-mod--name">
 					<label htmlFor="mech-mod--checkbox">
-						<input id="mech-mod--checkbox" type="checkbox" className="mech-mod--checkbox" onChange={this.toggleMod} value={selectedMod} />
+						<input id="mech-mod--checkbox" type="checkbox" className="mech-mod--checkbox" onChange={this.toggleMod} checked={selectedMod} />
 						{mod.name}
 					</label>
 				</td>

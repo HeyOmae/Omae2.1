@@ -40,7 +40,7 @@ class MechComponent extends React.Component {
 		this.modalContent = {};
 	}
 
-	generateMechMods(mech) {
+	generateMechMods(mech, mechIndex) {
 		const { mechMods, demodAction, modAction } = this.props;
 		return Object.keys(mechMods).reduce(
 			(memo, modType) => {
@@ -66,9 +66,11 @@ class MechComponent extends React.Component {
 										<MechModRow
 											key={`${mech.name}--${modType}-${mod.name}`}
 											mod={mod}
+											mechIndex={mechIndex}
 											mech={mech}
 											modAction={modAction}
 											demodAction={demodAction}
+											selectedMod={!!(mech.mods[mod.category] && mech.mods[mod.category][mod.name])}
 										/>
 									);
 								})}
@@ -129,7 +131,7 @@ class MechComponent extends React.Component {
 					<ModalButton
 						modalName={mech.name}
 						modalContent={
-							this.generateMechMods(mech)
+							this.generateMechMods(mech, index)
 						}
 					/>
 				}

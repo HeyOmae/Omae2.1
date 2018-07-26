@@ -405,33 +405,33 @@ describe('Mech Mod Row Component', () => {
 	});
 
 	describe('mod checkbox', () => {
-		it('should call modAction when the mod checkbox is not checked', () => {
+		it('should call modAction when the mod checkbox is checked', () => {
 			const { mechModRow, props } = setup(offroad);
 
-			mechModRow.find('.mech-mod--checkbox').simulate('change', { target: { value: false } });
+			mechModRow.find('.mech-mod--checkbox').simulate('change', { target: { checked: true } });
 
-			expect(props.modAction).to.have.been.calledWith({ index: 1, category: 'vehicles', mod: { ...offroad, currentCost: 750 } });
+			expect(props.modAction).to.have.been.calledWith({ index: 1, category: 'Vehicles', mod: { ...offroad, currentCost: 750 } });
 		});
 
-		it('should call demodAction when the mod checkbox is checked', () => {
+		it('should call demodAction when the mod checkbox is not checked', () => {
 			const { mechModRow, props } = setup(offroad);
 
-			mechModRow.find('.mech-mod--checkbox').simulate('change', { target: { value: true } });
+			mechModRow.find('.mech-mod--checkbox').simulate('change', { target: { checked: false } });
 
-			expect(props.demodAction).to.have.been.calledWith({ index: props.mechIndex, category: 'vehicles', demodName: offroad.name, type: offroad.category });
+			expect(props.demodAction).to.have.been.calledWith({ index: props.mechIndex, category: 'Vehicles', demodName: offroad.name, type: offroad.category });
 		});
 
-		describe('value', () => {
+		describe('checked', () => {
 			it('should set be set to true if the mod is selected', () => {
 				const { mechModRow } = setup(offroad, undefined, true);
 
-				expect(mechModRow.find('.mech-mod--checkbox').props().value).to.be.true;
+				expect(mechModRow.find('.mech-mod--checkbox').props().checked).to.be.true;
 			});
 
 			it('should be set to false if the mod is not selected', () => {
 				const { mechModRow } = setup(offroad);
 
-				expect(mechModRow.find('.mech-mod--checkbox').props().value).to.be.false;
+				expect(mechModRow.find('.mech-mod--checkbox').props().checked).to.be.false;
 			});
 		});
 	});
