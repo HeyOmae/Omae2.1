@@ -51,7 +51,7 @@ class MechModRowComponent extends React.PureComponent {
 			return this.evil(stat.replace('Rating', this.state.rating).replace('R', '+"R"').replace('F', '+"F"'));
 		}
 
-		return stat || 'N/A';
+		return +stat || 'N/A';
 	}
 
 	conditionalValue(stat) {
@@ -106,13 +106,12 @@ class MechModRowComponent extends React.PureComponent {
 
 	render() {
 		const { mod, selectedMod } = this.props;
+		const checkboxLabelText = `mech-mod--checkbox--${mod.name.replace(' ', '-')}`;
 		return (
 			<tr>
 				<td className="mech-mod--name">
-					<label htmlFor="mech-mod--checkbox">
-						<input id="mech-mod--checkbox" type="checkbox" className="mech-mod--checkbox" onChange={this.toggleMod} checked={selectedMod} />
-						{mod.name}
-					</label>
+					<input id={checkboxLabelText} type="checkbox" className="mech-mod--checkbox" onChange={this.toggleMod} checked={selectedMod} />
+					<label htmlFor={checkboxLabelText}>{mod.name}</label>
 				</td>
 				<td className="mech-mod--rating">
 					<SelectRating item={this.selectRating || mod} updateRating={this.updateRating} />

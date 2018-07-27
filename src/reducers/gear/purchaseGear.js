@@ -296,13 +296,13 @@ const purchaseGearReducer = (state = initialState, action) => {
 			const vehicleArray = prevState[category],
 				vehicleBeingModded = vehicleArray[index],
 				{[demodName]: discard, ...remainingMods} = vehicleBeingModded.mods[type],
-				slotsToRemove = discard.currentSlot || +discard.slot,
+				slotsToRemove = discard.currentSlot || +discard.slots,
 				cost = discard.currentCost || +discard.cost;
 
 			return {
 				...prevState,
 				[category]: [
-					vehicleArray.slice(0, index),
+					...vehicleArray.slice(0, index),
 					{
 						...vehicleBeingModded,
 						mods: {
@@ -314,7 +314,7 @@ const purchaseGearReducer = (state = initialState, action) => {
 						},
 						currentCost: vehicleBeingModded.currentCost - cost,
 					},
-					vehicleArray.slice(index + 1),
+					...vehicleArray.slice(index + 1),
 				],
 				nuyen: prevState.nuyen - cost,
 			};

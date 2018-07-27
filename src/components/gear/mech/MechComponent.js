@@ -187,6 +187,7 @@ const mechType = PropTypes.shape({
 	pilot: PropTypes.string.isRequired,
 	sensor: PropTypes.string.isRequired,
 	speed: PropTypes.string.isRequired,
+	mods: PropTypes.object,
 });
 
 MechComponent.propTypes = {

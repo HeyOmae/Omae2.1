@@ -1174,6 +1174,23 @@ describe('purchaseGear', () => {
 			expect(newState.nuyen).to.equal(350);
 			expect(newState.vehicles[1].mods.Protection.currentSlot).to.equal(3);
 
+			expect(newState.vehicles[0]).to.be.equal(state.vehicles[0]);
+			expect(newState.vehicles[2]).to.be.equal(state.vehicles[2]);
+
+			expect(Object.keys(state.vehicles[1].mods.Protection).length).to.equal(4);
+			expect(state.vehicles[1].currentCost).to.equal(28500);
+			expect(state.nuyen).to.equal(3350);
+		});
+
+		it('should remove a mod without a currentSlot', () => {
+			const newState = reducer(state, { type: 'DEMODDING_VEHICLE', parameter: { index: 1, category: 'vehicles', demodName: 'Passenger Protection System', type: 'Protection' } });
+
+			expect(newState.vehicles[1].mods.Protection['Passenger Protection System']).to.be.undefined;
+			expect(Object.keys(newState.vehicles[1].mods.Protection).length).to.equal(3);
+			expect(newState.vehicles[1].currentCost).to.equal(22500);
+			expect(newState.nuyen).to.equal(-2650);
+			expect(newState.vehicles[1].mods.Protection.currentSlot).to.equal(4);
+
 			expect(Object.keys(state.vehicles[1].mods.Protection).length).to.equal(4);
 			expect(state.vehicles[1].currentCost).to.equal(28500);
 			expect(state.nuyen).to.equal(3350);
