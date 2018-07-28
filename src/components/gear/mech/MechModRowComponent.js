@@ -51,7 +51,7 @@ class MechModRowComponent extends React.PureComponent {
 			return this.evil(stat.replace('Rating', this.state.rating).replace('R', '+"R"').replace('F', '+"F"'));
 		}
 
-		return +stat || 'N/A';
+		return stat || 'N/A';
 	}
 
 	conditionalValue(stat) {
@@ -91,7 +91,8 @@ class MechModRowComponent extends React.PureComponent {
 				category: 'Vehicles',
 				mod: {
 					...mod,
-					currentCost: this.displayStat(mod.cost),
+					currentCost: +this.displayStat(mod.cost),
+					currentSlot: +this.displayStat(mod.slots),
 				},
 			});
 		} else {

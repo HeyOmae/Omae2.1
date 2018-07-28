@@ -405,12 +405,23 @@ describe('Mech Mod Row Component', () => {
 	});
 
 	describe('mod checkbox', () => {
-		it('should call modAction when the mod checkbox is checked', () => {
-			const { mechModRow, props } = setup(offroad);
+		describe('modAction', () => {
+			it('should be called when the mod checkbox is checked', () => {
+				const { mechModRow, props } = setup(offroad);
 
-			mechModRow.find('.mech-mod--checkbox').simulate('change', { target: { checked: true } });
+				mechModRow.find('.mech-mod--checkbox').simulate('change', { target: { checked: true } });
 
-			expect(props.modAction).to.have.been.calledWith({ index: 1, category: 'Vehicles', mod: { ...offroad, currentCost: 750 } });
+				expect(props.modAction).to.have.been.calledWith({ index: 1, category: 'Vehicles', mod: { ...offroad, currentCost: 750, currentSlot: 2 } });
+			});
+
+			it('should add a calculate a custom slot', () => {
+				const { mechModRow, props } = setup(modWithRating);
+
+				mechModRow.setState({rating: 2});
+				mechModRow.find('.mech-mod--checkbox').simulate('change', { target: { checked: true } });
+
+				expect(props.modAction).to.have.been.calledWith({ index: 1, category: 'Vehicles', mod: { ...modWithRating, currentCost: 25000, currentSlot: 8 } });
+			});
 		});
 
 		it('should call demodAction when the mod checkbox is not checked', () => {
