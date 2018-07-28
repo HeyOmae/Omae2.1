@@ -40,7 +40,7 @@ class MechComponent extends React.Component {
 		this.modalContent = {};
 	}
 
-	generateMechMods(mech, mechIndex) {
+	generateVehicleMods(mech, mechIndex) {
 		const { mechMods, demodAction, modAction } = this.props;
 		return Object.keys(mechMods).reduce(
 			(memo, modType) => {
@@ -81,6 +81,10 @@ class MechComponent extends React.Component {
 				];
 			}, [],
 		);
+	}
+
+	generateDroneMods(mech) {
+		return (<h1>{mech.name} mods will go here</h1>);
 	}
 
 	generateMechTable(mechsByType, typeName) {
@@ -132,7 +136,10 @@ class MechComponent extends React.Component {
 					<ModalButton
 						modalName={mech.name}
 						modalContent={
-							this.generateMechMods(mech, index)
+							/Drones:/.test(mech.category) ?
+								this.generateDroneMods(mech, index)
+								:
+								this.generateVehicleMods(mech, index)
 						}
 					/>
 				}
