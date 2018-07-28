@@ -49,6 +49,7 @@ class MechComponent extends React.Component {
 					(
 						<div key={modType}>
 							<h4>{modType}</h4>
+							<h5>Slots Left: {+mech.body - ((mech.mods[modType] && mech.mods[modType].currentSlot) || 0)}</h5>
 							<FilterableTable
 								header={
 									<tr>
