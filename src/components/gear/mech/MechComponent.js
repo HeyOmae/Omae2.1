@@ -27,6 +27,41 @@ const MechHeader = () => {
 	);
 };
 
+const MechModModal = ({modType, mech, mechMods, mechIndex, modAction, demodAction}) => {
+	return (
+		<div>
+			<h4>{modType}</h4>
+			<h5>Slots Left: {+mech.body - ((mech.mods && mech.mods[modType] && mech.mods[modType].currentSlot) || 0)}</h5>
+			<FilterableTable
+				header={
+					<tr>
+						<th>Name</th>
+						<th>Rating</th>
+						<th>Slot</th>
+						<th>Avail</th>
+						<th>Cost</th>
+						<th>Ref</th>
+					</tr>
+				}
+			>
+				{mechMods[modType].map((mod) => {
+					return (
+						<MechModRow
+							key={`${mech.name}--${modType}-${mod.name}`}
+							mod={mod}
+							mechIndex={mechIndex}
+							mech={mech}
+							modAction={modAction}
+							demodAction={demodAction}
+							selectedMod={!!(mech.mods && mech.mods[mod.category] && mech.mods[mod.category][mod.name])}
+						/>
+					);
+				})}
+			</FilterableTable>
+		</div>
+	);
+};
+
 class MechComponent extends React.Component {
 	constructor(props) {
 		super(props);
@@ -47,36 +82,15 @@ class MechComponent extends React.Component {
 				return this.modsToNotDisplay.indexOf(modType) !== -1 ? memo : [
 					...memo,
 					(
-						<div key={modType}>
-							<h4>{modType}</h4>
-							<h5>Slots Left: {+mech.body - ((mech.mods[modType] && mech.mods[modType].currentSlot) || 0)}</h5>
-							<FilterableTable
-								header={
-									<tr>
-										<th>Name</th>
-										<th>Rating</th>
-										<th>Slot</th>
-										<th>Avail</th>
-										<th>Cost</th>
-										<th>Ref</th>
-									</tr>
-								}
-							>
-								{mechMods[modType].map((mod) => {
-									return (
-										<MechModRow
-											key={`${mech.name}--${modType}-${mod.name}`}
-											mod={mod}
-											mechIndex={mechIndex}
-											mech={mech}
-											modAction={modAction}
-											demodAction={demodAction}
-											selectedMod={!!(mech.mods[mod.category] && mech.mods[mod.category][mod.name])}
-										/>
-									);
-								})}
-							</FilterableTable>
-						</div>
+						<MechModModal
+							key={modType}
+							modType={modType}
+							mech={mech}
+							mechMods={mechMods}
+							mechIndex={mechIndex}
+							modAction={modAction}
+							demodAction={demodAction}
+						/>
 					),
 				];
 			}, [],
@@ -84,6 +98,8 @@ class MechComponent extends React.Component {
 	}
 
 	generateDroneMods(mech) {
+		const {mechMods} = this.props;
+		console.log(mechMods);
 		return (<h1>{mech.name} mods will go here</h1>);
 	}
 
@@ -136,7 +152,7 @@ class MechComponent extends React.Component {
 					<ModalButton
 						modalName={mech.name}
 						modalContent={
-							/Drones:/.test(mech.category) ?
+							classOfMechs !== 'Drones' ?
 								this.generateDroneMods(mech, index)
 								:
 								this.generateVehicleMods(mech, index)
