@@ -2,17 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {generateAddActionDetails, generateRemoveActionDetails} from './util/AdeptPowersUtil';
-import ModificationButton from '../../ModificationButton';
 import PowerLevelCounter from './PowerLevelCounter';
 
 class PowerDetailRow extends React.Component {
 	constructor(props) {
 		super(props);
 
+		this.state = { value: '' };
+
 		this.action = this.action.bind(this);
-	}
-	componentWillMount() {
-		this.setState({ value: '' });
 	}
 
 	getValue() {
@@ -58,13 +56,13 @@ class PowerDetailRow extends React.Component {
 	action(canAdd) {
 		const {actions, index, isMystic, power, pointsSpent, maxPoints, add} = this.props;
 
-		if (canAdd) {
-			return actions.addPower(generateAddActionDetails(isMystic, power, pointsSpent, maxPoints, this.getValue(), actions.incrementAugmented));
-		} else if (!add) {
+		if (!add) {
 			return actions.removePower(generateRemoveActionDetails(isMystic, power, index, actions.decrementAugmented));
+		} else if (canAdd) {
+			return actions.addPower(generateAddActionDetails(isMystic, power, pointsSpent, maxPoints, this.getValue(), actions.incrementAugmented));
 		}
 
-		return null;
+		return undefined;
 	}
 
 	render() {
@@ -74,11 +72,11 @@ class PowerDetailRow extends React.Component {
 		const canAdd = Number(power.points) + pointsSpent <= maxPoints;
 
 		let symbol = '+';
-		let classNames = canAdd ? 'btn btn-success' : 'btn disabled btn-danger';
+		let classNames = canAdd ? 'btn-success' : 'disabled btn-danger';
 		let levelInfo = power.levels;
 
 		if (!add) {
-			classNames = 'btn btn-warning';
+			classNames = 'btn-warning';
 			symbol = '-';
 
 			if (power.levels !== 'N/A') {
@@ -90,7 +88,14 @@ class PowerDetailRow extends React.Component {
 		return (
 			<tr key={`power-${index}${power.name}`}>
 				<td>
-					<ModificationButton symbol={symbol} buttonClass={classNames} modificationFunction={this.action(canAdd)} />
+					<button
+						className={`btn ${classNames}`}
+						onClick={() => {
+							this.action(canAdd);
+						}}
+						>
+						{symbol}
+					</button>
 				</td>
 				<td>{levelInfo}</td>
 				<td>{power.name}</td>

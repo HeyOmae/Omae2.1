@@ -3,7 +3,6 @@ import { shallow } from 'enzyme';
 
 import PowerDetailRow from 'components/magic/adeptPowers/PowerDetailRow';
 import PowerLevelCounter from 'components/magic/adeptPowers/PowerLevelCounter';
-import ModificationButton from 'components/ModificationButton';
 
 describe('PowerDetailRow', () => {
 	const setup = (args = {}) => {
@@ -56,8 +55,8 @@ describe('PowerDetailRow', () => {
 				expect(detailRow.find('td').length).to.equal(6);
 			});
 
-			it('Should have a ModificationButton with the add css', () => {
-				expect(detailRow.find(ModificationButton).props().buttonClass).to.equal('btn btn-success');
+			it('Should have a btn with the add css', () => {
+				expect(detailRow.find('button').hasClass('btn-success')).to.equal(true);
 			});
 		});
 
@@ -86,8 +85,8 @@ describe('PowerDetailRow', () => {
 				expect(detailRow.find('td').length).to.equal(6);
 			});
 
-			it('Should have a ModificationButton with the add css', () => {
-				expect(detailRow.find(ModificationButton).props().buttonClass).to.equal('btn btn-success');
+			it('Should have a btn with the add css', () => {
+				expect(detailRow.find('button').hasClass('btn-success')).to.equal(true);
 			});
 		});
 	});
@@ -104,8 +103,8 @@ describe('PowerDetailRow', () => {
 				expect(detailRow.find('td').length).to.equal(6);
 			});
 
-			it('Should have a ModificationButton with the remove css', () => {
-				expect(detailRow.find(ModificationButton).props().buttonClass).to.equal('btn btn-warning');
+			it('Should have a btn with the remove css', () => {
+				expect(detailRow.find('button').hasClass('btn-warning')).to.equal(true);
 			});
 		});
 
@@ -131,8 +130,8 @@ describe('PowerDetailRow', () => {
 				expect(detailRow.find('td').at(4).html()).to.contain(`>${bonusPower.bonus}<`);
 			});
 
-			it('Should have a ModificationButton with the remove css', () => {
-				expect(detailRow.find(ModificationButton).props().buttonClass).to.equal('btn btn-warning');
+			it('Should have a btn with the remove css', () => {
+				expect(detailRow.find('button').hasClass('btn-warning')).to.equal(true);
 			});
 		});
 	});

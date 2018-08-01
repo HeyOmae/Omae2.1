@@ -8,7 +8,7 @@ const initialState = {
 	powers: [],
 	powerPointsSpent: 0,
 	powerPointsKarma: 0,
-	complexforms: [],
+	complexforms: []
 };
 
 const spellReducer = (state = initialState, action) => {
@@ -18,12 +18,6 @@ const spellReducer = (state = initialState, action) => {
 			...listOfSpells,
 			newSpell,
 		];
-	}
-
-	function currentlyHasSpell(listOfSpells, newSpell) {
-		return !!listOfSpells.find((spell) => {
-			return newSpell.name === spell.name;
-		});
 	}
 
 	function removeSpellFromList(listOfSpells, indexToDelete) {
@@ -68,161 +62,156 @@ const spellReducer = (state = initialState, action) => {
 	// 	return pointsSpent;
 	// }
 
-	const {type, parameter} = action;
+	const actionsToTake = {
+		ADD_SPELL: (prevState, {newSpell}) => {
+			const spellAlreadyExists = prevState.spells.find((spell) => {
+				return spell.name === newSpell.name;
+			});
 
-	switch (type) {
-	case 'ADD_SPELL': {
-		const {newSpell} = parameter;
-		const spellAlreadyExists = state.spells.find((spell) => {
-			return spell.name === newSpell.name;
-		});
+			if (spellAlreadyExists) {
+				return prevState;
+			}
 
-		if (spellAlreadyExists) {
-			return state;
-		}
+			return {
+				...prevState,
+				spells: [
+					...prevState.spells,
+					newSpell
+				]
+			};
+		},
 
-		return {
-			...state,
-			spells: [
-				...state.spells,
-				newSpell,
-			],
-		};
-	}
-	case 'REMOVE_SPELL': {
-		const {spellIndex} = parameter;
-		return Object.assign(
-			{},
-			state,
-			{
-				spells: removeSpellFromList(state.spells, spellIndex),
-			},
-		);
-	}
-	case 'ADD_COMPLEXFORM': {
-		const {newSpell} = parameter;
-		return Object.assign(
-			{},
-			state,
-			{
-				complexforms: addingSpellToList(state.complexforms, newSpell),
-			},
-		);
-	}
-	case 'REMOVE_COMPLEXFORM': {
-		const {spellIndex} = parameter;
-		return Object.assign(
-			{},
-			state,
-			{
-				complexforms: removeSpellFromList(state.complexforms, spellIndex),
-			},
-		);
-	}
-	case 'ADD_POWER': {
-		const {newSpell, isMystic} = parameter;
-		if (!currentlyHasSpell(state.powers, newSpell)) {
+		REMOVE_SPELL: (prevState, {spellIndex}) => {
+			return Object.assign(
+				{},
+				prevState,
+				{
+					spells: removeSpellFromList(prevState.spells, spellIndex),
+				},
+			);
+		},
+
+		ADD_COMPLEXFORM: (prevState, {newSpell}) => {
+			return Object.assign(
+				{},
+				prevState,
+				{
+					complexforms: addingSpellToList(prevState.complexforms, newSpell),
+				},
+			);
+		},
+
+		REMOVE_COMPLEXFORM: (prevState, {spellIndex}) => {
+			return Object.assign(
+				{},
+				prevState,
+				{
+					complexforms: removeSpellFromList(prevState.complexforms, spellIndex),
+				},
+			);
+		},
+
+		ADD_POWER: (prevState, {newSpell, isMystic}) => {
 			let newState = Object.assign(
 				{},
-				state,
+				prevState,
 				{
-					powers: addingSpellToList(state.powers, newSpell),
-					powerPointsSpent: state.powerPointsSpent + Number(newSpell.points),
+					powers: addingSpellToList(prevState.powers, newSpell),
+					powerPointsSpent: prevState.powerPointsSpent + Number(newSpell.points),
 				},
 			);
 
-			newState = mysticPowerKarmaCost(isMystic, newState, state);
+			newState = mysticPowerKarmaCost(isMystic, newState, prevState);
 
 			return newState;
-		}
+		},
 
-		return state;
-	}
-	case 'REMOVE_POWER': {
-		const {powerIndex, isMystic} = parameter;
-		const power = state.powers[powerIndex];
-		let newState = Object.assign(
-			{},
-			state,
-			{
-				powers: removeSpellFromList(state.powers, powerIndex),
-				powerPointsSpent: state.powerPointsSpent - (
-					Number(power.points) * (power.levels > 0 ? power.levels : 1)
-				),
-			},
-		);
-
-		newState = mysticPowerKarmaCost(isMystic, newState, state);
-
-		return newState;
-	}
-	case 'RAISE_POWER': {
-		const {powerIndex, isMystic} = parameter;
-		const powerToRaise = state.powers[powerIndex],
-			powerLevelRasied = Object.assign(
+		REMOVE_POWER: (prevState, {powerIndex, isMystic}) => {
+			const power = prevState.powers[powerIndex];
+			let newState = Object.assign(
 				{},
-				powerToRaise,
+				prevState,
 				{
-					levels: powerToRaise.levels + 1,
+					powers: removeSpellFromList(prevState.powers, powerIndex),
+					powerPointsSpent: prevState.powerPointsSpent - (
+						Number(power.points) * (power.levels > 0 ? power.levels : 1)
+					),
 				},
 			);
 
-		let newState = Object.assign(
-			{},
-			state,
-			{
-				powers: modifyPowerFromList(state.powers, powerIndex, powerLevelRasied),
-				powerPointsSpent: state.powerPointsSpent + Number(state.powers[powerIndex].points),
-			},
-		);
-
-		newState = mysticPowerKarmaCost(isMystic, newState, state);
-
-		return newState;
-	}
-	case 'LOWER_POWER': {
-		const {powerIndex, isMystic} = parameter;
-		const powerToLower = state.powers[powerIndex],
-			powerLevelLowered = Object.assign(
-				{},
-				powerToLower,
-				{
-					levels: powerToLower.levels - 1,
-				},
-			);
-
-		let newState = Object.assign(
-			{},
-			state,
-			{
-				powers: modifyPowerFromList(state.powers, powerIndex, powerLevelLowered),
-				powerPointsSpent: state.powerPointsSpent - Number(state.powers[powerIndex].points),
-			},
-		);
-
-		newState = mysticPowerKarmaCost(isMystic, newState, state);
-
-		return newState;
-	}
-	case 'RESET_ABILITY': {
-		const {ability} = parameter;
-		if (state[ability].length > 0) {
-			const newState = Object.assign(
-				{},
-				state,
-				{
-					[ability]: [],
-					powerPointsSpent: ability === 'powers' ? 0 : state.powerPointsSpent,
-					powerPointsKarma: 0,
-				},
-			);
+			newState = mysticPowerKarmaCost(isMystic, newState, prevState);
 
 			return newState;
-		}
-		return state;
-	}
-	default: return state;
-	}
+		},
+
+		RAISE_POWER: (prevState, {powerIndex, isMystic}) => {
+			const powerToRaise = prevState.powers[powerIndex],
+				powerLevelRasied = Object.assign(
+					{},
+					powerToRaise,
+					{
+						levels: powerToRaise.levels + 1,
+					},
+				);
+
+			let newState = Object.assign(
+				{},
+				prevState,
+				{
+					powers: modifyPowerFromList(prevState.powers, powerIndex, powerLevelRasied),
+					powerPointsSpent: prevState.powerPointsSpent + Number(prevState.powers[powerIndex].points),
+				},
+			);
+
+			newState = mysticPowerKarmaCost(isMystic, newState, prevState);
+
+			return newState;
+		},
+
+		LOWER_POWER: (prevState, {powerIndex, isMystic}) => {
+			const powerToLower = prevState.powers[powerIndex],
+				powerLevelLowered = Object.assign(
+					{},
+					powerToLower,
+					{
+						levels: powerToLower.levels - 1,
+					},
+				);
+
+			let newState = Object.assign(
+				{},
+				prevState,
+				{
+					powers: modifyPowerFromList(prevState.powers, powerIndex, powerLevelLowered),
+					powerPointsSpent: prevState.powerPointsSpent - Number(prevState.powers[powerIndex].points),
+				},
+			);
+
+			newState = mysticPowerKarmaCost(isMystic, newState, prevState);
+
+			return newState;
+		},
+
+		RESET_ABILITY: (prevState, {ability}) => {
+			if (prevState[ability].length > 0) {
+				const newState = Object.assign(
+					{},
+					prevState,
+					{
+						[ability]: [],
+						powerPointsSpent: ability === 'powers' ? 0 : prevState.powerPointsSpent,
+						powerPointsKarma: 0,
+					},
+				);
+
+				return newState;
+			}
+			return prevState;
+		},
+
+		DEFAULT: (previousState) => { return previousState; },
+	};
+	return (actionsToTake[action.type] || actionsToTake.DEFAULT)(state, action.parameter);
 };
 
 module.exports = spellReducer;

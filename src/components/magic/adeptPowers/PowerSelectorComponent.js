@@ -45,7 +45,8 @@ class PowerSelectorComponent extends React.Component {
 						maxPoints={maxPoints}
 						pointsSpent={pointsSpent}
 						actions={actions}
-						isMystic={isMystic} />
+						isMystic={isMystic}
+						add />
 					: null
 				}
 			</div>
