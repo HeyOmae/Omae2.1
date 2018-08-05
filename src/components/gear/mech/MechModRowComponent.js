@@ -43,15 +43,38 @@ class MechModRowComponent extends React.PureComponent {
 	displayStat(stat) {
 		if (/number/.test(stat)) {
 			return this.conditionalValue(stat);
-		} else if (/FixedValues|Body/.test(stat)) {
+		} else if (/FixedValues/.test(stat)) {
 			return this.fixedValues(stat);
+		} else if (/Body/.test(stat)) {
+			return this.calculateBody(stat);
 		} else if (/Vehicle Cost/.test(stat)) {
 			return this.evil(stat.replace('Vehicle Cost', this.props.mech.cost));
 		} else if (/Rating/.test(stat)) {
-			return this.evil(stat.replace('Rating', this.state.rating).replace('R', '+"R"').replace('F', '+"F"'));
+			const replaceMatchs = {
+				Rating: this.state.rating,
+				R: '+"R"',
+				F: '+"F"',
+			};
+			return this.evil(
+				stat.replace(/Rating|R|F/g, (match) => {
+					return replaceMatchs[match];
+				}),
+			);
 		}
 
 		return stat || 'N/A';
+	}
+
+	calculateBody(stat) {
+		const {body: Body} = this.props.mech,
+			{rating: Rating} = this.state,
+			replaceTerm = {
+				Body, Rating,
+			};
+
+		return this.evil(stat.replace(/Body|Rating/g, (match) => {
+			return replaceTerm[match];
+		}));
 	}
 
 	conditionalValue(stat) {

@@ -8,7 +8,7 @@ const initialState = {
 	powers: [],
 	powerPointsSpent: 0,
 	powerPointsKarma: 0,
-	complexforms: []
+	complexforms: [],
 };
 
 const spellReducer = (state = initialState, action) => {
@@ -76,8 +76,8 @@ const spellReducer = (state = initialState, action) => {
 				...prevState,
 				spells: [
 					...prevState.spells,
-					newSpell
-				]
+					newSpell,
+				],
 			};
 		},
 

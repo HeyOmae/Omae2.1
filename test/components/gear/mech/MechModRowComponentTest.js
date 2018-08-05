@@ -231,6 +231,61 @@ describe('Mech Mod Row Component', () => {
 				},
 			},
 		},
+		droneSpeed = {
+			id: '4ee2420c-1fad-415a-83e3-7f9e72b5df11',
+			name: 'Speed (Drone)',
+			page: '123',
+			source: 'R5',
+			avail: 'Rating * 2',
+			category: 'Speed',
+			cost: 'Body * Rating * 400',
+			rating: '99',
+			slots: 'Rating',
+			bonus: {
+				offroadspeed: 'Rating',
+				speed: 'Rating',
+			},
+			minrating: 'Speed + 1',
+			required: {
+				vehicledetails: {
+					category: {
+						'-operation': 'contains',
+						'#text': 'Drones',
+					},
+				},
+			},
+		},
+		doberman = {
+			id: '9186a0a7-635f-4242-a0e8-238f48b17ca2',
+			name: 'GM-Nissan Doberman (Medium)',
+			page: '466',
+			source: 'SR5',
+			accel: '1',
+			armor: '4',
+			avail: '4R',
+			body: '4',
+			category: 'Drones: Medium',
+			cost: '5000',
+			handling: '5',
+			pilot: '3',
+			sensor: '3',
+			speed: '3',
+			gears: {
+				gear: {
+					'-rating': '3',
+					'-maxrating': '4',
+					'#text': 'Sensor Array',
+				},
+			},
+			weaponmounts: {
+				weaponmount: {
+					size: 'Standard [SR5]',
+					visibility: 'External',
+					flexibility: 'Fixed',
+					control: 'Remote',
+				},
+			},
+		},
 		setup = (mod = modWithRating, mech = scoot, selectedMod = false) => {
 			const props = {
 					mod,
@@ -397,6 +452,13 @@ describe('Mech Mod Row Component', () => {
 			expect(mechModRow.find('.mech-mod--cost').text()).to.equal('4000¥');
 		});
 
+		it('should calculate stats based off body and rating', () => {
+			// wip
+			const { mechModRow } = setup(droneSpeed, doberman);
+
+			expect(mechModRow.find('.mech-mod--cost').text()).to.equal('1600¥');
+		});
+
 		it('should calculate stats based off of vehicle cost', () => {
 			const { mechModRow } = setup(offroad);
 
@@ -417,7 +479,7 @@ describe('Mech Mod Row Component', () => {
 			it('should add a calculate a custom slot', () => {
 				const { mechModRow, props } = setup(modWithRating);
 
-				mechModRow.setState({rating: 2});
+				mechModRow.setState({ rating: 2 });
 				mechModRow.find('.mech-mod--checkbox').simulate('change', { target: { checked: true } });
 
 				expect(props.modAction).to.have.been.calledWith({ index: 1, category: 'Vehicles', mod: { ...modWithRating, currentCost: 25000, currentSlot: 8 } });
