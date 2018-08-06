@@ -4,13 +4,14 @@ import { shallow } from 'enzyme';
 import SelectRating from 'components/gear/SelectRatingComponent';
 
 describe('Mech Row Component', () => {
-	const setup = (rating) => {
+	const setup = (rating, minRating) => {
 		const props = {
 				item: {
 					rating,
 					name: 'taco',
 				},
 				updateRating: sinon.spy(),
+				minRating,
 			},
 
 			selectRating = shallow(<SelectRating {...props} />);
@@ -44,5 +45,11 @@ describe('Mech Row Component', () => {
 		selectRating.find('select').simulate('change', event);
 
 		expect(props.updateRating).to.have.been.calledWith(event);
+	});
+
+	it('should be able to set the minimum rating', () => {
+		const { selectRating } = setup('6', 4);
+
+		expect(selectRating.find('option').length).to.equal(3);
 	});
 });

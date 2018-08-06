@@ -7,7 +7,6 @@ class MechModRowComponent extends React.PureComponent {
 	constructor(props) {
 		super(props);
 
-		this.state = {
 			rating: 1,
 		};
 		this.evil = eval;

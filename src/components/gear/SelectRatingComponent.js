@@ -6,7 +6,7 @@ class SelectRatingComponent extends React.PureComponent {
 		const ratingOptions = [],
 			{ rating, name } = this.props.item;
 
-		for (let i = 1; i <= rating; ++i) {
+		for (let i = this.props.minRating; i <= rating; ++i) {
 			ratingOptions.push(
 				<option key={`${name}-${i}`} value={i}>{i}</option>,
 			);
@@ -34,6 +34,11 @@ SelectRatingComponent.propTypes = {
 		name: PropTypes.string.isRequired,
 	}).isRequired,
 	updateRating: PropTypes.func.isRequired,
+	minRating: PropTypes.number,
+};
+
+SelectRatingComponent.defaultProps = {
+	minRating: 1,
 };
 
 export default SelectRatingComponent;

@@ -255,6 +255,29 @@ describe('Mech Mod Row Component', () => {
 				},
 			},
 		},
+		droneArmor = {
+			id: 'dfa7cdcd-5d0e-4c9c-9f0b-90bf29ac5aff',
+			name: 'Armor (Drone)',
+			page: '123',
+			source: 'R5',
+			avail: 'Range(6[],12[R],MaxRating[F])',
+			category: 'Armor',
+			cost: 'Rating * Body * 200',
+			rating: '99',
+			slots: 'Rating',
+			bonus: {
+				armor: 'Rating',
+			},
+			minrating: 'Armor + 1',
+			required: {
+				vehicledetails: {
+					category: {
+						'-operation': 'contains',
+						'#text': 'Drones'
+					},
+				},
+			},
+		},
 		doberman = {
 			id: '9186a0a7-635f-4242-a0e8-238f48b17ca2',
 			name: 'GM-Nissan Doberman (Medium)',
@@ -453,7 +476,6 @@ describe('Mech Mod Row Component', () => {
 		});
 
 		it('should calculate stats based off body and rating', () => {
-			// wip
 			const { mechModRow } = setup(droneSpeed, doberman);
 
 			expect(mechModRow.find('.mech-mod--cost').text()).to.equal('1600¥');
@@ -463,6 +485,19 @@ describe('Mech Mod Row Component', () => {
 			const { mechModRow } = setup(offroad);
 
 			expect(mechModRow.find('.mech-mod--cost').text()).to.equal('750¥');
+		});
+	});
+
+	describe('Range values are dumb so', () => {
+		it('should display armor rating for avail', () => {
+			const { mechModRow } = setup(droneArmor, doberman);
+
+			expect(mechModRow.find('.mech-mod--avail').text()).to.equal(doberman.armor);
+		});
+		it('should set the min state rating to armor', () => {
+			const { mechModRow } = setup(droneArmor, doberman);
+
+			expect(mechModRow.instance().minRating).to.equal(+doberman.armor);
 		});
 	});
 
