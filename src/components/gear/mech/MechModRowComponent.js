@@ -7,8 +7,32 @@ class MechModRowComponent extends React.PureComponent {
 	constructor(props) {
 		super(props);
 
-			rating: 1,
-		};
+		if (/Range/.test(props.mod.avail)) {
+			this.minRating = +props.mech.armor;
+
+			this.state = {
+				rating: this.minRating,
+			};
+		} else {
+			this.state = {
+				rating: 1,
+			};
+
+			const findMaxRating = {
+				body({name}, {body: rating}) {
+					return { name, rating};
+				},
+				Seats({name}, {seats: rating}) {
+					return { name, rating };
+				},
+				default() {
+					return undefined;
+				},
+			};
+
+			this.selectRating = (findMaxRating[props.mod.rating] || findMaxRating.default)(props.mod, props.mech);
+		}
+
 		this.evil = eval;
 
 		this.updateRating = this.updateRating.bind(this);
@@ -16,19 +40,6 @@ class MechModRowComponent extends React.PureComponent {
 		this.fixedValues = this.fixedValues.bind(this);
 		this.toggleMod = this.toggleMod.bind(this);
 
-		const findMaxRating = {
-			body({name}, {body: rating}) {
-				return { name, rating};
-			},
-			Seats({name}, {seats: rating}) {
-				return { name, rating };
-			},
-			default() {
-				return undefined;
-			},
-		};
-
-		this.selectRating = (findMaxRating[props.mod.rating] || findMaxRating.default)(props.mod, props.mech);
 	}
 
 	updateRating(event) {
@@ -48,6 +59,8 @@ class MechModRowComponent extends React.PureComponent {
 			return this.calculateBody(stat);
 		} else if (/Vehicle Cost/.test(stat)) {
 			return this.evil(stat.replace('Vehicle Cost', this.props.mech.cost));
+		} else if (/Range/.test(stat)) {
+			return this.state.rating;
 		} else if (/Rating/.test(stat)) {
 			const replaceMatchs = {
 				Rating: this.state.rating,
@@ -137,7 +150,11 @@ class MechModRowComponent extends React.PureComponent {
 					<label htmlFor={checkboxLabelText}>{mod.name}</label>
 				</td>
 				<td className="mech-mod--rating">
-					<SelectRating item={this.selectRating || mod} updateRating={this.updateRating} />
+					<SelectRating
+						item={this.selectRating || mod}
+						updateRating={this.updateRating}
+						minRating={this.minRating}
+					/>
 				</td>
 				<td className="mech-mod--slot">{this.displayStat(mod.slots)}</td>
 				<td className="mech-mod--avail">{this.displayStat(mod.avail)}</td>
@@ -164,6 +181,7 @@ MechModRowComponent.propTypes = {
 		handling: PropTypes.string.isRequired,
 		body: PropTypes.string.isRequired,
 		cost: PropTypes.string.isRequired,
+		armor: PropTypes.string.isRequired,
 	}).isRequired,
 	modAction: PropTypes.func.isRequired,
 	demodAction: PropTypes.func.isRequired,
