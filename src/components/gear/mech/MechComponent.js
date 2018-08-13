@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { mechType, mechModType } from './mechPropTypes';
 
 import { purchaseGear, sellGear, moddingVehicle, demoddingVehicle } from '../../../actions';
 
@@ -8,7 +9,7 @@ import ModalButton from '../../ModalButtonComponent';
 import FilterableTable from '../../FilterableTable';
 import DisplayTable from '../../DisplayTableComponent';
 import MechRow from './MechRowComponent';
-import MechModRow from './MechModRowComponent';
+import VehicleModModal from './VehicleModModalComponent';
 
 const MechHeader = () => {
 	return (
@@ -24,41 +25,6 @@ const MechHeader = () => {
 			<th>Cost</th>
 			<th>Ref</th>
 		</tr>
-	);
-};
-
-const MechModModal = ({modType, mech, mechMods, mechIndex, modAction, demodAction}) => {
-	return (
-		<div>
-			<h4>{modType}</h4>
-			<h5>Slots Left: {+mech.body - ((mech.mods && mech.mods[modType] && mech.mods[modType].currentSlot) || 0)}</h5>
-			<FilterableTable
-				header={
-					<tr>
-						<th>Name</th>
-						<th>Rating</th>
-						<th>Slot</th>
-						<th>Avail</th>
-						<th>Cost</th>
-						<th>Ref</th>
-					</tr>
-				}
-			>
-				{mechMods[modType].map((mod) => {
-					return (
-						<MechModRow
-							key={`${mech.name}--${modType}-${mod.name}`}
-							mod={mod}
-							mechIndex={mechIndex}
-							mech={mech}
-							modAction={modAction}
-							demodAction={demodAction}
-							selectedMod={!!(mech.mods && mech.mods[mod.category] && mech.mods[mod.category][mod.name])}
-						/>
-					);
-				})}
-			</FilterableTable>
-		</div>
 	);
 };
 
@@ -82,7 +48,7 @@ class MechComponent extends React.Component {
 				return this.modsToNotDisplay.indexOf(modType) !== -1 ? memo : [
 					...memo,
 					(
-						<MechModModal
+						<VehicleModModal
 							key={modType}
 							modType={modType}
 							mech={mech}
@@ -188,23 +154,6 @@ class MechComponent extends React.Component {
 	}
 }
 
-const mechType = PropTypes.shape({
-	name: PropTypes.string.isRequired,
-	page: PropTypes.string.isRequired,
-	source: PropTypes.string.isRequired,
-	accel: PropTypes.string.isRequired,
-	armor: PropTypes.string.isRequired,
-	avail: PropTypes.string.isRequired,
-	body: PropTypes.string.isRequired,
-	category: PropTypes.string.isRequired,
-	cost: PropTypes.string.isRequired,
-	handling: PropTypes.string.isRequired,
-	pilot: PropTypes.string.isRequired,
-	sensor: PropTypes.string.isRequired,
-	speed: PropTypes.string.isRequired,
-	mods: PropTypes.object,
-});
-
 MechComponent.propTypes = {
 	classOfMechs: PropTypes.oneOf(['Vehicles', 'Drones']).isRequired,
 	mechsByType: PropTypes.objectOf(
@@ -216,15 +165,7 @@ MechComponent.propTypes = {
 	modAction: PropTypes.func.isRequired,
 	demodAction: PropTypes.func.isRequired,
 	mechMods: PropTypes.objectOf(
-		PropTypes.arrayOf(PropTypes.shape({
-			name: PropTypes.string.isRequired,
-			rating: PropTypes.string.isRequired,
-			slot: PropTypes.string,
-			avail: PropTypes.string.isRequired,
-			cost: PropTypes.string.isRequired,
-			source: PropTypes.string.isRequired,
-			page: PropTypes.string.isRequired,
-		}).isRequired).isRequired,
+		PropTypes.arrayOf(mechModType.isRequired).isRequired,
 	).isRequired,
 };
 

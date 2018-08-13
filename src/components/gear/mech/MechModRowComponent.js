@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { mechType, mechModType } from './mechPropTypes';
+
 import SelectRating from '../SelectRatingComponent';
 
 class MechModRowComponent extends React.PureComponent {
@@ -166,23 +168,9 @@ class MechModRowComponent extends React.PureComponent {
 }
 
 MechModRowComponent.propTypes = {
-	mod: PropTypes.shape({
-		name: PropTypes.string.isRequired,
-		rating: PropTypes.string.isRequired,
-		slot: PropTypes.string,
-		avail: PropTypes.string.isRequired,
-		cost: PropTypes.string.isRequired,
-		source: PropTypes.string.isRequired,
-		page: PropTypes.string.isRequired,
-	}).isRequired,
+	mod: mechModType.isRequired,
 	mechIndex: PropTypes.number.isRequired,
-	mech: PropTypes.shape({
-		accel: PropTypes.string.isRequired,
-		handling: PropTypes.string.isRequired,
-		body: PropTypes.string.isRequired,
-		cost: PropTypes.string.isRequired,
-		armor: PropTypes.string.isRequired,
-	}).isRequired,
+	mech: mechType.isRequired,
 	modAction: PropTypes.func.isRequired,
 	demodAction: PropTypes.func.isRequired,
 	selectedMod: PropTypes.bool.isRequired,
