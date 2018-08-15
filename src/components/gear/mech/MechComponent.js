@@ -10,6 +10,7 @@ import FilterableTable from '../../FilterableTable';
 import DisplayTable from '../../DisplayTableComponent';
 import MechRow from './MechRowComponent';
 import VehicleModModal from './VehicleModModalComponent';
+import DroneModModal from './DroneModModalComponent';
 
 const MechHeader = () => {
 	return (
@@ -42,13 +43,14 @@ class MechComponent extends React.Component {
 	}
 
 	generateVehicleMods(mech, mechIndex) {
-		const { mechMods, demodAction, modAction } = this.props;
+		const { mechMods, demodAction, modAction, classOfMechs } = this.props,
+			Modal = classOfMechs === 'Vehicles' ? VehicleModModal : DroneModModal;
 		return Object.keys(mechMods).reduce(
 			(memo, modType) => {
 				return this.modsToNotDisplay.indexOf(modType) !== -1 ? memo : [
 					...memo,
 					(
-						<VehicleModModal
+						<Modal
 							key={modType}
 							modType={modType}
 							mech={mech}

@@ -461,6 +461,29 @@ describe('purchaseGear', () => {
 				},
 				seats: '2',
 				currentCost: 28500,
+			}, {
+				id: '6a094997-cd2b-4094-90ff-d5648b8889fb',
+				name: 'GMC 442 Chameleon',
+				page: '48',
+				source: 'R5',
+				accel: '1',
+				armor: '4',
+				avail: '0',
+				body: '10',
+				category: 'Cars',
+				cost: '14000',
+				handling: '4/2',
+				pilot: '1',
+				sensor: '1',
+				speed: '4',
+				gears: {
+					gear: {
+						'-rating': '1',
+						'-maxrating': '7',
+						'#text': 'Sensor Array',
+					},
+				},
+				seats: '4',
 			}],
 			nuyen: 3350,
 		};
@@ -1160,6 +1183,18 @@ describe('purchaseGear', () => {
 			expect(newState.vehicles[1].mods.Powertrain.currentSlot).to.equal(7);
 
 			expect(state.vehicles[1].currentCost).to.equal(28500);
+			expect(state.nuyen).to.equal(3350);
+		});
+
+		it('should add mods if the vehicle has no mods', () => {
+			const newState = reducer(state, { type: 'MODDING_VEHICLE', parameter: { index: 2, category: 'vehicles', mod: offRoad } });
+
+			expect(newState.vehicles[2].mods.Powertrain['Off-Road Suspension']).to.equal(offRoad);
+			expect(newState.vehicles[2].currentCost).to.equal(16500);
+			expect(newState.nuyen).to.equal(5850);
+			expect(newState.vehicles[2].mods.Powertrain.currentSlot).to.equal(2);
+
+			expect(state.vehicles[2].currentCost).to.be.undefined;
 			expect(state.nuyen).to.equal(3350);
 		});
 	});

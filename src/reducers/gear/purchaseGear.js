@@ -258,7 +258,10 @@ const purchaseGearReducer = (state = initialState, action) => {
 
 		MODDING_VEHICLE(prevState, {index, category, mod}) {
 			const vehicleArray = prevState[category],
-				vehicleBeingModded = vehicleArray[index],
+				vehicleBeingModded = {
+					...vehicleArray[index],
+					mods: vehicleArray[index].mods || {},
+				},
 				vehicleMods = vehicleBeingModded.mods[mod.category] || {},
 				cost = mod.currentCost || +mod.cost,
 				vahicleModCategory = vehicleBeingModded.mods[mod.category];

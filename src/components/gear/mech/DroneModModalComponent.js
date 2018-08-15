@@ -6,11 +6,11 @@ import {mechType, mechModType} from './mechPropTypes';
 import FilterableTable from '../../FilterableTable';
 import MechModRow from './MechModRowComponent';
 
-const VehicleModModalComponent = ({modType, mech, mechMods, mechIndex, modAction, demodAction}) => {
+const DroneModModalComponent = ({modType, mech, mechMods, mechIndex, modAction, demodAction}) => {
 	return (
 		<div>
 			<h4>{modType}</h4>
-			<h5>Slots Left: {+mech.body - ((mech.mods && mech.mods[modType] && mech.mods[modType].currentSlot) || 0)}</h5>
+			<h5>Slots Left: {+mech.body - ((mech.mods && mech.mods.currentSlot) || 0)}</h5>
 			<FilterableTable
 				header={
 					<tr>
@@ -41,7 +41,7 @@ const VehicleModModalComponent = ({modType, mech, mechMods, mechIndex, modAction
 	);
 };
 
-VehicleModModalComponent.propTypes = {
+DroneModModalComponent.propTypes = {
 	modType: PropTypes.string.isRequired,
 	mech: mechType.isRequired,
 	mechMods: PropTypes.arrayOf(mechModType).isRequired,
@@ -50,4 +50,4 @@ VehicleModModalComponent.propTypes = {
 	demodAction: PropTypes.func.isRequired,
 };
 
-export default VehicleModModalComponent;
+export default DroneModModalComponent;
