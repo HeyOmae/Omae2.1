@@ -44,7 +44,9 @@ const VehicleModModalComponent = ({modType, mech, mechMods, mechIndex, modAction
 VehicleModModalComponent.propTypes = {
 	modType: PropTypes.string.isRequired,
 	mech: mechType.isRequired,
-	mechMods: PropTypes.arrayOf(mechModType).isRequired,
+	mechMods: PropTypes.objectOf(
+		PropTypes.arrayOf(mechModType).isRequired,
+	).isRequired,
 	mechIndex: PropTypes.number.isRequired,
 	modAction: PropTypes.func.isRequired,
 	demodAction: PropTypes.func.isRequired,

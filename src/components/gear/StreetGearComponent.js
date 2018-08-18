@@ -25,7 +25,13 @@ class StreetGearComponent extends React.PureComponent {
 			},
 			organizeGearByType = (keyType) => {
 				return (mechMemo, mech) => {
-					const type = /Drone/.test(mech[keyType]) ? 'drones' : 'vehicles';
+					const type = (
+						// if mech use drone regex, if mod use (drone) regex
+						keyType === 'category' ?
+							/Drone/
+							:
+							/\(Drone\)/
+					).test(mech[keyType]) ? 'drones' : 'vehicles';
 					return {
 						...mechMemo,
 						[type]: {
