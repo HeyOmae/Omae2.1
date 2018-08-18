@@ -91,10 +91,18 @@ describe('Drone Mod Row Component', () => {
 
 			return { props, droneModRow };
 		};
-	it('should exist', () => {
-		const { droneModRow } = setup();
 
-		expect(droneModRow.text()).to.equal('Drone stuff');
+	describe('displays', () => {
+		it('mod stats', () => {
+			const { droneModRow, props } = setup();
+
+			expect(droneModRow.find('.mech-mod--name').text()).to.equal(props.mod.name);
+			expect(droneModRow.find('.mech-mod--rating').find(SelectRating)).lengthOf(1);
+			expect(droneModRow.find('.mech-mod--slot').text()).to.equal(props.mod.slots);
+			expect(droneModRow.find('.mech-mod--avail').text()).to.equal(props.mod.avail);
+			expect(droneModRow.find('.mech-mod--cost').text()).to.equal('600¥');
+			expect(droneModRow.find('.mech-mod--ref').text()).to.equal('R5 125p');
+		});
 	});
 
 	xdescribe('Range values are dumb so', () => {
