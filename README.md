@@ -12,7 +12,7 @@ Omae is a character generator for Shadowrun 5th Edition.
 
 ## Getting Started
 
-1. Install NodeJS from nodejs.org. I'm currently using Node 7.4.0, but in theory a few older versions should still work too.
+1. Install NodeJS from nodejs.org. I'm currently using Node 10.8.0, but in theory a few older versions should still work too.
 2. Clone the repo (you may need to [install git](https://git-scm.com/download/win) if you're running Windows) I also recommend [setting up an SSH key](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/) ```git clone git@github.com:HeyOmae/Omae2.1.git```
 3. Navigate to the directory you cloned the repo to. This is usually done with the command ```cd /path/to/directory/```
 4. Install dependencies with ```npm install```
