@@ -71,6 +71,30 @@ describe('Drone Mod Row Component', () => {
 				},
 			},
 		},
+		droneSpeed = {
+			id: '4ee2420c-1fad-415a-83e3-7f9e72b5df11',
+			name: 'Speed (Drone)',
+			page: '123',
+			source: 'R5',
+			avail: 'Rating * 2',
+			category: 'Speed',
+			cost: 'Body * Rating * 400',
+			rating: '99',
+			slots: 'Rating',
+			bonus: {
+				offroadspeed: 'Rating',
+				speed: 'Rating',
+			},
+			minrating: 'Speed + 1',
+			required: {
+				vehicledetails: {
+					category: {
+						'-operation': 'contains',
+						'#text': 'Drones',
+					},
+				},
+			},
+		},
 		doberman = {
 			id: '9186a0a7-635f-4242-a0e8-238f48b17ca2',
 			name: 'GM-Nissan Doberman (Medium)',
@@ -137,6 +161,15 @@ describe('Drone Mod Row Component', () => {
 
 			expect(selectRatingProps.minRating).to.equal(6);
 			expect(selectRatingProps.item).to.deep.equal({ name: 'Handling (Drone)', rating: 10 });
+		});
+
+		it('should set min and max rating for speed mod', () => {
+			const { droneModRow } = setup(droneSpeed);
+
+			const selectRatingProps = droneModRow.find(SelectRating).props();
+
+			expect(selectRatingProps.minRating).to.equal(4);
+			expect(selectRatingProps.item).to.deep.equal({ name: 'Speed (Drone)', rating: 6 });
 		});
 	});
 
