@@ -10,28 +10,26 @@ class DroneModRow extends VehicleModRow {
 	constructor(props) {
 		super(props);
 
-		const findMaxRating = {
-			'Handling (Drone)': ({name}, {handling}) => {
-				const baseStat = +handling;
+		const calculatRatingLimits = (name, baseStat) => {
 				this.minRating = baseStat + 1;
 				return { name, rating: baseStat * 2};
 			},
-			'Speed (Drone)': ({name}, {speed}) => {
-				const baseStat = +speed;
-				this.minRating = baseStat + 1;
-				return { name, rating: baseStat * 2};
-			},
-			'Acceleration (Drone)': ({name}, {accel}) => {
-				const baseStat = +accel;
-				this.minRating = baseStat + 1;
-				return { name, rating: baseStat * 2};
-			},
-			default() {
-				return undefined;
-			},
-		};
+			findRatingLimits = {
+				'Handling (Drone)': ({name}, {handling}) => {
+					return calculatRatingLimits(name, +handling);
+				},
+				'Speed (Drone)': ({name}, {speed}) => {
+					return calculatRatingLimits(name, +speed);
+				},
+				'Acceleration (Drone)': ({name}, {accel}) => {
+					return calculatRatingLimits(name, +accel);
+				},
+				default() {
+					return undefined;
+				},
+			};
 
-		this.selectRating = (findMaxRating[props.mod.name] || findMaxRating.default)(props.mod, props.mech);
+		this.selectRating = (findRatingLimits[props.mod.name] || findRatingLimits.default)(props.mod, props.mech);
 
 		this.state = {
 			rating: this.minRating || 1,
