@@ -47,6 +47,30 @@ describe('Drone Mod Row Component', () => {
 				},
 			},
 		},
+		droneHandling = {
+			id: '17da9812-5264-4ac6-a31c-3e8b7ddb6212',
+			name: 'Handling (Drone)',
+			page: '123',
+			source: 'R5',
+			avail: 'Rating * 2',
+			category: 'Handling',
+			cost: 'Body * Rating * 200',
+			rating: '99',
+			slots: 'Rating',
+			bonus: {
+				handling: 'Rating',
+				offroadhandling: 'Rating',
+			},
+			minrating: 'Handling + 1',
+			required: {
+				vehicledetails: {
+					category: {
+						'-operation': 'contains',
+						'#text': 'Drones',
+					},
+				},
+			},
+		},
 		doberman = {
 			id: '9186a0a7-635f-4242-a0e8-238f48b17ca2',
 			name: 'GM-Nissan Doberman (Medium)',
@@ -102,6 +126,30 @@ describe('Drone Mod Row Component', () => {
 			expect(droneModRow.find('.mech-mod--avail').text()).to.equal(props.mod.avail);
 			expect(droneModRow.find('.mech-mod--cost').text()).to.equal('600¥');
 			expect(droneModRow.find('.mech-mod--ref').text()).to.equal('R5 125p');
+		});
+	});
+
+	describe('setting state', () => {
+		it('should set min and max rating for handling mod', () => {
+			const { droneModRow } = setup(droneHandling);
+
+			const selectRatingProps = droneModRow.find(SelectRating).props();
+
+			expect(selectRatingProps.minRating).to.equal(6);
+			expect(selectRatingProps.item).to.deep.equal({ name: 'Handling (Drone)', rating: 10 });
+		});
+	});
+
+	describe('slots', () => {
+		it('should not require use any slots until its over 1 over the min rating', () => {
+			const { droneModRow } = setup(droneHandling);
+			expect(droneModRow.find('.mech-mod--slot').text()).to.equal('0');
+		});
+
+		it('setting the rating above the minRating should eat up slot points', () => {
+			const { droneModRow } = setup(droneHandling);
+			droneModRow.setState({ rating: 10 });
+			expect(droneModRow.find('.mech-mod--slot').text()).to.equal('4');
 		});
 	});
 

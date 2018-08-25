@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {mechType, mechModType} from './mechPropTypes';
 
 import FilterableTable from '../../FilterableTable';
-import MechModRow from './MechModRowComponent';
+import MechModRow from './DroneModRowComponent';
 
 const DroneModModalComponent = ({modType, mech, mechMods, mechIndex, modAction, demodAction}) => {
 	return (
@@ -44,7 +44,9 @@ const DroneModModalComponent = ({modType, mech, mechMods, mechIndex, modAction, 
 DroneModModalComponent.propTypes = {
 	modType: PropTypes.string.isRequired,
 	mech: mechType.isRequired,
-	mechMods: PropTypes.arrayOf(mechModType).isRequired,
+	mechMods: PropTypes.objectOf(
+		PropTypes.arrayOf(mechModType).isRequired,
+	).isRequired,
 	mechIndex: PropTypes.number.isRequired,
 	modAction: PropTypes.func.isRequired,
 	demodAction: PropTypes.func.isRequired,
