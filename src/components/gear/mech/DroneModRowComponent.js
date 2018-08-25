@@ -21,6 +21,11 @@ class DroneModRow extends VehicleModRow {
 				this.minRating = baseStat + 1;
 				return { name, rating: baseStat * 2};
 			},
+			'Acceleration (Drone)': ({name}, {accel}) => {
+				const baseStat = +accel;
+				this.minRating = baseStat + 1;
+				return { name, rating: baseStat * 2};
+			},
 			default() {
 				return undefined;
 			},

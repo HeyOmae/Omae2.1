@@ -95,6 +95,30 @@ describe('Drone Mod Row Component', () => {
 				},
 			},
 		},
+		droneAcc = {
+			id: '426b1bb7-31ec-4656-aa89-332d6877e590',
+			name: 'Acceleration (Drone)',
+			page: '123',
+			source: 'R5',
+			avail: 'Rating * 4',
+			category: 'Acceleration',
+			cost: 'Body * Rating * 200',
+			rating: '99',
+			slots: 'Rating',
+			bonus: {
+				accel: 'Rating',
+				offroadaccel: 'Rating',
+			},
+			minrating: 'Acceleration + 1',
+			required: {
+				vehicledetails: {
+					category: {
+						'-operation': 'contains',
+						'#text': 'Drones',
+					},
+				},
+			},
+		},
 		doberman = {
 			id: '9186a0a7-635f-4242-a0e8-238f48b17ca2',
 			name: 'GM-Nissan Doberman (Medium)',
@@ -170,6 +194,15 @@ describe('Drone Mod Row Component', () => {
 
 			expect(selectRatingProps.minRating).to.equal(4);
 			expect(selectRatingProps.item).to.deep.equal({ name: 'Speed (Drone)', rating: 6 });
+		});
+
+		it('should set min and max rating for Acceleration mod', () => {
+			const { droneModRow } = setup(droneAcc);
+
+			const selectRatingProps = droneModRow.find(SelectRating).props();
+
+			expect(selectRatingProps.minRating).to.equal(2);
+			expect(selectRatingProps.item).to.deep.equal({ name: 'Acceleration (Drone)', rating: 2 });
 		});
 	});
 
