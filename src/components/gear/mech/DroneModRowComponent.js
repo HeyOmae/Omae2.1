@@ -41,15 +41,32 @@ class DroneModRow extends VehicleModRow {
 
 		this.selectRating = (findRatingLimits[props.mod.name] || findRatingLimits.default)(props.mod, props.mech);
 
+		if (/Variable/.test(props.mod.cost)) {
+			const minMax = props.mod.cost.match(/\d+/g);
+
+			this.variableCost = {
+				min: +minMax[0],
+				max: +minMax[1],
+			};
+		}
+
 		this.state = {
 			rating: this.minRating || 1,
+			cost: '',
 		};
 
 		this.calculateDroneSlots = this.calculateDroneSlots.bind(this);
+		this.changeCost = this.changeCost.bind(this);
 	}
 
 	calculateDroneSlots(slotValue) {
 		return this.minRating ? this.state.rating - this.minRating : this.displayStat(slotValue);
+	}
+
+	changeCost({target}) {
+		this.setState({
+			cost: +target.value,
+		});
 	}
 
 	render() {
@@ -71,7 +88,12 @@ class DroneModRow extends VehicleModRow {
 				</td>
 				<td className="mech-mod--slot">{this.calculateDroneSlots(mod.slots)}</td>
 				<td className="mech-mod--avail">{this.displayStat(mod.avail)}</td>
-				<td className="mech-mod--cost">{this.displayStat(mod.cost)}&yen;</td>
+				<td className="mech-mod--cost">{
+					this.variableCost ?
+						<input type="text" onChange={this.changeCost} value={this.state.cost} />
+					:
+						`${this.displayStat(mod.cost)}¥`
+				}</td>
 				<td className="mech-mod--ref">{mod.source} {mod.page}p</td>
 			</tr>
 		);

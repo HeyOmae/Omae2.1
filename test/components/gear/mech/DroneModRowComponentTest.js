@@ -164,6 +164,25 @@ describe('Drone Mod Row Component', () => {
 				},
 			},
 		},
+		droneCustom = {
+			id: 'a7c9a0a4-bec5-4a01-a695-5b843e581123',
+			name: 'Customized (Drone)',
+			page: '125',
+			source: 'R5',
+			avail: '0',
+			category: 'All',
+			cost: 'Variable(10-10000)',
+			rating: '0',
+			slots: '0',
+			required: {
+				vehicledetails: {
+					category: {
+						'-operation': 'contains',
+						'#text': 'Drones',
+					},
+				},
+			},
+		},
 		doberman = {
 			id: '9186a0a7-635f-4242-a0e8-238f48b17ca2',
 			name: 'GM-Nissan Doberman (Medium)',
@@ -269,6 +288,25 @@ describe('Drone Mod Row Component', () => {
 			droneModRow.setState({ rating: 6 });
 
 			expect(droneModRow.find('.mech-mod--avail').text()).to.equal('24F');
+		});
+	});
+
+	describe('customize drone', () => {
+		it('should display an number input for price', () => {
+			const { droneModRow } = setup(droneCustom);
+
+			expect(droneModRow.instance().variableCost.min).to.equal(10);
+			expect(droneModRow.instance().variableCost.max).to.equal(10000);
+			expect(droneModRow.find('.mech-mod--cost input').length).to.equal(1);
+		});
+
+		it('should update state.cost on change', () => {
+			const { droneModRow } = setup(droneCustom);
+			expect(droneModRow.find('.mech-mod--cost input').props().value).to.equal('');
+
+			droneModRow.find('.mech-mod--cost input').simulate('change', { target: { value: '200' } });
+			expect(droneModRow.state('cost')).to.equal(200);
+			expect(droneModRow.find('.mech-mod--cost input').props().value).to.equal(200);
 		});
 	});
 
