@@ -100,7 +100,7 @@ class MechModRowComponent extends React.PureComponent {
 		} else if (/Body/.test(stat)) {
 			return this.calculateStat(stat, 'Body', 'body');
 		}
-		const value = stat.match(/\d+/g);
+		const value = stat.match(/\d+\w*/g);
 		return value[this.state.rating - 1];
 	}
 

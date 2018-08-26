@@ -119,6 +119,51 @@ describe('Drone Mod Row Component', () => {
 				},
 			},
 		},
+		droneSensor = {
+			id: '3389093b-869e-4a83-884e-05d2d439d41f',
+			name: 'Sensor (Drone)',
+			page: '123',
+			source: 'R5',
+			avail: 'Rating * 2',
+			category: 'Sensor',
+			cost: 'Rating * 1000',
+			rating: '8',
+			slots: 'Rating',
+			bonus: {
+				sensor: 'Rating',
+			},
+			minrating: 'Sensor + 1',
+			required: {
+				vehicledetails: {
+					category: {
+						'-operation': 'contains',
+						'#text': 'Drones',
+					},
+				},
+			},
+		},
+		dronePilot = {
+			id: 'ed241716-0d10-4493-83c6-aa141a854ec3',
+			name: 'Pilot Program (Drone)',
+			page: '126',
+			source: 'R5',
+			avail: 'FixedValues(4,0,8R,12R,16F,24F)',
+			category: 'All',
+			cost: 'FixedValues(100,400,1800,3200,10000,20000)',
+			rating: '6',
+			slots: '0',
+			bonus: {
+				pilot: 'Rating',
+			},
+			required: {
+				vehicledetails: {
+					category: {
+						'-operation': 'contains',
+						'#text': 'Drones',
+					},
+				},
+			},
+		},
 		doberman = {
 			id: '9186a0a7-635f-4242-a0e8-238f48b17ca2',
 			name: 'GM-Nissan Doberman (Medium)',
@@ -150,6 +195,42 @@ describe('Drone Mod Row Component', () => {
 				},
 			},
 		},
+		proletarian = {
+			id: 'd9157390-2003-4238-8738-6a24efc770f0',
+			name: 'Evo Proletarian (Small)',
+			page: '132',
+			source: 'R5',
+			accel: '1',
+			armor: '0',
+			avail: '6',
+			body: '2',
+			category: 'Drones: Small',
+			cost: '4000',
+			handling: '4/2',
+			pilot: '2',
+			sensor: '2',
+			speed: '2',
+			gears: {
+				gear: [{
+					'-rating': '2',
+					'-maxrating': '3',
+					'#text': 'Sensor Array',
+				},
+				{
+					'-rating': '2',
+					'-select': 'Automotive Mechanic',
+					'#text': 'Skill Autosoft',
+				},
+				{
+					'-select': 'Automotive Mechanic',
+					'#text': 'Tool Kit',
+				}],
+			},
+			mods: {
+				name: 'Drone Arm',
+			},
+			modslots: '1',
+		},
 		setup = (mod = geckoGrip, mech = doberman, selectedMod = false) => {
 			const props = {
 					mod,
@@ -175,16 +256,41 @@ describe('Drone Mod Row Component', () => {
 			expect(droneModRow.find('.mech-mod--cost').text()).to.equal('600¥');
 			expect(droneModRow.find('.mech-mod--ref').text()).to.equal('R5 125p');
 		});
+
+		it('should display avail with fixedValues and the restriction type', () => {
+			const { droneModRow } = setup(dronePilot);
+
+			expect(droneModRow.find('.mech-mod--avail').text()).to.equal('4');
+
+			droneModRow.setState({ rating: 4 });
+
+			expect(droneModRow.find('.mech-mod--avail').text()).to.equal('12R');
+
+			droneModRow.setState({ rating: 6 });
+
+			expect(droneModRow.find('.mech-mod--avail').text()).to.equal('24F');
+		});
 	});
 
 	describe('setting state', () => {
-		it('should set min and max rating for handling mod', () => {
-			const { droneModRow } = setup(droneHandling);
+		describe('handling mod', () => {
+			it('should set min and max rating', () => {
+				const { droneModRow } = setup(droneHandling);
 
-			const selectRatingProps = droneModRow.find(SelectRating).props();
+				const selectRatingProps = droneModRow.find(SelectRating).props();
 
-			expect(selectRatingProps.minRating).to.equal(6);
-			expect(selectRatingProps.item).to.deep.equal({ name: 'Handling (Drone)', rating: 10 });
+				expect(selectRatingProps.minRating).to.equal(6);
+				expect(selectRatingProps.item).to.deep.equal({ name: 'Handling (Drone)', rating: 10 });
+			});
+
+			it('should set the min/max based off the highest value', () => {
+				const { droneModRow } = setup(droneHandling, proletarian);
+
+				const selectRatingProps = droneModRow.find(SelectRating).props();
+
+				expect(selectRatingProps.minRating).to.equal(5);
+				expect(selectRatingProps.item).to.deep.equal({ name: 'Handling (Drone)', rating: 8 });
+			});
 		});
 
 		it('should set min and max rating for speed mod', () => {
@@ -204,6 +310,33 @@ describe('Drone Mod Row Component', () => {
 			expect(selectRatingProps.minRating).to.equal(2);
 			expect(selectRatingProps.item).to.deep.equal({ name: 'Acceleration (Drone)', rating: 2 });
 		});
+
+		it('should set min and max rating for sensor mod', () => {
+			const { droneModRow } = setup(droneSensor);
+
+			const selectRatingProps = droneModRow.find(SelectRating).props();
+
+			expect(selectRatingProps.minRating).to.equal(4);
+			expect(selectRatingProps.item).to.deep.equal({ name: 'Sensor (Drone)', rating: 6 });
+		});
+
+		it('should set min and max rating for armor mod', () => {
+			const { droneModRow } = setup(droneArmor);
+
+			const selectRatingProps = droneModRow.find(SelectRating).props();
+
+			expect(selectRatingProps.minRating).to.equal(7);
+			expect(selectRatingProps.item).to.deep.equal({ name: 'Armor (Drone)', rating: 8 });
+		});
+
+		it('should set max rating to 1 when stat base is 0', () => {
+			const { droneModRow } = setup(droneArmor, proletarian);
+
+			const selectRatingProps = droneModRow.find(SelectRating).props();
+
+			expect(selectRatingProps.minRating).to.equal(1);
+			expect(selectRatingProps.item).to.deep.equal({ name: 'Armor (Drone)', rating: 1 });
+		});
 	});
 
 	describe('slots', () => {
@@ -216,19 +349,6 @@ describe('Drone Mod Row Component', () => {
 			const { droneModRow } = setup(droneHandling);
 			droneModRow.setState({ rating: 10 });
 			expect(droneModRow.find('.mech-mod--slot').text()).to.equal('4');
-		});
-	});
-
-	xdescribe('Range values are dumb so', () => {
-		it('should display armor rating for avail', () => {
-			const { mechModRow } = setup(droneArmor, doberman);
-
-			expect(mechModRow.find('.mech-mod--avail').text()).to.equal(doberman.armor);
-		});
-		it('should set the min state rating to armor', () => {
-			const { mechModRow } = setup(droneArmor, doberman);
-
-			expect(mechModRow.instance().minRating).to.equal(+doberman.armor);
 		});
 	});
 });

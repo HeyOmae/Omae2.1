@@ -30,7 +30,10 @@ class SelectRatingComponent extends React.PureComponent {
 
 SelectRatingComponent.propTypes = {
 	item: PropTypes.shape({
-		rating: PropTypes.string,
+		rating: PropTypes.oneOfType([
+			PropTypes.string,
+			PropTypes.number,
+		]),
 		name: PropTypes.string.isRequired,
 	}).isRequired,
 	updateRating: PropTypes.func.isRequired,
