@@ -64,8 +64,10 @@ class DroneModRow extends VehicleModRow {
 	}
 
 	changeCost({target}) {
+		const value = +target.value,
+			{ max} = this.variableCost;
 		this.setState({
-			cost: +target.value,
+			cost: value > max ? max : value,
 		});
 	}
 
@@ -90,7 +92,12 @@ class DroneModRow extends VehicleModRow {
 				<td className="mech-mod--avail">{this.displayStat(mod.avail)}</td>
 				<td className="mech-mod--cost">{
 					this.variableCost ?
-						<input type="text" onChange={this.changeCost} value={this.state.cost} />
+						<input
+							type="text"
+							onChange={this.changeCost}
+							value={this.state.cost}
+							placeholder={`${this.variableCost.min}-${this.variableCost.max}¥`}
+						/>
 					:
 						`${this.displayStat(mod.cost)}¥`
 				}</td>

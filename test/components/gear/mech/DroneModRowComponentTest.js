@@ -298,6 +298,7 @@ describe('Drone Mod Row Component', () => {
 			expect(droneModRow.instance().variableCost.min).to.equal(10);
 			expect(droneModRow.instance().variableCost.max).to.equal(10000);
 			expect(droneModRow.find('.mech-mod--cost input').length).to.equal(1);
+			expect(droneModRow.find('.mech-mod--cost input').props().placeholder).to.equal('10-10000¥');
 		});
 
 		it('should update state.cost on change', () => {
@@ -307,6 +308,15 @@ describe('Drone Mod Row Component', () => {
 			droneModRow.find('.mech-mod--cost input').simulate('change', { target: { value: '200' } });
 			expect(droneModRow.state('cost')).to.equal(200);
 			expect(droneModRow.find('.mech-mod--cost input').props().value).to.equal(200);
+		});
+
+		it('should not allow the state.cost to be over the max cost', () => {
+			const { droneModRow } = setup(droneCustom);
+			expect(droneModRow.find('.mech-mod--cost input').props().value).to.equal('');
+
+			droneModRow.find('.mech-mod--cost input').simulate('change', { target: { value: '10001' } });
+			expect(droneModRow.state('cost')).to.equal(10000);
+			expect(droneModRow.find('.mech-mod--cost input').props().value).to.equal(10000);
 		});
 	});
 
