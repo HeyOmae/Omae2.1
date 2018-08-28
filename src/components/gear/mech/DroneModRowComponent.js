@@ -71,6 +71,30 @@ class DroneModRow extends VehicleModRow {
 		});
 	}
 
+	toggleMod(e) {
+		const {modAction, demodAction, mechIndex, mod} = this.props;
+
+		if (e.target.checked) {
+			modAction({
+				index: mechIndex,
+				category: 'Drones',
+				mod: {
+					...mod,
+					currentCost: +this.displayStat(mod.cost),
+					currentSlot: +this.calculateDroneSlots(mod.slots),
+					currentRating: this.state.rating,
+				},
+			});
+		} else {
+			demodAction({
+				index: mechIndex,
+				category: 'Drones',
+				demodName: mod.name,
+				type: mod.category,
+			});
+		}
+	}
+
 	render() {
 		const { mod, selectedMod } = this.props;
 		const checkboxLabelText = `mech-mod--checkbox--${mod.name.replace(' ', '-')}`;

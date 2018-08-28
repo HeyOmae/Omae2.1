@@ -406,7 +406,7 @@ describe('Drone Mod Row Component', () => {
 			droneModRow.setState({ rating: 10 });
 			expect(droneModRow.find('.mech-mod--slot').text()).to.equal('4');
 
-			droneModRow.find('.mech-mod--checkbox').simulate('click', { target: { checked: true } });
+			droneModRow.find('.mech-mod--checkbox').simulate('change', { target: { checked: true } });
 
 			expect(props.modAction).to.have.been.calledWith({
 				index: 1,
