@@ -78,7 +78,13 @@ class DroneModRow extends VehicleModRow {
 		return (
 			<tr>
 				<td className="mech-mod--name">
-					<input id={checkboxLabelText} type="checkbox" className="mech-mod--checkbox" onChange={this.toggleMod} checked={selectedMod} />
+					<input
+						id={checkboxLabelText}
+						type="checkbox"
+						className="mech-mod--checkbox"
+						onChange={this.toggleMod}
+						checked={selectedMod}
+					/>
 					<label htmlFor={checkboxLabelText}>{mod.name}</label>
 				</td>
 				<td className="mech-mod--rating">

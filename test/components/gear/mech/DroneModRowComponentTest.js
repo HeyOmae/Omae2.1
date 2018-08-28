@@ -399,4 +399,25 @@ describe('Drone Mod Row Component', () => {
 			expect(droneModRow.find('.mech-mod--slot').text()).to.equal('4');
 		});
 	});
+
+	describe('purchase mod', () => {
+		it('should set the current rating, slots, and currentCost', () => {
+			const { droneModRow, props } = setup(droneHandling);
+			droneModRow.setState({ rating: 10 });
+			expect(droneModRow.find('.mech-mod--slot').text()).to.equal('4');
+
+			droneModRow.find('.mech-mod--checkbox').simulate('click', { target: { checked: true } });
+
+			expect(props.modAction).to.have.been.calledWith({
+				index: 1,
+				category: 'Drones',
+				mod: {
+					...droneHandling,
+					currentCost: 8000,
+					currentSlot: 4,
+					currentRating: 10,
+				},
+			});
+		});
+	});
 });
