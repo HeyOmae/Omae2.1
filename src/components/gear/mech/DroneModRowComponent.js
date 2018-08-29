@@ -57,6 +57,7 @@ class DroneModRow extends VehicleModRow {
 
 		this.calculateDroneSlots = this.calculateDroneSlots.bind(this);
 		this.changeCost = this.changeCost.bind(this);
+		this.armorModAvail = this.armorModAvail.bind(this);
 	}
 
 	calculateDroneSlots(slotValue) {
@@ -69,6 +70,16 @@ class DroneModRow extends VehicleModRow {
 		this.setState({
 			cost: value > max ? max : value,
 		});
+	}
+
+	armorModAvail() {
+		const {rating} = this.state;
+		if (rating > 12) {
+			return `${rating}F`;
+		} else if (rating > 6) {
+			return `${rating}R`;
+		}
+		return rating;
 	}
 
 	toggleMod(e) {
@@ -132,7 +143,13 @@ class DroneModRow extends VehicleModRow {
 					/>
 				</td>
 				<td className="mech-mod--slot">{this.calculateDroneSlots(mod.slots)}</td>
-				<td className="mech-mod--avail">{this.displayStat(mod.avail)}</td>
+				<td className="mech-mod--avail">{
+					// This is such terrible code
+					mod.name === 'Armor (Drone)' ?
+					this.armorModAvail()
+					:
+					this.displayStat(mod.avail)
+				}</td>
 				<td className="mech-mod--cost">{
 					this.variableCost ?
 						<input

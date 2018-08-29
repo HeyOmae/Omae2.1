@@ -291,6 +291,29 @@ describe('Drone Mod Row Component', () => {
 		});
 	});
 
+	describe('armor mod', () => {
+		it('should have restrict avail is between 6 and 12', () => {
+			const { droneModRow } = setup(droneArmor);
+
+			expect(droneModRow.find('.mech-mod--avail').text()).to.equal('7R');
+		});
+
+		it('should have no restriction avail is lower then 6', () => {
+			const { droneModRow } = setup(droneArmor, proletarian);
+
+			expect(droneModRow.find('.mech-mod--avail').text()).to.equal('1');
+		});
+
+		it('should be forbidden avail is over 12', () => {
+			const { droneModRow } = setup(droneArmor);
+
+			// I'm cheating because I'm lazy
+			droneModRow.setState({ rating: 13 });
+
+			expect(droneModRow.find('.mech-mod--avail').text()).to.equal('13F');
+		});
+	});
+
 	describe('customize drone', () => {
 		it('should display an number input for price', () => {
 			const { droneModRow } = setup(droneCustom);
