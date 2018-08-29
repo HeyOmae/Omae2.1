@@ -419,5 +419,55 @@ describe('Drone Mod Row Component', () => {
 				},
 			});
 		});
+
+		it('should use state.cost for customCost if set', () => {
+			const { droneModRow, props } = setup(droneCustom);
+
+			droneModRow.find('.mech-mod--cost input').simulate('change', { target: { value: '200' } });
+			droneModRow.find('.mech-mod--checkbox').simulate('change', { target: { checked: true } });
+
+			expect(props.modAction).to.have.been.calledWith({
+				index: 1,
+				category: 'Drones',
+				mod: {
+					...droneCustom,
+					currentCost: 200,
+					currentSlot: 0,
+				},
+			});
+		});
+
+		it('should set the customCost to the min cost if not set', () => {
+			const { droneModRow, props } = setup(droneCustom);
+
+			droneModRow.find('.mech-mod--checkbox').simulate('change', { target: { checked: true } });
+
+			expect(props.modAction).to.have.been.calledWith({
+				index: 1,
+				category: 'Drones',
+				mod: {
+					...droneCustom,
+					currentCost: 10,
+					currentSlot: 0,
+				},
+			});
+		});
+
+		it('should set customCost to min cost if value is below min', () => {
+			const { droneModRow, props } = setup(droneCustom);
+
+			droneModRow.find('.mech-mod--cost input').simulate('change', { target: { value: '5' } });
+			droneModRow.find('.mech-mod--checkbox').simulate('change', { target: { checked: true } });
+
+			expect(props.modAction).to.have.been.calledWith({
+				index: 1,
+				category: 'Drones',
+				mod: {
+					...droneCustom,
+					currentCost: 10,
+					currentSlot: 0,
+				},
+			});
+		});
 	});
 });

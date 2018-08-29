@@ -74,15 +74,28 @@ class DroneModRow extends VehicleModRow {
 	toggleMod(e) {
 		const {modAction, demodAction, mechIndex, mod} = this.props;
 
+		const cost = this.variableCost && this.state.cost < this.variableCost.min ?
+			this.variableCost.min
+			:
+			this.state.cost;
+
 		if (e.target.checked) {
 			modAction({
 				index: mechIndex,
 				category: 'Drones',
 				mod: {
 					...mod,
-					currentCost: +this.displayStat(mod.cost),
+					currentCost: this.variableCost ?
+						cost
+						:
+						+this.displayStat(mod.cost),
 					currentSlot: +this.calculateDroneSlots(mod.slots),
-					currentRating: this.state.rating,
+					...(
+						mod.rating === '0' ?
+							{}
+							:
+							{currentRating: this.state.rating}
+					),
 				},
 			});
 		} else {
