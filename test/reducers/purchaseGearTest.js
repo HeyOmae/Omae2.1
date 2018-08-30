@@ -1231,4 +1231,10 @@ describe('purchaseGear', () => {
 			expect(state.nuyen).to.equal(3350);
 		});
 	});
+
+	describe('MODDING_DRONE', () => {
+		it('should add a mod', () => {});
+	});
+
+	describe('DEMODDING_DRONE', () => {});
 });
