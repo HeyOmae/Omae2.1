@@ -323,6 +323,29 @@ const purchaseGearReducer = (state = initialState, action) => {
 			};
 		},
 
+		MODDING_DRONE(prevState, {index, category, mod}) {
+			const droneArray = prevState[category],
+				droneBeingModded = droneArray[index];
+
+			return {
+				...prevState,
+				[category]: [
+					...droneArray.slice(0, index),
+					{
+						...droneBeingModded,
+						mods: {
+							...droneBeingModded.mods,
+							[mod.name]: mod,
+						},
+						currentSlot: ((droneBeingModded.currentSlot || 0) + mod.currentSlot),
+						currentCost: (droneBeingModded.currentCost || +droneBeingModded.cost) + mod.currentCost
+					},
+					...droneArray.slice(index + 1),
+				],
+				nuyen: prevState.nuyen + mod.currentCost,
+			};
+		},
+
 		DEFAULT(prevState) { return prevState; },
 	};
 	return (actionsToTake[action.type] || actionsToTake.DEFAULT)(state, action.parameter);

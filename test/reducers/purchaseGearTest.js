@@ -485,6 +485,39 @@ describe('purchaseGear', () => {
 				},
 				seats: '4',
 			}],
+			Drones: [
+				{
+					id: '9186a0a7-635f-4242-a0e8-238f48b17ca2',
+					name: 'GM-Nissan Doberman (Medium)',
+					page: '466',
+					source: 'SR5',
+					accel: '1',
+					armor: '4',
+					avail: '4R',
+					body: '4',
+					category: 'Drones: Medium',
+					cost: '5000',
+					handling: '5',
+					pilot: '3',
+					sensor: '3',
+					speed: '3',
+					gears: {
+						gear: {
+							'-rating': '3',
+							'-maxrating': '4',
+							'#text': 'Sensor Array',
+						},
+					},
+					weaponmounts: {
+						weaponmount: {
+							size: 'Standard [SR5]',
+							visibility: 'External',
+							flexibility: 'Fixed',
+							control: 'Remote',
+						},
+					},
+				},
+			],
 			nuyen: 3350,
 		};
 	});
@@ -1233,7 +1266,39 @@ describe('purchaseGear', () => {
 	});
 
 	describe('MODDING_DRONE', () => {
-		it('should add a mod', () => {});
+		const geckoGrip = {
+			id: '1a626185-b826-466c-aa73-32c02bae4bef',
+			name: 'Gecko Grips (Drone)',
+			page: '125',
+			source: 'R5',
+			avail: '4R',
+			category: 'All',
+			cost: 'Body * 150',
+			rating: '0',
+			slots: '1',
+			required: {
+				vehicledetails: {
+					category: {
+						'-operation': 'contains',
+						'#text': 'Drones',
+					},
+				},
+			},
+			currentCost: 600,
+			currentSlot: 1,
+		};
+
+		it('should add a mod', () => {
+			const newState = reducer(state, { type: 'MODDING_DRONE', parameter: { index: 0, category: 'Drones', mod: geckoGrip } });
+
+			expect(newState.Drones[0].mods['Gecko Grips (Drone)']).to.equal(geckoGrip);
+			expect(newState.Drones[0].currentCost).to.equal(5600);
+			expect(newState.nuyen).to.equal(3950);
+			expect(newState.Drones[0].currentSlot).to.equal(1);
+
+			expect(state.Drones[0].currentCost).to.be.undefined;
+			expect(state.nuyen).to.equal(3350);
+		});
 	});
 
 	describe('DEMODDING_DRONE', () => {});
