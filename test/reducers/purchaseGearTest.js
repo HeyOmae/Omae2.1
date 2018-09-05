@@ -1267,26 +1267,53 @@ describe('purchaseGear', () => {
 
 	describe('MODDING_DRONE', () => {
 		const geckoGrip = {
-			id: '1a626185-b826-466c-aa73-32c02bae4bef',
-			name: 'Gecko Grips (Drone)',
-			page: '125',
-			source: 'R5',
-			avail: '4R',
-			category: 'All',
-			cost: 'Body * 150',
-			rating: '0',
-			slots: '1',
-			required: {
-				vehicledetails: {
-					category: {
-						'-operation': 'contains',
-						'#text': 'Drones',
+				id: '1a626185-b826-466c-aa73-32c02bae4bef',
+				name: 'Gecko Grips (Drone)',
+				page: '125',
+				source: 'R5',
+				avail: '4R',
+				category: 'All',
+				cost: 'Body * 150',
+				rating: '0',
+				slots: '1',
+				required: {
+					vehicledetails: {
+						category: {
+							'-operation': 'contains',
+							'#text': 'Drones',
+						},
 					},
 				},
+				currentCost: 600,
+				currentSlot: 1,
 			},
-			currentCost: 600,
-			currentSlot: 1,
-		};
+			droneAcc = {
+				id: '426b1bb7-31ec-4656-aa89-332d6877e590',
+				name: 'Acceleration (Drone)',
+				page: '123',
+				source: 'R5',
+				avail: 'Rating * 4',
+				category: 'Acceleration',
+				cost: 'Body * Rating * 200',
+				rating: '99',
+				slots: 'Rating',
+				bonus: {
+					accel: 'Rating',
+					offroadaccel: 'Rating',
+				},
+				minrating: 'Acceleration + 1',
+				required: {
+					vehicledetails: {
+						category: {
+							'-operation': 'contains',
+							'#text': 'Drones',
+						},
+					},
+				},
+				currentCost: 1600,
+				currentSlot: 0,
+				currentRating: 2,
+			};
 
 		it('should add a mod', () => {
 			const newState = reducer(state, { type: 'MODDING_DRONE', parameter: { index: 0, category: 'Drones', mod: geckoGrip } });
@@ -1295,6 +1322,19 @@ describe('purchaseGear', () => {
 			expect(newState.Drones[0].currentCost).to.equal(5600);
 			expect(newState.nuyen).to.equal(3950);
 			expect(newState.Drones[0].currentSlot).to.equal(1);
+
+			expect(state.Drones[0].currentCost).to.be.undefined;
+			expect(state.nuyen).to.equal(3350);
+		});
+
+		it('should add a mod with a rating and effect drone accel', () => {
+			const newState = reducer(state, { type: 'MODDING_DRONE', parameter: { index: 0, category: 'Drones', mod: droneAcc } });
+
+			expect(newState.Drones[0].mods['Acceleration (Drone)']).to.equal(droneAcc);
+			expect(newState.Drones[0].currentCost).to.equal(6600);
+			expect(newState.nuyen).to.equal(4950);
+			expect(newState.Drones[0].currentSlot).to.equal(0);
+			expect(newState.Drones[0].currentAccel).to.equal(2);
 
 			expect(state.Drones[0].currentCost).to.be.undefined;
 			expect(state.nuyen).to.equal(3350);
