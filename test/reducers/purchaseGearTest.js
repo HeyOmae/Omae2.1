@@ -1313,6 +1313,33 @@ describe('purchaseGear', () => {
 				currentCost: 1600,
 				currentSlot: 0,
 				currentRating: 2,
+			},
+			droneSpeed = {
+				id: '4ee2420c-1fad-415a-83e3-7f9e72b5df11',
+				name: 'Speed (Drone)',
+				page: '123',
+				source: 'R5',
+				avail: 'Rating * 2',
+				category: 'Speed',
+				cost: 'Body * Rating * 400',
+				rating: '99',
+				slots: 'Rating',
+				bonus: {
+					offroadspeed: 'Rating',
+					speed: 'Rating',
+				},
+				minrating: 'Speed + 1',
+				required: {
+					vehicledetails: {
+						category: {
+							'-operation': 'contains',
+							'#text': 'Drones',
+						},
+					},
+				},
+				currentCost: 8000,
+				currentSlot: 1,
+				currentRating: 5,
 			};
 
 		it('should add a mod', () => {
@@ -1327,17 +1354,32 @@ describe('purchaseGear', () => {
 			expect(state.nuyen).to.equal(3350);
 		});
 
-		it('should add a mod with a rating and effect drone accel', () => {
-			const newState = reducer(state, { type: 'MODDING_DRONE', parameter: { index: 0, category: 'Drones', mod: droneAcc } });
+		describe('modding a drones stat', () => {
+			it('should raise accel', () => {
+				const newState = reducer(state, { type: 'MODDING_DRONE', parameter: { index: 0, category: 'Drones', mod: droneAcc } });
 
-			expect(newState.Drones[0].mods['Acceleration (Drone)']).to.equal(droneAcc);
-			expect(newState.Drones[0].currentCost).to.equal(6600);
-			expect(newState.nuyen).to.equal(4950);
-			expect(newState.Drones[0].currentSlot).to.equal(0);
-			expect(newState.Drones[0].currentAccel).to.equal(2);
+				expect(newState.Drones[0].mods['Acceleration (Drone)']).to.equal(droneAcc);
+				expect(newState.Drones[0].currentCost).to.equal(6600);
+				expect(newState.nuyen).to.equal(4950);
+				expect(newState.Drones[0].currentSlot).to.equal(0);
+				expect(newState.Drones[0].currentAccel).to.equal(2);
 
-			expect(state.Drones[0].currentCost).to.be.undefined;
-			expect(state.nuyen).to.equal(3350);
+				expect(state.Drones[0].currentCost).to.be.undefined;
+				expect(state.nuyen).to.equal(3350);
+			});
+
+			it('should raise speed', () => {
+				const newState = reducer(state, { type: 'MODDING_DRONE', parameter: { index: 0, category: 'Drones', mod: droneSpeed } });
+
+				expect(newState.Drones[0].mods['Speed (Drone)']).to.equal(droneSpeed);
+				expect(newState.Drones[0].currentCost).to.equal(13000);
+				expect(newState.nuyen).to.equal(11350);
+				expect(newState.Drones[0].currentSlot).to.equal(1);
+				expect(newState.Drones[0].currentSpeed).to.equal(5);
+
+				expect(state.Drones[0].currentCost).to.be.undefined;
+				expect(state.nuyen).to.equal(3350);
+			});
 		});
 	});
 
