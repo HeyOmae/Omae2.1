@@ -326,6 +326,7 @@ const purchaseGearReducer = (state = initialState, action) => {
 		droneCurretStatMap: {
 			'Acceleration (Drone)': 'currentAccel',
 			'Speed (Drone)': 'currentSpeed',
+			'Handling (Drone)': 'currentHandling',
 		},
 
 		MODDING_DRONE(prevState, {index, category, mod}) {
