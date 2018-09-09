@@ -1393,6 +1393,31 @@ describe('purchaseGear', () => {
 				currentCost: 6400,
 				currentSlot: 1,
 				currentRating: 8,
+			},
+			dronePilot = {
+				id: 'ed241716-0d10-4493-83c6-aa141a854ec3',
+				name: 'Pilot Program (Drone)',
+				page: '126',
+				source: 'R5',
+				avail: 'FixedValues(4,0,8R,12R,16F,24F)',
+				category: 'All',
+				cost: 'FixedValues(100,400,1800,3200,10000,20000)',
+				rating: '6',
+				slots: '0',
+				bonus: {
+					pilot: 'Rating',
+				},
+				required: {
+					vehicledetails: {
+						category: {
+							'-operation': 'contains',
+							'#text': 'Drones',
+						},
+					},
+				},
+				currentCost: 3200,
+				currentSlot: 0,
+				currentRating: 4,
 			};
 
 		it('should add a mod', () => {
@@ -1455,6 +1480,19 @@ describe('purchaseGear', () => {
 				expect(newState.nuyen).to.equal(9750);
 				expect(newState.Drones[0].currentSlot).to.equal(1);
 				expect(newState.Drones[0].currentArmor).to.equal(8);
+
+				expect(state.Drones[0].currentCost).to.be.undefined;
+				expect(state.nuyen).to.equal(3350);
+			});
+
+			it('should raise pilot', () => {
+				const newState = reducer(state, { type: 'MODDING_DRONE', parameter: { index: 0, category: 'Drones', mod: dronePilot } });
+
+				expect(newState.Drones[0].mods['Pilot Program (Drone)']).to.equal(dronePilot);
+				expect(newState.Drones[0].currentCost).to.equal(8200);
+				expect(newState.nuyen).to.equal(6550);
+				expect(newState.Drones[0].currentSlot).to.equal(0);
+				expect(newState.Drones[0].currentPilot).to.equal(4);
 
 				expect(state.Drones[0].currentCost).to.be.undefined;
 				expect(state.nuyen).to.equal(3350);
