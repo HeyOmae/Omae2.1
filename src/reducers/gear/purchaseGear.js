@@ -364,6 +364,31 @@ const purchaseGearReducer = (state = initialState, action) => {
 			};
 		},
 
+		DEMODDING_DRONE(prevState, {index, category, demodName}) {
+			const droneArray = prevState[category],
+				{[actionsToTake.droneCurretStatMap[demodName]]: discardedStat, ...droneBeingModded} = droneArray[index],
+				{[demodName]: discard, ...remainingMods} = droneBeingModded.mods,
+				slotsToRemove = discard.currentSlot || +discard.slots,
+				cost = discard.currentCost || +discard.cost;
+
+			return {
+				...prevState,
+				[category]: [
+					...droneArray.slice(0, index),
+					{
+						...droneBeingModded,
+						mods: {
+							...remainingMods,
+						},
+						currentCost: droneBeingModded.currentCost - cost,
+						currentSlot: droneBeingModded.currentSlot - slotsToRemove,
+					},
+					...droneArray.slice(index + 1),
+				],
+				nuyen: prevState.nuyen - cost,
+			};
+		},
+
 		DEFAULT(prevState) { return prevState; },
 	};
 	return (actionsToTake[action.type] || actionsToTake.DEFAULT)(state, action.parameter);

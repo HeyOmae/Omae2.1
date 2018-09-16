@@ -1625,5 +1625,20 @@ describe('purchaseGear', () => {
 		});
 	});
 
-	describe('DEMODDING_DRONE', () => {});
+	describe('DEMODDING_DRONE', () => {
+		it('should remove a mod from a drone', () => {
+			const newState = reducer(state, { type: 'DEMODDING_DRONE', parameter: { index: 1, category: 'Drones', demodName: 'Armor (Drone)' } });
+
+			expect(newState.Drones[1].mods['Armor (Drone)']).to.be.undefined;
+			expect(newState.Drones[1].currentArmor).to.be.undefined;
+			expect(Object.keys(newState.Drones[1].mods).length).to.equal(0);
+			expect(newState.Drones[1].currentCost).to.equal(25000);
+			expect(newState.nuyen).to.equal(-15850);
+			expect(newState.Drones[1].currentSlot).to.equal(0);
+
+			expect(Object.keys(state.Drones[1].mods).length).to.equal(1);
+			expect(state.Drones[1].currentCost).to.equal(44200);
+			expect(state.nuyen).to.equal(3350);
+		});
+	});
 });
