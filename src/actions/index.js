@@ -45,6 +45,8 @@ import selectGrade from './gear/selectGrade';
 import modalClose from './modalClose';
 import moddingVehicle from './gear/moddingVehicle';
 import demoddingVehicle from './gear/demoddingVehicle';
+import moddingDrone from './gear/moddingDrone';
+import demoddingDrone from './gear/demoddingDrone';
 
 const actions = {
 	priorityTable,
@@ -87,6 +89,8 @@ const actions = {
 	modalClose,
 	moddingVehicle,
 	demoddingVehicle,
+	moddingDrone,
+	demoddingDrone,
 };
 
 module.exports = actions;

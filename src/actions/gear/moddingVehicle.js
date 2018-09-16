@@ -1,7 +1,5 @@
 import { MODDING_VEHICLE } from './../const';
 
-function action(parameter) {
+export default (parameter) => {
 	return { type: MODDING_VEHICLE, parameter };
-}
-
-module.exports = action;
+};
