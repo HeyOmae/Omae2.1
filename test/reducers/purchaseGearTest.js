@@ -1623,6 +1623,25 @@ describe('purchaseGear', () => {
 			expect(Object.keys(state.Drones[1].mods).length).to.equal(1);
 			expect(state.nuyen).to.equal(3350);
 		});
+
+		it('should not increase the currentSlot over the body of the drone', () => {
+			const mod = {
+					...droneHandling,
+					currentCost: 12000,
+					currentSlot: 4,
+					currentRating: 10,
+				},
+				newState = reducer(state, { type: 'MODDING_DRONE',
+					parameter: {
+						index: 1,
+						category: 'Drones',
+						mod,
+					},
+				});
+
+			expect(newState).to.equal(state);
+			expect(newState.Drones[1].mods['Handling (Drone)']).to.be.undefined;
+		});
 	});
 
 	describe('DEMODDING_DRONE', () => {

@@ -335,7 +335,12 @@ const purchaseGearReducer = (state = initialState, action) => {
 		MODDING_DRONE(prevState, {index, category, mod}) {
 			const droneArray = prevState[category],
 				droneBeingModded = droneArray[index],
-				newDroneStat = actionsToTake.droneCurretStatMap[mod.name] && mod.currentRating;
+				newDroneStat = actionsToTake.droneCurretStatMap[mod.name] && mod.currentRating,
+				currentSlot = ((droneBeingModded.currentSlot || 0) + mod.currentSlot);
+
+			if (currentSlot > +(droneBeingModded.body)) {
+				return prevState;
+			}
 
 			return {
 				...prevState,
@@ -347,7 +352,7 @@ const purchaseGearReducer = (state = initialState, action) => {
 							...droneBeingModded.mods,
 							[mod.name]: mod,
 						},
-						currentSlot: ((droneBeingModded.currentSlot || 0) + mod.currentSlot),
+						currentSlot,
 						currentCost: (droneBeingModded.currentCost || +droneBeingModded.cost) + mod.currentCost,
 						...(
 							newDroneStat ?
