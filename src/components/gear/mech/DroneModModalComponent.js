@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+
+import { moddingDrone, demoddingDrone } from '../../../actions';
 
 import {mechType, mechModType} from './mechPropTypes';
 
@@ -10,7 +13,7 @@ const DroneModModalComponent = ({modType, mech, mechMods, mechIndex, modAction, 
 	return (
 		<div>
 			<h4>{modType}</h4>
-			<h5>Slots Left: {+mech.body - ((mech.mods && mech.mods.currentSlot) || 0)}</h5>
+			<h5>Slots Left: {+mech.body - ((mech.currentSlot) || 0)}</h5>
 			<FilterableTable
 				header={
 					<tr>
@@ -32,7 +35,7 @@ const DroneModModalComponent = ({modType, mech, mechMods, mechIndex, modAction, 
 							mech={mech}
 							modAction={modAction}
 							demodAction={demodAction}
-							selectedMod={!!(mech.mods && mech.mods[mod.category] && mech.mods[mod.category][mod.name])}
+							selectedMod={!!(mech.mods && mech.mods[mod.name])}
 						/>
 					);
 				})}
@@ -52,4 +55,4 @@ DroneModModalComponent.propTypes = {
 	demodAction: PropTypes.func.isRequired,
 };
 
-export default DroneModModalComponent;
+export default connect(null, {modAction: moddingDrone, demodAction: demoddingDrone})(DroneModModalComponent);

@@ -1,6 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+const MechDataCell = ({statName, stat, currentStat}) => {
+	return (
+		<td className={`mech--${statName}`}>
+			{stat}{currentStat && `(${currentStat})`}
+		</td>
+	);
+};
+
+MechDataCell.propTypes = {
+	statName: PropTypes.string.isRequired,
+	stat: PropTypes.string.isRequired,
+	currentStat: PropTypes.number,
+};
+
+MechDataCell.defaultProps = {
+	currentStat: null,
+};
+
 const MechRowComponent = ({mech, mechButton, mechMod}) => {
 	return (
 		<tr>
@@ -8,13 +26,13 @@ const MechRowComponent = ({mech, mechButton, mechMod}) => {
 				{mechButton}
 			</td>
 			<td className="mech--name">{mechMod || mech.name}</td>
-			<td className="mech--handling">{mech.handling}</td>
-			<td className="mech--accel">{mech.accel}</td>
-			<td className="mech--body">{mech.body}</td>
-			<td className="mech--armor">{mech.armor}</td>
-			<td className="mech--pilot">{mech.pilot}</td>
-			<td className="mech--sensor">{mech.sensor}</td>
-			<td className="mech--cost">{mech.cost}&yen;</td>
+			<MechDataCell statName="handling" stat={mech.handling} currentStat={mech.currentHandling} />
+			<MechDataCell statName="accel" stat={mech.accel} currentStat={mech.currentAccel} />
+			<MechDataCell statName="body" stat={mech.body} currentStat={mech.currentBody} />
+			<MechDataCell statName="armor" stat={mech.armor} currentStat={mech.currentArmor} />
+			<MechDataCell statName="pilot" stat={mech.pilot} currentStat={mech.currentPilot} />
+			<MechDataCell statName="sensor" stat={mech.sensor} currentStat={mech.currentSensor} />
+			<td className="mech--cost">{mech.currentCost || mech.cost}&yen;</td>
 			<td className="mech--ref">{mech.source} {mech.page}p</td>
 		</tr>
 	);

@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
+import { moddingVehicle, demoddingVehicle } from '../../../actions';
 import {mechType, mechModType} from './mechPropTypes';
 
 import FilterableTable from '../../FilterableTable';
@@ -52,4 +54,4 @@ VehicleModModalComponent.propTypes = {
 	demodAction: PropTypes.func.isRequired,
 };
 
-export default VehicleModModalComponent;
+export default connect(null, {modAction: moddingVehicle, demodAction: demoddingVehicle})(VehicleModModalComponent);
