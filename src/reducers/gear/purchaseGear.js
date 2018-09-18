@@ -330,6 +330,12 @@ const purchaseGearReducer = (state = initialState, action) => {
 			'Armor (Drone)': 'currentArmor',
 			'Pilot Program (Drone)': 'currentPilot',
 			'Sensor (Drone)': 'currentSensor',
+			'Handling Downgrade (Drone)': 'currentHandling',
+			'Speed Downgrade (Drone)': 'currentSpeed',
+			'Acceleration Downgrade (Drone)': 'currentAccel',
+			'Body Downgrade (Drone)': 'currentBody',
+			'Armor Downgrade (Drone)': 'currentArmor',
+			'Sensor Downgrade (Drone)': 'currentSensor',
 		},
 
 		MODDING_DRONE(prevState, {index, category, mod}) {

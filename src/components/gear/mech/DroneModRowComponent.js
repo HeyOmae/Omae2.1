@@ -14,6 +14,10 @@ class DroneModRow extends VehicleModRow {
 				this.minRating = baseStat ? baseStat + modifyBaseBy : 1;
 				return { name, rating: (baseStat * 2 || 1)};
 			},
+			calculateDowngradedStats = (stat, modifyStatBy = 1) => {
+				this.minRating = stat - modifyStatBy;
+				this.downgrade = true;
+			},
 			findRatingLimits = {
 				'Handling (Drone)': ({name}, {handling}) => {
 					const handlingMaxValue = Math.max(...handling.match(/\d+/g));
@@ -33,6 +37,24 @@ class DroneModRow extends VehicleModRow {
 				},
 				'Armor (Drone)': ({name}, {armor}) => {
 					return calculatRatingLimits(name, +armor, 3);
+				},
+				'Handling Downgrade (Drone)': (mod, {handling}) => {
+					return calculateDowngradedStats(handling);
+				},
+				'Speed Downgrade (Drone)': (mod, {speed}) => {
+					return calculateDowngradedStats(speed);
+				},
+				'Acceleration Downgrade (Drone)': (mod, {accel}) => {
+					return calculateDowngradedStats(accel);
+				},
+				'Body Downgrade (Drone)': (mod, {body}) => {
+					return calculateDowngradedStats(body);
+				},
+				'Armor Downgrade (Drone)': (mod, {armor}) => {
+					return calculateDowngradedStats(armor, 3);
+				},
+				'Sensor Downgrade (Drone)': (mod, {sensor}) => {
+					return calculateDowngradedStats(sensor);
 				},
 				default() {
 					return undefined;
@@ -61,7 +83,7 @@ class DroneModRow extends VehicleModRow {
 	}
 
 	calculateDroneSlots(slotValue) {
-		return this.minRating ? this.state.rating - this.minRating : this.displayStat(slotValue);
+		return (this.minRating && !this.downgrade) ? this.state.rating - this.minRating : this.displayStat(slotValue);
 	}
 
 	changeCost({target}) {
@@ -102,7 +124,7 @@ class DroneModRow extends VehicleModRow {
 						+this.displayStat(mod.cost),
 					currentSlot: +this.calculateDroneSlots(mod.slots),
 					...(
-						mod.rating === '0' ?
+						mod.rating === '0' && this.minRating === undefined ?
 							{}
 							:
 							{currentRating: this.state.rating}

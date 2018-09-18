@@ -250,6 +250,29 @@ describe('Drone Mod Row Component', () => {
 			},
 			modslots: '1',
 		},
+		handlingDowngrade = {
+			id: 'f56c3103-e5e7-4b7c-8cdf-7d74d7196f35',
+			name: 'Handling Downgrade (Drone)',
+			page: '123',
+			source: 'R5',
+			avail: '0',
+			category: 'Handling',
+			cost: '0',
+			rating: '0',
+			slots: '-1',
+			bonus: {
+				handling: '-1',
+				offroadhandling: '-1',
+			},
+			required: {
+				vehicledetails: {
+					category: {
+						'-operation': 'contains',
+						'#text': 'Drones',
+					},
+				},
+			},
+		},
 		setup = (mod = geckoGrip, mech = doberman, selectedMod = false) => {
 			const props = {
 					mod,
@@ -491,6 +514,25 @@ describe('Drone Mod Row Component', () => {
 						currentCost: 10,
 						currentSlot: 0,
 					},
+				});
+			});
+
+			describe('downgrade', () => {
+				it('should set the rating to 1 level lower then current rating', () => {
+					const { droneModRow, props } = setup(handlingDowngrade);
+
+					droneModRow.find('.mech-mod--checkbox').simulate('change', { target: { checked: true } });
+
+					expect(props.modAction).to.have.been.calledWith({
+						index: 1,
+						category: 'Drones',
+						mod: {
+							...handlingDowngrade,
+							currentCost: 0,
+							currentSlot: -1,
+							currentRating: 4,
+						},
+					});
 				});
 			});
 		});
