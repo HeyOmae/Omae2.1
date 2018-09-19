@@ -35,26 +35,29 @@ class DroneModRow extends VehicleModRow {
 					this.minRating = baseStat + 1;
 					return { name, rating: rating > 8 ? 8 : rating };
 				},
+				'Fragile (Drone)': ({name}, {body}) => {
+					return { name, rating: (body / 2)};
+				},
 				'Armor (Drone)': ({name}, {armor}) => {
 					return calculatRatingLimits(name, +armor, 3);
 				},
 				'Handling Downgrade (Drone)': (mod, {handling}) => {
-					return calculateDowngradedStats(handling);
+					calculateDowngradedStats(handling);
 				},
 				'Speed Downgrade (Drone)': (mod, {speed}) => {
-					return calculateDowngradedStats(speed);
+					calculateDowngradedStats(speed);
 				},
 				'Acceleration Downgrade (Drone)': (mod, {accel}) => {
-					return calculateDowngradedStats(accel);
+					calculateDowngradedStats(accel);
 				},
 				'Body Downgrade (Drone)': (mod, {body}) => {
-					return calculateDowngradedStats(body);
+					calculateDowngradedStats(body);
 				},
 				'Armor Downgrade (Drone)': (mod, {armor}) => {
-					return calculateDowngradedStats(armor, 3);
+					calculateDowngradedStats(armor, 3);
 				},
 				'Sensor Downgrade (Drone)': (mod, {sensor}) => {
-					return calculateDowngradedStats(sensor);
+					calculateDowngradedStats(sensor);
 				},
 				default() {
 					return undefined;

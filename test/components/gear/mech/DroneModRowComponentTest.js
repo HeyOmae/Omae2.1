@@ -183,6 +183,28 @@ describe('Drone Mod Row Component', () => {
 				},
 			},
 		},
+		droneFrigile = {
+			id: '3ffae49d-1b3d-4214-95da-96a25f8a65f2',
+			name: 'Fragile (Drone)',
+			page: '123',
+			source: 'R5',
+			avail: 'Rating * 3',
+			category: 'All',
+			cost: '0',
+			rating: '99',
+			slots: '-Rating * 2',
+			bonus: {
+				body: '-Rating',
+			},
+			required: {
+				vehicledetails: {
+					category: {
+						'-operation': 'contains',
+						'#text': 'Drones',
+					},
+				},
+			},
+		},
 		doberman = {
 			id: '9186a0a7-635f-4242-a0e8-238f48b17ca2',
 			name: 'GM-Nissan Doberman (Medium)',
@@ -430,6 +452,16 @@ describe('Drone Mod Row Component', () => {
 
 			expect(selectRatingProps.minRating).to.equal(1);
 			expect(selectRatingProps.item).to.deep.equal({ name: 'Armor (Drone)', rating: 1 });
+		});
+
+		describe('Fragile drone mod', () => {
+			it('should set the max rating equal to half of the body', () => {
+				const { droneModRow } = setup(droneFrigile);
+
+				const selectRatingProps = droneModRow.find(SelectRating).props();
+
+				expect(selectRatingProps.item).to.deep.equal({ name: 'Fragile (Drone)', rating: 2 });
+			});
 		});
 	});
 
