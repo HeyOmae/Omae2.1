@@ -46,8 +46,6 @@ class StreetGearComponent extends React.PureComponent {
 		this.organizedMechs = mechData.reduce(organizeGearByType('category'), {});
 
 		this.organizedMechMods = mechMods.reduce(organizeGearByType('name'), {});
-
-		console.log(this.organizedMechMods);
 	}
 
 	render() {

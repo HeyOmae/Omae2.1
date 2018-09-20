@@ -108,7 +108,14 @@ class PowerDetailRow extends React.Component {
 }
 
 PowerDetailRow.propTypes = {
-	power: PropTypes.object.isRequired,
+	power: PropTypes.shape({
+		bonus: PropTypes.string.isRequired,
+		name: PropTypes.string.isRequired,
+		levels: PropTypes.string.isRequired,
+		points: PropTypes.string.isRequired,
+		source: PropTypes.string.isRequired,
+		page: PropTypes.string.isRequired,
+	}).isRequired,
 	index: PropTypes.number.isRequired,
 	pointsSpent: PropTypes.number.isRequired,
 	add: PropTypes.bool,
