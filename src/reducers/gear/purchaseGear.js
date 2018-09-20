@@ -345,7 +345,7 @@ const purchaseGearReducer = (state = initialState, action) => {
 				newDroneStat = actionsToTake.droneCurretStatMap[mod.name] && mod.currentRating,
 				currentSlot = ((droneBeingModded.currentSlot || 0) + mod.currentSlot);
 
-			if (currentSlot > +(droneBeingModded.body)) {
+			if (currentSlot > +(droneBeingModded.body) || droneBeingModded[actionsToTake.droneCurretStatMap[mod.name]]) {
 				return prevState;
 			}
 

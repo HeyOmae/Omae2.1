@@ -432,7 +432,7 @@ describe('purchaseGear', () => {
 								currentSlot: 1,
 							},
 							'Passenger Protection System': {
-								id: 'f9353113-4f4b-4c71-b742-eb5a6f87fc1"',
+								id: 'f9353113-4f4b-4c71-b742-eb5a6f87fc1',
 								name: 'Passenger Protection System',
 								page: '159',
 								source: 'R5',
@@ -1516,6 +1516,31 @@ describe('purchaseGear', () => {
 				currentCost: 4000,
 				currentSlot: 0,
 				currentRating: 4,
+			},
+			downgradeArmor = {
+				id: '616bad95-cc17-47b2-b85b-14fdd0bcb27f',
+				name: 'Armor Downgrade (Drone)',
+				page: '123',
+				source: 'R5',
+				avail: '0',
+				category: 'Armor',
+				cost: '0',
+				rating: '0',
+				slots: '-1',
+				bonus: {
+					armor: '-3',
+				},
+				required: {
+					vehicledetails: {
+						category: {
+							'-operation': 'contains',
+							'#text': 'Drones',
+						},
+					},
+				},
+				currentCost: 0,
+				currentSlot: -2,
+				currentRating: 4,
 			};
 
 		it('should add a mod', () => {
@@ -1638,6 +1663,13 @@ describe('purchaseGear', () => {
 						mod,
 					},
 				});
+
+			expect(newState).to.equal(state);
+			expect(newState.Drones[1].mods['Armor Downgrade (Drone)']).to.be.undefined;
+		});
+
+		it('should not allow a downgrade if the current stat has been modified by another mod', () => {
+			const newState = reducer(state, { type: 'MODDING_DRONE', parameter: { index: 1, category: 'Drones', mod: downgradeArmor } });
 
 			expect(newState).to.equal(state);
 			expect(newState.Drones[1].mods['Handling (Drone)']).to.be.undefined;
