@@ -192,7 +192,7 @@ describe('Drone Mod Row Component', () => {
 			category: 'All',
 			cost: '0',
 			rating: '99',
-			slots: '-Rating * 2',
+			slots: '-Rating',
 			bonus: {
 				body: '-Rating',
 			},
@@ -563,6 +563,25 @@ describe('Drone Mod Row Component', () => {
 							currentCost: 0,
 							currentSlot: -1,
 							currentRating: 4,
+						},
+					});
+				});
+			});
+
+			describe('Fragile drone mod', () => {
+				it('should set rating on purchase to state.rating - body', () => {
+					const { droneModRow, props } = setup(droneFrigile);
+
+					droneModRow.find('.mech-mod--checkbox').simulate('change', { target: { checked: true } });
+
+					expect(props.modAction).to.have.been.calledWith({
+						index: 1,
+						category: 'Drones',
+						mod: {
+							...droneFrigile,
+							currentCost: 0,
+							currentSlot: -1,
+							currentRating: 3,
 						},
 					});
 				});

@@ -1977,7 +1977,7 @@
 		"category": "All",
 		"cost": "0",
 		"rating": "99",
-		"slots": "-Rating * 2",
+		"slots": "-Rating",
 		"bonus": {
 			"body": "-Rating"
 		},

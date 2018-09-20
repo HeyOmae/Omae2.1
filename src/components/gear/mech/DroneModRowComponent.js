@@ -83,10 +83,20 @@ class DroneModRow extends VehicleModRow {
 		this.calculateDroneSlots = this.calculateDroneSlots.bind(this);
 		this.changeCost = this.changeCost.bind(this);
 		this.armorModAvail = this.armorModAvail.bind(this);
+		this.calculateDroneRating = this.calculateDroneRating.bind(this);
 	}
 
 	calculateDroneSlots(slotValue) {
 		return (this.minRating && !this.downgrade) ? this.state.rating - this.minRating : this.displayStat(slotValue);
+	}
+
+	calculateDroneRating() {
+		const {rating} = this.state,
+			{mod, mech} = this.props;
+		if (mod.name === 'Fragile (Drone)') {
+			return +mech.body - rating;
+		}
+		return rating;
 	}
 
 	changeCost({target}) {
@@ -130,7 +140,7 @@ class DroneModRow extends VehicleModRow {
 						mod.rating === '0' && this.minRating === undefined ?
 							{}
 							:
-							{currentRating: this.state.rating}
+							{ currentRating: this.calculateDroneRating() }
 					),
 				},
 			});
