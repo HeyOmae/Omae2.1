@@ -17,12 +17,13 @@ const MechHeader = () => {
 		<tr>
 			<th>Buy</th>
 			<th>Name</th>
-			<th>Handling</th>
+			<th>Handl</th>
 			<th>Accel</th>
-			<th>Body</th>
-			<th>Armor</th>
-			<th>Pilot</th>
-			<th>Sensor</th>
+			<th>Bod</th>
+			<th>Arm</th>
+			<th>Pilo</th>
+			<th>Sens</th>
+			<th>Ava</th>
 			<th>Cost</th>
 			<th>Ref</th>
 		</tr>

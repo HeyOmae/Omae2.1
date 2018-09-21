@@ -32,6 +32,7 @@ const MechRowComponent = ({mech, mechButton, mechMod}) => {
 			<MechDataCell statName="armor" stat={mech.armor} currentStat={mech.currentArmor} />
 			<MechDataCell statName="pilot" stat={mech.pilot} currentStat={mech.currentPilot} />
 			<MechDataCell statName="sensor" stat={mech.sensor} currentStat={mech.currentSensor} />
+			<td className="mech--avail">{mech.avail}</td>
 			<td className="mech--cost">{mech.currentCost || mech.cost}&yen;</td>
 			<td className="mech--ref">{mech.source} {mech.page}p</td>
 		</tr>
