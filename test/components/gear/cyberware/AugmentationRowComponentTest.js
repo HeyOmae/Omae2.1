@@ -121,6 +121,18 @@ describe('AugmentationRowComponent', () => {
 			cost: 'Variable(2000-10000)',
 			source: '2050',
 			page: '203',
+		},
+		headwareMemory = {
+			id: '908000b8-5c97-402d-947f-bd54768ac5f0',
+			name: 'Headware Memory (2050)',
+			category: 'Headware',
+			ess: '(((Rating - 11) * 0.0005) +0.01)',
+			capacity: '0',
+			avail: '2',
+			cost: 'Rating * 25',
+			source: '2050',
+			page: '199',
+			rating: '11980',
 		};
 
 	const setup = (ware = datajack, currentGrade = 0) => {
@@ -220,7 +232,8 @@ describe('AugmentationRowComponent', () => {
 				selectRating = augmentationRowComponent.find(SelectRating);
 
 			expect(selectRating).lengthOf(1);
-			expect(selectRating.props().updateRating).to.equal(augmentationRowComponent.instance().updateRating);
+			expect(selectRating.props().updateRating)
+				.to.equal(augmentationRowComponent.instance().updateRating);
 			expect(selectRating.props().item).to.equal(props.ware);
 		});
 
@@ -276,7 +289,6 @@ describe('AugmentationRowComponent', () => {
 			});
 		});
 
-
 		describe('change cost', () => {
 			it('should scale off rating', () => {
 				const { augmentationRowComponent } = setup(dataLock);
@@ -294,6 +306,18 @@ describe('AugmentationRowComponent', () => {
 
 				expect(augmentationRowComponent.find('.cyberware--cost').text()).to.equal('208000¥');
 			});
+		});
+
+		it('should show an input for ratings over 20', () => {
+			const { augmentationRowComponent, props } = setup(headwareMemory),
+				ratingInput = augmentationRowComponent.find('input.cyberware--rating__input');
+
+			expect(ratingInput).lengthOf(1);
+			expect(ratingInput.props().placeholder).to.equal('1-11980');
+
+			expect(augmentationRowComponent.state('Rating')).to.equal(1);
+			ratingInput.simulate('change', { target: { value: '100' } });
+			expect(augmentationRowComponent.state('Rating')).to.equal(100);
 		});
 	});
 

@@ -116,7 +116,17 @@ class AugmentationRowComponent extends React.Component {
 				<td className="cyberware--name">{name}</td>
 				<td className="cyberware--ess">{this.calculateStatBasedOffGrade(ess, 'ess')}</td>
 				<td className="cyberware--rating">
-					<SelectRating item={this.props.ware} updateRating={this.updateRating} />
+					{
+						+this.props.ware.rating > 20 ?
+							<input
+								type="number"
+								className="cyberware--rating__input"
+								placeholder={`1-${this.props.ware.rating}`}
+								onChange={this.updateRating}
+							/>
+						:
+							<SelectRating item={this.props.ware} updateRating={this.updateRating} />
+					}
 				</td>
 				<td className="cyberware--avail">{this.calculateAvail(avail)}</td>
 				<td className="cyberware--cost">
