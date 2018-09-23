@@ -188,7 +188,6 @@ ${gear.name} | ${gear.currentRating || 'N/A'} | ${gear.source} p${gear.page}`;
 
 	Object.keys(purchaseGear).forEach((gearCategoryName) => {
 		const category = purchaseGear[gearCategoryName];
-		console.log(gearCategoryName);
 		if (Array.isArray(category)) {
 			gearBought += (gearTypes[gearCategoryName] || gearTypes.default)(category, gearCategoryName);
 		}
