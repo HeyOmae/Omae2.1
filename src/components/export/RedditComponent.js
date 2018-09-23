@@ -136,6 +136,22 @@ ${armor.name} | ${armor.armor} | ${armor.currentCapacity}/${armor.armorcapacity}
 	}).join()}`;
 		},
 
+		cyberlimbs(category, gearCategoryName) {
+			return `
+
+### ${gearCategoryName}
+
+Name | Agi | Str | Ess | Mods | Ref
+-----|-----|-----|-----|------|--${
+	category.map((limb) => {
+		return `
+${limb.name} | ${limb.agi} | ${limb.str} | ${limb.ess} | ${limb.mods ? displayMods(limb.mods).join('; ') : 'N/A'} | ${limb.source} p${limb.page}`;
+	}).join()
+}
+
+			`;
+		},
+
 		Vehicles(category, gearCategoryName) {
 			function displayMechStat(stat, currentStat) {
 				return `${stat}${currentStat ? `(${currentStat})` : ''}`;
