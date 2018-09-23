@@ -97,7 +97,6 @@ const RedditComponent = ({priority, metatype, attributes, augmentedAtt, magres, 
 	}
 
 	function displayMods(mods) {
-		console.log(mods);
 		return Object.keys(mods).reduce((modArr, modSlot) => {
 			return [
 				...modArr,
@@ -133,8 +132,29 @@ ${weapon.name} | ${weapon.accuracy} | ${weapon.damage} | ${weapon.ap} | ${weapon
 Name | Armor | Capacity | Mods | Ref
 ----|--------|----------|------|--${category.map((armor) => {
 		return `
-${armor.name} | ${armor.armor} | ${armor.capacity}/${armor.armorcapacity} | ${armor.mods ? displayMods(armor.mods).join('; ') : 'N/A'} | ${armor.source} p${armor.page}`;
+${armor.name} | ${armor.armor} | ${armor.currentCapacity}/${armor.armorcapacity} | ${armor.mods ? displayMods(armor.mods).join('; ') : 'N/A'} | ${armor.source} p${armor.page}`;
 	}).join()}`;
+		},
+
+		Vehicles(category, gearCategoryName) {
+			function displayMechStat(stat, currentStat) {
+				return `${stat}${currentStat ? `(${currentStat})` : ''}`;
+			}
+			return `
+
+### ${gearCategoryName}
+
+Name | Handling | Accel | Body | Armor | Pilot | Sensor | Mods | Ref
+-----|----------|-------|------|-------|-------|--------|-----|--${
+	category.map((mech) => {
+		return `
+${mech.name} | ${displayMechStat(mech.handling, mech.currentHandling)} | ${displayMechStat(mech.accel, mech.currentAccel)} | ${displayMechStat(mech.body, mech.currentBody)} | ${displayMechStat(mech.armor, mech.currentArmor)} | ${displayMechStat(mech.pilot, mech.currentPilot)} | ${displayMechStat(mech.sensor, mech.currentSensor)} | ${mech.mods ? displayMods(mech.mods).join('; ') : 'N/A'} | ${mech.source} p${mech.page}`;
+	}).join()
+			}`;
+		},
+
+		Drones(category, gearCategoryName) {
+			return gearTypes.Vehicles(category, gearCategoryName);
 		},
 
 		default(category, gearCategoryName) {
