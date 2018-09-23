@@ -88,16 +88,40 @@ const RedditComponent = ({priority, metatype, attributes, augmentedAtt, magres, 
 		}
 	});
 
+	function displayModName(mod) {
+		if (mod.currentRating) {
+			return `${mod.name} ${mod.currentRating}`;
+		}
+
+		return mod.name;
+	}
+
+	function displayMods(mods) {
+		console.log(mods);
+		return Object.keys(mods).reduce((modArr, modSlot) => {
+			return [
+				...modArr,
+				...(
+					mods[modSlot].name
+						?
+						[displayModName(mods[modSlot])]
+						:
+						displayMods(mods[modSlot])
+				),
+			];
+		}, []);
+	}
+
 	const gearTypes = {
 		weapons(category, gearCategoryName) {
 			return `
 
 ### ${gearCategoryName}
 
-Name | Acc | Dam | AP | Reach/RC | Ref
-----|------|-----|----|----------|--${category.map((weapon) => {
+Name | Acc | Dam | AP | Reach/RC | Mods | Ref
+----|------|-----|----|----------|------|--${category.map((weapon) => {
 		return `
-${weapon.name} | ${weapon.accuracy} | ${weapon.damage} | ${weapon.ap} | ${weapon.type === 'Melee' ? weapon.reach : weapon.rc} | ${weapon.source} p${weapon.page}`;
+${weapon.name} | ${weapon.accuracy} | ${weapon.damage} | ${weapon.ap} | ${weapon.type === 'Melee' ? weapon.reach : weapon.rc} | ${weapon.mods ? displayMods(weapon.mods).join('; ') : 'N/A'} | ${weapon.source} p${weapon.page}`;
 	}).join()}`;
 		},
 
@@ -106,10 +130,10 @@ ${weapon.name} | ${weapon.accuracy} | ${weapon.damage} | ${weapon.ap} | ${weapon
 
 ### ${gearCategoryName}
 
-Name | Armor | Capacity | Ref
-----|--------|----------|--${category.map((armor) => {
+Name | Armor | Capacity | Mods | Ref
+----|--------|----------|------|--${category.map((armor) => {
 		return `
-${armor.name} | ${armor.armor} | ${armor.capacity}/${armor.armorcapacity} | ${armor.source} p${armor.page}`;
+${armor.name} | ${armor.armor} | ${armor.capacity}/${armor.armorcapacity} | ${armor.mods ? displayMods(armor.mods).join('; ') : 'N/A'} | ${armor.source} p${armor.page}`;
 	}).join()}`;
 		},
 
@@ -128,6 +152,7 @@ ${gear.name} | ${gear.currentRating || 'N/A'} | ${gear.source} p${gear.page}`;
 
 	Object.keys(purchaseGear).forEach((gearCategoryName) => {
 		const category = purchaseGear[gearCategoryName];
+		console.log(gearCategoryName);
 		if (Array.isArray(category)) {
 			gearBought += (gearTypes[gearCategoryName] || gearTypes.default)(category, gearCategoryName);
 		}
