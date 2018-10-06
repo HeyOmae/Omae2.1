@@ -93,7 +93,7 @@ const RedditComponent = ({priority, metatype, attributes, augmentedAtt, magres, 
 			return `${mod.name} ${mod.currentRating}`;
 		}
 
-		return mod.name;
+		return mod.name || mod;
 	}
 
 	function displayMods(mods) {
@@ -101,7 +101,7 @@ const RedditComponent = ({priority, metatype, attributes, augmentedAtt, magres, 
 			return [
 				...modArr,
 				...(
-					mods[modSlot].name
+					(mods[modSlot].name || typeof mods[modSlot] === 'string')
 						?
 						[displayModName(mods[modSlot])]
 						:
