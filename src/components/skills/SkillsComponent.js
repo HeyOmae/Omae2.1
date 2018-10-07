@@ -74,8 +74,11 @@ class SkillsComponent extends React.PureComponent {
 		});
 
 		this.listOfSkills = listOfSkills;
-		this.priorityDataFreeSkills = priorityMagicData ? priorityMagicData.skills : null;
 		this.groupPointsLeft = groupPointsLeft;
+		if (priorityMagicData && priorityMagicData.attribute) {
+			this.priorityDataFreeSkills = priorityMagicData.skills;
+			this.specialAttribute = priorityMagicData.attribute.points;
+		}
 	}
 
 	componentWillUpdate(nextProps) {
@@ -86,10 +89,12 @@ class SkillsComponent extends React.PureComponent {
 			this.groupPointsLeft = calculateGroupPointsLeft(nextProps.priority.skills, nextProps.skills.groupPointSpent);
 		}
 
-		if (nextPriorityMagicData) {
+		if (nextPriorityMagicData && nextPriorityMagicData.attribute) {
 			this.priorityDataFreeSkills = nextPriorityMagicData.skills;
+			this.specialAttribute = nextPriorityMagicData.attribute.points;
 		} else if (nextPriorityMagicData === undefined) {
 			this.priorityDataFreeSkills = null;
+			this.specialAttribute = null;
 		}
 	}
 
@@ -126,17 +131,17 @@ class SkillsComponent extends React.PureComponent {
 						{listOfSkills}
 					</div>
 				</div>
-				{Object.keys(skills.active).length > 0 ?
-					(<div className="col">
+				{Object.keys(skills.active).length > 0 &&
+					<div className="col">
 						<h3>Skill List</h3>
 						<DisplaySkills
 							activeSkills={skills.active}
 							actions={actions}
 							attributes={attributes}
 							metatype={metatype}
-							skillPointsLeft={skillPointsLeft} />
-					</div>)
-					: null
+							skillPointsLeft={skillPointsLeft}
+							specialAttribute={(this.specialAttribute || 0) + attributes.special} />
+					</div>
 				}
 			</div>
 		);

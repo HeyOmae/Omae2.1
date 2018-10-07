@@ -4,7 +4,7 @@ import DisplayTable from '../DisplayTableComponent';
 import metatypeData from '../../data/metatype.json';
 import PropTypeChecking from '../../config/propTypeChecking';
 
-const DisplaySkills = ({activeSkills, actions, attributes, metatype, skillPointsLeft}) => {
+const DisplaySkills = ({activeSkills, actions, attributes, metatype, skillPointsLeft, specialAttribute}) => {
 	return (
 		<DisplayTable
 			header={
@@ -13,7 +13,10 @@ const DisplaySkills = ({activeSkills, actions, attributes, metatype, skillPoints
 			body={
 				Object.keys(activeSkills).map((skillKey) => {
 					const skill = activeSkills[skillKey],
-						currentAttribute = metatypeData[metatype.typeName].min[skill.attribute] + attributes[skill.attribute];
+						currentAttribute = (skill.attribute === 'mag' || skill.attribute === 'res') ?
+						specialAttribute
+						:
+						metatypeData[metatype.typeName].min[skill.attribute] + attributes[skill.attribute];
 					return (
 						<ActiveSkillRow
 							key={`display-activeSkill-${skillKey}`}
@@ -36,6 +39,7 @@ DisplaySkills.propTypes = {
 	attributes: PropTypeChecking.attributes.isRequired,
 	metatype: PropTypeChecking.selectMetatype.isRequired,
 	skillPointsLeft: PropTypes.number.isRequired,
+	specialAttribute: PropTypes.number.isRequired,
 };
 
 function ActiveSkillHeader() {
@@ -66,6 +70,7 @@ function ActiveSkillRow({skillKey, skill, actions, attribute, skillPointsLeft}) 
 	const {rating = 0, groupRating = 0, magicSkillRating = 0} = skill,
 		totalSkillRating = rating + groupRating + magicSkillRating,
 		dicePool = attribute + (totalSkillRating || -1);
+
 	return (
 		<tr className={totalSkillRating > 6 ? 'table-danger ' : ''}>
 			<td>
