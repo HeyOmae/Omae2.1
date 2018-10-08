@@ -5,7 +5,7 @@ const AppComponent = ({style}) => {
 	return (
 		<div className="row">
 			<div className="program-title col">
-				<h1>Omae v 2</h1>
+				<h1>Omae v.2</h1>
 				<p>Shadowrun 5<sup>th</sup> Edition Character Generator</p>
 			</div>
 			<div className="col-sm-2">
