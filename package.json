@@ -75,10 +75,10 @@
   "dependencies": {
     "bootstrap": "^4.1.0",
     "cross-env": "^5.1.6",
-    "react": "^16.4.0",
-    "react-dom": "^16.4.0",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
     "react-hot-loader": "^4.2.0",
-    "react-redux": "^5.0.7",
-    "redux": "^4.0.0"
+    "react-redux": "^5.1.0",
+    "redux": "^4.0.1"
   }
 }
