@@ -1,6 +1,7 @@
 {
     "lifestyles": {
-        "lifestyle": [{
+        "lifestyle": [
+            {
                 "id": "00000000-0000-0000-0000-000000000000",
                 "name": "ID ERROR. Re-add life style to fix",
                 "cost": "1",
@@ -1538,5 +1539,5 @@
                 "page": "144"
             }
         ]
-    },
+    }
 }

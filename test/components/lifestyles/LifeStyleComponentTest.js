@@ -11,9 +11,11 @@ describe('<LifeStyleComponent />', () => {
 		return { lifeStyle, props };
 	};
 
-	it('should exist', () => {
+	it('should display the lifestyles', () => {
 		const { lifeStyle } = setup();
 
-		expect(lifeStyle).to.be.not.undefined;
+		const lifestyleItems = lifeStyle.find('.lifestyle--item');
+
+		expect(lifestyleItems.length).to.equal(11);
 	});
 });
