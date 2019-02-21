@@ -1,5 +1,6 @@
 import React from 'react';
 import LifeStyleData from '../../data/lifestyle.json';
+import FilterTable from '../FilterableTable';
 
 class LifeStyleComponent extends React.PureComponent {
 	componentWillMount() {
@@ -11,11 +12,21 @@ class LifeStyleComponent extends React.PureComponent {
 		return (
 			<div className="life-style-component">
 				<h3>Life Styles</h3>
-				{
-					this.lifestyles.map(lifestyle => {
-						return (<div className="lifestyle--item"></div>);
-					})
-				}
+				<table>
+					<thead>
+						<th>Select</th>
+						<th>Name</th>
+						<th>¥</th>
+						<th>Ref</th>
+					</thead>
+					<tbody>
+						{
+							this.lifestyles.map((lifestyle) => {
+								return (<tr className="lifestyle--item">{lifestyle.name}</tr>);
+							})
+						}
+					</tbody>
+				</table>
 			</div>
 		);
 	}

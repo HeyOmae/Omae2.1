@@ -11,7 +11,7 @@ describe('<LifeStyleComponent />', () => {
 		return { lifeStyle, props };
 	};
 
-	it('should display the lifestyles', () => {
+	it('should display the lifestyles table', () => {
 		const { lifeStyle } = setup();
 
 		const lifestyleItems = lifeStyle.find('.lifestyle--item');
