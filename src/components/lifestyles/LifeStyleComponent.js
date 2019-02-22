@@ -22,7 +22,16 @@ class LifeStyleComponent extends React.PureComponent {
 					<tbody>
 						{
 							this.lifestyles.map((lifestyle) => {
-								return (<tr className="lifestyle--item">{lifestyle.name}</tr>);
+								return (
+									<tr key={lifestyle.id} className="lifestyle--item">
+										<td className="lifestyle--item__select">
+											<input type="radio" name="lifestyle" />
+										</td>
+										<td className="lifestyle--item__name">
+											{lifestyle.name}
+										</td>
+									</tr>
+								);
 							})
 						}
 					</tbody>
