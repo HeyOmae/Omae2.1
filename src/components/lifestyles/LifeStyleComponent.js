@@ -30,6 +30,12 @@ class LifeStyleComponent extends React.PureComponent {
 										<td className="lifestyle--item__name">
 											{lifestyle.name}
 										</td>
+										<td className="lifestyle--item__cost">
+											{lifestyle.cost}
+										</td>
+										<td className="lifestyle--item__reference">
+											{lifestyle.source} {lifestyle.page}p
+										</td>
 									</tr>
 								);
 							})

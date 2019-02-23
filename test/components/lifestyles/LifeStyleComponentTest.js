@@ -39,6 +39,8 @@ describe('<LifeStyleComponent />', () => {
 		lifestyleItems.forEach((item, index) => {
 			expect(item.find('.lifestyle--item__select input').length).to.equal(1);
 			expect(item.find('.lifestyle--item__name').text()).to.equal(lifestyles[index].name);
+			expect(item.find('.lifestyle--item__cost').text()).to.equal(lifestyles[index].cost);
+			expect(item.find('.lifestyle--item__reference').text()).to.equal(`${lifestyles[index].source} ${lifestyles[index].page}p`);
 		});
 	});
 });
