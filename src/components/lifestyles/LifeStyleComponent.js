@@ -11,7 +11,7 @@ class LifeStyleComponent extends React.PureComponent {
 		return (
 			<div className="life-style-component">
 				<h3>Life Styles</h3>
-				<table>
+				<table className="table">
 					<thead>
 						<th>Select</th>
 						<th>Name</th>
@@ -24,10 +24,12 @@ class LifeStyleComponent extends React.PureComponent {
 								return (
 									<tr key={lifestyle.id} className="lifestyle--item">
 										<td className="lifestyle--item__select">
-											<input type="radio" name="lifestyle" id={lifestyle.id} />
+											<button className="btn btn-success">
+												+
+											</button>
 										</td>
 										<td className="lifestyle--item__name">
-											<label htmlFor={lifestyle.id}>{lifestyle.name}</label>
+											{lifestyle.name}
 										</td>
 										<td className="lifestyle--item__cost">
 											{lifestyle.cost}
