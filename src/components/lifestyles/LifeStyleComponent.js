@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import LifeStyleData from '../../data/lifestyle.json';
 
 class LifeStyleComponent extends React.PureComponent {
@@ -24,7 +25,14 @@ class LifeStyleComponent extends React.PureComponent {
 								return (
 									<tr key={lifestyle.id} className="lifestyle--item">
 										<td className="lifestyle--item__select">
-											<button className="btn btn-success">
+											<button
+												className="btn btn-success"
+												onClick={() => {
+												this.props.purchaseGear({
+													gear: lifestyle,
+													category: 'lifestyles',
+												});
+											}}>
 												+
 											</button>
 										</td>
@@ -47,5 +55,9 @@ class LifeStyleComponent extends React.PureComponent {
 		);
 	}
 }
+
+LifeStyleComponent.propType = {
+	purchaseGear: PropTypes.func.isRequired,
+};
 
 export default LifeStyleComponent;

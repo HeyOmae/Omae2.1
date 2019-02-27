@@ -5,7 +5,9 @@ import LifeStyleComponent from 'components/lifestyles/LifeStyleComponent';
 
 describe('<LifeStyleComponent />', () => {
 	const setup = () => {
-		const props = {},
+		const props = {
+				purchaseGear: sinon.spy(),
+			},
 			lifeStyle = shallow(<LifeStyleComponent {...props} />);
 
 		return { lifeStyle, props };
@@ -42,5 +44,11 @@ describe('<LifeStyleComponent />', () => {
 			expect(item.find('.lifestyle--item__cost').text()).to.equal(lifestyles[index].cost);
 			expect(item.find('.lifestyle--item__reference').text()).to.equal(`${lifestyles[index].source} ${lifestyles[index].page}p`);
 		});
+	});
+
+	it('should fire the purchaseGear prop if the buy button is clicked', () => {
+		const { lifeStyle, props } = setup();
+		lifeStyle.find('.lifestyle--item__select button').at(0).simulate('click');
+		expect(props.purchaseGear).to.have.been.calledWith({ gear: lifeStyle.instance().lifestyles[0], category: 'lifestyles' });
 	});
 });
