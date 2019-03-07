@@ -60,6 +60,7 @@ import StreetGearComponent from '../components/gear/StreetGearComponent';
 import Summary from './summary';
 import PropTypeChecking from '../config/propTypeChecking';
 import Modal from '../components/Modal';
+import LifeStyleComponent from '../components/lifestyles/LifeStyleComponent';
 
 /* Populated by react-webpack-redux:reducer */
 class App extends Component {
@@ -117,6 +118,7 @@ class App extends Component {
 							magictype={selectMagRes} />
 						<h2>Street Gear</h2>
 						<StreetGearComponent actions={actions} purchaseGear={purchaseGearState} />
+						<LifeStyleComponent />
 					</div>
 					<div id="summary" className="col-md-12 col-lg-3">
 						<Summary />

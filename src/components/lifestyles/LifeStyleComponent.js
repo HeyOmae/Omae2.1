@@ -14,10 +14,12 @@ class LifeStyleComponent extends React.PureComponent {
 				<h3>Life Styles</h3>
 				<table className="table">
 					<thead>
-						<th>Select</th>
-						<th>Name</th>
-						<th>¥</th>
-						<th>Ref</th>
+						<tr>
+							<th>Select</th>
+							<th>Name</th>
+							<th>¥</th>
+							<th>Ref</th>
+						</tr>
 					</thead>
 					<tbody>
 						{
@@ -40,7 +42,7 @@ class LifeStyleComponent extends React.PureComponent {
 											{lifestyle.name}
 										</td>
 										<td className="lifestyle--item__cost">
-											{lifestyle.cost}
+											{lifestyle.cost}&yen;
 										</td>
 										<td className="lifestyle--item__reference">
 											{lifestyle.source} {lifestyle.page}p
@@ -56,7 +58,7 @@ class LifeStyleComponent extends React.PureComponent {
 	}
 }
 
-LifeStyleComponent.propType = {
+LifeStyleComponent.propTypes = {
 	purchaseGear: PropTypes.func.isRequired,
 };
 
