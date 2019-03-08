@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import LifeStyleRowComponent from './LifeStyleRowComponent';
 import LifeStyleData from '../../data/lifestyle.json';
 
 class LifeStyleComponent extends React.PureComponent {
@@ -25,29 +26,11 @@ class LifeStyleComponent extends React.PureComponent {
 						{
 							this.lifestyles.map((lifestyle) => {
 								return (
-									<tr key={lifestyle.id} className="lifestyle--item">
-										<td className="lifestyle--item__select">
-											<button
-												className="btn btn-success"
-												onClick={() => {
-												this.props.purchaseGear({
-													gear: lifestyle,
-													category: 'lifestyles',
-												});
-											}}>
-												+
-											</button>
-										</td>
-										<td className="lifestyle--item__name">
-											{lifestyle.name}
-										</td>
-										<td className="lifestyle--item__cost">
-											{lifestyle.cost}&yen;
-										</td>
-										<td className="lifestyle--item__reference">
-											{lifestyle.source} {lifestyle.page}p
-										</td>
-									</tr>
+									<LifeStyleRowComponent
+										key={lifestyle.id}
+										lifestyle={lifestyle}
+										purchaseGear={this.props.purchaseGear}
+									/>
 								);
 							})
 						}

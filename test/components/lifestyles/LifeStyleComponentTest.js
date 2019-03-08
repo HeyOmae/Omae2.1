@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import LifeStyleComponent from 'components/lifestyles/LifeStyleComponent';
+import LifeStyleRowComponent from 'components/lifestyles/LifeStyleRowComponent';
 
 describe('<LifeStyleComponent />', () => {
 	const setup = () => {
@@ -30,25 +31,11 @@ describe('<LifeStyleComponent />', () => {
 		});
 	});
 
-	it('should display the lifestyles table', () => {
+	it('should display the lifestyles row for each lifestyle', () => {
 		const { lifeStyle } = setup();
 
-		const lifestyleItems = lifeStyle.find('.lifestyle--item'),
-			{ lifestyles } = lifeStyle.instance();
+		const lifestyleItems = lifeStyle.find(LifeStyleRowComponent);
 
 		expect(lifestyleItems.length).to.equal(11);
-
-		lifestyleItems.forEach((item, index) => {
-			expect(item.find('.lifestyle--item__select button')).to.have.lengthOf(1);
-			expect(item.find('.lifestyle--item__name').text()).to.equal(lifestyles[index].name);
-			expect(item.find('.lifestyle--item__cost').text()).to.equal(`${lifestyles[index].cost}¥`);
-			expect(item.find('.lifestyle--item__reference').text()).to.equal(`${lifestyles[index].source} ${lifestyles[index].page}p`);
-		});
-	});
-
-	it('should fire the purchaseGear prop if the buy button is clicked', () => {
-		const { lifeStyle, props } = setup();
-		lifeStyle.find('.lifestyle--item__select button').at(0).simulate('click');
-		expect(props.purchaseGear).to.have.been.calledWith({ gear: lifeStyle.instance().lifestyles[0], category: 'lifestyles' });
 	});
 });
