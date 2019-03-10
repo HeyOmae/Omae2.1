@@ -30,7 +30,7 @@ class LifeStyleComponent extends React.PureComponent {
 						this.lifestyles.map((lifestyle) => {
 							return (
 								<LifeStyleRowComponent
-									key={lifestyle.id}
+									key={lifestyle.name}
 									lifestyle={lifestyle}
 									purchaseGear={this.props.purchaseGear}
 								/>
