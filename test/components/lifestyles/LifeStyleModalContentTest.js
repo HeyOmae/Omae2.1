@@ -1,16 +1,16 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import LifeStyleComponent, { LifeStyleTableHead } from 'components/lifestyles/LifeStyleComponent';
+import LifeStyleModalContent, { LifeStyleTableHead } from 'components/lifestyles/LifeStyleModalContent';
 import LifeStyleRowComponent from 'components/lifestyles/LifeStyleRowComponent';
 import FilterableTable from 'components/FilterableTable';
 
-describe('<LifeStyleComponent />', () => {
+describe('<LifeStyleModalContent />', () => {
 	const setup = () => {
 		const props = {
 				purchaseGear: sinon.spy(),
 			},
-			lifeStyle = shallow(<LifeStyleComponent {...props} />);
+			lifeStyle = shallow(<LifeStyleModalContent {...props} />);
 
 		return { lifeStyle, props };
 	};
