@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import LifeStyleModalContent, { LifeStyleTableHead } from 'components/lifestyles/LifeStyleModalContent';
+import { LifeStyleModalContent, LifeStyleTableHead } from 'components/lifestyles/LifeStyleModalContent';
 import LifeStyleRowComponent from 'components/lifestyles/LifeStyleRowComponent';
 import FilterableTable from 'components/FilterableTable';
 

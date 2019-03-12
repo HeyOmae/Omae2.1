@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import LifeStyleRowComponent from './LifeStyleRowComponent';
 import LifeStyleData from '../../data/lifestyle.json';
 import FilterableTable from '../FilterableTable';
+import { purchaseGear } from '../../actions';
 
 export const LifeStyleTableHead = () => {
 	return (
@@ -15,7 +17,7 @@ export const LifeStyleTableHead = () => {
 	);
 };
 
-class LifeStyleModalContent extends React.PureComponent {
+export class LifeStyleModalContent extends React.PureComponent {
 	componentWillMount() {
 		const [discard, ...lifestyles] = LifeStyleData.lifestyles.lifestyle;
 		this.lifestyles = lifestyles;
@@ -30,7 +32,7 @@ class LifeStyleModalContent extends React.PureComponent {
 							<LifeStyleRowComponent
 								key={lifestyle.name}
 								lifestyle={lifestyle}
-								purchaseGear={this.props.purchaseGear}
+								purchaseGear={this.props.purchaseLifestyle}
 							/>
 						);
 					})
@@ -41,7 +43,7 @@ class LifeStyleModalContent extends React.PureComponent {
 }
 
 LifeStyleModalContent.propTypes = {
-	purchaseGear: PropTypes.func.isRequired,
+	purchaseLifestyle: PropTypes.func.isRequired,
 };
 
-export default LifeStyleModalContent;
+export default connect({}, {purchaseLifestyle: purchaseGear})(LifeStyleModalContent);
