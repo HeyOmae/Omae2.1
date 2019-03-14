@@ -21,7 +21,6 @@ export class LifeStyleModalContent extends React.PureComponent {
 	componentWillMount() {
 		const [discard, ...lifestyles] = LifeStyleData.lifestyles.lifestyle;
 		this.lifestyles = lifestyles;
-		debugger;
 	}
 
 	render() {
