@@ -31,24 +31,24 @@ class ModalButtonComponent extends React.PureComponent {
 				>
 					{modalName}
 				</button>
-				{this.state.showModal ? <Modal
-					modalName={modalName}
-					modalContent={modalContent}
-					closeModal={
-						() => {
-							this.setState({showModal: false});
-							document.querySelector('body').classList.remove('modal-open');
+				{
+					this.state.showModal &&
+					<Modal
+						modalName={modalName}
+						modalContent={modalContent}
+						closeModal={
+							() => {
+								this.setState({showModal: false});
+								document.querySelector('body').classList.remove('modal-open');
+							}
 						}
-					}
-				/> : null}
+					/>
+				}
 			</div>
 		);
 	}
 }
 
-ModalButtonComponent.displayName = 'ModalButtonComponent';
-
-// Uncomment properties you need
 ModalButtonComponent.propTypes = {
 	modalName: PropTypes.string.isRequired,
 	modalContent: PropTypes.node.isRequired,
