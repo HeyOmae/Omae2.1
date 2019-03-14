@@ -21,6 +21,7 @@ export class LifeStyleModalContent extends React.PureComponent {
 	componentWillMount() {
 		const [discard, ...lifestyles] = LifeStyleData.lifestyles.lifestyle;
 		this.lifestyles = lifestyles;
+		debugger;
 	}
 
 	render() {
@@ -46,4 +47,4 @@ LifeStyleModalContent.propTypes = {
 	purchaseLifestyle: PropTypes.func.isRequired,
 };
 
-export default connect({}, {purchaseLifestyle: purchaseGear})(LifeStyleModalContent);
+export default connect(() => {}, {purchaseLifestyle: purchaseGear})(LifeStyleModalContent);
