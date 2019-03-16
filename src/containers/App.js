@@ -118,7 +118,7 @@ class App extends Component {
 							magictype={selectMagRes} />
 						<h2>Street Gear</h2>
 						<StreetGearComponent actions={actions} purchaseGear={purchaseGearState} />
-						<LifeStyleComponent />
+						<LifeStyleComponent purchasedLifestyles={purchaseGearState.lifestyles} />
 					</div>
 					<div id="summary" className="col-md-12 col-lg-3">
 						<Summary />

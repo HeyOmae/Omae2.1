@@ -4,6 +4,7 @@ import { shallow } from 'enzyme';
 import LifeStyleComponent from 'components/lifestyles/LifeStyleComponent';
 import LifeStyleModalContent from 'components/lifestyles/LifeStyleModalContent';
 import ModalButton from 'components/ModalButtonComponent';
+import DisplayTable from 'components/DisplayTableComponent';
 
 describe('<LifeStyleComponent />', () => {
 	const setup = () => {
@@ -24,5 +25,11 @@ describe('<LifeStyleComponent />', () => {
 
 		expect(modalProps.modalName).to.equal('Lifestyles');
 		// TODO: figure out how to test the modalContent
+	});
+
+	it('should display the purchased lifestyles in a display table', () => {
+		const { lifeStyle } = setup();
+
+		expect(lifeStyle.find(DisplayTable)).to.have.lengthOf(1);
 	});
 });
