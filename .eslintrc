@@ -7,7 +7,6 @@
   },
   "extends": "airbnb",
   "rules": {
-    "arrow-body-style": ["error", "always"],
     "import/no-extraneous-dependencies": ["off", {"devDependencies": true, "optionalDependencies": true, "peerDependencies": true}],
     "indent": ["error", "tab", { "ignoredNodes": ["JSXElement *"] }],
     "max-len": ["off"],

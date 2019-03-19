@@ -46,4 +46,4 @@ LifeStyleModalContent.propTypes = {
 	purchaseLifestyle: PropTypes.func.isRequired,
 };
 
-export default connect(() => {}, {purchaseLifestyle: purchaseGear})(LifeStyleModalContent);
+export default connect(() => ({}), {purchaseLifestyle: purchaseGear})(LifeStyleModalContent);
