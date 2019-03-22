@@ -8,7 +8,7 @@ import FilterableTable from 'components/FilterableTable';
 describe('<LifeStyleModalContent />', () => {
 	const setup = () => {
 		const props = {
-				purchaseGear: sinon.spy(),
+				purchaseLifestyle: sinon.spy(),
 			},
 			lifeStyle = shallow(<LifeStyleModalContent {...props} />);
 
