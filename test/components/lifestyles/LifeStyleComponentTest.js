@@ -31,10 +31,10 @@ describe('<LifeStyleComponent />', () => {
 		// TODO: figure out how to test the modalContent
 	});
 
-	it('should display the purchased lifestyles in a display table', () => {
+	it('should not display a display table if there are no purchased lifestyles', () => {
 		const { lifeStyle } = setup();
 
-		expect(lifeStyle.find(DisplayTable)).to.have.lengthOf(1);
+		expect(lifeStyle.find(DisplayTable)).to.have.lengthOf(0);
 	});
 
 	it('should create lifeStylePurchasedRow for purchased lifestyles', () => {
@@ -78,6 +78,8 @@ describe('<LifeStyleComponent />', () => {
 			source: 'SR5',
 			page: '369',
 		}]);
+
+		expect(lifeStyle.find(DisplayTable)).to.have.lengthOf(1);
 
 		const purchasedRows = lifeStyle.find(LifeStylePurchasedRow);
 

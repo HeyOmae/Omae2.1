@@ -12,18 +12,21 @@ class LifeStyleComponent extends React.Component {
 			<div className="lifestyle">
 				<h2>Lifestyles</h2>
 				<ModalButton modalName="Lifestyles" modalContent={<LifeStyleModal />} />
-				<DisplayTable header={<LifeStyleTableHead />} >
-					{
-						this.props.purchasedLifestyles.map((lifestyle, index) => (
-							<LifeStylePurchasedRow
-								key={`lifestyle--purchased--${lifestyle.id}`}
-								lifestyle={lifestyle}
-								index={index}
-								sellLifestyle={this.props.sellGear}
-							/>
-						))
-					}
-				</DisplayTable>
+				{
+					this.props.purchasedLifestyles.length > 0 &&
+					<DisplayTable header={<LifeStyleTableHead />} >
+						{
+							this.props.purchasedLifestyles.map((lifestyle, index) => (
+								<LifeStylePurchasedRow
+									key={`lifestyle--purchased--${lifestyle.id}`}
+									lifestyle={lifestyle}
+									index={index}
+									sellLifestyle={this.props.sellGear}
+								/>
+							))
+						}
+					</DisplayTable>
+				}
 			</div>
 		);
 	}
