@@ -27,15 +27,13 @@ export class LifeStyleModalContent extends React.PureComponent {
 		return (
 			<FilterableTable header={<LifeStyleTableHead />} >
 				{
-					this.lifestyles.map((lifestyle) => {
-						return (
-							<LifeStyleRowComponent
-								key={lifestyle.name}
-								lifestyle={lifestyle}
-								purchaseGear={this.props.purchaseLifestyle}
-							/>
-						);
-					})
+					this.lifestyles.map(lifestyle => (
+						<LifeStyleRowComponent
+							key={lifestyle.name}
+							lifestyle={lifestyle}
+							purchaseGear={this.props.purchaseLifestyle}
+						/>
+					))
 				}
 			</FilterableTable>
 		);

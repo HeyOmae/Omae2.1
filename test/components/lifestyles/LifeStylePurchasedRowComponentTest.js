@@ -28,6 +28,8 @@ describe('<LifeStylePurchasedRowComponent />', () => {
 					source: 'SR5',
 					page: '369',
 				},
+				index: 2,
+				sellLifestyle: sinon.spy(),
 			},
 			lifeStylePurchasedRow = shallow(<LifeStylePurchasedRowComponent {...props} />);
 
@@ -39,5 +41,13 @@ describe('<LifeStylePurchasedRowComponent />', () => {
 		expect(lifeStylePurchasedRow.find('.lifestyle--purchased__name').text()).to.equal('Medium');
 		expect(lifeStylePurchasedRow.find('.lifestyle--purchased__cost').text()).to.equal('5000¥');
 		expect(lifeStylePurchasedRow.find('.lifestyle--purchased__ref').text()).to.equal('SR5 369p');
+	});
+
+	it('should call sellLifestyle when clicking sell button', () => {
+		const { lifeStylePurchasedRow, props } = setup();
+
+		lifeStylePurchasedRow.find('.lifestyle--purchased__sell button').simulate('click');
+
+		expect(props.sellLifestyle).to.have.been.calledWith({ index: 2, category: 'lifestyles' });
 	});
 });

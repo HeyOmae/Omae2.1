@@ -1,9 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const LifeStylePurchasedRowComponent = ({lifestyle}) => (
+const LifeStylePurchasedRowComponent = ({lifestyle, index, sellLifestyle}) => (
 	<tr>
-		<td>Testing</td>
+		<td className="lifestyle--purchased__sell">
+			<button className="btn btn-warning" onClick={() => sellLifestyle({index, category: 'lifestyles'})}>
+				-
+			</button>
+		</td>
 		<td className="lifestyle--purchased__name">{lifestyle.name}</td>
 		<td className="lifestyle--purchased__cost">{lifestyle.cost}&yen;</td>
 		<td className="lifestyle--purchased__ref">{lifestyle.source} {lifestyle.page}p</td>
@@ -18,6 +22,8 @@ LifeStylePurchasedRowComponent.propTypes = {
 		source: PropTypes.string.isRequired,
 		page: PropTypes.string.isRequired,
 	}).isRequired,
+	index: PropTypes.number.isRequired,
+	sellLifestyle: PropTypes.func.isRequired,
 };
 
 export default LifeStylePurchasedRowComponent;
