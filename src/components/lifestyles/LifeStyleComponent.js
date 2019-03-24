@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 import ModalButton from '../ModalButtonComponent';
 import DisplayTable from '../DisplayTableComponent';
-import LifeStyleModal from './LifeStyleModalContent';
-import { LifeStyleTableHead } from './LifeStyleModalContent';
+import LifeStyleModal, { LifeStyleTableHead } from './LifeStyleModalContent';
+import LifeStylePurchasedRow from './LifeStylePurchasedRowComponent';
 
 class LifeStyleComponent extends React.Component {
 	render() {
@@ -14,11 +14,14 @@ class LifeStyleComponent extends React.Component {
 				<ModalButton modalName="Lifestyles" modalContent={<LifeStyleModal />} />
 				<DisplayTable header={<LifeStyleTableHead />} >
 					{
-						this.props.purchasedLifestyles.map((lifestyle) => {
-							return (
-								<tr key={lifestyle.id}><td>{lifestyle.name}</td></tr>
-							);
-						})
+						this.props.purchasedLifestyles.map((lifestyle, index) => (
+							<LifeStylePurchasedRow
+								key={`lifestyle--purchased--${lifestyle.id}`}
+								lifestyle={lifestyle}
+								index={index}
+								sellLifestyle={this.props.sellGear}
+							/>
+						))
 					}
 				</DisplayTable>
 			</div>
@@ -40,6 +43,7 @@ LifeStyleComponent.propTypes = {
 			page: PropTypes.string.isRequired,
 		}),
 	),
+	sellGear: PropTypes.func.isRequired,
 };
 
 LifeStyleComponent.defaultProps = {
