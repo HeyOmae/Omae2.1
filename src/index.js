@@ -1,8 +1,8 @@
-import React from 'react';
-import { AppContainer } from 'react-hot-loader';
-import { Provider } from 'react-redux';
-import App from './containers/App';
-import configureStore from './stores';
+const React = require('react');
+const { AppContainer } = require('react-hot-loader');
+const { Provider } = require('react-redux');
+const App = require('./containers/App');
+const configureStore = require('./stores');
 
 const store = configureStore();
 
