@@ -1,15 +1,12 @@
-const React = require('react');
-const { AppContainer } = require('react-hot-loader');
-const { Provider } = require('react-redux');
-const App = require('./containers/App');
-const configureStore = require('./stores');
+import React from 'react';
+import { Provider } from 'react-redux';
+import App from './containers/App';
+import configureStore from './stores';
 
 const store = configureStore();
 
 export default (
-	<AppContainer>
-		<Provider store={store}>
-			<App />
-		</Provider>
-	</AppContainer>
+	<Provider store={store}>
+		<App />
+	</Provider>
 );

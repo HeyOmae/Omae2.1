@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import 'styles/MetatypeSelector.sass';
 import metatypeData from '../data/metatype.json';
 import priorityData from '../data/priority.json';
 
 class MetatypeSelectorComponent extends React.PureComponent {
 	render() {
-		const {priorityRating, metatype, action} = this.props,
+		const { priorityRating, metatype, action } = this.props,
 			currentMetaData = metatypeData[metatype.typeName],
-			karmaOldCost = priorityData[metatype.priority].metatype[metatype.typeName].karma || 0,
+			karmaOldCost =
+				priorityData[metatype.priority].metatype[metatype.typeName]
+					.karma || 0,
 			priorityMetaData = priorityData[priorityRating].metatype;
 
 		const buttonElements = Object.keys(metatypeData).map((typeName) => {
@@ -20,7 +21,11 @@ class MetatypeSelectorComponent extends React.PureComponent {
 					checked={metatype.typeName === typeName}
 					selectMetatypeAction={action}
 					priority={priorityRating}
-					karmaNewCost={(priorityMetaData[typeName] && priorityMetaData[typeName].karma) || 0}
+					karmaNewCost={
+						(priorityMetaData[typeName] &&
+							priorityMetaData[typeName].karma) ||
+						0
+					}
 					karmaOldCost={karmaOldCost}
 				/>
 			);
@@ -37,15 +42,12 @@ class MetatypeSelectorComponent extends React.PureComponent {
 			);
 		});
 
-
 		return (
 			<div className="metatypeselector-component">
 				<div className="row">
 					<h2>Metatype</h2>
 					<div className="col-md-12 scroll-overflow">
-						<div className="btn-group">
-							{buttonElements}
-						</div>
+						<div className="btn-group">{buttonElements}</div>
 					</div>
 					<div className="col-sm-6">
 						<h3>Racial Traits</h3>
@@ -53,7 +55,8 @@ class MetatypeSelectorComponent extends React.PureComponent {
 					</div>
 					<div className="col-sm-6">
 						<h3>Reference</h3>
-						<strong>{currentMetaData.reference.book}</strong> p{currentMetaData.reference.page}
+						<strong>{currentMetaData.reference.book}</strong> p
+						{currentMetaData.reference.page}
 					</div>
 				</div>
 			</div>
@@ -61,15 +64,23 @@ class MetatypeSelectorComponent extends React.PureComponent {
 	}
 }
 
-const MetatypeButton = ({typeName, anOption, checked, selectMetatypeAction, karmaNewCost, karmaOldCost, priority}) => {
+const MetatypeButton = ({
+	typeName,
+	anOption,
+	checked,
+	selectMetatypeAction,
+	karmaNewCost,
+	karmaOldCost,
+	priority,
+}) => {
 	return (
 		<label
 			className={`btn
-			${(!anOption && checked ? 'btn-danger' : 'btn-primary')}
-			${(anOption ? '' : 'disabled')}
-			${(checked ? 'active' : '')}`}
+			${!anOption && checked ? 'btn-danger' : 'btn-primary'}
+			${anOption ? '' : 'disabled'}
+			${checked ? 'active' : ''}`}
 			htmlFor={`metatype-${typeName}`}
-			>
+		>
 			<input
 				type="radio"
 				name="metatype-selector"

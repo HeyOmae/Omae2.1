@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import weaponData from 'data/weapons.json';
 import weaponMods from 'data/weaponAccessories.json';
-import 'styles/gear/Weapons.scss';
 import WeaponMods from './WeaponModsComponent';
 import Modal from '../../ModalButtonComponent';
 import FilterTable from '../../FilterableTable';
@@ -15,10 +14,15 @@ class WeaponsComponent extends React.Component {
 		const weaponModLists = {
 				slotless: [],
 			},
-
-			skipWeapons = ['Quality', 'Natural', 'Cyberweapon', 'Bio-Weapon', 'Cyber-Weapon', 'Underbarrel Weapons'],
-
-			{purchaseGear} = this.props.actions;
+			skipWeapons = [
+				'Quality',
+				'Natural',
+				'Cyberweapon',
+				'Bio-Weapon',
+				'Cyber-Weapon',
+				'Underbarrel Weapons',
+			],
+			{ purchaseGear } = this.props.actions;
 
 		weaponMods.forEach((accessory) => {
 			if (accessory.mount) {
@@ -43,9 +47,11 @@ class WeaponsComponent extends React.Component {
 					<button
 						className="btn btn-success"
 						onClick={() => {
-							purchaseGear({gear: weapon, category: 'weapons'});
+							purchaseGear({ gear: weapon, category: 'weapons' });
 						}}
-						>+</button>
+					>
+						+
+					</button>
 				);
 				return {
 					...tableRow,
@@ -63,7 +69,7 @@ class WeaponsComponent extends React.Component {
 		}, {});
 
 		this.weaponTable = Object.keys(weaponsTableRow).map((category) => {
-			const {weapon} = weaponsTableRow[category][0].props,
+			const { weapon } = weaponsTableRow[category][0].props,
 				reachCoil = weapon.type === 'Melee' ? 'Reach' : 'RC';
 			return (
 				<Modal
@@ -72,10 +78,12 @@ class WeaponsComponent extends React.Component {
 					modalContent={
 						<FilterTable
 							tableData={{
-								header: (<WeaponTableHeader
-									reachCoil={reachCoil} />),
+								header: (
+									<WeaponTableHeader reachCoil={reachCoil} />
+								),
 								body: weaponsTableRow[category],
-							}} />
+							}}
+						/>
 					}
 				/>
 			);
@@ -83,57 +91,63 @@ class WeaponsComponent extends React.Component {
 	}
 
 	render() {
-		const {purchased} = this.props,
-			{sellGear} = this.props.actions,
-			{weaponModLists, weaponTable} = this,
-
-			purchasedTableRow = purchased && purchased.map((weapon, index) => {
-				const sellButton = (
-					<button
-						className="btn btn-warning"
-						onClick={
-								() => {
-									sellGear({index, category: 'weapons'});
+		const { purchased } = this.props,
+			{ sellGear } = this.props.actions,
+			{ weaponModLists, weaponTable } = this,
+			purchasedTableRow =
+				purchased &&
+				purchased.map((weapon, index) => {
+					const sellButton = (
+							<button
+								className="btn btn-warning"
+								onClick={() => {
+									sellGear({ index, category: 'weapons' });
+								}}
+							>
+								-
+							</button>
+						),
+						modButton = weapon.accessorymounts ? (
+							<Modal
+								modalName={weapon.name}
+								modalID={`${
+									weapon.name.replace(/\s/g, '') + index
+								}-modal`}
+								modalContent={
+									<WeaponMods
+										index={index}
+										weaponModLists={weaponModLists}
+									/>
 								}
-							}>
-						-
-						</button>
-					),
-					modButton = weapon.accessorymounts ?
-						(<Modal
-							modalName={weapon.name}
-							modalID={`${weapon.name.replace(/\s/g, '') + index}-modal`}
-							modalContent={
-								<WeaponMods
-									index={index}
-									weaponModLists={weaponModLists}
-								/>
-							}
-						/>)
-						: null;
-				return (
-					<WeaponsTableRow
-						key={`${weapon.name + index}-purchased`}
-						weapon={weapon}
-						button={sellButton}
-						mod={modButton}
-					/>
-				);
-			});
+							/>
+						) : null;
+					return (
+						<WeaponsTableRow
+							key={`${weapon.name + index}-purchased`}
+							weapon={weapon}
+							button={sellButton}
+							mod={modButton}
+						/>
+					);
+				});
 
 		return (
 			<div className="weapons-component modal-thirds row">
 				{weaponTable}
-				{purchased &&
+				{purchased && (
 					<div className="col purchased-weapons">
 						<DisplayTable
-							header={<WeaponTableHeader
-								buySell="Sell"
-								reachCoil="Reach/RC"
-								isModable />}
-							body={purchasedTableRow} />
+							header={
+								<WeaponTableHeader
+									buySell="Sell"
+									reachCoil="Reach/RC"
+									isModable
+								/>
+							}
+							body={purchasedTableRow}
+						/>
 					</div>
-				}
+				)}
 			</div>
 		);
 	}
@@ -147,7 +161,7 @@ WeaponsComponent.defaultProps = {
 	purchased: null,
 };
 
-function WeaponTableHeader({buySell, reachCoil, isModable}) {
+function WeaponTableHeader({ buySell, reachCoil, isModable }) {
 	return (
 		<tr>
 			<th>{buySell}</th>
