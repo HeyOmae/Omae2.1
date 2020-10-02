@@ -26,11 +26,3 @@ if (module.hot) {
 		render(NextApp);
 	});
 }
-
-export default (
-	<AppContainer>
-		<Provider store={store}>
-			<App />
-		</Provider>
-	</AppContainer>
-);
