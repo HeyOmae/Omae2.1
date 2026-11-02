@@ -38,18 +38,16 @@ const purchaseGearReducer = (state = initialState, action) => {
 				gearBeingSold = gearArray[index],
 				newCost = prevState.nuyen - Number(gearBeingSold.currentCost || gearBeingSold.cost);
 			if (gearArray.length > 1) {
-				return Object.assign(
-					{},
-					prevState,
-					{
-						[category]:
+				return {
+					
+					...prevState,
+					[category]:
 						[
 							...gearArray.slice(0, index),
 							...gearArray.slice(index + 1),
 						],
 						nuyen: newCost,
-					},
-				);
+				};
 			}
 
 			const {[category]: discard, ...newState} = prevState;
@@ -83,7 +81,7 @@ const purchaseGearReducer = (state = initialState, action) => {
 					],
 					nuyen: prevState.nuyen - nuyenRefund,
 				};
-			} else if (!mod) {
+			} if (!mod) {
 				return prevState;
 			}
 
@@ -200,7 +198,7 @@ const purchaseGearReducer = (state = initialState, action) => {
 			}
 
 			let modtoAdd = mod,
-				cost = mod.cost;
+				{cost} = mod;
 
 			if (Rating) {
 				const evil = eval;
@@ -406,4 +404,4 @@ const purchaseGearReducer = (state = initialState, action) => {
 	return (actionsToTake[action.type] || actionsToTake.DEFAULT)(state, action.parameter);
 };
 
-module.exports = purchaseGearReducer;
+export default purchaseGearReducer;

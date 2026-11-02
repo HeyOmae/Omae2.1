@@ -1,9 +1,0 @@
-{
-  "generator-react-webpack": {
-    "appName": "omae2",
-    "style": "sass",
-    "cssmodules": false,
-    "postcss": false,
-    "generatedWithVersion": 4
-  }
-}

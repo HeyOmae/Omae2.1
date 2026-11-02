@@ -16,4 +16,4 @@ const augmentationReducer = (state = initialState, action) => {
 	return (actionsToTake[action.type] || actionsToTake.DEFAULT)(state, action.parameter);
 };
 
-module.exports = augmentationReducer;
+export default augmentationReducer;

@@ -1,3 +1,1 @@
-module.exports = (parameter) => {
-	return { type: 'DECREMENT_AUGMENTED', parameter };
-};
+export default (parameter) => ({ type: 'DECREMENT_AUGMENTED', parameter });

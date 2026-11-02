@@ -1,17 +1,15 @@
-const redux = require('redux');
-const reducers = require('../reducers');
+import { createStore } from 'redux';
+import reducers from '../reducers';
 
-module.exports = function reduxStore(initialState) {
-	const store = redux.createStore(reducers, initialState);
+export default function reduxStore(initialState) {
+	const store = createStore(reducers, initialState);
 
-	if (module.hot) {
-		// Enable Webpack hot module replacement for reducers
-		module.hot.accept('../reducers', () => {
-			// eslint-disable-next-line global-require
-			const nextReducer = require('../reducers');
-			store.replaceReducer(nextReducer);
+	if (import.meta.hot) {
+		// Enable Vite hot module replacement for reducers
+		import.meta.hot.accept('../reducers', (nextReducers) => {
+			store.replaceReducer(nextReducers.default);
 		});
 	}
 
 	return store;
-};
+}

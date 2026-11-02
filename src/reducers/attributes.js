@@ -31,14 +31,12 @@ const attributesReducer = (state = initialState, action) => {
 			return state;
 		}
 
-		const newState = Object.assign(
-			{},
-			state,
-			{
-				[attribute]: nextIncrement,
+		const newState = {
+			
+			...state,
+			[attribute]: nextIncrement,
 				[spend]: state[spend] + 1,
-			},
-		);
+		};
 		return newState;
 	}
 	case 'DECREMENT_ATTRIBUTE': {
@@ -47,14 +45,12 @@ const attributesReducer = (state = initialState, action) => {
 		if (nextDecrement < 0) {
 			return state;
 		}
-		const newState = Object.assign(
-			{},
-			state,
-			{
-				[attribute]: nextDecrement,
+		const newState = {
+			
+			...state,
+			[attribute]: nextDecrement,
 				[spend]: state[spend] - 1,
-			},
-		);
+		};
 		return newState;
 	}
 	case 'INCREMENT_AUGMENTED': {
@@ -69,19 +65,15 @@ const attributesReducer = (state = initialState, action) => {
 		}
 
 		if (nextIncrement <= 4) {
-			const newState = Object.assign(
-				{},
-				state,
-				{
-					augmented: Object.assign(
-						{},
-						state.augmented,
-						{
-							[attribute]: nextIncrement,
-						},
-					),
-				},
-			);
+			const newState = {
+				
+				...state,
+				augmented: {
+						
+						...state.augmented,
+						[attribute]: nextIncrement,
+					},
+			};
 
 			return newState;
 		}
@@ -100,30 +92,24 @@ const attributesReducer = (state = initialState, action) => {
 		}
 
 		if (nextDecrement > 0) {
-			newState = Object.assign(
-				{},
-				state,
-				{
-					augmented: Object.assign(
-						{},
-						state.augmented,
-						{
-							[attribute]: nextDecrement,
-						},
-					),
-				},
-			);
+			newState = {
+				
+				...state,
+				augmented: {
+						
+						...state.augmented,
+						[attribute]: nextDecrement,
+					},
+			};
 		} else {
-			newState = Object.assign(
-				{},
-				state,
-				{
-					augmented: Object.assign(
-						{},
-						state.augmented,
-					),
-				},
-			);
+			newState = {
+				
+				...state,
+				augmented: {
+						
+						...state.augmented,
+					},
+			};
 
 			delete newState.augmented[attribute];
 		}
@@ -156,4 +142,4 @@ const attributesReducer = (state = initialState, action) => {
 	}
 };
 
-module.exports = attributesReducer;
+export default attributesReducer;

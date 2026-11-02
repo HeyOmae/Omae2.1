@@ -1,5 +1,3 @@
-import { MODDING_DRONE } from './../const';
+import { MODDING_DRONE } from "../const";
 
-export default (parameter) => {
-	return { type: MODDING_DRONE, parameter };
-};
+export default (parameter) => ({ type: MODDING_DRONE, parameter });

@@ -1,13 +1,12 @@
-const reducer = require('../../src/reducers/gear/augmentation');
+import reducer from '../../src/reducers/gear/augmentation';
 
 describe('augmentation reducer', () => {
 	const state = {
 		grade: 0,
 	};
-	it('should not change the passed state', (done) => {
+	it('should not change the passed state', () => {
 		reducer(state, { type: 'INVALID' });
 
-		done();
 	});
 
 	describe('SELECT_GRADE', () => {

@@ -10,17 +10,13 @@ const initialState = {
 
 const modalReducer = (state = initialState, action) => {
 	const actionsToTake = {
-		MODAL_OPEN: (prevState, modal) => {
-			return modal;
-		},
+		MODAL_OPEN: (prevState, modal) => modal,
 
-		MODAL_CLOSE: () => {
-			return initialState;
-		},
+		MODAL_CLOSE: () => initialState,
 
-		DEFAULT: (prevState) => { return prevState; },
+		DEFAULT: (prevState) => prevState,
 	};
 	return (actionsToTake[action.type] || actionsToTake.DEFAULT)(state, action.parameter);
 };
 
-module.exports = modalReducer;
+export default modalReducer;

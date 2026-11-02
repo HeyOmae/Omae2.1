@@ -1,3 +1,1 @@
-module.exports = (parameter) => {
-	return { type: 'KARMA', parameter };
-};
+export default (parameter) => ({ type: 'KARMA', parameter });

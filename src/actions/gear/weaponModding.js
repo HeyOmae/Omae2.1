@@ -1,7 +1,7 @@
-import { WEAPON_MODDING } from './../const';
+import { WEAPON_MODDING } from "../const";
 
 function action(parameter) {
 	return { type: WEAPON_MODDING, parameter };
 }
 
-module.exports = action;
+export default action;

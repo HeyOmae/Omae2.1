@@ -1,7 +1,4 @@
-import React from 'react';
 import * as AdeptPowersUtil from 'components/magic/adeptPowers/util/AdeptPowersUtil';
-
-const sandbox = sinon.createSandbox();
 
 describe('bonusDown', () => {
 	it('Should call decrementAugmented for Improved Physical Attribute', () => {
@@ -75,7 +72,7 @@ describe('generateAddActionDetails', () => {
 		const maxPoints = 5;
 		const selectedOption = '';
 		const incrementAugmented = sinon.spy();
-		const adjustedSpell = Object.assign({}, power, { levels: 'N/A' });
+		const adjustedSpell = { ...power, levels: 'N/A'};
 
 		const returnValue = AdeptPowersUtil.generateAddActionDetails(isMystic, power, pointsSpent, maxPoints, selectedOption, incrementAugmented);
 
@@ -94,7 +91,7 @@ describe('generateAddActionDetails', () => {
 		const maxPoints = 5;
 		const selectedOption = '';
 		const incrementAugmented = sinon.spy();
-		const adjustedSpell = Object.assign({}, power, { levels: 1 });
+		const adjustedSpell = { ...power, levels: 1};
 
 		const returnValue = AdeptPowersUtil.generateAddActionDetails(isMystic, power, pointsSpent, maxPoints, selectedOption, incrementAugmented);
 
@@ -114,7 +111,7 @@ describe('generateAddActionDetails', () => {
 		const maxPoints = 5;
 		const selectedOption = '(Test)';
 		const incrementAugmented = sinon.spy();
-		const adjustedSpell = Object.assign({}, power, { levels: 1, name: power.name + selectedOption, bonus: selectedOption.replace(/[()]/g, '') });
+		const adjustedSpell = { ...power, levels: 1, name: power.name + selectedOption, bonus: selectedOption.replace(/[()]/g, '')};
 
 		const returnValue = AdeptPowersUtil.generateAddActionDetails(isMystic, power, pointsSpent, maxPoints, selectedOption, incrementAugmented);
 
@@ -124,14 +121,6 @@ describe('generateAddActionDetails', () => {
 });
 
 describe('generateRemoveActionDetails', () => {
-	beforeEach(() => {
-		 sandbox.spy(AdeptPowersUtil, 'bonusDown');
-	});
-
-	afterEach(() => {
-		 sandbox.restore();
-	});
-
 	it('Should return the power index and isMystic value', () => {
 		const isMystic = false;
 		const power = {
@@ -139,10 +128,12 @@ describe('generateRemoveActionDetails', () => {
 		};
 		const index = 5;
 
-		const returnValue = AdeptPowersUtil.generateRemoveActionDetails(isMystic, power, index, () => {});
+		const decrementAugmented = sinon.spy();
+
+		const returnValue = AdeptPowersUtil.generateRemoveActionDetails(isMystic, power, index, decrementAugmented);
 
 		expect(returnValue).to.eql({ powerIndex: index, isMystic });
-		expect(AdeptPowersUtil.bonusDown).to.not.be.called;
+		expect(decrementAugmented).to.not.be.called;
 	});
 
 	it('Should call decrementAugmented if it is improved attribute', () => {

@@ -1,15 +1,13 @@
 /* eslint-env node, mocha */
-/* global expect */
 /* eslint no-console: 0 */
-const reducer = require('../../src/reducers/selectMetatype');
+import reducer from '../../src/reducers/selectMetatype';
 
 describe('selectMetatype', () => {
 	const state = { typeName: 'human', priority: 'A' };
 
-	it('should not change the passed state', (done) => {
+	it('should not change the passed state', () => {
 		const newState = reducer(state, { type: 'INVALID' });
 
-		done();
 		expect(newState).to.equal(state);
 	});
 

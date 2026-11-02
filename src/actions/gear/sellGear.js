@@ -1,3 +1,1 @@
-module.exports = (parameter) => {
-	return { type: 'SELL', parameter };
-};
+export default (parameter) => ({ type: 'SELL', parameter });

@@ -1,3 +1,1 @@
-module.exports = (parameter) => {
-	return { type: 'SET_SPEC', parameter };
-};
+export default (parameter) => ({ type: 'SET_SPEC', parameter });

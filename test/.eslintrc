@@ -1,41 +1,77 @@
 {
-  "parser": "babel-eslint",
   "plugins": [
     "react"
   ],
   "env": {
     "browser": true,
-    "amd": true,
     "es6": true,
     "node": true,
-    "mocha": true
+    "mocha": true,
+    "es2022": true
   },
-  "extends": "airbnb",
+  "extends": [
+    "airbnb",
+    "prettier"
+  ],
   "rules": {
     "no-console": 0,
     "no-unused-expressions": "off",
-    "import/no-extraneous-dependencies": ["off", {"devDependencies": true, "optionalDependencies": true, "peerDependencies": true}],
-    "indent": ["error", "tab", { "ignoredNodes": ["JSXElement *"] }],
-    "no-tabs": ["off"],
-    "one-var": ["off"],
-    "react/jsx-indent": [2, "tab"],
-    "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
-    "import/no-unresolved": ["error", {
-        "ignore": [
-          "config",
-          "components/",
-          "containers/",
-          "stores/",
-          "actions/",
-          "sources/",
-          "styles/",
-          "images/",
-          "~",
-          "data"
+    "import/no-extraneous-dependencies": [
+      "off",
+      {
+        "devDependencies": true,
+        "optionalDependencies": true,
+        "peerDependencies": true
+      }
+    ],
+    "no-tabs": [
+      "off"
+    ],
+    "one-var": [
+      "off"
+    ],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".jsx"
         ]
-    }]
+      }
+    ],
+    "import/no-unresolved": [
+      "error",
+      {
+        "ignore": [
+          "^(config|components|containers|stores|actions|sources|styles|images|data)(/|$)",
+          "^~/"
+        ]
+      }
+    ],
+    "default-param-last": "off",
+    "react/function-component-definition": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/destructuring-assignment": "off",
+    "react/forbid-prop-types": "off",
+    "react/require-default-props": "off",
+    "jsx-a11y/control-has-associated-label": "warn",
+    "react/button-has-type": "warn",
+    "jsx-a11y/label-has-associated-control": [
+      "error",
+      {
+        "assert": "either"
+      }
+    ]
   },
   "globals": {
-    "expect": true
+    "expect": "readonly",
+    "sinon": "readonly",
+    "vi": "readonly"
+  },
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
   }
 }

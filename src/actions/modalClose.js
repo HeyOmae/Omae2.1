@@ -1,5 +1,3 @@
 import { MODAL_CLOSE } from './const';
 
-export default () => {
-	return { type: MODAL_CLOSE };
-};
+export default () => ({ type: MODAL_CLOSE });

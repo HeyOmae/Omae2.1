@@ -13,21 +13,21 @@ const attributesReducer = (state = initialState, action) => {
 	const actionsToTake = {
 		FIX_SUMMARY(pervState, {summaryFix}) {
 			if (summaryFix !== pervState.summaryFix) {
-				return Object.assign(
-					{},
-					pervState,
-					{ summaryFix },
-				);
+				return {
+					
+					...pervState,
+					summaryFix,
+				};
 			}
 			return pervState;
 		},
 
 		STYLE(pervState, {styleTheme}) {
-			return Object.assign(
-				{},
-				pervState,
-				{ styleTheme },
-			);
+			return {
+				
+				...pervState,
+				styleTheme,
+			};
 		},
 
 		DEFAULT() { return state; },
@@ -36,4 +36,4 @@ const attributesReducer = (state = initialState, action) => {
 	return (actionsToTake[action.type] || actionsToTake.DEFAULT)(state, action.parameter);
 };
 
-module.exports = attributesReducer;
+export default attributesReducer;

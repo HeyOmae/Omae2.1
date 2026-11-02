@@ -36,4 +36,4 @@ const reducers = {
 	filterTable,
 	augmentation,
 };
-module.exports = combineReducers(reducers);
+export default combineReducers(reducers);

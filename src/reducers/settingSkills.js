@@ -21,24 +21,22 @@ const skillReducer = (state = initialState, action) => {
 		copyState = state,
 		skillCategory = action.parameter.category,
 	) {
-		return Object.assign(
-			{},
-			copyState,
-			{
-				[skillCategory]: Object.assign(
-					{},
-					copyState[skillCategory],
-					skillInfoUpdated),
+		return {
+			
+			...copyState,
+			[skillCategory]: {
+					
+					...copyState[skillCategory],
+					...skillInfoUpdated},
 				[typeSpend]: spentPoints,
-			},
-		);
+		};
 	}
 
 	function generateSkillObject(skill, updatedSkilInfo) {
-		return Object.assign(
-			{},
-			skill,
-			updatedSkilInfo);
+		return {
+			
+			...skill,
+			...updatedSkilInfo};
 	}
 
 	const actionsToTake = {
@@ -67,7 +65,7 @@ const skillReducer = (state = initialState, action) => {
 
 			if (!skill) {
 				return prevState;
-			} else if (skill.groupRating === undefined) {
+			} if (skill.groupRating === undefined) {
 				const specCost = skill.spec ? 1 : 0;
 
 				// eslint-disable-next-line no-unused-vars
@@ -115,7 +113,7 @@ const skillReducer = (state = initialState, action) => {
 
 			if (!skill) {
 				return prevState;
-			} else if (skill.rating > 0) {
+			} if (skill.rating > 0) {
 				const nextDecrement = skill.rating - 1;
 
 				newState = changeSkill(
@@ -155,16 +153,14 @@ const skillReducer = (state = initialState, action) => {
 						generateSkillObject(skill, {groupRating: newGroupRating}) :
 						{groupRating: newGroupRating, attribute: skillAttibute};
 
-				newState = Object.assign(
-					{},
-					newState,
-					{active: Object.assign(
-						{},
-						newState.active,
-						{
-							[skillName]: skillInfo,
-						},
-					)});
+				newState = {
+					
+					...newState,
+					active: {
+						
+						...newState.active,
+						[skillName]: skillInfo,
+					}};
 			});
 
 			return newState;
@@ -177,7 +173,7 @@ const skillReducer = (state = initialState, action) => {
 
 			if (!skillgroup) {
 				return prevState;
-			} else if (skillgroup.rating === 1) {
+			} if (skillgroup.rating === 1) {
 				newState = changeSkill(
 					{},
 					'groupPointSpent',
@@ -194,21 +190,20 @@ const skillReducer = (state = initialState, action) => {
 			}
 
 			Object.keys(skillsInGroup).forEach((skillName) => {
-				newState = Object.assign(
-					{},
-					newState,
-					{active: Object.assign(
-						{},
-						newState.active,
-						{[skillName]:
-							Object.assign(
-								{},
-								newState.active[skillName],
-								{groupRating: newGroupRating},
-							),
-						},
-					)},
-				);
+				newState = {
+					
+					...newState,
+					active: {
+						
+						...newState.active,
+						[skillName]:
+							{
+								
+								...newState.active[skillName],
+								groupRating: newGroupRating,
+							},
+					},
+				};
 
 				const newSkill = newState.active[skillName];
 
@@ -228,7 +223,7 @@ const skillReducer = (state = initialState, action) => {
 
 			if (!skill) {
 				return prevState;
-			} else if (spec === '–' || spec === '') {
+			} if (spec === '–' || spec === '') {
 				const newSkill = generateSkillObject(skill, { spec });
 
 				newState = changeSkill(
@@ -319,4 +314,4 @@ const skillReducer = (state = initialState, action) => {
 	return (actionsToTake[action.type] || actionsToTake.DEFAULT)(state, action.parameter);
 };
 
-module.exports = skillReducer;
+export default skillReducer;

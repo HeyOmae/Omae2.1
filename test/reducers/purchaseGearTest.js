@@ -1,4 +1,4 @@
-const reducer = require('../../src/reducers/gear/purchaseGear');
+import reducer from '../../src/reducers/gear/purchaseGear';
 
 let state;
 
@@ -613,10 +613,9 @@ describe('purchaseGear', () => {
 		page: '438',
 	};
 
-	it('should not change the passed state', (done) => {
+	it('should not change the passed state', () => {
 		reducer(state, { type: 'INVALID' });
 
-		done();
 	});
 
 	describe('PURCHASE', () => {

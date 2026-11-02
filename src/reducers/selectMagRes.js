@@ -7,14 +7,12 @@ const initialState = 'Mage';
 
 const magicReducer = (state = initialState, action) => {
 	const actionsToTake = {
-		SELECT_MAGICTYPE: (prevState, selectedMagicType) => {
-			return selectedMagicType;
-		},
+		SELECT_MAGICTYPE: (prevState, selectedMagicType) => selectedMagicType,
 
-		DEFAULT: (prevState) => { return prevState; },
+		DEFAULT: (prevState) => prevState,
 	};
 
 	return (actionsToTake[action.type] || actionsToTake.DEFAULT)(state, action.parameter);
 };
 
-module.exports = magicReducer;
+export default magicReducer;

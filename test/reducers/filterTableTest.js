@@ -1,11 +1,10 @@
-const reducer = require('../../src/reducers/filterTable');
+import reducer from '../../src/reducers/filterTable';
 
 describe('filterTable', () => {
 	const state = '';
-	it('should not change the passed state', (done) => {
+	it('should not change the passed state', () => {
 		reducer(state, { type: 'INVALID' });
 
-		done();
 	});
 
 	describe('SET_FILTER', () => {

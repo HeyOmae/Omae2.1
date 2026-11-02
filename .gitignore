@@ -30,3 +30,5 @@ node_modules
 bower_components/
 
 .DS_Store
+# Build output, deployed by CI
+dist

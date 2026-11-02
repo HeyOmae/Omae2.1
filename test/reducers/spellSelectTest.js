@@ -1,4 +1,4 @@
-const reducer = require('../../src/reducers/spellSelect');
+import reducer from '../../src/reducers/spellSelect';
 
 describe('spellSelect', () => {
 	const state = {
@@ -85,11 +85,9 @@ describe('spellSelect', () => {
 		],
 	};
 
-	it('should not change the passed state', (done) => {
-		const state = Object.freeze({});
-		reducer(state, { type: 'INVALID' });
-
-		done();
+	it('should not change the passed state', () => {
+		const frozenState = Object.freeze({});
+		reducer(frozenState, { type: 'INVALID' });
 	});
 
 	describe('ADD_SPELL', () => {
@@ -252,7 +250,7 @@ describe('spellSelect', () => {
 
 		describe('Mystic Adepts', () => {
 			it('should not reduce the powerPowerKarma if the power points do not drop a whole point', () => {
-				const testState = Object.assign({}, state, { powers: state.powers.slice(0), powerPointsSpent: 1.75 });
+				const testState = { ...state, powers: state.powers.slice(0), powerPointsSpent: 1.75};
 				testState.powers.push({
 					id: '8caaadf4-75b4-4535-928a-5648d395c13a',
 					name: 'Adrenaline Boost',
@@ -299,11 +297,9 @@ describe('spellSelect', () => {
 
 		describe('Mystic Adept', () => {
 			it('should raise the powerPowerKarma if the power points is raised to a whole point', () => {
-				const testState = Object.assign({}, state, {
-					powers: state.powers.slice(0),
+				const testState = { ...state, powers: state.powers.slice(0),
 					powerPointsSpent: 2,
-					powerPointsKarma: 10,
-				});
+					powerPointsKarma: 10,};
 
 				testState.powers.push({
 					id: '8caaadf4-75b4-4535-928a-5648d395c13a',
@@ -336,11 +332,9 @@ describe('spellSelect', () => {
 
 		describe('Mystic Adept', () => {
 			it('should lower the powerPowerKarma if the power points is lowered to a whole point', () => {
-				const testState = Object.assign({}, state, {
-					powers: state.powers.slice(0),
+				const testState = { ...state, powers: state.powers.slice(0),
 					powerPointsSpent: 2.25,
-					powerPointsKarma: 15,
-				});
+					powerPointsKarma: 15,};
 
 				testState.powers.push({
 					id: '8caaadf4-75b4-4535-928a-5648d395c13a',

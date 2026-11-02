@@ -1,3 +1,1 @@
-module.exports = (parameter) => {
-	return { type: 'LOWER_POWER', parameter };
-};
+export default (parameter) => ({ type: 'LOWER_POWER', parameter });

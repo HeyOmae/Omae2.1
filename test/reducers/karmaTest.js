@@ -1,11 +1,9 @@
-const reducer = require('../../src/reducers/karma');
+import reducer from '../../src/reducers/karma';
 
 describe('karma', () => {
-	it('should not change the passed state', (done) => {
-		const state = Object.freeze({});
-		reducer(state, { type: 'INVALID' });
-
-		done();
+	it('should not change the passed state', () => {
+		const frozenState = Object.freeze({});
+		reducer(frozenState, { type: 'INVALID' });
 	});
 
 	const state = 2;

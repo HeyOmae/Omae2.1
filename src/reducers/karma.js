@@ -21,4 +21,4 @@ const KarmaReducer = (state = initialState, action) => {
 	return (actionsToTake[action.type] || actionsToTake.DEFAULT)(state, action.parameter);
 };
 
-module.exports = KarmaReducer;
+export default KarmaReducer;

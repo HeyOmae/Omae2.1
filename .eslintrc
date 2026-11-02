@@ -1,44 +1,107 @@
 {
-  "parser": "babel-eslint",
   "env": {
     "browser": true,
     "node": true,
-    "mocha": true
+    "mocha": true,
+    "es2022": true
   },
-  "extends": "airbnb",
+  "extends": [
+    "airbnb",
+    "prettier"
+  ],
   "rules": {
-    "import/no-extraneous-dependencies": ["off", {"devDependencies": true, "optionalDependencies": true, "peerDependencies": true}],
-    "indent": ["error", "tab", { "ignoredNodes": ["JSXElement *"] }],
-    "max-len": ["off"],
-    "no-bitwise": ["error", { "allow": ["~"] }],
-    "no-eval": ["error", {"allowIndirect": true}],
-    "no-mixed-operators": ["error", {"allowSamePrecedence": true}],
-    "no-plusplus": ["off"],
-    "no-tabs": ["off"],
-    "no-unused-vars": ["warn"],
-    "object-curly-spacing": ["off"],
-    "one-var": ["off"],
-    "padded-blocks": ["off"],
-    "react/jsx-closing-bracket-location": ["off"],
-    "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
-    "react/jsx-indent": [2, "tab"],
-    "react/jsx-indent-props": [2, "tab"],
-    "react/jsx-space-before-closing": ["off"],
-    "react/prefer-stateless-function": ["off"],
-    "no-underscore-dangle": [ "error", { "allowAfterThis": true }],
-    "import/no-unresolved": ["error", {
-        "ignore": [
-          "config",
-          "components/",
-          "containers/",
-          "stores/",
-          "actions/",
-          "sources/",
-          "styles/",
-          "images/",
-          "~",
-          "data"
+    "import/no-extraneous-dependencies": [
+      "off",
+      {
+        "devDependencies": true,
+        "optionalDependencies": true,
+        "peerDependencies": true
+      }
+    ],
+    "no-bitwise": [
+      "error",
+      {
+        "allow": [
+          "~"
         ]
-    }]
+      }
+    ],
+    "no-eval": [
+      "error",
+      {
+        "allowIndirect": true
+      }
+    ],
+    "no-plusplus": [
+      "off"
+    ],
+    "no-tabs": [
+      "off"
+    ],
+    "no-unused-vars": [
+      "warn"
+    ],
+    "object-curly-spacing": [
+      "off"
+    ],
+    "one-var": [
+      "off"
+    ],
+    "padded-blocks": [
+      "off"
+    ],
+    "react/jsx-closing-bracket-location": [
+      "off"
+    ],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".jsx"
+        ]
+      }
+    ],
+    "react/jsx-space-before-closing": [
+      "off"
+    ],
+    "react/prefer-stateless-function": [
+      "off"
+    ],
+    "no-underscore-dangle": [
+      "error",
+      {
+        "allowAfterThis": true
+      }
+    ],
+    "import/no-unresolved": [
+      "error",
+      {
+        "ignore": [
+          "^(config|components|containers|stores|actions|sources|styles|images|data)(/|$)",
+          "^~/"
+        ]
+      }
+    ],
+    "default-param-last": "off",
+    "react/function-component-definition": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/destructuring-assignment": "off",
+    "react/forbid-prop-types": "off",
+    "react/require-default-props": "off",
+    "jsx-a11y/control-has-associated-label": "warn",
+    "react/button-has-type": "warn",
+    "jsx-a11y/label-has-associated-control": [
+      "error",
+      {
+        "assert": "either"
+      }
+    ]
+  },
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
   }
 }

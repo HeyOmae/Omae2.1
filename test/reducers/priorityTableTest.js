@@ -1,7 +1,6 @@
 /* eslint-env node, mocha */
-/* global expect */
 /* eslint no-console: 0 */
-const reducer = require('../../src/reducers/priorityTable');
+import reducer from '../../src/reducers/priorityTable';
 
 describe('priorityTable', () => {
 	const state = Object.freeze({
@@ -12,11 +11,10 @@ describe('priorityTable', () => {
 		resouces: 'E',
 	});
 
-	it('should not change the passed state', (done) => {
-		const state = Object.freeze({ hello: 'goodbye' });
-		const newState = reducer(state, { type: 'INVALID' });
+	it('should not change the passed state', () => {
+		const frozenState = Object.freeze({ hello: 'goodbye' });
+		const newState = reducer(frozenState, { type: 'INVALID' });
 		expect(newState.hello).to.equal('goodbye');
-		done();
 	});
 
 	it('should make a new state that changes state[category] to a different rating', () => {

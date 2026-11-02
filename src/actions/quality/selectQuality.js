@@ -1,3 +1,1 @@
-module.exports = (parameter) => {
-	return { type: 'SELECT_QUALITY', parameter };
-};
+export default (parameter) => ({ type: 'SELECT_QUALITY', parameter });

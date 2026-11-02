@@ -1,3 +1,1 @@
-module.exports = (parameter) => {
-	return { type: 'ADD_COMPLEXFORM', parameter };
-};
+export default (parameter) => ({ type: 'ADD_COMPLEXFORM', parameter });

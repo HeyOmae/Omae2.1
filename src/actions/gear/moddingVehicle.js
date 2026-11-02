@@ -1,5 +1,3 @@
-import { MODDING_VEHICLE } from './../const';
+import { MODDING_VEHICLE } from "../const";
 
-export default (parameter) => {
-	return { type: MODDING_VEHICLE, parameter };
-};
+export default (parameter) => ({ type: MODDING_VEHICLE, parameter });

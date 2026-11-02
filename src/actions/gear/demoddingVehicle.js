@@ -1,7 +1,7 @@
-import { DEMODDING_VEHICLE } from './../const';
+import { DEMODDING_VEHICLE } from "../const";
 
 function action(parameter) {
 	return { type: DEMODDING_VEHICLE, parameter };
 }
 
-module.exports = action;
+export default action;

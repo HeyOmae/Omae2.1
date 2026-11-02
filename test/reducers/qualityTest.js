@@ -1,4 +1,4 @@
-const reducer = require('../../src/reducers/quality');
+import reducer from '../../src/reducers/quality';
 
 describe('quality', () => {
 	const state = {
@@ -48,11 +48,9 @@ describe('quality', () => {
 		},
 	};
 
-	it('should not change the passed state', (done) => {
-		const state = Object.freeze({});
-		reducer(state, { type: 'INVALID' });
-
-		done();
+	it('should not change the passed state', () => {
+		const frozenState = Object.freeze({});
+		reducer(frozenState, { type: 'INVALID' });
 	});
 
 	describe('SELECT_QUALITY', () => {

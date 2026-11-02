@@ -1,3 +1,1 @@
-module.exports = (parameter) => {
-	return { type: 'FIX_SUMMARY', parameter };
-};
+export default (parameter) => ({ type: 'FIX_SUMMARY', parameter });

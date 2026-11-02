@@ -18,49 +18,41 @@ const qualityReducer = (state = initialState, action) => {
 		SELECT_QUALITY: (prevState, {newQuality}) => {
 			const {category} = newQuality;
 
-			return Object.assign(
-				{},
-				prevState,
-				{
-					[category]: [
+			return {
+				
+				...prevState,
+				[category]: [
 						...prevState[category],
 						newQuality,
 					],
-					karma: Object.assign(
-						{},
-						prevState.karma,
-						{
-							[category]: prevState.karma[category] + Number(newQuality.karma),
-						},
-					),
-				},
-			);
+					karma: {
+						
+						...prevState.karma,
+						[category]: prevState.karma[category] + Number(newQuality.karma),
+					},
+			};
 		},
 
 		REMOVE_QUALITY: (prevState, {qualityIndex, category}) => {
 			const qualityArray = prevState[category],
 				removeQualityKarma = prevState[category][qualityIndex].karma;
-			return Object.assign(
-				{},
-				prevState,
-				{
-					[category]: [
+			return {
+				
+				...prevState,
+				[category]: [
 						...qualityArray.slice(0, qualityIndex),
 						...qualityArray.slice(qualityIndex + 1),
 					],
-					karma: Object.assign(
-						{},
-						prevState.karma,
-						{
-							[category]: prevState.karma[category] - Number(removeQualityKarma),
-						},
-					),
-				},
-			);
+					karma: {
+						
+						...prevState.karma,
+						[category]: prevState.karma[category] - Number(removeQualityKarma),
+					},
+			};
 		},
-		DEFAULT: (prevState) => { return prevState; },
+		DEFAULT: (prevState) => prevState,
 	};
 	return (actionsToTake[action.type] || actionsToTake.DEFAULT)(state, action.parameter);
 };
 
-module.exports = qualityReducer;
+export default qualityReducer;

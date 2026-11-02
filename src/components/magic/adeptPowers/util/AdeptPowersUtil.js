@@ -4,9 +4,7 @@ const bonusDown = (name, bonusToRemove, decreaseBy, decrementAugmented) => {
 		'Improved Physical Attribute': () => {
 			decrementAugmented({attribute: bonusToRemove, decreaseBy});
 		},
-		default: () => {
-			return null;
-		},
+		default: () => null,
 	};
 
 	(bonusAction[trimmedName] || bonusAction.default)();
@@ -17,9 +15,7 @@ const bonusUp = (name, bonusToApply, incrementAugmented) => {
 		'Improved Physical Attribute': () => {
 			incrementAugmented({attribute: bonusToApply});
 		},
-		default: () => {
-			return null;
-		},
+		default: () => null,
 	};
 
 	return (bonusAction[name] || bonusAction.default)();
@@ -28,7 +24,7 @@ const bonusUp = (name, bonusToApply, incrementAugmented) => {
 const generateAddActionDetails = (isMystic, power, pointsSpent, maxPoints, selectedOption, incrementAugmented) => {
 	if (pointsSpent + Number(power.points) <= maxPoints) {
 		const name = power.name + selectedOption;
-		const powerToAdd = Object.assign({}, power, {name});
+		const powerToAdd = { ...power, name};
 
 		if (powerToAdd.bonus) {
 			powerToAdd.bonus = selectedOption.replace(/[()]/g, '');
@@ -53,18 +49,14 @@ const generateRemoveActionDetails = (isMystic, power, index, decrementAugmented)
 	return {powerIndex: index, isMystic};
 };
 
-const raiseLevelAction = (isMystic, powerName, bonusOfPower, index, raisePower, incrementAugmented) => {
-	return () => {
+const raiseLevelAction = (isMystic, powerName, bonusOfPower, index, raisePower, incrementAugmented) => () => {
 		bonusUp(powerName, bonusOfPower, incrementAugmented);
 		raisePower({powerIndex: index, isMystic});
 	};
-};
 
-const lowerLevelAction = (isMystic, powerName, bonusOfPower, index, lowerPower, decrementAugmented) => {
-	return () => {
+const lowerLevelAction = (isMystic, powerName, bonusOfPower, index, lowerPower, decrementAugmented) => () => {
 		bonusDown(powerName, bonusOfPower, 1, decrementAugmented);
 		lowerPower({powerIndex: index, isMystic});
 	};
-};
 
 export {bonusDown, bonusUp, generateAddActionDetails, generateRemoveActionDetails, lowerLevelAction, raiseLevelAction};

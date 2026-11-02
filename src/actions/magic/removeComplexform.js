@@ -1,3 +1,1 @@
-module.exports = (parameter) => {
-	return { type: 'REMOVE_COMPLEXFORM', parameter };
-};
+export default (parameter) => ({ type: 'REMOVE_COMPLEXFORM', parameter });

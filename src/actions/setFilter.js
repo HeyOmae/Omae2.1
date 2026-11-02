@@ -4,4 +4,4 @@ function action(parameter) {
 	return { type: SET_FILTER, parameter };
 }
 
-module.exports = action;
+export default action;

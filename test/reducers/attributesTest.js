@@ -1,7 +1,6 @@
 /* eslint-env node, mocha */
-/* global expect */
 /* eslint no-console: 0 */
-const reducer = require('../../src/reducers/attributes');
+import reducer from '../../src/reducers/attributes';
 
 describe('attributes', () => {
 	const state = {
@@ -25,10 +24,9 @@ describe('attributes', () => {
 		conditionBonus: {},
 	};
 
-	it('should not change the passed state', (done) => {
+	it('should not change the passed state', () => {
 		reducer(state, { type: 'INVALID' });
 
-		done();
 	});
 
 	describe('INCREMENT_ATTRIBUTE', () => {

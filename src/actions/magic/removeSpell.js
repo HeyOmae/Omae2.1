@@ -1,3 +1,1 @@
-module.exports = (parameter) => {
-	return { type: 'REMOVE_SPELL', parameter };
-};
+export default (parameter) => ({ type: 'REMOVE_SPELL', parameter });

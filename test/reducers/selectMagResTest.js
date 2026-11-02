@@ -1,15 +1,13 @@
 /* eslint-env node, mocha */
-/* global expect */
 /* eslint no-console: 0 */
-const reducer = require('../../src/reducers/selectMagRes');
+import reducer from '../../src/reducers/selectMagRes';
 
 describe('selectMagRes', () => {
 	const state = 'Mage';
 
-	it('should not change the passed state', (done) => {
+	it('should not change the passed state', () => {
 		const newState = reducer(state, { type: 'INVALID' });
 
-		done();
 		expect(newState).to.equal(state);
 	});
 

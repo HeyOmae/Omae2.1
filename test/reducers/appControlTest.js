@@ -1,4 +1,4 @@
-const reducer = require('../../src/reducers/appControl');
+import reducer from '../../src/reducers/appControl';
 
 describe('appControl', () => {
 	const initState = Object.freeze({

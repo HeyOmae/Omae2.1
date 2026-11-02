@@ -1,4 +1,4 @@
-const reducer = require('../../src/reducers/settingSkills');
+import reducer from '../../src/reducers/settingSkills';
 
 describe('settingSkills', () => {
 	const state = {
@@ -27,10 +27,9 @@ describe('settingSkills', () => {
 		showSkill: '',
 	};
 
-	it('should not change the passed state', (done) => {
+	it('should not change the passed state', () => {
 		reducer(state, { type: 'INVALID' });
 
-		done();
 	});
 
 	describe('ADD_SKILL', () => {

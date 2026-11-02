@@ -1,3 +1,1 @@
-module.exports = (parameter) => {
-	return { type: 'SET_PRIORITY', parameter };
-};
+export default (parameter) => ({ type: 'SET_PRIORITY', parameter });

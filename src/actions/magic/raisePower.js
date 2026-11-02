@@ -1,3 +1,1 @@
-module.exports = (parameter) => {
-	return { type: 'RAISE_POWER', parameter };
-};
+export default (parameter) => ({ type: 'RAISE_POWER', parameter });

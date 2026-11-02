@@ -5,4 +5,9 @@
 
 $enable-flex: true;
 
+// Bootstrap 4.4+ gives tables the body text color; let them inherit the theme's like 4.1 did
+$table-color: inherit;
+// and lightened .table-dark from gray-900 to gray-800, keep the darker one
+$table-dark-bg: #212529;
+
 @import "../../node_modules/bootstrap/scss/bootstrap";
